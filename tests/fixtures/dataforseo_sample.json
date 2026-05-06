@@ -1,0 +1,191 @@
+{
+  "version": "0.1.20260501",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "1.2340 sec.",
+  "cost": 0.0505,
+  "tasks_count": 5,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "05061234-0001",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "result": [
+        {
+          "target": "devtoolshub.com",
+          "rank": 35,
+          "backlinks": 2300,
+          "referring_domains": 450,
+          "referring_domains_nofollow": 68,
+          "referring_links_attributes": {
+            "dofollow": 1840,
+            "nofollow": 460
+          },
+          "referring_links_types": {
+            "anchor": 1600,
+            "image": 200,
+            "redirect": 100
+          },
+          "anchor_stats": {
+            "branded_pct": 55.0,
+            "exact_match_pct": 12.0,
+            "partial_match_pct": 18.0,
+            "generic_pct": 15.0
+          },
+          "referring_links_countries": {
+            "US": 980,
+            "GB": 340,
+            "DE": 210,
+            "IN": 190,
+            "CA": 120
+          }
+        }
+      ]
+    },
+    {
+      "id": "05061234-0002",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "result": [
+        {
+          "target": "codehelper.net",
+          "rank": 28,
+          "backlinks": 890,
+          "referring_domains": 180,
+          "referring_domains_nofollow": 36,
+          "referring_links_attributes": {
+            "dofollow": 670,
+            "nofollow": 220
+          },
+          "referring_links_types": {
+            "anchor": 620,
+            "image": 80,
+            "redirect": 40
+          },
+          "anchor_stats": {
+            "branded_pct": 40.0,
+            "exact_match_pct": 25.0,
+            "partial_match_pct": 20.0,
+            "generic_pct": 15.0
+          },
+          "referring_links_countries": {
+            "US": 380,
+            "IN": 150,
+            "GB": 90,
+            "DE": 60,
+            "BR": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "05061234-0003",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "result": [
+        {
+          "target": "lowquality.com",
+          "rank": 12,
+          "backlinks": 120,
+          "referring_domains": 45,
+          "referring_domains_nofollow": 15,
+          "referring_links_attributes": {
+            "dofollow": 80,
+            "nofollow": 40
+          },
+          "referring_links_types": {
+            "anchor": 90,
+            "image": 15,
+            "redirect": 5
+          },
+          "anchor_stats": {
+            "branded_pct": 20.0,
+            "exact_match_pct": 45.0,
+            "partial_match_pct": 25.0,
+            "generic_pct": 10.0
+          },
+          "referring_links_countries": {
+            "IN": 55,
+            "US": 20,
+            "PK": 15,
+            "BD": 10,
+            "NG": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "05061234-0004",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "result": [
+        {
+          "target": "spammy.com",
+          "rank": 42,
+          "backlinks": 15000,
+          "referring_domains": 800,
+          "referring_domains_nofollow": 480,
+          "referring_links_attributes": {
+            "dofollow": 6000,
+            "nofollow": 9000
+          },
+          "referring_links_types": {
+            "anchor": 10000,
+            "image": 2000,
+            "redirect": 1500
+          },
+          "anchor_stats": {
+            "branded_pct": 10.0,
+            "exact_match_pct": 60.0,
+            "partial_match_pct": 20.0,
+            "generic_pct": 10.0
+          },
+          "referring_links_countries": {
+            "CN": 8500,
+            "RU": 3000,
+            "US": 1200,
+            "IN": 800,
+            "VN": 500
+          }
+        }
+      ]
+    },
+    {
+      "id": "05061234-0005",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "result": [
+        {
+          "target": "cleansite.io",
+          "rank": 38,
+          "backlinks": 1500,
+          "referring_domains": 320,
+          "referring_domains_nofollow": 45,
+          "referring_links_attributes": {
+            "dofollow": 1260,
+            "nofollow": 240
+          },
+          "referring_links_types": {
+            "anchor": 1100,
+            "image": 150,
+            "redirect": 60
+          },
+          "anchor_stats": {
+            "branded_pct": 65.0,
+            "exact_match_pct": 8.0,
+            "partial_match_pct": 15.0,
+            "generic_pct": 12.0
+          },
+          "referring_links_countries": {
+            "US": 650,
+            "GB": 250,
+            "DE": 180,
+            "CA": 120,
+            "AU": 80
+          }
+        }
+      ]
+    }
+  ]
+}
