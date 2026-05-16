@@ -27,6 +27,9 @@
   "author": {"@type": "Organization", "name": "RecipeTool.net"}
 }
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Recipe Nutrition Calculator","url":"https://recipetool.net/","author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"}}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
@@ -91,6 +94,7 @@ footer a{color:var(--primary)}
 <a href="/" class="active">Nutrition Calculator</a>
 <a href="/meal-planner.html">Meal Planner</a>
 <a href="/calorie-calculator.html">Calorie Calculator</a>
+<a href="/nutrition-calculator.html">Nutrition Guide</a>
 </nav>
 <main>
 <div class="card">
@@ -148,7 +152,13 @@ footer a{color:var(--primary)}
 </main>
 <footer>
 <p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net &mdash; Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/meal-planner.html" style="color:var(--primary);text-decoration:none;">Meal Planner</a> &middot;
+<a href="/calorie-calculator.html" style="color:var(--primary);text-decoration:none;">Calorie Calculator</a> &middot;
+<a href="/nutrition-calculator.html" style="color:var(--primary);text-decoration:none;">Nutrition Guide</a>
+</p>
 </footer>
 <script>
 const DB={
