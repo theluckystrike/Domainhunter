@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resize Image Online Free — Social Media Size Guide &amp; Tool | PictureEditor</title>
+<meta name="description" content="Resize images online free for Instagram, Facebook, Twitter, LinkedIn and YouTube. Client-side image resizer with preset social media dimensions, quality slider, and instant download. No upload to servers.">
+<meta name="keywords" content="resize image online, image resizer free, resize photo for social media, reduce image file size online, image dimensions for instagram facebook twitter, resize image without losing quality">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/guides/resize-image-online.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/guides/resize-image-online.html">
+<meta property="og:title" content="Resize Image Online Free — Social Media Size Guide &amp; Tool">
+<meta property="og:description" content="Free client-side image resizer with social media presets. Instagram, Facebook, Twitter, LinkedIn, YouTube dimensions. No server upload required.">
+<meta property="og:site_name" content="Zovo Tools">
+<meta property="og:image" content="https://pictureeditor.net/og-image.png">
+<meta property="article:published_time" content="2026-05-16">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resize Image Online Free — Social Media Size Guide &amp; Tool">
+<meta name="twitter:description" content="Free image resizer with social media presets. Resize for Instagram, Facebook, Twitter, LinkedIn, YouTube. No upload needed.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Resizer Online",
+    "url":"https://pictureeditor.net/guides/resize-image-online.html",
+    "description":"Free online image resizer with social media presets for Instagram, Facebook, Twitter, LinkedIn, and YouTube. Client-side processing, no server upload.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-16",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"How to Resize an Image Online for Social Media",
+    "description":"Step-by-step guide to resize images for Instagram, Facebook, Twitter, LinkedIn, and YouTube using a free browser-based tool.",
+    "step":[
+      {"@type":"HowToStep","position":1,"name":"Upload your image","text":"Drag and drop an image or click the upload area to select a file from your device. Supports JPEG, PNG, WebP, and GIF formats."},
+      {"@type":"HowToStep","position":2,"name":"Choose a preset or enter custom dimensions","text":"Select a social media preset like Instagram Post (1080x1080) or Facebook Cover (820x312), or enter custom width and height values."},
+      {"@type":"HowToStep","position":3,"name":"Adjust quality settings","text":"Use the quality slider to balance between image quality and file size. Higher quality means larger files."},
+      {"@type":"HowToStep","position":4,"name":"Download your resized image","text":"Click the Download button to save the resized image to your device. The image is processed entirely in your browser — nothing is uploaded to any server."}
+    ],
+    "totalTime":"PT1M",
+    "tool":{"@type":"HowToTool","name":"PictureEditor Image Resizer"}
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is this image resizer really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely free with no limits. The tool runs entirely in your browser using the Canvas API. No server processing, no account required, no watermarks."}},
+      {"@type":"Question","name":"Does resizing reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"Some quality loss is inevitable when resizing, especially when enlarging. For best results, start with the highest quality source image and only resize down. Use the quality slider to control the compression level."}},
+      {"@type":"Question","name":"What are the correct image sizes for Instagram in 2026?","acceptedAnswer":{"@type":"Answer","text":"Instagram Post: 1080x1080px (square), Instagram Story/Reel: 1080x1920px (9:16), Instagram Landscape: 1080x566px, Instagram Portrait: 1080x1350px, Instagram Profile Photo: 320x320px."}},
+      {"@type":"Question","name":"Is my image uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser using the HTML5 Canvas API. Your images never leave your device, ensuring complete privacy."}},
+      {"@type":"Question","name":"What image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The resizer supports JPEG, PNG, WebP, and GIF input formats. Output is available in JPEG, PNG, and WebP formats."}},
+      {"@type":"Question","name":"Can I resize multiple images at once?","acceptedAnswer":{"@type":"Answer","text":"This tool processes one image at a time for maximum quality control. For batch resizing, see our tips section below for recommended workflows."}},
+      {"@type":"Question","name":"What is the best image format for web in 2026?","acceptedAnswer":{"@type":"Answer","text":"WebP offers the best balance of quality and file size for most web use cases, with 25-35% smaller files than JPEG at equivalent quality. AVIF provides even better compression but has slightly less browser support. Use PNG only when you need transparency with sharp edges."}}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+/* HEADER */
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+/* LAYOUT */
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+/* TYPOGRAPHY */
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+/* CARD */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+/* DROP ZONE */
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+/* CONTROLS */
+.controls{margin-top:20px}
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:16px}
+.preset-btn{padding:10px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.8rem;font-weight:600;text-align:center;transition:all .15s;background:var(--surface)}
+.preset-btn:hover,.preset-btn.active{border-color:var(--accent);color:var(--accent);background:#eef2ff}
+.preset-btn .dims{font-size:.7rem;color:var(--text-secondary);font-weight:400;display:block;margin-top:2px}
+.preset-btn.active .dims{color:var(--accent)}
+.dim-inputs{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.dim-inputs .field{display:flex;flex-direction:column;gap:4px}
+.dim-inputs .field label{font-size:.8rem;font-weight:600;color:var(--text-secondary)}
+.dim-inputs .field input{width:110px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none;transition:border .15s}
+.dim-inputs .field input:focus{border-color:var(--accent)}
+.lock-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s;margin-top:20px;flex-shrink:0}
+.lock-btn.locked{background:var(--accent);border-color:var(--accent);color:#fff}
+.lock-btn svg{width:16px;height:16px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+/* INFO BOXES */
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+/* PREVIEW */
+.preview-area{margin-top:16px;text-align:center}
+.preview-area canvas{max-width:100%;max-height:450px;border-radius:8px;border:1px solid var(--border);background:#fff}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* TABLE */
+.size-table{width:100%;border-collapse:collapse;margin:16px 0}
+.size-table th,.size-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:.875rem}
+.size-table th{background:#f1f5f9;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary);position:sticky;top:56px}
+.size-table tr:hover{background:#f8fafc}
+.size-table .platform{font-weight:600;color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* COMPARISON TABLE */
+.format-compare{width:100%;border-collapse:collapse;margin:16px 0}
+.format-compare th,.format-compare td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:.875rem}
+.format-compare th{background:#f1f5f9;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary)}
+.format-compare .good{color:var(--green);font-weight:600}
+.format-compare .ok{color:#eab308;font-weight:600}
+.format-compare .bad{color:#ef4444;font-weight:600}
+/* FOOTER */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+/* BREADCRUMB */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* AUTHOR */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* RESPONSIVE */
+@media(max-width:600px){
+  .preset-grid{grid-template-columns:1fr 1fr}
+  .dim-inputs{flex-direction:column;align-items:stretch}
+  .dim-inputs .field input{width:100%}
+  .lock-btn{margin-top:0;align-self:center}
+  .info-row{flex-direction:column}
+  .size-table,.format-compare{font-size:.8rem}
+  .size-table th,.size-table td,.format-compare th,.format-compare td{padding:8px 6px}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/guides/resize-image-online.html">Guides</a><span>/</span>
+  Resize Image Online
+</nav>
+
+<h2>Resize Image Online Free — Social Media Size Guide &amp; Tool</h2>
+<p class="subtitle">Instantly resize images for Instagram, Facebook, Twitter/X, LinkedIn, and YouTube directly in your browser. No upload, no signup, 100% private.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="resizer-tool" style="margin-top:0">Image Resizer Tool</h3>
+  <p>Drop an image below or click to select a file. Choose a social media preset or enter custom dimensions, adjust quality, and download your resized image. Everything runs locally in your browser — your files never leave your device.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP, GIF &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+  <!-- Controls (hidden until image loaded) -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Presets -->
+    <label style="font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;display:block">Social Media Presets</label>
+    <div class="preset-grid" id="presetGrid">
+      <button class="preset-btn" data-w="1080" data-h="1080">Instagram Post<span class="dims">1080 x 1080</span></button>
+      <button class="preset-btn" data-w="1080" data-h="1920">Instagram Story<span class="dims">1080 x 1920</span></button>
+      <button class="preset-btn" data-w="1080" data-h="1350">Instagram Portrait<span class="dims">1080 x 1350</span></button>
+      <button class="preset-btn" data-w="820" data-h="312">Facebook Cover<span class="dims">820 x 312</span></button>
+      <button class="preset-btn" data-w="1200" data-h="630">Facebook Post<span class="dims">1200 x 630</span></button>
+      <button class="preset-btn" data-w="1500" data-h="500">Twitter Header<span class="dims">1500 x 500</span></button>
+      <button class="preset-btn" data-w="1600" data-h="900">Twitter Post<span class="dims">1600 x 900</span></button>
+      <button class="preset-btn" data-w="1584" data-h="396">LinkedIn Banner<span class="dims">1584 x 396</span></button>
+      <button class="preset-btn" data-w="1200" data-h="627">LinkedIn Post<span class="dims">1200 x 627</span></button>
+      <button class="preset-btn" data-w="1280" data-h="720">YouTube Thumb<span class="dims">1280 x 720</span></button>
+      <button class="preset-btn" data-w="2560" data-h="1440">YouTube Banner<span class="dims">2560 x 1440</span></button>
+      <button class="preset-btn" data-w="0" data-h="0" id="customPreset">Custom<span class="dims">Any size</span></button>
+    </div>
+
+    <!-- Custom Dimensions -->
+    <div class="dim-inputs">
+      <div class="field">
+        <label for="widthInput">Width (px)</label>
+        <input type="number" id="widthInput" min="1" max="10000" placeholder="Width">
+      </div>
+      <button class="lock-btn locked" id="lockBtn" title="Lock aspect ratio" aria-label="Lock aspect ratio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </button>
+      <div class="field">
+        <label for="heightInput">Height (px)</label>
+        <input type="number" id="heightInput" min="1" max="10000" placeholder="Height">
+      </div>
+    </div>
+
+    <!-- Quality Slider -->
+    <div class="slider-field">
+      <label>Quality <span id="qualityVal">85%</span></label>
+      <input type="range" id="qualitySlider" min="10" max="100" value="85">
+    </div>
+
+    <!-- Output Format -->
+    <div class="format-select">
+      <label for="formatSelect">Output Format</label>
+      <select id="formatSelect">
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/png">PNG</option>
+        <option value="image/webp" selected>WebP</option>
+      </select>
+    </div>
+
+    <!-- Size Info -->
+    <div class="info-row" id="infoRow">
+      <div class="info-box"><div class="label">Original</div><div class="value" id="origDims">--</div></div>
+      <div class="info-box accent"><div class="label">New Size</div><div class="value" id="newDims">--</div></div>
+      <div class="info-box"><div class="label">Original File</div><div class="value" id="origSize">--</div></div>
+      <div class="info-box green"><div class="label">Est. New File</div><div class="value" id="newSize">--</div></div>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview-area">
+      <canvas id="previewCanvas"></canvas>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resized Image
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#resizer-tool">Image Resizer Tool</a></li>
+    <li><a href="#why-size-matters">Why Image Size Matters</a></li>
+    <li><a href="#social-media-sizes">Social Media Image Sizes (2026)</a></li>
+    <li><a href="#compression-explained">Image Compression Explained</a></li>
+    <li><a href="#best-formats">Best Image Formats for Web</a></li>
+    <li><a href="#resize-without-quality-loss">How to Resize Without Losing Quality</a></li>
+    <li><a href="#batch-resize">Batch Resize Tips</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: WHY IMAGE SIZE MATTERS ===== -->
+<section class="card" id="why-size-matters">
+  <h3 style="margin-top:0">Why Image Size Matters</h3>
+
+  <h4>Page Speed and Core Web Vitals</h4>
+  <p>Images account for roughly 50% of the total bytes on most web pages. Oversized images are the single largest contributor to slow Largest Contentful Paint (LCP) scores, which directly affects your search engine rankings. Google's Core Web Vitals explicitly penalize pages with LCP times over 2.5 seconds, and unoptimized hero images are the most common culprit.</p>
+  <p>A 4000x3000 JPEG from a modern smartphone weighs 5-12 MB. If you display that image at 800px wide on a blog post, you are forcing visitors to download 10-20x more data than necessary. Resizing to the display dimensions before uploading can cut load times by 60-80% with zero visible quality loss.</p>
+
+  <h4>Social Media Platform Requirements</h4>
+  <p>Every social media platform has specific recommended image dimensions. When you upload an image that does not match these dimensions, the platform automatically crops or compresses it, often with poor results. Your carefully composed product photo might lose its key visual element, or your infographic might become unreadable after aggressive compression.</p>
+  <p>Pre-resizing to the exact dimensions gives you full control over how your content appears in feeds, stories, and profile pages. Instagram, for example, will re-encode any image larger than 1080px wide, adding a second round of compression artifacts. Uploading at the exact target size avoids this double compression entirely.</p>
+
+  <h4>Email and Messaging</h4>
+  <p>Most email clients restrict total message size to 20-25 MB, and many corporate email systems impose even stricter limits. A single unresized photo from a modern phone can consume half that budget. Resizing images to 600-800px wide is considered best practice for email newsletters and ensures fast rendering across Gmail, Outlook, Apple Mail, and mobile clients.</p>
+  <p>Messaging platforms like WhatsApp, Telegram, and Slack also apply their own compression when you send large images. Pre-resizing and compressing ensures your images look sharp rather than being degraded by the platform's aggressive automatic compression.</p>
+
+  <h4>Storage and Bandwidth Costs</h4>
+  <p>For website owners and developers, properly sized images directly reduce CDN bandwidth costs and storage requirements. A photography portfolio with 200 images at 12 MB each costs 2.4 GB in storage. Resizing those to 2000px wide at quality 85 typically reduces the total to under 200 MB — a 12x reduction that translates to real dollar savings on hosting and bandwidth.</p>
+</section>
+
+<!-- ===== SECTION: SOCIAL MEDIA SIZES ===== -->
+<section class="card" id="social-media-sizes">
+  <h3 style="margin-top:0">Social Media Image Size Reference (2026)</h3>
+  <p>This table reflects the current recommended dimensions for all major social media platforms as of 2026. These specifications are updated regularly as platforms change their layouts and supported formats.</p>
+
+  <div style="overflow-x:auto">
+  <table class="size-table">
+    <thead>
+      <tr><th>Platform</th><th>Image Type</th><th>Dimensions (px)</th><th>Aspect Ratio</th><th>Max File Size</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="platform">Instagram</td><td>Square Post</td><td>1080 x 1080</td><td>1:1</td><td>30 MB</td></tr>
+      <tr><td class="platform">Instagram</td><td>Portrait Post</td><td>1080 x 1350</td><td>4:5</td><td>30 MB</td></tr>
+      <tr><td class="platform">Instagram</td><td>Landscape Post</td><td>1080 x 566</td><td>1.91:1</td><td>30 MB</td></tr>
+      <tr><td class="platform">Instagram</td><td>Story / Reel Cover</td><td>1080 x 1920</td><td>9:16</td><td>30 MB</td></tr>
+      <tr><td class="platform">Instagram</td><td>Profile Photo</td><td>320 x 320</td><td>1:1</td><td>--</td></tr>
+      <tr><td class="platform">Facebook</td><td>Feed Post</td><td>1200 x 630</td><td>1.91:1</td><td>30 MB</td></tr>
+      <tr><td class="platform">Facebook</td><td>Cover Photo</td><td>820 x 312</td><td>2.63:1</td><td>--</td></tr>
+      <tr><td class="platform">Facebook</td><td>Story</td><td>1080 x 1920</td><td>9:16</td><td>30 MB</td></tr>
+      <tr><td class="platform">Facebook</td><td>Event Cover</td><td>1920 x 1005</td><td>1.91:1</td><td>--</td></tr>
+      <tr><td class="platform">Facebook</td><td>Profile Photo</td><td>170 x 170</td><td>1:1</td><td>--</td></tr>
+      <tr><td class="platform">Twitter/X</td><td>In-Stream Post</td><td>1600 x 900</td><td>16:9</td><td>5 MB</td></tr>
+      <tr><td class="platform">Twitter/X</td><td>Header Photo</td><td>1500 x 500</td><td>3:1</td><td>5 MB</td></tr>
+      <tr><td class="platform">Twitter/X</td><td>Profile Photo</td><td>400 x 400</td><td>1:1</td><td>2 MB</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Feed Post</td><td>1200 x 627</td><td>1.91:1</td><td>10 MB</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Banner/Cover</td><td>1584 x 396</td><td>4:1</td><td>8 MB</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Profile Photo</td><td>400 x 400</td><td>1:1</td><td>8 MB</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Company Page Cover</td><td>1128 x 191</td><td>5.9:1</td><td>8 MB</td></tr>
+      <tr><td class="platform">YouTube</td><td>Thumbnail</td><td>1280 x 720</td><td>16:9</td><td>2 MB</td></tr>
+      <tr><td class="platform">YouTube</td><td>Channel Banner</td><td>2560 x 1440</td><td>16:9</td><td>6 MB</td></tr>
+      <tr><td class="platform">YouTube</td><td>Profile Photo</td><td>800 x 800</td><td>1:1</td><td>--</td></tr>
+      <tr><td class="platform">Pinterest</td><td>Standard Pin</td><td>1000 x 1500</td><td>2:3</td><td>20 MB</td></tr>
+      <tr><td class="platform">Pinterest</td><td>Board Cover</td><td>222 x 150</td><td>--</td><td>10 MB</td></tr>
+      <tr><td class="platform">TikTok</td><td>Profile Photo</td><td>200 x 200</td><td>1:1</td><td>--</td></tr>
+      <tr><td class="platform">TikTok</td><td>Video Cover</td><td>1080 x 1920</td><td>9:16</td><td>--</td></tr>
+      <tr><td class="platform">Threads</td><td>Feed Post</td><td>1080 x 1350</td><td>4:5</td><td>--</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>Pro tip:</strong> Always export at the exact target dimensions. Uploading larger images causes the platform to re-compress, which degrades quality. Uploading smaller images causes upscaling, which produces blurry results. Match the target exactly for the sharpest output.</p>
+</section>
+
+<!-- ===== SECTION: COMPRESSION EXPLAINED ===== -->
+<section class="card" id="compression-explained">
+  <h3 style="margin-top:0">Image Compression Explained</h3>
+
+  <h4>Lossy Compression</h4>
+  <p>Lossy compression permanently discards some image data to achieve smaller file sizes. JPEG is the most common lossy format. At quality level 85-90, most viewers cannot distinguish the compressed image from the original. At quality 60-70, compression artifacts become visible in gradients and solid color areas, but the file size drops by 70-80%.</p>
+  <p>The key insight is that lossy compression is cumulative. Each time you open, edit, and re-save a JPEG, more data is discarded. This is why professional workflows always maintain a lossless master copy and only export to lossy formats as the final step. When using this tool, start from the highest quality source image available.</p>
+
+  <h4>Lossless Compression</h4>
+  <p>Lossless compression reduces file size without discarding any image data. The decompressed image is bit-for-bit identical to the original. PNG uses lossless compression by default. The trade-off is that lossless compression produces significantly larger files — typically 2-5x larger than lossy JPEG at equivalent visual quality.</p>
+  <p>Lossless compression works by finding patterns and redundancy in the image data. A screenshot with large areas of solid color compresses extremely well (often 90%+ reduction), while a complex photograph with no repeating patterns sees minimal benefit from lossless compression. This is why PNG is excellent for screenshots and UI assets but inefficient for photographs.</p>
+
+  <h4>How Quality Slider Affects File Size</h4>
+  <p>The quality slider in this tool controls the compression ratio for lossy formats (JPEG and WebP). Here is a general guide to expected file sizes for a 1080x1080 photograph:</p>
+  <ul>
+    <li><strong>Quality 100:</strong> ~800 KB — virtually lossless, no visible artifacts</li>
+    <li><strong>Quality 85:</strong> ~250 KB — excellent quality, imperceptible artifacts to most viewers</li>
+    <li><strong>Quality 70:</strong> ~150 KB — good quality, minor artifacts in gradients</li>
+    <li><strong>Quality 50:</strong> ~90 KB — noticeable quality reduction, acceptable for thumbnails</li>
+    <li><strong>Quality 30:</strong> ~50 KB — significant quality loss, heavy blocking artifacts</li>
+  </ul>
+  <p>For social media, quality 80-85 is the sweet spot — it produces files well under platform size limits while maintaining sharp, professional-looking images.</p>
+</section>
+
+<!-- ===== SECTION: BEST FORMATS ===== -->
+<section class="card" id="best-formats">
+  <h3 style="margin-top:0">Best Image Formats for Web (2026)</h3>
+  <p>Choosing the right image format is as important as choosing the right dimensions. Each format has specific strengths, and using the wrong one can result in unnecessarily large files or degraded quality.</p>
+
+  <div style="overflow-x:auto">
+  <table class="format-compare">
+    <thead>
+      <tr><th>Format</th><th>Compression</th><th>Transparency</th><th>Animation</th><th>Browser Support</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>WebP</strong></td><td class="good">Excellent</td><td class="good">Yes</td><td class="good">Yes</td><td class="good">99%+</td><td>General web use, best all-rounder</td></tr>
+      <tr><td><strong>AVIF</strong></td><td class="good">Best</td><td class="good">Yes</td><td class="good">Yes</td><td class="ok">93%</td><td>Maximum compression, modern browsers</td></tr>
+      <tr><td><strong>JPEG</strong></td><td class="ok">Good</td><td class="bad">No</td><td class="bad">No</td><td class="good">100%</td><td>Photographs, legacy compatibility</td></tr>
+      <tr><td><strong>PNG</strong></td><td class="bad">Large files</td><td class="good">Yes</td><td class="bad">No</td><td class="good">100%</td><td>Screenshots, logos, UI elements</td></tr>
+      <tr><td><strong>GIF</strong></td><td class="bad">Poor</td><td class="ok">1-bit only</td><td class="good">Yes</td><td class="good">100%</td><td>Simple animations (prefer WebP/AVIF)</td></tr>
+      <tr><td><strong>SVG</strong></td><td class="good">Tiny</td><td class="good">Yes</td><td class="good">Yes</td><td class="good">100%</td><td>Icons, logos, illustrations (vector only)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>WebP — The Recommended Default</h4>
+  <p>WebP produces files 25-35% smaller than JPEG at the same visual quality, supports both lossy and lossless compression, and handles transparency. With browser support above 99% in 2026, there is no longer a reason to avoid WebP as your default web image format. The output format selector in the resizer tool above defaults to WebP for this reason.</p>
+
+  <h4>AVIF — Maximum Compression</h4>
+  <p>AVIF achieves 30-50% better compression than WebP, making it the most efficient raster image format available. It supports HDR, wide color gamut, and film grain synthesis. The main drawback is encoding speed — AVIF takes significantly longer to encode than WebP or JPEG, which matters for real-time tools. Browser support has reached 93%+ and continues to grow.</p>
+
+  <h4>JPEG — Universal Compatibility</h4>
+  <p>JPEG remains the most widely supported image format and is still the best choice when you need guaranteed compatibility across every device, email client, and legacy system. For social media uploads, JPEG is universally accepted and understood. The lack of transparency support is its main limitation.</p>
+
+  <h4>PNG — When You Need Transparency</h4>
+  <p>Use PNG when you need transparency with crisp edges, such as logos placed on colored backgrounds, product photos with transparent backgrounds, or UI elements. For photographs with transparent areas, WebP produces dramatically smaller files. PNG excels for screenshots and graphics with sharp lines and text, where JPEG's lossy compression creates visible artifacts around edges.</p>
+</section>
+
+<!-- ===== SECTION: RESIZE WITHOUT QUALITY LOSS ===== -->
+<section class="card" id="resize-without-quality-loss">
+  <h3 style="margin-top:0">How to Resize Without Losing Quality</h3>
+  <p>Resizing inherently involves resampling — recalculating pixel values for the new dimensions. While some data loss is mathematically unavoidable, you can minimize visible quality degradation by following these practices.</p>
+
+  <h4>1. Always Resize Down, Never Up</h4>
+  <p>Downscaling (making images smaller) produces good results because you are averaging multiple source pixels into each output pixel. Upscaling (making images larger) requires the algorithm to invent new pixel data that does not exist in the original. AI-based upscalers have improved dramatically, but for general use, you should start with an image at least as large as your target dimensions.</p>
+
+  <h4>2. Start From the Original Source</h4>
+  <p>Never resize an already-resized or heavily compressed image. Each processing step introduces cumulative quality loss. If you need an image at 1080x1080 for Instagram and 1200x630 for Facebook, create both exports from the original high-resolution source, not by re-resizing the Instagram version.</p>
+
+  <h4>3. Use the Right Resampling Algorithm</h4>
+  <p>This tool uses the browser's built-in Canvas API resampling, which applies bilinear or bicubic interpolation depending on the browser. For downscaling by more than 50%, the tool uses a multi-step approach — scaling down in increments — to avoid aliasing artifacts. This produces noticeably sharper results than a single-step resize for large reductions.</p>
+
+  <h4>4. Sharpen After Resizing</h4>
+  <p>Resizing, especially downscaling, inherently softens an image because it averages pixel values. Applying a subtle sharpen filter after resizing restores perceived detail. Use <a href="/">Picture Editor's filter tools</a> to apply sharpening to your resized images for the crispest results.</p>
+
+  <h4>5. Choose the Appropriate Quality Level</h4>
+  <p>For social media, quality 80-85 provides an excellent balance. The platform will apply its own compression on upload, so there is no benefit to uploading at quality 100 — the platform will just re-compress it. Quality 80-85 is close enough to lossless that the platform's second-pass compression introduces minimal additional degradation.</p>
+
+  <h4>6. Match Target Dimensions Exactly</h4>
+  <p>When the uploaded image exactly matches the platform's expected dimensions, no server-side resizing occurs. This preserves maximum quality. Use the preset buttons in the tool above to ensure exact dimension matching for every major platform.</p>
+</section>
+
+<!-- ===== SECTION: BATCH RESIZE ===== -->
+<section class="card" id="batch-resize">
+  <h3 style="margin-top:0">Batch Resize Tips</h3>
+  <p>While this browser-based tool handles one image at a time for maximum control and privacy, there are efficient workflows for processing many images at once.</p>
+
+  <h4>For 2-10 Images</h4>
+  <p>Use this tool sequentially. Set your desired preset once, then drag and drop each image. The settings persist between images, so you only need to configure the dimensions and quality once. Each resize takes under a second.</p>
+
+  <h4>For 10-100 Images</h4>
+  <p>Consider using the <a href="/">Picture Editor</a> main tool, which processes images client-side. Alternatively, most operating systems include built-in batch resize capabilities:</p>
+  <ul>
+    <li><strong>macOS:</strong> Select images in Finder, right-click, Quick Actions &gt; Create Custom, use the Resize Image automator action</li>
+    <li><strong>Windows:</strong> PowerToys Image Resizer — right-click selected images and choose "Resize pictures"</li>
+    <li><strong>Linux:</strong> <code>mogrify -resize 1080x1080 *.jpg</code> using ImageMagick</li>
+  </ul>
+
+  <h4>For 100+ Images (Developer Workflow)</h4>
+  <p>Use command-line tools for maximum throughput:</p>
+  <ul>
+    <li><strong>ImageMagick:</strong> <code>mogrify -resize 1080x1080&gt; -quality 85 -path output/ *.jpg</code></li>
+    <li><strong>Sharp (Node.js):</strong> Build a script with the sharp library for programmatic batch processing with excellent quality</li>
+    <li><strong>FFmpeg:</strong> <code>ffmpeg -i input.jpg -vf scale=1080:1080 output.jpg</code> — also handles video thumbnails</li>
+  </ul>
+  <p>For web developers managing image assets, consider integrating image optimization into your build pipeline. Tools like <code>sharp</code>, <code>squoosh</code>, and responsive image generators can automatically produce multiple sizes and formats during deployment.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this image resizer really free?</div>
+    <div class="faq-a"><p>Yes, completely free with no limits. The tool runs entirely in your browser using the Canvas API. No server processing, no account required, no watermarks. You can resize as many images as you want.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does resizing reduce image quality?</div>
+    <div class="faq-a"><p>Some quality change is inherent when resizing. Downscaling (making smaller) generally looks excellent because multiple source pixels are averaged into each output pixel. Upscaling (making larger) can produce blurry results because the algorithm must invent pixel data. For best results, always start from the highest quality source and only resize down. Use the quality slider to control compression level.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What are the correct image sizes for Instagram in 2026?</div>
+    <div class="faq-a"><p>Instagram Post (square): 1080x1080px. Instagram Story and Reel cover: 1080x1920px. Instagram Landscape: 1080x566px. Instagram Portrait: 1080x1350px. Instagram Profile Photo: 320x320px. All images are displayed at these dimensions, and uploading at exactly these sizes avoids platform re-compression.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my image uploaded to a server?</div>
+    <div class="faq-a"><p>No. All processing happens locally in your browser using the HTML5 Canvas API. Your images never leave your device. You can verify this by opening your browser's network tab (F12 > Network) — you will see zero image uploads while using the tool. This makes it safe for sensitive, private, or confidential images.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What image formats are supported?</div>
+    <div class="faq-a"><p>Input: JPEG, PNG, WebP, GIF, BMP, and any format supported by your browser's image decoder. Output: JPEG, PNG, and WebP. The recommended output format is WebP, which produces 25-35% smaller files than JPEG at equivalent quality.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I resize multiple images at once?</div>
+    <div class="faq-a"><p>This tool processes one image at a time for maximum quality control and privacy. Your settings (preset, dimensions, quality) persist between images, so batch processing is straightforward — just drop the next image after downloading the current one. For large batches (100+), see our batch resize tips section above.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best image format for web in 2026?</div>
+    <div class="faq-a"><p>WebP is the recommended default for web images in 2026. It offers 25-35% smaller files than JPEG, supports transparency and animation, and has over 99% browser support. AVIF provides even better compression (30-50% smaller than WebP) but has slightly less browser support at 93%. Use JPEG only when you need guaranteed compatibility with legacy systems. Use PNG for screenshots, logos, and graphics with sharp edges and text.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 16, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  /* DOM refs */
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var presetGrid = document.getElementById("presetGrid");
+  var widthInput = document.getElementById("widthInput");
+  var heightInput = document.getElementById("heightInput");
+  var lockBtn = document.getElementById("lockBtn");
+  var qualitySlider = document.getElementById("qualitySlider");
+  var qualityVal = document.getElementById("qualityVal");
+  var formatSelect = document.getElementById("formatSelect");
+  var origDimsEl = document.getElementById("origDims");
+  var newDimsEl = document.getElementById("newDims");
+  var origSizeEl = document.getElementById("origSize");
+  var newSizeEl = document.getElementById("newSize");
+  var previewCanvas = document.getElementById("previewCanvas");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+
+  /* State */
+  var originalImage = null;
+  var originalFile = null;
+  var aspectLocked = true;
+  var aspectRatio = 1;
+  var resizedBlob = null;
+
+  /* Utilities */
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) {
+    e.preventDefault();
+    dropZone.classList.add("drag-over");
+  });
+  dropZone.addEventListener("dragleave", function() {
+    dropZone.classList.remove("drag-over");
+  });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  /* Handle file selection */
+  function handleFile(file) {
+    if (!file.type.startsWith("image/")) return;
+    originalFile = file;
+    var img = new Image();
+    img.onload = function() {
+      originalImage = img;
+      aspectRatio = img.naturalWidth / img.naturalHeight;
+      origDimsEl.textContent = img.naturalWidth + " x " + img.naturalHeight;
+      origSizeEl.textContent = formatSize(file.size);
+      widthInput.value = img.naturalWidth;
+      heightInput.value = img.naturalHeight;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      clearPresetActive();
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  /* Presets */
+  var presetBtns = presetGrid.querySelectorAll(".preset-btn");
+  function clearPresetActive() {
+    for (var i = 0; i < presetBtns.length; i++) {
+      presetBtns[i].classList.remove("active");
+    }
+  }
+  presetGrid.addEventListener("click", function(e) {
+    var btn = e.target.closest(".preset-btn");
+    if (!btn || !originalImage) return;
+    clearPresetActive();
+    btn.classList.add("active");
+    var w = parseInt(btn.dataset.w);
+    var h = parseInt(btn.dataset.h);
+    if (w === 0 && h === 0) {
+      /* Custom — keep current values, unlock aspect */
+      aspectLocked = false;
+      lockBtn.classList.remove("locked");
+      return;
+    }
+    aspectLocked = false;
+    lockBtn.classList.remove("locked");
+    widthInput.value = w;
+    heightInput.value = h;
+    renderPreview();
+  });
+
+  /* Aspect ratio lock */
+  lockBtn.addEventListener("click", function() {
+    aspectLocked = !aspectLocked;
+    lockBtn.classList.toggle("locked", aspectLocked);
+    if (aspectLocked && originalImage) {
+      aspectRatio = originalImage.naturalWidth / originalImage.naturalHeight;
+      /* Adjust height to match current width */
+      var w = parseInt(widthInput.value) || originalImage.naturalWidth;
+      heightInput.value = Math.round(w / aspectRatio);
+      renderPreview();
+    }
+  });
+
+  /* Dimension inputs */
+  widthInput.addEventListener("input", function() {
+    if (aspectLocked && originalImage) {
+      var w = parseInt(widthInput.value) || 1;
+      heightInput.value = Math.round(w / aspectRatio);
+    }
+    renderPreview();
+  });
+  heightInput.addEventListener("input", function() {
+    if (aspectLocked && originalImage) {
+      var h = parseInt(heightInput.value) || 1;
+      widthInput.value = Math.round(h * aspectRatio);
+    }
+    renderPreview();
+  });
+
+  /* Quality & format */
+  qualitySlider.addEventListener("input", function() {
+    qualityVal.textContent = qualitySlider.value + "%";
+    renderPreview();
+  });
+  formatSelect.addEventListener("change", function() {
+    renderPreview();
+  });
+
+  /* Multi-step resize for large reductions (prevents aliasing) */
+  function multiStepResize(img, targetW, targetH) {
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    var curW = img.naturalWidth || img.width;
+    var curH = img.naturalHeight || img.height;
+    var source = img;
+
+    /* Step down by halves until within 2x of target */
+    while (curW / 2 > targetW && curH / 2 > targetH) {
+      var stepW = Math.round(curW / 2);
+      var stepH = Math.round(curH / 2);
+      canvas.width = stepW;
+      canvas.height = stepH;
+      ctx.drawImage(source, 0, 0, stepW, stepH);
+      source = document.createElement("canvas");
+      source.width = stepW;
+      source.height = stepH;
+      source.getContext("2d").drawImage(canvas, 0, 0);
+      curW = stepW;
+      curH = stepH;
+    }
+
+    /* Final resize */
+    var finalCanvas = document.createElement("canvas");
+    finalCanvas.width = targetW;
+    finalCanvas.height = targetH;
+    var fctx = finalCanvas.getContext("2d");
+    fctx.imageSmoothingEnabled = true;
+    fctx.imageSmoothingQuality = "high";
+    fctx.drawImage(source, 0, 0, targetW, targetH);
+    return finalCanvas;
+  }
+
+  /* Render preview & generate blob */
+  function renderPreview() {
+    if (!originalImage) return;
+    var w = parseInt(widthInput.value) || 1;
+    var h = parseInt(heightInput.value) || 1;
+    w = Math.min(Math.max(w, 1), 10000);
+    h = Math.min(Math.max(h, 1), 10000);
+
+    var resultCanvas = multiStepResize(originalImage, w, h);
+
+    /* Draw to visible preview (scaled for display) */
+    var maxDisplay = 800;
+    var dispScale = Math.min(1, maxDisplay / w, maxDisplay / h);
+    previewCanvas.width = Math.round(w * dispScale);
+    previewCanvas.height = Math.round(h * dispScale);
+    var pctx = previewCanvas.getContext("2d");
+    pctx.imageSmoothingEnabled = true;
+    pctx.imageSmoothingQuality = "high";
+    pctx.drawImage(resultCanvas, 0, 0, previewCanvas.width, previewCanvas.height);
+
+    newDimsEl.textContent = w + " x " + h;
+
+    /* Generate blob for file size estimation & download */
+    var quality = parseInt(qualitySlider.value) / 100;
+    var format = formatSelect.value;
+    resultCanvas.toBlob(function(blob) {
+      if (!blob) return;
+      resizedBlob = blob;
+      newSizeEl.textContent = formatSize(blob.size);
+    }, format, quality);
+  }
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!resizedBlob || !originalFile) return;
+    var ext = formatSelect.value.split("/")[1];
+    if (ext === "jpeg") ext = "jpg";
+    var baseName = originalFile.name.replace(/\.[^.]+$/, "");
+    var w = widthInput.value;
+    var h = heightInput.value;
+    var filename = baseName + "-" + w + "x" + h + "." + ext;
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(resizedBlob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    originalImage = null;
+    originalFile = null;
+    resizedBlob = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    origDimsEl.textContent = "--";
+    newDimsEl.textContent = "--";
+    origSizeEl.textContent = "--";
+    newSizeEl.textContent = "--";
+    clearPresetActive();
+    qualitySlider.value = 85;
+    qualityVal.textContent = "85%";
+    formatSelect.value = "image/webp";
+    aspectLocked = true;
+    lockBtn.classList.add("locked");
+  });
+
+})();
+</script>
+</body>
+</html>
