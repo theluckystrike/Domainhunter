@@ -72,14 +72,14 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 </head><body>
 <div class="header">
   <h1>REVENANT</h1>
-  <div class="meta">Command Center<br>2026-05-16 | Sprint 31<br>Domain Hunter v5.2 | <a href="PIPELINE-IMPROVEMENT-DASHBOARD.html" style="color:#38bdf8">Pipeline Dashboard &rarr;</a></div>
+  <div class="meta">Command Center<br>2026-05-16 | Sprint 32 | <span style="color:#4ade80;font-weight:bold">CATCH MODE READY</span><br>Domain Hunter v5.2 | <a href="PIPELINE-IMPROVEMENT-DASHBOARD.html" style="color:#38bdf8">Pipeline Dashboard &rarr;</a></div>
 </div>
 <div class="container">
 <div class="hero-grid">
   <div class="stat-card">
     <div class="stat-label">PIPELINE STATUS</div>
     <div class="stat-value green">HEALTHY</div>
-    <div class="stat-sub">Sprint 31 | 352/352 tests | GoDaddy: ACTIVE + WATCHLIST SET</div>
+    <div class="stat-sub">Sprint 32 | CATCH MODE READY | GoDaddy: ACTIVE + WATCHLIST SET</div>
   </div>
   <div class="stat-card">
     <div class="stat-label">BUDGET REMAINING</div>
@@ -98,7 +98,7 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   </div>
 </div>
 <div class="tab-bar"><button class="tab-btn" data-tab="overview">Overview</button><button class="tab-btn" data-tab="portfolio">Portfolio</button><button class="tab-btn" data-tab="pipeline">Pipeline</button><button class="tab-btn" data-tab="candidates">Candidates</button><button class="tab-btn" data-tab="watchlist">Watchlist</button><button class="tab-btn" data-tab="whales">Whales</button><button class="tab-btn" data-tab="financials">Financials</button><button class="tab-btn" data-tab="startups">Startups</button><button class="tab-btn" data-tab="infra">Infrastructure</button></div>
-<section class="panel active" id="tab-overview"><section class="panel"><h2>Critical Alerts — Sprint 31: GoDaddy Closeout Strategy (PRIMARY)</h2>
+<section class="panel active" id="tab-overview"><section class="panel"><h2>Critical Alerts — Sprint 32: Catch Mode Ready (19 Days)</h2>
 <div class="alert alert-green">GODADDY AUCTIONS: MEMBERSHIP ACTIVE &check; + WATCHLIST SET (3 domains) &check; + Daily email alerts ON &check;</div>
 <div class="alert alert-cyan">STRATEGY: GoDaddy Closeout = PRIMARY ($28-34/domain). 29 registrars feed GoDaddy before any drop service.</div>
 <div class="alert alert-red">ACTION: Complete GoDaddy IDENTITY VERIFICATION (capped at 2 bids / $1,500 until verified). Needed before bside.com auction.</div>
@@ -111,6 +111,21 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 <div class="alert alert-green">LISTED: viryd.com ($2,500) + neovistainc.com ($1,500) on Afternic + Dan.com &check;</div>
 <div class="alert alert-green">DAEMON HEALTHY: PID 40365, heartbeat current, 37 domains monitored</div>
 <div class="alert alert-green">NAMEBRIGHT API: T&amp;C ACCEPTED. Backup for DropCatch (Day 77+ only). Pending approval.</div>
+</section>
+<section class="panel"><h2>Catch Window Countdown</h2>
+<h3 style="margin-top:16px">19 days to first expiry. 41 days to first blood.</h3>
+<table><thead><tr><th>Days</th><th>Date</th><th>Domain</th><th>Event</th><th>Cost</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="urgency-red"><td><strong>19</strong></td><td>Jun 4</td><td>cytheris.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
+<tr class="urgency-red"><td><strong>22</strong></td><td>Jun 7</td><td>ghostautonomy.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
+<tr class="urgency-yellow"><td><strong>38</strong></td><td>Jun 23</td><td>bside.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
+<tr><td>45</td><td>~Jun 30</td><td>cytheris.com</td><td>GD AUCTION</td><td>$50 max</td><td><span class="badge badge-dim">WAITING</span></td></tr>
+<tr><td>48</td><td>~Jul 3</td><td>ghostautonomy.com</td><td>GD AUCTION</td><td>$200 max</td><td><span class="badge badge-dim">WAITING</span></td></tr>
+<tr style="background:rgba(74,222,128,0.1)"><td><strong>55</strong></td><td>~Jul 10</td><td>cytheris.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
+<tr style="background:rgba(74,222,128,0.1)"><td><strong>58</strong></td><td>~Jul 13</td><td>ghostautonomy.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
+<tr><td>64</td><td>~Jul 19</td><td>bside.com</td><td>GD AUCTION</td><td>$500 max</td><td><span class="badge badge-yellow">NEED ID</span></td></tr>
+<tr style="background:rgba(74,222,128,0.1)"><td><strong>74</strong></td><td>~Jul 29</td><td>bside.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
+</tbody></table>
 </section>
 <section class="panel"><h2>Sprint History</h2>
 <div class="timeline">
@@ -130,7 +145,8 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <div class="timeline-item complete"><div class="sprint-label">Sprint 28: DropCatch API + Portfolio Tracker</div><div class="sprint-desc">DropCatch v2 API client wired. Portfolio tracker module. Dynadot API registration flow. Budget: $565.02 remaining, 3 domains owned.</div></div>
   <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 29: First Acquisitions &mdash; 10/10 SUCCESS</div><div class="sprint-desc"><strong>MILESTONE:</strong> viryd.com ($10.99) + neovistainc.com ($10.99) registered via Dynadot API. 5 domains, $56.16 invested. Daemon persistence FIXED. DropCatch API wired. bside.com PROMOTED TO CRITICAL. 352/352 tests.</div></div>
   <div class="timeline-item complete"><div class="sprint-label" style="color:var(--accent)">Sprint 30: Trust But Verify</div><div class="sprint-desc"><strong>VALIDATED:</strong> Full pipeline live run (269&rarr;228&rarr;71&rarr;153 scored). Bug 8 fixed. RDAP intel corrected +44 days. viryd.com + neovistainc.com listed on Afternic. $0.00 spent.</div></div>
-  <div class="timeline-item current"><div class="sprint-label" style="color:var(--green)">Sprint 31: GoDaddy Strategy + Full Setup</div><div class="sprint-desc"><strong>COMPLETE:</strong> GoDaddy Auctions ACTIVE (membership already existed). Watchlist: cytheris.com + ghostautonomy.com + bside.com with daily email alerts. Inventory monitor deployed (2M+ domains/scan). Strategy shift: Closeout ($28-34) is PRIMARY, DropCatch ($59+) = last resort. Remaining: ID verification + API key + enable SMS alerts. viryd.com + neovistainc.com on Afternic + Dan.com &check;.</div></div>
+  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 31: GoDaddy Strategy + Full Setup</div><div class="sprint-desc"><strong>COMPLETE:</strong> GoDaddy Auctions ACTIVE (membership already existed). Watchlist: cytheris.com + ghostautonomy.com + bside.com with daily email alerts. Inventory monitor deployed (2M+ domains/scan). Strategy shift: Closeout ($28-34) is PRIMARY, DropCatch ($59+) = last resort. Remaining: ID verification + API key + enable SMS alerts. viryd.com + neovistainc.com on Afternic + Dan.com &check;.</div></div>
+  <div class="timeline-item current"><div class="sprint-label" style="color:var(--green)">Sprint 32: The 19-Day Countdown</div><div class="sprint-desc"><strong>CATCH MODE READY:</strong> All systems prepared for Jun/Jul catch window. 19 days to first expiry. Monitor hardened (retry + backoff + opportunistic scanning). Travel-proof notifications (email + push). Catch window playbook documented. Landing pages deployed. Revenue acceleration: 4 content pages + marketplace listings. Next sprint fires on first closeout event.</div></div>
 </div>
 </section></section>
 <section class="panel" id="tab-portfolio">

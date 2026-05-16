@@ -867,6 +867,37 @@ def _send_platform_notification(domain: str, strategy: str) -> None:
         )
 
 
+def _dispatch_drop_notification(entry: MonitoredDomain,
+                                transition: DropTransition) -> None:
+    """Send travel-proof notification for a drop lifecycle transition."""
+    assert entry.domain, "Domain required"
+    assert transition.urgency, "Urgency required"
+
+    try:
+        from scripts.notify import send_alert as dispatch_alert, format_domain_alert
+    except ImportError:
+        logger.debug("notify_module_unavailable")
+        return
+
+    # Map drop urgency to notification priority
+    if transition.current_status in ("pendingDelete", "available"):
+        priority = "critical"
+    elif entry.tier in ("critical", "high"):
+        priority = "high"
+    else:
+        priority = "normal"
+
+    dc_url = DROPCATCH_URL_TEMPLATE.format(domain=entry.domain)
+    subject, body = format_domain_alert(
+        domain=entry.domain,
+        event=f"{transition.previous_status} -> {transition.current_status}",
+        price=float(entry.max_bid),
+        action_url=dc_url,
+        extra=f"Urgency: {transition.urgency} | ETV: ${entry.etv} | Tier: {entry.tier}",
+    )
+    dispatch_alert(subject, body, priority=priority)
+
+
 def alert_on_transition(entry: MonitoredDomain, transition: DropTransition,
                         dry_run: bool) -> str:
     """Handle alerts and backorders for a detected transition."""
@@ -884,6 +915,9 @@ def alert_on_transition(entry: MonitoredDomain, transition: DropTransition,
                 prev=transition.previous_status, curr=transition.current_status,
                 urgency=transition.urgency)
     print(f"\n  *** {msg}")
+
+    # Travel-proof notification dispatch
+    _dispatch_drop_notification(entry, transition)
 
     action_parts: list[str] = []
 

@@ -29,6 +29,7 @@ import io
 import json
 import os
 import sys
+import time
 import zipfile
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -50,6 +51,14 @@ DATA_DIR: Final[Path] = _PROJECT_ROOT / "data"
 RESULTS_DIR: Final[Path] = DATA_DIR / "godaddy_inventory"
 CONFIG_PATH: Final[Path] = Path(__file__).parent / "monitored_domains.json"
 
+# Retry constants
+MAX_RETRIES: Final[int] = 3
+RETRY_BASE_DELAY: Final[int] = 30  # seconds, exponential backoff
+
+# Frequency escalation date thresholds
+ELEVATED_START: Final[str] = "2026-06-25"
+CRITICAL_START: Final[str] = "2026-06-28"
+
 INVENTORY_FILES: Final[dict[str, str]] = {
     "biddable": "all_biddable_auctions.json.zip",
     "closeout": "closeout_listings.json.zip",
@@ -69,6 +78,153 @@ DEFAULT_TARGETS: Final[tuple[str, ...]] = (
     "canoo.com",
     "northvolt.com",
 )
+
+# ── Opportunistic scanning: ~500 common English dictionary words ──────
+DICTIONARY_WORDS: Final[frozenset[str]] = frozenset((
+    "able", "about", "above", "accept", "acid", "across", "act", "add",
+    "admit", "adult", "after", "again", "age", "agent", "agree", "ahead",
+    "aim", "air", "alarm", "album", "alert", "alive", "allow", "alone",
+    "alpha", "alter", "among", "amount", "angel", "anger", "angle", "animal",
+    "annual", "answer", "apart", "apple", "apply", "arch", "area", "arena",
+    "argue", "arise", "army", "array", "arrow", "art", "asset", "atom",
+    "audit", "auto", "avoid", "award", "aware", "axis", "baby", "back",
+    "badge", "bag", "balance", "ball", "band", "bank", "bar", "base",
+    "basic", "basket", "batch", "bath", "battle", "beach", "beam", "bear",
+    "beast", "beat", "beauty", "bed", "beef", "begin", "being", "belt",
+    "bench", "best", "beta", "bike", "bind", "bird", "birth", "bit",
+    "black", "blade", "blame", "blank", "blast", "blaze", "blend", "blind",
+    "block", "blood", "bloom", "blow", "blue", "board", "boat", "body",
+    "bolt", "bomb", "bond", "bone", "bonus", "book", "boost", "boot",
+    "border", "boss", "bottom", "bounce", "bowl", "box", "brain", "brand",
+    "brave", "bread", "break", "brick", "bridge", "brief", "bright",
+    "bring", "broad", "bronze", "brush", "bubble", "bucket", "buddy",
+    "budget", "build", "bulk", "bullet", "bunch", "bundle", "burn", "burst",
+    "bus", "butter", "buyer", "cabin", "cable", "cage", "cake", "call",
+    "calm", "camera", "camp", "cancel", "candy", "canvas", "cap", "carbon",
+    "card", "cargo", "carpet", "carry", "cart", "case", "cash", "cast",
+    "castle", "cat", "catch", "cause", "cave", "cell", "center", "chain",
+    "chair", "chalk", "chance", "change", "charge", "charm", "chart",
+    "chase", "cheap", "check", "chest", "chief", "child", "chip", "choice",
+    "chunk", "circle", "citizen", "city", "civil", "claim", "class",
+    "clean", "clear", "clever", "click", "client", "cliff", "climb",
+    "clip", "clock", "clone", "close", "cloth", "cloud", "club", "clue",
+    "coach", "coast", "code", "coffee", "coin", "cold", "collar", "color",
+    "column", "combat", "come", "comfort", "common", "company", "concert",
+    "confirm", "connect", "console", "control", "convert", "cook", "cool",
+    "copy", "coral", "core", "corn", "corner", "cost", "cotton", "couch",
+    "count", "country", "couple", "course", "cover", "crack", "craft",
+    "crash", "crazy", "cream", "credit", "crew", "cross", "crowd", "crush",
+    "crystal", "cube", "cup", "curve", "custom", "cycle", "dad", "damage",
+    "dance", "danger", "dare", "dark", "dash", "data", "dawn", "day",
+    "deal", "debate", "decade", "deck", "deep", "deer", "degree", "delay",
+    "demand", "demo", "denial", "depth", "deputy", "desert", "design",
+    "desk", "detail", "device", "dial", "diet", "digital", "dinner",
+    "direct", "dirt", "dish", "display", "divide", "dock", "doctor", "dog",
+    "domain", "door", "dose", "double", "draft", "dragon", "drama", "draw",
+    "dream", "dress", "drift", "drill", "drink", "drive", "drop", "drum",
+    "dry", "duck", "dune", "dust", "duty", "eagle", "earth", "east", "easy",
+    "echo", "edge", "edit", "effort", "eight", "elder", "elite", "email",
+    "emerge", "emotion", "empire", "empty", "end", "enemy", "energy",
+    "engine", "entry", "equal", "era", "error", "escape", "essay", "estate",
+    "event", "exact", "exam", "excess", "exile", "expand", "expert",
+    "export", "extra", "eye", "fabric", "face", "fact", "fade", "fail",
+    "faith", "fall", "fame", "family", "fan", "fancy", "farm", "fast",
+    "fat", "fatal", "fault", "favor", "fear", "feast", "feed", "feel",
+    "fence", "fever", "fiber", "field", "figure", "file", "film", "filter",
+    "final", "find", "fine", "finger", "fire", "firm", "first", "fish",
+    "fit", "fix", "flag", "flame", "flash", "flat", "fleet", "flight",
+    "flip", "float", "flock", "floor", "flow", "flower", "fluid", "flush",
+    "fly", "foam", "focus", "fold", "follow", "food", "foot", "force",
+    "forest", "forget", "fork", "form", "fort", "forum", "fossil", "found",
+    "fox", "frame", "free", "freeze", "fresh", "friend", "front", "frost",
+    "fruit", "fuel", "fun", "fund", "fury", "future", "gain", "galaxy",
+    "game", "gap", "garden", "gas", "gate", "gauge", "gear", "gem",
+    "gentle", "ghost", "giant", "gift", "girl", "give", "glad",
+    "glass", "globe", "gloom", "glory", "glove", "glow", "glue", "goat",
+    "gold", "good", "grace", "grain", "grant", "grape", "grass",
+    "great", "green", "grid", "grief", "grit", "group", "grow",
+    "guard", "guess", "guide", "guilt", "guitar", "gun", "habit", "hair",
+    "half", "hammer", "hand", "happy", "harbor", "hard", "harvest", "hat",
+    "hawk", "head", "health", "heart", "heat", "heavy", "hedge", "hello",
+    "help", "hero", "hidden", "high", "hill", "hint", "hold", "hole",
+    "home", "honey", "hood", "hope", "horn", "horse", "host",
+    "hotel", "hour", "house", "hub", "huge", "human", "humor", "hunt",
+    "ice", "icon", "idea", "idle", "image", "impact", "import",
+    "income", "index", "indoor", "info", "inner", "input",
+    "insect", "inside", "intact", "into", "invest", "iron",
+    "island", "issue", "item", "ivory", "jacket", "jazz", "jewel", "job",
+    "join", "joke", "joy", "judge", "juice", "jump", "jungle", "just",
+    "keen", "keep", "kernel", "key", "kick", "kid", "kind", "king", "kit",
+    "knee", "knife", "knock", "know", "label", "labor", "lake", "lamp",
+    "land", "large", "laser", "latin", "laugh", "lawn", "layer", "lazy",
+    "lead", "leaf", "learn", "leave", "legal", "lemon", "length", "lens",
+    "level", "lift", "light", "limit", "line", "link", "lion", "list",
+    "live", "load", "loan", "local", "lock", "logic", "long", "loop",
+    "loud", "love", "lucky", "lunch", "luxury", "magic", "mail", "major",
+    "maker", "mall", "mango", "manor", "maple", "march", "mark", "market",
+    "mask", "master", "match", "matter", "media", "melody", "melon",
+    "member", "memory", "menu", "mercy", "merge", "merit", "mesh", "metal",
+    "method", "micro", "milk", "mind", "mine", "minor", "mint", "mirror",
+    "model", "money", "month", "moon", "moral", "motor", "mouse", "mouth",
+    "movie", "much", "music", "myth", "name", "nature", "near", "nerve",
+    "nest", "net", "never", "news", "next", "night", "noble", "node",
+    "noise", "north", "note", "novel", "nurse", "ocean", "offer", "olive",
+    "once", "open", "opera", "orbit", "order", "organ", "other", "outer",
+    "over", "owner", "oxygen", "pack", "page", "pair", "palace", "palm",
+    "panel", "paper", "park", "party", "patch", "path", "pause", "peace",
+    "peak", "pen", "people", "pepper", "phone", "photo", "piano", "piece",
+    "pilot", "pine", "pink", "pipe", "pitch", "pizza", "place", "plan",
+    "planet", "plant", "plate", "play", "plaza", "poem", "point", "polar",
+    "pond", "pool", "poor", "port", "post", "power", "price", "pride",
+    "print", "prize", "proof", "proud", "pulse", "pump", "punch", "pupil",
+    "push", "puzzle", "queen", "quest", "quick", "quiet", "quote", "race",
+    "radio", "rail", "rain", "raise", "range", "rank", "rapid", "rare",
+    "rate", "razor", "reach", "ready", "real", "rebel", "recipe", "record",
+    "reform", "region", "relief", "rent", "repair", "report", "rescue",
+    "resist", "result", "return", "reveal", "review", "reward", "rich",
+    "ride", "rifle", "right", "ring", "riot", "ripple", "risk", "river",
+    "road", "robot", "rock", "rocket", "role", "roof", "room", "rope",
+    "rose", "rough", "round", "route", "royal", "rule", "rural", "rush",
+    "sad", "safe", "sail", "salad", "salt", "same", "sand", "sauce",
+    "save", "scale", "scene", "school", "score", "scout", "screen",
+    "script", "search", "season", "secret", "seed", "sense", "series",
+    "serve", "seven", "shadow", "shaft", "shame", "shape", "share",
+    "sharp", "shell", "shift", "shine", "ship", "shock", "shoot", "shop",
+    "short", "shout", "show", "shut", "sick", "side", "sight", "sign",
+    "silk", "silly", "silver", "simple", "since", "size", "skill", "skin",
+    "skull", "slap", "sleep", "slice", "slide", "slim", "slow", "small",
+    "smart", "smile", "smoke", "smooth", "snake", "snow", "social", "sock",
+    "soft", "solar", "solid", "solve", "song", "soon", "sort", "soul",
+    "sound", "south", "space", "spare", "spark", "speak", "speed", "spend",
+    "sphere", "spider", "spike", "spirit", "split", "sport", "spray",
+    "spread", "spring", "square", "stable", "staff", "stage", "stamp",
+    "stand", "start", "state", "stay", "steak", "steel", "stem", "step",
+    "stick", "still", "stock", "stone", "stop", "store", "storm", "story",
+    "stove", "street", "strike", "string", "strong", "stuff", "style",
+    "sugar", "summer", "sun", "super", "supply", "surge", "sweet", "swift",
+    "swim", "sword", "symbol", "system", "table", "tail", "talent", "talk",
+    "tank", "tape", "target", "task", "taste", "team", "tell", "ten",
+    "tent", "term", "test", "text", "theme", "then", "thing", "think",
+    "three", "throw", "thumb", "tide", "tiger", "time", "tiny", "tip",
+    "title", "toast", "today", "token", "tool", "top", "topic", "torch",
+    "total", "touch", "tour", "tower", "town", "toy", "trace", "track",
+    "trade", "train", "trap", "travel", "treat", "tree", "trend", "trial",
+    "tribe", "trick", "trim", "trip", "truck", "true", "trust", "truth",
+    "tube", "tuna", "turn", "tutor", "twin", "twist", "type", "ultra",
+    "uncle", "under", "unfair", "unhappy", "unique", "unit", "until",
+    "upper", "urban", "usage", "used", "useful", "usual", "vacuum",
+    "valid", "valley", "value", "valve", "vapor", "vast", "vault", "verb",
+    "verify", "verse", "very", "video", "view", "village", "violin",
+    "virus", "visa", "visit", "vital", "vivid", "voice", "volume", "vote",
+    "wage", "wagon", "wait", "walk", "wall", "wander", "want", "warm",
+    "warn", "wash", "waste", "watch", "water", "wave", "wealth", "weapon",
+    "wear", "web", "wedding", "weird", "west", "wheat", "wheel", "where",
+    "while", "whisper", "wide", "wife", "wild", "will", "win", "wind",
+    "window", "wine", "wing", "winner", "winter", "wire", "wisdom", "wise",
+    "wish", "witness", "wolf", "woman", "wonder", "wood", "wool", "word",
+    "work", "world", "worry", "worth", "wrap", "write", "wrong", "yard",
+    "year", "yellow", "young", "youth", "zebra", "zero", "zone",
+))
 
 logger = structlog.get_logger()
 
@@ -93,6 +249,20 @@ class AuctionListing:
 
 
 @dataclass(frozen=True)
+class OpportunisticFind:
+    """A domain found via opportunistic scanning (not on watchlist)."""
+
+    domain: str
+    price: float
+    source: str
+    reason: str  # SHORT_COM or DICTIONARY_COM
+
+    def __post_init__(self) -> None:
+        assert self.domain, "domain must not be empty"
+        assert self.reason in ("SHORT_COM", "DICTIONARY_COM")
+
+
+@dataclass(frozen=True)
 class MonitorResult:
     """Results from a single monitoring run."""
 
@@ -101,6 +271,7 @@ class MonitorResult:
     matches_found: int
     listings: list[dict[str, Any]]
     errors: list[str]
+    opportunistic_finds: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         assert self.targets_checked >= 0
@@ -130,46 +301,86 @@ def load_targets(config_path: Path) -> set[str]:
     return targets
 
 
-def download_inventory(file_key: str, dry_run: bool = False) -> list[dict[str, Any]]:
-    """Download and extract a GoDaddy inventory ZIP file. Returns JSON list."""
+def _parse_inventory_json(raw: Any, filename: str) -> list[dict[str, Any]]:
+    """Parse raw JSON with format detection. Graceful degradation on unknown formats."""
+    assert filename, "filename must not be empty"
+    # Expected: {"meta": {...}, "data": [...]} or bare list
+    if isinstance(raw, dict) and "data" in raw:
+        data = raw["data"]
+    elif isinstance(raw, list):
+        data = raw
+    else:
+        # FORMAT CHANGED — graceful degradation instead of crashing
+        logger.warning(
+            "FORMAT_CHANGE_ALERT",
+            file=filename,
+            received_type=type(raw).__name__,
+            keys=list(raw.keys())[:10] if isinstance(raw, dict) else None,
+            msg="JSON structure changed! Not dict-with-data or list. Skipping file.",
+        )
+        return []
+
+    assert isinstance(data, list), "expected data to be a list"
+    logger.info("inventory_loaded", file=filename, count=len(data))
+    return data[:500_000]  # safety bound
+
+
+def _download_once(file_key: str) -> list[dict[str, Any]]:
+    """Single download attempt for a GoDaddy inventory ZIP file."""
     import urllib.request
 
     assert file_key in INVENTORY_FILES, f"unknown file_key: {file_key}"
     filename = INVENTORY_FILES[file_key]
     url = INVENTORY_BASE_URL + filename
 
-    if dry_run:
-        logger.info("dry_run_skip", file=filename)
-        return []
-
     logger.info("downloading", file=filename)
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "DomainHunter/5.2"})
-        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
-            content = resp.read(MAX_DOWNLOAD_SIZE)
+    req = urllib.request.Request(url, headers={"User-Agent": "DomainHunter/5.2"})
+    with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
+        content = resp.read(MAX_DOWNLOAD_SIZE)
 
-        with zipfile.ZipFile(io.BytesIO(content)) as zf:
-            for name in zf.namelist()[:5]:  # bounded
-                if name.endswith(".json"):
-                    with zf.open(name) as jf:
-                        raw = json.loads(jf.read())
-                        # GoDaddy uses {"meta": {...}, "data": [...]} wrapper
-                        if isinstance(raw, dict) and "data" in raw:
-                            data = raw["data"]
-                        elif isinstance(raw, list):
-                            data = raw
-                        else:
-                            logger.warning("unexpected_format", file=filename, type=type(raw).__name__)
-                            return []
-                        assert isinstance(data, list), "expected data to be a list"
-                        logger.info("inventory_loaded", file=filename, count=len(data))
-                        return data[:500_000]  # safety bound
-        logger.warning("no_json_in_zip", file=filename)
+    with zipfile.ZipFile(io.BytesIO(content)) as zf:
+        for name in zf.namelist()[:5]:  # bounded
+            if name.endswith(".json"):
+                with zf.open(name) as jf:
+                    raw = json.loads(jf.read())
+                    return _parse_inventory_json(raw, filename)
+    logger.warning("no_json_in_zip", file=filename)
+    return []
+
+
+def download_inventory(file_key: str, dry_run: bool = False) -> list[dict[str, Any]]:
+    """Download inventory with retry (3x, 30s exponential backoff)."""
+    assert file_key in INVENTORY_FILES, f"unknown file_key: {file_key}"
+
+    if dry_run:
+        logger.info("dry_run_skip", file=INVENTORY_FILES[file_key])
         return []
 
-    except Exception as e:
-        logger.error("download_failed", file=filename, error=str(e))
-        return []
+    last_error: str = ""
+    for attempt in range(MAX_RETRIES):  # bounded: 0, 1, 2
+        try:
+            return _download_once(file_key)
+        except Exception as e:
+            last_error = str(e)
+            if attempt < MAX_RETRIES - 1:
+                delay = RETRY_BASE_DELAY * (2 ** attempt)  # 30s, 60s
+                logger.warning(
+                    "download_retry",
+                    file=INVENTORY_FILES[file_key],
+                    attempt=attempt + 1,
+                    max_retries=MAX_RETRIES,
+                    delay_seconds=delay,
+                    error=last_error,
+                )
+                time.sleep(delay)
+            else:
+                logger.error(
+                    "download_failed_all_retries",
+                    file=INVENTORY_FILES[file_key],
+                    attempts=MAX_RETRIES,
+                    error=last_error,
+                )
+    return []
 
 
 def search_inventory(
@@ -219,6 +430,75 @@ def search_inventory(
     return matches
 
 
+def scan_opportunistic(
+    data: list[dict[str, Any]], source: str
+) -> list[OpportunisticFind]:
+    """Scan listings for short .com domains and dictionary .com domains."""
+    assert source in INVENTORY_FILES
+    finds: list[OpportunisticFind] = []
+    domain_keys = ("domainName", "DomainName", "domain", "Domain", "name")
+
+    for item in data[:500_000]:  # bounded
+        domain_val = ""
+        for key in domain_keys:
+            if key in item:
+                domain_val = str(item[key]).lower().strip()
+                break
+
+        if not domain_val or not domain_val.endswith(".com"):
+            continue
+
+        name_part = domain_val[:-4]  # strip ".com"
+        if not name_part:
+            continue
+
+        price = float(item.get("Price", item.get("price", item.get("MinBid", 0))))
+
+        # SHORT_COM: 5 or fewer alphanumeric characters
+        if len(name_part) <= 5 and name_part.isalnum():
+            finds.append(OpportunisticFind(
+                domain=domain_val, price=price, source=source, reason="SHORT_COM",
+            ))
+            logger.info(
+                "OPPORTUNISTIC_FIND", domain=domain_val,
+                price=price, source=source, reason="SHORT_COM",
+            )
+
+        # DICTIONARY_COM: single common English word
+        if name_part.isalpha() and name_part in DICTIONARY_WORDS:
+            finds.append(OpportunisticFind(
+                domain=domain_val, price=price, source=source, reason="DICTIONARY_COM",
+            ))
+            logger.info(
+                "OPPORTUNISTIC_FIND", domain=domain_val,
+                price=price, source=source, reason="DICTIONARY_COM",
+            )
+
+    return finds
+
+
+def determine_frequency() -> str:
+    """Auto-detect frequency based on current date vs escalation thresholds."""
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    assert isinstance(today, str) and len(today) == 10
+
+    if today >= CRITICAL_START:
+        logger.info(
+            "frequency_escalated", level="critical",
+            schedule="run at 08:00, 12:00, 18:00",
+        )
+        return "critical"
+    elif today >= ELEVATED_START:
+        logger.info(
+            "frequency_escalated", level="elevated",
+            schedule="run at 08:00 + 14:00",
+        )
+        return "elevated"
+    else:
+        logger.info("frequency_normal", schedule="once daily")
+        return "normal"
+
+
 def run_monitor(
     targets: set[str],
     sources: tuple[str, ...] | None = None,
@@ -229,6 +509,7 @@ def run_monitor(
 
     sources_to_check = sources or tuple(INVENTORY_FILES.keys())
     all_matches: list[AuctionListing] = []
+    all_opportunistic: list[OpportunisticFind] = []
     errors: list[str] = []
 
     for source_key in sources_to_check:
@@ -236,6 +517,10 @@ def run_monitor(
         if data:
             matches = search_inventory(data, targets, source_key)
             all_matches.extend(matches)
+            # Opportunistic scanning on closeout data
+            if source_key == "closeout":
+                opp_finds = scan_opportunistic(data, source_key)
+                all_opportunistic.extend(opp_finds)
         elif not dry_run:
             errors.append(f"No data from {source_key}")
 
@@ -253,12 +538,18 @@ def run_monitor(
         for m in all_matches
     ]
 
+    opp_data = [
+        {"domain": f.domain, "price": f.price, "source": f.source, "reason": f.reason}
+        for f in all_opportunistic
+    ]
+
     result = MonitorResult(
         timestamp=datetime.now(timezone.utc).isoformat(),
         targets_checked=len(targets),
         matches_found=len(all_matches),
         listings=listings_data,
         errors=errors,
+        opportunistic_finds=opp_data,
     )
     return result
 
@@ -277,6 +568,7 @@ def save_results(result: MonitorResult) -> Path:
                 "matches_found": result.matches_found,
                 "listings": result.listings,
                 "errors": result.errors,
+                "opportunistic_finds": result.opportunistic_finds,
             },
             f,
             indent=2,
@@ -313,6 +605,13 @@ def format_report(result: MonitorResult) -> str:
         lines.append("\n  No target domains found in current inventory.")
         lines.append("  (Domains appear ~26 days after expiry)")
 
+    if result.opportunistic_finds:
+        lines.append(f"\n  OPPORTUNISTIC FINDS ({len(result.opportunistic_finds)}):")
+        for opp in result.opportunistic_finds[:20]:  # bounded display
+            lines.append(
+                f"    [{opp['reason']}] {opp['domain']} — ${opp['price']:.2f} ({opp['source']})"
+            )
+
     if result.errors:
         lines.append(f"\n  Errors ({len(result.errors)}):")
         for err in result.errors[:10]:
@@ -323,24 +622,43 @@ def format_report(result: MonitorResult) -> str:
 
 
 def send_alert(result: MonitorResult) -> None:
-    """Send alert if matches found (Slack webhook or stdout)."""
+    """Send alert if matches found via travel-proof notification system."""
     if result.matches_found == 0:
         return
 
+    from scripts.notify import send_alert as dispatch_alert, format_domain_alert
+
+    # Send individual alert per match (max 10 to avoid spam)
+    for listing in result.listings[:10]:
+        domain = listing["domain"]
+        source = listing["source"]
+        price = listing.get("price", 0.0)
+        action_url = (
+            f"https://auctions.godaddy.com/trpItemListing.aspx"
+            f"?miession=searchitem&searchterm={domain}"
+        )
+
+        subject, body = format_domain_alert(
+            domain=domain,
+            event=f"Found in GoDaddy {source}",
+            price=price,
+            action_url=action_url,
+            extra=f"Bids: {listing.get('bid_count', 0)}, Ends: {listing.get('end_time', 'N/A')}",
+        )
+        priority = "critical"
+        dispatch_alert(subject, body, priority=priority)
+
+    # Legacy Slack webhook (kept for backward compatibility)
     webhook_url = os.environ.get("DOMAIN_HUNTER_SLACK_WEBHOOK")
     if not webhook_url:
-        # Print to stdout for cron capture
-        print("\n🚨 GODADDY INVENTORY ALERT: Target domains found!")
-        for listing in result.listings:
-            print(f"   → {listing['domain']} in {listing['source']} at ${listing['price']}")
         return
 
     import urllib.request
 
     payload = json.dumps({
-        "text": f"🚨 GoDaddy Monitor: {result.matches_found} target(s) found!\n"
+        "text": f"GoDaddy Monitor: {result.matches_found} target(s) found!\n"
         + "\n".join(
-            f"• {l['domain']} — {l['source']} — ${l['price']}"
+            f"- {l['domain']} -- {l['source']} -- ${l['price']}"
             for l in result.listings[:5]
         )
     }).encode()
@@ -379,6 +697,12 @@ def parse_args() -> argparse.Namespace:
         help="Only check closeout listings (fastest)",
     )
     parser.add_argument(
+        "--frequency",
+        choices=["normal", "elevated", "critical", "auto"],
+        default="auto",
+        help="Run frequency: normal (daily), elevated (2x), critical (3x), auto (date-based)",
+    )
+    parser.add_argument(
         "--save", action="store_true", default=True, help="Save results to JSON"
     )
     parser.add_argument(
@@ -390,6 +714,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     """Entry point."""
     args = parse_args()
+
+    # Determine and log frequency
+    if args.frequency == "auto":
+        freq = determine_frequency()
+    else:
+        freq = args.frequency
+        if freq == "elevated":
+            logger.info("frequency_override", level="elevated", schedule="run at 08:00 + 14:00")
+        elif freq == "critical":
+            logger.info("frequency_override", level="critical", schedule="run at 08:00, 12:00, 18:00")
 
     # Load targets
     if args.domain:

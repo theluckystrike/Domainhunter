@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Scale Down a Recipe (Half, Third, Quarter) | Ingredient Calculator</title>
+<meta name="description" content="Scale down any recipe to half, third, or quarter size instantly. Free calculator with automatic unit conversion — cups to tablespoons, smart fraction display, and practical measurement tips.">
+<meta name="keywords" content="scale down a recipe, halve a recipe, cut recipe in half, third of a recipe, quarter recipe, reduce recipe size, scale recipe down">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/scale-down-recipe.html">
+<meta property="og:title" content="How to Scale Down a Recipe (Half, Third, Quarter)">
+<meta property="og:description" content="Free tool to scale down any recipe. Quick buttons for half, third, and quarter portions with smart unit conversion.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/scale-down-recipe.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scale Down a Recipe - Half, Third, Quarter Calculator">
+<meta name="twitter:description" content="Instantly scale any recipe down to half, a third, or a quarter with automatic unit conversions.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Scale Down Recipe Calculator",
+  "url": "https://ingredientcalculator.com/scale-down-recipe.html",
+  "description": "Scale any recipe down to half, a third, or a quarter with automatic unit conversion and practical measurements.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669; --clr-success-bg: #ECFDF5;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+nav a.active { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+h3 { font-size: 1.3rem; font-weight: 700; margin: 32px 0 12px; }
+h4 { font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; font-size: 1.05rem; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.scale-buttons { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.scale-btn { padding: 12px 24px; border: 2px solid var(--clr-border); border-radius: var(--radius); background: var(--clr-surface); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); min-width: 80px; text-align: center; }
+.scale-btn:hover { border-color: var(--clr-accent); background: var(--clr-accent-bg); }
+.scale-btn.active { border-color: var(--clr-accent); background: var(--clr-accent); color: #fff; }
+.ingredient-input { display: grid; grid-template-columns: 80px 1fr 40px; gap: 8px; align-items: end; margin-bottom: 8px; }
+@media(max-width:500px) { .ingredient-input { grid-template-columns: 70px 1fr 36px; } }
+.btn { padding: 10px 20px; border: none; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover { background: var(--clr-accent-hover); }
+.btn-secondary { background: var(--clr-surface-alt); color: var(--clr-text); border: 1px solid var(--clr-border); }
+.btn-secondary:hover { background: var(--clr-accent-light); }
+.btn-remove { width: 36px; height: 36px; border-radius: 50%; background: none; border: 1px solid var(--clr-border); color: var(--clr-text-muted); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+.btn-remove:hover { background: #FEE2E2; border-color: #EF4444; color: #EF4444; }
+.results-box { background: var(--clr-success-bg); border: 2px solid var(--clr-success); border-radius: var(--radius); padding: 20px; margin-top: 20px; }
+.results-box h4 { margin: 0 0 12px; color: var(--clr-success); font-size: 1rem; }
+.result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(5,150,105,0.15); align-items: center; }
+.result-item:last-child { border-bottom: none; }
+.result-item .amount { font-weight: 700; color: var(--clr-success); }
+.result-item .converted-note { font-size: 0.8rem; color: var(--clr-text-muted); font-style: italic; }
+.content-section { margin-top: 48px; }
+.content-section p { margin-bottom: 16px; }
+.content-section ul, .content-section ol { margin: 12px 0 16px 24px; }
+.content-section li { margin-bottom: 8px; }
+.tip-box { background: var(--clr-accent-bg); border-left: 4px solid var(--clr-accent); padding: 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 20px 0; }
+.tip-box strong { color: var(--clr-accent-hover); }
+.conversion-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+.conversion-table th, .conversion-table td { padding: 10px 12px; border: 1px solid var(--clr-border); text-align: left; }
+.conversion-table th { background: var(--clr-surface-alt); font-weight: 600; }
+.conversion-table tr:hover td { background: var(--clr-accent-bg); }
+.internal-links { background: var(--clr-surface-alt); border-radius: var(--radius); padding: 20px; margin-top: 32px; }
+.internal-links h4 { margin: 0 0 12px; }
+.internal-links a { display: inline-block; margin: 4px 8px 4px 0; color: var(--clr-accent); text-decoration: none; font-weight: 500; }
+.internal-links a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/recipe-converter.html">Recipe Converter</a>
+      <a href="/scale-down-recipe.html" class="active">Scale Down</a>
+      <a href="/cooking-calculator.html">Cooking Calculator</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Scale Down a Recipe</h2>
+  <p class="subtitle">Quickly halve, third, or quarter any recipe with smart unit conversions. Perfect for cooking for one or two.</p>
+
+  <div class="card">
+    <p style="font-weight:600;margin-bottom:12px;">Choose how much to scale down:</p>
+    <div class="scale-buttons">
+      <button class="scale-btn active" data-scale="0.5">&frac12;</button>
+      <button class="scale-btn" data-scale="0.333">&frac13;</button>
+      <button class="scale-btn" data-scale="0.25">&frac14;</button>
+      <button class="scale-btn" data-scale="0.667">&frac23;</button>
+      <button class="scale-btn" data-scale="0.75">&frac34;</button>
+    </div>
+
+    <p style="font-size:0.85rem;color:var(--clr-text-muted);margin-bottom:16px;">Enter your original recipe ingredients below:</p>
+
+    <div id="ingredients-list">
+      <div class="ingredient-input">
+        <div class="field"><label>Amount</label><input type="text" class="sd-amount" value="1" placeholder="1"></div>
+        <div class="field"><label>Ingredient (with unit)</label><input type="text" class="sd-name" value="1 cup butter" placeholder="e.g., 1 cup butter"></div>
+        <button class="btn-remove" onclick="removeIngredient(this)">&times;</button>
+      </div>
+      <div class="ingredient-input">
+        <div class="field"><label>Amount</label><input type="text" class="sd-amount" value="2" placeholder="2"></div>
+        <div class="field"><label>Ingredient (with unit)</label><input type="text" class="sd-name" value="2 cups flour" placeholder="e.g., 2 cups flour"></div>
+        <button class="btn-remove" onclick="removeIngredient(this)">&times;</button>
+      </div>
+      <div class="ingredient-input">
+        <div class="field"><label>Amount</label><input type="text" class="sd-amount" value="1.5" placeholder="1.5"></div>
+        <div class="field"><label>Ingredient (with unit)</label><input type="text" class="sd-name" value="1.5 cups sugar" placeholder="e.g., 1.5 cups sugar"></div>
+        <button class="btn-remove" onclick="removeIngredient(this)">&times;</button>
+      </div>
+      <div class="ingredient-input">
+        <div class="field"><label>Amount</label><input type="text" class="sd-amount" value="3" placeholder="3"></div>
+        <div class="field"><label>Ingredient (with unit)</label><input type="text" class="sd-name" value="3 eggs" placeholder="e.g., 3 eggs"></div>
+        <button class="btn-remove" onclick="removeIngredient(this)">&times;</button>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" onclick="addIngredient()">+ Add Ingredient</button>
+      <button class="btn btn-primary" onclick="scaleDown()">Scale Down</button>
+    </div>
+
+    <div id="results" class="results-box" style="display:none;">
+      <h4>Scaled Recipe (<span id="scale-label"></span> of original)</h4>
+      <div id="results-list"></div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>How to Scale Down a Recipe: The Complete Guide</h3>
+    <p>Scaling down a recipe is something every home cook needs to do regularly. Maybe the recipe feeds six but there are only two of you. Maybe you want to test a new recipe without committing to a full batch. Or perhaps you are managing portions carefully and need precise smaller amounts. Whatever the reason, scaling a recipe down requires more thought than simply dividing everything in half.</p>
+
+    <p>The biggest challenge when you scale down a recipe is measuring small quantities accurately. Half of 3/4 cup is 6 tablespoons — doable. But a third of 1/2 teaspoon? That is roughly 1/6 teaspoon, which no standard measuring spoon can handle. This is where smart unit conversion becomes essential, and why our calculator automatically suggests practical measurement equivalents.</p>
+
+    <h3>Quick Reference: Halving Common Measurements</h3>
+    <table class="conversion-table">
+      <thead>
+        <tr><th>Original Amount</th><th>Halved (1/2)</th><th>Thirded (1/3)</th><th>Quartered (1/4)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1 cup</td><td>1/2 cup</td><td>1/3 cup</td><td>1/4 cup</td></tr>
+        <tr><td>3/4 cup</td><td>6 tbsp</td><td>1/4 cup</td><td>3 tbsp</td></tr>
+        <tr><td>2/3 cup</td><td>1/3 cup</td><td>3 tbsp + 1.5 tsp</td><td>2 tbsp + 2 tsp</td></tr>
+        <tr><td>1/2 cup</td><td>1/4 cup</td><td>2 tbsp + 2 tsp</td><td>2 tbsp</td></tr>
+        <tr><td>1/3 cup</td><td>2 tbsp + 2 tsp</td><td>1 tbsp + 2.25 tsp</td><td>1 tbsp + 1 tsp</td></tr>
+        <tr><td>1/4 cup</td><td>2 tbsp</td><td>1 tbsp + 1 tsp</td><td>1 tbsp</td></tr>
+        <tr><td>1 tbsp</td><td>1.5 tsp</td><td>1 tsp</td><td>3/4 tsp</td></tr>
+        <tr><td>1 tsp</td><td>1/2 tsp</td><td>1/4 tsp</td><td>1/4 tsp (scant)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Tricky Ingredients When Scaling Down</h3>
+    <h4>Eggs</h4>
+    <p>Eggs are the most common headache when halving a recipe. One egg is roughly 3 tablespoons of liquid (about 1 tablespoon yolk, 2 tablespoons white). To halve one egg, beat it thoroughly and measure out 1.5 tablespoons. For a third of an egg, use 1 tablespoon. Some bakers keep a container of beaten egg in the fridge for exactly this purpose during a baking session.</p>
+
+    <h4>Leavening Agents</h4>
+    <p>Baking powder and baking soda scale down well at small reductions (halving works fine). However, when you quarter a recipe that calls for 1 teaspoon of baking powder, the resulting 1/4 teaspoon may not generate enough lift for the batter. In these cases, a tiny pinch extra can help. The rule of thumb: 1/4 teaspoon of baking powder per 1/2 cup of flour is the minimum for any rise.</p>
+
+    <h4>Yeast</h4>
+    <p>Active dry yeast presents a unique challenge. A standard packet (2.25 teaspoons) is designed for 3-4 cups of flour. If you halve a bread recipe, you can scale yeast proportionally. But if you quarter it, consider using the full amount of yeast and simply reducing the rise time. Under-yeasted dough takes much longer to rise and can develop off flavors.</p>
+
+    <div class="tip-box">
+      <strong>Pro Tip:</strong> When you scale a recipe to 1/3, use a kitchen scale set to grams. It is far easier to measure 33g than to figure out what 1/3 of 3/4 cup looks like in measuring cups. A $15 digital scale pays for itself in reduced baking failures.
+    </div>
+
+    <h3>Cooking Time Adjustments When Scaling Down</h3>
+    <p>Smaller portions cook faster. A halved cake recipe baked in a smaller pan will typically be done 5-10 minutes sooner. A quartered soup recipe in a smaller pot will reach a simmer faster and may over-reduce if left unattended for the original recipe's full time. Always set your timer for 75% of the original time and check from there.</p>
+
+    <p>Pan size matters enormously. If you halve a recipe but use the same large pan, the food will spread thinner and cook faster (sometimes burning on the bottom before the center sets). Choose a pan that maintains roughly the same depth of batter or food as the original recipe intended.</p>
+
+    <h3>When Not to Scale Down</h3>
+    <p>Some recipes resist scaling down below a certain threshold. Bread doughs need a minimum mass to develop proper gluten structure. Custards and sauces that require careful temperature management can scorch more easily in tiny quantities. Candies and caramels depend on precise temperature control that becomes unreliable with very small volumes. For these, it may be better to make the full recipe and store or share the excess.</p>
+
+    <h3>Scaling Down for Meal Prep and Single Servings</h3>
+    <p>If you regularly cook for one or two people, consider creating a permanent "scaled-down recipe card" for your favorites. Convert once with our calculator, write down the adjusted amounts, and save yourself the math every time. Many experienced solo cooks keep a binder of their most-used recipes already halved.</p>
+
+    <div class="internal-links">
+      <h4>More Cooking Calculators</h4>
+      <a href="/recipe-converter.html">Recipe Converter (Scale Up or Down)</a>
+      <a href="/cooking-calculator.html">Cooking Ingredient Calculator</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler (Custom Multiplier)</a>
+      <a href="/cups-to-grams.html">Cups to Grams Converter</a>
+      <a href="/serving-size-calculator.html">Serving Size Calculator</a>
+      <a href="/how-to-scale-recipes.html">How to Scale Recipes Guide</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/recipe-converter.html">Recipe Converter</a> &middot;
+      <a href="/scale-down-recipe.html">Scale Down Recipe</a> &middot;
+      <a href="/cooking-calculator.html">Cooking Calculator</a> &middot;
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+let currentScale = 0.5;
+
+// Scale button handling
+document.querySelectorAll('.scale-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentScale = parseFloat(btn.dataset.scale);
+    scaleDown();
+  });
+});
+
+function parseFraction(str) {
+  str = str.trim();
+  if (str.includes('/')) {
+    const mixed = str.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixed) return parseFloat(mixed[1]) + parseFloat(mixed[2]) / parseFloat(mixed[3]);
+    const parts = str.split('/');
+    if (parts.length === 2) return parseFloat(parts[0]) / parseFloat(parts[1]);
+  }
+  return parseFloat(str) || 0;
+}
+
+function formatAmount(num) {
+  if (num === 0) return '0';
+  const fractions = [
+    [0.125, '1/8'], [0.167, '1/6'], [0.25, '1/4'], [0.333, '1/3'],
+    [0.375, '3/8'], [0.5, '1/2'], [0.625, '5/8'], [0.667, '2/3'],
+    [0.75, '3/4'], [0.833, '5/6'], [0.875, '7/8']
+  ];
+  const whole = Math.floor(num);
+  const decimal = num - whole;
+  if (decimal < 0.05) return whole + '';
+  for (const [val, frac] of fractions) {
+    if (Math.abs(decimal - val) < 0.04) {
+      return whole > 0 ? whole + ' ' + frac : frac;
+    }
+  }
+  return Math.round(num * 100) / 100 + '';
+}
+
+// Smart unit conversion for scaled down amounts
+function smartConvert(amount, text) {
+  const lower = text.toLowerCase();
+  let note = '';
+
+  // If result is less than 1/4 cup, suggest tablespoons
+  if (lower.includes('cup') && amount < 0.25 && amount > 0) {
+    const tbsp = Math.round(amount * 16 * 10) / 10;
+    note = '(' + tbsp + ' tbsp)';
+  }
+  // If result is a fraction of a tablespoon, suggest teaspoons
+  if (lower.includes('tbsp') && amount < 1 && amount > 0) {
+    const tsp = Math.round(amount * 3 * 10) / 10;
+    note = '(' + formatAmount(tsp) + ' tsp)';
+  }
+  return note;
+}
+
+function addIngredient() {
+  const list = document.getElementById('ingredients-list');
+  const row = document.createElement('div');
+  row.className = 'ingredient-input';
+  row.innerHTML = `
+    <div class="field"><label>Amount</label><input type="text" class="sd-amount" placeholder="1"></div>
+    <div class="field"><label>Ingredient (with unit)</label><input type="text" class="sd-name" placeholder="e.g., 2 cups milk"></div>
+    <button class="btn-remove" onclick="removeIngredient(this)">&times;</button>
+  `;
+  list.appendChild(row);
+}
+
+function removeIngredient(btn) {
+  const list = document.getElementById('ingredients-list');
+  if (list.children.length > 1) {
+    btn.closest('.ingredient-input').remove();
+  }
+}
+
+function scaleDown() {
+  const rows = document.querySelectorAll('.ingredient-input');
+  const results = [];
+
+  rows.forEach(row => {
+    const amount = parseFraction(row.querySelector('.sd-amount').value);
+    const name = row.querySelector('.sd-name').value.trim();
+    if (amount > 0 && name) {
+      const scaled = amount * currentScale;
+      const note = smartConvert(scaled, name);
+      results.push({ original: name, scaled: formatAmount(scaled), note });
+    }
+  });
+
+  if (results.length === 0) return;
+
+  const scaleLabels = { '0.5': '1/2', '0.333': '1/3', '0.25': '1/4', '0.667': '2/3', '0.75': '3/4' };
+  const label = scaleLabels[currentScale + ''] || (Math.round(currentScale * 100) + '%');
+
+  document.getElementById('scale-label').textContent = label;
+  const resultsList = document.getElementById('results-list');
+  resultsList.innerHTML = results.map(r =>
+    `<div class="result-item">
+      <span>${r.original}</span>
+      <span><span class="amount">${r.scaled}</span>${r.note ? ' <span class="converted-note">' + r.note + '</span>' : ''}</span>
+    </div>`
+  ).join('');
+
+  document.getElementById('results').style.display = 'block';
+}
+</script>
+</body>
+</html>

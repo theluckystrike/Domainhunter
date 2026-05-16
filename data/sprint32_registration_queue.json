@@ -1,0 +1,954 @@
+{
+  "generated": "2026-05-16",
+  "total_available": 44,
+  "registration_cost": 10.99,
+  "methodology": {
+    "length_score": "1-5 chars = 100, 6-8 = 80, 9-12 = 60, 13-15 = 40, 16+ = 20",
+    "extension_score": ".com = 100, .net = 70, .org = 60, .io = 50, other = 30",
+    "brandability": "Subjective 0-100 based on pronounceability, hyphen penalty, suffix penalty, creative spelling bonus",
+    "dictionary_bonus": "Partial English words in compound = +15 bonus",
+    "niche_value": "fintech = 85, biotech/healthtech/security = 80, saas = 75, cleantech = 70, gaming = 65, etc.",
+    "composite_formula": "length*0.20 + extension*0.10 + brandability*0.35 + niche*0.20 + dict_bonus*0.15",
+    "flip_estimate": "Based on length-tier base value, adjusted for hyphens (-60% each), suffixes (-35 to -40%), keywords (+10-50%), geographic limiters (-60%), funding history (+5-15%)",
+    "roi_multiple": "flip_estimate / $10.99 registration cost"
+  },
+  "at_risk_domains": [
+    {
+      "domain": "viryd.com",
+      "risk_level": "high",
+      "flip_estimate": 5250,
+      "reason": "Ultra-short 5-char name; Highly brandable"
+    },
+    {
+      "domain": "encoate.com",
+      "risk_level": "medium",
+      "flip_estimate": 1800,
+      "reason": "Short 7-char name; Highly brandable"
+    },
+    {
+      "domain": "mthreex.com",
+      "risk_level": "medium",
+      "flip_estimate": 1200,
+      "reason": "Short 7-char name"
+    },
+    {
+      "domain": "vaccsys.com",
+      "risk_level": "medium",
+      "flip_estimate": 1200,
+      "reason": "Short 7-char name"
+    },
+    {
+      "domain": "tgrxinc.com",
+      "risk_level": "medium",
+      "flip_estimate": 420,
+      "reason": "Short 7-char name; 'inc' suffix reduces value"
+    }
+  ],
+  "queue": [
+    {
+      "rank": 1,
+      "domain": "viryd.com",
+      "company": "Viryd Technologies",
+      "sector": "cleantech",
+      "funding": 9800000,
+      "scores": {
+        "length": 100,
+        "extension": 100,
+        "brandability": 100,
+        "dictionary_bonus": 0,
+        "niche_value": 70
+      },
+      "composite_score": 79.0,
+      "flip_estimate": 5250,
+      "roi_multiple": 477.7,
+      "risk_level": "high",
+      "direct_registration": true,
+      "notes": "Ultra-short 5-char name; Highly brandable"
+    },
+    {
+      "rank": 2,
+      "domain": "encoate.com",
+      "company": "EnCoate",
+      "sector": "biotech",
+      "funding": 5100000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 85,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 71.8,
+      "flip_estimate": 1800,
+      "roi_multiple": 163.8,
+      "risk_level": "medium",
+      "direct_registration": true,
+      "notes": "Short 7-char name; Highly brandable"
+    },
+    {
+      "rank": 3,
+      "domain": "mthreex.com",
+      "company": "M3X Media",
+      "sector": "gaming",
+      "funding": 10500000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 65
+      },
+      "composite_score": 56.5,
+      "flip_estimate": 1200,
+      "roi_multiple": 109.2,
+      "risk_level": "medium",
+      "direct_registration": true,
+      "notes": "Short 7-char name"
+    },
+    {
+      "rank": 4,
+      "domain": "vaccsys.com",
+      "company": "Vaccsys",
+      "sector": "biotech",
+      "funding": 9000000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 59.5,
+      "flip_estimate": 1200,
+      "roi_multiple": 109.2,
+      "risk_level": "medium",
+      "direct_registration": true,
+      "notes": "Short 7-char name"
+    },
+    {
+      "rank": 5,
+      "domain": "kolorific.com",
+      "company": "Kolorific",
+      "sector": "hardware",
+      "funding": 7000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 70,
+        "dictionary_bonus": 0,
+        "niche_value": 60
+      },
+      "composite_score": 58.5,
+      "flip_estimate": 720,
+      "roi_multiple": 65.5,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Highly brandable"
+    },
+    {
+      "rank": 6,
+      "domain": "quikcycle.com",
+      "company": "QuikCycle",
+      "sector": "saas",
+      "funding": 17800000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 15,
+        "niche_value": 75
+      },
+      "composite_score": 56.8,
+      "flip_estimate": 600,
+      "roi_multiple": 54.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 7,
+      "domain": "d2cgames.com",
+      "company": "D2C Games",
+      "sector": "gaming",
+      "funding": 7500000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 45,
+        "dictionary_bonus": 0,
+        "niche_value": 65
+      },
+      "composite_score": 54.8,
+      "flip_estimate": 600,
+      "roi_multiple": 54.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 8,
+      "domain": "femtapharma.com",
+      "company": "Femta Pharmaceuticals",
+      "sector": "biotech",
+      "funding": 23500000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 60,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 59.0,
+      "flip_estimate": 567,
+      "roi_multiple": 51.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 9,
+      "domain": "nbo-tv.com",
+      "company": "NBO TV",
+      "sector": "media",
+      "funding": 18000000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 40,
+        "dictionary_bonus": 0,
+        "niche_value": 55
+      },
+      "composite_score": 51.0,
+      "flip_estimate": 528,
+      "roi_multiple": 48.0,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Short 6-char name; 1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 10,
+      "domain": "wi-chi.com",
+      "company": "Wi-Chi",
+      "sector": "hardware",
+      "funding": 7000000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 40,
+        "dictionary_bonus": 0,
+        "niche_value": 60
+      },
+      "composite_score": 52.0,
+      "flip_estimate": 480,
+      "roi_multiple": 43.7,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Short 6-char name; 1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 11,
+      "domain": "tgrxinc.com",
+      "company": "TransGenRx",
+      "sector": "biotech",
+      "funding": 6900000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 50.8,
+      "flip_estimate": 420,
+      "roi_multiple": 38.2,
+      "risk_level": "medium",
+      "direct_registration": true,
+      "notes": "Short 7-char name; 'inc' suffix reduces value"
+    },
+    {
+      "rank": 12,
+      "domain": "orasimedical.com",
+      "company": "Orasi Medical, Inc.",
+      "sector": "healthtech",
+      "funding": 5300000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 55.5,
+      "flip_estimate": 390,
+      "roi_multiple": 35.5,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 13,
+      "domain": "springleaftx.com",
+      "company": "Springleaf Therapeutics",
+      "sector": "biotech",
+      "funding": 23300000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 45,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 53.8,
+      "flip_estimate": 315,
+      "roi_multiple": 28.7,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 14,
+      "domain": "sirs-lab.com",
+      "company": "SIRS-Lab",
+      "sector": "biotech",
+      "funding": 13200000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 50.8,
+      "flip_estimate": 240,
+      "roi_multiple": 21.8,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 15,
+      "domain": "viacorinc.com",
+      "company": "Viacor",
+      "sector": "healthtech",
+      "funding": 19000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 30,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 48.5,
+      "flip_estimate": 210,
+      "roi_multiple": 19.1,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'inc' suffix reduces value"
+    },
+    {
+      "rank": 16,
+      "domain": "tenchotech.com",
+      "company": "Tencho Technology",
+      "sector": "saas",
+      "funding": 14700000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 35,
+        "dictionary_bonus": 0,
+        "niche_value": 75
+      },
+      "composite_score": 49.2,
+      "flip_estimate": 180,
+      "roi_multiple": 16.4,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 17,
+      "domain": "neovistainc.com",
+      "company": "NeoVista",
+      "sector": "healthtech",
+      "funding": 130000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 46.8,
+      "flip_estimate": 169,
+      "roi_multiple": 15.4,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'inc' suffix reduces value; High funding ($130M) adds recognition"
+    },
+    {
+      "rank": 18,
+      "domain": "g10korea.com",
+      "company": "G10 Entertainment",
+      "sector": "gaming",
+      "funding": 38000000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 10,
+        "dictionary_bonus": 0,
+        "niche_value": 65
+      },
+      "composite_score": 42.5,
+      "flip_estimate": 151,
+      "roi_multiple": 13.7,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 19,
+      "domain": "nozomiphotonics.com",
+      "company": "Nozomi Photonics",
+      "sector": "hardware + software",
+      "funding": 8000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 65
+      },
+      "composite_score": 48.5,
+      "flip_estimate": 150,
+      "roi_multiple": 13.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 20,
+      "domain": "paxstreamline.com",
+      "company": "PAX Streamline",
+      "sector": "cleantech",
+      "funding": 6000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 35,
+        "dictionary_bonus": 0,
+        "niche_value": 70
+      },
+      "composite_score": 44.2,
+      "flip_estimate": 150,
+      "roi_multiple": 13.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 21,
+      "domain": "alamakespana.com",
+      "company": "Alamak Espana Trade",
+      "sector": "other",
+      "funding": 6000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 30,
+        "dictionary_bonus": 0,
+        "niche_value": 35
+      },
+      "composite_score": 39.5,
+      "flip_estimate": 120,
+      "roi_multiple": 10.9,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 22,
+      "domain": "c8-inc.com",
+      "company": "C8 MediSensors",
+      "sector": "biotech",
+      "funding": 64000000,
+      "scores": {
+        "length": 80,
+        "extension": 100,
+        "brandability": 5,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 43.8,
+      "flip_estimate": 111,
+      "roi_multiple": 10.1,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Short 6-char name; 1 hyphen(s) hurt resale; 'inc' suffix reduces value; High funding ($64M) adds recognition"
+    },
+    {
+      "rank": 23,
+      "domain": "dynapumpinc.com",
+      "company": "DynaPump",
+      "sector": "other",
+      "funding": 6000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 20,
+        "dictionary_bonus": 0,
+        "niche_value": 35
+      },
+      "composite_score": 36.0,
+      "flip_estimate": 105,
+      "roi_multiple": 9.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'inc' suffix reduces value"
+    },
+    {
+      "rank": 24,
+      "domain": "officialvirtualdj.com",
+      "company": "Official Limited Virtual",
+      "sector": "music",
+      "funding": 170600000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 45,
+        "dictionary_bonus": 15,
+        "niche_value": 50
+      },
+      "composite_score": 42.0,
+      "flip_estimate": 95,
+      "roi_multiple": 8.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "High funding ($170M) adds recognition"
+    },
+    {
+      "rank": 25,
+      "domain": "zero9group.com",
+      "company": "Zero9",
+      "sector": "microblogging",
+      "funding": 44200000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 20,
+        "dictionary_bonus": 0,
+        "niche_value": 45
+      },
+      "composite_score": 38.0,
+      "flip_estimate": 94,
+      "roi_multiple": 8.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 26,
+      "domain": "aquestsystems.com",
+      "company": "Aquest Systems",
+      "sector": "hardware",
+      "funding": 20000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 0,
+        "niche_value": 60
+      },
+      "composite_score": 38.8,
+      "flip_estimate": 94,
+      "roi_multiple": 8.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 27,
+      "domain": "cooptionstech.com",
+      "company": "Cooptions Technologies",
+      "sector": "saas",
+      "funding": 10000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 35,
+        "dictionary_bonus": 0,
+        "niche_value": 75
+      },
+      "composite_score": 45.2,
+      "flip_estimate": 90,
+      "roi_multiple": 8.2,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 28,
+      "domain": "illumesoftware.com",
+      "company": "Illume Software",
+      "sector": "saas",
+      "funding": 6800000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 35,
+        "dictionary_bonus": 0,
+        "niche_value": 75
+      },
+      "composite_score": 45.2,
+      "flip_estimate": 90,
+      "roi_multiple": 8.2,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 29,
+      "domain": "infrastructsecurity.com",
+      "company": "Infrastruct Security",
+      "sector": "security",
+      "funding": 6800000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 45,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 45.8,
+      "flip_estimate": 90,
+      "roi_multiple": 8.2,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 30,
+      "domain": "orieltherapeutics.com",
+      "company": "Oriel Therapeutics",
+      "sector": "biotech",
+      "funding": 26500000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 45,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 45.8,
+      "flip_estimate": 79,
+      "roi_multiple": 7.2,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 31,
+      "domain": "multiwavephotonics.com",
+      "company": "Multiwave Photonics",
+      "sector": "hardware + software",
+      "funding": 7700000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 65
+      },
+      "composite_score": 44.5,
+      "flip_estimate": 75,
+      "roi_multiple": 6.8,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 32,
+      "domain": "midamericaconsulting.com",
+      "company": "Mid-America consulting Group",
+      "sector": "biotech",
+      "funding": 6400000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 50,
+        "dictionary_bonus": 0,
+        "niche_value": 80
+      },
+      "composite_score": 47.5,
+      "flip_estimate": 75,
+      "roi_multiple": 6.8,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 33,
+      "domain": "brightview-sys.com",
+      "company": "BrightView Systems",
+      "sector": "cleantech",
+      "funding": 6000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 10,
+        "dictionary_bonus": 15,
+        "niche_value": 70
+      },
+      "composite_score": 37.8,
+      "flip_estimate": 66,
+      "roi_multiple": 6.0,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 34,
+      "domain": "mckinnon-clarke.com",
+      "company": "McKinnon & Clarke",
+      "sector": "services",
+      "funding": 22000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 20,
+        "dictionary_bonus": 0,
+        "niche_value": 40
+      },
+      "composite_score": 33.0,
+      "flip_estimate": 63,
+      "roi_multiple": 5.7,
+      "risk_level": "low",
+      "direct_registration": false,
+      "notes": "1 hyphen(s) hurt resale; BACKORDER ONLY - not direct registration"
+    },
+    {
+      "rank": 35,
+      "domain": "trinitybiosystems.com",
+      "company": "Trinity Biosystems",
+      "sector": "biotech",
+      "funding": 28500000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 15,
+        "niche_value": 80
+      },
+      "composite_score": 41.0,
+      "flip_estimate": 61,
+      "roi_multiple": 5.6,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 36,
+      "domain": "nethra-imaging.com",
+      "company": "Nethra Imaging",
+      "sector": "hardware",
+      "funding": 14000000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 20,
+        "dictionary_bonus": 0,
+        "niche_value": 60
+      },
+      "composite_score": 37.0,
+      "flip_estimate": 60,
+      "roi_multiple": 5.5,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 37,
+      "domain": "chronicityinc.com",
+      "company": "Chronicity",
+      "sector": "services",
+      "funding": 21600000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 20,
+        "dictionary_bonus": 0,
+        "niche_value": 40
+      },
+      "composite_score": 33.0,
+      "flip_estimate": 55,
+      "roi_multiple": 5.0,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'inc' suffix reduces value"
+    },
+    {
+      "rank": 38,
+      "domain": "target-brl.com",
+      "company": "TARGET BRAZIL",
+      "sector": "ecommerce",
+      "funding": 6000000,
+      "scores": {
+        "length": 60,
+        "extension": 100,
+        "brandability": 0,
+        "dictionary_bonus": 15,
+        "niche_value": 60
+      },
+      "composite_score": 36.2,
+      "flip_estimate": 48,
+      "roi_multiple": 4.4,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 39,
+      "domain": "transparencysoftware.com",
+      "company": "Transparency Software",
+      "sector": "saas",
+      "funding": 12100000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 25,
+        "dictionary_bonus": 15,
+        "niche_value": 75
+      },
+      "composite_score": 40.0,
+      "flip_estimate": 45,
+      "roi_multiple": 4.1,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "Standard expired startup domain"
+    },
+    {
+      "rank": 40,
+      "domain": "oslo-software.com",
+      "company": "Oslo Software",
+      "sector": "saas",
+      "funding": 5500000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 10,
+        "dictionary_bonus": 0,
+        "niche_value": 75
+      },
+      "composite_score": 36.5,
+      "flip_estimate": 36,
+      "roi_multiple": 3.3,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale"
+    },
+    {
+      "rank": 41,
+      "domain": "powerefficiencycorp.com",
+      "company": "Power Efficiency",
+      "sector": "cleantech",
+      "funding": 5300000,
+      "scores": {
+        "length": 20,
+        "extension": 100,
+        "brandability": 10,
+        "dictionary_bonus": 15,
+        "niche_value": 70
+      },
+      "composite_score": 33.8,
+      "flip_estimate": 26,
+      "roi_multiple": 2.4,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'corp' suffix reduces value"
+    },
+    {
+      "rank": 42,
+      "domain": "cloudcityukltd.com",
+      "company": "Cloudcity",
+      "sector": "curated web",
+      "funding": 5900000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 0,
+        "dictionary_bonus": 15,
+        "niche_value": 45
+      },
+      "composite_score": 29.2,
+      "flip_estimate": 25,
+      "roi_multiple": 2.3,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "'ltd' suffix reduces value"
+    },
+    {
+      "rank": 43,
+      "domain": "communicado-inc.com",
+      "company": "Communicado",
+      "sector": "saas",
+      "funding": 15600000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 0,
+        "dictionary_bonus": 0,
+        "niche_value": 75
+      },
+      "composite_score": 33.0,
+      "flip_estimate": 21,
+      "roi_multiple": 1.9,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale; 'inc' suffix reduces value"
+    },
+    {
+      "rank": 44,
+      "domain": "futuretec-ltd.com",
+      "company": "Futuretec",
+      "sector": "fintech",
+      "funding": 8100000,
+      "scores": {
+        "length": 40,
+        "extension": 100,
+        "brandability": 0,
+        "dictionary_bonus": 0,
+        "niche_value": 85
+      },
+      "composite_score": 35.0,
+      "flip_estimate": 21,
+      "roi_multiple": 1.9,
+      "risk_level": "low",
+      "direct_registration": true,
+      "notes": "1 hyphen(s) hurt resale; 'ltd' suffix reduces value"
+    }
+  ],
+  "top5_reasoning": "\nTOP 5 REGISTRATION PRIORITY - DETAILED ANALYSIS:\n\n1. viryd.com (ROI: 477.7x, Flip: $5,250)\n   - The crown jewel. Only 5-character .com in the entire list.\n   - Invented word that is pronounceable (VIR-id), sounds techy/modern.\n   - 5-char .coms routinely sell for $2K-$10K+ on aftermarket regardless of meaning.\n   - Cleantech sector adds topical relevance (green energy, sustainability).\n   - Company (Viryd Technologies) raised $9.8M - adds some brand history.\n   - RISK: HIGH - any domainer scanning expired lists will grab this fast.\n   - ACTION: Register immediately, this is a no-brainer.\n\n2. encoate.com (ROI: 163.8x, Flip: $1,800)\n   - 7-character brandable portmanteau (encode + coat).\n   - Sounds like a SaaS product name or biotech brand.\n   - Clean pronunciation, memorable, no hyphens or suffixes.\n   - Biotech sector ($5.1M funding) - company history adds weight.\n   - RISK: MEDIUM - brandable short .coms get scooped regularly.\n   - ACTION: Register same day as viryd.com.\n\n3. mthreex.com (ROI: 109.2x, Flip: $1,200)\n   - 7-character name, short and punchy. M3X = gaming/media brand.\n   - Gaming sector ($10.5M funding from M3X Media).\n   - No hyphens, no bad suffixes. Reads as 'M-Three-X' which has energy.\n   - RISK: MEDIUM - 7-char .coms attract domainers.\n   - ACTION: Register in first batch.\n\n4. vaccsys.com (ROI: 109.2x, Flip: $1,200)\n   - 7-character name combining vaccine + systems.\n   - Biotech sector ($9M funding). Strong keyword association post-pandemic.\n   - Some pronunciation difficulty (double-c), but short length compensates.\n   - RISK: MEDIUM - biotech keywords stay in demand.\n   - ACTION: Register in first batch.\n\n5. kolorific.com (ROI: 65.5x, Flip: $720)\n   - 9-character creative misspelling of 'colorific' - fun and memorable.\n   - Sounds like a design tool, creative agency, or kids brand.\n   - No hyphens, no suffixes, pronounceable, broad appeal.\n   - RISK: LOW - 9 chars is less urgent but still highly brandable.\n   - ACTION: Register in first batch.\n",
+  "summary_stats": {
+    "highest_roi": "viryd.com at 477.7x",
+    "total_portfolio_flip_estimate": 16965,
+    "total_registration_cost": 472.57,
+    "avg_roi_multiple": 35.1,
+    "high_risk_count": 1,
+    "medium_risk_count": 4,
+    "recommended_first_batch": [
+      "viryd.com",
+      "encoate.com",
+      "mthreex.com",
+      "vaccsys.com",
+      "kolorific.com"
+    ],
+    "recommended_skip": [
+      "target-brl.com",
+      "transparencysoftware.com",
+      "oslo-software.com",
+      "powerefficiencycorp.com",
+      "cloudcityukltd.com",
+      "communicado-inc.com",
+      "futuretec-ltd.com"
+    ]
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "timestamp": "2026-05-16T16:33:36.537253+00:00",
+  "domains": {
+    "cytheris.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-04T16:24:53Z",
+      "last_modified": "2025-06-05T13:45:48Z",
+      "nameservers": [
+        "NS25255.OVH.NET",
+        "SDNS1.OVH.NET"
+      ],
+      "dns_resolves": false,
+      "ip_address": null,
+      "status": "RENEWED - REMOVE FROM PIPELINE",
+      "changes_since_sprint30": "Expiry confirmed at 2026-06-04 (renewed from 2025-06-04). Full GoDaddy client locks active. Still NXDOMAIN (no hosting). Owner renewed but not using.",
+      "raw_events": [
+        {
+          "action": "registration",
+          "date": "2002-06-04T16:24:53Z"
+        },
+        {
+          "action": "expiration",
+          "date": "2026-06-04T16:24:53Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2025-06-05T13:45:48Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:22Z"
+        }
+      ],
+      "analysis": "GoDaddy auto-renewed +1 year. All 4 client locks active. No DNS = parked/unused. Owner paid but may still let it lapse next cycle (June 2027)."
+    },
+    "ghostautonomy.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "Wild West Domains, LLC",
+      "expiry": "2026-06-07T00:53:13Z",
+      "last_modified": "2024-11-27T13:14:56Z",
+      "nameservers": [
+        "COBY.NS.CLOUDFLARE.COM",
+        "MELODY.NS.CLOUDFLARE.COM"
+      ],
+      "dns_resolves": true,
+      "ip_address": "104.21.71.212",
+      "status": "RENEWED - REMOVE FROM PIPELINE",
+      "changes_since_sprint30": "Expiry confirmed at 2026-06-07 (renewed from 2025-06-07). Active on Cloudflare. Owner is maintaining the domain.",
+      "raw_events": [
+        {
+          "action": "registration",
+          "date": "2022-06-07T00:53:13Z"
+        },
+        {
+          "action": "expiration",
+          "date": "2026-06-07T00:53:13Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2024-11-27T13:14:56Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:22Z"
+        }
+      ],
+      "analysis": "Wild West/GoDaddy renewed. Active Cloudflare DNS + resolving to CDN. Owner is actively using this domain. Dead target."
+    },
+    "bside.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-23T23:50:35Z",
+      "last_modified": "2023-06-24T20:27:25Z",
+      "nameservers": [
+        "NS75.DOMAINCONTROL.COM",
+        "NS76.DOMAINCONTROL.COM"
+      ],
+      "dns_resolves": true,
+      "ip_address": "184.73.205.152",
+      "status": "RENEWED - REMOVE FROM PIPELINE",
+      "changes_since_sprint30": "Expiry confirmed at 2026-06-23 (renewed from 2025-06-23). Resolves to AWS. Active.",
+      "raw_events": [
+        {
+          "action": "registration",
+          "date": "2001-06-23T23:50:35Z"
+        },
+        {
+          "action": "expiration",
+          "date": "2026-06-23T23:50:35Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2023-06-24T20:27:25Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:22Z"
+        }
+      ],
+      "analysis": "GoDaddy renewed. Resolves to AWS EC2. Premium 5-letter .com \u2014 owner will never let this drop. Dead target."
+    },
+    "guerrameats.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client hold",
+        "client transfer prohibited"
+      ],
+      "registrar": "Squarespace Domains II LLC",
+      "expiry": "2027-04-07T02:36:43Z",
+      "last_modified": "2026-04-07T08:59:48Z",
+      "nameservers": [
+        "NS-CLOUD-B1.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B2.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B3.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B4.GOOGLEDOMAINS.COM"
+      ],
+      "dns_resolves": false,
+      "ip_address": null,
+      "status": "ON_TRACK - EXTENDED TIMELINE",
+      "changes_since_sprint30": "Expiry now shows 2027-04-07 (auto-renewed April 2026). clientHold still active = domain suspended. NXDOMAIN confirms suspension. Google nameservers still pointed.",
+      "raw_events": [
+        {
+          "action": "registration",
+          "date": "2005-04-07T02:36:43Z"
+        },
+        {
+          "action": "expiration",
+          "date": "2027-04-07T02:36:43Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2026-04-07T08:59:48Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:22Z"
+        }
+      ],
+      "analysis": "Squarespace auto-renewed but domain remains in clientHold (suspended). NXDOMAIN = not functional. Owner may not be paying attention. If they don't explicitly cancel the hold or let it lapse, it could still drop after 2027-04-07. Long timeline but high-signal (suspended domain that keeps auto-renewing)."
+    },
+    "sunnyray.org": {
+      "epp_status": [
+        "auto renew period"
+      ],
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-04-11T09:19:44.317Z",
+      "last_modified": "2026-04-15T02:35:09.769Z",
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "dns_resolves": true,
+      "ip_address": "52.223.13.41",
+      "status": "WATCH - AUTO_RENEW_PENDING",
+      "changes_since_sprint30": "autoRenewPeriod status active. Expiry pushed to 2027-04-11. Tucows auto-renewed but owner confirmation pending. renewyourname.net nameservers = Tucows parking/hold.",
+      "raw_events": [
+        {
+          "action": "transfer",
+          "date": "2008-04-08T02:40:40.317Z"
+        },
+        {
+          "action": "expiration",
+          "date": "2027-04-11T09:19:44.317Z"
+        },
+        {
+          "action": "registration",
+          "date": "2005-04-11T09:19:44.317Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2026-04-15T02:35:09.769Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:42.506Z"
+        }
+      ],
+      "analysis": "Tucows autoRenewPeriod = registrar renewed automatically, but owner has NOT explicitly confirmed. Owner has 45-day window to cancel/not-pay. If cancelled, domain enters redemption then pendingDelete. Key signal: renewyourname.net = Tucows expired-domain parking nameservers. IP 52.223.13.41 = AWS Global Accelerator (parking page). HIGH probability of eventual drop."
+    },
+    "globalgeopark.org": {
+      "epp_status": [
+        "auto renew period"
+      ],
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-04-11T02:12:38.271Z",
+      "last_modified": "2026-04-15T05:59:07.598Z",
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "dns_resolves": true,
+      "ip_address": "52.223.13.41",
+      "status": "WATCH - AUTO_RENEW_PENDING",
+      "changes_since_sprint30": "autoRenewPeriod status active. Expiry pushed to 2027-04-11. Identical pattern to sunnyray.org \u2014 Tucows parking nameservers.",
+      "raw_events": [
+        {
+          "action": "expiration",
+          "date": "2027-04-11T02:12:38.271Z"
+        },
+        {
+          "action": "registration",
+          "date": "2007-04-11T02:12:38.271Z"
+        },
+        {
+          "action": "last changed",
+          "date": "2026-04-15T05:59:07.598Z"
+        },
+        {
+          "action": "last update of RDAP database",
+          "date": "2026-05-16T16:33:43.71Z"
+        }
+      ],
+      "analysis": "Same pattern as sunnyray.org. renewyourname.net nameservers = Tucows expired-domain holding pattern. autoRenewPeriod = registrar paid but owner hasn't confirmed. HIGH probability of drop within 45 days of auto-renewal (around late May 2026). Monitor closely."
+    }
+  }
+}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Ingredient Calculator - Scale Recipes &amp; Convert Units | Ingredient Calculator</title>
+<meta name="description" content="Free cooking ingredient calculator. Scale recipes to any serving size, convert between cups, grams, ounces, milliliters, tablespoons, and more. Complete conversion reference tables included.">
+<meta name="keywords" content="cooking ingredient calculator, cooking calculator, recipe ingredient calculator, kitchen calculator, cooking unit converter, cooking measurement calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/cooking-calculator.html">
+<meta property="og:title" content="Cooking Ingredient Calculator - Scale & Convert">
+<meta property="og:description" content="Multi-purpose cooking calculator. Scale recipes and convert between all cooking units in one tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/cooking-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cooking Ingredient Calculator">
+<meta name="twitter:description" content="Scale recipes to any serving size and convert between cups, grams, oz, ml, tbsp, tsp and more.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cooking Ingredient Calculator",
+  "url": "https://ingredientcalculator.com/cooking-calculator.html",
+  "description": "Multi-purpose cooking calculator for scaling recipes and converting between all common cooking units.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669; --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7; --clr-info-bg: #F0F9FF;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+nav a.active { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+h3 { font-size: 1.3rem; font-weight: 700; margin: 32px 0 12px; }
+h4 { font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; font-size: 1.05rem; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.card h3 { font-size: 1.1rem; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border); }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid var(--clr-border); padding-bottom: 0; flex-wrap: wrap; }
+.tab { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--clr-text-muted); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition); }
+.tab:hover { color: var(--clr-text); }
+.tab.active { color: var(--clr-accent); border-bottom-color: var(--clr-accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.converter-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; }
+@media(max-width:640px){ .converter-grid { grid-template-columns: 1fr; } .swap-btn { transform: rotate(90deg); } }
+.swap-btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--clr-border); background: var(--clr-surface); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: var(--transition); align-self: end; margin-bottom: 4px; }
+.swap-btn:hover { background: var(--clr-accent); color: #fff; border-color: var(--clr-accent); }
+.result-display { background: var(--clr-accent-bg); border: 2px solid var(--clr-accent); border-radius: var(--radius); padding: 16px; text-align: center; margin-top: 16px; }
+.result-display .value { font-size: 1.5rem; font-weight: 700; color: var(--clr-accent-hover); }
+.result-display .label { font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 2px; }
+.servings-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media(max-width:500px) { .servings-row { grid-template-columns: 1fr; } }
+.ingredient-row { display: grid; grid-template-columns: 80px 100px 1fr 40px; gap: 8px; align-items: end; margin-bottom: 8px; }
+@media(max-width:600px) { .ingredient-row { grid-template-columns: 1fr 1fr; } .ingredient-row .field:nth-child(3) { grid-column: 1/-1; } }
+.btn { padding: 10px 20px; border: none; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover { background: var(--clr-accent-hover); }
+.btn-secondary { background: var(--clr-surface-alt); color: var(--clr-text); border: 1px solid var(--clr-border); }
+.btn-secondary:hover { background: var(--clr-accent-light); }
+.btn-remove { width: 36px; height: 36px; border-radius: 50%; background: none; border: 1px solid var(--clr-border); color: var(--clr-text-muted); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+.btn-remove:hover { background: #FEE2E2; border-color: #EF4444; color: #EF4444; }
+.results-box { background: var(--clr-success-bg); border: 2px solid var(--clr-success); border-radius: var(--radius); padding: 20px; margin-top: 20px; }
+.results-box h4 { margin: 0 0 12px; color: var(--clr-success); font-size: 1rem; }
+.result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(5,150,105,0.15); }
+.result-item:last-child { border-bottom: none; }
+.result-item .amount { font-weight: 700; color: var(--clr-success); }
+.ref-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.85rem; }
+.ref-table th, .ref-table td { padding: 8px 10px; border: 1px solid var(--clr-border); text-align: left; }
+.ref-table th { background: var(--clr-surface-alt); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+.ref-table tr:hover td { background: var(--clr-accent-bg); }
+.content-section { margin-top: 48px; }
+.content-section p { margin-bottom: 16px; }
+.content-section ul, .content-section ol { margin: 12px 0 16px 24px; }
+.content-section li { margin-bottom: 8px; }
+.tip-box { background: var(--clr-accent-bg); border-left: 4px solid var(--clr-accent); padding: 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 20px 0; }
+.tip-box strong { color: var(--clr-accent-hover); }
+.internal-links { background: var(--clr-surface-alt); border-radius: var(--radius); padding: 20px; margin-top: 32px; }
+.internal-links h4 { margin: 0 0 12px; }
+.internal-links a { display: inline-block; margin: 4px 8px 4px 0; color: var(--clr-accent); text-decoration: none; font-weight: 500; }
+.internal-links a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/recipe-converter.html">Recipe Converter</a>
+      <a href="/scale-down-recipe.html">Scale Down</a>
+      <a href="/cooking-calculator.html" class="active">Cooking Calculator</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Cooking Ingredient Calculator</h2>
+  <p class="subtitle">Your all-in-one kitchen calculator. Scale recipes by serving size, convert between any cooking units, and reference common measurements instantly.</p>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="scale">Recipe Scaler</button>
+    <button class="tab" data-tab="convert">Unit Converter</button>
+    <button class="tab" data-tab="reference">Quick Reference</button>
+  </div>
+
+  <!-- RECIPE SCALER TAB -->
+  <div class="tab-content active" id="tab-scale">
+    <div class="card">
+      <h3>Scale Recipe by Servings</h3>
+      <div class="servings-row">
+        <div class="field">
+          <label for="cc-original">Original Servings</label>
+          <input type="number" id="cc-original" value="4" min="1">
+        </div>
+        <div class="field">
+          <label for="cc-desired">Desired Servings</label>
+          <input type="number" id="cc-desired" value="2" min="1">
+        </div>
+      </div>
+      <div id="cc-ingredients">
+        <div class="ingredient-row">
+          <div class="field"><label>Amt</label><input type="text" class="cc-amt" value="2" placeholder="2"></div>
+          <div class="field"><label>Unit</label>
+            <select class="cc-unit"><option value="cups" selected>cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pcs">pieces</option></select>
+          </div>
+          <div class="field"><label>Ingredient</label><input type="text" class="cc-name" value="chicken broth" placeholder="e.g., broth"></div>
+          <button class="btn-remove" onclick="ccRemove(this)">&times;</button>
+        </div>
+        <div class="ingredient-row">
+          <div class="field"><label>Amt</label><input type="text" class="cc-amt" value="1" placeholder="1"></div>
+          <div class="field"><label>Unit</label>
+            <select class="cc-unit"><option value="cups">cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs" selected>lbs</option><option value="kg">kg</option><option value="pcs">pieces</option></select>
+          </div>
+          <div class="field"><label>Ingredient</label><input type="text" class="cc-name" value="pasta" placeholder="e.g., pasta"></div>
+          <button class="btn-remove" onclick="ccRemove(this)">&times;</button>
+        </div>
+        <div class="ingredient-row">
+          <div class="field"><label>Amt</label><input type="text" class="cc-amt" value="3" placeholder="3"></div>
+          <div class="field"><label>Unit</label>
+            <select class="cc-unit"><option value="cups">cups</option><option value="tbsp" selected>tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pcs">pieces</option></select>
+          </div>
+          <div class="field"><label>Ingredient</label><input type="text" class="cc-name" value="olive oil" placeholder="e.g., oil"></div>
+          <button class="btn-remove" onclick="ccRemove(this)">&times;</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+        <button class="btn btn-secondary" onclick="ccAdd()">+ Add</button>
+        <button class="btn btn-primary" onclick="ccScale()">Calculate</button>
+      </div>
+      <div id="cc-results" class="results-box" style="display:none;">
+        <h4>Scaled to <span id="cc-result-servings"></span> servings</h4>
+        <div id="cc-results-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT CONVERTER TAB -->
+  <div class="tab-content" id="tab-convert">
+    <div class="card">
+      <h3>Convert Cooking Units</h3>
+      <div class="converter-grid">
+        <div>
+          <div class="field"><label for="cv-value">Amount</label><input type="number" id="cv-value" value="1" min="0" step="0.01"></div>
+          <div class="field" style="margin-top:8px"><label for="cv-from">From</label>
+            <select id="cv-from">
+              <optgroup label="Volume">
+                <option value="cup">Cups (US)</option>
+                <option value="tbsp">Tablespoons</option>
+                <option value="tsp">Teaspoons</option>
+                <option value="ml">Milliliters</option>
+                <option value="l">Liters</option>
+                <option value="floz">Fluid Ounces</option>
+              </optgroup>
+              <optgroup label="Weight">
+                <option value="g">Grams</option>
+                <option value="kg">Kilograms</option>
+                <option value="oz">Ounces</option>
+                <option value="lb">Pounds</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <button class="swap-btn" onclick="cvSwap()">&#8596;</button>
+        <div>
+          <div class="field"><label>Result</label>
+            <div class="result-display"><span class="value" id="cv-result">236.59</span><span class="label" id="cv-label">milliliters</span></div>
+          </div>
+          <div class="field" style="margin-top:8px"><label for="cv-to">To</label>
+            <select id="cv-to">
+              <optgroup label="Volume">
+                <option value="cup">Cups (US)</option>
+                <option value="tbsp">Tablespoons</option>
+                <option value="tsp">Teaspoons</option>
+                <option value="ml" selected>Milliliters</option>
+                <option value="l">Liters</option>
+                <option value="floz">Fluid Ounces</option>
+              </optgroup>
+              <optgroup label="Weight">
+                <option value="g">Grams</option>
+                <option value="kg">Kilograms</option>
+                <option value="oz">Ounces</option>
+                <option value="lb">Pounds</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCE TAB -->
+  <div class="tab-content" id="tab-reference">
+    <div class="card">
+      <h3>Volume Conversions</h3>
+      <table class="ref-table">
+        <thead><tr><th>Measurement</th><th>Equivalent</th><th>Metric</th></tr></thead>
+        <tbody>
+          <tr><td>1 cup</td><td>16 tablespoons</td><td>236.59 mL</td></tr>
+          <tr><td>3/4 cup</td><td>12 tablespoons</td><td>177.44 mL</td></tr>
+          <tr><td>2/3 cup</td><td>10 tbsp + 2 tsp</td><td>157.73 mL</td></tr>
+          <tr><td>1/2 cup</td><td>8 tablespoons</td><td>118.29 mL</td></tr>
+          <tr><td>1/3 cup</td><td>5 tbsp + 1 tsp</td><td>78.86 mL</td></tr>
+          <tr><td>1/4 cup</td><td>4 tablespoons</td><td>59.15 mL</td></tr>
+          <tr><td>1 tablespoon</td><td>3 teaspoons</td><td>14.79 mL</td></tr>
+          <tr><td>1 fluid ounce</td><td>2 tablespoons</td><td>29.57 mL</td></tr>
+          <tr><td>1 pint</td><td>2 cups</td><td>473.18 mL</td></tr>
+          <tr><td>1 quart</td><td>4 cups</td><td>946.35 mL</td></tr>
+          <tr><td>1 gallon</td><td>16 cups</td><td>3,785.41 mL</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Weight Conversions</h3>
+      <table class="ref-table">
+        <thead><tr><th>Measurement</th><th>Equivalent</th></tr></thead>
+        <tbody>
+          <tr><td>1 ounce</td><td>28.35 grams</td></tr>
+          <tr><td>4 ounces (1/4 lb)</td><td>113.4 grams</td></tr>
+          <tr><td>8 ounces (1/2 lb)</td><td>226.8 grams</td></tr>
+          <tr><td>12 ounces (3/4 lb)</td><td>340.2 grams</td></tr>
+          <tr><td>16 ounces (1 lb)</td><td>453.6 grams</td></tr>
+          <tr><td>1 kilogram</td><td>2.205 pounds / 35.27 oz</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Common Ingredient Weights (1 cup)</h3>
+      <table class="ref-table">
+        <thead><tr><th>Ingredient</th><th>Grams per Cup</th><th>Ounces per Cup</th></tr></thead>
+        <tbody>
+          <tr><td>All-purpose flour</td><td>125 g</td><td>4.4 oz</td></tr>
+          <tr><td>Bread flour</td><td>130 g</td><td>4.6 oz</td></tr>
+          <tr><td>Granulated sugar</td><td>200 g</td><td>7.1 oz</td></tr>
+          <tr><td>Brown sugar (packed)</td><td>220 g</td><td>7.75 oz</td></tr>
+          <tr><td>Powdered sugar</td><td>120 g</td><td>4.2 oz</td></tr>
+          <tr><td>Butter</td><td>227 g</td><td>8 oz</td></tr>
+          <tr><td>Milk</td><td>244 g</td><td>8.6 oz</td></tr>
+          <tr><td>Heavy cream</td><td>238 g</td><td>8.4 oz</td></tr>
+          <tr><td>Honey</td><td>340 g</td><td>12 oz</td></tr>
+          <tr><td>Oats (rolled)</td><td>90 g</td><td>3.2 oz</td></tr>
+          <tr><td>Rice (uncooked)</td><td>185 g</td><td>6.5 oz</td></tr>
+          <tr><td>Cocoa powder</td><td>85 g</td><td>3 oz</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Your Complete Cooking Ingredient Calculator</h3>
+    <p>Cooking should be about creativity and enjoyment, not wrestling with measurement math. This cooking ingredient calculator combines three essential kitchen tools into one: a recipe scaler for adjusting serving sizes, a unit converter for switching between measurement systems, and a quick-reference guide for the conversions you need most often. Whether you are an experienced chef adapting restaurant recipes for home use or a beginner following your first cookbook, these tools make accurate cooking accessible.</p>
+
+    <p>The most common frustration in the kitchen is encountering a recipe in measurements you do not use. American recipes call for cups and tablespoons; European recipes specify grams and milliliters. British recipes throw in stones, pints (which are different from US pints), and gas marks. This calculator bridges all of those systems instantly, so you never have to abandon a promising recipe because it uses unfamiliar units.</p>
+
+    <h3>Why Accurate Measurements Matter in Cooking</h3>
+    <p>In savory cooking, measurement precision is somewhat forgiving. A tablespoon more or less of olive oil will not ruin a stir-fry. But in baking, pastry, and confectionery, precise measurements are the difference between success and failure. A cake recipe with 10% too much flour produces a dense, dry crumb. Too little sugar in a meringue means it will not hold its shape. Accurate measurement is the foundation of consistent results.</p>
+
+    <p>Professional bakers weigh everything in grams for exactly this reason. A cup of flour can vary by 30% depending on whether it was scooped, spooned, sifted, or settled. Weighing eliminates that variability entirely. If you are serious about improving your baking, use the weight conversion table above to convert your favorite cup-based recipes to gram-based ones. You will notice an immediate improvement in consistency.</p>
+
+    <h4>Volume vs. Weight: When to Use Each</h4>
+    <ul>
+      <li><strong>Volume (cups, tablespoons, teaspoons):</strong> Fine for liquids, which have consistent density. Also acceptable for casual savory cooking where precision is less critical.</li>
+      <li><strong>Weight (grams, ounces):</strong> Essential for baking, pastry, and any recipe where ratios determine texture. Always more accurate than volume for dry ingredients.</li>
+      <li><strong>Count (pieces, whole, pinch):</strong> Used for items that are hard to measure otherwise: eggs, garlic cloves, bay leaves, pinches of spice.</li>
+    </ul>
+
+    <h3>How to Use the Cooking Calculator</h3>
+    <ol>
+      <li><strong>To scale a recipe:</strong> Enter the original and desired serving counts in the Recipe Scaler tab. Add your ingredients with their amounts and units, then click Calculate. The tool applies the exact ratio to every ingredient.</li>
+      <li><strong>To convert a measurement:</strong> Switch to the Unit Converter tab. Enter the amount you have, select the original unit and target unit, and the result appears instantly. Works for both volume and weight.</li>
+      <li><strong>To look up a conversion:</strong> The Quick Reference tab contains the most common conversions in easy-to-scan tables. Print it out and tape it inside a cabinet door for everyday reference.</li>
+    </ol>
+
+    <div class="tip-box">
+      <strong>Tip:</strong> When converting between volume and weight for dry ingredients, remember that every ingredient has a different density. 1 cup of flour weighs 125g, but 1 cup of sugar weighs 200g. Use the ingredient weight table in the Quick Reference tab for the most common ingredients.
+    </div>
+
+    <h3>Common Cooking Calculation Mistakes</h3>
+    <p>Even experienced cooks make measurement errors that affect their results. Here are the most common pitfalls and how to avoid them:</p>
+    <ul>
+      <li><strong>Confusing fluid ounces with weight ounces:</strong> They are different units entirely. 8 fluid ounces of honey weighs about 12 ounces by weight because honey is denser than water.</li>
+      <li><strong>Using dry measuring cups for liquids (and vice versa):</strong> Dry cups are meant to be leveled off. Liquid cups have a pour spout and are read at eye level. Using the wrong type introduces 5-15% errors.</li>
+      <li><strong>Scooping flour directly from the bag:</strong> This compacts the flour, giving you up to 30% more than intended. Spoon flour into the measuring cup and level with a knife for accurate volume measurement.</li>
+      <li><strong>Forgetting that metric cups differ from US cups:</strong> An Australian/metric cup is 250 mL; a US cup is 236.59 mL. A 6% difference that compounds over multiple ingredients.</li>
+      <li><strong>Ignoring temperature when measuring liquids:</strong> Warm liquids expand. If a recipe calls for 1 cup of cold milk and you measure warm milk, you will have slightly less actual milk once it cools.</li>
+    </ul>
+
+    <h3>Tips for International Recipe Conversion</h3>
+    <p>If you frequently cook from recipes written in other countries, keep these differences in mind. British tablespoons are 15 mL (same as metric), but older British recipes use a 25 mL "dessertspoon" that has no US equivalent. Japanese recipes often use a 200 mL cup. The cooking calculator above uses US standard measurements as the default but converts to and from metric seamlessly.</p>
+
+    <div class="internal-links">
+      <h4>More Cooking Tools</h4>
+      <a href="/recipe-converter.html">Recipe Converter (Full Scaling)</a>
+      <a href="/scale-down-recipe.html">Scale Down a Recipe</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler (Custom Multiplier)</a>
+      <a href="/cups-to-grams.html">Cups to Grams by Ingredient</a>
+      <a href="/serving-size-calculator.html">Serving Size Calculator</a>
+      <a href="/how-to-scale-recipes.html">How to Scale Recipes Guide</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/recipe-converter.html">Recipe Converter</a> &middot;
+      <a href="/scale-down-recipe.html">Scale Down Recipe</a> &middot;
+      <a href="/cooking-calculator.html">Cooking Calculator</a> &middot;
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ===== RECIPE SCALER =====
+function parseFraction(str) {
+  str = str.trim();
+  if (str.includes('/')) {
+    const mixed = str.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixed) return parseFloat(mixed[1]) + parseFloat(mixed[2]) / parseFloat(mixed[3]);
+    const parts = str.split('/');
+    if (parts.length === 2) return parseFloat(parts[0]) / parseFloat(parts[1]);
+  }
+  return parseFloat(str) || 0;
+}
+
+function formatAmount(num) {
+  if (num === 0) return '0';
+  if (num >= 10) return Math.round(num * 10) / 10 + '';
+  const fractions = [
+    [0.125, '1/8'], [0.25, '1/4'], [0.333, '1/3'], [0.375, '3/8'],
+    [0.5, '1/2'], [0.625, '5/8'], [0.667, '2/3'], [0.75, '3/4'], [0.875, '7/8']
+  ];
+  const whole = Math.floor(num);
+  const decimal = num - whole;
+  if (decimal < 0.05) return whole + '';
+  for (const [val, frac] of fractions) {
+    if (Math.abs(decimal - val) < 0.04) {
+      return whole > 0 ? whole + ' ' + frac : frac;
+    }
+  }
+  return Math.round(num * 100) / 100 + '';
+}
+
+function ccAdd() {
+  const list = document.getElementById('cc-ingredients');
+  const row = document.createElement('div');
+  row.className = 'ingredient-row';
+  row.innerHTML = `
+    <div class="field"><label>Amt</label><input type="text" class="cc-amt" placeholder="1"></div>
+    <div class="field"><label>Unit</label><select class="cc-unit"><option value="cups">cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pcs">pieces</option></select></div>
+    <div class="field"><label>Ingredient</label><input type="text" class="cc-name" placeholder="e.g., butter"></div>
+    <button class="btn-remove" onclick="ccRemove(this)">&times;</button>
+  `;
+  list.appendChild(row);
+}
+
+function ccRemove(btn) {
+  const list = document.getElementById('cc-ingredients');
+  if (list.children.length > 1) btn.closest('.ingredient-row').remove();
+}
+
+function ccScale() {
+  const original = parseFloat(document.getElementById('cc-original').value) || 1;
+  const desired = parseFloat(document.getElementById('cc-desired').value) || 1;
+  const factor = desired / original;
+  const rows = document.querySelectorAll('#cc-ingredients .ingredient-row');
+  const results = [];
+  rows.forEach(row => {
+    const amt = parseFraction(row.querySelector('.cc-amt').value);
+    const unit = row.querySelector('.cc-unit').value;
+    const name = row.querySelector('.cc-name').value.trim();
+    if (amt > 0 && name) {
+      results.push({ name, amount: formatAmount(amt * factor), unit });
+    }
+  });
+  if (results.length === 0) return;
+  document.getElementById('cc-result-servings').textContent = desired;
+  document.getElementById('cc-results-list').innerHTML = results.map(r =>
+    `<div class="result-item"><span>${r.name}</span><span class="amount">${r.amount} ${r.unit}</span></div>`
+  ).join('');
+  document.getElementById('cc-results').style.display = 'block';
+}
+
+// ===== UNIT CONVERTER =====
+const factors = {
+  cup: { base: 'vol', val: 236.588 }, tbsp: { base: 'vol', val: 14.787 },
+  tsp: { base: 'vol', val: 4.929 }, ml: { base: 'vol', val: 1 },
+  l: { base: 'vol', val: 1000 }, floz: { base: 'vol', val: 29.574 },
+  g: { base: 'wt', val: 1 }, kg: { base: 'wt', val: 1000 },
+  oz: { base: 'wt', val: 28.3495 }, lb: { base: 'wt', val: 453.592 }
+};
+const unitNames = { cup:'cups', tbsp:'tablespoons', tsp:'teaspoons', ml:'milliliters', l:'liters', floz:'fluid ounces', g:'grams', kg:'kilograms', oz:'ounces', lb:'pounds' };
+
+function cvConvert() {
+  const val = parseFloat(document.getElementById('cv-value').value) || 0;
+  const from = document.getElementById('cv-from').value;
+  const to = document.getElementById('cv-to').value;
+  if (factors[from].base !== factors[to].base) {
+    document.getElementById('cv-result').textContent = 'N/A';
+    document.getElementById('cv-label').textContent = 'Cannot convert volume to weight';
+    return;
+  }
+  const result = (val * factors[from].val) / factors[to].val;
+  const formatted = result >= 100 ? Math.round(result * 10) / 10 : result >= 1 ? Math.round(result * 100) / 100 : Math.round(result * 1000) / 1000;
+  document.getElementById('cv-result').textContent = formatted;
+  document.getElementById('cv-label').textContent = unitNames[to];
+}
+
+function cvSwap() {
+  const from = document.getElementById('cv-from');
+  const to = document.getElementById('cv-to');
+  const temp = from.value;
+  from.value = to.value;
+  to.value = temp;
+  cvConvert();
+}
+
+document.getElementById('cv-value').addEventListener('input', cvConvert);
+document.getElementById('cv-from').addEventListener('change', cvConvert);
+document.getElementById('cv-to').addEventListener('change', cvConvert);
+
+// Auto-scale on serving change
+document.getElementById('cc-original').addEventListener('input', ccScale);
+document.getElementById('cc-desired').addEventListener('input', ccScale);
+
+// Initial convert
+cvConvert();
+</script>
+</body>
+</html>

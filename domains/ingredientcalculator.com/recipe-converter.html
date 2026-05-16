@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Converter: Scale Any Recipe Up or Down | Ingredient Calculator</title>
+<meta name="description" content="Free recipe converter tool. Enter your ingredients, set original and desired servings, and instantly get scaled amounts. Convert recipes for 2, 4, 8, or any number of servings.">
+<meta name="keywords" content="recipe converter, scale recipe, recipe scaler, convert recipe servings, recipe multiplier, recipe divider, adjust recipe size">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/recipe-converter.html">
+<meta property="og:title" content="Recipe Converter: Scale Any Recipe Up or Down">
+<meta property="og:description" content="Free recipe converter. Enter ingredients and servings to instantly scale any recipe up or down.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/recipe-converter.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Converter - Scale Any Recipe Instantly">
+<meta name="twitter:description" content="Enter your recipe ingredients and desired servings. Get perfectly scaled amounts instantly.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recipe Converter",
+  "url": "https://ingredientcalculator.com/recipe-converter.html",
+  "description": "Scale any recipe up or down by entering original and desired servings. Converts all ingredient amounts automatically.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669; --clr-success-bg: #ECFDF5;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+nav a.active { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+h3 { font-size: 1.3rem; font-weight: 700; margin: 32px 0 12px; }
+h4 { font-size: 1.1rem; font-weight: 600; margin: 24px 0 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; font-size: 1.05rem; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.servings-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media(max-width:500px) { .servings-row { grid-template-columns: 1fr; } }
+.ingredient-row { display: grid; grid-template-columns: 80px 100px 1fr 40px; gap: 8px; align-items: end; margin-bottom: 8px; }
+@media(max-width:600px) { .ingredient-row { grid-template-columns: 1fr 1fr; } .ingredient-row .field:nth-child(3) { grid-column: 1/-1; } }
+.btn { padding: 10px 20px; border: none; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover { background: var(--clr-accent-hover); }
+.btn-secondary { background: var(--clr-surface-alt); color: var(--clr-text); border: 1px solid var(--clr-border); }
+.btn-secondary:hover { background: var(--clr-accent-light); }
+.btn-remove { width: 36px; height: 36px; border-radius: 50%; background: none; border: 1px solid var(--clr-border); color: var(--clr-text-muted); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+.btn-remove:hover { background: #FEE2E2; border-color: #EF4444; color: #EF4444; }
+.results-box { background: var(--clr-success-bg); border: 2px solid var(--clr-success); border-radius: var(--radius); padding: 20px; margin-top: 20px; }
+.results-box h4 { margin: 0 0 12px; color: var(--clr-success); font-size: 1rem; }
+.result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(5,150,105,0.15); }
+.result-item:last-child { border-bottom: none; }
+.result-item .amount { font-weight: 700; color: var(--clr-success); }
+.content-section { margin-top: 48px; }
+.content-section p { margin-bottom: 16px; }
+.content-section ul, .content-section ol { margin: 12px 0 16px 24px; }
+.content-section li { margin-bottom: 8px; }
+.tip-box { background: var(--clr-accent-bg); border-left: 4px solid var(--clr-accent); padding: 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 20px 0; }
+.tip-box strong { color: var(--clr-accent-hover); }
+.internal-links { background: var(--clr-surface-alt); border-radius: var(--radius); padding: 20px; margin-top: 32px; }
+.internal-links h4 { margin: 0 0 12px; }
+.internal-links a { display: inline-block; margin: 4px 8px 4px 0; color: var(--clr-accent); text-decoration: none; font-weight: 500; }
+.internal-links a:hover { text-decoration: underline; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/recipe-converter.html" class="active">Recipe Converter</a>
+      <a href="/scale-down-recipe.html">Scale Down</a>
+      <a href="/cooking-calculator.html">Cooking Calculator</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Recipe Converter</h2>
+  <p class="subtitle">Scale any recipe up or down instantly. Enter your ingredients and adjust the serving size to get perfectly converted amounts.</p>
+
+  <div class="card">
+    <div class="servings-row">
+      <div class="field">
+        <label for="original-servings">Original Servings</label>
+        <input type="number" id="original-servings" value="4" min="1" step="1">
+      </div>
+      <div class="field">
+        <label for="desired-servings">Desired Servings</label>
+        <input type="number" id="desired-servings" value="8" min="1" step="1">
+      </div>
+    </div>
+
+    <div id="ingredients-list">
+      <div class="ingredient-row">
+        <div class="field"><label>Amount</label><input type="text" class="ing-amount" value="2" placeholder="2"></div>
+        <div class="field"><label>Unit</label>
+          <select class="ing-unit">
+            <option value="cups">cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option>
+            <option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option>
+            <option value="lbs">lbs</option><option value="kg">kg</option><option value="pieces">pieces</option>
+            <option value="pinch">pinch</option><option value="whole">whole</option>
+          </select>
+        </div>
+        <div class="field"><label>Ingredient</label><input type="text" class="ing-name" value="all-purpose flour" placeholder="e.g., flour"></div>
+        <button class="btn-remove" onclick="removeRow(this)" title="Remove">&times;</button>
+      </div>
+      <div class="ingredient-row">
+        <div class="field"><label>Amount</label><input type="text" class="ing-amount" value="1" placeholder="1"></div>
+        <div class="field"><label>Unit</label>
+          <select class="ing-unit"><option value="cups" selected>cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pieces">pieces</option><option value="pinch">pinch</option><option value="whole">whole</option></select>
+        </div>
+        <div class="field"><label>Ingredient</label><input type="text" class="ing-name" value="sugar" placeholder="e.g., sugar"></div>
+        <button class="btn-remove" onclick="removeRow(this)" title="Remove">&times;</button>
+      </div>
+      <div class="ingredient-row">
+        <div class="field"><label>Amount</label><input type="text" class="ing-amount" value="3" placeholder="3"></div>
+        <div class="field"><label>Unit</label>
+          <select class="ing-unit"><option value="cups">cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pieces">pieces</option><option value="pinch">pinch</option><option value="whole" selected>whole</option></select>
+        </div>
+        <div class="field"><label>Ingredient</label><input type="text" class="ing-name" value="eggs" placeholder="e.g., eggs"></div>
+        <button class="btn-remove" onclick="removeRow(this)" title="Remove">&times;</button>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
+      <button class="btn btn-secondary" onclick="addRow()">+ Add Ingredient</button>
+      <button class="btn btn-primary" onclick="convertRecipe()">Convert Recipe</button>
+    </div>
+
+    <div id="results" class="results-box" style="display:none;">
+      <h4>Converted Recipe (for <span id="result-servings"></span> servings)</h4>
+      <div id="results-list"></div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>How to Use the Recipe Converter</h3>
+    <p>Converting a recipe to serve more or fewer people is one of the most common kitchen tasks, yet it trips up even experienced cooks. Our free recipe converter handles the math so you can focus on cooking. Simply enter the original number of servings your recipe makes, type in how many servings you need, add your ingredients, and click convert. The tool multiplies every ingredient by the exact ratio needed.</p>
+
+    <p>Whether you are doubling a weeknight dinner for unexpected guests, tripling a cookie batch for a bake sale, or cutting a family-sized casserole down to a solo portion, the recipe converter gives you precise measurements in seconds. No mental arithmetic, no rounding errors, no guesswork.</p>
+
+    <h3>Why Recipes Need Accurate Conversion</h3>
+    <p>Recipe conversion is more than simple multiplication. When you scale ingredients incorrectly, the chemistry of your dish changes. Too much flour makes baked goods dense. Too little salt leaves savory dishes flat. Excess leavening causes cakes to rise and collapse. A reliable recipe converter eliminates these risks by providing exact scaled amounts for every single ingredient in your list.</p>
+
+    <p>Professional kitchens convert recipes constantly. A restaurant that develops a dish serving four must scale it to serve forty or four hundred. Catering companies live and die by accurate recipe conversion. Home cooks face the same challenge on a smaller scale every time they adjust a recipe found online.</p>
+
+    <h4>Common Scenarios for Recipe Conversion</h4>
+    <ul>
+      <li><strong>Cooking for a crowd:</strong> Scale a recipe from 4 servings to 12, 20, or 50 for parties and potlucks.</li>
+      <li><strong>Cooking for two:</strong> Cut a recipe designed for 6 down to 2 servings without waste.</li>
+      <li><strong>Meal prep:</strong> Multiply a recipe by 3x or 4x to prepare a week of lunches in one session.</li>
+      <li><strong>Bake sales and holidays:</strong> Triple or quadruple cookie and dessert recipes reliably.</li>
+      <li><strong>Dietary portions:</strong> Adjust serving sizes to match specific calorie or macro targets.</li>
+    </ul>
+
+    <h3>Tips for Successful Recipe Conversion</h3>
+    <p>While the recipe converter handles the numbers, some ingredients require special attention when scaling. Keep these guidelines in mind for best results:</p>
+
+    <div class="tip-box">
+      <strong>Tip:</strong> Spices, salt, garlic, and other strong flavors do not scale linearly. When doubling a recipe, start with 1.5x the seasoning and adjust to taste. When tripling, use about 2x and taste as you go.
+    </div>
+
+    <ol>
+      <li><strong>Scale leavening carefully:</strong> Baking powder and baking soda should be scaled at about 75-80% of the calculated amount when tripling or more. Too much leavening creates metallic flavors and structural collapse.</li>
+      <li><strong>Adjust cooking times:</strong> A doubled recipe in a larger pan may need 10-25% more cooking time. A halved recipe in a smaller pan often needs less time. Use temperature checks rather than time alone.</li>
+      <li><strong>Consider pan sizes:</strong> If you double a cake recipe, you need either two pans or one pan with twice the volume. Overcrowding a pan changes how heat distributes through the batter.</li>
+      <li><strong>Eggs present a challenge:</strong> When a recipe calls for 1 egg and you halve it, you need half an egg. Beat the egg first, then measure out half by volume (about 1.5 tablespoons).</li>
+      <li><strong>Liquid ratios matter:</strong> In soups and sauces, liquids scale more linearly than in baking. You can usually scale stock, water, and milk at the exact ratio without problems.</li>
+    </ol>
+
+    <h3>Recipe Conversion Math Explained</h3>
+    <p>The fundamental formula behind every recipe converter is straightforward: divide your desired servings by the original servings to get a conversion factor, then multiply each ingredient by that factor. For example, converting a recipe from 4 servings to 6 gives a factor of 1.5 (6 divided by 4). Every ingredient amount gets multiplied by 1.5.</p>
+
+    <p>Where it gets tricky is the practical side. A conversion factor of 1.5 applied to "1/3 cup" gives you 0.5 cups, which is easy enough. But apply it to "1 egg" and you get 1.5 eggs, which means cracking two eggs and discarding about a tablespoon of beaten egg. Our converter shows these fractional amounts clearly so you can decide how to handle them in your kitchen.</p>
+
+    <h3>Frequently Asked Questions</h3>
+    <h4>Can I convert any recipe?</h4>
+    <p>Yes, this recipe converter works with any dish: baked goods, soups, casseroles, marinades, cocktails, or any other recipe with measured ingredients. The tool handles every unit from cups and tablespoons to grams and ounces.</p>
+
+    <h4>What if my recipe uses volume and weight measurements together?</h4>
+    <p>The recipe converter scales each ingredient independently regardless of unit. It does not need to convert between volume and weight. It simply multiplies the original amount by the scaling factor, preserving whatever unit you entered.</p>
+
+    <h4>How do I handle fractions like 1/3 or 2/3 cup?</h4>
+    <p>Enter fractions as decimals (0.33 for 1/3, 0.67 for 2/3) or use the fraction format in the amount field. The converter will calculate the precise scaled amount and display it rounded to a practical measurement.</p>
+
+    <div class="internal-links">
+      <h4>More Cooking Calculators</h4>
+      <a href="/scale-down-recipe.html">Scale Down a Recipe</a>
+      <a href="/cooking-calculator.html">Cooking Ingredient Calculator</a>
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a>
+      <a href="/cups-to-grams.html">Cups to Grams Converter</a>
+      <a href="/serving-size-calculator.html">Serving Size Calculator</a>
+      <a href="/how-to-scale-recipes.html">How to Scale Recipes Guide</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/recipe-converter.html">Recipe Converter</a> &middot;
+      <a href="/scale-down-recipe.html">Scale Down Recipe</a> &middot;
+      <a href="/cooking-calculator.html">Cooking Calculator</a> &middot;
+      <a href="/ingredient-scaler.html">Ingredient Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+function parseFraction(str) {
+  str = str.trim();
+  if (str.includes('/')) {
+    const parts = str.split('/');
+    if (parts.length === 2) {
+      const num = parseFloat(parts[0]);
+      const den = parseFloat(parts[1]);
+      if (den !== 0) return num / den;
+    }
+    // Handle mixed fractions like "1 1/2"
+    const mixed = str.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixed) return parseFloat(mixed[1]) + parseFloat(mixed[2]) / parseFloat(mixed[3]);
+  }
+  return parseFloat(str) || 0;
+}
+
+function formatAmount(num) {
+  if (num === 0) return '0';
+  if (num >= 10) return Math.round(num * 10) / 10 + '';
+  // Try common fractions
+  const fractions = [
+    [0.125, '1/8'], [0.25, '1/4'], [0.333, '1/3'], [0.375, '3/8'],
+    [0.5, '1/2'], [0.625, '5/8'], [0.667, '2/3'], [0.75, '3/4'], [0.875, '7/8']
+  ];
+  const whole = Math.floor(num);
+  const decimal = num - whole;
+  if (decimal < 0.05) return whole + '';
+  for (const [val, frac] of fractions) {
+    if (Math.abs(decimal - val) < 0.04) {
+      return whole > 0 ? whole + ' ' + frac : frac;
+    }
+  }
+  return Math.round(num * 100) / 100 + '';
+}
+
+function addRow() {
+  const list = document.getElementById('ingredients-list');
+  const row = document.createElement('div');
+  row.className = 'ingredient-row';
+  row.innerHTML = `
+    <div class="field"><label>Amount</label><input type="text" class="ing-amount" placeholder="1"></div>
+    <div class="field"><label>Unit</label>
+      <select class="ing-unit"><option value="cups">cups</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="oz">oz</option><option value="g">g</option><option value="ml">ml</option><option value="lbs">lbs</option><option value="kg">kg</option><option value="pieces">pieces</option><option value="pinch">pinch</option><option value="whole">whole</option></select>
+    </div>
+    <div class="field"><label>Ingredient</label><input type="text" class="ing-name" placeholder="e.g., butter"></div>
+    <button class="btn-remove" onclick="removeRow(this)" title="Remove">&times;</button>
+  `;
+  list.appendChild(row);
+}
+
+function removeRow(btn) {
+  const list = document.getElementById('ingredients-list');
+  if (list.children.length > 1) {
+    btn.closest('.ingredient-row').remove();
+  }
+}
+
+function convertRecipe() {
+  const original = parseFloat(document.getElementById('original-servings').value) || 1;
+  const desired = parseFloat(document.getElementById('desired-servings').value) || 1;
+  const factor = desired / original;
+
+  const rows = document.querySelectorAll('.ingredient-row');
+  const results = [];
+
+  rows.forEach(row => {
+    const amount = parseFraction(row.querySelector('.ing-amount').value);
+    const unit = row.querySelector('.ing-unit').value;
+    const name = row.querySelector('.ing-name').value.trim();
+    if (name && amount > 0) {
+      const scaled = amount * factor;
+      results.push({ amount: formatAmount(scaled), unit, name });
+    }
+  });
+
+  if (results.length === 0) return;
+
+  const resultsDiv = document.getElementById('results');
+  const resultsList = document.getElementById('results-list');
+  document.getElementById('result-servings').textContent = desired;
+
+  resultsList.innerHTML = results.map(r =>
+    `<div class="result-item"><span>${r.name}</span><span class="amount">${r.amount} ${r.unit}</span></div>`
+  ).join('');
+
+  resultsDiv.style.display = 'block';
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Auto-convert on serving change
+document.getElementById('original-servings').addEventListener('input', convertRecipe);
+document.getElementById('desired-servings').addEventListener('input', convertRecipe);
+</script>
+</body>
+</html>
