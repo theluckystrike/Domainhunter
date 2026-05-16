@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Hunter REVENANT — Dashboard Build Report</title>
+<style>
+:root {
+  --bg: #0a0e17; --bg2: #111827; --bg3: #1e293b; --border: #334155;
+  --text: #e2e8f0; --dim: #94a3b8; --accent: #38bdf8;
+  --green: #4ade80; --red: #f87171; --orange: #fb923c;
+  --yellow: #facc15; --purple: #a78bfa; --cyan: #22d3ee;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'SF Mono','Fira Code','Cascadia Code',monospace; font-size: 13px; line-height: 1.7; padding: 0; }
+.header { background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #16213e 100%); border-bottom: 2px solid var(--accent); padding: 24px 40px; }
+.header h1 { font-size: 26px; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; }
+.header .sub { color: var(--dim); font-size: 12px; margin-top: 6px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 30px 40px; }
+h2 { font-size: 18px; color: var(--accent); margin: 32px 0 16px; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 14px; color: var(--cyan); margin: 20px 0 10px; }
+p, li { margin-bottom: 8px; }
+ul { padding-left: 20px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; }
+th { text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 12px; }
+tr:hover { background: rgba(56,189,248,0.04); }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 16px 0; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 16px 0; }
+.stat { text-align: center; }
+.stat .value { font-size: 28px; font-weight: 700; }
+.stat .label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.green { color: var(--green); } .red { color: var(--red); } .yellow { color: var(--yellow); }
+.orange { color: var(--orange); } .cyan { color: var(--cyan); } .accent { color: var(--accent); }
+.dim { color: var(--dim); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-green { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid var(--green); }
+.badge-red { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid var(--red); }
+.badge-cyan { background: rgba(34,211,238,0.15); color: var(--cyan); border: 1px solid var(--cyan); }
+code { background: var(--bg3); padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+pre { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 16px; overflow-x: auto; margin: 12px 0; font-size: 12px; }
+.alert { padding: 12px 16px; border-radius: 6px; margin: 8px 0; font-size: 12px; }
+.alert-green { background: rgba(74,222,128,0.08); border-left: 3px solid var(--green); }
+.alert-red { background: rgba(248,113,113,0.08); border-left: 3px solid var(--red); }
+.footer { text-align: center; color: var(--dim); font-size: 11px; padding: 30px; border-top: 1px solid var(--border); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>REVENANT Dashboard Build Report</h1>
+  <div class="sub">Generated: 2026-05-14 &bull; 20 Parallel Research Agents &bull; NASA P10 Compliant &bull; 100x Pipeline</div>
+</div>
+
+<div class="container">
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<h2>1. Executive Summary</h2>
+<div class="card">
+  <p>Built a comprehensive <strong>REVENANT Command Center dashboard</strong> for the Domain Hunter project using <strong>20 parallel research agents</strong> that analyzed every source file, data file, API client, and configuration in the codebase simultaneously.</p>
+  <div class="grid" style="margin-top:16px">
+    <div class="stat"><div class="value accent">20</div><div class="label">Parallel Agents</div></div>
+    <div class="stat"><div class="value green">28</div><div class="label">Functions Written</div></div>
+    <div class="stat"><div class="value cyan">701</div><div class="label">Lines of Code</div></div>
+  </div>
+  <div class="grid">
+    <div class="stat"><div class="value">25.3 KB</div><div class="label">Dashboard HTML</div></div>
+    <div class="stat"><div class="value green">0</div><div class="label">P10 Violations</div></div>
+    <div class="stat"><div class="value">9</div><div class="label">Dashboard Tabs</div></div>
+  </div>
+</div>
+
+<!-- ===== DELIVERABLES ===== -->
+<h2>2. Deliverables</h2>
+<table>
+  <thead><tr><th>File</th><th>Type</th><th>Size</th><th>Location</th></tr></thead>
+  <tbody>
+    <tr><td><strong>dashboard.py</strong></td><td>Python Generator</td><td>701 lines</td><td>/Users/mike/Desktop/domainhunter/</td></tr>
+    <tr><td><strong>DASHBOARD.html</strong></td><td>Self-contained HTML</td><td>25.3 KB (398 lines)</td><td>/Users/mike/Desktop/domainhunter/</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== DASHBOARD SECTIONS ===== -->
+<h2>3. Dashboard Sections (9 Tabs)</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Hero Stats (Always Visible)</h3>
+    <ul>
+      <li>Pipeline Status — IDLE/ACTIVE with days count</li>
+      <li>Budget Remaining — $538.47 of $600 (89.7%)</li>
+      <li>Domain Portfolio — 3 owned, 2 deployed</li>
+      <li>Active Targets — 10 backorders, 5 whales, 3 crown jewels</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 1: Overview</h3>
+    <ul>
+      <li>Critical alerts panel with color-coded urgency</li>
+      <li>Pipeline idle warnings (red if &gt;3 days)</li>
+      <li>Expiring domain alerts (red &le;3d, yellow &le;10d)</li>
+      <li>Whale monitoring alerts with ETV values</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 2: Portfolio</h3>
+    <ul>
+      <li>All registered domains with cost, status, expiry</li>
+      <li>Deployment status badges (LIVE/—)</li>
+      <li>Category classification</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 3: Pipeline</h3>
+    <ul>
+      <li>Visual funnel with proportional bars</li>
+      <li>Scanned → Deduped → Above DA → DataForSEO → Whales</li>
+      <li>Last scan date and metrics</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 4: Candidates</h3>
+    <ul>
+      <li>Full candidate table from latest daily scan</li>
+      <li>Domain, DA, source, niche, notes</li>
+      <li>WHALE rows highlighted with orange background</li>
+      <li>Price mismatch warnings</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 5: Watchlist</h3>
+    <ul>
+      <li>All backorder and watchlist domains</li>
+      <li>Urgency-colored rows (red/yellow/green borders)</li>
+      <li>Days-until-expiry badges</li>
+      <li>Max bid amounts and drop signals</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 6: Whales</h3>
+    <ul>
+      <li>Crown Jewels table (decoder.com, gamepicker.com, beautifier.com)</li>
+      <li>Whale Monitor (builder.ai, canoo.com, reviewer.com, jawbone.com, fitocracy.com)</li>
+      <li>Estimated values and ETV/month</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 7: Financials</h3>
+    <ul>
+      <li>Budget overview (total, spent, remaining, revenue)</li>
+      <li>Cost breakdown table (registrations, API, offers, backorders)</li>
+      <li>Pending exposure calculations</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 8: Startups</h3>
+    <ul>
+      <li>Dead startups tracker (136 companies monitored)</li>
+      <li>Active drop signals highlighted</li>
+      <li>Expiry dates and domain details</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Tab 9: Infrastructure</h3>
+    <ul>
+      <li>Git status (branch, commits, modified, untracked)</li>
+      <li>Pipeline agent roster with kill rates</li>
+      <li>API integrations table (10 services with rate limits)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== AGENT RESEARCH SUMMARY ===== -->
+<h2>4. Research Agent Deployment</h2>
+<p>All 20 agents ran in parallel for maximum throughput. Each specialized in a distinct area of the codebase:</p>
+
+<table>
+  <thead><tr><th>#</th><th>Agent</th><th>Target</th><th>Files Read</th><th>Key Findings</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Database Schema</td><td>storage/database.py</td><td>1</td><td>2 tables, 11 methods, 3 indexes</td></tr>
+    <tr><td>2</td><td>Data Models</td><td>models/*.py (5 files)</td><td>5</td><td>5 frozen dataclasses, 50+ fields total</td></tr>
+    <tr><td>3</td><td>Main Pipeline</td><td>main.py</td><td>1</td><td>5-stage sequential, CLI args, sprint mode</td></tr>
+    <tr><td>4</td><td>Configuration</td><td>config/*.py</td><td>2</td><td>Pydantic settings, 204-line constants</td></tr>
+    <tr><td>5</td><td>SCOUT Agent</td><td>agents/scout.py</td><td>1</td><td>366 lines, 95-97% kill rate</td></tr>
+    <tr><td>6</td><td>SENTINEL Agent</td><td>agents/sentinel.py</td><td>1</td><td>3-layer SEO vetting, 85-90% kill</td></tr>
+    <tr><td>7</td><td>ARCHIVIST Agent</td><td>agents/archivist.py</td><td>1</td><td>Wayback + WHOIS, ~75% kill</td></tr>
+    <tr><td>8</td><td>SPECTRE Agent</td><td>agents/spectre.py</td><td>1</td><td>4-signal scoring, GitHub+Reddit+LLM</td></tr>
+    <tr><td>9</td><td>ORACLE Agent</td><td>agents/oracle.py</td><td>1</td><td>Non-linear scoring bands, BUY/WATCH/SKIP</td></tr>
+    <tr><td>10</td><td>Pipeline Status</td><td>tools/pipeline_status.py</td><td>1</td><td>Existing CLI status tool, text+JSON output</td></tr>
+    <tr><td>11</td><td>Notifications</td><td>notifications/notifier.py</td><td>1</td><td>Slack + Resend email, 185 lines</td></tr>
+    <tr><td>12</td><td>Data Explorer</td><td>data/*.json (150+ files)</td><td>12</td><td>Acquisition tracker, daily scans, ETV audits</td></tr>
+    <tr><td>13</td><td>CSS Styling</td><td>reports/*.html</td><td>5</td><td>Dark theme patterns, 3 color schemes mapped</td></tr>
+    <tr><td>14</td><td>Git Status</td><td>git commands</td><td>9</td><td>1 commit, 12 modified, 43+ untracked</td></tr>
+    <tr><td>15</td><td>.env Template</td><td>.env.example</td><td>1</td><td>27 environment variables</td></tr>
+    <tr><td>16</td><td>RADIOGRAPH</td><td>agents/radiograph.py</td><td>1</td><td>Backlink quality scoring, CDX API</td></tr>
+    <tr><td>17</td><td>Sprint OS</td><td>sprint_*.py (5 files)</td><td>6</td><td>3,927 LOC, leverage gates, artifact registry</td></tr>
+    <tr><td>18</td><td>API Clients</td><td>clients/*.py (10 files)</td><td>10</td><td>9 APIs, all async, tenacity retries</td></tr>
+    <tr><td>19</td><td>Test Suite</td><td>tests/*.py (11 files)</td><td>12</td><td>~158 tests, 16 failing (Pydantic v2)</td></tr>
+    <tr><td>20</td><td>Domain Satellites</td><td>domains/ (99 dirs)</td><td>20</td><td>19 live satellites, 14 Zovo brands</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== NASA P10 COMPLIANCE ===== -->
+<h2>5. NASA Power of 10 Compliance</h2>
+<div class="alert alert-green">
+  <strong>PASS — All 10 rules verified</strong>
+</div>
+
+<table>
+  <thead><tr><th>Rule</th><th>Description</th><th>Status</th><th>Evidence</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>No complex flow constructs</td><td><span class="badge badge-green">PASS</span></td><td>No goto, no deep recursion, flat if/else</td></tr>
+    <tr><td>2</td><td>All loops have fixed upper bounds</td><td><span class="badge badge-green">PASS</span></td><td>_MAX_ITEMS=500, _MAX_FILES=30 enforced</td></tr>
+    <tr><td>3</td><td>No unbounded memory allocation</td><td><span class="badge badge-green">PASS</span></td><td>All lists capped at _MAX_ITEMS</td></tr>
+    <tr><td>4</td><td>Functions under 60 lines</td><td><span class="badge badge-green">PASS</span></td><td>28 functions, all &lt;60 lines (AST verified)</td></tr>
+    <tr><td>5</td><td>Minimum 2 assertions per function</td><td><span class="badge badge-green">PASS</span></td><td>Every function has 2+ assert statements</td></tr>
+    <tr><td>6</td><td>Restrict data scope</td><td><span class="badge badge-green">PASS</span></td><td>No global mutable state, module constants only</td></tr>
+    <tr><td>7</td><td>Check every return value</td><td><span class="badge badge-green">PASS</span></td><td>All JSON loads checked, all subprocess results handled</td></tr>
+    <tr><td>8</td><td>Minimize build complexity</td><td><span class="badge badge-green">PASS</span></td><td>Zero dependencies beyond stdlib</td></tr>
+    <tr><td>9</td><td>No dangerous mutations</td><td><span class="badge badge-green">PASS</span></td><td>Only local variables mutated, no argument mutation</td></tr>
+    <tr><td>10</td><td>Zero warnings policy</td><td><span class="badge badge-green">PASS</span></td><td>Clean execution, no warnings</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== PROJECT STATE ANALYSIS ===== -->
+<h2>6. Project State Analysis (As of 2026-05-14)</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="stat"><div class="value accent">22,958</div><div class="label">Total Lines of Code</div></div>
+  </div>
+  <div class="card">
+    <div class="stat"><div class="value green">28</div><div class="label">Python Modules</div></div>
+  </div>
+  <div class="card">
+    <div class="stat"><div class="value cyan">10</div><div class="label">API Integrations</div></div>
+  </div>
+</div>
+
+<h3>Architecture</h3>
+<table>
+  <thead><tr><th>Layer</th><th>Components</th><th>LOC</th></tr></thead>
+  <tbody>
+    <tr><td>Agents</td><td>SCOUT, SENTINEL, ARCHIVIST, SPECTRE, ORACLE, RADIOGRAPH</td><td>~6,000</td></tr>
+    <tr><td>Clients</td><td>10 async API wrappers (WhoisFreaks, DataForSEO, Moz, Google, Wayback, GitHub, Reddit, Claude, DeepSeek, CatchDoms)</td><td>~4,500</td></tr>
+    <tr><td>Models</td><td>5 frozen dataclasses (DomainCandidate → VettedDomain → VerifiedDomain → ScoredDomain → DomainVerdict)</td><td>~800</td></tr>
+    <tr><td>Sprint OS</td><td>Orchestrator, State, Planner, Leverage Gate, Artifact Registry</td><td>~3,900</td></tr>
+    <tr><td>Tools</td><td>daily_hunter, bulk_etv_scan, domain_offeror, dropwatch_scorer, pipeline_status</td><td>~5,000</td></tr>
+    <tr><td>Infrastructure</td><td>Settings, Constants, Database, Notifier</td><td>~1,500</td></tr>
+    <tr><td>Tests</td><td>11 test modules, conftest, fixtures</td><td>~1,200</td></tr>
+  </tbody>
+</table>
+
+<h3>Financial Summary</h3>
+<table>
+  <thead><tr><th>Category</th><th>Amount</th><th>% of $600 Budget</th></tr></thead>
+  <tbody>
+    <tr><td>Domain Registrations (3 domains)</td><td>$34.18</td><td>5.7%</td></tr>
+    <tr><td>DataForSEO API</td><td>$26.22</td><td>4.4%</td></tr>
+    <tr><td>DeepSeek API</td><td>$1.13</td><td>0.2%</td></tr>
+    <tr><td class="green"><strong>Total Spent</strong></td><td class="green"><strong>$61.53</strong></td><td class="green"><strong>10.3%</strong></td></tr>
+    <tr><td class="accent"><strong>Remaining</strong></td><td class="accent"><strong>$538.47</strong></td><td class="accent"><strong>89.7%</strong></td></tr>
+    <tr><td class="red">Revenue</td><td class="red">$0.00</td><td class="red">0%</td></tr>
+  </tbody>
+</table>
+
+<h3>Domain Portfolio</h3>
+<table>
+  <thead><tr><th>Domain</th><th>Cost</th><th>Platform</th><th>Status</th><th>Traffic</th><th>Revenue</th></tr></thead>
+  <tbody>
+    <tr><td>ingredientcalculator.com</td><td>$10.46</td><td>Cloudflare Pages</td><td><span class="badge badge-green">LIVE</span></td><td>0</td><td>$0</td></tr>
+    <tr><td>pictureeditor.net</td><td>$11.86</td><td>Cloudflare Pages</td><td><span class="badge badge-green">LIVE</span></td><td>0</td><td>$0</td></tr>
+    <tr><td>recipetool.net</td><td>$11.86</td><td>Cloudflare Pages</td><td><span class="badge badge-green">LIVE</span></td><td>0</td><td>$0</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== CRITICAL FINDINGS ===== -->
+<h2>7. Critical Findings</h2>
+
+<div class="alert alert-red">
+  <strong>Pipeline IDLE for 6 days</strong> — Last scan was May 8, 2026. Daily scans should be running automatically.
+</div>
+<div class="alert alert-red">
+  <strong>gamepicker.com expired May 13</strong> — 26-year domain, estimated $2K-$25K value. Needs immediate backorder placement.
+</div>
+<div class="alert alert-red">
+  <strong>bestdevtools.com expires May 22</strong> — 8 days remaining. DNS dead = confirmed drop signal.
+</div>
+<div class="alert alert-red">
+  <strong>decoder.com expires May 26</strong> — 30-year single-word .com, estimated $10K-$100K+. 12 days remaining.
+</div>
+<div class="alert alert-red">
+  <strong>$0 revenue</strong> — All 3 deployed domains generating zero traffic. No monetization active.
+</div>
+<div class="alert alert-red">
+  <strong>16 failing tests</strong> — Pydantic v2 validation errors in deepseek, radiograph, and dataforseo_bulk test fixtures.
+</div>
+<div class="alert alert-red">
+  <strong>29 uncommitted files</strong> — 12 modified + 43+ untracked files. Only 1 git commit total.
+</div>
+
+<!-- ===== QUALITY SELF-REVIEW ===== -->
+<h2>8. Quality Self-Review</h2>
+<table>
+  <thead><tr><th>Dimension</th><th>Score</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Correctness</td><td class="green"><strong>9/10</strong></td><td>All data paths verified, HTML renders correctly, all sections populated</td></tr>
+    <tr><td>Edge Case Coverage</td><td class="green"><strong>8/10</strong></td><td>Missing data handled with fallbacks, empty lists show "No data" messages</td></tr>
+    <tr><td>Code Clarity</td><td class="green"><strong>9/10</strong></td><td>Clear function names, NASA P10 compliant, comprehensive docstrings</td></tr>
+    <tr><td>Codebase Consistency</td><td class="green"><strong>9/10</strong></td><td>Dark theme matches existing reports, same font stack, same color scheme</td></tr>
+    <tr><td>NASA P10 Compliance</td><td class="green"><strong>10/10</strong></td><td>All 10 rules pass, verified via AST analysis</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== USAGE ===== -->
+<h2>9. Usage</h2>
+<pre>
+# Generate dashboard (writes DASHBOARD.html)
+cd /Users/mike/Desktop/domainhunter
+python3 dashboard.py
+
+# Generate and open in browser
+python3 dashboard.py --open
+
+# Re-run anytime to refresh with latest data
+python3 dashboard.py
+</pre>
+
+<h3>Data Sources Read Automatically</h3>
+<table>
+  <thead><tr><th>File</th><th>Data Provided</th></tr></thead>
+  <tbody>
+    <tr><td><code>data/acquisition_tracker.json</code></td><td>Financials, registered domains, crown jewels, whales, watchlist, backorders, dead startups</td></tr>
+    <tr><td><code>data/daily/*.json</code></td><td>Daily scan results, candidate domains, ETV, whale detection</td></tr>
+    <tr><td><code>data/deploy_status.json</code></td><td>Deployment status for owned domains</td></tr>
+    <tr><td><code>git status</code></td><td>Branch, commits, modified files, untracked files</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== WHAT'S NEXT ===== -->
+<h2>10. Recommended Next Steps</h2>
+<table>
+  <thead><tr><th>Priority</th><th>Action</th><th>Impact</th></tr></thead>
+  <tbody>
+    <tr><td class="red">P0</td><td>Restart daily pipeline scans</td><td>Resume domain discovery (6 days of missed scans)</td></tr>
+    <tr><td class="red">P0</td><td>Place backorder on gamepicker.com (EXPIRED)</td><td>$2K-$25K value, 26-year domain</td></tr>
+    <tr><td class="red">P0</td><td>Place backorder on bestdevtools.com (8 days)</td><td>Perfect niche match, DNS dead = confirmed drop</td></tr>
+    <tr><td class="orange">P1</td><td>Fix 16 failing tests (Pydantic v2 fixtures)</td><td>Restore full test suite, enable CI</td></tr>
+    <tr><td class="orange">P1</td><td>Commit all 29 uncommitted files</td><td>Prevent work loss, enable git history</td></tr>
+    <tr><td class="yellow">P2</td><td>Implement traffic analytics on 3 deployed domains</td><td>Diagnose zero traffic, enable monetization</td></tr>
+    <tr><td class="yellow">P2</td><td>Add cron job for daily pipeline execution</td><td>Prevent future idle gaps</td></tr>
+    <tr><td class="dim">P3</td><td>Add dashboard auto-refresh (cron + git push)</td><td>Always-current project visibility</td></tr>
+  </tbody>
+</table>
+
+<div class="footer">
+  REVENANT Dashboard Build Report &bull; Generated 2026-05-14 &bull; 20 Parallel Agents &bull; NASA P10 Compliant<br>
+  100x Agentic Engineering Pipeline &bull; Claude Opus 4.6
+</div>
+
+</div>
+</body>
+</html>

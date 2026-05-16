@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Hunter — Sprint 22: First Blood</title>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--red:#f85149;--orange:#d29922;--purple:#bc8cff;--cyan:#39d353}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'SF Mono','Cascadia Code','Fira Code',monospace;background:var(--bg);color:var(--text);line-height:1.6;padding:20px}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:28px;margin-bottom:8px;color:var(--accent)}
+h2{font-size:20px;margin:24px 0 12px;color:var(--cyan);border-bottom:1px solid var(--border);padding-bottom:6px}
+h3{font-size:16px;margin:16px 0 8px;color:var(--purple)}
+.hero{background:linear-gradient(135deg,#0d1117 0%,#161b22 100%);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px;text-align:center}
+.hero .subtitle{color:var(--muted);font-size:14px;margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+.stat .val{font-size:28px;font-weight:bold;color:var(--green)}
+.stat .val.warn{color:var(--orange)}
+.stat .val.danger{color:var(--red)}
+.stat .val.info{color:var(--accent)}
+.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.tabs{display:flex;gap:4px;margin:20px 0 0;flex-wrap:wrap}
+.tab{padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-bottom:none;border-radius:6px 6px 0 0;cursor:pointer;font-size:12px;color:var(--muted);transition:all .2s}
+.tab.active,.tab:hover{background:var(--bg);color:var(--accent);border-color:var(--accent)}
+.panel{display:none;background:var(--bg);border:1px solid var(--border);border-radius:0 8px 8px 8px;padding:20px;margin-bottom:20px}
+.panel.active{display:block}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:12px 0}
+th{background:var(--surface);color:var(--accent);padding:8px 10px;text-align:left;border:1px solid var(--border);white-space:nowrap;position:sticky;top:0}
+td{padding:6px 10px;border:1px solid var(--border);vertical-align:top}
+tr:hover td{background:rgba(88,166,255,0.05)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:bold;text-transform:uppercase}
+.badge.critical{background:#f8514920;color:var(--red);border:1px solid var(--red)}
+.badge.high{background:#d2992220;color:var(--orange);border:1px solid var(--orange)}
+.badge.medium{background:#58a6ff20;color:var(--accent);border:1px solid var(--accent)}
+.badge.low{background:#8b949e20;color:var(--muted);border:1px solid var(--muted)}
+.badge.sweet_spot{background:#3fb95020;color:var(--green);border:1px solid var(--green)}
+.badge.stretch{background:#d2992220;color:var(--orange);border:1px solid var(--orange)}
+.badge.auction{background:#f8514920;color:var(--red);border:1px solid var(--red)}
+.badge.junk{background:#8b949e20;color:var(--muted);border:1px solid var(--muted)}
+.badge.imminent{background:#f8514940;color:#ff7b72;border:1px solid var(--red)}
+.badge.soon{background:#d2992240;color:var(--orange);border:1px solid var(--orange)}
+.timeline{position:relative;padding:12px 0 12px 24px;border-left:2px solid var(--border)}
+.timeline .event{position:relative;margin-bottom:16px;padding-left:16px}
+.timeline .event::before{content:'';position:absolute;left:-30px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.timeline .event.done::before{background:var(--green);border-color:var(--green)}
+.timeline .event.active::before{background:var(--orange);border-color:var(--orange);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.timeline .date{font-size:11px;color:var(--muted)}
+.timeline .title{font-size:13px;color:var(--text)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;margin:8px 0}
+.card h4{color:var(--accent);margin-bottom:8px;font-size:14px}
+.card p{color:var(--muted);font-size:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:768px){.grid2,.grid3{grid-template-columns:1fr}}
+.progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin:8px 0}
+.progress .bar{height:100%;border-radius:3px;transition:width .5s}
+.bar.green{background:var(--green)}.bar.orange{background:var(--orange)}.bar.red{background:var(--red)}
+.mono{font-family:inherit;font-size:11px;color:var(--muted)}
+.right{text-align:right}
+.scroll-table{max-height:500px;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
+.alert{padding:12px 16px;border-radius:8px;margin:8px 0;font-size:13px}
+.alert.danger{background:#f8514915;border:1px solid #f8514940;color:#ff7b72}
+.alert.warning{background:#d2992215;border:1px solid #d2992240;color:var(--orange)}
+.alert.success{background:#3fb95015;border:1px solid #3fb95040;color:var(--green)}
+.alert.info{background:#58a6ff15;border:1px solid #58a6ff40;color:var(--accent)}
+footer{text-align:center;color:var(--muted);font-size:11px;margin-top:40px;padding:20px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>DOMAIN HUNTER — Sprint 22: First Blood</h1>
+<div class="subtitle">Operational Dashboard | Generated 2026-05-15 | Pipeline v3</div>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="val info">38</div><div class="label">Sweet Spot Domains</div></div>
+<div class="stat"><div class="val">35</div><div class="label">Monitored Domains</div></div>
+<div class="stat"><div class="val warn">12</div><div class="label">Dropping &lt;12 Weeks</div></div>
+<div class="stat"><div class="val danger">2</div><div class="label">Backorder Now</div></div>
+<div class="stat"><div class="val info">$25.00</div><div class="label">Dynadot Balance</div></div>
+<div class="stat"><div class="val">$8.00</div><div class="label">DataForSEO Left</div></div>
+<div class="stat"><div class="val">86</div><div class="label">Tests Passing</div></div>
+<div class="stat"><div class="val info">v3</div><div class="label">Pipeline Version</div></div>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="showTab('overview')">Overview</div>
+<div class="tab" onclick="showTab('sweetspot')">Sweet Spot (38)</div>
+<div class="tab" onclick="showTab('calendar')">Drop Calendar</div>
+<div class="tab" onclick="showTab('ghost')">ghostautonomy.com</div>
+<div class="tab" onclick="showTab('playbook')">Playbooks</div>
+<div class="tab" onclick="showTab('budget')">Budget</div>
+<div class="tab" onclick="showTab('expansion')">Expansion</div>
+<div class="tab" onclick="showTab('readiness')">Go-Live</div>
+</div>
+
+<!-- OVERVIEW TAB -->
+<div id="overview" class="panel active">
+<h2>Sprint 22 Status</h2>
+
+<div class="alert danger">CRITICAL: All 38 sweet_spot scores are based on HEURISTICS ONLY (domain_rank=0). DataForSEO validation with real API needed to confirm classifications. Budget: $0.21 needed, $8.00 available.</div>
+
+<div class="alert warning">ACTION: 2 domains (sunnyray.org, globalgeopark.org) need backorders placed NOW — dropping in ~6 weeks.</div>
+
+<div class="alert success">ghostautonomy.com expires June 7, 2026 (23 DAYS). clientRenewProhibited confirmed. Backorder placement window opening.</div>
+
+<h3>Sprint 22 Agents Delivered</h3>
+<table>
+<tr><th>#</th><th>Agent</th><th>Status</th><th>Deliverable</th></tr>
+<tr><td>1</td><td>DataForSEO Validation</td><td><span class="badge sweet_spot">READY</span></td><td>sprint22_validate_sweetspot.py — dry-run OK, needs live API run</td></tr>
+<tr><td>2</td><td>ghostautonomy.com Dossier</td><td><span class="badge sweet_spot">DONE</span></td><td>Full verification: $220M confirmed, expires Jun 7, TM probable abandoned</td></tr>
+<tr><td>3</td><td>Auto-Backorder Live</td><td><span class="badge sweet_spot">DONE</span></td><td>Cron wrappers updated, --auto-backorder flag, balance check added</td></tr>
+<tr><td>4</td><td>Post-Catch Playbook</td><td><span class="badge sweet_spot">DONE</span></td><td>sprint22_playbook.py — 38 domain strategies generated</td></tr>
+<tr><td>5</td><td>Drop Calendar</td><td><span class="badge sweet_spot">DONE</span></td><td>sprint22_drop_calendar.py — 12-week priority queue</td></tr>
+<tr><td>6</td><td>Balance Monitor</td><td><span class="badge sweet_spot">DONE</span></td><td>_check_dynadot_balance() added to reaper + drop monitor</td></tr>
+<tr><td>7</td><td>ingredientcalculator.com</td><td><span class="badge sweet_spot">DONE</span></td><td>Post-mortem: topical alignment good, expect 1-3mo to rank</td></tr>
+<tr><td>8</td><td>Crunchbase Expansion</td><td><span class="badge sweet_spot">DONE</span></td><td>Research: Kaggle 54K dataset (FREE) = 2-5K dead startups with domains</td></tr>
+<tr><td>9</td><td>Dashboard</td><td><span class="badge sweet_spot">DONE</span></td><td>This dashboard (8 tabs, operational view)</td></tr>
+<tr><td>10</td><td>System Test</td><td><span class="badge sweet_spot">DONE</span></td><td>86/86 tests passing, all scripts verified</td></tr>
+</table>
+
+<h3>Pipeline Architecture (v3)</h3>
+<pre style="color:var(--cyan);font-size:12px;padding:12px;background:var(--surface);border-radius:8px;overflow-x:auto">
+HARVEST ──> RESOLVE ──> PROBE ──> ENRICH ──> SCORE ──> OUTPUT ──> BACKORDER
+(3 sources)  (DeepSeek)  (RDAP)   (DataForSEO) (9-dim)  (JSON+table) (Dynadot)
+ existing     name->dom   EPP      bulk_ranks   weighted  auto-monitor  $10.99/catch
+ DeepSeek     batch       status   bulk_summary  comp     JSON export   20 max slots
+ YC dead      resolve     expiry   editorial     penalty  ASCII table   $220 budget
+
+Sprint 22 additions:
+  + Balance check before backorder     + Drop calendar priority queue
+  + ghostautonomy.com live dossier     + Post-catch playbook per domain
+  + DataForSEO validation script       + Crunchbase expansion research
+  + Cron wrapper logging + notify      + Comprehensive dashboard
+</pre>
+</div>
+
+<!-- SWEET SPOT TAB -->
+<div id="sweetspot" class="panel">
+<h2>38 Sweet Spot Domains — Validation Pending</h2>
+
+<div class="alert warning">WARNING: All domain_rank=0, referring_domains=0. Scores are heuristic-only until DataForSEO validation runs live. Run: <code>python scripts/sprint22_validate_sweetspot.py</code></div>
+
+<div class="scroll-table">
+<table>
+<tr><th>#</th><th>Domain</th><th>Score</th><th>Company</th><th>Funding</th><th>Press</th><th>EPP</th><th>Strategy</th></tr>
+<tr><td>1</td><td><strong>humane.com</strong></td><td>58.3</td><td>Humane</td><td>$241M</td><td>6</td><td>dry_run</td><td>FLIP $3.9K-$39K</td></tr>
+<tr><td>2</td><td><strong>arrival.com</strong></td><td>56.5</td><td>Arrival</td><td>$1.0B</td><td>5</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>3</td><td><strong>irl.com</strong></td><td>56.0</td><td>IRL</td><td>$200M</td><td>4</td><td>dry_run</td><td>FLIP $3.9K-$39K</td></tr>
+<tr><td>4</td><td><strong>olive.com</strong></td><td>56.0</td><td>Olive AI</td><td>$902M</td><td>4</td><td>dry_run</td><td>FLIP $9.8K-$98K</td></tr>
+<tr><td>5</td><td><strong>boweryfarming.com</strong></td><td>55.1</td><td>Bowery Farming</td><td>$700M</td><td>4</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>6</td><td><strong>ghostautonomy.com</strong></td><td>55.1</td><td>Ghost Autonomy</td><td>$220M</td><td>4</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>7</td><td><strong>convoy.com</strong></td><td>52.9</td><td>Convoy</td><td>$1.0B</td><td>5</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>8</td><td><strong>stenn.com</strong></td><td>52.9</td><td>Stenn</td><td>$700M</td><td>4</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>9</td><td><strong>veev.com</strong></td><td>52.9</td><td>Veev</td><td>$600M</td><td>4</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>10</td><td><strong>infarm.com</strong></td><td>51.3</td><td>Infarm</td><td>$500M</td><td>3</td><td>dry_run</td><td>FLIP $5K-$50K</td></tr>
+<tr><td>11</td><td><strong>fiskerinc.com</strong></td><td>51.1</td><td>Fisker</td><td>$1.0B</td><td>5</td><td>dry_run</td><td>FLIP $6.5K-$65K</td></tr>
+<tr><td>12</td><td><strong>northvolt.com</strong></td><td>51.1</td><td>Northvolt</td><td>$13B</td><td>6</td><td>dry_run</td><td>FLIP $9.8K-$98K</td></tr>
+<tr><td>13</td><td><strong>easyknock.com</strong></td><td>50.4</td><td>EasyKnock</td><td>$455M</td><td>3</td><td>dry_run</td><td>FLIP $5K-$50K</td></tr>
+<tr><td>14</td><td><strong>ambri.com</strong></td><td>49.5</td><td>Ambri</td><td>$223M</td><td>3</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>15</td><td><strong>eaze.com</strong></td><td>49.5</td><td>Eaze</td><td>$250M</td><td>3</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>16</td><td><strong>zume.com</strong></td><td>49.5</td><td>Zume</td><td>$445M</td><td>3</td><td>dry_run</td><td>FLIP $5K-$50K</td></tr>
+<tr><td>17</td><td><strong>pandion.com</strong></td><td>48.6</td><td>Pandion</td><td>$125M</td><td>4</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>18</td><td><strong>bench.co</strong></td><td>48.5</td><td>Bench</td><td>$113M</td><td>3</td><td>dry_run</td><td>FLIP $1.3K-$13K</td></tr>
+<tr><td>19</td><td><strong>tally.co</strong></td><td>48.3</td><td>Tally</td><td>$172M</td><td>4</td><td>dry_run</td><td>FLIP $1.3K-$13K</td></tr>
+<tr><td>20</td><td><strong>radpowerbikes.com</strong></td><td>47.9</td><td>Rad Power Bikes</td><td>$325M</td><td>4</td><td>dry_run</td><td>FLIP $5K-$50K</td></tr>
+<tr><td>21</td><td><strong>synapsefi.com</strong></td><td>47.7</td><td>Synapse</td><td>$50M</td><td>4</td><td>dry_run</td><td>FLIP $1K-$10K</td></tr>
+<tr><td>22</td><td><strong>universalhydrogen.com</strong></td><td>47.7</td><td>Universal Hydrogen</td><td>$100M</td><td>4</td><td>dry_run</td><td>FLIP $1.3K-$13K</td></tr>
+<tr><td>23</td><td><strong>mindstrong.com</strong></td><td>46.8</td><td>Mindstrong</td><td>$160M</td><td>4</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>24</td><td><strong>kintsugi.com</strong></td><td>45.9</td><td>Kintsugi</td><td>$30M</td><td>3</td><td>dry_run</td><td>FLIP $650-$6.5K</td></tr>
+<tr><td>25</td><td><strong>plastiq.com</strong></td><td>45.5</td><td>Plastiq</td><td>$220M</td><td>3</td><td>dry_run</td><td>FLIP $2.6K-$26K</td></tr>
+<tr><td>26</td><td><strong>wyre.com</strong></td><td>45.2</td><td>Wyre</td><td>$50M</td><td>2</td><td>dry_run</td><td>FLIP $520-$5.2K</td></tr>
+<tr><td>27</td><td><strong>cushion.ai</strong></td><td>44.8</td><td>Cushion</td><td>$21M</td><td>3</td><td>dry_run</td><td>FLIP $455-$4.6K</td></tr>
+<tr><td>28</td><td><strong>moxionpower.com</strong></td><td>44.3</td><td>Moxion Power</td><td>$110M</td><td>3</td><td>dry_run</td><td>FLIP $1.3K-$13K</td></tr>
+<tr><td>29</td><td><strong>runningtide.com</strong></td><td>44.1</td><td>Running Tide</td><td>$54M</td><td>5</td><td>dry_run</td><td>FLIP $845-$8.5K</td></tr>
+<tr><td>30</td><td><strong>themessenger.com</strong></td><td>44.1</td><td>The Messenger</td><td>$50M</td><td>6</td><td>dry_run</td><td>FLIP $845-$8.5K</td></tr>
+<tr><td>31</td><td><strong>maas.global</strong></td><td>41.0</td><td>MaaS Global</td><td>$162M</td><td>3</td><td>dry_run</td><td>FLIP $780-$7.8K</td></tr>
+<tr><td>32</td><td><strong>noogata.com</strong></td><td>41.0</td><td>Noogata</td><td>$28M</td><td>2</td><td>dry_run</td><td>FLIP $416-$4.2K</td></tr>
+<tr><td>33</td><td><strong>hermd.com</strong></td><td>39.6</td><td>Hermd</td><td>$36M</td><td>2</td><td>dry_run</td><td>FLIP $520-$5.2K</td></tr>
+<tr><td>34</td><td><strong>capway.com</strong></td><td>38.0</td><td>CapWay</td><td>$800K</td><td>2</td><td>dry_run</td><td>FLIP $130-$1.3K</td></tr>
+<tr><td>35</td><td><strong>scififoods.com</strong></td><td>37.8</td><td>SciFi Foods</td><td>$30M</td><td>2</td><td>dry_run</td><td>FLIP $416-$4.2K</td></tr>
+<tr><td>36</td><td><strong>allplants.com</strong></td><td>37.6</td><td>allplants</td><td>$81M</td><td>2</td><td>dry_run</td><td>FLIP $845-$8.5K</td></tr>
+<tr><td>37</td><td><strong>ionicmaterials.com</strong></td><td>36.2</td><td>Ionic Materials</td><td>$65M</td><td>2</td><td>dry_run</td><td>FLIP $845-$8.5K</td></tr>
+<tr><td>38</td><td><strong>ubiquitousenergy.com</strong></td><td>36.2</td><td>Ubiquitous Energy</td><td>$70M</td><td>2</td><td>dry_run</td><td>FLIP $845-$8.5K</td></tr>
+</table>
+</div>
+
+<h3>Portfolio Value Estimate (All 38 Sweet Spot)</h3>
+<div class="grid3">
+<div class="stat"><div class="val info">$417.62</div><div class="label">Total Catch Cost (38 x $10.99)</div></div>
+<div class="stat"><div class="val">$97K-$970K</div><div class="label">Est. Portfolio Value</div></div>
+<div class="stat"><div class="val green">233x-2,326x</div><div class="label">Portfolio ROI</div></div>
+</div>
+</div>
+
+<!-- DROP CALENDAR TAB -->
+<div id="calendar" class="panel">
+<h2>Drop Calendar — Next 12 Weeks</h2>
+
+<div class="alert danger">2 domains need IMMEDIATE backorders: sunnyray.org (~Jun 30) and globalgeopark.org (~Jul 1)</div>
+
+<table>
+<tr><th>Domain</th><th>Est. Drop</th><th>Days</th><th>EPP Status</th><th>Tier</th><th>Urgency</th><th>ETV</th><th>Max Bid</th><th>Action</th></tr>
+<tr style="background:#f8514910"><td><strong>bestdevtools.com</strong></td><td>May 22</td><td>7</td><td>clientHold</td><td><span class="badge medium">medium</span></td><td><span class="badge imminent">WATCH</span></td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr><td><strong>taskplanner.com</strong></td><td>May 27</td><td>12</td><td>clientRenewProhibited</td><td><span class="badge medium">medium</span></td><td>MONTHS</td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr><td><strong>fileconverter.com</strong></td><td>Jun 20</td><td>36</td><td>clientRenewProhibited</td><td><span class="badge medium">medium</span></td><td>MONTHS</td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr style="background:#f8514910"><td><strong>guerrameats.com</strong></td><td>~Jun 26</td><td>42</td><td>clientHold</td><td><span class="badge critical">critical</span></td><td><span class="badge imminent">WATCH</span></td><td>$11,376</td><td>$200</td><td>Backorder soon</td></tr>
+<tr style="background:#d2992210"><td><strong>sunnyray.org</strong></td><td>~Jun 30</td><td>46</td><td>autoRenewPeriod</td><td><span class="badge critical">critical</span></td><td><span class="badge soon">WEEKS</span></td><td>$2,842</td><td>$100</td><td><strong>BACKORDER NOW</strong></td></tr>
+<tr style="background:#d2992210"><td><strong>globalgeopark.org</strong></td><td>~Jul 1</td><td>47</td><td>autoRenewPeriod</td><td><span class="badge critical">critical</span></td><td><span class="badge soon">WEEKS</span></td><td>$626</td><td>$400</td><td><strong>BACKORDER NOW</strong></td></tr>
+<tr><td><strong>goodglammgroup.com</strong></td><td>~Jul 6</td><td>52</td><td>clientRenewProhibited</td><td><span class="badge high">high</span></td><td>MONTHS</td><td>$0</td><td>$100</td><td>Monitor</td></tr>
+<tr><td><strong>sendy.co</strong></td><td>~Jul 16</td><td>62</td><td>clientRenewProhibited</td><td><span class="badge high">high</span></td><td>MONTHS</td><td>$3,179</td><td>$150</td><td>Monitor</td></tr>
+<tr><td><strong>codehelper.com</strong></td><td>~Jul 17</td><td>63</td><td>clientRenewProhibited</td><td><span class="badge medium">medium</span></td><td>MONTHS</td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr><td><strong>cookingtool.com</strong></td><td>~Jul 17</td><td>63</td><td>clientRenewProhibited</td><td><span class="badge medium">medium</span></td><td>MONTHS</td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr><td><strong>codeanalyzer.com</strong></td><td>~Jul 20</td><td>66</td><td>clientRenewProhibited</td><td><span class="badge medium">medium</span></td><td>MONTHS</td><td>$0</td><td>$59</td><td>Monitor</td></tr>
+<tr><td><strong>readingfoundation.org</strong></td><td>~Jul 30</td><td>76</td><td>clientRenewProhibited</td><td><span class="badge high">high</span></td><td>MONTHS</td><td>$7,207</td><td>$200</td><td>Backorder Jul</td></tr>
+</table>
+
+<h3>Backorder Cost (Immediate)</h3>
+<div class="stats">
+<div class="stat"><div class="val">2</div><div class="label">Domains to Backorder Now</div></div>
+<div class="stat"><div class="val">$21.98</div><div class="label">Cost (on catch only)</div></div>
+<div class="stat"><div class="val">$3,468</div><div class="label">Combined ETV</div></div>
+</div>
+</div>
+
+<!-- GHOSTAUTONOMY TAB -->
+<div id="ghost" class="panel">
+<h2>ghostautonomy.com — Target Dossier</h2>
+
+<div class="alert danger">EXPIRES JUNE 7, 2026 — 23 DAYS. clientRenewProhibited + 403 Forbidden = NOT BEING RENEWED.</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Company: Ghost Autonomy, Inc.</h4>
+<p><strong>Founded:</strong> 2017 by John Hayes (ex-CTO Yahoo) + Volkmar Uhlig<br>
+<strong>HQ:</strong> Mountain View, CA + Dallas + Sydney<br>
+<strong>Product:</strong> Aftermarket self-driving kit -> crash prevention -> LLM driving<br>
+<strong>Employees:</strong> ~100 at peak<br>
+<strong>Shutdown:</strong> April 3, 2024 — "path to profitability uncertain"</p>
+</div>
+<div class="card">
+<h4>Funding: $220M CONFIRMED</h4>
+<p><strong>Seed/B:</strong> $63.7M — Founders Fund, Khosla, Sutter Hill<br>
+<strong>Series D:</strong> $100M (Jul 2021) — + Coatue<br>
+<strong>Series E:</strong> $55M (Mar 2023, down round)<br>
+<strong>OpenAI:</strong> $5M (Nov 2023) — shut down 5 months later<br>
+<strong>Key investors:</strong> Keith Rabois, Vinod Khosla, Mike Speiser</p>
+</div>
+</div>
+
+<div class="grid2">
+<div class="card">
+<h4>Domain Status (LIVE WHOIS)</h4>
+<p><strong>Registrar:</strong> Wild West Domains (GoDaddy subsidiary)<br>
+<strong>Created:</strong> 2022-06-07 (4 years old)<br>
+<strong>Expires:</strong> 2026-06-07 (23 days!)<br>
+<strong>Last Updated:</strong> 2024-11-27<br>
+<strong>EPP:</strong> clientDeleteProhibited, clientRenewProhibited, clientTransferProhibited, clientUpdateProhibited<br>
+<strong>DNS:</strong> Cloudflare (172.67.171.189) — returns 403 Forbidden<br>
+<strong>Nameservers:</strong> coby.ns.cloudflare.com, melody.ns.cloudflare.com</p>
+</div>
+<div class="card">
+<h4>Trademark + IP</h4>
+<p><strong>TM Filed:</strong> KINETICFLOW (SN 97435766) — Ghost Locomotion Inc., May 2022<br>
+<strong>TM Status:</strong> PROBABLE ABANDONED (company dead 14mo, no maintenance)<br>
+<strong>Patents:</strong> Sold to Applied Intuition (Oct 22, 2024)<br>
+<strong>Domain sale:</strong> NO evidence of any listing or auction<br>
+<strong>UDRP risk:</strong> Very low — company dead 14+ months, IP sold separately, original brand abandoned</p>
+</div>
+</div>
+
+<div class="card">
+<h4>Press Coverage (Editorial Backlinks)</h4>
+<p>TechCrunch, SiliconANGLE, S&P AutoTech Insight, BusinessWire, PR Newswire, IoT World Today, KRON4 (CBS Bay Area), Verdict.co.uk, Silicon Republic, VentureCapital.com</p>
+</div>
+
+<div class="card">
+<h4>Acquisition Timeline</h4>
+<p>
+<strong>Jun 7:</strong> Domain expires at GoDaddy/Wild West Domains<br>
+<strong>Jun 7-Jul 7:</strong> ~30 day redemption period (registrant can renew at premium ~$80)<br>
+<strong>Jul 7-Jul 12:</strong> ~5 day pendingDelete (no one can renew)<br>
+<strong>Jul 12+:</strong> Domain enters GoDaddy Expired Auctions OR drops to general registration<br>
+<strong>Strategy:</strong> Place Dynadot backorder ($10.99) BEFORE pendingDelete. Also monitor GoDaddy Auctions.
+</p>
+</div>
+
+<h3>Secondary Domain: driveghost.com</h3>
+<div class="alert warning">driveghost.com (original blog domain) has been HIJACKED — serving casino spam with Yandex analytics. Expires Sep 25, 2026. NOT a priority acquisition target.</div>
+</div>
+
+<!-- PLAYBOOK TAB -->
+<div id="playbook" class="panel">
+<h2>Post-Catch Playbook — Top 10 Sweet Spot</h2>
+
+<table>
+<tr><th>#</th><th>Domain</th><th>Funding</th><th>Strategy</th><th>Est. Value</th><th>ROI</th><th>Channels</th></tr>
+<tr><td>1</td><td><strong>humane.com</strong></td><td>$241M</td><td>FLIP</td><td>$3.9K-$39K</td><td>355x-3549x</td><td>Afternic, Sedo, AI buyer outreach</td></tr>
+<tr><td>2</td><td><strong>arrival.com</strong></td><td>$1.0B</td><td>FLIP</td><td>$6.5K-$65K</td><td>591x-5914x</td><td>Sedo, EV/mobility companies</td></tr>
+<tr><td>3</td><td><strong>irl.com</strong></td><td>$200M</td><td>FLIP</td><td>$3.9K-$39K</td><td>355x-3549x</td><td>Premium 3-letter .com marketplace</td></tr>
+<tr><td>4</td><td><strong>olive.com</strong></td><td>$902M</td><td>FLIP</td><td>$9.8K-$98K</td><td>887x-8872x</td><td>Dan.com, end-user (food/health)</td></tr>
+<tr><td>5</td><td><strong>ghostautonomy.com</strong></td><td>$220M</td><td>FLIP</td><td>$2.6K-$26K</td><td>237x-2366x</td><td>AV companies, Applied Intuition</td></tr>
+<tr><td>6</td><td><strong>convoy.com</strong></td><td>$1.0B</td><td>FLIP</td><td>$6.5K-$65K</td><td>591x-5914x</td><td>Logistics companies, Sedo</td></tr>
+<tr><td>7</td><td><strong>northvolt.com</strong></td><td>$13B</td><td>FLIP</td><td>$9.8K-$98K</td><td>887x-8872x</td><td>Battery/EV companies, premium .com</td></tr>
+<tr><td>8</td><td><strong>fiskerinc.com</strong></td><td>$1.0B</td><td>FLIP</td><td>$6.5K-$65K</td><td>591x-5914x</td><td>EV companies, Sedo, Dan.com</td></tr>
+<tr><td>9</td><td><strong>veev.com</strong></td><td>$600M</td><td>FLIP</td><td>$6.5K-$65K</td><td>591x-5914x</td><td>Short 4-letter .com premium</td></tr>
+<tr><td>10</td><td><strong>infarm.com</strong></td><td>$500M</td><td>FLIP</td><td>$5K-$50K</td><td>455x-4550x</td><td>AgTech companies, Sedo</td></tr>
+</table>
+
+<h3>Strategy Distribution (38 domains)</h3>
+<div class="stats">
+<div class="stat"><div class="val">38</div><div class="label">FLIP (primary)</div></div>
+<div class="stat"><div class="val">28</div><div class="label">REBUILD (secondary)</div></div>
+<div class="stat"><div class="val">0</div><div class="label">REDIRECT</div></div>
+</div>
+<p style="color:var(--muted);font-size:12px;margin-top:8px">REDIRECT will become primary for domains with real backlink data after DataForSEO validation.</p>
+</div>
+
+<!-- BUDGET TAB -->
+<div id="budget" class="panel">
+<h2>Budget & Balance Tracking</h2>
+
+<div class="grid3">
+<div class="card">
+<h4>Dynadot</h4>
+<p><strong>Balance:</strong> $25.00<br>
+<strong>Price per catch:</strong> $10.99<br>
+<strong>Max slots:</strong> 20<br>
+<strong>Active backorders:</strong> 0<br>
+<strong>Available:</strong> $25.00 (2 catches)</p>
+<div class="progress"><div class="bar green" style="width:11%"></div></div>
+<p class="mono">$25 / $220 budget used (11%)</p>
+</div>
+<div class="card">
+<h4>DataForSEO</h4>
+<p><strong>Balance:</strong> ~$8.00<br>
+<strong>Validation cost:</strong> ~$0.21 (38 domains)<br>
+<strong>Weekly scan cost:</strong> ~$0.12<br>
+<strong>Remaining scans:</strong> ~66</p>
+<div class="progress"><div class="bar green" style="width:97%"></div></div>
+<p class="mono">~$8 remaining of subscription</p>
+</div>
+<div class="card">
+<h4>DeepSeek</h4>
+<p><strong>Balance:</strong> ~$20.00<br>
+<strong>Per scan cost:</strong> ~$0.03<br>
+<strong>Remaining scans:</strong> ~666<br>
+<strong>Usage:</strong> HARVEST + RESOLVE</p>
+<div class="progress"><div class="bar green" style="width:80%"></div></div>
+<p class="mono">~$20 remaining of $25</p>
+</div>
+</div>
+
+<h3>Annual Cost Projection</h3>
+<table>
+<tr><th>Item</th><th>Monthly</th><th>Annual</th></tr>
+<tr><td>Weekly Reaper scans (4.3/mo)</td><td>$0.65</td><td>$7.80</td></tr>
+<tr><td>Drop Monitor RDAP (free)</td><td>$0.00</td><td>$0.00</td></tr>
+<tr><td>Backorder catches (~1/mo est.)</td><td>$10.99</td><td>$131.88</td></tr>
+<tr><td><strong>Total operations</strong></td><td><strong>~$12</strong></td><td><strong>~$140</strong></td></tr>
+</table>
+
+<h3>ROI Scenarios</h3>
+<table>
+<tr><th>Scenario</th><th>Catches/yr</th><th>Avg Value</th><th>Revenue</th><th>Cost</th><th>Profit</th><th>ROI</th></tr>
+<tr><td>Conservative</td><td>2</td><td>$500</td><td>$1,000</td><td>$140</td><td>$860</td><td>614%</td></tr>
+<tr><td>Moderate</td><td>5</td><td>$1,000</td><td>$5,000</td><td>$195</td><td>$4,805</td><td>2,464%</td></tr>
+<tr><td>Optimistic</td><td>10</td><td>$2,000</td><td>$20,000</td><td>$250</td><td>$19,750</td><td>7,900%</td></tr>
+<tr style="background:#3fb95010"><td><strong>Whale catch</strong></td><td>1</td><td>$10,000</td><td>$10,000</td><td>$151</td><td>$9,849</td><td><strong>6,522%</strong></td></tr>
+</table>
+</div>
+
+<!-- EXPANSION TAB -->
+<div id="expansion" class="panel">
+<h2>Pipeline Expansion — New Data Sources (Agent 8)</h2>
+
+<div class="alert info">Research complete: Kaggle Crunchbase dataset (FREE, 54K records) is the #1 expansion target. 2,000-5,000 dead startups with funding data.</div>
+
+<table>
+<tr><th>Priority</th><th>Source</th><th>Cost</th><th>Est. Yield ($5M+ dead)</th><th>Has Domain?</th><th>Has Funding?</th><th>Effort</th></tr>
+<tr style="background:#3fb95010"><td>1</td><td><strong>Kaggle Crunchbase 54K</strong></td><td>FREE</td><td>2,000-5,000</td><td>Likely</td><td>Yes (exact USD)</td><td>Download + filter, 10 min</td></tr>
+<tr><td>2</td><td>Crunchbase Basic CSV</td><td>$49/mo</td><td>5,000-15,000</td><td>Yes</td><td>Needs verification</td><td>Sign up, download</td></tr>
+<tr><td>3</td><td>Loot Drop (loot-drop.io)</td><td>FREE</td><td>800-1,200</td><td>Maybe</td><td>Yes</td><td>Build scraper, ~2h</td></tr>
+<tr><td>4</td><td>CB Insights 483 list</td><td>Free (partial)</td><td>~400</td><td>No (cross-ref)</td><td>Yes (unstructured)</td><td>Scrape + NLP, ~4h</td></tr>
+<tr><td>5</td><td>GitHub 2015 Crunchbase</td><td>FREE</td><td>Stale supplement</td><td>Yes</td><td>Via rounds.csv</td><td>Cross-reference only</td></tr>
+</table>
+
+<h3>Current vs. Expanded Pipeline</h3>
+<div class="grid2">
+<div class="card">
+<h4>Current (Sprint 22)</h4>
+<p>3 sources: Existing data (269) + DeepSeek LLM (50) + YC Dead (1,034 inactive)<br>
+<strong>Total pool: ~1,353 startups</strong><br>
+After dedup + filter: ~149 scored</p>
+</div>
+<div class="card">
+<h4>After Kaggle Integration</h4>
+<p>4 sources: + Kaggle Crunchbase (2,000-5,000 dead with $5M+)<br>
+<strong>Total pool: ~3,353-6,353 startups</strong><br>
+Expected scored: ~300-500 (2-3x increase)</p>
+</div>
+</div>
+
+<h3>ingredientcalculator.com Post-Mortem (Agent 7)</h3>
+<div class="card">
+<h4>Key Findings</h4>
+<p><strong>History:</strong> GoDaddy parked 2011-2013, expired May 2013, dead 8 years, React app 2021-2022, offline since 2022.<br>
+<strong>Current:</strong> 67 queries / 3 clicks in 7 days from GSC — positive early signal, not sandboxed.<br>
+<strong>Topical alignment:</strong> NEAR PERFECT — old site was ingredient converter, new site is ingredient calculator.<br>
+<strong>Timeline:</strong> Expect 1-3 months for meaningful results (vs 6-12 months for fresh domain).<br>
+<strong>Risk:</strong> Minimal backlink profile from only 1 year active (2021-2022). 3+ years offline = Google fully decayed link equity.<br>
+<strong>Action:</strong> Keep publishing content, check back at 30 and 90 days. Build external signals (Reddit r/cooking, YouTube).</p>
+</div>
+</div>
+
+<!-- GO-LIVE TAB -->
+<div id="readiness" class="panel">
+<h2>Go-Live Readiness Check (Agent 10)</h2>
+
+<h3>System Status</h3>
+<table>
+<tr><th>Component</th><th>Status</th><th>Details</th></tr>
+<tr><td>Tests</td><td><span class="badge sweet_spot">86/86 PASS</span></td><td>All scoring, dedup, formatting, Sprint 21 tests pass in 0.07s</td></tr>
+<tr><td>Pipeline v3</td><td><span class="badge sweet_spot">READY</span></td><td>7 stages, 9-dim scoring, competition penalty, balance check</td></tr>
+<tr><td>Cron Wrappers</td><td><span class="badge sweet_spot">UPDATED</span></td><td>Logging, .env loading, macOS notification, --auto-backorder flag</td></tr>
+<tr><td>Dry Run</td><td><span class="badge sweet_spot">PASS</span></td><td>149 domains scored, 38 sweet_spot, 111 junk</td></tr>
+<tr><td>Validation Script</td><td><span class="badge sweet_spot">READY</span></td><td>sprint22_validate_sweetspot.py — needs live API run ($0.21)</td></tr>
+<tr><td>Drop Calendar</td><td><span class="badge sweet_spot">WORKING</span></td><td>12-week lookahead, 2 immediate backorder recommendations</td></tr>
+<tr><td>Playbook Generator</td><td><span class="badge sweet_spot">WORKING</span></td><td>38 domains with FLIP/REBUILD/REDIRECT strategies</td></tr>
+<tr><td>Balance Monitor</td><td><span class="badge sweet_spot">ADDED</span></td><td>_check_dynadot_balance() + low balance warning</td></tr>
+</table>
+
+<h3>Pre-Flight Checklist</h3>
+<table>
+<tr><th>Check</th><th>Status</th><th>Command</th></tr>
+<tr><td>Run DataForSEO validation with real API</td><td><span class="badge high">TODO</span></td><td><code>python scripts/sprint22_validate_sweetspot.py</code></td></tr>
+<tr><td>Place backorders for sunnyray.org + globalgeopark.org</td><td><span class="badge high">TODO</span></td><td><code>python scripts/startup_reaper.py --auto-backorder --sources existing</code></td></tr>
+<tr><td>Place backorder for ghostautonomy.com</td><td><span class="badge high">TODO</span></td><td>Manual via Dynadot dashboard (expires Jun 7)</td></tr>
+<tr><td>Run full live scan (not dry-run)</td><td><span class="badge high">TODO</span></td><td><code>bash scripts/run_startup_reaper.sh</code></td></tr>
+<tr><td>Enable weekly cron job</td><td><span class="badge high">TODO</span></td><td><code>crontab -e</code> — add reaper + monitor entries</td></tr>
+<tr><td>Download Kaggle Crunchbase dataset</td><td><span class="badge medium">NEXT</span></td><td>kaggle.com/yanmaksi/big-startup-secsees-fail-dataset</td></tr>
+<tr><td>Top up Dynadot balance ($50+)</td><td><span class="badge medium">NEXT</span></td><td>dynadot.com — need $50+ for 5 catch attempts</td></tr>
+</table>
+
+<h3>Sprint 22 New Files</h3>
+<table>
+<tr><th>File</th><th>Purpose</th><th>Status</th></tr>
+<tr><td>scripts/sprint22_validate_sweetspot.py</td><td>DataForSEO validation of 38 sweet_spot</td><td>Created</td></tr>
+<tr><td>scripts/sprint22_drop_calendar.py</td><td>Drop priority queue (12-week lookahead)</td><td>Created</td></tr>
+<tr><td>scripts/sprint22_playbook.py</td><td>Post-catch strategy per domain</td><td>Created</td></tr>
+<tr><td>scripts/run_startup_reaper.sh</td><td>Updated cron wrapper with logging + notify</td><td>Updated</td></tr>
+<tr><td>scripts/startup_reaper.py</td><td>Added balance check, Sprint 22 version</td><td>Updated</td></tr>
+</table>
+</div>
+
+</div><!-- end container -->
+
+<footer>
+Domain Hunter — Sprint 22: First Blood | Generated 2026-05-15 | Pipeline v3 | 86 tests passing<br>
+38 sweet_spot domains | 35 monitored | 12 dropping &lt;12 weeks | $140/year operating cost
+</footer>
+
+<script>
+function showTab(id){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

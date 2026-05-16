@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DOMAIN HUNTER — Command Center</title>
+<style>
+:root{--bg:#0a0e17;--surface:#111827;--card:#1e293b;--border:#334155;--text:#e2e8f0;--dim:#94a3b8;--accent:#38bdf8;--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--purple:#a78bfa;--pink:#f472b6;--cyan:#06b6d4;--emerald:#10b981;--orange:#fb923c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:13px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);border-bottom:2px solid var(--accent);padding:24px 32px;position:sticky;top:0;z-index:100}
+.header h1{font-size:22px;color:var(--accent);letter-spacing:3px;text-transform:uppercase}
+.header .subtitle{color:var(--dim);font-size:11px;margin-top:4px}
+.tabs{display:flex;gap:2px;padding:8px 32px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap;position:sticky;top:82px;z-index:99}
+.tab{padding:8px 16px;cursor:pointer;border:1px solid transparent;border-radius:4px 4px 0 0;color:var(--dim);font-size:12px;transition:all .2s;white-space:nowrap}
+.tab:hover{color:var(--text);background:var(--card)}
+.tab.active{color:var(--accent);border-color:var(--accent);background:var(--card)}
+.content{padding:24px 32px;max-width:1600px;margin:0 auto}
+.panel{display:none}.panel.active{display:block}
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.grid-5{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card h3{color:var(--accent);font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .value{font-size:28px;font-weight:bold}
+.card .label{font-size:11px;color:var(--dim);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.card .sub{font-size:11px;color:var(--dim)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:bold;text-transform:uppercase}
+.badge-red{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.badge-green{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.badge-amber{background:rgba(245,158,11,.15);color:var(--amber);border:1px solid rgba(245,158,11,.3)}
+.badge-purple{background:rgba(167,139,250,.15);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+.badge-cyan{background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.3)}
+.badge-pink{background:rgba(244,114,182,.15);color:var(--pink);border:1px solid rgba(244,114,182,.3)}
+.badge-orange{background:rgba(251,146,60,.15);color:var(--orange);border:1px solid rgba(251,146,60,.3)}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th{text-align:left;padding:8px 12px;background:var(--surface);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--accent);position:sticky;top:130px}
+td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:top}
+tr:hover td{background:rgba(56,189,248,.03)}
+.section{margin-bottom:32px}
+.section h2{color:var(--accent);font-size:16px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.alert{padding:12px 16px;border-radius:6px;margin-bottom:8px;font-size:12px;border-left:3px solid}
+.alert-critical{background:rgba(239,68,68,.08);border-color:var(--red);color:var(--red)}
+.alert-warning{background:rgba(245,158,11,.08);border-color:var(--amber);color:var(--amber)}
+.alert-info{background:rgba(56,189,248,.08);border-color:var(--accent);color:var(--accent)}
+.alert-success{background:rgba(34,197,94,.08);border-color:var(--green);color:var(--green)}
+.progress-bar{height:8px;background:var(--surface);border-radius:4px;overflow:hidden;margin-top:6px}
+.progress-fill{height:100%;border-radius:4px}
+.funnel{display:flex;flex-direction:column;gap:6px;max-width:800px}
+.funnel-step{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--card);border:1px solid var(--border);border-radius:4px}
+.funnel-step .count{min-width:80px;font-size:18px;font-weight:bold;color:var(--accent)}
+.funnel-step .desc{font-size:12px;color:var(--dim)}
+.funnel-step .bar{flex:1;height:20px;background:var(--surface);border-radius:3px;overflow:hidden}
+.funnel-step .bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--cyan))}
+tr.row-critical td{border-left:3px solid var(--red)}
+tr.row-high td{border-left:3px solid var(--orange)}
+tr.row-medium td{border-left:3px solid var(--amber)}
+tr.row-low td{border-left:3px solid var(--dim)}
+tr.row-sweet td{background:rgba(34,197,94,.04)}
+.spotlight{background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(56,189,248,.08));border:1px solid var(--purple);border-radius:8px;padding:20px;margin-bottom:16px}
+.spotlight h3{color:var(--purple);font-size:15px;margin-bottom:10px}
+.metric-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-size:11px}
+.metric .mv{font-size:18px;font-weight:bold;display:block;margin-top:2px}
+.dim{color:var(--dim)}.red{color:var(--red)}.green{color:var(--green)}.amber{color:var(--amber)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}.orange{color:var(--orange)}.accent{color:var(--accent)}
+.code{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px;font-size:12px;overflow-x:auto;margin:8px 0;white-space:pre}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin:1px}
+.tag-ai{background:rgba(56,189,248,.15);color:var(--accent)}
+.tag-fintech{background:rgba(167,139,250,.15);color:var(--purple)}
+.tag-health{background:rgba(244,114,182,.15);color:var(--pink)}
+.tag-ev{background:rgba(34,197,94,.15);color:var(--green)}
+.tag-other{background:rgba(148,163,184,.1);color:var(--dim)}
+@media(max-width:768px){.header{padding:16px}.content{padding:16px}.tabs{padding:8px 16px}th{position:static}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DOMAIN HUNTER</h1>
+  <div class="subtitle">Project REVENANT &mdash; Autonomous Domain Acquisition Command Center &mdash; 2026-05-15 &mdash; Sprint 21 Complete</div>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-tab="overview">Overview</div>
+  <div class="tab" data-tab="watchlist">Watchlist (35)</div>
+  <div class="tab" data-tab="reaper">Startup Reaper</div>
+  <div class="tab" data-tab="pipeline">Pipeline Architecture</div>
+  <div class="tab" data-tab="sprints">Sprint History</div>
+  <div class="tab" data-tab="codebase">Codebase</div>
+  <div class="tab" data-tab="budget">Budget</div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════════════════════════════════ OVERVIEW -->
+<div class="panel active" id="overview">
+  <div class="grid grid-5" style="margin-bottom:24px">
+    <div class="card"><div class="label">Pipeline Status</div><div class="value green">ACTIVE</div><div class="sub">3 cron jobs running</div></div>
+    <div class="card"><div class="label">Domains Monitored</div><div class="value accent">35</div><div class="sub">4 critical &bull; 20 high &bull; 8 med &bull; 3 low</div></div>
+    <div class="card"><div class="label">Reaper Scored</div><div class="value cyan">149</div><div class="sub">38 sweet_spot &bull; 111 junk</div></div>
+    <div class="card"><div class="label">Sprint</div><div class="value purple">21</div><div class="sub">The $10.99 Pipeline</div></div>
+    <div class="card"><div class="label">Tests</div><div class="value green">86 PASS</div><div class="sub">0 failures &bull; 0.09s</div></div>
+  </div>
+
+  <div class="grid grid-4" style="margin-bottom:24px">
+    <div class="card"><div class="label">Dynadot Balance</div><div class="value accent">$25.00</div><div class="sub">20 backorder slots available</div></div>
+    <div class="card"><div class="label">Reaper Cost/Scan</div><div class="value green">$0.15</div><div class="sub">DeepSeek + DataForSEO</div></div>
+    <div class="card"><div class="label">Backorder Cost</div><div class="value amber">$10.99</div><div class="sub">Charge on success only</div></div>
+    <div class="card"><div class="label">Dead Startups DB</div><div class="value">1,235</div><div class="sub">42 S7 + 205 S14 + 21 S16 + 1034 YC</div></div>
+  </div>
+
+  <!-- Urgent alerts -->
+  <div class="section">
+    <h2>Active Alerts</h2>
+    <div class="alert alert-critical">CRITICAL: guerrameats.com — clientHold + DNS DEAD — dropping ~Jun 26 — ETV $11,376 — max bid $200</div>
+    <div class="alert alert-critical">CRITICAL: ghostautonomy.com — $220M funded, DA 52, TM ABANDONED — expires 2026-06-07 — pendingDelete ~Aug 2026</div>
+    <div class="alert alert-warning">HIGH: sunnyray.org — autoRenewPeriod — dropping ~Jun 30 — ETV $2,842 — max bid $100</div>
+    <div class="alert alert-warning">HIGH: globalgeopark.org — autoRenewPeriod — dropping ~Jul 1 — ETV $626 — max bid $400</div>
+    <div class="alert alert-info">INFO: Sprint 21 complete — 9-dimension scoring + competition penalty + auto-backorder stage deployed</div>
+    <div class="alert alert-success">PASS: 86/86 tests passing — all Sprint 21 functions verified</div>
+  </div>
+
+  <!-- Spotlight: The $10.99 Strategy -->
+  <div class="spotlight">
+    <h3>The $10.99 Strategy (Sprint 21)</h3>
+    <p style="margin-bottom:12px">Professional drop-catchers fight over DR 60+ domains at $500-5000 auction bids. We target DR 10-35 domains with hidden editorial backlinks — the sweet spot they ignore. Cost: $10.99 flat per catch via Dynadot backorder.</p>
+    <div class="grid grid-4">
+      <div class="card"><div class="label">Their Approach</div><div class="value red">DR 60+</div><div class="sub">$500-5000 auction bids</div></div>
+      <div class="card"><div class="label">Our Approach</div><div class="value green">DR 10-35</div><div class="sub">$10.99 flat backorder</div></div>
+      <div class="card"><div class="label">Their Competitors</div><div class="value red">50+</div><div class="sub">SnapNames, NameJet, etc</div></div>
+      <div class="card"><div class="label">Our Competitors</div><div class="value green">0-3</div><div class="sub">Sweet spot: invisible</div></div>
+    </div>
+  </div>
+
+  <!-- Top Reaper Domains -->
+  <div class="section">
+    <h2>Top 15 Reaper Domains (Sprint 21 Scoring)</h2>
+    <table>
+      <tr><th>#</th><th>Domain</th><th>Score</th><th>Tier</th><th>Competition</th><th>Funding</th><th>Sector</th><th>Press</th><th>Bid</th></tr>
+      <tr class="row-sweet"><td>1</td><td><strong>humane.com</strong></td><td class="green">58.3</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$241M</td><td><span class="tag tag-ai">ai</span></td><td>6</td><td>$300</td></tr>
+      <tr class="row-sweet"><td>2</td><td><strong>arrival.com</strong></td><td class="green">56.5</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$1.0B</td><td><span class="tag tag-ev">ev</span></td><td>5</td><td>$300</td></tr>
+      <tr class="row-sweet"><td>3</td><td><strong>irl.com</strong></td><td class="green">56.0</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$200M</td><td><span class="tag tag-other">social</span></td><td>4</td><td>$300</td></tr>
+      <tr class="row-sweet"><td>4</td><td><strong>olive.com</strong></td><td class="green">56.0</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$902M</td><td><span class="tag tag-health">healthtech</span></td><td>4</td><td>$300</td></tr>
+      <tr class="row-sweet"><td>5</td><td><strong>boweryfarming.com</strong></td><td class="green">55.1</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$700M</td><td><span class="tag tag-other">agritech</span></td><td>4</td><td>$300</td></tr>
+      <tr class="row-sweet"><td>6</td><td><strong>ghostautonomy.com</strong></td><td class="green">55.1</td><td><span class="badge badge-amber">HIGH</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$220M</td><td><span class="tag tag-ai">ai</span></td><td>4</td><td>$300</td></tr>
+      <tr><td>7</td><td>convoy.com</td><td class="amber">52.9</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$1.0B</td><td><span class="tag tag-other">logistics</span></td><td>5</td><td>$59</td></tr>
+      <tr><td>8</td><td>stenn.com</td><td class="amber">52.9</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$700M</td><td><span class="tag tag-fintech">fintech</span></td><td>4</td><td>$59</td></tr>
+      <tr><td>9</td><td>veev.com</td><td class="amber">52.9</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$600M</td><td><span class="tag tag-other">proptech</span></td><td>4</td><td>$59</td></tr>
+      <tr><td>10</td><td>infarm.com</td><td class="amber">51.3</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$500M</td><td><span class="tag tag-other">agritech</span></td><td>3</td><td>$59</td></tr>
+      <tr><td>11</td><td>fiskerinc.com</td><td class="amber">51.1</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$1.0B</td><td><span class="tag tag-ev">ev</span></td><td>5</td><td>$59</td></tr>
+      <tr><td>12</td><td>northvolt.com</td><td class="amber">51.1</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$13.0B</td><td><span class="tag tag-other">cleantech</span></td><td>6</td><td>$59</td></tr>
+      <tr><td>13</td><td>easyknock.com</td><td class="amber">50.4</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$455M</td><td><span class="tag tag-other">proptech</span></td><td>3</td><td>$59</td></tr>
+      <tr><td>14</td><td>ambri.com</td><td class="amber">49.5</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$223M</td><td><span class="tag tag-other">cleantech</span></td><td>3</td><td>$59</td></tr>
+      <tr><td>15</td><td>eaze.com</td><td class="amber">49.5</td><td><span class="badge badge-purple">MEDIUM</span></td><td><span class="badge badge-green">SWEET_SPOT</span></td><td>$250M</td><td><span class="tag tag-other">cannabis</span></td><td>3</td><td>$59</td></tr>
+    </table>
+  </div>
+
+  <!-- Cron Status -->
+  <div class="section">
+    <h2>Automation Status</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>Drop Monitor (Critical)</h3><div class="sub">Every 6 hours</div><div class="code" style="font-size:11px;padding:8px">0 */6 * * * run_drop_monitor.sh --tier critical</div><div class="badge badge-green" style="margin-top:8px">ACTIVE</div></div>
+      <div class="card"><h3>Drop Monitor (Full)</h3><div class="sub">Daily at 3 AM</div><div class="code" style="font-size:11px;padding:8px">0 3 * * * run_drop_monitor.sh --tier all</div><div class="badge badge-green" style="margin-top:8px">ACTIVE</div></div>
+      <div class="card"><h3>Startup Reaper</h3><div class="sub">Weekly Monday 6:30 AM</div><div class="code" style="font-size:11px;padding:8px">30 6 * * 1 run_startup_reaper.sh</div><div class="badge badge-green" style="margin-top:8px">ACTIVE</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ WATCHLIST -->
+<div class="panel" id="watchlist">
+  <div class="section">
+    <h2>Domain Watchlist — 35 Monitored Domains</h2>
+
+    <h3 style="color:var(--red);margin:20px 0 12px">CRITICAL (4 domains)</h3>
+    <table>
+      <tr><th>Domain</th><th>ETV</th><th>Max Bid</th><th>Status</th><th>Notes</th></tr>
+      <tr class="row-critical"><td><strong>guerrameats.com</strong></td><td class="green">$11,376</td><td>$200</td><td><span class="badge badge-red">clientHold</span></td><td>DNS DEAD, dropping ~Jun 26</td></tr>
+      <tr class="row-critical"><td><strong>sunnyray.org</strong></td><td class="green">$2,842</td><td>$100</td><td><span class="badge badge-amber">autoRenew</span></td><td>Dropping ~Jun 30</td></tr>
+      <tr class="row-critical"><td><strong>globalgeopark.org</strong></td><td>$626</td><td>$400</td><td><span class="badge badge-amber">autoRenew</span></td><td>Dropping ~Jul 1</td></tr>
+      <tr class="row-critical"><td><strong>ghostautonomy.com</strong></td><td class="green">$1,428</td><td>$200</td><td><span class="badge badge-red">clientRenew</span></td><td>$220M funded, DA 52, TM ABANDONED, UDRP-proof, expires 2026-06-07</td></tr>
+    </table>
+
+    <h3 style="color:var(--orange);margin:20px 0 12px">HIGH (20 domains)</h3>
+    <table>
+      <tr><th>Domain</th><th>ETV</th><th>Max Bid</th><th>Status</th><th>Funding</th><th>Notes</th></tr>
+      <tr class="row-high"><td>goodglammgroup.com</td><td>$0</td><td>$100</td><td><span class="badge badge-red">clientRenew</span></td><td>-</td><td>Jul 6</td></tr>
+      <tr class="row-high"><td>sendy.co</td><td class="green">$3,179</td><td>$150</td><td><span class="badge badge-red">clientRenew</span></td><td>-</td><td>Jul 16</td></tr>
+      <tr class="row-high"><td>readingfoundation.org</td><td class="green">$7,207</td><td>$200</td><td><span class="badge badge-red">clientRenew</span></td><td>-</td><td>Jul 30</td></tr>
+      <tr class="row-high"><td><strong>olive.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$902M</td><td>Olive AI, expires 2027-11-21</td></tr>
+      <tr class="row-high"><td>cerebras.net</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$720M</td><td>Cerebras Systems, expires 2035-04-16</td></tr>
+      <tr class="row-high"><td>datarobot.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$1.0B</td><td>DataRobot, expires 2029-06-28</td></tr>
+      <tr class="row-high"><td>peartherapeutics.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$400M</td><td>Pear Therapeutics, expires 2026-09-13</td></tr>
+      <tr class="row-high"><td>inscripta.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$260M</td><td>Inscripta, expires 2028-01-01</td></tr>
+      <tr class="row-high"><td><strong>motional.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$4.0B</td><td>Motional, expires 2026-10-07</td></tr>
+      <tr class="row-high"><td><strong>katerra.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$2.0B</td><td>Katerra, expires 2027-03-27</td></tr>
+      <tr class="row-high"><td>quantumscape.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$1.5B</td><td>QuantumScape, expires 2027-04-30</td></tr>
+      <tr class="row-high"><td>brandless.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$300M</td><td>Brandless, expires 2027-01-03</td></tr>
+      <tr class="row-high"><td>thredup.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$300M</td><td>ThredUp, expires 2026-10-16</td></tr>
+      <tr class="row-high"><td>fiskerinc.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$1.5B</td><td>Fisker, expires 2026-09-21</td></tr>
+      <tr class="row-high"><td>tally.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$92M</td><td>Tally, expires 2026-07-07</td></tr>
+      <tr class="row-high"><td>vineventures.com</td><td>$0</td><td>$300</td><td><span class="badge badge-red">clientRenew</span></td><td>$150M</td><td>Vine Ventures, expires 2026-08-25</td></tr>
+      <tr class="row-high"><td><strong>humane.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-purple">DRY RUN</span></td><td>$241M</td><td>Humane, reaper=58.3</td></tr>
+      <tr class="row-high"><td><strong>arrival.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-purple">DRY RUN</span></td><td>$1.0B</td><td>Arrival, reaper=56.5</td></tr>
+      <tr class="row-high"><td><strong>irl.com</strong></td><td>$0</td><td>$300</td><td><span class="badge badge-purple">DRY RUN</span></td><td>$200M</td><td>IRL, reaper=56.0</td></tr>
+      <tr class="row-high"><td>boweryfarming.com</td><td>$0</td><td>$300</td><td><span class="badge badge-purple">DRY RUN</span></td><td>$700M</td><td>Bowery Farming, reaper=55.1</td></tr>
+    </table>
+
+    <h3 style="color:var(--amber);margin:20px 0 12px">MEDIUM (8 domains)</h3>
+    <table>
+      <tr><th>Domain</th><th>ETV</th><th>Max Bid</th><th>Status</th><th>Notes</th></tr>
+      <tr class="row-medium"><td>imageeditor.net</td><td>$246</td><td>$200</td><td><span class="badge badge-red">clientRenew</span></td><td>Nov 2026</td></tr>
+      <tr class="row-medium"><td>codeparrot.ai</td><td class="green">$5,106</td><td>$79</td><td><span class="badge badge-purple">AI Startup</span></td><td>Dead AI startup, Dec 2026</td></tr>
+      <tr class="row-medium"><td>bestdevtools.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">DNS DEAD</span></td><td>May 22</td></tr>
+      <tr class="row-medium"><td>taskplanner.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">clientRenew</span></td><td>May 27</td></tr>
+      <tr class="row-medium"><td>codehelper.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">clientRenew</span></td><td>Jul 17</td></tr>
+      <tr class="row-medium"><td>codeanalyzer.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">clientRenew</span></td><td>Jul 20</td></tr>
+      <tr class="row-medium"><td>fileconverter.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">clientRenew</span></td><td>Jun 20</td></tr>
+      <tr class="row-medium"><td>cookingtool.com</td><td>$0</td><td>$59</td><td><span class="badge badge-red">clientRenew</span></td><td>Jul 17</td></tr>
+    </table>
+
+    <h3 style="color:var(--dim);margin:20px 0 12px">LOW / MONITOR ONLY (3 domains)</h3>
+    <table>
+      <tr><th>Domain</th><th>Notes</th></tr>
+      <tr class="row-low"><td>canoo.com</td><td>Chapter 7, monitor only</td></tr>
+      <tr class="row-low"><td>quibi.com</td><td>$1.75B startup, monitor only</td></tr>
+      <tr class="row-low"><td>recroom.com</td><td>Expires 2029, NOT dropping</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ REAPER -->
+<div class="panel" id="reaper">
+  <div class="section">
+    <h2>Startup Reaper Pipeline v2 — Sprint 21</h2>
+
+    <div class="grid grid-3" style="margin-bottom:24px">
+      <div class="card"><div class="label">Pipeline Version</div><div class="value accent">v2</div><div class="sub">9-dimension + competition</div></div>
+      <div class="card"><div class="label">Dead Startups DB</div><div class="value">1,235</div><div class="sub">Deduped from 1,500+ raw</div></div>
+      <div class="card"><div class="label">Scored This Run</div><div class="value cyan">149</div><div class="sub">38 sweet_spot, 111 junk</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Pipeline Funnel</h3>
+    <div class="funnel">
+      <div class="funnel-step"><div class="count">1,235</div><div class="bar"><div class="bar-fill" style="width:100%"></div></div><div class="desc">HARVEST — multi-source dedup</div></div>
+      <div class="funnel-step"><div class="count">228</div><div class="bar"><div class="bar-fill" style="width:18%"></div></div><div class="desc">RESOLVE — domain confirmed</div></div>
+      <div class="funnel-step"><div class="count">228</div><div class="bar"><div class="bar-fill" style="width:18%"></div></div><div class="desc">PROBE — RDAP status check</div></div>
+      <div class="funnel-step"><div class="count">~60</div><div class="bar"><div class="bar-fill" style="width:5%"></div></div><div class="desc">ENRICH — DataForSEO bulk</div></div>
+      <div class="funnel-step"><div class="count">149</div><div class="bar"><div class="bar-fill" style="width:12%"></div></div><div class="desc">SCORE — 9-dim + competition</div></div>
+      <div class="funnel-step"><div class="count">35</div><div class="bar"><div class="bar-fill" style="width:3%"></div></div><div class="desc">OUTPUT — auto-add to monitor</div></div>
+      <div class="funnel-step"><div class="count">0</div><div class="bar"><div class="bar-fill" style="width:0%"></div></div><div class="desc">BACKORDER — Dynadot ($10.99)</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">9-Dimension Scoring Weights (Sprint 21)</h3>
+    <table>
+      <tr><th>Dimension</th><th>Weight</th><th>Sprint 20</th><th>Scoring Logic</th></tr>
+      <tr><td><strong>Editorial Links</strong></td><td class="green">0.25</td><td class="dim">was 0.15</td><td>Press mentions + DataForSEO editorial sources. TechCrunch/Bloomberg bonus</td></tr>
+      <tr><td><strong>Funding</strong></td><td>0.15</td><td class="dim">was 0.20</td><td>$0→0, $5M→40, $50M→70, $200M+→95</td></tr>
+      <tr><td><strong>Drop Certainty</strong></td><td>0.15</td><td class="dim">0.15</td><td>pendingDelete→100, clientRenew→60, active→20</td></tr>
+      <tr><td><strong>Domain Authority</strong></td><td>0.10</td><td class="dim">was 0.20</td><td>Log-scale DataForSEO rank</td></tr>
+      <tr><td><strong>Niche Fit</strong></td><td>0.10</td><td class="dim">0.10</td><td>AI/fintech premium sectors</td></tr>
+      <tr><td><strong class="cyan">Domain Name Value</strong></td><td class="cyan">0.10</td><td class="dim">NEW</td><td>Single-word .com→95, brandable→60, hyphenated→10</td></tr>
+      <tr><td><strong>Traffic Value</strong></td><td>0.05</td><td class="dim">0.05</td><td>Referring domain count proxy</td></tr>
+      <tr><td><strong>Domain Age</strong></td><td>0.05</td><td class="dim">was 0.10</td><td>Years since creation (10+yr→90)</td></tr>
+      <tr><td><strong>Trademark Safety</strong></td><td>0.05</td><td class="dim">0.05</td><td>Months since shutdown (>12mo→90)</td></tr>
+    </table>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Competition Tier System</h3>
+    <div class="grid grid-4">
+      <div class="card" style="border-color:var(--green)"><h3 style="color:var(--green)">SWEET_SPOT</h3><div class="sub">DR 10-35 + 2+ editorial links</div><div style="margin-top:8px;font-size:12px">Auto-backorder at $10.99<br>Score multiplier: <strong class="green">1.0x</strong></div></div>
+      <div class="card" style="border-color:var(--amber)"><h3 style="color:var(--amber)">STRETCH</h3><div class="sub">DR 35-60 or DR 10-35 w/o editorial</div><div style="margin-top:8px;font-size:12px">Backorder if budget allows<br>Score multiplier: <strong class="amber">0.5-0.7x</strong></div></div>
+      <div class="card" style="border-color:var(--red)"><h3 style="color:var(--red)">AUCTION</h3><div class="sub">DR 60+ (pro catchers territory)</div><div style="margin-top:8px;font-size:12px">Skip — too expensive<br>Score multiplier: <strong class="red">0.3x</strong></div></div>
+      <div class="card" style="border-color:var(--dim)"><h3>JUNK</h3><div class="sub">DR &lt;10 + no editorial</div><div style="margin-top:8px;font-size:12px">Monitor only<br>Score multiplier: <strong>0.8x</strong></div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Data Sources</h3>
+    <table>
+      <tr><th>Source</th><th>Yield</th><th>Cost</th><th>Method</th></tr>
+      <tr><td>Existing data files (S7+S14+S16)</td><td>269 startups</td><td>$0.00</td><td>Parse local JSON</td></tr>
+      <tr><td>YC Dead List (all.json)</td><td>1,034 inactive</td><td>$0.00</td><td>Filter status=Inactive from 5,906 total</td></tr>
+      <tr><td>DeepSeek LLM</td><td>~50 per call</td><td>$0.02</td><td>Anti-hallucination prompt, 95% confidence</td></tr>
+      <tr><td>DataForSEO Bulk</td><td>SEO metrics</td><td>$0.12</td><td>bulk_ranks + bulk_pages_summary</td></tr>
+      <tr><td>DataForSEO Editorial</td><td>Referring domains</td><td>~$0.01/domain</td><td>referring_domains/live per target</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ PIPELINE -->
+<div class="panel" id="pipeline">
+  <div class="section">
+    <h2>Pipeline Architecture</h2>
+
+    <div class="code" style="font-size:11px;line-height:1.8">┌──────────────────────────────────────────────────────────────────────────┐
+│  DOMAIN HUNTER — System Architecture                                      │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  ┌─ DISCOVERY ─────────────────────────────────────────────────────┐     │
+│  │  SCOUT Agent        → WhoisFreaks, CatchDoms, Apify            │     │
+│  │  Startup Reaper     → Dead startups → RDAP → SEO → Score       │     │
+│  │  DropCatch Scanner  → CSV stream scoring (700K+ domains)       │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                         │                                                │
+│                         ▼                                                │
+│  ┌─ VERIFICATION ──────────────────────────────────────────────────┐     │
+│  │  SENTINEL Agent     → DataForSEO, Moz, Google CSE              │     │
+│  │  ARCHIVIST Agent    → Wayback Machine, WHOIS history            │     │
+│  │  Drop Monitor       → RDAP status tracking + WHOIS fallback    │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                         │                                                │
+│                         ▼                                                │
+│  ┌─ CLASSIFICATION ────────────────────────────────────────────────┐     │
+│  │  SPECTRE Agent      → GitHub, Reddit, niche analysis            │     │
+│  │  DeepSeek V3        → Domain classification (50 batch)          │     │
+│  │  RADIOGRAPH         → 7-dimension scoring                       │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                         │                                                │
+│                         ▼                                                │
+│  ┌─ DECISION ──────────────────────────────────────────────────────┐     │
+│  │  ORACLE Agent       → BUY_NOW / WATCH / SKIP verdict            │     │
+│  │  Reaper Scoring     → 9-dim composite + competition penalty     │     │
+│  │  Tier Assignment    → critical / high / medium / low            │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                         │                                                │
+│                         ▼                                                │
+│  ┌─ ACQUISITION ───────────────────────────────────────────────────┐     │
+│  │  Dynadot Client     → add_backorder_request ($10.99/catch)      │     │
+│  │  Drop Monitor       → Auto-backorder on pendingDelete           │     │
+│  │  Budget Gate        → 20 slots, $220 cap                        │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                         │                                                │
+│                         ▼                                                │
+│  ┌─ MONITORING ────────────────────────────────────────────────────┐     │
+│  │  Cron: every 6h     → Critical tier RDAP check                  │     │
+│  │  Cron: daily 3AM    → Full tier RDAP check                      │     │
+│  │  Cron: weekly Mon   → Startup Reaper full scan                  │     │
+│  │  Alerts             → macOS desktop + Slack + SQLite history    │     │
+│  └──────────────────────────────────────────────────────────────────┘     │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘</div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">API Clients (15 total)</h3>
+    <table>
+      <tr><th>Client</th><th>API</th><th>Purpose</th><th>Rate Limit</th></tr>
+      <tr><td>rdap_client.py</td><td>RDAP v1</td><td>Domain status, EPP codes, expiry</td><td>3s per-TLD delay, 20 concurrent</td></tr>
+      <tr><td>dataforseo.py</td><td>DataForSEO v3</td><td>DA, backlinks, referring domains</td><td>1000 domains/bulk call</td></tr>
+      <tr><td>dynadot_client.py</td><td>Dynadot v3</td><td>Backorders, search, domain info</td><td>10 req/min sliding window</td></tr>
+      <tr><td>deepseek.py</td><td>DeepSeek v1</td><td>Classification, startup discovery</td><td>200 domains/run, 50 batch</td></tr>
+      <tr><td>anthropic_client.py</td><td>Claude API</td><td>AI verdicts (ORACLE agent)</td><td>Per-model limits</td></tr>
+      <tr><td>wayback.py</td><td>Wayback CDX</td><td>Archive history verification</td><td>Respectful crawling</td></tr>
+      <tr><td>whoisfreaks.py</td><td>WhoisFreaks</td><td>Domain discovery</td><td>Per-plan limits</td></tr>
+      <tr><td>catchdoms.py</td><td>CatchDoms</td><td>Expired domain discovery</td><td>Per-plan limits</td></tr>
+      <tr><td>google_cse.py</td><td>Google CSE</td><td>Domain relevance scoring</td><td>100/day free</td></tr>
+      <tr><td>moz_apify.py</td><td>Moz/Apify</td><td>Authority metrics</td><td>Per-plan limits</td></tr>
+      <tr><td>github_search.py</td><td>GitHub API</td><td>Tech trend detection</td><td>30 req/min</td></tr>
+      <tr><td>reddit_search.py</td><td>Reddit API</td><td>Community/niche discovery</td><td>60 req/min</td></tr>
+      <tr><td>whois_lookup.py</td><td>System WHOIS</td><td>Fallback registrar check</td><td>~1 req/s</td></tr>
+    </table>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Data Models (7 frozen dataclasses)</h3>
+    <table>
+      <tr><th>Model</th><th>Stage</th><th>Key Fields</th></tr>
+      <tr><td>DomainCandidate</td><td>SCOUT</td><td>domain, tld, source, expiry_date, niche_relevance_score</td></tr>
+      <tr><td>ScoredDomain</td><td>RADIOGRAPH</td><td>7-dimension scoring (ETV, backlinks, brandability)</td></tr>
+      <tr><td>VettedDomain</td><td>SENTINEL</td><td>SEO verification pass/fail</td></tr>
+      <tr><td>VerifiedDomain</td><td>ARCHIVIST</td><td>Wayback history + WHOIS verified</td></tr>
+      <tr><td>DomainVerdict</td><td>ORACLE</td><td>BUY_NOW / WATCH / SKIP + reasoning</td></tr>
+      <tr><td>DeadStartup → ProbedStartup</td><td>REAPER 1-3</td><td>company_name, domain, funding, epp_status, drop_signal</td></tr>
+      <tr><td>ReapedDomain</td><td>REAPER 4-7</td><td>9-dim score, competition_tier, domain_name_value, editorial_sources</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ SPRINTS -->
+<div class="panel" id="sprints">
+  <div class="section">
+    <h2>Sprint History — 21 Sprints Completed</h2>
+    <table>
+      <tr><th>Sprint</th><th>Name</th><th>Key Deliverables</th><th>Status</th></tr>
+      <tr><td class="accent">21</td><td><strong>The $10.99 Pipeline</strong></td><td>9-dim scoring, competition penalty, auto-backorder, editorial detection, domain name value</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td class="accent">20</td><td><strong>Startup Reaper</strong></td><td>6-stage pipeline, 8-dim scoring, YC dead list, DeepSeek harvest, 63 tests</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td class="accent">19</td><td><strong>Drop Monitor</strong></td><td>RDAP monitor, WHOIS fallback, SQLite persistence, desktop/Slack alerts, auto-backorder</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>18</td><td>Backorder Verification</td><td>DropCatch acquisitions, DismissTicket research, LastChance pipeline</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>17</td><td>SnapNames ETV Scan</td><td>Whale blitz, keyword deep-dive, goldmine analysis</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>16</td><td>Fresh Startups + Whales</td><td>28 new shutdowns, whale WHOIS sweep, monetization classifier</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>15</td><td>Signup Guide</td><td>Platform registration automation</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>14</td><td>Startup Domains</td><td>205 dead startup domains, backorder guide</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>13</td><td>Sprint 13</td><td>Pipeline consolidation</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>12</td><td>Transfer Guide</td><td>Domain transfer automation</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>10-11</td><td>Infrastructure</td><td>Pipeline improvements, monitoring</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>9</td><td>Food Tools</td><td>Niche domain analysis (food, cooking)</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>8</td><td>Backorder Strategy</td><td>Multi-platform backorder placement</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>7</td><td>Dead Startups DB</td><td>42 dead startups, funding/press/DA analysis</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>5-6</td><td>SEO + Backorder</td><td>SEO strategy, content recovery, backorder guides</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>3-4</td><td>Classifier + Radiograph</td><td>7-dim scoring, domain appraiser</td><td><span class="badge badge-green">DONE</span></td></tr>
+      <tr><td>1-2</td><td>Foundation</td><td>SCOUT/SENTINEL/ARCHIVIST/SPECTRE/ORACLE agents, initial pipeline</td><td><span class="badge badge-green">DONE</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ CODEBASE -->
+<div class="panel" id="codebase">
+  <div class="section">
+    <h2>Codebase Inventory</h2>
+
+    <div class="grid grid-5" style="margin-bottom:24px">
+      <div class="card"><div class="label">Scripts</div><div class="value">12</div></div>
+      <div class="card"><div class="label">Clients</div><div class="value">15</div></div>
+      <div class="card"><div class="label">Agents</div><div class="value">7</div></div>
+      <div class="card"><div class="label">Models</div><div class="value">7</div></div>
+      <div class="card"><div class="label">Tests</div><div class="value">14</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Key Scripts</h3>
+    <table>
+      <tr><th>File</th><th>LOC</th><th>Purpose</th></tr>
+      <tr><td><strong>scripts/startup_reaper.py</strong></td><td>1,262</td><td>7-stage pipeline: dead startups → 9-dim scoring → auto-backorder</td></tr>
+      <tr><td><strong>scripts/drop_monitor.py</strong></td><td>660</td><td>RDAP monitor with WHOIS fallback, SQLite, alerts, auto-backorder</td></tr>
+      <tr><td>scripts/dropcatch_csv_scanner.py</td><td>223</td><td>Stream-score domains from DropCatch CSV exports</td></tr>
+      <tr><td>scripts/classify_targets.py</td><td>~200</td><td>DeepSeek V3 target classifier</td></tr>
+      <tr><td>scripts/dynadot_place_backorders.py</td><td>~150</td><td>Batch Dynadot backorder placement</td></tr>
+      <tr><td>scripts/watchlist_monitor.py</td><td>~200</td><td>WHOIS expiry monitor with SQLite history</td></tr>
+    </table>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Agents (5-agent pipeline)</h3>
+    <table>
+      <tr><th>Agent</th><th>Role</th><th>APIs Used</th></tr>
+      <tr><td class="accent">SCOUT</td><td>Domain discovery from multiple sources</td><td>WhoisFreaks, CatchDoms, Apify</td></tr>
+      <tr><td class="accent">SENTINEL</td><td>SEO verification and quality gates</td><td>DataForSEO, Moz, Google CSE</td></tr>
+      <tr><td class="accent">ARCHIVIST</td><td>History verification via archives</td><td>Wayback CDX, WHOIS</td></tr>
+      <tr><td class="accent">SPECTRE</td><td>Niche classification and relevance</td><td>GitHub, Reddit, content analysis</td></tr>
+      <tr><td class="accent">ORACLE</td><td>Final verdict (BUY/WATCH/SKIP)</td><td>Claude API</td></tr>
+    </table>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">NASA P10 Compliance</h3>
+    <div class="grid grid-4">
+      <div class="card"><h3>Functions &lt;60 LOC</h3><div class="badge badge-green">PASS</div></div>
+      <div class="card"><h3>2+ Assertions</h3><div class="badge badge-green">PASS</div></div>
+      <div class="card"><h3>Bounded Loops</h3><div class="badge badge-green">PASS</div></div>
+      <div class="card"><h3>Frozen Dataclasses</h3><div class="badge badge-green">PASS</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Test Coverage</h3>
+    <table>
+      <tr><th>Test Module</th><th>Tests</th><th>Coverage</th></tr>
+      <tr><td><strong>test_startup_reaper.py</strong></td><td class="green">86</td><td>All 9 scoring dims, competition, dedup, formatting, serialization</td></tr>
+      <tr><td>test_drop_monitor.py</td><td>~20</td><td>RDAP, transitions, alerts</td></tr>
+      <tr><td>test_dynadot_client.py</td><td>~15</td><td>Backorder, search, rate limiter</td></tr>
+      <tr><td>test_dataforseo_bulk.py</td><td>~12</td><td>Bulk ranks, pages summary</td></tr>
+      <tr><td>test_rdap_client.py</td><td>~10</td><td>Lookup, batch, TLD routing</td></tr>
+      <tr><td>+ 9 more modules</td><td>~80</td><td>SCOUT, SENTINEL, ARCHIVIST, SPECTRE, ORACLE, DeepSeek, pipeline</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ BUDGET -->
+<div class="panel" id="budget">
+  <div class="section">
+    <h2>Budget Tracker</h2>
+
+    <div class="grid grid-4" style="margin-bottom:24px">
+      <div class="card"><div class="label">Dynadot Balance</div><div class="value green">$25.00</div><div class="sub">Deposited 2026-05-15</div></div>
+      <div class="card"><div class="label">Max Backorders</div><div class="value accent">20</div><div class="sub">$10.99 each = $219.80 max</div></div>
+      <div class="card"><div class="label">Active Backorders</div><div class="value">0</div><div class="sub">All slots available</div></div>
+      <div class="card"><div class="label">Reaper Cost/Scan</div><div class="value green">$0.15</div><div class="sub">52 weekly scans = $7.80/yr</div></div>
+    </div>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">Cost Per API Call</h3>
+    <table>
+      <tr><th>Service</th><th>Cost</th><th>Usage</th><th>Annual Estimate</th></tr>
+      <tr><td>DeepSeek (harvest)</td><td>$0.02/call</td><td>Weekly harvest</td><td>$1.04</td></tr>
+      <tr><td>DeepSeek (resolve)</td><td>$0.01/call</td><td>Weekly resolve</td><td>$0.52</td></tr>
+      <tr><td>DataForSEO (bulk)</td><td>$0.12/batch</td><td>Weekly enrich</td><td>$6.24</td></tr>
+      <tr><td>RDAP lookups</td><td>$0.00</td><td>~180/week</td><td>$0.00</td></tr>
+      <tr><td>YC Dead List</td><td>$0.00</td><td>Weekly fetch</td><td>$0.00</td></tr>
+      <tr><td>Dynadot backorders</td><td>$10.99/catch</td><td>On pendingDelete</td><td>~$110 (est. 10 catches)</td></tr>
+      <tr><td><strong>Total estimated</strong></td><td></td><td></td><td class="accent"><strong>~$118/year</strong></td></tr>
+    </table>
+
+    <h3 style="margin:20px 0 12px;color:var(--accent)">ROI Projection</h3>
+    <div class="grid grid-3">
+      <div class="card" style="border-color:var(--green)">
+        <h3 style="color:var(--green)">Conservative</h3>
+        <div class="sub">2 catches/year × $500 flip value</div>
+        <div class="value green" style="margin-top:8px">$1,000</div>
+        <div class="sub">ROI: 747%</div>
+      </div>
+      <div class="card" style="border-color:var(--accent)">
+        <h3>Moderate</h3>
+        <div class="sub">5 catches/year × $1,000 flip value</div>
+        <div class="value accent" style="margin-top:8px">$5,000</div>
+        <div class="sub">ROI: 4,137%</div>
+      </div>
+      <div class="card" style="border-color:var(--purple)">
+        <h3 style="color:var(--purple)">Optimistic</h3>
+        <div class="sub">10 catches/year × $2,000 flip value</div>
+        <div class="value purple" style="margin-top:8px">$20,000</div>
+        <div class="sub">ROI: 16,849%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<div style="text-align:center;padding:20px;color:var(--dim);font-size:11px;border-top:1px solid var(--border)">
+  Domain Hunter v4.1 &mdash; Project REVENANT &mdash; Sprint 21 Complete &mdash; 2026-05-15 &mdash; 86 tests passing
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
