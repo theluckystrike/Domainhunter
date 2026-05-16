@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baking Ratios Calculator - Classic Baking Formulas by Weight</title>
+<meta name="description" content="Free baking ratios calculator. Scale classic baking formulas — pound cake, cookie dough, pie crust, bread, biscuits and more. Enter total weight and get exact ingredient amounts.">
+<meta name="keywords" content="baking ratios, baking formula, pound cake ratio, cookie ratio, pie crust ratio, bread ratio, baker's percentage, baking by weight">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/baking-ratios">
+<meta property="og:title" content="Baking Ratios Calculator - Classic Baking Formulas">
+<meta property="og:description" content="Scale classic baking ratios by weight. Pound cake, cookies, pie crust, bread and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/baking-ratios">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Baking Ratios Calculator">
+<meta name="twitter:description" content="Classic baking ratios scaled to any weight. Perfect formulas every time.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Use Baking Ratios",
+  "description": "Use ratio-based baking to create perfect results every time by weight.",
+  "step": [
+    {"@type": "HowToStep", "text": "Select a baking ratio (e.g. 1:2:3 cookie dough)"},
+    {"@type": "HowToStep", "text": "Enter your desired total weight in grams"},
+    {"@type": "HowToStep", "text": "Get exact ingredient weights calculated from the ratio"},
+    {"@type": "HowToStep", "text": "Use a kitchen scale to measure and mix"}
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669; --clr-success-bg: #ECFDF5;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.ratio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.ratio-card { border: 1.5px solid var(--clr-border); border-radius: var(--radius); padding: 16px; cursor: pointer; transition: var(--transition); }
+.ratio-card:hover { border-color: var(--clr-accent); background: var(--clr-accent-bg); }
+.ratio-card.active { border-color: var(--clr-accent); background: var(--clr-accent-bg); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.ratio-card h4 { font-size: 1rem; margin-bottom: 4px; }
+.ratio-card .ratio-display { font-size: 1.25rem; font-weight: 700; color: var(--clr-accent-hover); margin: 4px 0; }
+.ratio-card .ratio-desc { font-size: 0.8rem; color: var(--clr-text-muted); }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.weight-input { max-width: 300px; margin-bottom: 20px; }
+.results-table { width: 100%; border-collapse: collapse; }
+.results-table th, .results-table td { padding: 12px; text-align: left; border-bottom: 1px solid var(--clr-border); }
+.results-table th { background: var(--clr-surface-alt); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--clr-text-muted); }
+.results-table .weight { font-size: 1.25rem; font-weight: 700; color: var(--clr-accent-hover); }
+.results-table .ratio-part { color: var(--clr-text-muted); font-size: 0.85rem; }
+.bar { height: 8px; border-radius: 4px; background: var(--clr-accent-light); margin-top: 4px; }
+.bar-fill { height: 100%; border-radius: 4px; background: var(--clr-accent); }
+.tip { margin-top: 16px; padding: 12px; background: var(--clr-success-bg); border-radius: var(--radius-sm); font-size: 0.85rem; color: #065F46; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+.info-section h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+.info-section p { color: var(--clr-text-muted); margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/recipe-converter.html">Unit Converter</a>
+      <a href="/egg-substitute.html">Egg Substitutes</a>
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h2>Baking Ratios Calculator</h2>
+  <p class="subtitle">Classic baking ratios by weight. Select a ratio, enter your target total weight, and get exact ingredient amounts.</p>
+
+  <div class="ratio-grid" id="ratio-grid"></div>
+
+  <div class="card" id="calculator-card">
+    <h3 id="selected-name" style="margin-bottom:4px;">Pound Cake</h3>
+    <p id="selected-desc" style="color:var(--clr-text-muted);font-size:0.9rem;margin-bottom:16px;"></p>
+    <div class="weight-input">
+      <div class="field">
+        <label for="total-weight">Total Weight (grams)</label>
+        <input type="number" id="total-weight" value="500" min="50" step="10">
+      </div>
+    </div>
+    <table class="results-table">
+      <thead><tr><th>Ingredient</th><th>Ratio Part</th><th>Weight</th><th></th></tr></thead>
+      <tbody id="results-body"></tbody>
+    </table>
+    <div class="tip" id="tip-box"></div>
+  </div>
+
+  <div class="info-section">
+    <h3>What are baking ratios?</h3>
+    <p>Baking ratios express the proportion of key ingredients by weight. The classic pound cake ratio is 1:1:1:1 — equal parts butter, sugar, eggs, and flour. Once you know the ratio, you can scale to any size by adjusting the total weight.</p>
+    <h3>Why bake by weight?</h3>
+    <p>Weight-based baking is far more precise than volume measurements. A cup of flour can vary by 30+ grams depending on how it is scooped. Using a kitchen scale and ratios gives consistent, professional results every time.</p>
+    <h3>Can I modify these ratios?</h3>
+    <p>Yes. These are starting-point formulas. You can adjust ratios slightly based on preference — a bit more butter for richness, less sugar for a less sweet result. Just keep the proportions balanced so the chemistry still works.</p>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a> &middot;
+      <a href="/recipe-converter.html">Unit Converter</a> &middot;
+      <a href="/egg-substitute.html">Egg Substitutes</a> &middot;
+      <a href="/baking-ratios.html">Baking Ratios</a> &middot;
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </p>
+  </div>
+</footer>
+<script>
+const ratios = [
+  { id: 'pound-cake', name: 'Pound Cake', ratio: '1:1:1:1', parts: [{name:'Butter',p:1},{name:'Sugar',p:1},{name:'Eggs',p:1},{name:'Flour',p:1}], desc: 'Classic pound cake — equal parts by weight. Dense, rich, buttery.', tip: 'For a lighter cake, add 1 tsp baking powder per 120g flour and substitute half the butter with sour cream.' },
+  { id: 'cookie-dough', name: 'Cookie Dough (1-2-3)', ratio: '1:2:3', parts: [{name:'Sugar',p:1},{name:'Butter',p:2},{name:'Flour',p:3}], desc: 'Universal cookie dough. Adjust sugar type and add-ins to customize.', tip: 'Use brown sugar for chewy cookies, powdered sugar for delicate shortbread. Add 1 egg per 200g flour.' },
+  { id: 'pie-crust', name: 'Pie Crust (3:2:1)', ratio: '3:2:1', parts: [{name:'Flour',p:3},{name:'Butter',p:2},{name:'Water',p:1}], desc: 'Flaky pie crust. Keep butter cold for best results.', tip: 'Cut cold butter into flour until pea-sized. Add ice water gradually. Chill dough 30 min before rolling.' },
+  { id: 'bread', name: 'Basic Bread (5:3)', ratio: '5:3', parts: [{name:'Flour',p:5},{name:'Water',p:3},{name:'Salt',p:0.1},{name:'Yeast',p:0.05}], desc: 'Simple lean bread dough. Foundation for rolls, loaves, pizza.', tip: 'Hydration is ~60%. For a more open crumb, increase water to ratio 5:3.5. Knead 8-10 minutes.' },
+  { id: 'biscuit', name: 'Biscuits (3:1:2)', ratio: '3:1:2', parts: [{name:'Flour',p:3},{name:'Fat (butter)',p:1},{name:'Liquid (milk)',p:2}], desc: 'Flaky buttermilk biscuits. Quick and easy.', tip: 'Use cold butter cut into small cubes. Do not overwork the dough. Pat, fold, and cut for layers.' },
+  { id: 'pasta', name: 'Fresh Pasta (3:2)', ratio: '3:2', parts: [{name:'Flour',p:3},{name:'Eggs',p:2}], desc: 'Classic egg pasta. Simple two-ingredient formula.', tip: 'Use 00 flour for silky pasta. Knead 10 minutes until smooth, rest 30 minutes before rolling.' },
+  { id: 'crepe', name: 'Crepe Batter (1:1:1)', ratio: '1:1:1', parts: [{name:'Flour',p:1},{name:'Eggs',p:1},{name:'Milk',p:1}], desc: 'Thin, delicate crepes. Sweet or savory.', tip: 'Let batter rest 1 hour for tender crepes. Add 1 tbsp melted butter per 100g flour.' },
+  { id: 'muffin', name: 'Muffin (2:2:1:1)', ratio: '2:2:1:1', parts: [{name:'Flour',p:2},{name:'Liquid',p:2},{name:'Egg',p:1},{name:'Fat',p:1}], desc: 'Basic muffin ratio. Customize with fruit, nuts, chocolate.', tip: 'Mix wet and dry separately, combine with minimal stirring. Lumpy batter = tender muffins.' },
+  { id: 'vinaigrette', name: 'Vinaigrette (3:1)', ratio: '3:1', parts: [{name:'Oil',p:3},{name:'Vinegar',p:1}], desc: 'Classic salad dressing. Adjust acid to taste.', tip: 'Add 1 tsp mustard as an emulsifier. Season with salt, pepper, herbs, honey, or garlic.' }
+];
+
+let selectedRatio = ratios[0];
+const grid = document.getElementById('ratio-grid');
+const resultsBody = document.getElementById('results-body');
+const totalWeight = document.getElementById('total-weight');
+const selectedName = document.getElementById('selected-name');
+const selectedDesc = document.getElementById('selected-desc');
+const tipBox = document.getElementById('tip-box');
+
+function buildGrid() {
+  grid.innerHTML = ratios.map(r => `
+    <div class="ratio-card${r.id===selectedRatio.id?' active':''}" data-id="${r.id}">
+      <h4>${r.name}</h4>
+      <div class="ratio-display">${r.ratio}</div>
+      <div class="ratio-desc">${r.parts.map(p=>p.name).join(' : ')}</div>
+    </div>
+  `).join('');
+  grid.querySelectorAll('.ratio-card').forEach(card => {
+    card.addEventListener('click', () => {
+      selectedRatio = ratios.find(r => r.id === card.dataset.id);
+      buildGrid();
+      calculate();
+    });
+  });
+}
+
+function calculate() {
+  const total = parseFloat(totalWeight.value) || 0;
+  const totalParts = selectedRatio.parts.reduce((s, p) => s + p.p, 0);
+  selectedName.textContent = selectedRatio.name + ' (' + selectedRatio.ratio + ')';
+  selectedDesc.textContent = selectedRatio.desc;
+  tipBox.textContent = selectedRatio.tip;
+  const maxPart = Math.max(...selectedRatio.parts.map(p => p.p));
+  resultsBody.innerHTML = selectedRatio.parts.map(p => {
+    const weight = Math.round((p.p / totalParts) * total);
+    const pct = Math.round((p.p / totalParts) * 100);
+    const barW = (p.p / maxPart) * 100;
+    return `<tr>
+      <td><strong>${p.name}</strong></td>
+      <td class="ratio-part">${p.p} part${p.p!==1?'s':''} (${pct}%)</td>
+      <td class="weight">${weight}g</td>
+      <td style="width:30%;"><div class="bar"><div class="bar-fill" style="width:${barW}%"></div></div></td>
+    </tr>`;
+  }).join('');
+}
+
+totalWeight.addEventListener('input', calculate);
+buildGrid();
+calculate();
+</script>
+</body>
+</html>

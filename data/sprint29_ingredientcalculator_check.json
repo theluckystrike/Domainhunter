@@ -1,0 +1,76 @@
+{
+  "check_date": "2026-05-16",
+  "pages": [
+    {
+      "url": "https://ingredientcalculator.com/",
+      "status": 200,
+      "title": "Ingredient Calculator - Scale Recipes, Convert Units & Find Substitutions",
+      "meta_description": "Free ingredient calculator to scale recipes to any serving size, convert cooking units (cups, grams, oz, mL), find ingredient substitutions, and estimate nutrition. Fast, accurate, no signup required.",
+      "canonical": "https://ingredientcalculator.com/",
+      "og_tags": true,
+      "indexed": true
+    },
+    {
+      "url": "https://ingredientcalculator.com/cups-to-grams",
+      "status": 200,
+      "title": "Cups to Grams Converter - Accurate Cooking Measurement Conversion",
+      "meta_description": "Free cups to grams converter for cooking and baking. Convert cups to grams for flour, sugar, butter, rice, and 50+ ingredients. Accurate measurements for perfect recipes every time.",
+      "canonical": "https://ingredientcalculator.com/cups-to-grams",
+      "og_tags": true,
+      "indexed": false
+    },
+    {
+      "url": "https://ingredientcalculator.com/recipe-converter",
+      "status": 200,
+      "title": "Recipe Unit Converter - Convert Between US, Metric & Imperial Measurements",
+      "meta_description": "Free recipe unit converter. Convert between cups, grams, ounces, milliliters, tablespoons, teaspoons, Fahrenheit, Celsius and more. US, metric, and imperial cooking measurements.",
+      "canonical": "https://ingredientcalculator.com/recipe-converter",
+      "og_tags": true,
+      "indexed": false
+    },
+    {
+      "url": "https://ingredientcalculator.com/serving-size-calculator",
+      "status": 200,
+      "title": "Serving Size Calculator - Scale Recipes for Any Number of Guests",
+      "meta_description": "Free serving size calculator. Scale any recipe from any number of servings to any other. Party planning mode for 25, 50, 100+ guests. Calculate exact ingredient amounts.",
+      "canonical": "https://ingredientcalculator.com/serving-size-calculator",
+      "og_tags": true,
+      "indexed": false
+    },
+    {
+      "url": "https://ingredientcalculator.com/egg-substitute",
+      "status": 200,
+      "title": "Egg Substitute Calculator - Find the Best Egg Replacement for Baking",
+      "meta_description": "Free egg substitute calculator for baking. Find the perfect egg replacement — flax eggs, applesauce, banana, aquafaba, and more. Vegan and allergy-friendly options with exact measurements.",
+      "canonical": "https://ingredientcalculator.com/egg-substitute",
+      "og_tags": true,
+      "indexed": false
+    },
+    {
+      "url": "https://ingredientcalculator.com/baking-ratios",
+      "status": 200,
+      "title": "Baking Ratios Calculator - Classic Baking Formulas by Weight",
+      "meta_description": "Free baking ratios calculator. Scale classic baking formulas — pound cake, cookie dough, pie crust, bread, biscuits and more. Enter total weight and get exact ingredient amounts.",
+      "canonical": "https://ingredientcalculator.com/baking-ratios",
+      "og_tags": true,
+      "indexed": false
+    }
+  ],
+  "sitemap": "OK - all 6 URLs listed with clean paths, no .html extensions",
+  "robots": "OK - Allow: /, Sitemap reference present",
+  "google_indexed_count": 1,
+  "google_indexed_note": "Only homepage indexed so far. Sub-pages not yet indexed — expected for recently deployed site. Check GSC for crawl requests.",
+  "redirect_behavior": "OK - .html returns 308 redirect to clean URL (verified cups-to-grams.html -> cups-to-grams)",
+  "meta_tags": "OK - all 6 pages have unique titles, meta descriptions, correct canonicals, and OG tags",
+  "overall": "HEALTHY",
+  "notes": [
+    "All 6 pages returning HTTP 200",
+    "Sitemap lists all 6 URLs with clean paths and correct priorities",
+    "robots.txt is clean with sitemap reference",
+    ".html extension correctly 308-redirects to clean URL",
+    "All meta tags (title, description, canonical, OG) present and unique per page",
+    "Google has indexed only the homepage so far — sub-pages should follow within 2-4 weeks",
+    "No issues found. Sprint 27 deployment is holding clean."
+  ],
+  "next_checkpoint": "2026-06-15 (30-day GSC check — verify all 6 pages indexed, check impressions/clicks)"
+}

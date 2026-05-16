@@ -1,0 +1,252 @@
+{
+  "sprint": 8,
+  "agent": "VERIFIER",
+  "report_date": "2026-05-07",
+  "bid_adjustments_summary": {
+    "total_domains_adjusted": 15,
+    "domains_downgraded": 9,
+    "domains_maintained": 3,
+    "domains_eliminated": 3,
+    "total_savings_from_corrections": "Prevented overpaying by $500-1000+ across portfolio",
+    "key_lesson": "Funding-based DR estimates and seller-claimed DA numbers are UNRELIABLE. Only Ahrefs/Moz verified numbers and DataForSEO traffic data should drive bid ceilings. Zero organic traffic = zero SEO equity regardless of claimed DA."
+  },
+  "adjustments": [
+    {
+      "domain": "ektopos.com",
+      "category": "DROPPING_SOON",
+      "previous_max_bid": 200,
+      "revised_max_bid": 100,
+      "change": -100,
+      "change_pct": "-50%",
+      "reason": "DA 47 unverified. DataForSEO shows only 7 keywords in bail bonds spam niche (not Greek real estate). StatShow rank declining 28%. Domain age (23yr) is the primary value. Likely DA 15-25 actual."
+    },
+    {
+      "domain": "sushifaq.com",
+      "category": "DROPPING_SOON",
+      "previous_max_bid": 200,
+      "revised_max_bid": 150,
+      "change": -50,
+      "change_pct": "-25%",
+      "reason": "DA 51 unverified but StatShow shows historical rank #329K and 43K monthly visitors. 26-year domain age is valuable. DataForSEO shows declining metrics (20 keywords but zero top-10). Niche authority still has residual value. Estimated real DA 20-35."
+    },
+    {
+      "domain": "jerusalemonline.com",
+      "category": "DROPPING_SOON",
+      "previous_max_bid": 350,
+      "revised_max_bid": 300,
+      "change": -50,
+      "change_pct": "-14%",
+      "reason": "HypeStat Authority Score 29 (not 64 as Moz estimated). BUT 4,564 referring domains and 2.78M backlinks is massive. Mentions from The Guardian, The Independent, The Atlantic. 28-year domain. Zero US traffic but 5,193 global keywords. Strong international authority. Downgrade moderate - backlink profile supports high value."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "category": "DROPPING_SOON",
+      "previous_max_bid": 250,
+      "revised_max_bid": 350,
+      "change": 100,
+      "change_pct": "+40%",
+      "reason": "UPGRADED. Strongest traffic signal: 814 organic keywords, $3,623 monthly ETV, 249 US keywords with 46 in top-10. Legitimate UNESCO-affiliated domain. DA 49 estimate is SUPPORTED by traffic data. This is the most defensible authority of all 15 domains."
+    },
+    {
+      "domain": "lindisima.com",
+      "category": "DROPPING_SOON",
+      "previous_max_bid": 200,
+      "revised_max_bid": 175,
+      "change": -25,
+      "change_pct": "-12.5%",
+      "reason": "DA 50 unverified. Massive discrepancy between StatShow (316K monthly visitors, rank #45K) and DataForSEO (4 keywords, $3 ETV). Site has likely declined from historical peak. 27-year domain with value in Hispanic beauty niche. Moderate downgrade."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "category": "STARTUP_DOMAIN",
+      "previous_max_bid": 200,
+      "revised_max_bid": 75,
+      "change": -125,
+      "change_pct": "-62.5%",
+      "reason": "MAJOR DOWNGRADE. DR 45 estimate from funding correlation ($220M) is PROVEN UNRELIABLE by fitocracy lesson. ZERO organic traffic/keywords. Shut down April 2024. Despite OpenAI backing, domain has NO detectable SEO value. Real DR likely 3-10. Value is brand name only."
+    },
+    {
+      "domain": "scififoods.com",
+      "category": "STARTUP_DOMAIN",
+      "previous_max_bid": 100,
+      "revised_max_bid": 50,
+      "change": -50,
+      "change_pct": "-50%",
+      "reason": "DR 25 estimate from funding correlation is unreliable. ZERO organic traffic/keywords. Dead cultivated meat startup that never sold a product. $40M funding means nothing for SEO. Real DR likely 3-8. Cool sci-fi brand name is only value."
+    },
+    {
+      "domain": "fiskerinc.com",
+      "category": "STARTUP_DOMAIN",
+      "previous_max_bid": 300,
+      "revised_max_bid": 250,
+      "change": -50,
+      "change_pct": "-17%",
+      "reason": "Only moderate downgrade because domain STILL HAS active organic rankings (13 keywords, 5 in top-10, $70 ETV). Massive press backlink profile from tier-1 publications. Publicly traded company so backlink profile is orders of magnitude larger than other startups. BUT this will be sold in bankruptcy proceedings - may not be acquirable at auction. DR 35-55 range is plausible."
+    },
+    {
+      "domain": "fitocracy.com",
+      "category": "KNOWN_TARGET",
+      "previous_max_bid": 150,
+      "revised_max_bid": 75,
+      "change": -75,
+      "change_pct": "-50%",
+      "reason": "VERIFIED Moz DA 3 (was estimated DR 37). Still ranks #1 for branded terms with $289 ETV. 99 linking domains. Value is in brand name + branded search traffic, not link authority. DA 3 is the verified floor."
+    },
+    {
+      "domain": "devhub.io",
+      "category": "KNOWN_TARGET",
+      "previous_max_bid": 350,
+      "revised_max_bid": 350,
+      "change": 0,
+      "change_pct": "0%",
+      "reason": "MAINTAINED. DR 27 previously verified via Ahrefs is the most reliable metric in our entire portfolio. Zero current traffic but 275 referring domains including ethereum.org. Parked on Afternic for sale. This remains the best verified acquisition target for dev tools niche."
+    },
+    {
+      "domain": "serversupervisor.com",
+      "category": "AUCTION_CANDIDATE",
+      "previous_max_bid": 59,
+      "revised_max_bid": 0,
+      "change": -59,
+      "change_pct": "-100%",
+      "reason": "ELIMINATED. DA 74 is PBN/casino-inflated. Seller EXPLICITLY labels as 'SEO / PBN Domains' on NamePros. ZERO organic traffic. A real DA 74 would have thousands of keywords. This is a toxic domain with Google penalty risk. DO NOT BUY."
+    },
+    {
+      "domain": "techpocketnews.com",
+      "category": "AUCTION_CANDIDATE",
+      "previous_max_bid": 50,
+      "revised_max_bid": 30,
+      "change": -20,
+      "change_pct": "-40%",
+      "reason": "DR 20 with 19K backlinks but ZERO organic traffic. Price dropped from $300 to $50 (aggressive discounting is a red flag). 19K backlinks with zero traffic = spam profile. Only worth buying at deep discount for the tech news brand name."
+    },
+    {
+      "domain": "quickdownload.org",
+      "category": "AUCTION_CANDIDATE",
+      "previous_max_bid": 59,
+      "revised_max_bid": 45,
+      "change": -14,
+      "change_pct": "-24%",
+      "reason": "DR 21 with 192K backlinks but ZERO traffic. 192K backlinks from 942 domains (avg 204 links/domain) is extreme spam ratio. 20-year domain age is genuine value. Moz PA 43 claim is interesting. Marginal at $59, worth considering at $45 for domain age + .org TLD."
+    },
+    {
+      "domain": "bluedogcafe.com",
+      "category": "AUCTION_CANDIDATE",
+      "previous_max_bid": 100,
+      "revised_max_bid": 75,
+      "change": -25,
+      "change_pct": "-25%",
+      "reason": "DA 41 unverified with ZERO traffic. Was a real restaurant in Lafayette, LA. Local restaurant backlinks (OpenTable, Yelp, review sites) may exist but are unverifiable. Real DA likely 15-30. Only worth buying for local restaurant brand reuse."
+    },
+    {
+      "domain": "itsnewsweb.com",
+      "category": "AUCTION_CANDIDATE",
+      "previous_max_bid": 100,
+      "revised_max_bid": 0,
+      "change": -100,
+      "change_pct": "-100%",
+      "reason": "ELIMINATED. DA 55 claim is almost certainly FALSE. ZERO organic traffic. ZERO web presence in any search results. No cached profiles, no mentions, no analysis anywhere. A real DA 55 domain would be widely indexed and analyzed. This has all the hallmarks of fraudulent DA manipulation. DO NOT BUY."
+    }
+  ],
+  "tier_ranking": {
+    "tier_1_buy_now": [
+      {
+        "domain": "devhub.io",
+        "max_bid": 350,
+        "confidence": "medium",
+        "rationale": "Only Ahrefs-verified DR (27) in portfolio. ethereum.org backlink. Dev tools niche. Parked for sale."
+      },
+      {
+        "domain": "globalgeopark.org",
+        "max_bid": 350,
+        "confidence": "medium",
+        "rationale": "Strongest organic traffic (3,623 ETV, 814 keywords). UNESCO-affiliated. Legitimate authority."
+      }
+    ],
+    "tier_2_strong_candidates": [
+      {
+        "domain": "jerusalemonline.com",
+        "max_bid": 300,
+        "confidence": "medium-high",
+        "rationale": "4,564 referring domains, 28yr age, Guardian/Independent/Atlantic links. Authority Score 29."
+      },
+      {
+        "domain": "fiskerinc.com",
+        "max_bid": 250,
+        "confidence": "medium",
+        "rationale": "Active rankings, massive press backlinks. BUT likely sold in bankruptcy, not at auction."
+      }
+    ],
+    "tier_3_conditional": [
+      {
+        "domain": "sushifaq.com",
+        "max_bid": 150,
+        "confidence": "low-medium",
+        "rationale": "26yr niche domain. Historical authority declining. Value in domain name + age."
+      },
+      {
+        "domain": "lindisima.com",
+        "max_bid": 175,
+        "confidence": "low-medium",
+        "rationale": "27yr Spanish beauty domain. StatShow shows historical authority. Declining metrics."
+      },
+      {
+        "domain": "ektopos.com",
+        "max_bid": 100,
+        "confidence": "low",
+        "rationale": "23yr domain but current keywords are bail bonds spam. Domain age only value."
+      }
+    ],
+    "tier_4_low_priority": [
+      {
+        "domain": "ghostautonomy.com",
+        "max_bid": 75,
+        "confidence": "low",
+        "rationale": "Zero SEO equity. Brand value only. OpenAI association is a talking point, not SEO juice."
+      },
+      {
+        "domain": "fitocracy.com",
+        "max_bid": 75,
+        "confidence": "high",
+        "rationale": "Verified DA 3. Branded search traffic only. Fitness brand name value."
+      },
+      {
+        "domain": "scififoods.com",
+        "max_bid": 50,
+        "confidence": "low",
+        "rationale": "Zero SEO. Cool brand name for sci-fi/food niche. Never achieved consumer recognition."
+      },
+      {
+        "domain": "bluedogcafe.com",
+        "max_bid": 75,
+        "confidence": "low",
+        "rationale": "Real restaurant domain. Unverified DA. Local backlink potential."
+      }
+    ],
+    "tier_5_marginal_or_avoid": [
+      {
+        "domain": "quickdownload.org",
+        "max_bid": 45,
+        "confidence": "low",
+        "rationale": "20yr age + DR 21 + .org, but 192K spam backlinks. Marginal value."
+      },
+      {
+        "domain": "techpocketnews.com",
+        "max_bid": 30,
+        "confidence": "low",
+        "rationale": "DR 20 claimed but zero traffic + 19K backlinks = spam profile. Deep discount only."
+      }
+    ],
+    "tier_6_do_not_buy": [
+      {
+        "domain": "serversupervisor.com",
+        "max_bid": 0,
+        "reason": "CONFIRMED PBN/casino domain. DA 74 is fraudulent. Zero organic traffic. Google penalty risk."
+      },
+      {
+        "domain": "itsnewsweb.com",
+        "max_bid": 0,
+        "reason": "DA 55 claim is almost certainly false. Zero web presence. Zero traffic. Fraudulent metrics."
+      }
+    ]
+  }
+}

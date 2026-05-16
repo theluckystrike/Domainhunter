@@ -1,0 +1,1056 @@
+{
+  "generated_at": "2026-05-16T12:00:00+00:00",
+  "sprint": 28,
+  "agent": 6,
+  "schema_version": "2.0",
+  "description": "Multi-platform backorder queue with catch strategies, timelines, and budget exposure. Sorted by estimated pending delete date (soonest first).",
+  "queue": [
+    {
+      "domain": "guerrameats.com",
+      "score": 0,
+      "tier": "S",
+      "etv": 11376,
+      "da": 0,
+      "funding_usd": 0,
+      "sector": "food_delivery",
+      "registrar": "Squarespace Domains II LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientHold",
+        "clientTransferProhibited"
+      ],
+      "trademark": "CLEAR",
+      "competition": "LOW",
+      "catch_strategy": {
+        "primary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "65-80%"
+        },
+        "secondary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "10-20%"
+        },
+        "tertiary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "25-200",
+          "action": "bid_if_unsold_at_auction"
+        }
+      },
+      "timeline": {
+        "expires": "2026-04-07 (effective, clientHold applied)",
+        "registry_expiry": "2027-04-07T02:36:43Z",
+        "est_godaddy_auction": "~2026-05-07 to 2026-05-17",
+        "est_closeout": "~2026-05-17 to 2026-05-22",
+        "est_redemption": "~2026-05-22 to 2026-06-21",
+        "est_pending_delete": "2026-06-21",
+        "est_drop": "2026-06-26"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed_verification_pending",
+        "snapnames": "no_account",
+        "godaddy": "monitor_for_auction_listing"
+      },
+      "post_catch": "REDIRECT",
+      "max_bid": 200,
+      "notes": "FIRST BLOOD candidate. DNS dead + clientHold on Squarespace. ETV $11,376 = highest traffic value in portfolio. Squarespace sends expired domains to GoDaddy Auctions. Niche brand domain unlikely to attract heavy bidding. Domain age 21 years (created 2005). Soonest estimated drop in queue."
+    },
+    {
+      "domain": "sunnyray.org",
+      "score": 0,
+      "tier": "S",
+      "etv": 2842,
+      "da": 36,
+      "funding_usd": 0,
+      "sector": "crystal_healing_wellness",
+      "registrar": "Tucows Domains Inc.",
+      "current_epp": [
+        "autoRenewPeriod"
+      ],
+      "trademark": "CLEAR",
+      "competition": "NONE",
+      "catch_strategy": {
+        "primary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "15-30%"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "60-80%"
+        },
+        "tertiary": null
+      },
+      "timeline": {
+        "expires": "2026-04-11 (original, NOT renewed by owner)",
+        "registry_expiry": "2027-04-11T09:19:44.317Z",
+        "est_auto_renew_grace_ends": "~2026-05-26",
+        "est_redemption": "~2026-05-26 to 2026-06-25",
+        "est_pending_delete": "2026-06-25",
+        "est_drop": "2026-06-30"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete (rejected \u2014 still in autoRenewPeriod)",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "n/a \u2014 Tucows registrar, may pass through GoDaddy Auctions"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 100,
+      "notes": "90% catch confidence. Tucows registrar = no internal auction risk (best case). Crystal healing niche = zero competition from domain investors. 21-year domain age, 394 referring domains, 2,080 organic keywords. Parked on Tucows parking page (renewyourname.net NS). Owner: Olga Rezo (Serbian), inactive since early 2026. Monetize via crystal healing content + Amazon Associates."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "score": 0,
+      "tier": "S",
+      "etv": 470,
+      "da": 49,
+      "funding_usd": 0,
+      "sector": "geopark_tourism_education",
+      "registrar": "Tucows Domains Inc.",
+      "current_epp": [
+        "autoRenewPeriod"
+      ],
+      "trademark": "CAUTION",
+      "competition": "LOW",
+      "catch_strategy": {
+        "primary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "15-30%"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "60-80%"
+        },
+        "tertiary": null
+      },
+      "timeline": {
+        "expires": "2026-04-11 (original, NOT renewed by owner)",
+        "registry_expiry": "2027-04-11T02:12:38.271Z",
+        "est_auto_renew_grace_ends": "~2026-05-26",
+        "est_redemption": "~2026-05-26 to 2026-06-25",
+        "est_pending_delete": "2026-06-26",
+        "est_drop": "2026-07-01"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete (rejected \u2014 still in autoRenewPeriod)",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "n/a \u2014 Tucows registrar, may pass through GoDaddy Auctions"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 100,
+      "notes": "95% catch confidence. Tucows registrar = best case for catching. DA 49 with 627 referring domains is strong. ETV declining ($3,623 peak -> $470 current) but recoverable with fresh content. Chinese-operated UNESCO geopark portal. NOT the official GGN site (that is globalgeoparksnetwork.org). TM CAUTION: avoid UNESCO impersonation. Safe for geopark tourism/travel content. 19-year domain age."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "score": 55.6,
+      "tier": "A",
+      "etv": 1428,
+      "da": 52,
+      "funding_usd": 220000000,
+      "sector": "autonomous_driving",
+      "registrar": "Wild West Domains, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "CLEAR",
+      "competition": "LOW",
+      "catch_strategy": {
+        "primary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "60-80%"
+        },
+        "secondary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "25-200",
+          "action": "bid_if_price_right"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "1-3%"
+        }
+      },
+      "timeline": {
+        "expires": "2026-06-07T00:53:13Z",
+        "est_godaddy_auction": "~2026-07-03 (day 26 post-expiry)",
+        "est_auction_end": "~2026-07-13",
+        "est_closeout": "~2026-07-13 to 2026-07-18",
+        "est_redemption": "~2026-07-18 to 2026-08-17",
+        "est_pending_delete": "2026-08-17",
+        "est_drop": "2026-08-22"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed_verification_pending",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_jul_1"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 200,
+      "notes": "TM CLEAR. Trademark serial 97448858 ABANDONED by USPTO March 2024. Company dissolved April 2024. Applied Intuition acquired PATENTS ONLY (not brand/domain). Wild West Domains = GoDaddy subsidiary = goes through GoDaddy Auctions. 14-char compound name = 40-60% chance of passing through auction unsold. $220M funding from Founders Fund, Khosla, OpenAI. clientRenewProhibited = actively being abandoned. UDRP risk LOW: no registered TM, no living entity to file."
+    },
+    {
+      "domain": "sendy.co",
+      "score": 0,
+      "tier": "B",
+      "etv": 3179,
+      "da": 0,
+      "funding_usd": 0,
+      "sector": "logistics",
+      "registrar": "unknown",
+      "current_epp": [
+        "clientRenewProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "MEDIUM",
+      "catch_strategy": {
+        "primary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "40-60%"
+        },
+        "secondary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "5-15%"
+        },
+        "tertiary": null
+      },
+      "timeline": {
+        "expires": "2026-07-16",
+        "est_pending_delete": "2026-09-01",
+        "est_drop": "2026-09-06"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "unknown_registrar"
+      },
+      "post_catch": "REDIRECT",
+      "max_bid": 150,
+      "notes": "clientRenewProhibited. ETV $3,179. Sendy was Kenyan logistics startup. 5-letter .co is valuable. Registrar unknown \u2014 .co ccTLD RDAP limitation. May or may not go through GoDaddy Auctions depending on actual registrar."
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "score": 0,
+      "tier": "B",
+      "etv": 0,
+      "da": 0,
+      "funding_usd": 0,
+      "sector": "beauty_ecommerce",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "UNKNOWN",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "25-100",
+          "action": "bid_if_price_right"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "40-60%"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "1-3%"
+        }
+      },
+      "timeline": {
+        "expires": "2026-07-06T18:20:52Z",
+        "est_godaddy_auction": "~2026-08-01",
+        "est_closeout": "~2026-08-11 to 2026-08-16",
+        "est_pending_delete": "2026-09-15",
+        "est_drop": "2026-09-20"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_aug_1"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 100,
+      "notes": "clientRenewProhibited on GoDaddy. Good Glamm Group was Indian beauty/D2C conglomerate. Long compound name = likely passes through GoDaddy Auctions. Monitor for auction listing ~Aug 1."
+    },
+    {
+      "domain": "readingfoundation.org",
+      "score": 0,
+      "tier": "B",
+      "etv": 7207,
+      "da": 0,
+      "funding_usd": 0,
+      "sector": "education_nonprofit",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "LOW",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "25-200",
+          "action": "bid_at_auction"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "40-60%"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "5-15%"
+        }
+      },
+      "timeline": {
+        "expires": "2026-07-30T04:00:00Z",
+        "est_godaddy_auction": "~2026-08-25",
+        "est_closeout": "~2026-09-04 to 2026-09-09",
+        "est_pending_delete": "2026-10-09",
+        "est_drop": "2026-10-14"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_aug_20"
+      },
+      "post_catch": "REDIRECT",
+      "max_bid": 200,
+      "notes": "Very high ETV $7,207. GoDaddy registrar = goes through GoDaddy Auctions. .org nonprofit domain = lower competition from domainers. Long name 'readingfoundation' = likely passes through auction unsold. clientRenewProhibited."
+    },
+    {
+      "domain": "fiskerinc.com",
+      "score": 54.4,
+      "tier": "A",
+      "etv": 3200,
+      "da": 41,
+      "funding_usd": 1500000000,
+      "sector": "electric_vehicles",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "BLOCKED",
+      "competition": "LOW",
+      "catch_strategy": {
+        "primary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "50-70%"
+        },
+        "secondary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "25-100",
+          "action": "bid_low"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "1-3%"
+        }
+      },
+      "timeline": {
+        "expires": "2026-09-21T23:52:51Z",
+        "est_godaddy_auction": "~2026-10-17",
+        "est_closeout": "~2026-10-27 to 2026-11-01",
+        "est_pending_delete": "2026-12-01",
+        "est_drop": "2026-12-06"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed_verification_pending",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_oct_15"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 200,
+      "notes": "TRADEMARK RISK: Fisker brand has active trademarks from bankruptcy proceedings. The 'Inc' suffix reduces brandability and UDRP risk (nobody wants 'FiskerInc' as a brand). 50-70% chance of surviving GoDaddy Auctions unsold (HugeDomains may skip due to TM risk). $1.5B funded, massive press coverage. Domain shows 'Under Maintenance' page. 10-year domain age."
+    },
+    {
+      "domain": "northvolt.com",
+      "score": 54.4,
+      "tier": "B",
+      "etv": 0,
+      "da": 0,
+      "funding_usd": 13000000000,
+      "sector": "battery_ev",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "HIGH",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "200-1000",
+          "action": "bid_at_auction"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "30-50%"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "1%"
+        }
+      },
+      "timeline": {
+        "expires": "2027-01-24T20:34:12Z",
+        "est_godaddy_auction": "~2027-02-19",
+        "est_pending_delete": "~2027-04-10",
+        "est_drop": "~2027-04-15"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_feb_2027"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 500,
+      "notes": "GoDaddy Auction battlefield. 70-85% probability sold at GoDaddy Auctions. $13B funded, massive press coverage from Chapter 11 proceedings. 9-letter compound brand. Bankruptcy estate may renew/reclaim domain during restructuring. Domain may NEVER actually expire. Monitor bankruptcy proceedings."
+    },
+    {
+      "domain": "infarm.com",
+      "score": 81.0,
+      "tier": "B",
+      "etv": 0,
+      "da": 0,
+      "funding_usd": 500000000,
+      "sector": "vertical_farming",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "HIGH",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "500-2000",
+          "action": "bid_at_auction"
+        },
+        "secondary": {
+          "platform": "DropCatch",
+          "cost": 59,
+          "catch_rate": "30-50%"
+        },
+        "tertiary": {
+          "platform": "Dynadot",
+          "cost": 10.99,
+          "catch_rate": "1%"
+        }
+      },
+      "timeline": {
+        "expires": "2027-02-18T05:00:00Z",
+        "est_godaddy_auction": "~2027-03-16",
+        "est_pending_delete": "~2027-05-05",
+        "est_drop": "~2027-05-10"
+      },
+      "backorder_status": {
+        "dynadot": "waiting_pendingDelete",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "monitor_from_mar_2027"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 500,
+      "notes": "GoDaddy Auction battlefield. 85-95% probability sold at GoDaddy Auctions. 6-letter brandable compound (in+farm). HugeDomains will bid. $500M funded, reaper=81.0. Re-emerged as Infarm Technologies Limited in Toronto. 27-year domain age (1999). Likely out of budget at auction \u2014 monitor only unless closeout opportunity."
+    },
+    {
+      "domain": "veev.com",
+      "score": 75.8,
+      "tier": "C",
+      "etv": 0,
+      "da": 0,
+      "funding_usd": 600000000,
+      "sector": "construction_tech",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "EXTREME",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "5000-30000",
+          "action": "WATCH_ONLY"
+        },
+        "secondary": null,
+        "tertiary": null
+      },
+      "timeline": {
+        "expires": "2027-07-02T03:59:59Z",
+        "est_godaddy_auction": "~2027-07-28",
+        "est_pending_delete": "~2027-09-16",
+        "est_drop": "~2027-09-21"
+      },
+      "backorder_status": {
+        "dynadot": "not_placed",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "watch_only"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 0,
+      "notes": "WATCH ONLY \u2014 OUT OF BUDGET. Premium 4-letter CVCV .com. 27-year domain age (1999). 98%+ probability sold at GoDaddy Auctions. Only 456,976 possible 4-letter .com combinations. Veeva Systems (NYSE: VEEV) brand confusion may drive bidding. $5K-$30K+ expected auction price."
+    },
+    {
+      "domain": "olive.com",
+      "score": 82.5,
+      "tier": "C",
+      "etv": 0,
+      "da": 0,
+      "funding_usd": 902000000,
+      "sector": "healthtech",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "trademark": "UNKNOWN",
+      "competition": "EXTREME",
+      "catch_strategy": {
+        "primary": {
+          "platform": "GoDaddy Auctions",
+          "cost": "10000-100000",
+          "action": "WATCH_ONLY"
+        },
+        "secondary": null,
+        "tertiary": null
+      },
+      "timeline": {
+        "expires": "2027-11-21T05:00:00Z",
+        "est_godaddy_auction": "~2027-12-17",
+        "est_pending_delete": "~2028-02-05",
+        "est_drop": "~2028-02-10"
+      },
+      "backorder_status": {
+        "dynadot": "not_placed",
+        "dropcatch": "not_placed",
+        "snapnames": "no_account",
+        "godaddy": "watch_only"
+      },
+      "post_catch": "FLIP",
+      "max_bid": 0,
+      "notes": "WATCH ONLY \u2014 OUT OF BUDGET. Premium one-word 5-letter .com. 31-year domain age (1996). 99%+ probability sold at GoDaddy Auctions for $10K-$100K+. HugeDomains bots will bid instantly. Comparable sales: cream.com ($250K), butter.com. Zero chance of reaching pendingDelete. Would need $10K+ budget minimum to compete."
+    }
+  ],
+  "kaggle_candidates": {
+    "description": "Top domains from Sprint 27 Kaggle RDAP scan. 53 total CATCHABLE. Pending deeper validation by Agent 3 for ETV, DA, backlinks, and competition. These are PLACEHOLDERS \u2014 many have subdomain URLs (e.g. news.cnet.com) or obscure names with low resale value.",
+    "status": "PENDING_VALIDATION",
+    "top_10_by_funding": [
+      {
+        "domain": "officialvirtualdj.com",
+        "company": "Official Limited Virtual",
+        "funding_usd": 170600000,
+        "sector": "music",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "neovistainc.com",
+        "company": "NeoVista",
+        "funding_usd": 130000000,
+        "sector": "healthtech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "c8-inc.com",
+        "company": "C8 MediSensors",
+        "funding_usd": 64000000,
+        "sector": "biotech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "zero9group.com",
+        "company": "Zero9",
+        "funding_usd": 44200000,
+        "sector": "microblogging",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "g10korea.com",
+        "company": "G10 Entertainment",
+        "funding_usd": 38000000,
+        "sector": "gaming",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "trinitybiosystems.com",
+        "company": "Trinity Biosystems",
+        "funding_usd": 28500000,
+        "sector": "biotech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "orieltherapeutics.com",
+        "company": "Oriel Therapeutics",
+        "funding_usd": 26500000,
+        "sector": "biotech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "femtapharma.com",
+        "company": "Femta Pharmaceuticals",
+        "funding_usd": 23500000,
+        "sector": "biotech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "springleaftx.com",
+        "company": "Springleaf Therapeutics",
+        "funding_usd": 23300000,
+        "sector": "biotech",
+        "rdap_status": "CATCHABLE",
+        "validation_needed": "Verify actual RDAP status, ETV, DA, competition, trademark"
+      },
+      {
+        "domain": "mckinnon-clarke.com",
+        "company": "McKinnon & Clarke",
+        "funding_usd": 22000000,
+        "sector": "services",
+        "rdap_status": "CATCHABLE",
+        "epp_codes": [
+          "clientTransferProhibited",
+          "redemptionPeriod"
+        ],
+        "expiry_date": "2026-03-23T22:26:07Z",
+        "registrar": "NameCheap, Inc.",
+        "validation_needed": "Already in redemptionPeriod as of scan date \u2014 may have already dropped or entered pendingDelete. URGENT CHECK NEEDED."
+      }
+    ],
+    "total_catchable": 53,
+    "note": "Many Kaggle 'CATCHABLE' results have empty RDAP fields (no registrar, no expiry, no EPP codes). This means the RDAP query returned no data \u2014 the domains may be truly unregistered OR the RDAP server was unreachable. Agent 3 must verify each with direct WHOIS/RDAP before adding to active queue. Subdomain URLs (e.g. news.cnet.com, en.akella.com, services.cybernetsoft.com) should be excluded \u2014 cannot register subdomains."
+  },
+  "watch_list": {
+    "description": "Domains classified as MAYBE or long-term CATCHABLE. Monitor for EPP status transitions.",
+    "domains": [
+      {
+        "domain": "scififoods.com",
+        "registrar": "GoDaddy.com, LLC",
+        "expiry": "2026-06-14T21:33:28Z",
+        "epp": [
+          "clientDeleteProhibited",
+          "clientRenewProhibited",
+          "clientTransferProhibited",
+          "clientUpdateProhibited"
+        ],
+        "reaper_score": 57.2,
+        "funding_usd": 30000000,
+        "notes": "Expires Jun 14 \u2014 IMMINENT. Vercel hosting unpaid. clientRenewProhibited. Will go to GoDaddy Auctions ~Jul 10. Low brandability.",
+        "action": "Monitor GoDaddy Auctions listing"
+      },
+      {
+        "domain": "tally.com",
+        "registrar": "unknown",
+        "expiry": "2026-07-07",
+        "epp": [
+          "clientRenewProhibited"
+        ],
+        "reaper_score": 56.5,
+        "funding_usd": 92000000,
+        "notes": "5-letter .com, $92M funded. If it reaches GoDaddy Auctions, likely sells for $500-$2K. Out of budget unless closeout.",
+        "action": "Watch for auction price"
+      },
+      {
+        "domain": "vineventures.com",
+        "registrar": "unknown",
+        "expiry": "2026-08-25",
+        "epp": [
+          "clientRenewProhibited"
+        ],
+        "reaper_score": 55.5,
+        "funding_usd": 150000000,
+        "notes": "$150M funded. clientRenewProhibited. Long compound name = may pass through auction.",
+        "action": "Monitor for pendingDelete"
+      },
+      {
+        "domain": "peartherapeutics.com",
+        "registrar": "unknown",
+        "expiry": "2026-09-13",
+        "epp": [
+          "clientRenewProhibited"
+        ],
+        "reaper_score": 61.0,
+        "funding_usd": 400000000,
+        "notes": "$400M funded. Long brand name. Pear Therapeutics filed Chapter 11. May have TM risk.",
+        "action": "Monitor for pendingDelete"
+      },
+      {
+        "domain": "motional.com",
+        "registrar": "unknown",
+        "expiry": "2026-10-07",
+        "epp": [
+          "clientRenewProhibited"
+        ],
+        "reaper_score": 60.0,
+        "funding_usd": 4000000000,
+        "notes": "$4B funded Hyundai/Aptiv JV. 8-letter dictionary-adjacent .com. Likely sells at GoDaddy Auctions for $1K-$5K.",
+        "action": "Watch \u2014 likely out of budget at auction"
+      },
+      {
+        "domain": "thredup.com",
+        "registrar": "unknown",
+        "expiry": "2026-10-16",
+        "epp": [
+          "clientRenewProhibited"
+        ],
+        "reaper_score": 58.5,
+        "funding_usd": 300000000,
+        "notes": "Well-known brand, $300M funded. Publicly traded. May be renewed. If not, likely sells at auction.",
+        "action": "Watch for auction"
+      },
+      {
+        "domain": "arrival.com",
+        "registrar": "Name.com, Inc.",
+        "expiry": "2026-12-03T19:44:47Z",
+        "epp": [],
+        "reaper_score": 77.0,
+        "funding_usd": 1000000000,
+        "classification": "MAYBE",
+        "notes": "Premium one-word .com. NASDAQ delisted. Server down (522). Name.com registrar sends to GoDaddy Auctions. Will sell for $5K-$50K+ at auction. Out of budget.",
+        "action": "Watch only"
+      },
+      {
+        "domain": "ambri.com",
+        "registrar": "GoDaddy.com, LLC",
+        "expiry": "2027-06-20T04:00:00Z",
+        "epp": [
+          "clientDeleteProhibited",
+          "clientRenewProhibited",
+          "clientTransferProhibited",
+          "clientUpdateProhibited"
+        ],
+        "reaper_score": 75.2,
+        "funding_usd": 223000000,
+        "notes": "$223M, Bill Gates-backed. 5-letter .com. Asset sale completed. Will likely sell at GoDaddy Auctions.",
+        "action": "Watch \u2014 5-letter .com will attract bidders"
+      }
+    ]
+  },
+  "uncatchable": {
+    "description": "Domains confirmed UNCATCHABLE \u2014 acquired, relaunched, registered through 2028+, or fortress-locked.",
+    "count": 16,
+    "domains": [
+      "irl.com (MarkMonitor + 6 locks)",
+      "convoy.com (SafeNames + 6 locks, registered 2028)",
+      "stenn.com (recently renewed Apr 2026)",
+      "easyknock.com (Cloudflare, registered 2028)",
+      "humane.com (HP acquired, registered 2032)",
+      "boweryfarming.com (re-registered Aug 2025 by Spaceship)",
+      "zume.com (Network Solutions, no drop signals)",
+      "synapsefi.com (registered 2032)",
+      "hermd.com (acquired, relaunched)",
+      "bench.co (acquired by Employer.com)",
+      "moxionpower.com (acquired, registered 2032)",
+      "tally.co (different company \u2014 form builder)",
+      "capway.com (no drop signals)",
+      "plastiq.com (acquired by Priority Technology)",
+      "themessenger.com (registered 2033)",
+      "allplants.com (acquired by Ella Mills)"
+    ]
+  },
+  "platform_readiness": {
+    "dynadot": {
+      "status": "ACTIVE",
+      "balance": 25.0,
+      "needed_balance": 50.0,
+      "topup_needed": 25.0,
+      "backorder_cost": 10.99,
+      "accreditations": 15,
+      "catch_rate_com": "1-3%",
+      "catch_rate_org": "15-30%",
+      "blocker": "NONE \u2014 operational but low catch rate"
+    },
+    "dropcatch": {
+      "status": "VERIFICATION_PENDING",
+      "balance": 0,
+      "backorder_cost": 59,
+      "accreditations": 1201,
+      "catch_rate": "60-80%",
+      "blocker": "CRITICAL \u2014 government ID + selfie upload needed. #1 blocker since Sprint 10."
+    },
+    "snapnames": {
+      "status": "NO_ACCOUNT",
+      "backorder_cost": 79,
+      "accreditations": "50-100 (estimated)",
+      "catch_rate": "15-30%",
+      "blocker": "Need signup at snapnames.com. Do NOT also create NameJet account (shared inventory = bidding against yourself)."
+    },
+    "godaddy_auctions": {
+      "status": "NO_MEMBERSHIP",
+      "membership_cost": 4.99,
+      "min_bid": 25,
+      "blocker": "Need $4.99/yr membership. Required for guerrameats.com, ghostautonomy.com, and all GoDaddy-registered domains."
+    }
+  },
+  "budget_summary": {
+    "available_budget": 565.02,
+    "tier_s_exposure": {
+      "description": "3 domains at $10.99 Dynadot each",
+      "amount": 32.97,
+      "domains": [
+        "guerrameats.com",
+        "sunnyray.org",
+        "globalgeopark.org"
+      ]
+    },
+    "tier_s_dropcatch_backup": {
+      "description": "3 domains at $59 DropCatch each (pay only winning platform)",
+      "amount": 177.0,
+      "note": "Only pay ONE platform per domain. Worst case if all 3 caught by DropCatch = $177. If caught by Dynadot = $32.97."
+    },
+    "tier_a_exposure": {
+      "description": "ghostautonomy.com + fiskerinc.com at $59-$200 each",
+      "amount": 259.0,
+      "breakdown": {
+        "ghostautonomy_dropcatch": 59,
+        "ghostautonomy_godaddy_max_bid": 200,
+        "fiskerinc_dropcatch": 59,
+        "fiskerinc_godaddy_max_bid": 200,
+        "note": "Worst case is GoDaddy Auction wins at max bid. Mutually exclusive with DropCatch cost."
+      }
+    },
+    "tier_b_exposure": {
+      "description": "goodglammgroup.com + sendy.co + readingfoundation.org",
+      "amount": 450.0,
+      "breakdown": {
+        "goodglammgroup_max": 100,
+        "sendy_max": 150,
+        "readingfoundation_max": 200,
+        "note": "Max bids if acquired via GoDaddy Auctions"
+      }
+    },
+    "platform_costs": {
+      "dynadot_topup": 25.0,
+      "godaddy_membership": 4.99,
+      "dropcatch_deposit": 0,
+      "total_platform_costs": 29.99
+    },
+    "scenario_analysis": {
+      "best_case": {
+        "description": "Catch all 3 Tier S via Dynadot at $10.99 each",
+        "cost": 32.97,
+        "remaining": 532.05
+      },
+      "likely_case": {
+        "description": "Catch 2 Tier S via Dynadot ($21.98), 1 via DropCatch ($59), ghostautonomy via DropCatch ($59)",
+        "cost": 139.98,
+        "remaining": 425.04
+      },
+      "worst_case": {
+        "description": "All 3 Tier S via DropCatch ($177), ghostautonomy via GoDaddy Auction ($200), fiskerinc via GoDaddy ($100)",
+        "cost": 477.0,
+        "remaining": 88.02
+      },
+      "max_theoretical_exposure": {
+        "description": "All domains caught at max bid (impossible \u2014 mutually exclusive platforms)",
+        "amount": 919.96,
+        "note": "This is theoretical maximum. In practice, each domain is caught by ONE platform only."
+      }
+    },
+    "recommended_budget_allocation": {
+      "immediate_action": {
+        "dynadot_topup_to_50": 25.0,
+        "godaddy_auctions_membership": 4.99,
+        "total_immediate": 29.99
+      },
+      "reserve_for_tier_s": {
+        "description": "Hold $177 for DropCatch catches on 3 Tier S domains",
+        "amount": 177.0
+      },
+      "reserve_for_tier_a": {
+        "description": "Hold $200 for ghostautonomy.com acquisition (GoDaddy Auction or DropCatch)",
+        "amount": 200.0
+      },
+      "remaining_for_opportunistic": {
+        "amount": 158.03,
+        "note": "Available for Tier B GoDaddy Auction bids, Kaggle candidates, or unexpected opportunities"
+      }
+    }
+  },
+  "critical_timeline": [
+    {
+      "date": "2026-05-16",
+      "action": "THIS SPRINT: Queue rebuilt. Next: unblock DropCatch verification.",
+      "domain": "all"
+    },
+    {
+      "date": "2026-05-20",
+      "action": "Check GoDaddy Auctions for guerrameats.com listing (may appear ~30-45 days after clientHold)",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "2026-05-26",
+      "action": "Check RDAP: sunnyray.org + globalgeopark.org should transition autoRenewPeriod -> redemptionPeriod",
+      "domain": "sunnyray.org, globalgeopark.org"
+    },
+    {
+      "date": "2026-06-01",
+      "action": "DEADLINE: DropCatch verification complete. SnapNames account created. Dynadot topped up to $50.",
+      "domain": "all"
+    },
+    {
+      "date": "2026-06-01",
+      "action": "Increase drop_monitor.py frequency to every 2 hours for critical tier.",
+      "domain": "guerrameats.com, sunnyray.org, globalgeopark.org"
+    },
+    {
+      "date": "2026-06-07",
+      "action": "ghostautonomy.com EXPIRES. Monitor for GoDaddy pipeline start.",
+      "domain": "ghostautonomy.com"
+    },
+    {
+      "date": "2026-06-14",
+      "action": "scififoods.com expires. Watch for GoDaddy Auction listing.",
+      "domain": "scififoods.com"
+    },
+    {
+      "date": "2026-06-15",
+      "action": "Begin daily Dynadot backorder attempts for guerrameats.com (retry until accepted).",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "2026-06-21",
+      "action": "ESTIMATED pendingDelete START for guerrameats.com. Auto-backorder should trigger. Verify all 3 platforms.",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "2026-06-25",
+      "action": "ESTIMATED pendingDelete START for sunnyray.org. Place Dynadot backorder immediately.",
+      "domain": "sunnyray.org"
+    },
+    {
+      "date": "2026-06-26",
+      "action": "ESTIMATED DROP DAY for guerrameats.com. Check all platforms for catch result. FIRST BLOOD.",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "2026-06-26",
+      "action": "ESTIMATED pendingDelete START for globalgeopark.org. Place Dynadot backorder immediately.",
+      "domain": "globalgeopark.org"
+    },
+    {
+      "date": "2026-06-30",
+      "action": "ESTIMATED DROP DAY for sunnyray.org.",
+      "domain": "sunnyray.org"
+    },
+    {
+      "date": "2026-07-01",
+      "action": "ESTIMATED DROP DAY for globalgeopark.org.",
+      "domain": "globalgeopark.org"
+    },
+    {
+      "date": "2026-07-03",
+      "action": "ghostautonomy.com likely appears on GoDaddy Auctions (~day 26 post-expiry).",
+      "domain": "ghostautonomy.com"
+    },
+    {
+      "date": "2026-07-06",
+      "action": "goodglammgroup.com expires.",
+      "domain": "goodglammgroup.com"
+    },
+    {
+      "date": "2026-07-13",
+      "action": "ghostautonomy.com auction ends. If unsold, enters closeout.",
+      "domain": "ghostautonomy.com"
+    },
+    {
+      "date": "2026-07-16",
+      "action": "sendy.co expires.",
+      "domain": "sendy.co"
+    },
+    {
+      "date": "2026-07-30",
+      "action": "readingfoundation.org expires.",
+      "domain": "readingfoundation.org"
+    },
+    {
+      "date": "2026-08-22",
+      "action": "ESTIMATED DROP DAY for ghostautonomy.com (if survives GoDaddy Auctions + closeout + redemption).",
+      "domain": "ghostautonomy.com"
+    }
+  ],
+  "action_blockers": [
+    {
+      "priority": 1,
+      "blocker": "DropCatch verification incomplete since Sprint 10",
+      "impact": "Cannot place backorders on #1 catching platform (60-80% catch rate). Reduces catch probability for ALL domains from ~80% to ~20%.",
+      "action": "Upload government ID + selfie to DropCatch account IMMEDIATELY.",
+      "deadline": "2026-06-01"
+    },
+    {
+      "priority": 2,
+      "blocker": "No SnapNames account",
+      "impact": "Missing 15-30% catch rate backup platform.",
+      "action": "Sign up at snapnames.com. Do NOT also create NameJet account (shared inventory).",
+      "deadline": "2026-06-01"
+    },
+    {
+      "priority": 3,
+      "blocker": "No GoDaddy Auctions membership",
+      "impact": "Cannot monitor or bid on expired domains that pass through GoDaddy Auctions (guerrameats.com, ghostautonomy.com, all GoDaddy-registered domains).",
+      "action": "Purchase $4.99/yr GoDaddy Auctions membership.",
+      "deadline": "2026-05-20"
+    },
+    {
+      "priority": 4,
+      "blocker": "Dynadot balance too low ($25, need $50)",
+      "impact": "Can only cover ~2 simultaneous catches at $10.99. Need 4-5 slots.",
+      "action": "Top up Dynadot balance by $25.",
+      "deadline": "2026-06-15"
+    }
+  ]
+}

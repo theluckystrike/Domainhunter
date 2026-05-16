@@ -1,0 +1,66 @@
+{
+  "project": "recipetool",
+  "domain": "recipetool.net",
+  "deployed_at": "2026-05-07T03:03:00Z",
+  "sprint": 6,
+  "agent": "AGENT 3 (BUILDER)",
+  "pages_url": "https://recipetool.pages.dev",
+  "preview_url": "https://a8345a41.recipetool.pages.dev",
+  "custom_domains": {
+    "recipetool.net": {
+      "status": "initializing",
+      "domain_id": "d63a5755-9b16-4e60-abd5-b62cb80574f0",
+      "ssl": "pending"
+    },
+    "www.recipetool.net": {
+      "status": "initializing",
+      "domain_id": "f70a577e-0273-46c5-a4cc-35748c1b6e47",
+      "ssl": "pending"
+    }
+  },
+  "dns_records": {
+    "root_cname": {
+      "id": "8362fafba87fa3a311cd2a421a8e633c",
+      "type": "CNAME",
+      "name": "recipetool.net",
+      "content": "recipetool.pages.dev",
+      "proxied": true
+    },
+    "www_cname": {
+      "id": "bbd08f097bcd2fed354af23a0f90cf57",
+      "type": "CNAME",
+      "name": "www.recipetool.net",
+      "content": "recipetool.pages.dev",
+      "proxied": true
+    }
+  },
+  "cloudflare_project_id": "1e79df2e-9e51-4309-97cb-a43e2f749f53",
+  "zone_id": "9229369e7dd61fca2cce6225cb9de83c",
+  "pages": [
+    {
+      "path": "/",
+      "file": "index.html",
+      "title": "Recipe Nutrition Calculator - Free Calorie & Macro Counter",
+      "size_bytes": 23156,
+      "features": ["100+ ingredient database", "per-serving breakdown", "export nutrition label as PNG", "autocomplete search", "unit conversion"]
+    },
+    {
+      "path": "/meal-planner.html",
+      "file": "meal-planner.html",
+      "title": "Weekly Meal Planner - Plan Your Meals & Track Calories",
+      "size_bytes": 12949,
+      "features": ["7-day grid", "drag-and-drop meals", "daily calorie/macro totals", "localStorage save/load", "print-friendly"]
+    },
+    {
+      "path": "/calorie-calculator.html",
+      "file": "calorie-calculator.html",
+      "title": "Calorie Calculator - TDEE & BMR Calculator",
+      "size_bytes": 12966,
+      "features": ["Mifflin-St Jeor BMR", "TDEE by activity level", "4 macro split plans", "12-week weight projection", "BMI calculation"]
+    }
+  ],
+  "supporting_files": ["sitemap.xml", "robots.txt", "_headers", "_redirects", "404.html"],
+  "security_headers": ["Content-Security-Policy", "X-Frame-Options", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy"],
+  "deployment_verified": true,
+  "http_status": 200
+}

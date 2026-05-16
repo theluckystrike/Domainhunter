@@ -1,0 +1,370 @@
+{
+  "metadata": {
+    "generated": "2026-05-07",
+    "sprint": 8,
+    "budget_remaining": 565,
+    "upfront_cost": 9.99,
+    "notes": "SnapNames and NameJet share inventory since 2020 - NEVER backorder same domain on both. Domains are split between SnapNames and NameJet to maximize independent catch attempts."
+  },
+  "platforms": {
+    "dropcatch": {
+      "url": "https://www.dropcatch.com",
+      "account_status": "created_pending_verification",
+      "blocker": "ID verification pending - contact support to expedite",
+      "catch_price_com": 59.00,
+      "catch_price_net": 59.00,
+      "catch_price_org": 59.00,
+      "upfront_cost": 0,
+      "auction_type": "public",
+      "priority_action": "CALL SUPPORT TO UNBLOCK VERIFICATION"
+    },
+    "snapnames": {
+      "url": "https://www.snapnames.com",
+      "account_status": "not_created",
+      "catch_price_com": 79.00,
+      "upfront_cost": 0,
+      "auction_type": "private",
+      "shares_inventory_with": "namejet",
+      "priority_action": "CREATE ACCOUNT AND PLACE BACKORDERS"
+    },
+    "namejet": {
+      "url": "https://www.namejet.com",
+      "account_status": "not_created",
+      "catch_price_com": 69.00,
+      "upfront_cost": 0,
+      "auction_type": "private",
+      "shares_inventory_with": "snapnames",
+      "supports_proxy_bidding": true,
+      "priority_action": "CREATE ACCOUNT AND PLACE BACKORDERS"
+    },
+    "dynadot": {
+      "url": "https://www.dynadot.com/market/backorder",
+      "account_status": "not_created",
+      "catch_price_com": 24.99,
+      "catch_price_net": 13.99,
+      "catch_price_org": 13.99,
+      "upfront_cost": 5.00,
+      "auction_type": "backorder_auction",
+      "priority_action": "CREATE ACCOUNT, ADD $5 BALANCE, PLACE ALL BACKORDERS"
+    },
+    "godaddy_auctions": {
+      "url": "https://auctions.godaddy.com/beta",
+      "account_status": "not_checked",
+      "membership_cost": 4.99,
+      "purpose": "Check if any domains are already listed for auction",
+      "priority_action": "SEARCH ALL DOMAINS, BID IF FOUND"
+    },
+    "park_io": {
+      "url": "https://park.io",
+      "account_status": "not_needed",
+      "catch_price": 99.00,
+      "supported_tlds": [".io", ".ly", ".to", ".me"],
+      "notes": "No current targets use Park.io-supported TLDs. Skip this sprint."
+    }
+  },
+  "domains": [
+    {
+      "domain": "bishopswaltham.net",
+      "priority": "EMERGENCY",
+      "drops_in_days": 1,
+      "da": 55,
+      "rd": 41,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "local/geographic",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "ektopos.com",
+      "priority": "EMERGENCY",
+      "drops_in_days": 2,
+      "da": 47,
+      "rd": 483,
+      "max_bid": 150,
+      "trademark_risk": false,
+      "niche": "general",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "ciudadsegontia.com",
+      "priority": "EMERGENCY",
+      "drops_in_days": 3,
+      "da": 56,
+      "rd": 82,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "local/geographic",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "lindisima.com",
+      "priority": "URGENT",
+      "drops_in_days": 4,
+      "da": 50,
+      "rd": 301,
+      "max_bid": 100,
+      "trademark_risk": false,
+      "niche": "beauty",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "itsnewsweb.com",
+      "priority": "URGENT",
+      "drops_in_days": 5,
+      "da": 55,
+      "rd": 350,
+      "max_bid": 100,
+      "trademark_risk": false,
+      "niche": "news",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "reggiewatts.com",
+      "priority": "URGENT",
+      "drops_in_days": 5,
+      "da": 51,
+      "rd": 523,
+      "max_bid": 75,
+      "trademark_risk": true,
+      "trademark_notes": "Reggie Watts is a living public figure. High UDRP risk. Only acquire if you have a legitimate non-infringing use case.",
+      "niche": "entertainment",
+      "platforms": {
+        "dropcatch": { "status": "skip", "reason": "trademark_risk" },
+        "snapnames": { "status": "optional", "backorder_price": 0, "notes": "Only if you accept trademark risk" },
+        "namejet": { "status": "skip", "reason": "trademark_risk" },
+        "dynadot": { "status": "optional", "backorder_price": 0, "notes": "Only if you accept trademark risk" },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "globalgeopark.org",
+      "priority": "URGENT",
+      "drops_in_days": 6,
+      "da": 49,
+      "rd": 627,
+      "max_bid": 150,
+      "trademark_risk": false,
+      "niche": "education/tourism",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "skip", "reason": "using_namejet_for_this_domain" },
+        "namejet": { "status": "to_place", "backorder_price": 0 },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "sushifaq.com",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "da": 51,
+      "rd": 769,
+      "max_bid": 250,
+      "trademark_risk": false,
+      "niche": "food",
+      "niche_synergy": "FOOD NICHE - high value for recipe/food portfolio",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "skip", "reason": "using_namejet_for_this_domain" },
+        "namejet": { "status": "to_place", "backorder_price": 0, "proxy_bid": 250 },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "jerusalemonline.com",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "da": 64,
+      "rd": 1101,
+      "max_bid": 300,
+      "trademark_risk": false,
+      "niche": "travel/news",
+      "notes": "HIGHEST DA in the batch. 1101 referring domains. Top priority acquisition.",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "skip", "reason": "using_namejet_for_this_domain" },
+        "namejet": { "status": "to_place", "backorder_price": 0, "proxy_bid": 300 },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "bluedogcafe.com",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "da": 41,
+      "rd": 251,
+      "max_bid": 150,
+      "trademark_risk": false,
+      "niche": "food",
+      "niche_synergy": "FOOD NICHE - restaurant/cafe domain",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "priority": "HIGH",
+      "drops_in_days": 31,
+      "da": null,
+      "estimated_dr": 45,
+      "rd": null,
+      "max_bid": 400,
+      "trademark_risk": "moderate",
+      "trademark_notes": "OpenAI-backed startup, $220M raised. Check if trademark was sold during asset liquidation.",
+      "niche": "tech/AI",
+      "notes": "Former OpenAI-backed autonomous driving startup. Shut down April 2024. Domain expires ~Jun 7.",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "skip", "reason": "using_namejet_for_this_domain" },
+        "namejet": { "status": "to_place", "backorder_price": 0, "proxy_bid": 400 },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "scififoods.com",
+      "priority": "HIGH",
+      "drops_in_days": 38,
+      "da": null,
+      "estimated_dr": 25,
+      "rd": null,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "food/tech",
+      "notes": "Cultivated meat startup, raised $30M, shut down. Domain expires ~Jun 14. Lower DR but food niche.",
+      "platforms": {
+        "dropcatch": { "status": "pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "aidevtools.com",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "da": null,
+      "rd": null,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "tech/AI",
+      "notes": "Already backordered on DropCatch. Adding backup platforms.",
+      "platforms": {
+        "dropcatch": { "status": "placed_pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "bestdevtools.com",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "da": null,
+      "rd": null,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "tech",
+      "notes": "Already backordered on DropCatch. Adding SnapNames as backup.",
+      "platforms": {
+        "dropcatch": { "status": "placed_pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "taskplanner.com",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "da": null,
+      "rd": null,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "productivity",
+      "notes": "Already backordered on DropCatch. Adding backup platforms.",
+      "platforms": {
+        "dropcatch": { "status": "placed_pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "skip", "reason": "using_namejet_for_this_domain" },
+        "namejet": { "status": "to_place", "backorder_price": 0 },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    },
+    {
+      "domain": "finetuneai.com",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "da": null,
+      "rd": null,
+      "max_bid": 75,
+      "trademark_risk": false,
+      "niche": "tech/AI",
+      "notes": "Already backordered on DropCatch. Adding SnapNames as backup.",
+      "platforms": {
+        "dropcatch": { "status": "placed_pending_verification", "backorder_price": 59.00 },
+        "snapnames": { "status": "to_place", "backorder_price": 0 },
+        "namejet": { "status": "skip", "reason": "using_snapnames_for_this_domain" },
+        "dynadot": { "status": "to_place", "backorder_price": 0 },
+        "godaddy_auctions": { "status": "to_check" }
+      }
+    }
+  ],
+  "summary": {
+    "total_domains": 16,
+    "emergency_count": 3,
+    "urgent_count": 7,
+    "high_count": 2,
+    "existing_count": 4,
+    "total_backorders_to_place": {
+      "dropcatch": "11 new + 4 existing (pending verification)",
+      "snapnames": 9,
+      "namejet": 6,
+      "dynadot": 16,
+      "godaddy_auctions": "16 to search/check"
+    },
+    "platform_coverage": {
+      "dropcatch_plus_snapnames_or_namejet_plus_dynadot": "3 independent catch attempts per domain",
+      "note": "DropCatch, SnapNames/NameJet, and Dynadot are all independent catchers"
+    }
+  }
+}

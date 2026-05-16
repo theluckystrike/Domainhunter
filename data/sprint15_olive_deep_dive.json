@@ -1,0 +1,144 @@
+{
+  "sprint": 15,
+  "agent": "OLIVE DEEP DIVE",
+  "scan_date": "2026-05-08",
+  "critical_finding": "OLIVE.COM IS NOT THE OLIVE AI HEALTHCARE STARTUP. It is an active, operating extended car warranty business (Repair Ventures LLC, Chicago IL). The Olive AI startup used oliveai.com, which now 301-redirects to waystar.com. This domain is NOT acquirable.",
+
+  "whois": {
+    "registrar": "GoDaddy.com, LLC",
+    "registrar_iana_id": 146,
+    "creation_date": "1996-11-22T05:00:00Z",
+    "updated_date": "2024-04-26T18:10:11Z",
+    "expiry_date": "2027-11-21T05:00:00Z",
+    "status_flags": [
+      "clientDeleteProhibited",
+      "clientRenewProhibited",
+      "clientTransferProhibited",
+      "clientUpdateProhibited"
+    ],
+    "status_analysis": "ALL FOUR client locks are active. clientRenewProhibited is particularly notable -- this is typically set by the registrar to prevent unauthorized renewals, sometimes seen in disputed domains or premium domain portfolios. Combined with all other locks, this domain is FULLY LOCKED DOWN.",
+    "nameservers": [
+      "NS0.DNSMADEEASY.COM",
+      "NS1.DNSMADEEASY.COM",
+      "NS2.DNSMADEEASY.COM",
+      "NS3.DNSMADEEASY.COM",
+      "NS4.DNSMADEEASY.COM"
+    ],
+    "registrant": {
+      "name": "Registration Private",
+      "organization": "Domains By Proxy, LLC",
+      "address": "DomainsByProxy.com, 100 S. Mill Ave, Suite 1600, Tempe, AZ 85281",
+      "privacy_service": true
+    },
+    "dnssec": "unsigned",
+    "domain_age_years": 29.5
+  },
+
+  "http": {
+    "https_resolves": true,
+    "https_status_code": 403,
+    "https_status_reason": "Geo-blocked by Sucuri/GoDaddy WAF (Block ID: GEO02 — access from requesting country disabled by administrator)",
+    "http_resolves": true,
+    "http_status_code": 403,
+    "http_status_reason": "Same geo-block via Sucuri/Cloudproxy",
+    "ssl_valid": true,
+    "ssl_issuer": "Go Daddy Secure Certificate Authority - G2",
+    "ssl_subject": "CN=olive.com",
+    "ssl_not_before": "2026-03-16T18:01:42Z",
+    "ssl_not_after": "2026-06-14T18:01:42Z",
+    "ssl_analysis": "SSL cert was RECENTLY RENEWED (March 2026) and is actively maintained. 90-day cert rotation is normal for automated renewals. This is an actively maintained domain.",
+    "content_summary": "Returns GoDaddy Security / Sucuri WAF 'Access Denied' page due to geo-blocking (GEO02). Site is behind active firewall — NOT a parked/dead page.",
+    "google_indexed_content": "Google shows olive.com as 'Extended Car Warranty Plans You Can Trust | Olive' — a fully operational extended car warranty business with shop subdomain, quote system, contact pages, coverage plans, etc."
+  },
+
+  "dns": {
+    "a_records": ["192.124.249.128"],
+    "a_record_owner": "Sucuri (GoDaddy WAF/CDN service)",
+    "aaaa_records": [],
+    "ns_records": [
+      "ns0.dnsmadeeasy.com",
+      "ns1.dnsmadeeasy.com",
+      "ns2.dnsmadeeasy.com",
+      "ns3.dnsmadeeasy.com",
+      "ns4.dnsmadeeasy.com"
+    ],
+    "mx_records": ["1 olive-com.mail.protection.outlook.com"],
+    "mx_analysis": "Microsoft 365 email is ACTIVE. This company has active email on @olive.com.",
+    "txt_records_summary": {
+      "spf": "v=spf1 with ip4, Google, Amazon SES, HubSpot, Salesforce, Help Scout, Outlook",
+      "google_site_verifications": 7,
+      "other_verifications": ["yahoo", "apple-domain-verification", "knowbe4-site-verification", "facebook-domain-verification", "hj-ownership (Hotjar)"],
+      "microsoft_365": "MS=ms49368407"
+    },
+    "txt_analysis": "MASSIVE active infrastructure. SPF includes Google Workspace, Amazon SES, HubSpot, Salesforce, Help Scout, and Outlook. 7 separate Google Site Verifications. Facebook, Apple, Yahoo, KnowBe4, and Hotjar integrations. This is a fully operational business with extensive SaaS stack."
+  },
+
+  "corporate": {
+    "critical_misidentification": "The DataForSEO data showing $2,923/mo ETV for olive.com is for a COMPLETELY DIFFERENT COMPANY than Olive AI (the healthcare startup that shut down). olive.com is owned by Repair Ventures LLC, an active extended car warranty company.",
+    "olive_com_owner": {
+      "company": "Repair Ventures, LLC (doing business as 'Olive')",
+      "industry": "Extended car warranties / Vehicle Service Contracts",
+      "headquarters": "222 S. Riverside Plaza, Suite 950, Chicago, IL 60606",
+      "contact": "info@olive.com, 888-654-8348",
+      "founded": "2014-2019 (sources vary)",
+      "bbb_rating": "A+",
+      "insurance_partner": "QBE Insurance Company",
+      "status": "FULLY ACTIVE AND OPERATING",
+      "coverage_tiers": ["Complete Care", "Powertrain Plus", "Powertrain"],
+      "reviewed_by": ["CNBC Select", "ConsumerAffairs", "BBB", "Car Talk", "Automoblog"]
+    },
+    "olive_ai_healthcare": {
+      "company": "Olive AI, Inc.",
+      "domain_used": "oliveai.com (NOT olive.com)",
+      "status": "SHUT DOWN October 2023",
+      "headquarters_was": "99 E. Main Street, Columbus, Ohio",
+      "total_raised": "$848M-$902M",
+      "peak_valuation": "$4 billion",
+      "assets_sold_to": {
+        "waystar": "Clearinghouse + Patient Access ($10M)",
+        "humata_health": "Prior Authorization ($1.25M)"
+      },
+      "oliveai_com_now": "301 redirects to waystar.com",
+      "olive_app_now": "Active — appears to be a separate Olive Technologies company"
+    },
+    "trademark": "The word 'Olive' is generic (a fruit/food), so no single entity has exclusive trademark rights to the word itself. Repair Ventures uses 'olive' as a registered trademark for their warranty business.",
+    "domain_controller": "Repair Ventures, LLC (active business, not a domain investor, not a bankruptcy estate)"
+  },
+
+  "acquisition": {
+    "path": "NO VIABLE PATH",
+    "is_expiring": false,
+    "expiry_date": "2027-11-21",
+    "controlled_by_bankruptcy_estate": false,
+    "for_sale_on_marketplace": false,
+    "parked_by_domain_investor": false,
+    "owned_by_active_business": true,
+    "realistic_price_estimate": "$500,000 to $2,000,000+ (if owner would even sell — 5-letter dictionary word .com with active business, 29-year domain age, massive backlink profile)",
+    "within_600_budget": false,
+    "go_no_go": "HARD NO-GO",
+    "recommendation": "ABANDON THIS TARGET IMMEDIATELY. This was based on a fundamental misidentification. olive.com has NOTHING to do with the defunct Olive AI healthcare startup. olive.com is owned and actively operated by Repair Ventures LLC, a legitimate Chicago-based extended car warranty company with A+ BBB rating, active Microsoft 365 email, extensive SaaS integrations (HubSpot, Salesforce, Help Scout, Google Workspace, Amazon SES), Sucuri/GoDaddy WAF security, DnsMadeEasy premium DNS, and SSL certs that were just renewed in March 2026. The domain has ALL FOUR client locks active. It has been registered since 1996 (29+ years old). This is a premium 5-letter dictionary-word .com that would cost $500K-$2M+ on the open market IF the owner were willing to sell, which they have no reason to be. The $2,923/mo ETV from DataForSEO is real — it represents the organic search traffic to an active car warranty business, NOT a defunct domain waiting to be scooped up.",
+
+    "what_actually_happened_with_olive_ai": {
+      "oliveai_com": "Sold to Waystar as part of asset sale — now 301 redirects to waystar.com. This domain is also NOT acquirable.",
+      "olive_app": "Appears to be a separate company (Olive Technologies). Also NOT acquirable.",
+      "conclusion": "There is no acquirable 'Olive' domain with the reported ETV. The entire premise was based on confusing olive.com (car warranty company) with Olive AI (defunct healthcare startup that used oliveai.com)."
+    },
+
+    "lessons_for_pipeline": [
+      "DataForSEO ETV data is real but was attributed to wrong entity",
+      "Must verify that domain owner matches the 'defunct company' narrative before targeting",
+      "A domain having high ETV does NOT mean it is available — it may be an active business",
+      "Always check site:domain.com in Google before assuming a domain is dead",
+      "The Olive AI startup used oliveai.com, not olive.com — basic domain verification would have caught this"
+    ]
+  },
+
+  "source_urls": {
+    "olive_ai_shutdown": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
+    "olive_ai_asset_sale": "https://www.lincolninternational.com/transactions/olive-ai-has-sold-substantially-all-of-its-assets-to-waystar-and-humata-health/",
+    "olive_ai_timeline": "https://www.beckershospitalreview.com/healthcare-information-technology/digital-health/the-rise-and-fall-of-olive-ai-a-timeline/",
+    "olive_com_cnbc_review": "https://www.cnbc.com/select/olive-extended-car-warranty-review/",
+    "olive_com_bbb": "https://www.bbb.org/us/il/chicago/profile/auto-service-contract-companies/olive-0654-90031576",
+    "olive_ai_crunchbase": "https://www.crunchbase.com/organization/olive-ai"
+  }
+}

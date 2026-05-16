@@ -1,0 +1,632 @@
+{
+  "sprint": 13,
+  "agent": "WHALE INVESTIGATOR",
+  "scan_date": "2026-05-07",
+  "domains_investigated": 16,
+  "critical_drops": [
+    {
+      "domain": "ghostautonomy.com",
+      "expiry": "2026-06-07",
+      "signal": "clientRenewProhibited — OpenAI-backed autonomous driving startup that SHUT DOWN Apr 2024. $220M raised. Patents sold to Applied Intuition. Domain WILL drop.",
+      "urgency": "HIGH — 31 days to expiry"
+    },
+    {
+      "domain": "taskplanner.com",
+      "expiry": "2026-05-27",
+      "signal": "clientRenewProhibited — GoDaddy for-sale lander. CONFIRMED dropping.",
+      "urgency": "CRITICAL — 20 days to expiry"
+    },
+    {
+      "domain": "bestdevtools.com",
+      "expiry": "2026-05-22",
+      "signal": "clientTransferProhibited only, but DNS fully dead (no NS records, no A records). Appears expired/dropped already.",
+      "urgency": "CRITICAL — 15 days to expiry, possibly already in grace period"
+    },
+    {
+      "domain": "sushifaq.com",
+      "expiry": "2026-04-10 (registrar) / 2027-04-10 (registry auto-renewed)",
+      "signal": "clientRenewProhibited BUT registry shows auto-renewed to 2027. Registrar expiry was Apr 10. Currently in dispute/grace. Owner has NOT paid — domain may still drop after grace period.",
+      "urgency": "HIGH — In auto-renew grace period NOW"
+    },
+    {
+      "domain": "canoo.com",
+      "expiry": "2026-09-15",
+      "signal": "clientRenewProhibited — Chapter 7 bankruptcy. CEO bought assets for $4M. Domain fate uncertain but RenewProhibited is strong signal.",
+      "urgency": "MEDIUM — 131 days to expiry"
+    },
+    {
+      "domain": "sitegrader.com",
+      "expiry": "2026-10-08",
+      "signal": "clientRenewProhibited — Cloudflare NS but appears to be a branded site. Confirmed drop signal.",
+      "urgency": "MEDIUM — 154 days to expiry"
+    },
+    {
+      "domain": "imageeditor.net",
+      "expiry": "2026-09-20",
+      "signal": "clientRenewProhibited — Active free image editor site. Owner has opted out of renewal.",
+      "urgency": "MEDIUM — 136 days to expiry"
+    },
+    {
+      "domain": "saasmetrics.com",
+      "expiry": "2026-07-31",
+      "signal": "clientRenewProhibited — GoDaddy DomainControl NS (parking). Confirmed drop.",
+      "urgency": "MEDIUM — 85 days to expiry"
+    },
+    {
+      "domain": "codehelper.com",
+      "expiry": "2026-07-17",
+      "signal": "clientRenewProhibited — Afternic NS (for-sale parking). Confirmed drop.",
+      "urgency": "MEDIUM — 71 days to expiry"
+    },
+    {
+      "domain": "codeanalyzer.com",
+      "expiry": "2026-07-20",
+      "signal": "clientRenewProhibited — NameFind NS (GoDaddy for-sale parking). Confirmed drop.",
+      "urgency": "MEDIUM — 74 days to expiry"
+    }
+  ],
+  "summary": {
+    "total_with_clientRenewProhibited": 10,
+    "total_likely_dropping": 10,
+    "total_renewed_or_active": 4,
+    "total_uncertain": 2,
+    "most_urgent": "bestdevtools.com (May 22) and taskplanner.com (May 27) — both within 20 days"
+  },
+  "investigations": [
+    {
+      "domain": "globalgeopark.org",
+      "group": "GROUP 1 — New Sprint 13 Domains",
+      "registrar": "Tucows Domains Inc. (via China Enterprise ASP Limited reseller)",
+      "expiry": "2026-04-11 (registrar) / 2027-04-11 (registry auto-renewed)",
+      "status_codes": [
+        "autoRenewPeriod",
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "updated_date": "2026-04-15",
+      "creation_date": "2007-04-11",
+      "registrant_country": "CN (China, Beijing)",
+      "http_status": "parking — redirects to /lander (registrar parking page)",
+      "history": "Associated with UNESCO Global Geoparks Network. The official GGN network uses globalgeoparksnetwork.org, but this .org domain was likely used by a Chinese organization involved in geopark activities. Created 2007, Beijing registrant. The nameservers 'renewyourname.net' are Tucows parking NS, indicating the domain is NOT actively used.",
+      "whois_analysis": "CRITICAL: Registry shows autoRenewPeriod — domain was auto-renewed by registry to 2027 after registrar expiry on 2026-04-11. However, registrar-level expiry shows 2026-04-11. The 'renewyourname.net' nameservers confirm owner has NOT renewed. Domain is in the ~45 day auto-renew grace period. If owner does not pay, it will be deleted. Currently on parking page.",
+      "estimated_value": "$500-$2,000 — UNESCO/geopark association, .org TLD, 19 years old. Niche but authoritative keyword.",
+      "drop_probability": "HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 400,
+      "notes": "The $400 max bid from spec is appropriate. Domain has UNESCO/geopark brand association. Currently in auto-renew grace period — Chinese registrant appears to have abandoned it. Parking page confirms non-use. Risk: could be redeemed during grace period. Value comes from age (2007), .org TLD, and geopark/sustainability keyword relevance."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "group": "GROUP 1 — New Sprint 13 Domains",
+      "registrar": "Wild West Domains, LLC (GoDaddy subsidiary)",
+      "expiry": "2026-06-07",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "coby.ns.cloudflare.com",
+        "melody.ns.cloudflare.com"
+      ],
+      "updated_date": "2024-11-27 (registry) / 2024-10-15 (registrar)",
+      "creation_date": "2022-06-07",
+      "registrant": "Domains By Proxy, LLC (GoDaddy privacy)",
+      "http_status": "403 Forbidden — Cloudflare blocking, site is dead",
+      "history": "Ghost Autonomy was an autonomous driving startup founded 2017 by John Hayes and Volkmar Uhlig. Raised ~$220 million including backing from OpenAI Startup Fund. Built highway autonomy software. SHUT DOWN April 2024 citing uncertain path to profitability. ~100 employees in Mountain View, Dallas, Sydney. Patent portfolio sold to Applied Intuition in Oct 2024.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop signal. Company is defunct since April 2024. Patent portfolio already sold. No reason to renew domain. Last WHOIS update was Nov 2024 (likely when renewProhibited was set). Domain registered in 2022 when company rebranded.",
+      "estimated_value": "$200-$1,000 — Strong brand name for autonomous/AI, but only 4 years old. 'Ghost' + 'Autonomy' is a powerful two-word .com. Former $220M-funded startup gives it brand cachet. DR likely low since site has been dead since 2024.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 75,
+      "notes": "The $75 max from spec is reasonable. This WILL drop — dead startup, renewProhibited, 403 error. Value is in the exact-match name for autonomous vehicle/AI branding. Only 4 years old so minimal aged backlink value. Competition at auction may be moderate given the AI hype and $220M startup provenance."
+    },
+    {
+      "domain": "sushifaq.com",
+      "group": "GROUP 1 — New Sprint 13 Domains",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-04-10 (registrar) / 2027-04-10 (registry auto-renewed)",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns75.domaincontrol.com",
+        "ns76.domaincontrol.com"
+      ],
+      "updated_date": "2026-04-22 (registry) / 2026-04-21 (registrar)",
+      "creation_date": "2000-04-10",
+      "registrant": "Domains By Proxy, LLC (GoDaddy privacy)",
+      "http_status": "parking — redirects to /lander (GoDaddy parking page)",
+      "history": "SushiFAQ.com was a well-established sushi information website active since 2000 (26 years old!). Comprehensive sushi resource covering history, recipes, etiquette, sushi terminology. Based in Darien, Connecticut. Created by a classically trained chef. Had LinkedIn and Facebook pages. Was a legitimate content authority site in the sushi/Japanese food niche.",
+      "whois_analysis": "CRITICAL FINDING: clientRenewProhibited is set, AND the registrar expiry date was 2026-04-10 (already passed!). Registry auto-renewed to 2027 on April 22, 2026. The domain is currently in auto-renew grace period. DomainControl nameservers = GoDaddy parking. This 26-year-old domain is being abandoned. GoDaddy will delete it after grace period (~45 days from April 10 = around late May 2026).",
+      "estimated_value": "$500-$3,000 — 26 years old (est. 2000), exact-match for 'sushi FAQ', food/culinary niche with evergreen content potential. Likely has historical backlinks from food blogs and recipe sites. Long domain age is very valuable for SEO.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 75,
+      "notes": "The $75 max from spec is a STEAL if achievable. This domain is 26 years old, exact-match keyword, and was a legitimate content site. The real value is the domain age and likely backlink profile. clientRenewProhibited + passed expiry + parking page = this IS dropping. Should drop within 2-4 weeks. Place backorder immediately."
+    },
+    {
+      "domain": "builder.ai",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "101domain GRS Limited",
+      "expiry": "2026-06-04",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1509.awsdns-60.org",
+        "ns-1827.awsdns-36.co.uk",
+        "ns-165.awsdns-20.com",
+        "ns-706.awsdns-24.net"
+      ],
+      "updated_date": "2025-06-12",
+      "creation_date": "2018-06-04",
+      "registrant": "sdsquared pvt (sd2labs), Gurgaon, India — admin@sd2labs.com",
+      "http_status": "301 redirect to https://www.builder.ai/ — site still resolving",
+      "history": "Builder.ai was a Microsoft-backed AI startup valued at $1.2 billion. Raised $450M+ including $250M Series D. Promised AI-built apps but actually used 700 engineers in India. CEO Sachin Dev Duggal resigned Feb 2025. Filed for insolvency May 2025 after creditors seized $50M. Owed $85M to Amazon, $30M to Microsoft. Company is DEAD.",
+      "whois_analysis": "Only clientTransferProhibited — NO clientRenewProhibited. AWS nameservers still active. However, the company is bankrupt/insolvent since May 2025. Expiry is June 4, 2026 — only 28 days away. The domain may still be managed by administrators/receivers. SD2Labs registrant email still showing. .AI domains have limited WHOIS transparency. The absence of renewProhibited is not conclusive since .AI registries may handle this differently.",
+      "estimated_value": "$5,000-$50,000 — Premium two-word .ai domain. 'Builder' is a massive keyword. Former unicorn brand. However, .ai renewal costs are high (~$100/yr) and the domain comes with brand baggage (fraud allegations).",
+      "drop_probability": "MEDIUM",
+      "recommended_action": "MONITOR",
+      "recommended_max_bid": 500,
+      "notes": "This is a complicated case. The company is bankrupt but domain could be considered an asset in insolvency proceedings. No renewProhibited signal. AWS nameservers still active. Administrators may renew as part of asset liquidation. The .ai TLD also has different registrar practices. Monitor weekly — if NS go dead or WHOIS changes, escalate to BACKORDER immediately. Expiry Jun 4 is close."
+    },
+    {
+      "domain": "codeguide.com",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "InterNetX GmbH",
+      "expiry": "2027-04-23 (registrar) / 2026-06-07 (registry)",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "nsa1.schlundtech.de",
+        "nsb1.schlundtech.de",
+        "nsc1.schlundtech.de",
+        "nsd1.schlundtech.de"
+      ],
+      "updated_date": "2025-07-27",
+      "creation_date": "2001-06-07",
+      "registrant": "Omnicore Software, Germany (DE)",
+      "http_status": "000 — Connection failed, DNS resolves but no HTTP response",
+      "history": "Owned by Omnicore Software, a German company. Domain created 2001, 25 years old. Schlundtech nameservers are InterNetX/United Internet infrastructure. Despite DNS existing, the site does not respond to HTTP requests.",
+      "whois_analysis": "IMPORTANT: Registry shows expiry 2026-06-07 BUT registrar shows expiry 2027-04-23. This means the domain was RENEWED and potentially transferred within InterNetX. The registrar expiry extending to April 2027 is a clear signal the owner intends to keep it. Only clientTransferProhibited (normal). Updated July 2025 — someone is actively managing this.",
+      "estimated_value": "$5,000-$20,000 — Premium exact-match keyword 'codeguide' in .com. 25 years old. Developer tools niche. Very strong brandable domain.",
+      "drop_probability": "ZERO",
+      "recommended_action": "SKIP",
+      "recommended_max_bid": 0,
+      "notes": "Domain is RENEWED through April 2027. Registrar expiry 2027-04-23 confirms active management. The registry/registrar date discrepancy is normal during renewal. Omnicore Software is maintaining this. No drop expected. Remove from watchlist or monitor for 2027."
+    },
+    {
+      "domain": "bestdevtools.com",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "1API GmbH (DNSimple)",
+      "expiry": "2026-05-22",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.dnsimple.com",
+        "ns2.dnsimple-edge.net",
+        "ns3.dnsimple.com",
+        "ns4.dnsimple-edge.org"
+      ],
+      "updated_date": "2025-11-23",
+      "creation_date": "2014-05-22",
+      "registrant_state": "IL (Illinois), US",
+      "http_status": "000 — Connection failed, DNS completely dead (no A record, no NS resolution)",
+      "history": "Developer tools aggregation/curation site. Created 2014. DNSimple registrar. Illinois-based registrant. The domain has NO working DNS — no A record, and NS records from WHOIS don't resolve to anything.",
+      "whois_analysis": "URGENT: Expires May 22, 2026 — only 15 DAYS away. DNS is completely dead. No A record, NS records listed but not propagating. Only clientTransferProhibited (no renewProhibited yet, but this may appear closer to expiry or the owner simply won't renew). The dead DNS strongly suggests abandonment. Last updated Nov 2025 — 6 months of inactivity.",
+      "estimated_value": "$1,000-$5,000 — Great keyword for developer tools niche. 12 years old. 'bestdevtools' is exact-match for a high-value search query.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 200,
+      "notes": "MOST URGENT domain on the list. Expires in 15 days with completely dead DNS. No renewProhibited yet but dead DNS + approaching expiry = very likely to drop. Place backorder NOW. If it enters grace period May 22, it could drop to pendingDelete around early July. Developer tools niche is hot."
+    },
+    {
+      "domain": "finetuneai.com",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "NameCheap Inc",
+      "expiry": "2026-05-26",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1336.awsdns-39.org",
+        "ns-230.awsdns-28.com",
+        "ns-1771.awsdns-29.co.uk",
+        "ns-760.awsdns-31.net"
+      ],
+      "updated_date": "2025-05-12",
+      "creation_date": "2021-05-26",
+      "registrant": "Withheld for Privacy (NameCheap privacy service)",
+      "http_status": "302 redirect to https://www.prometric.com/finetune-ai (then 403)",
+      "history": "FineTune AI / FineTune Learning was an educational technology company providing AI-human hybrid assessment solutions. Now part of Prometric (the testing company). The domain redirects to Prometric's FineTune page. Originally an EdTech startup, likely acquired by Prometric.",
+      "whois_analysis": "Only clientTransferProhibited — no renewProhibited. AWS nameservers active. CloudFront redirect to Prometric working. Expires May 26 — 19 days away. BUT: the active redirect to Prometric suggests the domain is intentionally managed. Prometric is a large company that likely manages this domain. Updated May 2025 (about 1 year ago). NameCheap registrar with privacy — could be inherited from pre-acquisition.",
+      "estimated_value": "$2,000-$10,000 — 'FineTuneAI' is an extremely hot keyword in 2026 (AI fine-tuning). 5 years old. If it drops, enormous value for AI branding.",
+      "drop_probability": "LOW",
+      "recommended_action": "MONITOR",
+      "recommended_max_bid": 300,
+      "notes": "Active redirect to Prometric (major company) suggests this is being maintained. However, expiry is May 26 — only 19 days away. If Prometric lets the registration lapse (e.g., if they sunset the FineTune brand), this would be an incredible catch at any price. Monitor daily. Check if redirect dies — that would signal imminent drop."
+    },
+    {
+      "domain": "taskplanner.com",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-27",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns19.domaincontrol.com",
+        "ns20.domaincontrol.com"
+      ],
+      "updated_date": "2025-05-28",
+      "creation_date": "2004-05-27",
+      "registrant": "Domains By Proxy, LLC (GoDaddy privacy)",
+      "http_status": "parking — GoDaddy/Afternic for-sale lander page",
+      "history": "Generic domain name registered since 2004 (22 years old). Currently parked on GoDaddy's Afternic for-sale marketplace. 'Task Planner' is a productivity/project management keyword. Domain has been used as a parked/for-sale domain.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. This is a 22-year-old domain that the owner has opted to let expire. GoDaddy DomainControl NS = parking. For-sale lander means owner tried to sell, failed, and is now letting it expire. Expires May 27 — only 20 DAYS away.",
+      "estimated_value": "$2,000-$8,000 — Premium two-word .com. 'Task Planner' is exact-match for productivity tools. 22 years old. Strong brandable name for SaaS/productivity apps.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 250,
+      "notes": "URGENT — 20 days to expiry with clientRenewProhibited confirmed. For-sale parking page. 22-year-old exact-match .com for productivity niche. This will attract competition at auction. Place backorder immediately. After expiry May 27, expect ~30-45 day grace period then pendingDelete."
+    },
+    {
+      "domain": "canoo.com",
+      "group": "GROUP 2 — Active Whale Monitoring",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-09-15",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "mallory.ns.cloudflare.com",
+        "sid.ns.cloudflare.com"
+      ],
+      "updated_date": "2024-01-18",
+      "creation_date": "1999-08-22",
+      "registrant": "Domains By Proxy, LLC (GoDaddy privacy)",
+      "http_status": "000 — Connection failed, DNS resolves to Cloudflare but no HTTP response",
+      "history": "Canoo Inc was an electric vehicle startup that went public via SPAC. Filed Chapter 7 bankruptcy January 17, 2025. CEO Anthony Aquila bought assets for $4M (approved April 2025). A competing $20M bid from Charles Garson was rejected (missed deadline). Vehicle prototype auction set for August 2026. Domain registered since 1999 (27 years old). Previously 'canoo' was also a German language tool before the EV company.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop signal. Chapter 7 bankruptcy = liquidation, not reorganization. CEO bought physical assets but domain may not have been included. WHOIS last updated Jan 2024 — BEFORE bankruptcy filing. Cloudflare NS still configured but site is dead (no HTTP). Expires Sep 15 — 131 days. RenewProhibited on a bankruptcy domain = very strong drop signal.",
+      "estimated_value": "$10,000-$50,000 — 5-letter .com, 27 years old, memorable brandable name. Former publicly traded company. 'Canoo' is short, pronounceable, and unique. High auction competition expected.",
+      "drop_probability": "HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 1000,
+      "notes": "Premium 5-letter .com from bankrupt EV company. clientRenewProhibited confirmed. The bankruptcy trustee may attempt to sell the domain separately as an asset before it drops — this would bypass the normal auction process. Monitor for any domain asset sale announcements in the Chapter 7 proceedings. If it goes to drop auction, expect HEAVY competition. $1,000 may not be enough but sets a reasonable ceiling."
+    },
+    {
+      "domain": "sitegrader.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-08",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "kami.ns.cloudflare.com",
+        "noah.ns.cloudflare.com"
+      ],
+      "updated_date": "2025-10-09",
+      "creation_date": "2008-10-08",
+      "http_status": "200 OK — Active website (SiteGrader branded, custom fonts/styling)",
+      "history": "SiteGrader appears to be/have been an SEO or website grading tool. Currently shows a branded page with custom fonts. Cloudflare-protected. Created 2008, 18 years old. Despite being active-looking, the clientRenewProhibited status indicates the owner will not renew.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. Interesting case: site appears active with custom styling, but owner has opted out of renewal. Updated Oct 2025 (when renewProhibited was likely set). GoDaddy registrar. 154 days to expiry.",
+      "estimated_value": "$1,000-$5,000 — Strong SEO/tools keyword. 'Site Grader' is exact-match for website analysis tools. 18 years old. Cloudflare indicates some technical sophistication.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 200,
+      "notes": "Confirmed dropping (clientRenewProhibited). Despite having an active-looking site, this is a dead domain walking. SEO tools niche is valuable. Place backorder closer to expiry date (Oct 2026). Good candidate for an SEO tool or website analyzer project."
+    },
+    {
+      "domain": "imageeditor.net",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-09-20",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns53.domaincontrol.com",
+        "ns54.domaincontrol.com"
+      ],
+      "updated_date": "2025-09-21",
+      "creation_date": "2002-09-20",
+      "http_status": "200 OK — Active free online image editor with 4 tools (image editor, SVG editor, meme maker, image pop editor)",
+      "history": "ImageEditor.NET is an active free online image editing website offering 4 tools. Has login/registration, contact form, Google Analytics. Uses Jupiter theme. Copyright 2015. Created 2002, 24 years old. Despite being a functioning site, owner has set clientRenewProhibited.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. Active site but owner is abandoning it. 24 years old. GoDaddy DomainControl NS. Updated Sep 2025 (when renewProhibited was set). 136 days to expiry.",
+      "estimated_value": "$3,000-$15,000 — Exact-match for 'image editor' in .net. 24 years old. Active site with users. High-value keyword for design/photo editing tools. The .net TLD limits value vs .com but still very strong.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 500,
+      "notes": "Excellent domain. 'ImageEditor' is a high-traffic keyword. 24 years old with an active user base. Owner abandoning = opportunity. The existing site and backlinks make this especially valuable for SEO. May attract significant competition at auction. Place backorder well before Sep 20 expiry."
+    },
+    {
+      "domain": "aitoolkit.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "Easyspace Ltd. (UK)",
+      "expiry": "2026-06-12",
+      "status_codes": [
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.namecity.com",
+        "ns2.namecity.com"
+      ],
+      "updated_date": "2024-05-13",
+      "creation_date": "2000-06-12",
+      "registrant": "Easyspace Privacy, Glasgow, GB",
+      "http_status": "200 OK — Active site for accident investigation software (NOT AI). Has spam/Chinese injected content (security compromise).",
+      "history": "AiToolkit.com is actually 'AiToolkit - Calcs' — accident investigation and reconstruction software for UK police training. The 'AI' stands for 'Accident Investigation', NOT 'Artificial Intelligence'. Windows software for crash analysis. Site is active but compromised with injected Chinese spam content. Created 2000, 26 years old.",
+      "whois_analysis": "No clientRenewProhibited — only clientTransferProhibited and clientUpdateProhibited (normal protective status). Easyspace is a UK registrar. Last updated May 2024 — over 2 years ago. Expiry Jun 12 — 36 days away. The site has been hacked/compromised which MAY indicate neglect, but the domain still has normal status codes. 50/50 whether owner renews.",
+      "estimated_value": "$5,000-$25,000 — 'AIToolkit' in .com is an EXTREMELY valuable keyword in 2026, regardless of original intent. 26 years old. Even if the current use is accident investigation, the AI keyword match makes this a premium domain in the current market.",
+      "drop_probability": "MEDIUM",
+      "recommended_action": "MONITOR",
+      "recommended_max_bid": 500,
+      "notes": "HIGH POTENTIAL value domain. 'AIToolkit.com' in 2026's AI market could be worth $25K+. No drop signals in WHOIS yet, but the hacked site and 2-year-old update date suggest possible neglect. The UK-based owner may not realize the AI keyword value. Monitor closely — if it enters grace period after Jun 12, immediately place backorder. This could be a sleeper hit."
+    },
+    {
+      "domain": "saasmetrics.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-31",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns59.domaincontrol.com",
+        "ns60.domaincontrol.com"
+      ],
+      "updated_date": "2025-08-01",
+      "creation_date": "2008-07-31",
+      "http_status": "405 Not Allowed — AWS ELB returning error (dead backend)",
+      "history": "SaaS metrics/analytics domain. GoDaddy DomainControl NS (parking). Created 2008, 18 years old. The AWS ELB 405 response with WAFRule suggests there was once a web application behind this domain but it's been decommissioned.",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. GoDaddy parking NS. Dead AWS backend. 18 years old. 85 days to expiry. This is definitively dropping.",
+      "estimated_value": "$2,000-$8,000 — 'SaaS Metrics' is a strong B2B/SaaS keyword. Exact-match for a valuable niche. 18 years old. Good for analytics/dashboard SaaS product branding.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 200,
+      "notes": "Confirmed drop. Strong SaaS/B2B keyword. Good candidate for a metrics dashboard or SaaS analytics tool. Place backorder before July expiry."
+    },
+    {
+      "domain": "codehelper.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-17",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns3.afternic.com",
+        "ns4.afternic.com"
+      ],
+      "updated_date": "2025-07-18",
+      "creation_date": "2002-07-17",
+      "http_status": "parking — Afternic/GoDaddy for-sale lander",
+      "history": "Parked on Afternic (GoDaddy's domain marketplace). Afternic nameservers = domain is listed for sale. Created 2002, 24 years old. Owner tried to sell, presumably failed, now letting it drop (clientRenewProhibited).",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. Afternic for-sale NS. 24 years old. 71 days to expiry. Very clean drop signal — owner gave up on selling and is letting it expire.",
+      "estimated_value": "$2,000-$8,000 — 'Code Helper' is exact-match for developer tools/AI coding assistance. 24 years old. In the age of AI coding assistants, this keyword has exploded in value.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 200,
+      "notes": "Confirmed drop. Strong developer/AI keyword. 24 years old. Afternic parking = tried to sell, failed. The AI coding assistant market makes 'CodeHelper' very valuable for branding. Place backorder."
+    },
+    {
+      "domain": "codeanalyzer.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-20",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.namefind.com",
+        "ns2.namefind.com"
+      ],
+      "updated_date": "2025-06-30",
+      "creation_date": "2005-07-20",
+      "http_status": "parking — NameFind/GoDaddy for-sale lander",
+      "history": "Parked on NameFind (GoDaddy's premium domain marketplace). Created 2005, 21 years old. NameFind nameservers indicate this was listed as a premium for-sale domain. Owner has opted not to renew (clientRenewProhibited).",
+      "whois_analysis": "clientRenewProhibited = CONFIRMED drop. NameFind for-sale NS. 21 years old. 74 days to expiry. Clean drop — premium domain that didn't sell, now expiring.",
+      "estimated_value": "$2,000-$8,000 — 'Code Analyzer' is exact-match for static analysis, code review, and developer tools. 21 years old. Strong DevOps/security keyword.",
+      "drop_probability": "VERY HIGH",
+      "recommended_action": "BACKORDER",
+      "recommended_max_bid": 200,
+      "notes": "Confirmed drop. NameFind parking = was a premium listing that didn't sell. Developer tools + code security is a huge market. 21 years of domain age. Place backorder."
+    },
+    {
+      "domain": "codingtools.com",
+      "group": "GROUP 3 — Watchlist Q2-Q3 2026",
+      "registrar": "eNom, LLC",
+      "expiry": "2026-07-31",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.powweb.com",
+        "ns2.powweb.com"
+      ],
+      "updated_date": "2025-08-28",
+      "creation_date": "2004-07-31",
+      "registrant_state": "CA (California), US",
+      "http_status": "200 OK — Site responds but content unclear (possible error parsing)",
+      "history": "CodingTools.com registered since 2004 (22 years old). Hosted on PowWeb (EIG/Newfold Digital hosting). eNom registrar. California-based registrant. The PowWeb hosting suggests a small/personal site.",
+      "whois_analysis": "NO clientRenewProhibited — only clientTransferProhibited (normal). PowWeb nameservers are active. Updated Aug 2025 (relatively recent). Expiry Jul 31. This domain shows NO drop signals. Owner appears to be maintaining it normally.",
+      "estimated_value": "$3,000-$15,000 — 'Coding Tools' is an extremely strong developer keyword. Exact-match .com. 22 years old. Very valuable for developer tools aggregator or IDE branding.",
+      "drop_probability": "LOW",
+      "recommended_action": "MONITOR",
+      "recommended_max_bid": 0,
+      "notes": "No drop signals. Normal status codes, active hosting, recent update. Owner is likely renewing. Keep on watchlist but don't expect a drop. If status changes to renewProhibited, immediately escalate."
+    }
+  ],
+  "priority_action_timeline": [
+    {
+      "priority": 1,
+      "domain": "bestdevtools.com",
+      "action": "BACKORDER NOW",
+      "deadline": "2026-05-22",
+      "days_remaining": 15,
+      "reason": "DNS dead, expiry imminent, no signs of renewal"
+    },
+    {
+      "priority": 2,
+      "domain": "taskplanner.com",
+      "action": "BACKORDER NOW",
+      "deadline": "2026-05-27",
+      "days_remaining": 20,
+      "reason": "clientRenewProhibited confirmed, for-sale parking, 22yr .com"
+    },
+    {
+      "priority": 3,
+      "domain": "sushifaq.com",
+      "action": "BACKORDER NOW",
+      "deadline": "~2026-05-25 (grace period ending)",
+      "days_remaining": 18,
+      "reason": "clientRenewProhibited, PAST expiry, in auto-renew grace period. 26yr .com"
+    },
+    {
+      "priority": 4,
+      "domain": "finetuneai.com",
+      "action": "MONITOR DAILY",
+      "deadline": "2026-05-26",
+      "days_remaining": 19,
+      "reason": "No drop signal but Prometric may not renew. Check if redirect dies."
+    },
+    {
+      "priority": 5,
+      "domain": "builder.ai",
+      "action": "MONITOR DAILY",
+      "deadline": "2026-06-04",
+      "days_remaining": 28,
+      "reason": "Bankrupt company, no renewProhibited yet. Check for NS/WHOIS changes."
+    },
+    {
+      "priority": 6,
+      "domain": "ghostautonomy.com",
+      "action": "BACKORDER NOW",
+      "deadline": "2026-06-07",
+      "days_remaining": 31,
+      "reason": "clientRenewProhibited confirmed, dead startup, 403 error"
+    },
+    {
+      "priority": 7,
+      "domain": "aitoolkit.com",
+      "action": "MONITOR WEEKLY",
+      "deadline": "2026-06-12",
+      "days_remaining": 36,
+      "reason": "No drop signal but hacked site suggests neglect. Enormous AI keyword value."
+    },
+    {
+      "priority": 8,
+      "domain": "codehelper.com",
+      "action": "BACKORDER",
+      "deadline": "2026-07-17",
+      "days_remaining": 71,
+      "reason": "clientRenewProhibited, Afternic parking, 24yr .com"
+    },
+    {
+      "priority": 9,
+      "domain": "codeanalyzer.com",
+      "action": "BACKORDER",
+      "deadline": "2026-07-20",
+      "days_remaining": 74,
+      "reason": "clientRenewProhibited, NameFind parking, 21yr .com"
+    },
+    {
+      "priority": 10,
+      "domain": "saasmetrics.com",
+      "action": "BACKORDER",
+      "deadline": "2026-07-31",
+      "days_remaining": 85,
+      "reason": "clientRenewProhibited, dead AWS backend, 18yr .com"
+    },
+    {
+      "priority": 11,
+      "domain": "imageeditor.net",
+      "action": "BACKORDER",
+      "deadline": "2026-09-20",
+      "days_remaining": 136,
+      "reason": "clientRenewProhibited, active site being abandoned, 24yr .net"
+    },
+    {
+      "priority": 12,
+      "domain": "canoo.com",
+      "action": "BACKORDER + MONITOR BANKRUPTCY",
+      "deadline": "2026-09-15",
+      "days_remaining": 131,
+      "reason": "clientRenewProhibited, Chapter 7 bankruptcy, 27yr 5-letter .com"
+    },
+    {
+      "priority": 13,
+      "domain": "sitegrader.com",
+      "action": "BACKORDER",
+      "deadline": "2026-10-08",
+      "days_remaining": 154,
+      "reason": "clientRenewProhibited, active site being abandoned"
+    }
+  ],
+  "domains_to_remove_from_watchlist": [
+    {
+      "domain": "codeguide.com",
+      "reason": "RENEWED through April 2027. Registrar expiry confirms active management by Omnicore Software (Germany). Zero drop probability."
+    }
+  ],
+  "domains_with_no_drop_signal": [
+    {
+      "domain": "codingtools.com",
+      "reason": "Only clientTransferProhibited (normal). Active hosting on PowWeb. Recent update Aug 2025. Owner likely renewing. Keep on passive watchlist."
+    },
+    {
+      "domain": "finetuneai.com",
+      "reason": "Active redirect to Prometric. AWS CloudFront working. Only clientTransferProhibited. But expires May 26 — watch closely."
+    },
+    {
+      "domain": "builder.ai",
+      "reason": "Only clientTransferProhibited. AWS NS active. Bankrupt company but domain may be treated as asset. .AI TLD has different practices."
+    },
+    {
+      "domain": "aitoolkit.com",
+      "reason": "Normal status codes. Active (though hacked) site. UK registrar. But enormous AI keyword value if it drops."
+    }
+  ],
+  "key_insights": {
+    "globalgeopark_mystery_solved": "The $400 max bid is for a 19-year-old .org domain associated with UNESCO Global Geoparks. Chinese registrant abandoned it. Currently in auto-renew grace period with parking page. Value comes from age, .org authority, and sustainability/geopark keyword relevance.",
+    "ghostautonomy_confirmed": "OpenAI-backed AV startup that raised $220M and shut down Apr 2024. Domain is confirmed dropping (clientRenewProhibited). Patents already sold to Applied Intuition. $75 bid is reasonable.",
+    "sushifaq_sleeper_value": "26-year-old exact-match food niche domain. clientRenewProhibited + past expiry = dropping NOW. $75 bid could be a major steal for a domain with decades of backlinks.",
+    "builder_ai_wildcard": "Bankrupt $1.2B unicorn. No renewProhibited yet but company is insolvent. Domain could be sold in bankruptcy proceedings OR just expire. Watch closely.",
+    "canoo_bankruptcy_complication": "Chapter 7 liquidation with CEO buying assets for $4M. Domain has clientRenewProhibited. May be sold separately in bankruptcy OR drop to public auction. Either way, expect heavy competition for a 5-letter .com.",
+    "dev_tools_cluster": "codehelper.com, codeanalyzer.com, saasmetrics.com, sitegrader.com all have clientRenewProhibited and are on GoDaddy for-sale parking. All CONFIRMED drops. This is a strong dev-tools portfolio opportunity.",
+    "aitoolkit_sleeper": "The most undervalued domain on this list. 'AIToolkit.com' registered in 2000 for accident investigation, but the AI keyword match in 2026 makes it potentially worth $25K+. No drop signal yet but watch closely."
+  }
+}

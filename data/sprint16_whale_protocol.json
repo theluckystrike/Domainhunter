@@ -1,0 +1,281 @@
+{
+  "sprint": 16,
+  "agent": "WHALE RESPONSE PROTOCOL",
+  "created": "2026-05-08",
+  "budget_remaining_usd": 550,
+
+  "pipeline": {
+    "script": "tools/daily_hunter.py",
+    "schedule": "daily at 06:00 UTC (cron)",
+    "log_file": "logs/daily_hunter.log",
+    "daily_output_dir": "data/daily/",
+    "whale_etv_threshold": 1000.0,
+    "min_etv_threshold": 100.0,
+    "alert_pattern": "WHALE ETV: domain.com etv=$XXXX kw=XXX top10=XXX"
+  },
+
+  "api": {
+    "dataforseo": {
+      "endpoint": "https://api.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live",
+      "auth_user": "support@zovo.one",
+      "cost_per_call_usd": 0.01,
+      "method": "POST",
+      "content_type": "application/json",
+      "payload_template": {
+        "target": "DOMAIN_HERE",
+        "limit": 1,
+        "language_code": "en",
+        "location_code": 2840
+      },
+      "key_response_fields": [
+        "etv",
+        "metrics.organic.count",
+        "metrics.organic.pos_1",
+        "metrics.organic.pos_10",
+        "metrics.organic.is_lost"
+      ]
+    }
+  },
+
+  "platforms": {
+    "dropcatch": {
+      "url": "https://www.dropcatch.com",
+      "username": "michaellikesfreedom",
+      "alias": "alphashark",
+      "status": "VERIFIED",
+      "priority": 1,
+      "catch_rate": "highest",
+      "registrar_accreditations": 1200,
+      "backorder_cost_usd": 59,
+      "auction_type": "public_3day",
+      "notes": "Primary platform. Highest catch rate in industry."
+    },
+    "snapnames": {
+      "url": "https://www.snapnames.com",
+      "signup_url": "https://www.snapnames.com/registration.action",
+      "status": "CHECK_IF_SIGNED_UP",
+      "priority": 2,
+      "catch_rate": "medium",
+      "backorder_cost_usd": 79,
+      "auction_type": "private_3day",
+      "shared_inventory_with": "namejet",
+      "critical_warning": "NEVER also backorder on NameJet -- same inventory, you bid against yourself"
+    },
+    "dynadot": {
+      "url": "https://www.dynadot.com",
+      "backorder_url": "https://www.dynadot.com/market/backorder",
+      "status": "CHECK_IF_SIGNED_UP",
+      "priority": 3,
+      "catch_rate": "low",
+      "registrar_accreditations": 15,
+      "backorder_cost_usd": 24.99,
+      "auction_type": "public_7day",
+      "minimum_deposit_usd": 5.0,
+      "notes": "Cheapest platform. Good as supplementary coverage."
+    },
+    "namejet": {
+      "url": "https://www.namejet.com",
+      "status": "SKIP",
+      "priority": null,
+      "reason": "Same inventory as SnapNames since 2020. Redundant."
+    },
+    "godaddy_auctions": {
+      "url": "https://auctions.godaddy.com",
+      "status": "OPTIONAL",
+      "priority": 4,
+      "membership_cost_usd": 4.99,
+      "notes": "Only GoDaddy-registered domains. Opportunistic browsing."
+    }
+  },
+
+  "tiers": {
+    "tier_1_mega_whale": {
+      "etv_range_usd": [10000, null],
+      "label": "MEGA WHALE",
+      "time_budget_minutes": 15,
+      "bid_matrix": [
+        {"etv_min": 10000, "etv_max": 25000, "max_bid_usd": 400},
+        {"etv_min": 25000, "etv_max": 50000, "max_bid_usd": 500},
+        {"etv_min": 50000, "etv_max": 100000, "max_bid_usd": 500},
+        {"etv_min": 100000, "etv_max": null, "max_bid_usd": 500}
+      ],
+      "bid_hard_cap_usd": 500
+    },
+    "tier_2_standard_whale": {
+      "etv_range_usd": [1000, 10000],
+      "label": "STANDARD WHALE",
+      "time_budget_minutes": 10,
+      "bid_matrix": [
+        {"etv_min": 1000, "etv_max": 3000, "max_bid_usd": 200},
+        {"etv_min": 3000, "etv_max": 5000, "max_bid_usd": 300},
+        {"etv_min": 5000, "etv_max": 10000, "max_bid_usd": 500}
+      ],
+      "bid_hard_cap_usd": 500
+    },
+    "tier_3_minnow": {
+      "etv_range_usd": [100, 1000],
+      "label": "MINNOW",
+      "time_budget_minutes": 5,
+      "bid_matrix": [
+        {"etv_min": 100, "etv_max": 300, "max_bid_usd": 100},
+        {"etv_min": 300, "etv_max": 500, "max_bid_usd": 150},
+        {"etv_min": 500, "etv_max": 1000, "max_bid_usd": 250}
+      ],
+      "bid_hard_cap_usd": 250,
+      "condition": "Only pursue if niche-relevant to existing portfolio"
+    }
+  },
+
+  "verification_steps": {
+    "step_1_verify_etv": {
+      "order": 1,
+      "description": "Confirm ETV via DataForSEO API call",
+      "cost_usd": 0.01,
+      "pass_criteria": "API ETV within 20% of pipeline alert ETV",
+      "fail_criteria": "API ETV is 50%+ lower than alert -- abort or downgrade tier",
+      "command": "curl -s -X POST -u 'support@zovo.one:f9f943da5a9ef3e9' -H 'Content-Type: application/json' -d '[{\"target\":\"DOMAIN\",\"limit\":1,\"language_code\":\"en\",\"location_code\":2840}]' 'https://api.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live' | python3 -m json.tool"
+    },
+    "step_2_check_whois": {
+      "order": 2,
+      "description": "WHOIS lookup for domain status and expiry",
+      "cost_usd": 0,
+      "command": "whois DOMAIN",
+      "green_flags": [
+        "pendingDelete",
+        "redemptionPeriod",
+        "serverHold",
+        "expiry date in the past or within 45 days"
+      ],
+      "red_flags": [
+        "clientDeleteProhibited",
+        "all four client*Prohibited locks active",
+        "expiry date 6+ months out",
+        "registrant is major corporation or government"
+      ]
+    },
+    "step_3_check_http": {
+      "order": 3,
+      "description": "HTTP HEAD request to check if site is live",
+      "cost_usd": 0,
+      "command": "curl -sI https://DOMAIN | head -20",
+      "green_signals": [
+        "connection refused",
+        "connection timeout",
+        "NXDOMAIN",
+        "200 with parking/expired page"
+      ],
+      "red_signals": [
+        "200 with real content",
+        "403 with WAF (Sucuri, Cloudflare)",
+        "301 to active business"
+      ]
+    },
+    "step_4_entity_verification": {
+      "order": 4,
+      "description": "The Olive.com Gate -- verify domain is NOT an active business",
+      "cost_usd": 0,
+      "lesson_source": "olive.com -- $2,923/mo ETV, turned out to be active car warranty business",
+      "checks": [
+        "Google: site:DOMAIN -- check indexed pages and content",
+        "Google: \"DOMAIN\" -- check news, LinkedIn, reviews",
+        "dig MX DOMAIN +short -- active email = active business",
+        "dig TXT DOMAIN +short -- SPF with services = active business"
+      ],
+      "go_verdicts": [
+        "defunct startup (Crunchbase closed)",
+        "parked by domain investor",
+        "nonprofit that lost funding",
+        "site is completely offline with no DNS"
+      ],
+      "nogo_verdicts": [
+        "active business with customers",
+        "government or educational institution",
+        "active business in shutdown process (monitor only)"
+      ]
+    }
+  },
+
+  "decision_matrix": {
+    "go_condition": "ALL FOUR must be TRUE: ETV verified AND WHOIS dropping AND HTTP down AND NOT active business",
+    "nogo_condition": "ANY ONE of the four fails = NO GO",
+    "hard_nogo_overrides": [
+      ".gov / .edu / .mil domain",
+      "trademarked by major corporation",
+      "active litigation involving the domain",
+      "budget remaining < max bid amount",
+      "3+ bidders already visible on DropCatch"
+    ],
+    "caution_flags": [
+      "domain was a well-known brand (expect auction competition)",
+      "domain has been previously auctioned and re-dropped",
+      "ETV concentrated in 1-2 keywords (fragile)"
+    ]
+  },
+
+  "post_acquisition": {
+    "immediate_1hr": [
+      "Verify domain in registrar account",
+      "Point DNS to Cloudflare",
+      "Set up basic redirect or landing page to preserve link equity"
+    ],
+    "within_24hr": [
+      "Run DataForSEO ranked keywords report ($0.01)",
+      "Check Wayback Machine for last live content",
+      "Identify top 5 ranking keywords and landing pages",
+      "Decide: redirect to existing property OR build standalone"
+    ],
+    "within_7days": [
+      "Deploy content matching historical niche",
+      "Set up Google Search Console",
+      "Submit sitemap",
+      "Monitor indexing"
+    ],
+    "within_30days": [
+      "Evaluate actual organic traffic vs projected ETV",
+      "Decide long-term strategy (keep, redirect, flip)",
+      "Update budget tracker"
+    ]
+  },
+
+  "logging": {
+    "whale_action_log": "logs/whale_actions.log",
+    "format": "ISO_TIMESTAMP | WHALE | DOMAIN | ETV: $XXXX | Platforms: DC,SN,DY | Max: $XXX",
+    "command": "echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) | WHALE | DOMAIN | ETV: $XXXX | Platforms: DC,SN,DY | Max: $XXX\" >> logs/whale_actions.log"
+  },
+
+  "daily_checks": {
+    "pipeline_log_tail": "tail -20 logs/daily_hunter.log",
+    "latest_daily_output": "ls -la data/daily/",
+    "whale_grep": "grep -i 'WHALE' logs/daily_hunter.log | tail -5"
+  },
+
+  "emergency_protocol": {
+    "description": "Domain in pendingDelete dropping within hours",
+    "time_budget_minutes": 5,
+    "steps": [
+      "Quick ETV + entity check only (2 minutes)",
+      "DropCatch backorder FIRST (highest catch rate)",
+      "Then SnapNames and Dynadot",
+      "Set max bid at HALF normal tier amount",
+      "Document after the fact"
+    ]
+  },
+
+  "lessons_learned": {
+    "olive_com": {
+      "sprint": 15,
+      "domain": "olive.com",
+      "etv_reported": 2923,
+      "actual_status": "Active car warranty business (Repair Ventures LLC, Chicago)",
+      "lesson": "High ETV does NOT mean available. Always verify entity before pursuing.",
+      "cost_of_mistake": 0,
+      "prevented_by": "Entity Verification step (now mandatory in protocol)"
+    }
+  },
+
+  "files_created": [
+    "data/sprint16_whale_protocol.md",
+    "data/sprint16_whale_quickref.md",
+    "data/sprint16_whale_protocol.json"
+  ]
+}

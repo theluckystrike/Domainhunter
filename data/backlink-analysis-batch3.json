@@ -1,0 +1,233 @@
+{
+  "report_date": "2026-05-06",
+  "batch": "Sprint 2 - Batch 3",
+  "analysis_type": "Deep Backlink Analysis",
+  "domains_analyzed": 5,
+  "tools_used": [
+    "Wayback CDX API",
+    "GitHub Code Search (gh CLI)",
+    "WHOIS lookups",
+    "Web Archive snapshots",
+    "Web search for press/media coverage",
+    "Direct HTTP status checks"
+  ],
+  "note": "OpenLinkProfiler, Ahrefs free checker, Majestic, and SimilarWeb all require JavaScript rendering and were not accessible via automated fetching. Backlink data was assembled from GitHub mentions, press coverage research, Wayback historical analysis, and web search.",
+  "domains": {
+    "launchable.io": {
+      "status": "parked",
+      "parked_on": "Park.io",
+      "registrar": "Humbly LLC",
+      "created": "2021-04-10",
+      "expires": "2027-04-10",
+      "available": true,
+      "acquisition_channel": "Park.io contact form",
+      "historical_use": "Landing page builder for startups (2013-2014)",
+      "wayback_captures": 62,
+      "github_mentions": 3,
+      "github_quality": "low - only HN data archives",
+      "known_backlinks": [
+        {"source": "news.ycombinator.com", "type": "community", "quality": "medium"},
+        {"source": "park.io", "type": "parked listing", "quality": "low"}
+      ],
+      "anchor_text_distribution": {
+        "branded_pct": 60,
+        "descriptive_pct": 20,
+        "generic_url_pct": 20
+      },
+      "red_flags": [
+        "Very thin backlink profile",
+        "Only active 1-2 years (2013-2014)",
+        "Parked 5+ years - severe link decay",
+        "Most links from single HN post"
+      ],
+      "positive_signals": [
+        "Clean - no spam or toxic links",
+        "Legitimate startup history"
+      ],
+      "quality_rating": 3,
+      "verdict": "Mixed profile - minimal value"
+    },
+    "apitools.com": {
+      "status": "parked_monetized",
+      "parked_redirect": "cdez.com (frameset)",
+      "registrar": "Dynadot Inc",
+      "created": "2020-12-14",
+      "expires": "2026-12-14",
+      "original_registration": "2000",
+      "available": "possibly_negotiable",
+      "historical_use": "3scale API monitoring tool (2014-2016). Acquired by Red Hat 2016, then IBM 2019.",
+      "wayback_captures": "100+",
+      "github_mentions": 30,
+      "github_quality": "high - nginx resources, Kong blog, awesome lists",
+      "github_org": {
+        "name": "APItools",
+        "repos": 14,
+        "key_repos": [
+          {"name": "router.lua", "stars": 195},
+          {"name": "monitor", "stars": 139},
+          {"name": "sandbox.lua", "stars": 105},
+          {"name": "middleware", "stars": 60}
+        ],
+        "total_stars_estimate": 500
+      },
+      "known_backlinks": [
+        {"source": "programmableweb.com", "type": "tech_media", "quality": "high"},
+        {"source": "infoq.com", "type": "tech_media", "quality": "high"},
+        {"source": "konghq.com", "type": "tech_blog", "quality": "high"},
+        {"source": "apievangelist.com", "type": "tech_blog", "quality": "medium"},
+        {"source": "prweb.com", "type": "press_release", "quality": "medium"},
+        {"source": "slideshare.net", "type": "presentation", "quality": "medium"},
+        {"source": "fcambus/nginx-resources", "type": "awesome_list", "quality": "high"},
+        {"source": "Various HN archives", "type": "community", "quality": "medium"}
+      ],
+      "anchor_text_distribution": {
+        "branded_pct": 45,
+        "descriptive_pct": 30,
+        "generic_url_pct": 15,
+        "other_pct": 10
+      },
+      "red_flags": [
+        "Domain was dropped and re-registered in 2020 (equity reset)",
+        "Currently used as parked/monetized domain",
+        "Some Chinese tech blog links (legitimate but worth noting)",
+        "Google may not credit historical links post-drop"
+      ],
+      "positive_signals": [
+        "3scale/Red Hat/IBM pedigree",
+        "Coverage from authoritative tech media",
+        "Active open-source repos with 500+ stars",
+        "Clean anchor text distribution",
+        "Keyword 'API tools' has high commercial value"
+      ],
+      "quality_rating": 6,
+      "verdict": "Mixed profile - strong history but domain drop resets equity"
+    },
+    "techstack.com": {
+      "status": "ACTIVE_BUSINESS",
+      "current_use": "Revenue Diagnostic Platform - live SaaS",
+      "registrar": "GoDaddy.com LLC",
+      "created": "2009-12-29",
+      "expires": "2027-12-02",
+      "available": false,
+      "elimination_reason": "Active live business with clients, testimonials, 142 partners. Cannot acquire.",
+      "github_mentions": 30,
+      "quality_rating": null,
+      "verdict": "ELIMINATED - active business, not available for purchase"
+    },
+    "devhub.io": {
+      "status": "for_sale",
+      "sale_platform": "Afternic (GoDaddy marketplace)",
+      "registrar": "Dynadot Inc",
+      "created": "2016-10-17",
+      "expires": "2026-10-17",
+      "available": true,
+      "acquisition_channel": "Afternic listing / make offer",
+      "historical_use": "Development Tools Repositories Developers Hub - curated directory of dev tools and GitHub repos (2015-2021)",
+      "wayback_captures": "89+",
+      "github_mentions": 30,
+      "github_quality": "high - ethereum.org, developer bookmarks, tool directories",
+      "github_org": {
+        "name": "devhub-io",
+        "repos": 5,
+        "key_repos": [
+          {"name": "website", "stars": 5},
+          {"name": "devhub-admin", "stars": 3},
+          {"name": "devhub-server", "stars": 2},
+          {"name": "devhub-web", "stars": 2}
+        ]
+      },
+      "known_backlinks": [
+        {"source": "ethereum.org (ethereum-org-website)", "type": "high_authority_site", "quality": "very_high"},
+        {"source": "pu2clr/SI4735 README", "type": "github_readme", "quality": "medium"},
+        {"source": "SansGuidon/bookmarks", "type": "bookmark_collection", "quality": "medium"},
+        {"source": "hhhrrrttt222111/Ethical-Hacking-Tools", "type": "github_readme", "quality": "medium"},
+        {"source": "Various developer bookmark/tool lists", "type": "resource_lists", "quality": "medium"},
+        {"source": "Multiple GitHub READMEs", "type": "github_mentions", "quality": "medium"}
+      ],
+      "anchor_text_distribution": {
+        "branded_pct": 50,
+        "descriptive_pct": 25,
+        "technical_pct": 15,
+        "generic_url_pct": 10
+      },
+      "red_flags": [
+        "For sale on Afternic = premium pricing expected",
+        "AI plugin JSON suggests monetization attempts",
+        "Some mentions may be to DevHub app (devhubapp.com) not devhub.io"
+      ],
+      "positive_signals": [
+        "Ethereum.org backlink (DR 90+) - crown jewel",
+        "Diverse developer ecosystem links",
+        "Clean anchor text profile",
+        "Long operational history as legitimate resource",
+        "AI plugin signals forward-thinking positioning",
+        "Developer-focused keyword"
+      ],
+      "quality_rating": 7,
+      "verdict": "Clean profile - strongest backlink candidate"
+    },
+    "aidevtools.com": {
+      "status": "EXPIRING_TODAY",
+      "registrar": "NameSilo LLC",
+      "created": "2022-05-06",
+      "expires": "2026-05-06",
+      "available": "expiring_today_watch_for_drop",
+      "historical_use": "No active website found - registered but unused",
+      "wayback_captures": 1,
+      "github_mentions": 3,
+      "github_quality": "none - only mock data and expired domain lists",
+      "known_backlinks": [],
+      "anchor_text_distribution": null,
+      "red_flags": [
+        "No backlink profile exists",
+        "Never had active website",
+        "Appears only in expired domain lists"
+      ],
+      "positive_signals": [
+        "Clean slate - no negative history",
+        "Premium keyword: 'AI dev tools'",
+        ".com on AI+dev keyword is highly valuable",
+        "aidevtools.co exists as competitor (market validation)",
+        "No spam, no PBN, no toxic links"
+      ],
+      "quality_rating_backlinks": 2,
+      "quality_rating_keyword": 9,
+      "verdict": "Clean slate - pure keyword value. URGENT: expires today."
+    }
+  },
+  "final_rankings": {
+    "by_backlink_quality": [
+      {"rank": 1, "domain": "devhub.io", "score": 7, "verdict": "Clean profile"},
+      {"rank": 2, "domain": "apitools.com", "score": 6, "verdict": "Mixed profile"},
+      {"rank": 3, "domain": "launchable.io", "score": 3, "verdict": "Mixed - minimal value"},
+      {"rank": 4, "domain": "aidevtools.com", "score": 2, "verdict": "Clean slate"},
+      {"rank": "N/A", "domain": "techstack.com", "score": null, "verdict": "ELIMINATED"}
+    ],
+    "by_overall_value": [
+      {"rank": 1, "domain": "aidevtools.com", "rationale": "Perfect keyword match for AI dev tools market, clean slate, expires TODAY"},
+      {"rank": 2, "domain": "devhub.io", "rationale": "Strongest backlinks, ethereum.org link, developer-focused, for sale"},
+      {"rank": 3, "domain": "apitools.com", "rationale": "Great keyword, strong history, but domain drop limits SEO carryover"},
+      {"rank": 4, "domain": "launchable.io", "rationale": "Weak profile, parked, minimal SEO value"}
+    ]
+  },
+  "urgent_actions": [
+    {
+      "priority": "CRITICAL",
+      "domain": "aidevtools.com",
+      "action": "Monitor for domain drop. Set up backorders on NameSilo, GoDaddy, Dynadot, SnapNames, DropCatch.",
+      "deadline": "2026-05-06 (TODAY)"
+    },
+    {
+      "priority": "HIGH",
+      "domain": "devhub.io",
+      "action": "Check Afternic listing price. Prepare offer strategy. Budget $2K-$10K.",
+      "deadline": "Before 2026-10-17 expiry"
+    },
+    {
+      "priority": "MEDIUM",
+      "domain": "apitools.com",
+      "action": "Contact current owner via Dynadot. Assess asking price.",
+      "deadline": "Before 2026-12-14 expiry"
+    }
+  ]
+}

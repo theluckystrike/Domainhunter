@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Format Converter - Convert PNG to JPG, WebP, BMP &amp; More Free</title>
+<meta name="description" content="Free online image format converter. Convert between PNG, JPEG, WebP, BMP, and GIF. Batch conversion supported. Adjust quality, download instantly. No upload to servers — 100% private.">
+<meta name="keywords" content="image converter, PNG to JPG, JPG to PNG, convert to WebP, image format converter, photo converter online, convert image free, PNG to JPEG">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/convert.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pictureeditor.net/convert.html">
+<meta property="og:title" content="Image Format Converter - PNG to JPG, WebP & More">
+<meta property="og:description" content="Convert between PNG, JPEG, WebP, BMP, GIF instantly. Free batch image converter. No upload needed.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Format Converter - Free Online">
+<meta name="twitter:description" content="Convert PNG to JPG, WebP, BMP and more. Free batch converter, no upload.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Image Format Converter","url":"https://pictureeditor.net/convert.html","description":"Free online image format converter supporting PNG, JPEG, WebP, BMP, GIF with batch conversion.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px}
+.subtitle{color:var(--text-secondary);margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.hidden{display:none!important}
+.settings-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.settings-row{grid-template-columns:1fr}}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.field select,.field input{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem}
+.field select:focus,.field input:focus{outline:none;border-color:var(--accent)}
+.slider-row{display:flex;align-items:center;gap:12px}
+.slider-row input[type="range"]{flex:1;-webkit-appearance:none;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-row input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.slider-row span{min-width:40px;font-weight:600;font-size:.9rem;text-align:right}
+.file-list{margin-top:16px}
+.file-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:var(--surface)}
+.file-item .thumb{width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+.file-item .info{flex:1;min-width:0}
+.file-item .name{font-size:.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-item .meta{font-size:.75rem;color:var(--text-secondary)}
+.file-item .status{font-size:.75rem;font-weight:600;padding:4px 8px;border-radius:12px}
+.file-item .status.done{background:#dcfce7;color:#166534}
+.file-item .status.converting{background:#fef3c7;color:#92400e}
+.file-item .remove{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text-secondary);transition:.15s}
+.file-item .remove:hover{background:#fee2e2;color:#dc2626;border-color:#dc2626}
+.actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.375rem;padding:.625rem 1.25rem;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.count{font-size:.85rem;color:var(--text-secondary);margin-top:8px}
+footer{text-align:center;padding:32px 16px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:48px}
+footer a{color:var(--accent);text-decoration:none}
+.faq h3{font-size:1rem;margin:20px 0 6px}
+.faq p{color:var(--text-secondary);font-size:.9rem;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><a href="/">Picture Editor</a></h1>
+  <nav>
+    <a href="/">Editor</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</div>
+<main class="container">
+  <h2>Image Format Converter</h2>
+  <p class="subtitle">Convert images between PNG, JPEG, WebP, BMP, and GIF. Batch conversion supported. All processing happens locally in your browser.</p>
+
+  <div class="card">
+    <div class="drop-zone" id="drop-zone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2"/></svg>
+      <p>Drop images here or click to upload</p>
+      <p class="sub">Select multiple files for batch conversion. Supports JPEG, PNG, WebP, BMP, GIF.</p>
+      <input type="file" id="file-input" accept="image/*" multiple style="display:none">
+    </div>
+
+    <div class="hidden" id="converter">
+      <div class="settings-row">
+        <div class="field">
+          <label for="target-format">Convert To</label>
+          <select id="target-format">
+            <option value="image/jpeg">JPEG (.jpg)</option>
+            <option value="image/png">PNG (.png)</option>
+            <option value="image/webp">WebP (.webp)</option>
+            <option value="image/bmp">BMP (.bmp)</option>
+          </select>
+        </div>
+        <div class="field" id="quality-field">
+          <label>Quality</label>
+          <div class="slider-row">
+            <input type="range" id="quality" min="1" max="100" value="90">
+            <span id="quality-val">90%</span>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="convert-btn">Convert All</button>
+        <button class="btn btn-success hidden" id="download-all-btn">Download All</button>
+        <button class="btn btn-outline" id="add-more-btn">Add More Files</button>
+        <button class="btn btn-outline" id="reset-btn">Start Over</button>
+      </div>
+      <p class="count" id="file-count">0 files loaded</p>
+      <div class="file-list" id="file-list"></div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>What image format should I use?</h3>
+    <p><strong>JPEG</strong> — Best for photographs. Smaller file sizes with lossy compression. No transparency support.<br>
+    <strong>PNG</strong> — Best for graphics, screenshots, logos. Lossless with transparency support. Larger files.<br>
+    <strong>WebP</strong> — Modern format with excellent compression. Supports transparency. ~30% smaller than JPEG at same quality. Supported by all modern browsers.<br>
+    <strong>BMP</strong> — Uncompressed bitmap. Very large files. Use only when lossless raw data is needed.</p>
+    <h3>Is batch conversion supported?</h3>
+    <p>Yes. You can select multiple files at once or add files in batches. All files are converted to the same target format with the same quality settings. Each file can be downloaded individually, or you can download all at once.</p>
+    <h3>Are my images uploaded anywhere?</h3>
+    <p>No. All conversion happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device. This tool works offline once the page is loaded.</p>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2026 <a href="/">PictureEditor.net</a> — Free online image tools</p>
+  <p style="margin-top:8px">
+    <a href="/">Editor</a> &middot;
+    <a href="/compress.html">Compressor</a> &middot;
+    <a href="/crop.html">Cropper</a> &middot;
+    <a href="/convert.html">Converter</a> &middot;
+    <a href="/remove-background.html">BG Remover</a>
+  </p>
+</footer>
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const converter = document.getElementById('converter');
+const fileList = document.getElementById('file-list');
+const fileCount = document.getElementById('file-count');
+const convertBtn = document.getElementById('convert-btn');
+const downloadAllBtn = document.getElementById('download-all-btn');
+const addMoreBtn = document.getElementById('add-more-btn');
+const resetBtn = document.getElementById('reset-btn');
+const targetFormat = document.getElementById('target-format');
+const qualitySlider = document.getElementById('quality');
+const qualityVal = document.getElementById('quality-val');
+const qualityField = document.getElementById('quality-field');
+
+let files = []; // { file, thumb, converted, blob }
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); addFiles(e.dataTransfer.files); });
+fileInput.addEventListener('change', () => { addFiles(fileInput.files); fileInput.value = ''; });
+addMoreBtn.addEventListener('click', () => fileInput.click());
+qualitySlider.addEventListener('input', () => { qualityVal.textContent = qualitySlider.value + '%'; });
+targetFormat.addEventListener('change', () => {
+  const f = targetFormat.value;
+  qualityField.classList.toggle('hidden', f === 'image/png' || f === 'image/bmp');
+});
+
+function addFiles(fileListInput) {
+  for (const f of fileListInput) {
+    if (!f.type.startsWith('image/')) continue;
+    const thumb = URL.createObjectURL(f);
+    files.push({ file: f, thumb, converted: false, blob: null });
+  }
+  dropZone.classList.add('hidden');
+  converter.classList.remove('hidden');
+  renderList();
+}
+
+function renderList() {
+  fileCount.textContent = files.length + ' file' + (files.length !== 1 ? 's' : '') + ' loaded';
+  fileList.innerHTML = files.map((f, i) => `
+    <div class="file-item">
+      <img class="thumb" src="${f.thumb}" alt="">
+      <div class="info">
+        <div class="name">${f.file.name}</div>
+        <div class="meta">${f.file.type} &middot; ${formatSize(f.file.size)}${f.blob ? ' &rarr; ' + formatSize(f.blob.size) : ''}</div>
+      </div>
+      <span class="status ${f.converted ? 'done' : ''}">${f.converted ? 'Done' : 'Ready'}</span>
+      ${f.converted ? '<button class="btn btn-success" style="padding:4px 10px;font-size:.75rem" onclick="downloadOne('+i+')">Download</button>' : ''}
+      <button class="remove" onclick="removeFile(${i})">&times;</button>
+    </div>
+  `).join('');
+}
+
+function removeFile(i) {
+  files.splice(i, 1);
+  if (files.length === 0) { resetAll(); return; }
+  renderList();
+}
+
+convertBtn.addEventListener('click', async () => {
+  const format = targetFormat.value;
+  const quality = parseInt(qualitySlider.value) / 100;
+  convertBtn.textContent = 'Converting...';
+  convertBtn.disabled = true;
+  for (let i = 0; i < files.length; i++) {
+    if (files[i].converted) continue;
+    files[i].blob = await convertImage(files[i].file, format, quality);
+    files[i].converted = true;
+    renderList();
+  }
+  convertBtn.textContent = 'Convert All';
+  convertBtn.disabled = false;
+  downloadAllBtn.classList.remove('hidden');
+});
+
+function convertImage(file, format, quality) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      // For JPEG, fill white background (no alpha support)
+      if (format === 'image/jpeg' || format === 'image/bmp') {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      ctx.drawImage(img, 0, 0);
+      const q = (format === 'image/png' || format === 'image/bmp') ? undefined : quality;
+      canvas.toBlob(blob => resolve(blob), format, q);
+    };
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+function downloadOne(i) {
+  const f = files[i];
+  if (!f.blob) return;
+  const ext = getExt(targetFormat.value);
+  const name = f.file.name.replace(/\.[^.]+$/, '') + '.' + ext;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(f.blob);
+  a.download = name;
+  a.click();
+}
+
+downloadAllBtn.addEventListener('click', () => {
+  files.forEach((f, i) => { if (f.converted) downloadOne(i); });
+});
+
+resetBtn.addEventListener('click', resetAll);
+
+function resetAll() {
+  files = [];
+  converter.classList.add('hidden');
+  dropZone.classList.remove('hidden');
+  downloadAllBtn.classList.add('hidden');
+  fileInput.value = '';
+}
+
+function getExt(mime) {
+  const map = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/bmp': 'bmp' };
+  return map[mime] || 'png';
+}
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1048576).toFixed(2) + ' MB';
+}
+</script>
+</body>
+</html>

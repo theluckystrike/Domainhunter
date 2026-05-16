@@ -1,0 +1,50 @@
+{
+  "acquisition_date": "2026-05-16",
+  "acquisition_timestamp": "2026-05-16T07:51:01.323959+00:00",
+  "sprint": 29,
+  "domains_registered": [
+    {
+      "domain": "viryd.com",
+      "cost": 10.99,
+      "method": "direct_registration",
+      "source": "kaggle_rdap_probe",
+      "registrar": "Dynadot",
+      "company": "Viryd Technologies",
+      "funding": 9800000,
+      "sector": "cleantech",
+      "strategy": "FLIP",
+      "estimated_value": "$1,000-$10,000",
+      "rationale": "5-letter .com, shortest in pool. 5L .coms have liquid aftermarket ($200-$2000+).",
+      "search_available": true,
+      "search_price_usd": 0.0,
+      "register_message": "success",
+      "register_expiration": "1810453852000",
+      "ns_set": true,
+      "ns_message": "success (SetNsResponse ResponseCode=0)"
+    },
+    {
+      "domain": "neovistainc.com",
+      "cost": 10.99,
+      "method": "direct_registration",
+      "source": "kaggle_rdap_probe",
+      "registrar": "Dynadot",
+      "company": "NeoVista",
+      "funding": 130000000,
+      "sector": "healthtech",
+      "strategy": "FLIP",
+      "estimated_value": "$500-$5,000",
+      "rationale": "$130M funded biotech. Press backlinks from TechCrunch/Crunchbase/PitchBook.",
+      "search_available": true,
+      "search_price_usd": 0.0,
+      "register_message": "success",
+      "register_expiration": "1810453858000",
+      "ns_set": true,
+      "ns_message": "success (SetNsResponse ResponseCode=0)"
+    }
+  ],
+  "domains_failed": [],
+  "total_cost": 21.98,
+  "balance_before": 25.0,
+  "balance_remaining": 3.02,
+  "summary": "Attempted 2 registrations. 2 succeeded, 0 failed. Total cost: $21.98."
+}

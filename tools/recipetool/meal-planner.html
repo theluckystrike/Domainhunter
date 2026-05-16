@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Meal Planner - Plan Your Meals & Track Calories | RecipeTool.net</title>
+<meta name="description" content="Free weekly meal planner. Organize breakfast, lunch, dinner, and snacks for 7 days. Track daily calories and macros. Save and print your meal plans.">
+<link rel="canonical" href="https://recipetool.net/meal-planner.html">
+<meta property="og:title" content="Weekly Meal Planner - Plan Your Meals & Track Calories">
+<meta property="og:description" content="Plan your weekly meals with our free drag-and-drop meal planner. Track daily nutrition and print your plan.">
+<meta property="og:url" content="https://recipetool.net/meal-planner.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weekly Meal Planner - Plan Your Meals & Track Calories">
+<meta name="twitter:description" content="Plan your weekly meals with our free drag-and-drop meal planner. Track daily nutrition and print your plan.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Weekly Meal Planner",
+  "description": "Free weekly meal planner to organize meals and track daily nutrition.",
+  "url": "https://recipetool.net/meal-planner.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:1100px;margin:0 auto;padding:1rem}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.btn{background:var(--primary);color:white;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.btn-success{background:var(--success)}
+.btn-success:hover{background:#388e3c}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;overflow-x:auto}
+.day-col{background:var(--white);border-radius:10px;border:1px solid var(--border);min-width:140px;box-shadow:var(--shadow)}
+.day-header{background:var(--warm-dark);padding:.5rem;text-align:center;border-radius:10px 10px 0 0;font-weight:600;font-size:.85rem}
+.day-header .date{font-size:.7rem;color:var(--text-light);font-weight:400}
+.meal-section{padding:.4rem;border-bottom:1px solid var(--border)}
+.meal-section:last-child{border-bottom:none}
+.meal-label{font-size:.7rem;font-weight:600;color:var(--primary);text-transform:uppercase;margin-bottom:.25rem}
+.meal-items{min-height:40px}
+.meal-item{background:var(--warm);padding:.3rem .5rem;border-radius:4px;font-size:.75rem;margin-bottom:.25rem;cursor:grab;display:flex;justify-content:space-between;align-items:center}
+.meal-item:active{cursor:grabbing;opacity:.8}
+.meal-item .cals{color:var(--text-light);font-size:.65rem}
+.meal-item .remove{cursor:pointer;color:#c62828;font-weight:bold;margin-left:.3rem}
+.add-meal-btn{width:100%;background:none;border:1px dashed var(--border);color:var(--text-light);padding:.25rem;border-radius:4px;font-size:.7rem;cursor:pointer;margin-top:.25rem}
+.add-meal-btn:hover{border-color:var(--primary);color:var(--primary)}
+.day-totals{padding:.4rem;background:var(--warm);border-radius:0 0 10px 10px;text-align:center;font-size:.7rem}
+.day-totals strong{color:var(--primary-dark)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.active{display:flex}
+.modal{background:white;border-radius:12px;padding:1.5rem;width:90%;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.modal h3{margin-bottom:.75rem;color:var(--primary-dark)}
+.modal input,.modal select{width:100%;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem;margin-bottom:.75rem}
+.modal input:focus,.modal select:focus{outline:none;border-color:var(--primary)}
+.modal-btns{display:flex;gap:.5rem;justify-content:flex-end}
+.summary-bar{background:var(--white);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;justify-content:space-around;flex-wrap:wrap;gap:.5rem}
+.summary-item{text-align:center}
+.summary-item .val{font-size:1.1rem;font-weight:700;color:var(--primary-dark)}
+.summary-item .lbl{font-size:.7rem;color:var(--text-light)}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:768px){
+.week-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+.day-col{min-width:auto}
+}
+@media(max-width:480px){
+.week-grid{grid-template-columns:1fr}
+}
+@media print{
+nav,.toolbar,.add-meal-btn,.meal-item .remove{display:none!important}
+body{background:white}
+.day-col{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Weekly Meal Planner</h1>
+<p>Plan your meals, track your nutrition</p>
+</header>
+<nav>
+<a href="/">Nutrition Calculator</a>
+<a href="/meal-planner.html" class="active">Meal Planner</a>
+<a href="/calorie-calculator.html">Calorie Calculator</a>
+</nav>
+<main>
+<div class="toolbar">
+<button class="btn" onclick="savePlan()">Save Plan</button>
+<button class="btn btn-outline" onclick="loadPlan()">Load Plan</button>
+<button class="btn btn-outline" onclick="clearPlan()">Clear All</button>
+<button class="btn btn-outline" onclick="window.print()">Print</button>
+</div>
+<div class="summary-bar" id="weekly-summary">
+<div class="summary-item"><div class="val" id="sum-cal">0</div><div class="lbl">Avg Cal/Day</div></div>
+<div class="summary-item"><div class="val" id="sum-protein">0g</div><div class="lbl">Avg Protein</div></div>
+<div class="summary-item"><div class="val" id="sum-carbs">0g</div><div class="lbl">Avg Carbs</div></div>
+<div class="summary-item"><div class="val" id="sum-fat">0g</div><div class="lbl">Avg Fat</div></div>
+<div class="summary-item"><div class="val" id="sum-meals">0</div><div class="lbl">Total Meals</div></div>
+</div>
+<div class="week-grid" id="week-grid"></div>
+</main>
+<div class="modal-overlay" id="add-modal">
+<div class="modal">
+<h3>Add Meal</h3>
+<input type="text" id="meal-name" placeholder="Meal name (e.g., Grilled Chicken Salad)">
+<input type="number" id="meal-cal" placeholder="Calories" min="0">
+<input type="number" id="meal-protein" placeholder="Protein (g)" min="0" step="0.1">
+<input type="number" id="meal-carbs" placeholder="Carbs (g)" min="0" step="0.1">
+<input type="number" id="meal-fat" placeholder="Fat (g)" min="0" step="0.1">
+<div class="modal-btns">
+<button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+<button class="btn" onclick="confirmAdd()">Add</button>
+</div>
+</div>
+</div>
+<footer>
+<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+</footer>
+<script>
+const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+const MEALS=['Breakfast','Lunch','Dinner','Snacks'];
+let plan={};
+let currentTarget=null;
+
+function initPlan(){
+DAYS.forEach(d=>{plan[d]={};MEALS.forEach(m=>{plan[d][m]=[]})});
+}
+
+function renderGrid(){
+const grid=document.getElementById('week-grid');
+grid.innerHTML='';
+DAYS.forEach(day=>{
+let col=document.createElement('div');
+col.className='day-col';
+let dayCal=0,dayP=0,dayC=0,dayF=0;
+let headerHTML=`<div class="day-header">${day}</div>`;
+let sectionsHTML='';
+MEALS.forEach(meal=>{
+let items=plan[day][meal]||[];
+let itemsHTML='';
+items.forEach((item,idx)=>{
+dayCal+=item.cal||0;dayP+=item.protein||0;dayC+=item.carbs||0;dayF+=item.fat||0;
+itemsHTML+=`<div class="meal-item" draggable="true" data-day="${day}" data-meal="${meal}" data-idx="${idx}">
+<span>${item.name} <span class="cals">${item.cal||0} cal</span></span>
+<span class="remove" onclick="removeMeal('${day}','${meal}',${idx})">&times;</span>
+</div>`;
+});
+sectionsHTML+=`<div class="meal-section"><div class="meal-label">${meal}</div><div class="meal-items" data-day="${day}" data-meal="${meal}">${itemsHTML}</div><button class="add-meal-btn" onclick="openModal('${day}','${meal}')">+ Add</button></div>`;
+});
+let totalsHTML=`<div class="day-totals"><strong>${dayCal}</strong> cal | P: ${dayP.toFixed(0)}g | C: ${dayC.toFixed(0)}g | F: ${dayF.toFixed(0)}g</div>`;
+col.innerHTML=headerHTML+sectionsHTML+totalsHTML;
+grid.appendChild(col);
+});
+updateSummary();
+setupDragDrop();
+}
+
+function updateSummary(){
+let totalCal=0,totalP=0,totalC=0,totalF=0,totalMeals=0;
+DAYS.forEach(d=>{MEALS.forEach(m=>{(plan[d][m]||[]).forEach(item=>{
+totalCal+=item.cal||0;totalP+=item.protein||0;totalC+=item.carbs||0;totalF+=item.fat||0;totalMeals++;
+})})});
+let days=7;
+document.getElementById('sum-cal').textContent=Math.round(totalCal/days);
+document.getElementById('sum-protein').textContent=Math.round(totalP/days)+'g';
+document.getElementById('sum-carbs').textContent=Math.round(totalC/days)+'g';
+document.getElementById('sum-fat').textContent=Math.round(totalF/days)+'g';
+document.getElementById('sum-meals').textContent=totalMeals;
+}
+
+function openModal(day,meal){
+currentTarget={day,meal};
+document.getElementById('add-modal').classList.add('active');
+document.getElementById('meal-name').focus();
+}
+
+function closeModal(){
+document.getElementById('add-modal').classList.remove('active');
+document.getElementById('meal-name').value='';
+document.getElementById('meal-cal').value='';
+document.getElementById('meal-protein').value='';
+document.getElementById('meal-carbs').value='';
+document.getElementById('meal-fat').value='';
+currentTarget=null;
+}
+
+function confirmAdd(){
+if(!currentTarget)return;
+let name=document.getElementById('meal-name').value.trim();
+if(!name){alert('Please enter a meal name');return}
+let item={
+name:name,
+cal:parseInt(document.getElementById('meal-cal').value)||0,
+protein:parseFloat(document.getElementById('meal-protein').value)||0,
+carbs:parseFloat(document.getElementById('meal-carbs').value)||0,
+fat:parseFloat(document.getElementById('meal-fat').value)||0
+};
+plan[currentTarget.day][currentTarget.meal].push(item);
+closeModal();
+renderGrid();
+}
+
+function removeMeal(day,meal,idx){
+plan[day][meal].splice(idx,1);
+renderGrid();
+}
+
+function savePlan(){
+localStorage.setItem('recipetool_mealplan',JSON.stringify(plan));
+alert('Meal plan saved!');
+}
+
+function loadPlan(){
+let saved=localStorage.getItem('recipetool_mealplan');
+if(saved){plan=JSON.parse(saved);renderGrid();alert('Plan loaded!')}
+else{alert('No saved plan found.')}
+}
+
+function clearPlan(){
+if(!confirm('Clear all meals?'))return;
+initPlan();renderGrid();
+}
+
+function setupDragDrop(){
+document.querySelectorAll('.meal-item[draggable]').forEach(el=>{
+el.addEventListener('dragstart',e=>{
+e.dataTransfer.setData('text/plain',JSON.stringify({day:el.dataset.day,meal:el.dataset.meal,idx:parseInt(el.dataset.idx)}));
+el.style.opacity='0.5';
+});
+el.addEventListener('dragend',e=>{el.style.opacity='1'});
+});
+document.querySelectorAll('.meal-items').forEach(zone=>{
+zone.addEventListener('dragover',e=>{e.preventDefault();zone.style.background='var(--warm-dark)'});
+zone.addEventListener('dragleave',e=>{zone.style.background=''});
+zone.addEventListener('drop',e=>{
+e.preventDefault();zone.style.background='';
+let src=JSON.parse(e.dataTransfer.getData('text/plain'));
+let destDay=zone.dataset.day,destMeal=zone.dataset.meal;
+let item=plan[src.day][src.meal].splice(src.idx,1)[0];
+plan[destDay][destMeal].push(item);
+renderGrid();
+});
+});
+}
+
+initPlan();
+let saved=localStorage.getItem('recipetool_mealplan');
+if(saved){try{plan=JSON.parse(saved)}catch(e){initPlan()}}
+renderGrid();
+</script>
+</body>
+</html>

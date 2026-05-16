@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Unit Converter - Convert Between US, Metric &amp; Imperial Measurements</title>
+<meta name="description" content="Free recipe unit converter. Convert between cups, grams, ounces, milliliters, tablespoons, teaspoons, Fahrenheit, Celsius and more. US, metric, and imperial cooking measurements.">
+<meta name="keywords" content="recipe unit converter, cooking measurement converter, cups to ml, oz to grams, fahrenheit to celsius, recipe conversion, metric converter cooking">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/recipe-converter">
+<meta property="og:title" content="Recipe Unit Converter - US, Metric & Imperial">
+<meta property="og:description" content="Convert between all cooking measurements instantly. Volume, weight, and temperature conversions for recipes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/recipe-converter">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Unit Converter">
+<meta name="twitter:description" content="Convert cups, grams, ounces, mL, tbsp, tsp, F/C and more. Free cooking measurement converter.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recipe Unit Converter",
+  "url": "https://ingredientcalculator.com/recipe-converter.html",
+  "description": "Convert between US, metric, and imperial cooking measurements including volume, weight, and temperature.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB; --clr-success: #059669;
+  --clr-success-bg: #ECFDF5; --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.card h3 { font-size: 1.1rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--clr-border); }
+.converter-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; margin-bottom: 16px; }
+@media(max-width:640px){ .converter-row { grid-template-columns: 1fr; } .swap-btn { transform: rotate(90deg); } }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.swap-btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--clr-border); background: var(--clr-surface); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: var(--transition); align-self: end; margin-bottom: 4px; }
+.swap-btn:hover { background: var(--clr-accent); color: #fff; border-color: var(--clr-accent); }
+.result-display { background: var(--clr-accent-bg); border: 2px solid var(--clr-accent); border-radius: var(--radius); padding: 16px; text-align: center; }
+.result-display .value { font-size: 1.5rem; font-weight: 700; color: var(--clr-accent-hover); }
+.result-display .label { font-size: 0.8rem; color: var(--clr-text-muted); margin-top: 2px; }
+.tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid var(--clr-border); padding-bottom: 0; }
+.tab { padding: 8px 16px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; background: none; color: var(--clr-text-muted); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition); }
+.tab:hover { color: var(--clr-text); }
+.tab.active { color: var(--clr-accent); border-bottom-color: var(--clr-accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.quick-ref { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 16px; }
+.quick-ref-item { padding: 10px; background: var(--clr-surface-alt); border-radius: var(--radius-sm); font-size: 0.85rem; display: flex; justify-content: space-between; }
+.quick-ref-item .from { color: var(--clr-text-muted); }
+.quick-ref-item .to { font-weight: 600; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/egg-substitute.html">Egg Substitutes</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h2>Recipe Unit Converter</h2>
+  <p class="subtitle">Convert between US, metric, and imperial measurements for cooking and baking. Volume, weight, and temperature conversions.</p>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="volume">Volume</button>
+    <button class="tab" data-tab="weight">Weight</button>
+    <button class="tab" data-tab="temperature">Temperature</button>
+  </div>
+
+  <div class="tab-content active" id="tab-volume">
+    <div class="card">
+      <h3>Volume Converter</h3>
+      <div class="converter-row">
+        <div>
+          <div class="field"><label for="vol-value">Amount</label><input type="number" id="vol-value" value="1" min="0" step="0.01"></div>
+          <div class="field" style="margin-top:8px"><label for="vol-from">From</label>
+            <select id="vol-from">
+              <option value="cup">Cups (US)</option>
+              <option value="tbsp">Tablespoons</option>
+              <option value="tsp">Teaspoons</option>
+              <option value="ml">Milliliters (mL)</option>
+              <option value="l">Liters (L)</option>
+              <option value="floz">Fluid Ounces (US)</option>
+              <option value="pint">Pints (US)</option>
+              <option value="quart">Quarts (US)</option>
+              <option value="gallon">Gallons (US)</option>
+              <option value="dl">Deciliters (dL)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap-btn" onclick="swapUnits('vol')">&#8596;</button>
+        <div>
+          <div class="field"><label>Result</label><div class="result-display"><span class="value" id="vol-result">236.59</span><span class="label" id="vol-result-label">milliliters</span></div></div>
+          <div class="field" style="margin-top:8px"><label for="vol-to">To</label>
+            <select id="vol-to">
+              <option value="cup">Cups (US)</option>
+              <option value="tbsp">Tablespoons</option>
+              <option value="tsp">Teaspoons</option>
+              <option value="ml" selected>Milliliters (mL)</option>
+              <option value="l">Liters (L)</option>
+              <option value="floz">Fluid Ounces (US)</option>
+              <option value="pint">Pints (US)</option>
+              <option value="quart">Quarts (US)</option>
+              <option value="gallon">Gallons (US)</option>
+              <option value="dl">Deciliters (dL)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <h4 style="font-size:0.9rem;margin-top:20px;margin-bottom:8px;">Common Volume Conversions</h4>
+      <div class="quick-ref">
+        <div class="quick-ref-item"><span class="from">1 cup</span><span class="to">236.59 mL</span></div>
+        <div class="quick-ref-item"><span class="from">1 tbsp</span><span class="to">14.79 mL</span></div>
+        <div class="quick-ref-item"><span class="from">1 tsp</span><span class="to">4.93 mL</span></div>
+        <div class="quick-ref-item"><span class="from">1 fl oz</span><span class="to">29.57 mL</span></div>
+        <div class="quick-ref-item"><span class="from">1 cup</span><span class="to">16 tbsp</span></div>
+        <div class="quick-ref-item"><span class="from">1 cup</span><span class="to">48 tsp</span></div>
+        <div class="quick-ref-item"><span class="from">1 pint</span><span class="to">2 cups</span></div>
+        <div class="quick-ref-item"><span class="from">1 quart</span><span class="to">4 cups</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-weight">
+    <div class="card">
+      <h3>Weight Converter</h3>
+      <div class="converter-row">
+        <div>
+          <div class="field"><label for="wt-value">Amount</label><input type="number" id="wt-value" value="1" min="0" step="0.01"></div>
+          <div class="field" style="margin-top:8px"><label for="wt-from">From</label>
+            <select id="wt-from">
+              <option value="g">Grams (g)</option>
+              <option value="kg">Kilograms (kg)</option>
+              <option value="oz" selected>Ounces (oz)</option>
+              <option value="lb">Pounds (lb)</option>
+              <option value="mg">Milligrams (mg)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap-btn" onclick="swapUnits('wt')">&#8596;</button>
+        <div>
+          <div class="field"><label>Result</label><div class="result-display"><span class="value" id="wt-result">28.35</span><span class="label" id="wt-result-label">grams</span></div></div>
+          <div class="field" style="margin-top:8px"><label for="wt-to">To</label>
+            <select id="wt-to">
+              <option value="g" selected>Grams (g)</option>
+              <option value="kg">Kilograms (kg)</option>
+              <option value="oz">Ounces (oz)</option>
+              <option value="lb">Pounds (lb)</option>
+              <option value="mg">Milligrams (mg)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <h4 style="font-size:0.9rem;margin-top:20px;margin-bottom:8px;">Common Weight Conversions</h4>
+      <div class="quick-ref">
+        <div class="quick-ref-item"><span class="from">1 oz</span><span class="to">28.35 g</span></div>
+        <div class="quick-ref-item"><span class="from">1 lb</span><span class="to">453.59 g</span></div>
+        <div class="quick-ref-item"><span class="from">100 g</span><span class="to">3.53 oz</span></div>
+        <div class="quick-ref-item"><span class="from">1 kg</span><span class="to">2.205 lb</span></div>
+        <div class="quick-ref-item"><span class="from">1 stick butter</span><span class="to">113 g</span></div>
+        <div class="quick-ref-item"><span class="from">8 oz</span><span class="to">226.8 g</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-temperature">
+    <div class="card">
+      <h3>Temperature Converter</h3>
+      <div class="converter-row">
+        <div>
+          <div class="field"><label for="temp-value">Temperature</label><input type="number" id="temp-value" value="350" step="1"></div>
+          <div class="field" style="margin-top:8px"><label for="temp-from">From</label>
+            <select id="temp-from">
+              <option value="f" selected>Fahrenheit (°F)</option>
+              <option value="c">Celsius (°C)</option>
+              <option value="gas">Gas Mark</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap-btn" onclick="swapUnits('temp')">&#8596;</button>
+        <div>
+          <div class="field"><label>Result</label><div class="result-display"><span class="value" id="temp-result">176.67</span><span class="label" id="temp-result-label">celsius</span></div></div>
+          <div class="field" style="margin-top:8px"><label for="temp-to">To</label>
+            <select id="temp-to">
+              <option value="f">Fahrenheit (°F)</option>
+              <option value="c" selected>Celsius (°C)</option>
+              <option value="gas">Gas Mark</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <h4 style="font-size:0.9rem;margin-top:20px;margin-bottom:8px;">Common Oven Temperatures</h4>
+      <div class="quick-ref">
+        <div class="quick-ref-item"><span class="from">250°F</span><span class="to">120°C / Gas 1/2</span></div>
+        <div class="quick-ref-item"><span class="from">300°F</span><span class="to">150°C / Gas 2</span></div>
+        <div class="quick-ref-item"><span class="from">325°F</span><span class="to">160°C / Gas 3</span></div>
+        <div class="quick-ref-item"><span class="from">350°F</span><span class="to">175°C / Gas 4</span></div>
+        <div class="quick-ref-item"><span class="from">375°F</span><span class="to">190°C / Gas 5</span></div>
+        <div class="quick-ref-item"><span class="from">400°F</span><span class="to">200°C / Gas 6</span></div>
+        <div class="quick-ref-item"><span class="from">425°F</span><span class="to">220°C / Gas 7</span></div>
+        <div class="quick-ref-item"><span class="from">450°F</span><span class="to">230°C / Gas 8</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a> &middot;
+      <a href="/recipe-converter.html">Unit Converter</a> &middot;
+      <a href="/egg-substitute.html">Egg Substitutes</a> &middot;
+      <a href="/baking-ratios.html">Baking Ratios</a> &middot;
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </p>
+  </div>
+</footer>
+<script>
+// Volume: all relative to mL
+const volFactors = { cup: 236.588, tbsp: 14.787, tsp: 4.929, ml: 1, l: 1000, floz: 29.574, pint: 473.176, quart: 946.353, gallon: 3785.41, dl: 100 };
+const volNames = { cup: 'cups', tbsp: 'tablespoons', tsp: 'teaspoons', ml: 'milliliters', l: 'liters', floz: 'fluid ounces', pint: 'pints', quart: 'quarts', gallon: 'gallons', dl: 'deciliters' };
+
+// Weight: all relative to grams
+const wtFactors = { g: 1, kg: 1000, oz: 28.3495, lb: 453.592, mg: 0.001 };
+const wtNames = { g: 'grams', kg: 'kilograms', oz: 'ounces', lb: 'pounds', mg: 'milligrams' };
+
+// Temperature
+function tempConvert(val, from, to) {
+  let celsius;
+  if (from === 'f') celsius = (val - 32) * 5/9;
+  else if (from === 'c') celsius = val;
+  else celsius = (val * 25) + 121; // gas mark approx
+  if (to === 'f') return celsius * 9/5 + 32;
+  if (to === 'c') return celsius;
+  return (celsius - 121) / 25; // to gas mark
+}
+const tempNames = { f: 'fahrenheit', c: 'celsius', gas: 'gas mark' };
+
+function convertUnit(type) {
+  const val = parseFloat(document.getElementById(type + '-value').value) || 0;
+  const from = document.getElementById(type + '-from').value;
+  const to = document.getElementById(type + '-to').value;
+  let result;
+  if (type === 'vol') {
+    result = (val * volFactors[from]) / volFactors[to];
+    document.getElementById('vol-result').textContent = formatNum(result);
+    document.getElementById('vol-result-label').textContent = volNames[to];
+  } else if (type === 'wt') {
+    result = (val * wtFactors[from]) / wtFactors[to];
+    document.getElementById('wt-result').textContent = formatNum(result);
+    document.getElementById('wt-result-label').textContent = wtNames[to];
+  } else {
+    result = tempConvert(val, from, to);
+    document.getElementById('temp-result').textContent = formatNum(result);
+    document.getElementById('temp-result-label').textContent = tempNames[to];
+  }
+}
+
+function formatNum(n) {
+  if (Math.abs(n) >= 100) return Math.round(n * 10) / 10;
+  if (Math.abs(n) >= 1) return Math.round(n * 100) / 100;
+  return Math.round(n * 1000) / 1000;
+}
+
+function swapUnits(type) {
+  const from = document.getElementById(type + '-from');
+  const to = document.getElementById(type + '-to');
+  const temp = from.value;
+  from.value = to.value;
+  to.value = temp;
+  convertUnit(type);
+}
+
+// Event listeners
+['vol', 'wt', 'temp'].forEach(type => {
+  document.getElementById(type + '-value').addEventListener('input', () => convertUnit(type));
+  document.getElementById(type + '-from').addEventListener('change', () => convertUnit(type));
+  document.getElementById(type + '-to').addEventListener('change', () => convertUnit(type));
+});
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// Initial calculations
+convertUnit('vol');
+convertUnit('wt');
+convertUnit('temp');
+</script>
+</body>
+</html>

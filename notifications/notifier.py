@@ -7,6 +7,8 @@ from __future__ import annotations
 
 from typing import Any
 
+import asyncio
+
 import httpx
 import structlog
 
@@ -25,6 +27,7 @@ class Notifier:
         assert settings is not None, "settings must not be None"
         self._slack_url: str = settings.slack_webhook_url
         self._alert_email: str = settings.alert_email
+        self._log = logger
         self._client: httpx.AsyncClient = httpx.AsyncClient(
             timeout=HTTP_TIMEOUT_SECONDS,
         )
@@ -176,6 +179,68 @@ class Notifier:
         except Exception as exc:
             logger.error("email_send_failed", error=str(exc))
             return False
+
+    async def send_desktop_notification(self, title: str, message: str) -> bool:
+        """Send macOS desktop notification via osascript.
+
+        Args:
+            title: Notification title (max 100 chars).
+            message: Notification body (max 200 chars).
+
+        Returns:
+            True if notification was sent successfully.
+        """
+        assert isinstance(title, str) and 0 < len(title) <= 100
+        assert isinstance(message, str) and 0 < len(message) <= 200
+
+        escaped_title = title.replace('"', '\\"')
+        escaped_message = message.replace('"', '\\"')
+        script = f'display notification "{escaped_message}" with title "{escaped_title}" sound name "Glass"'
+
+        try:
+            proc = await asyncio.create_subprocess_exec(
+                "osascript", "-e", script,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
+            )
+            _, stderr = await asyncio.wait_for(proc.communicate(), timeout=5.0)
+            success = proc.returncode == 0
+            if not success:
+                self._log.warning("desktop_notification_failed", error=stderr.decode())
+            return success
+        except (asyncio.TimeoutError, OSError) as exc:
+            self._log.warning("desktop_notification_error", error=str(exc))
+            return False
+
+    async def alert_domain_status_change(
+        self,
+        domain: str,
+        old_status: str,
+        new_status: str,
+        etv: int,
+        action: str,
+    ) -> None:
+        """Send multi-channel alert for domain status change.
+
+        Args:
+            domain: Domain name that changed status.
+            old_status: Previous EPP status.
+            new_status: Current EPP status.
+            etv: Estimated traffic value per month.
+            action: Recommended action (BACKORDER NOW, MONITOR, etc.).
+        """
+        assert isinstance(domain, str) and "." in domain
+        assert isinstance(etv, int) and etv >= 0
+
+        title = f"Domain Alert: {domain}"
+        message = f"{old_status} → {new_status} | ETV: ${etv}/mo | {action}"
+
+        # Desktop notification (always)
+        await self.send_desktop_notification(title, message[:200])
+
+        # Slack notification (if configured)
+        slack_msg = f"*{domain}*\n`{old_status}` → `{new_status}`\nETV: ${etv:,}/mo\n*Action: {action}*"
+        await self.send_slack(slack_msg)
 
     async def close(self) -> None:
         """Close the HTTP client."""

@@ -1,0 +1,56 @@
+{
+  "sprint": 7,
+  "report_date": "2026-05-07",
+  "filter": "CONFIRMED DR/DA < 15 OR NOT ACQUIRABLE",
+  "total_domains": 4,
+  "domains": [
+    {
+      "domain": "fitocracy.com",
+      "verified_moz_da": 3,
+      "verified_moz_pa": 3,
+      "moz_spam_score": 9,
+      "moz_linking_domains": 99,
+      "previous_estimate_dr": 37.5,
+      "overestimate_factor": "12.5x",
+      "reason": "VERIFIED DA 3. Previous estimate of DR 37 was 12.5x too high. Domain has 99 linking domains and spam score 9%. Despite the Wikipedia link, Moz reads it as a near-dead domain. Organic traffic exists ($289 ETV, 19 keywords) but authority is negligible. Still has brand value for the name and Wikipedia backlink, but not as an SEO authority play.",
+      "still_worth_monitoring": true,
+      "monitoring_reason": "Expires Sep 7, 2026. If domain drops and is picked up cheaply, the Wikipedia link + brand name have value even at DA 3. But expectations should be calibrated to DA 3, not DR 37."
+    },
+    {
+      "domain": "mortgagecalc.com",
+      "verified_ahrefs_dr": 6,
+      "previous_estimate_dr": 6,
+      "reason": "DR 6 CONFIRMED from prior Ahrefs reading. NOT ACQUIRABLE -- owned by GoDaddy Corporate Domains (Bankrate/Red Ventures). Zero organic traffic. Unhealthy anchor distribution (35% exact match).",
+      "still_worth_monitoring": false
+    },
+    {
+      "domain": "seochecker.com",
+      "verified_ahrefs_dr": 1.3,
+      "previous_estimate_dr": 1.3,
+      "reason": "DR 1.3 CONFIRMED from prior Ahrefs reading. 301 redirecting to seoptimer.com. NOT ACQUIRABLE. 40% exact match anchors = link scheme signal.",
+      "still_worth_monitoring": false
+    },
+    {
+      "domain": "codebench.com",
+      "verified_da_dr": null,
+      "reason": "NOT ACQUIRABLE regardless of DR. Owned by HID Global (Assa Abloy subsidiary). CSC Corporate Domains registrar. Government security product.",
+      "still_worth_monitoring": false
+    }
+  ],
+  "domains_with_zero_traffic_and_no_verified_da": [
+    "apitools.com (est DR 42.5, ZERO traffic -- likely massively overestimated due to 2020 domain drop/re-reg)",
+    "devtools.io (est DR 20, ZERO traffic -- re-registered 2020, only 5 years old)",
+    "freetail.com (est DR 30, ZERO traffic)",
+    "codeguide.com (est DR 20, ZERO traffic)",
+    "bestdevtools.com (est DR 15, ZERO traffic)",
+    "prompttools.com (est DR 22.5, ZERO traffic)",
+    "toolchain.io (est DR 15, ZERO traffic)",
+    "sitegrader.com (est DR 12, ZERO traffic)",
+    "codetools.com (est DR 12, ZERO traffic)",
+    "saasmetrics.com (est DR 12, ZERO traffic)",
+    "codingtools.com (est DR 10, ZERO traffic)",
+    "codeanalyzer.com (est DR 8, ZERO traffic)",
+    "taskplanner.com (est DR 8, ZERO traffic)"
+  ],
+  "note": "13 additional domains have ZERO organic traffic, strongly suggesting their estimated DR values are unreliable. Domains with no organic keywords ranking in any location typically have DR < 10. These are listed above but not formally eliminated since we cannot confirm exact DR numbers."
+}

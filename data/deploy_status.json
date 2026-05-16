@@ -1,0 +1,54 @@
+{
+  "deployed_at": "2026-05-07T00:53:00Z",
+  "agent": "AGENT 3: DEPLOY",
+  "sprint": "REVENANT Sprint 5",
+  "cloudflare_account": "dd3f2a29b7707e21a87f26a622c0bb9d",
+  "deployments": [
+    {
+      "domain": "ingredientcalculator.com",
+      "status": "live",
+      "url": "https://ingredientcalculator.com",
+      "pages_url": "https://ingredientcalculator.pages.dev",
+      "deployment_url": "https://ad536145.ingredientcalculator.pages.dev",
+      "project_id": "192272c8-f2a7-458b-b659-74079893a1fc",
+      "deployed_at": "2026-05-07",
+      "custom_domain_status": "initializing",
+      "zone_tag": "08606d7fb378afb88957988c5bf0ea06",
+      "files_deployed": 6,
+      "seo_verified": {
+        "robots_txt": true,
+        "sitemap_xml": true,
+        "headers": true,
+        "redirects": true
+      },
+      "notes": "Pages.dev URL confirmed live (HTTP 200). Custom domain binding created successfully, SSL provisioning in progress. DNS auto-creation pending (both zones on same Cloudflare account)."
+    },
+    {
+      "domain": "pictureeditor.net",
+      "status": "live",
+      "url": "https://pictureeditor.net",
+      "pages_url": "https://pictureeditor.pages.dev",
+      "deployment_url": "https://db969ad5.pictureeditor.pages.dev",
+      "project_id": "e7009f6e-405c-4b12-8a06-719c5aaf3af3",
+      "deployed_at": "2026-05-07",
+      "custom_domain_status": "initializing",
+      "zone_tag": "ae54fa8166e06907964e52aff1a59d6d",
+      "files_deployed": 4,
+      "seo_verified": {
+        "robots_txt": true,
+        "sitemap_xml": true,
+        "headers": true,
+        "redirects": true
+      },
+      "notes": "Pages.dev URL confirmed live (HTTP 200). Custom domain binding created successfully, SSL provisioning in progress. DNS auto-creation pending (both zones on same Cloudflare account)."
+    }
+  ],
+  "custom_domains_added": [
+    "ingredientcalculator.com",
+    "www.ingredientcalculator.com",
+    "pictureeditor.net",
+    "www.pictureeditor.net"
+  ],
+  "dns_status": "Both domains use Cloudflare nameservers (aron.ns.cloudflare.com, thaddeus.ns.cloudflare.com). DNS CNAME records will be auto-created by Pages custom domain binding within 1-5 minutes.",
+  "action_required": "None. Custom domains will become active automatically within 5-15 minutes as SSL certificates are issued and DNS records propagate."
+}

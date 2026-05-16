@@ -1,0 +1,711 @@
+{
+  "checked": 40,
+  "timestamp": "2026-05-08T08:27:56Z",
+  "summary": {
+    "dead": 6,
+    "parked": 2,
+    "redirect": 1,
+    "active": 27,
+    "unknown": 4
+  },
+  "key_findings": [
+    "olive.com lesson confirmed: clientRenewProhibited does NOT mean abandoned",
+    "Most whale domains ($802K-$7K ETV) are ACTIVE businesses - not acquirable via domain drop",
+    "bmicalc.com ($25K ETV) and guerrameats.com ($11K ETV) are DNS-dead \u2014 best whale targets",
+    "canoo.com ($600M funding, bankrupt) and dunzo.com ($400M funding, shut down) are DNS-dead \u2014 strong startup targets",
+    "theranos.com is PARKED (not active) \u2014 potential drop target if estate releases",
+    "katerra.com shows Cloudflare DNS error \u2014 domain registered but broken",
+    "builderai.com returns 500 error \u2014 server up but app dead",
+    "northvolt.com ($13B funding) still active despite bankruptcy \u2014 domain likely sold as asset",
+    "veev.com acquired by Lennar \u2014 domain actively used by acquirer",
+    "essential.com now serves Nothing (Carl Pei's phone company) \u2014 acquired asset"
+  ],
+  "acquisition_targets": [
+    {
+      "domain": "bmicalc.com",
+      "etv": 25000,
+      "reason": "DNS dead, domain dropping, $25K ETV in health/fitness niche"
+    },
+    {
+      "domain": "guerrameats.com",
+      "etv": 11000,
+      "reason": "Already expired Apr 7, DNS dead, $11K ETV"
+    },
+    {
+      "domain": "canoo.com",
+      "funding": "$600M",
+      "reason": "Bankrupt Feb 2025, DNS dead, strong brand recognition"
+    },
+    {
+      "domain": "dunzo.com",
+      "funding": "$400M",
+      "reason": "Shut down 2024, connection refused, strong brand"
+    }
+  ],
+  "monitor_list": [
+    {
+      "domain": "theranos.com",
+      "funding": "$1.4B",
+      "reason": "Parked, company dissolved, may drop eventually"
+    },
+    {
+      "domain": "katerra.com",
+      "funding": "$2B",
+      "reason": "DNS broken, bankrupt 2021, still registered"
+    },
+    {
+      "domain": "builderai.com",
+      "funding": "$445M",
+      "reason": "500 error, app dead, domain still registered"
+    },
+    {
+      "domain": "infarm.com",
+      "funding": "$500M",
+      "reason": "Cloudflare 403, insolvent 2023, status unclear"
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "funding": "$200M",
+      "reason": "Only JS redirect, company struggling"
+    },
+    {
+      "domain": "northvolt.com",
+      "funding": "$13B",
+      "reason": "In bankruptcy restructuring, domain may be sold as asset"
+    },
+    {
+      "domain": "eatatmurphs.com",
+      "etv": 15000,
+      "reason": "Only JS redirect, may be transitioning"
+    },
+    {
+      "domain": "codeparrot.ai",
+      "etv": 5400,
+      "reason": "Only JS redirect, minimal content"
+    }
+  ],
+  "dead": [
+    {
+      "domain": "bmicalc.com",
+      "source": "whale",
+      "etv": 25000,
+      "status": "DEAD",
+      "http_code": null,
+      "redirect_target": null,
+      "body_preview": "",
+      "signals": [
+        "DNS resolution failed",
+        "No A record for domain",
+        "Both HTTPS and HTTP failed"
+      ],
+      "verdict": "DEAD - DNS gone. ACQUISITION TARGET if domain drops."
+    },
+    {
+      "domain": "guerrameats.com",
+      "source": "whale",
+      "etv": 11000,
+      "status": "DEAD",
+      "http_code": null,
+      "redirect_target": null,
+      "body_preview": "",
+      "signals": [
+        "DNS resolution failed",
+        "Already expired Apr 7 per input data",
+        "Domain has dropped"
+      ],
+      "verdict": "DEAD - Already expired. ACQUISITION TARGET."
+    },
+    {
+      "domain": "katerra.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$2B",
+      "status": "DEAD",
+      "http_code": 409,
+      "redirect_target": null,
+      "body_preview": "DNS resolution error | katerra.com | Cloudflare - 409 Conflict",
+      "signals": [
+        "Cloudflare DNS resolution error",
+        "HTTP 409 Conflict",
+        "Company went bankrupt 2021 - domain still registered but DNS broken"
+      ],
+      "verdict": "EFFECTIVELY DEAD - DNS broken, Cloudflare error page. Domain still registered though. MONITOR for expiry."
+    },
+    {
+      "domain": "canoo.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$600M",
+      "status": "DEAD",
+      "http_code": null,
+      "redirect_target": null,
+      "body_preview": "",
+      "signals": [
+        "DNS resolution failed",
+        "Canoo went bankrupt Feb 2025",
+        "Domain DNS has been removed"
+      ],
+      "verdict": "DEAD - DNS gone. Canoo bankrupt. STRONG ACQUISITION TARGET if domain drops."
+    },
+    {
+      "domain": "builderai.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$445M",
+      "status": "DEAD",
+      "http_code": 500,
+      "redirect_target": null,
+      "body_preview": "We're sorry, but something went wrong (500) - Rails error page",
+      "signals": [
+        "HTTP 500 Internal Server Error",
+        "Generic Rails error page",
+        "Server running but application broken"
+      ],
+      "verdict": "EFFECTIVELY DEAD - Server returns 500 error. Builder.ai may have abandoned this domain. MONITOR."
+    },
+    {
+      "domain": "dunzo.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$400M",
+      "status": "DEAD",
+      "http_code": null,
+      "redirect_target": null,
+      "body_preview": "",
+      "signals": [
+        "Connection refused on both HTTPS and HTTP",
+        "Dunzo shut down operations 2024",
+        "Server is down"
+      ],
+      "verdict": "DEAD - Connection refused. Dunzo shut down. STRONG ACQUISITION TARGET if domain drops."
+    }
+  ],
+  "parked": [
+    {
+      "domain": "quibi.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$1.75B",
+      "status": "PARKED",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "quibi.com - GoDaddy Website Builder template with Raleway font",
+      "signals": [
+        "GoDaddy Website Builder (wsimg.com fonts)",
+        "Has copyright, about, email - but template content",
+        "Quibi shut down 2020, domain likely held by acquirer or speculator"
+      ],
+      "verdict": "PARKED/PLACEHOLDER - GoDaddy site builder page. Quibi content was sold to Roku. Domain is being held. UNLIKELY to drop."
+    },
+    {
+      "domain": "theranos.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$1.4B",
+      "status": "PARKED",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "theranos.com - Parking page with 'parked' signal detected",
+      "signals": [
+        "Parking signal: 'parked' detected in body",
+        "CloudFront CDN assets (star images)",
+        "JS redirect present",
+        "Company dissolved, domain parked"
+      ],
+      "verdict": "PARKED - Domain is parked. Theranos dissolved. Domain likely held by registrar or estate. MONITOR for potential drop."
+    }
+  ],
+  "redirect": [
+    {
+      "domain": "essential.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$330M",
+      "status": "REDIRECT",
+      "http_code": 200,
+      "redirect_target": "https://www.essential.com/ -> Nothing (phone company)",
+      "body_preview": "Essential - A new kind of operating system - 'At Nothing, we're building a new kind of phone'",
+      "signals": [
+        "Redirects/rebranded to Nothing (phone company)",
+        "SSL issue on direct HTTPS",
+        "Andy Rubin's Essential was acquired/assets sold to Nothing"
+      ],
+      "verdict": "REDIRECT/ACQUIRED - Essential.com now serves Nothing (Carl Pei's company). Domain is actively used. NOT acquirable."
+    }
+  ],
+  "active": [
+    {
+      "domain": "alabe.com",
+      "source": "whale",
+      "etv": 802000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "ASTROLABE: Astrology Software, Reports, Books and Services",
+      "signals": [
+        "Real business: Astrolabe astrology software company",
+        "Has social links, about section",
+        "Fully functional website with products"
+      ],
+      "verdict": "ACTIVE BUSINESS - Astrology software company. NOT acquirable."
+    },
+    {
+      "domain": "calculator.com",
+      "source": "whale",
+      "etv": 761000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "calculator.com - Online calculator with form, nav, about section",
+      "signals": [
+        "Functional web calculator app",
+        "Has form, nav, about page",
+        "Active web tool"
+      ],
+      "verdict": "ACTIVE BUSINESS - Online calculator tool. NOT acquirable."
+    },
+    {
+      "domain": "bench.co",
+      "source": "whale",
+      "etv": 481000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Online Bookkeeping Services for Small Businesses - Bench Accounting",
+      "signals": [
+        "Real business: Bench Accounting",
+        "Full website with JS redirect handling",
+        "Bookkeeping SaaS product"
+      ],
+      "verdict": "ACTIVE BUSINESS - Bench Accounting SaaS. NOT acquirable."
+    },
+    {
+      "domain": "chatbot.com",
+      "source": "whale",
+      "etv": 434000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "ChatBot - The Best AI Chatbot Software for Your Website",
+      "signals": [
+        "Real business: ChatBot AI software",
+        "Schema.org markup, Boston office",
+        "Full product website"
+      ],
+      "verdict": "ACTIVE BUSINESS - LiveChat/ChatBot.com product. NOT acquirable."
+    },
+    {
+      "domain": "asciitable.com",
+      "source": "whale",
+      "etv": 83000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "ASCII Table - ASCII Character Codes, HTML, Octal, Hex, Decimal",
+      "signals": [
+        "Reference website with ASCII tables",
+        "Has copyright, legal pages",
+        "Ad-supported content site"
+      ],
+      "verdict": "ACTIVE CONTENT SITE - ASCII reference. NOT acquirable."
+    },
+    {
+      "domain": "encoder.com",
+      "source": "whale",
+      "etv": 43000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Encoder Products Company | Rotary Incremental & Absolute Encoder Manufacturer",
+      "signals": [
+        "Real business: Encoder Products Company",
+        "Industrial encoder manufacturer",
+        "HubSpot-powered marketing site"
+      ],
+      "verdict": "ACTIVE BUSINESS - Industrial encoder manufacturer. NOT acquirable."
+    },
+    {
+      "domain": "invoicemaker.com",
+      "source": "whale",
+      "etv": 40000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Free Invoice Maker & Invoice Generator | Invoice Maker",
+      "signals": [
+        "Real SaaS product: Invoice Maker",
+        "Schema.org SoftwareApplication markup",
+        "Functional invoice generation tool"
+      ],
+      "verdict": "ACTIVE BUSINESS - Invoice SaaS tool. NOT acquirable."
+    },
+    {
+      "domain": "foodbank.org",
+      "source": "whale",
+      "etv": 31000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Home - Worcester County Food Bank",
+      "signals": [
+        "Real nonprofit: Worcester County Food Bank",
+        "Schema.org WebPage markup",
+        "WordPress site with full content"
+      ],
+      "verdict": "ACTIVE NONPROFIT - Food bank. NOT acquirable."
+    },
+    {
+      "domain": "nonprofitaccountingbasics.org",
+      "source": "whale",
+      "etv": 29000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Featured Articles | Nonprofit Accounting Basics - accounting topics, login form",
+      "signals": [
+        "Real content site: Nonprofit Accounting Basics",
+        "Has login form, search, articles",
+        "Educational resource site"
+      ],
+      "verdict": "ACTIVE CONTENT SITE - Nonprofit accounting education. NOT acquirable."
+    },
+    {
+      "domain": "texteditor.com",
+      "source": "whale",
+      "etv": 27000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Online Text Editor and Converter - TextEditor",
+      "signals": [
+        "Functional web tool: text editor",
+        "Schema.org WebSite markup",
+        "Has form for text editing"
+      ],
+      "verdict": "ACTIVE WEB TOOL - Online text editor. NOT acquirable."
+    },
+    {
+      "domain": "jsondiff.com",
+      "source": "whale",
+      "etv": 27000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "JSON Diff - The semantic JSON compare tool",
+      "signals": [
+        "Functional web tool: JSON diff comparator",
+        "Google Analytics integrated",
+        "Simple single-page tool"
+      ],
+      "verdict": "ACTIVE WEB TOOL - JSON diff tool. NOT acquirable."
+    },
+    {
+      "domain": "aigenerator.com",
+      "source": "whale",
+      "etv": 27000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "AIGenerator.com - Free AI Tools for Business and Marketing",
+      "signals": [
+        "Active AI tools site",
+        "Has nav, about, email, social links",
+        "Google Analytics, content-rich"
+      ],
+      "verdict": "ACTIVE CONTENT SITE - AI tools directory. NOT acquirable."
+    },
+    {
+      "domain": "plastiq.com",
+      "source": "whale",
+      "etv": 24000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Plastiq SPA app with New Relic monitoring, login/copyright detected",
+      "signals": [
+        "SaaS application: Plastiq payments",
+        "New Relic monitoring active",
+        "Has login, copyright notices"
+      ],
+      "verdict": "ACTIVE BUSINESS - Plastiq payments platform (may be winding down but site is up). NOT acquirable via drop."
+    },
+    {
+      "domain": "conferenceindex.org",
+      "source": "whale",
+      "etv": 15000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Conferences All Over The World - Conference Index",
+      "signals": [
+        "Active directory: Conference Index",
+        "Has form, nav, about section",
+        "Google Analytics tracking"
+      ],
+      "verdict": "ACTIVE CONTENT SITE - Conference directory. NOT acquirable."
+    },
+    {
+      "domain": "globalhealth.org",
+      "source": "whale",
+      "etv": 10000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Global Health Council - WordPress site with full content",
+      "signals": [
+        "Real nonprofit: Global Health Council",
+        "WordPress site, 8317 chars text",
+        "Full organizational website"
+      ],
+      "verdict": "ACTIVE NONPROFIT - Global Health Council. NOT acquirable."
+    },
+    {
+      "domain": "lumio.com",
+      "source": "whale",
+      "etv": 9000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Lumio.com - SPA with Facebook pixel, social links",
+      "signals": [
+        "Active website with Facebook pixel tracking",
+        "Social links present",
+        "Appears to be a product/brand site (SPA loading)"
+      ],
+      "verdict": "ACTIVE BUSINESS - Lumio (likely the lamp company). NOT acquirable."
+    },
+    {
+      "domain": "readingfoundation.org",
+      "source": "whale",
+      "etv": 7000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Home - Reading Foundation",
+      "signals": [
+        "Real nonprofit: Reading Foundation",
+        "Has form, nav, login, about",
+        "Google Analytics + Google Ads tracking"
+      ],
+      "verdict": "ACTIVE NONPROFIT - Reading Foundation. NOT acquirable."
+    },
+    {
+      "domain": "northvolt.com",
+      "source": "startup",
+      "etv": 1700,
+      "funding": "$13B",
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Northvolt - Normalize.css loaded, CSS framework, full SPA",
+      "signals": [
+        "Active website: Northvolt battery company",
+        "Full CSS framework loaded",
+        "Company in bankruptcy proceedings but website still up"
+      ],
+      "verdict": "ACTIVE (BANKRUPTCY) - Northvolt is in restructuring. Website still live. Domain may become available if liquidation proceeds, but likely to be sold as asset. WATCH."
+    },
+    {
+      "domain": "getir.com",
+      "source": "startup",
+      "etv": 3900,
+      "funding": "$1.8B",
+      "status": "ACTIVE",
+      "http_code": 405,
+      "redirect_target": null,
+      "body_preview": "Human Verification - AWS WAF challenge page",
+      "signals": [
+        "AWS WAF bot protection active",
+        "HTTP 405 with challenge page",
+        "Getir still operating in some markets"
+      ],
+      "verdict": "ACTIVE (PROTECTED) - Behind AWS WAF. Getir still operating (Turkey). NOT acquirable."
+    },
+    {
+      "domain": "veev.com",
+      "source": "startup",
+      "etv": 1300,
+      "funding": "$600M",
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Precision-built modern homes on your homesite - Veev by Lennar",
+      "signals": [
+        "Active website: Veev by Lennar",
+        "Schema.org markup, SearchAction",
+        "Veev was acquired by Lennar - brand still active"
+      ],
+      "verdict": "ACTIVE (ACQUIRED) - Veev acquired by Lennar. Domain in active use. NOT acquirable."
+    },
+    {
+      "domain": "jokr.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$400M",
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "JOKR - Wix-based site with copyright, Intl.Segmenter polyfill",
+      "signals": [
+        "Wix-powered website (parastorage.com assets)",
+        "Has copyright notice",
+        "JOKR still operates in Latin America"
+      ],
+      "verdict": "ACTIVE BUSINESS - JOKR grocery delivery (LatAm). NOT acquirable."
+    },
+    {
+      "domain": "sendy.co",
+      "source": "startup",
+      "etv": 3200,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Sendy - Send Newsletters 100x cheaper via Amazon SES",
+      "signals": [
+        "Active SaaS product: Sendy newsletter tool",
+        "Has login, email, buy now button",
+        "v7.0.1 released, actively maintained"
+      ],
+      "verdict": "ACTIVE BUSINESS - Sendy email marketing tool. NOT acquirable."
+    },
+    {
+      "domain": "sitecheck.com",
+      "source": "startup",
+      "etv": 4400,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "SiteCheck Solutions - insurance solutions company",
+      "signals": [
+        "Real business: SiteCheck Solutions",
+        "Insurance field services company",
+        "Has form, login, about, JS redirect"
+      ],
+      "verdict": "ACTIVE BUSINESS - Insurance solutions company. NOT acquirable."
+    },
+    {
+      "domain": "internetfreedom.org",
+      "source": "startup",
+      "etv": 1100,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "Global Internet Freedom Consortium - UltraSurf, FreeGate, GTunnel",
+      "signals": [
+        "Active nonprofit: Global Internet Freedom Consortium",
+        "Has legal pages, about section",
+        "Anti-censorship tools (UltraSurf, FreeGate)"
+      ],
+      "verdict": "ACTIVE NONPROFIT - Internet freedom tools. NOT acquirable."
+    },
+    {
+      "domain": "newcap.org",
+      "source": "startup",
+      "etv": 5500,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "NEWCAP Inc. - WordPress site with schema.org breadcrumbs",
+      "signals": [
+        "Real nonprofit: NEWCAP Inc.",
+        "WordPress site with structured data",
+        "Community services organization"
+      ],
+      "verdict": "ACTIVE NONPROFIT - NEWCAP community services. NOT acquirable."
+    },
+    {
+      "domain": "ammonoosuc.org",
+      "source": "startup",
+      "etv": 2700,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "ACHS - Ammonoosuc Community Health Services",
+      "signals": [
+        "Real nonprofit: Ammonoosuc Community Health Services",
+        "WordPress + Gravity Forms",
+        "Healthcare organization"
+      ],
+      "verdict": "ACTIVE NONPROFIT - Community health services. NOT acquirable."
+    },
+    {
+      "domain": "affordableeducation.org",
+      "source": "startup",
+      "etv": 1000,
+      "status": "ACTIVE",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "NC Affordable Education - Divi/WordPress site",
+      "signals": [
+        "Active website: NC Affordable Education",
+        "Divi WordPress theme",
+        "North Carolina education organization"
+      ],
+      "verdict": "ACTIVE NONPROFIT - NC education org. NOT acquirable."
+    }
+  ],
+  "unknown": [
+    {
+      "domain": "eatatmurphs.com",
+      "source": "whale",
+      "etv": 15000,
+      "status": "UNKNOWN",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "window.onload=function(){window.location.href=\"/lander\"}",
+      "signals": [
+        "Only 114 bytes served",
+        "JS redirect to /lander",
+        "Likely a restaurant site or placeholder - minimal content"
+      ],
+      "verdict": "SUSPICIOUS - Only serves a JS redirect to /lander. Could be a Squarespace/Wix site loading client-side, or could be transitioning. MONITOR."
+    },
+    {
+      "domain": "infarm.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$500M",
+      "status": "UNKNOWN",
+      "http_code": 403,
+      "redirect_target": null,
+      "body_preview": "Attention Required! | Cloudflare - 403 Forbidden",
+      "signals": [
+        "Cloudflare 403 Forbidden",
+        "Bot protection or access restricted",
+        "Infarm filed for insolvency 2023"
+      ],
+      "verdict": "UNCERTAIN - Behind Cloudflare 403. Could be blocking/winding down or still operating in limited capacity. MONITOR."
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "source": "startup",
+      "etv": 0,
+      "funding": "$200M",
+      "status": "UNKNOWN",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "window.onload=function(){window.location.href=\"/lander\"}",
+      "signals": [
+        "Only 114 bytes - JS redirect to /lander",
+        "Good Glamm Group - Indian beauty conglomerate",
+        "Minimal server response, may be transitioning"
+      ],
+      "verdict": "UNCERTAIN - Only serves JS redirect. Company reportedly struggling. MONITOR."
+    },
+    {
+      "domain": "codeparrot.ai",
+      "source": "startup",
+      "etv": 5400,
+      "status": "UNKNOWN",
+      "http_code": 200,
+      "redirect_target": null,
+      "body_preview": "window.onload=function(){window.location.href=\"/lander\"}",
+      "signals": [
+        "Only 114 bytes - JS redirect to /lander",
+        "CodeParrot was a Hugging Face AI model",
+        "Minimal content, likely placeholder"
+      ],
+      "verdict": "UNCERTAIN - JS redirect only. Could be SPA loading or placeholder. MONITOR."
+    }
+  ]
+}

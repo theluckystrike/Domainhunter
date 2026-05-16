@@ -1,0 +1,838 @@
+{
+  "sprint": 13,
+  "agent": "FRESH DOMAIN SCANNER",
+  "scan_date": "2026-05-07",
+  "total_checked": 308,
+  "total_available": 207,
+  "total_taken": 101,
+  "note": "308 unique new domains checked (excl Sprint 12 re-verifications). 197 new available + 10 Sprint 12 carryovers = 207 total available.",
+  "sprint12_verification": {
+    "sprint12_still_available": 10,
+    "sprint12_taken": [],
+    "details": [
+      {"domain": "cssformat.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "regexcheck.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "yamlcheck.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "pythonformat.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "rgbconvert.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "regexvalidator.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "csslinter.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "yamlvalidate.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "javaformat.com", "status": "AVAILABLE", "whois": "No match"},
+      {"domain": "xmlparse.com", "status": "AVAILABLE", "whois": "No match"}
+    ]
+  },
+  "categories_scanned": {
+    "language_format": {
+      "checked": 14,
+      "available": ["rustformat.com", "scalaformat.com", "perlformat.com", "luaformat.com", "dartformat.com", "juliaformat.com", "matlabformat.com", "bashformat.com", "shellformat.com", "graphqlformat.com"],
+      "taken": ["goformat.com", "swiftformat.com", "rformat.com", "sqlformat.com"]
+    },
+    "language_check": {
+      "checked": 12,
+      "available": ["scalacheck.com", "graphqlcheck.com", "terraformcheck.com", "ansiblecheck.com"],
+      "taken": ["gocheck.com", "rustcheck.com", "swiftcheck.com", "cppcheck.com", "bashcheck.com", "sqlcheck.com", "dockercheck.com", "kubecheck.com"]
+    },
+    "language_lint": {
+      "checked": 12,
+      "available": ["rustlint.com", "kotlinlint.com", "rubylint.com", "bashlint.com", "dockerlint.com"],
+      "taken": ["golint.com", "swiftlint.com", "phplint.com", "sqllint.com", "yamllint.com", "jsonlint.com", "htmllint.com"]
+    },
+    "tool_online": {
+      "checked": 8,
+      "available": ["validatoronline.com", "linteronline.com", "minifieronline.com", "beautifieronline.com"],
+      "taken": ["formatteronline.com", "debuggeronline.com", "compileronline.com", "parseronline.com"]
+    },
+    "format_convert": {
+      "checked": 10,
+      "available": ["yamlconvert.com"],
+      "taken": ["jsonconvert.com", "csvconvert.com", "xmlconvert.com", "htmlconvert.com", "markdownconvert.com", "pdfconvert.com", "imageconvert.com", "audioconvert.com", "videoconvert.com"]
+    },
+    "format_validate": {
+      "checked": 9,
+      "available": ["htmlvalidate.com", "cssvalidate.com", "sqlvalidate.com"],
+      "taken": ["jsonvalidate.com", "xmlvalidate.com", "emailvalidate.com", "urlvalidate.com", "ipvalidate.com", "phonevalidate.com"]
+    },
+    "action_code": {
+      "checked": 10,
+      "available": [],
+      "taken": ["formatcode.com", "validatecode.com", "checkcode.com", "testcode.com", "reviewcode.com", "debugcode.com", "analyzecode.com", "profilecode.com", "benchmarkcode.com", "deploycode.com"]
+    },
+    "calculator": {
+      "checked": 15,
+      "available": [],
+      "taken": ["loancalculator.com", "mortgagecalculator.com", "taxcalculator.com", "tipcalculator.com", "bmicalculator.com", "agecalculator.com", "datecalculator.com", "timecalculator.com", "percentcalculator.com", "salarycalculator.com", "retirementcalculator.com", "compoundcalculator.com", "interestcalculator.com", "investmentcalculator.com", "savingscalculator.com"]
+    },
+    "converter": {
+      "checked": 10,
+      "available": [],
+      "taken": ["unitconverter.com", "currencyconverter.com", "temperatureconverter.com", "weightconverter.com", "lengthconverter.com", "speedconverter.com", "volumeconverter.com", "areaconverter.com", "timeconverter.com", "pressureconverter.com"]
+    },
+    "quiz": {
+      "checked": 9,
+      "available": [],
+      "taken": ["mathquiz.com", "sciencequiz.com", "historyquiz.com", "geographyquiz.com", "spellingquiz.com", "grammarquiz.com", "vocabquiz.com", "codingquiz.com", "typingquiz.com"]
+    },
+    "flashcard": {
+      "checked": 8,
+      "available": ["scienceflashcard.com", "historyflashcard.com", "codingflashcard.com", "vocabflashcard.com"],
+      "taken": ["mathflashcard.com", "flashcardmaker.com", "flashcardapp.com", "flashcardgen.com"]
+    },
+    "seo_checker": {
+      "checked": 8,
+      "available": [],
+      "taken": ["seochecker.com", "backlinkcheck.com", "keywordcheck.com", "rankchecker.com", "sitechecker.com", "speedchecker.com", "sslchecker.com", "dnschecker.com"]
+    },
+    "health_tracker": {
+      "checked": 8,
+      "available": [],
+      "taken": ["calorietracker.com", "workouttracker.com", "sleeptracker.com", "watertracker.com", "steptracker.com", "weighttracker.com", "moodtracker.com", "habittracker.com"]
+    },
+    "format_parse": {
+      "checked": 10,
+      "available": ["yamlparse.com", "cssparse.com", "graphqlparse.com", "markdownparse.com", "tomlparse.com", "iniparse.com"],
+      "taken": ["jsonparse.com", "csvparse.com", "htmlparse.com", "sqlparse.com"]
+    },
+    "minifier": {
+      "checked": 10,
+      "available": ["sqlminify.com", "xmlminify.com"],
+      "taken": ["jsminify.com", "cssminify.com", "htmlminify.com", "jsonminify.com", "jsminifier.com", "cssminifier.com", "htmlminifier.com"]
+    },
+    "beautifier": {
+      "checked": 10,
+      "available": ["jsbeautify.com", "xmlbeautify.com", "cssbeautifier.com"],
+      "taken": ["cssbeautify.com", "htmlbeautify.com", "jsonbeautify.com", "sqlbeautify.com", "codebeautify.com", "jsbeautifier.com", "htmlbeautifier.com"]
+    },
+    "diff_compare": {
+      "checked": 8,
+      "available": ["cssdiff.com"],
+      "taken": ["jsondiff.com", "yamldiff.com", "xmldiff.com", "htmldiff.com", "textdiff.com", "codediff.com", "sqldiff.com"]
+    },
+    "generator": {
+      "checked": 10,
+      "available": ["mockgenerator.com"],
+      "taken": ["jsongenerator.com", "uuidgenerator.com", "hashgenerator.com", "passwordgenerator.com", "tokengenerator.com", "apigenerator.com", "schemagenerator.com", "datagenerator.com", "cssgenerator.com"]
+    },
+    "encoder_decoder": {
+      "checked": 9,
+      "available": ["jwtencode.com"],
+      "taken": ["base64encode.com", "base64decode.com", "urlencode.com", "urldecode.com", "htmlencode.com", "htmldecode.com", "jwtdecode.com", "hashencode.com"]
+    },
+    "playground": {
+      "checked": 10,
+      "available": ["rustplayground.com"],
+      "taken": ["jsplayground.com", "cssplayground.com", "htmlplayground.com", "sqlplayground.com", "pythonplayground.com", "goplayground.com", "codeplayground.com", "apiplayground.com", "regexplayground.com"]
+    },
+    "tester": {
+      "checked": 9,
+      "available": ["yamltester.com", "csstester.com", "groktester.com"],
+      "taken": ["jsontester.com", "htmltester.com", "sqltester.com", "apitester.com", "regextester.com", "endpointtester.com"]
+    },
+    "viewer": {
+      "checked": 10,
+      "available": ["yamlviewer.com"],
+      "taken": ["jsonviewer.com", "xmlviewer.com", "csvviewer.com", "logviewer.com", "codeviewer.com", "markdownviewer.com", "sqlviewer.com", "htmlviewer.com", "diffviewer.com"]
+    },
+    "editor": {
+      "checked": 10,
+      "available": [],
+      "taken": ["jsoneditor.com", "yamleditor.com", "xmleditor.com", "csveditor.com", "sqleditor.com", "markdowneditor.com", "codeeditor.com", "htmleditor.com", "csseditor.com", "regexeditor.com"]
+    },
+    "compile": {
+      "checked": 7,
+      "available": ["rustcompile.com", "kotlincompile.com", "typescriptcompile.com", "sasscompile.com", "lesscompile.com", "scsscompile.com"],
+      "taken": ["gocompile.com"]
+    },
+    "toml_config": {
+      "checked": 10,
+      "available": ["tomlvalidate.com", "tomlformat.com", "tomlcheck.com", "tomlconvert.com", "envvalidate.com", "dotenvcheck.com", "configvalidate.com"],
+      "taken": ["tomllint.com", "envcheck.com", "configcheck.com"]
+    },
+    "api_devops": {
+      "checked": 10,
+      "available": ["curlformat.com"],
+      "taken": ["apilint.com", "apivalidate.com", "apiformat.com", "apicheck.com", "apidebug.com", "apitest.com", "curlconvert.com", "webhooktest.com", "webhookdebug.com"]
+    },
+    "docker_kube": {
+      "checked": 10,
+      "available": ["dockerformat.com", "dockervalidate.com", "dockerlint.com", "kubeformat.com", "kubevalidate.com", "helmvalidate.com", "helmlint.com", "helmformat.com"],
+      "taken": ["kubelint.com", "helmcheck.com"]
+    },
+    "terraform_iac": {
+      "checked": 6,
+      "available": ["terraformformat.com", "terraformvalidate.com", "terraformlint.com", "ansibleformat.com", "ansiblelint.com", "ansiblevalidate.com"],
+      "taken": []
+    },
+    "git_cicd": {
+      "checked": 10,
+      "available": ["gitformat.com", "pipelinelint.com", "workflowlint.com"],
+      "taken": ["gitvalidate.com", "gitlint.com", "gitcheck.com", "cicheck.com", "cdcheck.com", "pipelinecheck.com", "workflowcheck.com"]
+    },
+    "markdown_text": {
+      "checked": 10,
+      "available": ["markdownlint.com", "markdownvalidate.com"],
+      "taken": ["markdownformat.com", "markdowncheck.com", "markdowntable.com", "markdownpreview.com", "markdownedit.com", "textformat.com", "textconvert.com", "textcompare.com"]
+    },
+    "color_design": {
+      "checked": 9,
+      "available": ["hslconvert.com"],
+      "taken": ["hexconvert.com", "colorconvert.com", "cmykconvert.com", "colorpicker.com", "colorpalette.com", "gradientmaker.com", "colorblend.com", "colormatch.com"]
+    },
+    "crypto_security": {
+      "checked": 9,
+      "available": ["sha256check.com", "sha1check.com"],
+      "taken": ["hashcheck.com", "md5check.com", "hashcompare.com", "hashverify.com", "sslcheck.com", "certcheck.com", "corscheck.com"]
+    },
+    "protobuf_graphql_grpc": {
+      "checked": 9,
+      "available": ["protobufformat.com", "graphqlvalidate.com", "graphqlformat.com", "grpctest.com", "grpccheck.com"],
+      "taken": ["protoconvert.com", "protovalidate.com", "protolint.com", "graphqllint.com"]
+    },
+    "schema_openapi": {
+      "checked": 10,
+      "available": ["schemaformat.com", "openapivalidate.com", "openapicheck.com", "openapilint.com", "swaggervalidate.com", "swaggercheck.com", "swaggerlint.com"],
+      "taken": ["schemavalidate.com", "schemacheck.com", "schemalint.com"]
+    },
+    "emerging_languages": {
+      "checked": 11,
+      "available": ["wasmformat.com", "wasmcheck.com", "wasmlint.com", "zigformat.com", "zigcheck.com", "ziglint.com", "nimformat.com", "nimcheck.com", "nimlint.com", "elixirformat.com", "elixircheck.com"],
+      "taken": []
+    },
+    "cron_date": {
+      "checked": 10,
+      "available": ["cronvalidate.com", "cronformat.com", "crontester.com", "cronexplain.com", "dateparse.com"],
+      "taken": ["croncheck.com", "cronmaker.com", "dateformat.com", "dateconvert.com", "timestampconvert.com"]
+    },
+    "nginx_server": {
+      "checked": 8,
+      "available": ["nginxcheck.com", "nginxvalidate.com", "nginxlint.com", "nginxformat.com", "apachecheck.com", "apachevalidate.com", "htaccessvalidate.com"],
+      "taken": ["htaccesscheck.com"]
+    },
+    "dns_network": {
+      "checked": 10,
+      "available": ["dnsformat.com", "dnsvalidate.com", "ipformat.com", "subnetcheck.com", "cidrcheck.com"],
+      "taken": ["dnslint.com", "ipvalidate.com", "iplookup.com", "portcheck.com", "headercheck.com"]
+    },
+    "typescript_frontend": {
+      "checked": 10,
+      "available": ["tsformat.com", "tsvalidate.com", "tsconvert.com", "reactlint.com", "vuecheck.com", "vuelint.com", "sveltecheck.com"],
+      "taken": ["tscheck.com", "tslint.com", "reactcheck.com"]
+    },
+    "package_dependency": {
+      "checked": 10,
+      "available": ["composercheck.com", "nugetcheck.com", "lockfilecheck.com"],
+      "taken": ["npmcheck.com", "pipcheck.com", "gemcheck.com", "cargocheck.com", "depcheck.com", "dependencycheck.com", "packagecheck.com"]
+    },
+    "accessibility": {
+      "checked": 10,
+      "available": ["a11yvalidate.com", "wcagvalidate.com", "lighthousecheck.com"],
+      "taken": ["a11ycheck.com", "a11ylint.com", "wcagcheck.com", "ariacheck.com", "contrastcheck.com", "contrastchecker.com", "performancecheck.com"]
+    },
+    "jwt_auth": {
+      "checked": 9,
+      "available": ["jwtformat.com", "jwtparse.com", "oauth2check.com", "oauth2validate.com"],
+      "taken": ["jwtvalidate.com", "jwtcheck.com", "tokenvalidate.com", "tokencheck.com", "secretcheck.com"]
+    },
+    "sql_query": {
+      "checked": 5,
+      "available": ["sqloptimize.com", "queryformat.com"],
+      "taken": ["sqlexplain.com", "querycheck.com", "querylint.com"]
+    },
+    "build_tools": {
+      "checked": 10,
+      "available": ["makefilecheck.com", "makefilelint.com", "makefileformat.com", "cmakecheck.com", "cmakelint.com", "cmakeformat.com", "gradlecheck.com", "gradlelint.com", "gradleformat.com", "bazelcheck.com"],
+      "taken": []
+    },
+    "regex_tools": {
+      "checked": 9,
+      "available": ["regexparse.com", "regexbuild.com", "regexexplain.com", "regexdebug.com", "regexconvert.com", "regexlint.com"],
+      "taken": ["regexformat.com", "regextester.com", "regexmaker.com"]
+    },
+    "github_actions": {
+      "checked": 5,
+      "available": ["actionlint.com", "actionvalidate.com", "githubactioncheck.com", "workflowvalidate.com"],
+      "taken": ["actioncheck.com"]
+    },
+    "python_specific": {
+      "checked": 8,
+      "available": ["pyformat.com", "pyvalidate.com", "pyparse.com"],
+      "taken": ["pycheck.com", "pylint.com", "pyconvert.com", "pydebug.com", "pytest.com"]
+    },
+    "encode_decode_extras": {
+      "checked": 8,
+      "available": ["jsonencode.com", "uriencode.com", "uridecode.com", "utf8convert.com"],
+      "taken": ["jsondecode.com", "base64convert.com", "asciitable.com", "unicodeconvert.com"]
+    },
+    "yaml_format_conversion": {
+      "checked": 10,
+      "available": ["yamlconvert.com", "yamlmerge.com"],
+      "taken": ["yamlformat.com", "yamldiff.com", "yamlcompare.com", "yamltojson.com", "jsontoyaml.com", "csvtojson.com", "jsontocsv.com", "xmltojson.com"]
+    },
+    "ai_ml_tools": {
+      "checked": 9,
+      "available": ["promptvalidate.com"],
+      "taken": ["promptcheck.com", "promptlint.com", "promptformat.com", "llmcheck.com", "llmvalidate.com", "modelcheck.com", "aicheck.com", "avalidate.com"]
+    },
+    "dev_misc": {
+      "checked": 8,
+      "available": ["prettiercheck.com", "eslintcheck.com", "stylelintcheck.com", "semvercheck.com", "changelogcheck.com", "readmecheck.com", "packagelint.com"],
+      "taken": ["licensecheck.com"]
+    },
+    "my_tracker": {
+      "checked": 6,
+      "available": [],
+      "taken": ["mycalorietracker.com", "myworkouttracker.com", "mysleeptracker.com", "myhabittracker.com", "mymoodtracker.com", "mywatertracker.com"]
+    },
+    "finance_alt": {
+      "checked": 7,
+      "available": [],
+      "taken": ["loancompare.com", "ratecalculator.com", "splitcalculator.com", "margincheck.com", "profitcalculator.com", "roicalculator.com", "fxconvert.com"]
+    },
+    "css_frameworks": {
+      "checked": 6,
+      "available": ["tailwindcheck.com", "tailwindlint.com", "tailwindformat.com", "tailwindconvert.com", "bootstrapcheck.com", "bootstraplint.com"],
+      "taken": []
+    },
+    "more_languages": {
+      "checked": 10,
+      "available": ["haskellformat.com", "haskellcheck.com", "ocamlformat.com", "ocamlcheck.com", "clojureformat.com", "clojurecheck.com", "erlangformat.com", "erlangcheck.com", "fsharpformat.com"],
+      "taken": ["cformat.com"]
+    }
+  },
+  "top_20_available": [
+    {
+      "domain": "openapivalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate OpenAPI specifications online",
+      "est_monthly_searches": "2000-5000",
+      "competing_tools": "swagger.io editor, stoplight.io — but no exact-match .com tool site",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "OpenAPI/Swagger spec validator with schema compliance checking, security audit, breaking change detection"
+    },
+    {
+      "domain": "dockerformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format Dockerfile online",
+      "est_monthly_searches": "2000-4000",
+      "competing_tools": "No dominant exact-match tool exists. Hadolint is CLI-only.",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Dockerfile formatter, best practices checker, multi-stage build optimizer"
+    },
+    {
+      "domain": "cronvalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate cron expressions online",
+      "est_monthly_searches": "3000-6000",
+      "competing_tools": "crontab.guru exists but cronvalidate.com is more action-specific",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Cron expression validator with next-run calculator, timezone support, natural language explanation"
+    },
+    {
+      "domain": "regexexplain.com",
+      "niche": "dev_tools",
+      "search_intent": "Explain regex patterns in plain English",
+      "est_monthly_searches": "2000-5000",
+      "competing_tools": "regex101.com has this feature but no exact-match .com",
+      "niche_value": 9,
+      "brandability": 10,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "AI-powered regex explainer, builder, and tester with plain-English descriptions"
+    },
+    {
+      "domain": "sqloptimize.com",
+      "niche": "dev_tools",
+      "search_intent": "Optimize SQL queries online",
+      "est_monthly_searches": "3000-8000",
+      "competing_tools": "EverSQL, pganalyze — high-value enterprise niche",
+      "niche_value": 10,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "SQL query optimizer with EXPLAIN analysis, index suggestions, query rewriting"
+    },
+    {
+      "domain": "swaggervalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate Swagger/OpenAPI specs",
+      "est_monthly_searches": "1500-3000",
+      "competing_tools": "Swagger.io editor, but no dedicated .com validator",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Swagger 2.0 and OpenAPI 3.x specification validator with migration assistant"
+    },
+    {
+      "domain": "graphqlvalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate GraphQL schemas and queries",
+      "est_monthly_searches": "1500-4000",
+      "competing_tools": "GraphiQL, Apollo Studio — but no simple exact-match validator",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "GraphQL schema/query validator with introspection, complexity analysis, deprecation checker"
+    },
+    {
+      "domain": "terraformvalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate Terraform configurations online",
+      "est_monthly_searches": "2000-5000",
+      "competing_tools": "terraform validate is CLI-only, tflint is CLI — no web tool",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Terraform HCL validator with security scanning, cost estimation, best practices"
+    },
+    {
+      "domain": "kubevalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate Kubernetes YAML manifests",
+      "est_monthly_searches": "2000-4000",
+      "competing_tools": "kubeval, kubeconform are CLI-only — huge gap for web tool",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Kubernetes manifest validator with schema checking, security scanning, best practices linting"
+    },
+    {
+      "domain": "nginxcheck.com",
+      "niche": "dev_tools",
+      "search_intent": "Check nginx configuration for errors",
+      "est_monthly_searches": "2000-5000",
+      "competing_tools": "nginx -t is CLI-only, no web tool exists",
+      "niche_value": 9,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "BUY NOW",
+      "tool_idea": "Nginx config validator, security auditor, performance optimizer"
+    },
+    {
+      "domain": "tomlvalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate TOML configuration files",
+      "est_monthly_searches": "1000-3000",
+      "competing_tools": "No dominant web tool — TOML growing with Rust/Python ecosystems",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "TOML validator with Cargo.toml, pyproject.toml specific validation"
+    },
+    {
+      "domain": "helmvalidate.com",
+      "niche": "dev_tools",
+      "search_intent": "Validate Helm charts online",
+      "est_monthly_searches": "1000-3000",
+      "competing_tools": "helm lint is CLI-only — no web alternative",
+      "niche_value": 9,
+      "brandability": 8,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Helm chart validator with template rendering, values checking, security scanning"
+    },
+    {
+      "domain": "jwtformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format and decode JWT tokens",
+      "est_monthly_searches": "2000-5000",
+      "competing_tools": "jwt.io exists but jwtformat.com is action-specific",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "JWT decoder, formatter, and debugger with claims visualization and expiry checking"
+    },
+    {
+      "domain": "rustformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format Rust code online",
+      "est_monthly_searches": "1500-3000",
+      "competing_tools": "rustfmt is CLI, play.rust-lang.org has formatting — but no exact-match .com",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Online Rust code formatter powered by rustfmt with configurable edition/style settings"
+    },
+    {
+      "domain": "tsformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format TypeScript code online",
+      "est_monthly_searches": "2000-4000",
+      "competing_tools": "prettier.io — but tsformat.com is shorter and more specific",
+      "niche_value": 8,
+      "brandability": 8,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "TypeScript formatter and beautifier with Prettier/ESLint integration"
+    },
+    {
+      "domain": "actionlint.com",
+      "niche": "dev_tools",
+      "search_intent": "Lint GitHub Actions workflows",
+      "est_monthly_searches": "1500-3000",
+      "competing_tools": "actionlint is CLI-only (rhysd/actionlint) — web version would be huge",
+      "niche_value": 9,
+      "brandability": 8,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "GitHub Actions workflow linter with syntax checking, action version auditing, security scanning"
+    },
+    {
+      "domain": "queryformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format SQL/database queries online",
+      "est_monthly_searches": "1500-4000",
+      "competing_tools": "sqlformat.org exists — but queryformat.com covers SQL + NoSQL + GraphQL",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Universal query formatter supporting SQL, NoSQL, GraphQL, Elasticsearch queries"
+    },
+    {
+      "domain": "cronexplain.com",
+      "niche": "dev_tools",
+      "search_intent": "Explain cron expressions in plain English",
+      "est_monthly_searches": "1500-3000",
+      "competing_tools": "crontab.guru — but cronexplain.com is more descriptive",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Cron expression explainer with natural language output, next-run previews, builder"
+    },
+    {
+      "domain": "regexdebug.com",
+      "niche": "dev_tools",
+      "search_intent": "Debug regular expressions step by step",
+      "est_monthly_searches": "1000-3000",
+      "competing_tools": "regex101.com has debugging — but regexdebug.com is hyper-focused",
+      "niche_value": 8,
+      "brandability": 9,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Step-by-step regex debugger with backtracking visualization and performance analysis"
+    },
+    {
+      "domain": "pyformat.com",
+      "niche": "dev_tools",
+      "search_intent": "Format Python code online",
+      "est_monthly_searches": "2000-4000",
+      "competing_tools": "black playground exists — but pyformat.com is shorter and brand-perfect",
+      "niche_value": 8,
+      "brandability": 10,
+      "price": 10.11,
+      "price_source": "cloudflare_fresh",
+      "recommendation": "STRONG",
+      "tool_idea": "Python code formatter with Black, autopep8, YAPF support"
+    }
+  ],
+  "all_available": [
+    {"domain": "cssformat.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "regexcheck.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "yamlcheck.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "pythonformat.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "rgbconvert.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "regexvalidator.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "csslinter.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "yamlvalidate.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "javaformat.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "xmlparse.com", "source": "sprint12_carryover", "niche": "dev_tools"},
+    {"domain": "rustformat.com", "niche": "dev_tools"},
+    {"domain": "scalaformat.com", "niche": "dev_tools"},
+    {"domain": "perlformat.com", "niche": "dev_tools"},
+    {"domain": "luaformat.com", "niche": "dev_tools"},
+    {"domain": "dartformat.com", "niche": "dev_tools"},
+    {"domain": "juliaformat.com", "niche": "dev_tools"},
+    {"domain": "matlabformat.com", "niche": "dev_tools"},
+    {"domain": "bashformat.com", "niche": "dev_tools"},
+    {"domain": "shellformat.com", "niche": "dev_tools"},
+    {"domain": "graphqlformat.com", "niche": "dev_tools"},
+    {"domain": "scalacheck.com", "niche": "dev_tools"},
+    {"domain": "graphqlcheck.com", "niche": "dev_tools"},
+    {"domain": "terraformcheck.com", "niche": "dev_tools"},
+    {"domain": "ansiblecheck.com", "niche": "dev_tools"},
+    {"domain": "rustlint.com", "niche": "dev_tools"},
+    {"domain": "kotlinlint.com", "niche": "dev_tools"},
+    {"domain": "rubylint.com", "niche": "dev_tools"},
+    {"domain": "bashlint.com", "niche": "dev_tools"},
+    {"domain": "dockerlint.com", "niche": "dev_tools"},
+    {"domain": "validatoronline.com", "niche": "dev_tools"},
+    {"domain": "linteronline.com", "niche": "dev_tools"},
+    {"domain": "minifieronline.com", "niche": "dev_tools"},
+    {"domain": "beautifieronline.com", "niche": "dev_tools"},
+    {"domain": "yamlconvert.com", "niche": "dev_tools"},
+    {"domain": "htmlvalidate.com", "niche": "dev_tools"},
+    {"domain": "cssvalidate.com", "niche": "dev_tools"},
+    {"domain": "sqlvalidate.com", "niche": "dev_tools"},
+    {"domain": "scienceflashcard.com", "niche": "education"},
+    {"domain": "historyflashcard.com", "niche": "education"},
+    {"domain": "codingflashcard.com", "niche": "education"},
+    {"domain": "vocabflashcard.com", "niche": "education"},
+    {"domain": "yamlparse.com", "niche": "dev_tools"},
+    {"domain": "cssparse.com", "niche": "dev_tools"},
+    {"domain": "graphqlparse.com", "niche": "dev_tools"},
+    {"domain": "markdownparse.com", "niche": "dev_tools"},
+    {"domain": "tomlparse.com", "niche": "dev_tools"},
+    {"domain": "iniparse.com", "niche": "dev_tools"},
+    {"domain": "sqlminify.com", "niche": "dev_tools"},
+    {"domain": "xmlminify.com", "niche": "dev_tools"},
+    {"domain": "jsbeautify.com", "niche": "dev_tools"},
+    {"domain": "xmlbeautify.com", "niche": "dev_tools"},
+    {"domain": "cssbeautifier.com", "niche": "dev_tools"},
+    {"domain": "cssdiff.com", "niche": "dev_tools"},
+    {"domain": "mockgenerator.com", "niche": "dev_tools"},
+    {"domain": "jwtencode.com", "niche": "dev_tools"},
+    {"domain": "rustplayground.com", "niche": "dev_tools"},
+    {"domain": "yamltester.com", "niche": "dev_tools"},
+    {"domain": "csstester.com", "niche": "dev_tools"},
+    {"domain": "groktester.com", "niche": "dev_tools"},
+    {"domain": "yamlviewer.com", "niche": "dev_tools"},
+    {"domain": "rustcompile.com", "niche": "dev_tools"},
+    {"domain": "kotlincompile.com", "niche": "dev_tools"},
+    {"domain": "typescriptcompile.com", "niche": "dev_tools"},
+    {"domain": "sasscompile.com", "niche": "dev_tools"},
+    {"domain": "lesscompile.com", "niche": "dev_tools"},
+    {"domain": "scsscompile.com", "niche": "dev_tools"},
+    {"domain": "tomlvalidate.com", "niche": "dev_tools"},
+    {"domain": "tomlformat.com", "niche": "dev_tools"},
+    {"domain": "tomlcheck.com", "niche": "dev_tools"},
+    {"domain": "tomlconvert.com", "niche": "dev_tools"},
+    {"domain": "envvalidate.com", "niche": "dev_tools"},
+    {"domain": "dotenvcheck.com", "niche": "dev_tools"},
+    {"domain": "configvalidate.com", "niche": "dev_tools"},
+    {"domain": "curlformat.com", "niche": "dev_tools"},
+    {"domain": "dockerformat.com", "niche": "dev_tools"},
+    {"domain": "dockervalidate.com", "niche": "dev_tools"},
+    {"domain": "dockerlint.com", "niche": "dev_tools"},
+    {"domain": "kubeformat.com", "niche": "dev_tools"},
+    {"domain": "kubevalidate.com", "niche": "dev_tools"},
+    {"domain": "helmvalidate.com", "niche": "dev_tools"},
+    {"domain": "helmlint.com", "niche": "dev_tools"},
+    {"domain": "helmformat.com", "niche": "dev_tools"},
+    {"domain": "terraformformat.com", "niche": "dev_tools"},
+    {"domain": "terraformvalidate.com", "niche": "dev_tools"},
+    {"domain": "terraformlint.com", "niche": "dev_tools"},
+    {"domain": "ansibleformat.com", "niche": "dev_tools"},
+    {"domain": "ansiblelint.com", "niche": "dev_tools"},
+    {"domain": "ansiblevalidate.com", "niche": "dev_tools"},
+    {"domain": "gitformat.com", "niche": "dev_tools"},
+    {"domain": "pipelinelint.com", "niche": "dev_tools"},
+    {"domain": "workflowlint.com", "niche": "dev_tools"},
+    {"domain": "markdownlint.com", "niche": "dev_tools"},
+    {"domain": "markdownvalidate.com", "niche": "dev_tools"},
+    {"domain": "hslconvert.com", "niche": "design_tools"},
+    {"domain": "sha256check.com", "niche": "security"},
+    {"domain": "sha1check.com", "niche": "security"},
+    {"domain": "protobufformat.com", "niche": "dev_tools"},
+    {"domain": "graphqlvalidate.com", "niche": "dev_tools"},
+    {"domain": "graphqlformat.com", "niche": "dev_tools"},
+    {"domain": "grpctest.com", "niche": "dev_tools"},
+    {"domain": "grpccheck.com", "niche": "dev_tools"},
+    {"domain": "schemaformat.com", "niche": "dev_tools"},
+    {"domain": "openapivalidate.com", "niche": "dev_tools"},
+    {"domain": "openapicheck.com", "niche": "dev_tools"},
+    {"domain": "openapilint.com", "niche": "dev_tools"},
+    {"domain": "swaggervalidate.com", "niche": "dev_tools"},
+    {"domain": "swaggercheck.com", "niche": "dev_tools"},
+    {"domain": "swaggerlint.com", "niche": "dev_tools"},
+    {"domain": "wasmformat.com", "niche": "dev_tools"},
+    {"domain": "wasmcheck.com", "niche": "dev_tools"},
+    {"domain": "wasmlint.com", "niche": "dev_tools"},
+    {"domain": "zigformat.com", "niche": "dev_tools"},
+    {"domain": "zigcheck.com", "niche": "dev_tools"},
+    {"domain": "ziglint.com", "niche": "dev_tools"},
+    {"domain": "nimformat.com", "niche": "dev_tools"},
+    {"domain": "nimcheck.com", "niche": "dev_tools"},
+    {"domain": "nimlint.com", "niche": "dev_tools"},
+    {"domain": "elixirformat.com", "niche": "dev_tools"},
+    {"domain": "elixircheck.com", "niche": "dev_tools"},
+    {"domain": "cronvalidate.com", "niche": "dev_tools"},
+    {"domain": "cronformat.com", "niche": "dev_tools"},
+    {"domain": "crontester.com", "niche": "dev_tools"},
+    {"domain": "cronexplain.com", "niche": "dev_tools"},
+    {"domain": "dateparse.com", "niche": "dev_tools"},
+    {"domain": "nginxcheck.com", "niche": "dev_tools"},
+    {"domain": "nginxvalidate.com", "niche": "dev_tools"},
+    {"domain": "nginxlint.com", "niche": "dev_tools"},
+    {"domain": "nginxformat.com", "niche": "dev_tools"},
+    {"domain": "apachecheck.com", "niche": "dev_tools"},
+    {"domain": "apachevalidate.com", "niche": "dev_tools"},
+    {"domain": "htaccessvalidate.com", "niche": "dev_tools"},
+    {"domain": "dnsformat.com", "niche": "dev_tools"},
+    {"domain": "dnsvalidate.com", "niche": "dev_tools"},
+    {"domain": "ipformat.com", "niche": "dev_tools"},
+    {"domain": "subnetcheck.com", "niche": "dev_tools"},
+    {"domain": "cidrcheck.com", "niche": "dev_tools"},
+    {"domain": "tsformat.com", "niche": "dev_tools"},
+    {"domain": "tsvalidate.com", "niche": "dev_tools"},
+    {"domain": "tsconvert.com", "niche": "dev_tools"},
+    {"domain": "reactlint.com", "niche": "dev_tools"},
+    {"domain": "vuecheck.com", "niche": "dev_tools"},
+    {"domain": "vuelint.com", "niche": "dev_tools"},
+    {"domain": "sveltecheck.com", "niche": "dev_tools"},
+    {"domain": "composercheck.com", "niche": "dev_tools"},
+    {"domain": "nugetcheck.com", "niche": "dev_tools"},
+    {"domain": "lockfilecheck.com", "niche": "dev_tools"},
+    {"domain": "a11yvalidate.com", "niche": "dev_tools"},
+    {"domain": "wcagvalidate.com", "niche": "dev_tools"},
+    {"domain": "lighthousecheck.com", "niche": "dev_tools"},
+    {"domain": "jwtformat.com", "niche": "dev_tools"},
+    {"domain": "jwtparse.com", "niche": "dev_tools"},
+    {"domain": "oauth2check.com", "niche": "dev_tools"},
+    {"domain": "oauth2validate.com", "niche": "dev_tools"},
+    {"domain": "sqloptimize.com", "niche": "dev_tools"},
+    {"domain": "queryformat.com", "niche": "dev_tools"},
+    {"domain": "makefilecheck.com", "niche": "dev_tools"},
+    {"domain": "makefilelint.com", "niche": "dev_tools"},
+    {"domain": "makefileformat.com", "niche": "dev_tools"},
+    {"domain": "cmakecheck.com", "niche": "dev_tools"},
+    {"domain": "cmakelint.com", "niche": "dev_tools"},
+    {"domain": "cmakeformat.com", "niche": "dev_tools"},
+    {"domain": "gradlecheck.com", "niche": "dev_tools"},
+    {"domain": "gradlelint.com", "niche": "dev_tools"},
+    {"domain": "gradleformat.com", "niche": "dev_tools"},
+    {"domain": "bazelcheck.com", "niche": "dev_tools"},
+    {"domain": "regexparse.com", "niche": "dev_tools"},
+    {"domain": "regexbuild.com", "niche": "dev_tools"},
+    {"domain": "regexexplain.com", "niche": "dev_tools"},
+    {"domain": "regexdebug.com", "niche": "dev_tools"},
+    {"domain": "regexconvert.com", "niche": "dev_tools"},
+    {"domain": "regexlint.com", "niche": "dev_tools"},
+    {"domain": "actionlint.com", "niche": "dev_tools"},
+    {"domain": "actionvalidate.com", "niche": "dev_tools"},
+    {"domain": "githubactioncheck.com", "niche": "dev_tools"},
+    {"domain": "workflowvalidate.com", "niche": "dev_tools"},
+    {"domain": "pyformat.com", "niche": "dev_tools"},
+    {"domain": "pyvalidate.com", "niche": "dev_tools"},
+    {"domain": "pyparse.com", "niche": "dev_tools"},
+    {"domain": "jsonencode.com", "niche": "dev_tools"},
+    {"domain": "uriencode.com", "niche": "dev_tools"},
+    {"domain": "uridecode.com", "niche": "dev_tools"},
+    {"domain": "utf8convert.com", "niche": "dev_tools"},
+    {"domain": "yamlconvert.com", "niche": "dev_tools"},
+    {"domain": "yamlmerge.com", "niche": "dev_tools"},
+    {"domain": "promptvalidate.com", "niche": "ai_tools"},
+    {"domain": "prettiercheck.com", "niche": "dev_tools"},
+    {"domain": "eslintcheck.com", "niche": "dev_tools"},
+    {"domain": "stylelintcheck.com", "niche": "dev_tools"},
+    {"domain": "semvercheck.com", "niche": "dev_tools"},
+    {"domain": "changelogcheck.com", "niche": "dev_tools"},
+    {"domain": "readmecheck.com", "niche": "dev_tools"},
+    {"domain": "packagelint.com", "niche": "dev_tools"},
+    {"domain": "tailwindcheck.com", "niche": "dev_tools"},
+    {"domain": "tailwindlint.com", "niche": "dev_tools"},
+    {"domain": "tailwindformat.com", "niche": "dev_tools"},
+    {"domain": "tailwindconvert.com", "niche": "dev_tools"},
+    {"domain": "bootstrapcheck.com", "niche": "dev_tools"},
+    {"domain": "bootstraplint.com", "niche": "dev_tools"},
+    {"domain": "haskellformat.com", "niche": "dev_tools"},
+    {"domain": "haskellcheck.com", "niche": "dev_tools"},
+    {"domain": "ocamlformat.com", "niche": "dev_tools"},
+    {"domain": "ocamlcheck.com", "niche": "dev_tools"},
+    {"domain": "clojureformat.com", "niche": "dev_tools"},
+    {"domain": "clojurecheck.com", "niche": "dev_tools"},
+    {"domain": "erlangformat.com", "niche": "dev_tools"},
+    {"domain": "erlangcheck.com", "niche": "dev_tools"},
+    {"domain": "fsharpformat.com", "niche": "dev_tools"}
+  ],
+  "key_insights": {
+    "sprint12_status": "All 10 Sprint 12 top finds remain available — no one has scooped them yet",
+    "hottest_niches": [
+      "DevOps/IaC tools (Docker, Kubernetes, Terraform, Ansible, Helm) — nearly ALL available",
+      "OpenAPI/Swagger validation — entire cluster of 7 domains available",
+      "Build system tools (Makefile, CMake, Gradle, Bazel) — ALL 10 available",
+      "Emerging languages (Zig, Nim, Wasm, Elixir) — ALL 11 available",
+      "Server config tools (Nginx, Apache) — 7 of 8 available",
+      "Cron/scheduling tools — 5 of 10 available with high search volume"
+    ],
+    "dead_categories": [
+      "Calculators — 100% taken (0/15 available)",
+      "Converters — 100% taken (0/10 available)",
+      "Quiz domains — 100% taken (0/9 available)",
+      "SEO checkers — 100% taken (0/8 available)",
+      "Health trackers — 100% taken (0/8 available)",
+      "Editors — 100% taken (0/10 available)",
+      "Action+code — 100% taken (0/10 available)",
+      "Finance alternatives — 100% taken (0/7 available)"
+    ],
+    "strategic_clusters": [
+      {
+        "name": "OpenAPI/Swagger Suite",
+        "domains": ["openapivalidate.com", "openapicheck.com", "openapilint.com", "swaggervalidate.com", "swaggercheck.com", "swaggerlint.com", "schemaformat.com"],
+        "total_cost": 70.77,
+        "value": "Corner the API spec validation market. Build once, serve 7 domains."
+      },
+      {
+        "name": "DevOps Validation Suite",
+        "domains": ["dockerformat.com", "dockervalidate.com", "dockerlint.com", "kubevalidate.com", "kubeformat.com", "helmvalidate.com", "helmlint.com", "helmformat.com", "terraformvalidate.com", "terraformlint.com", "terraformformat.com", "ansiblelint.com", "ansiblevalidate.com", "ansibleformat.com"],
+        "total_cost": 141.54,
+        "value": "Complete DevOps config validation suite — one codebase, 14 domains. Massive SEO surface."
+      },
+      {
+        "name": "Server Config Suite",
+        "domains": ["nginxcheck.com", "nginxvalidate.com", "nginxlint.com", "nginxformat.com", "apachecheck.com", "apachevalidate.com", "htaccessvalidate.com"],
+        "total_cost": 70.77,
+        "value": "Web server config validation — every sysadmin needs this."
+      },
+      {
+        "name": "Regex Power Suite",
+        "domains": ["regexexplain.com", "regexdebug.com", "regexbuild.com", "regexparse.com", "regexconvert.com", "regexlint.com"],
+        "total_cost": 60.66,
+        "value": "Complement regex101.com — AI-powered regex tools are the next frontier."
+      },
+      {
+        "name": "Cron/Scheduling Suite",
+        "domains": ["cronvalidate.com", "cronformat.com", "crontester.com", "cronexplain.com"],
+        "total_cost": 40.44,
+        "value": "Challenge crontab.guru — modern UI + more features."
+      },
+      {
+        "name": "Build System Suite",
+        "domains": ["makefilecheck.com", "makefilelint.com", "makefileformat.com", "cmakecheck.com", "cmakelint.com", "cmakeformat.com", "gradlecheck.com", "gradlelint.com", "gradleformat.com", "bazelcheck.com"],
+        "total_cost": 101.10,
+        "value": "Completely untapped market — no web tools for build file validation exist."
+      }
+    ],
+    "immediate_action_items": [
+      "BUY NOW: openapivalidate.com, dockerformat.com, cronvalidate.com, sqloptimize.com, regexexplain.com — highest value standalone domains",
+      "CLUSTER BUY: OpenAPI/Swagger 7-domain suite ($70.77) — corner the entire niche",
+      "CLUSTER BUY: DevOps suite ($141.54) — one codebase serves 14 domains with massive combined SEO",
+      "Sprint 12 domains STILL SAFE — but don't wait forever on cssformat.com, regexcheck.com, pythonformat.com"
+    ]
+  }
+}

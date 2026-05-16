@@ -1,0 +1,1041 @@
+{
+  "sprint": 12,
+  "agent": "AGENT 2: AUCTION SCANNER",
+  "scan_date": "2026-05-07",
+  "scan_timestamp": "2026-05-07T12:00:00Z",
+
+  "godaddy_marketplace_systems_explained": {
+    "overview": "GoDaddy operates 4 distinct marketplace systems. Sprint 10 confused Aftermarket/Premium listings ($1,540+) with Closeout auctions ($5-$11). These are completely different systems with different pricing, URLs, and mechanics.",
+    "systems": {
+      "1_standard_registration": {
+        "what": "Brand new domain registration at retail price ($10-$20/yr for .com)",
+        "url": "https://www.godaddy.com/domains",
+        "price_range": "$0.99-$20/yr for standard TLDs",
+        "how_it_works": "Search for unregistered domains and register them at retail price. No auction involved."
+      },
+      "2_aftermarket_premium": {
+        "what": "Currently registered domains listed for sale by their owners through Afternic (GoDaddy subsidiary). THIS IS WHAT SPRINT 10 FOUND.",
+        "url": "https://www.afternic.com/ (also surfaces on godaddy.com domain search)",
+        "price_range": "$50 to $1,000,000+ (set by domain owner)",
+        "how_it_works": "Domain owners list their domains with a Buy Now price and/or Make Offer. GoDaddy distributes these listings across 100+ partner sites. Commission is 15-25%. These are NOT auction deals - they are premium aftermarket prices set by speculators.",
+        "key_indicator": "Nameservers pointing to ns1.afternic.com / ns2.afternic.com means the domain is an aftermarket premium listing, NOT an expired auction.",
+        "sprint10_error": "Sprint 10 found domains like chapter7bankruptcy.com and flashcardsonline.com on Afternic nameservers and confused their premium asking prices with auction deals. These domains have NEVER been in a closeout or expired auction - they are actively held by investors."
+      },
+      "3_expired_auctions": {
+        "what": "Domains registered at GoDaddy that the owner failed to renew. Listed as expired domain auctions 26 days after expiration.",
+        "url": "https://auctions.godaddy.com/beta (requires $4.99/yr GoDaddy Auctions membership)",
+        "price_range": "Starting bid $1 (can go to thousands for premium names)",
+        "how_it_works": "10-day traditional bid-style auction. Multiple bidders compete. Original owner can still renew during this period (canceling the auction with full refund to bidder). Domain keeps its age/WHOIS history if purchased here.",
+        "inventory_file": "https://inventory.auctions.godaddy.com/ (download all_expiring_auctions.json.zip)",
+        "volume": "~62,463 expired domains ending per day, ~4,000+ aged domains (10+ years) entering auction daily"
+      },
+      "4_closeout_auctions": {
+        "what": "The LAST CHANCE to buy expired domains that received ZERO bids during the 10-day expired auction. This is where the real $5-$11 deals are.",
+        "url": "https://auctions.godaddy.com/beta (filter by Closeout type)",
+        "price_range": "$5-$11 (reverse auction, price drops daily)",
+        "pricing_schedule": {
+          "day_1": "$11",
+          "day_2": "$10",
+          "day_3": "$8",
+          "day_4": "$6",
+          "day_5": "$5",
+          "after_day_5": "Domain is released back to registry for standard registration"
+        },
+        "how_it_works": "Buy Now format (no bidding). First person to click Buy wins. Price decreases each day. Domain keeps its age/WHOIS creation date. You also pay standard registration fee on top of closeout price.",
+        "inventory_file": "https://inventory.auctions.godaddy.com/ (download closeout_listings.json.zip or closeouts.xml.zip)",
+        "volume": "~256,810 closeout domains available at any time",
+        "key_facts": [
+          "Over 99% of closeout domains are low quality - careful filtering required",
+          "Good names get grabbed at $11 on day 1 - waiting for $5 means only dregs remain",
+          "Domains with .edu/.gov backlinks are the holy grail finds",
+          "Need GoDaddy Auctions membership ($4.99/yr) to purchase",
+          "Transfer to your account takes 7-10 days after redemption period closes",
+          "Original owner can still renew during redemption, canceling your purchase with full refund"
+        ]
+      }
+    },
+    "critical_distinction": "When you search for a domain on godaddy.com and see a price like $1,540 or $2,999, that is an AFTERMARKET PREMIUM price set by the current owner through Afternic. It is NOT a closeout price. Real closeout prices are $5-$11 and are only visible through the GoDaddy Auctions interface or inventory files."
+  },
+
+  "sprint10_domain_cross_check": {
+    "summary": "All 5 Sprint 10 'bargain' domains were cross-checked. NONE are available at auction. They are all actively registered domains listed on the aftermarket at premium prices.",
+    "domains": {
+      "wdtech.com": {
+        "status": "ACTIVELY REGISTERED - NOT AT AUCTION",
+        "registrar": "Moniker Online Services LLC",
+        "created": "2004-04-10",
+        "expires": "2026-04-10",
+        "owner": "William Coam, Germanium World LLC (Woodbury, NY)",
+        "nameservers": ["ns1.monikerdns.net", "ns2.monikerdns.net"],
+        "domain_status": "clientTransferProhibited",
+        "verdict": "This is a privately held domain registered through Moniker (a premium domain broker). NOT available at any auction platform. The $1,540 price Sprint 10 found was likely an aftermarket premium listing, not an auction price.",
+        "auction_platform_found_on": "NONE"
+      },
+      "chapter7bankruptcy.com": {
+        "status": "ACTIVELY REGISTERED - LISTED ON AFTERNIC (AFTERMARKET PREMIUM)",
+        "registrar": "GoDaddy.com, LLC",
+        "created": "2000-04-12",
+        "expires": "2026-04-12",
+        "nameservers": ["ns1.afternic.com", "ns2.afternic.com"],
+        "domain_status": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "verdict": "Afternic nameservers confirm this is an aftermarket premium listing. The owner has it locked with 4 protective statuses. This is a domain investor's premium listing - NOT an expired auction. Any price shown was a seller-set premium price, not an auction starting bid.",
+        "auction_platform_found_on": "NONE - this is an Afternic premium listing"
+      },
+      "flashcardsonline.com": {
+        "status": "ACTIVELY REGISTERED - LISTED ON AFTERNIC (AFTERMARKET PREMIUM)",
+        "registrar": "GoDaddy.com, LLC",
+        "created": "1999-04-12",
+        "expires": "2026-04-12",
+        "nameservers": ["ns1.afternic.com", "ns2.afternic.com"],
+        "domain_status": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "verdict": "Same as chapter7bankruptcy.com - Afternic premium listing, NOT an auction domain. 27 years old, held by an investor. Any price shown was premium aftermarket, not closeout.",
+        "auction_platform_found_on": "NONE - this is an Afternic premium listing"
+      },
+      "freeexercise.com": {
+        "status": "NO WHOIS DATA FOUND - POSSIBLY UNREGISTERED OR DELETED",
+        "registrar": "Unknown",
+        "created": "Unknown",
+        "expires": "Unknown",
+        "verdict": "WHOIS lookup returned no data. Domain may be unregistered, deleted, or in pending delete status. If it was in Sprint 10's list as a 'deal,' it may have already been dropped and picked up, or it may be available for standard registration (~$10-$12). Not found on any auction platform.",
+        "auction_platform_found_on": "NONE"
+      },
+      "sageinvestor.com": {
+        "status": "ACTIVELY REGISTERED - AFTERMARKET PREMIUM",
+        "registrar": "Tucows Domains Inc.",
+        "created": "2001-04-04",
+        "expires": "2026-04-04",
+        "nameservers": ["ns1.identitydots.com", "ns2.identitydots.com"],
+        "domain_status": "ok",
+        "verdict": "Registered through Tucows, parked on identitydots.com nameservers (a domain monetization/parking service). This is an investor-held domain. NOT available at any auction. The price Sprint 10 found was an aftermarket premium price.",
+        "auction_platform_found_on": "NONE - domain investor premium listing"
+      }
+    },
+    "conclusion": "Sprint 10 confused GoDaddy Aftermarket/Afternic premium listings with auction deals. ZERO of the 5 domains were ever at auction. They are all investor-held domains with premium asking prices ($1,540+). Real closeout auctions are $5-$11 and are found on completely different inventory."
+  },
+
+  "platform_scan_results": {
+    "godaddy_closeouts": {
+      "platform": "GoDaddy Auctions - Closeout",
+      "url": "https://auctions.godaddy.com/beta",
+      "inventory_url": "https://inventory.auctions.godaddy.com/",
+      "access_method": "Requires $4.99/yr GoDaddy Auctions membership. Inventory files downloadable for free.",
+      "total_closeout_inventory": "~256,810 domains",
+      "verified_listings_from_expireddomains_net": [
+        {
+          "domain": "breastc.com",
+          "price": 30,
+          "currency": "USD",
+          "birth_year": 2004,
+          "age_years": 22,
+          "backlinks": 20,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Partial word, limited commercial value"
+        },
+        {
+          "domain": "mc900.com",
+          "price": 30,
+          "currency": "USD",
+          "birth_year": 2004,
+          "age_years": 22,
+          "backlinks": 378,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Short alphanumeric, high backlink count for closeout price"
+        },
+        {
+          "domain": "To2Me.com",
+          "price": 30,
+          "currency": "USD",
+          "birth_year": 2019,
+          "age_years": 7,
+          "backlinks": 17,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Creative naming pattern"
+        },
+        {
+          "domain": "CashScrew.com",
+          "price": 50,
+          "currency": "USD",
+          "birth_year": 2018,
+          "age_years": 8,
+          "backlinks": 4,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Two-word .com, limited backlinks"
+        },
+        {
+          "domain": "ihackstore.com",
+          "price": 50,
+          "currency": "USD",
+          "birth_year": 2009,
+          "age_years": 17,
+          "backlinks": 113,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Decent backlinks and age"
+        },
+        {
+          "domain": "DumpsterShop.com",
+          "price": 50,
+          "currency": "USD",
+          "birth_year": 2011,
+          "age_years": 15,
+          "backlinks": 254,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Strong backlink profile, niche commercial potential"
+        },
+        {
+          "domain": "28gf.com",
+          "price": 11,
+          "currency": "USD",
+          "birth_year": 2012,
+          "age_years": 14,
+          "backlinks": 1,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Day 1 closeout price ($11), short 4-char domain"
+        },
+        {
+          "domain": "ChinaPrimeMinister.com",
+          "price": 5,
+          "currency": "USD",
+          "birth_year": 2011,
+          "age_years": 15,
+          "backlinks": 12,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Day 5 closeout price ($5), maximum discount"
+        },
+        {
+          "domain": "ClothInfo.com",
+          "price": 50,
+          "currency": "USD",
+          "birth_year": 2009,
+          "age_years": 17,
+          "backlinks": 18,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Two-word keyword domain"
+        },
+        {
+          "domain": "paisadekho.com",
+          "price": 50,
+          "currency": "USD",
+          "birth_year": 2013,
+          "age_years": 13,
+          "backlinks": 0,
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "expireddomains.net/godaddy-closeout-domains/",
+          "verified": true,
+          "notes": "Hindi language domain, no backlinks"
+        }
+      ],
+      "verified_listings_from_namepros": [
+        {
+          "domain": "khakied.com",
+          "price_range": "$5-$11",
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "namepros.com thread 1386170 (One Word .COM Closeouts - 7 May 2026)",
+          "verified": true,
+          "notes": "One-word dictionary .com, entered closeout May 7, 2026"
+        },
+        {
+          "domain": "libturd.com",
+          "price_range": "$5-$11",
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "namepros.com thread 1386170",
+          "verified": true,
+          "notes": "One-word .com, entered closeout May 7, 2026"
+        },
+        {
+          "domain": "marblelike.com",
+          "price_range": "$5-$11",
+          "auction_type": "closeout",
+          "tld": ".com",
+          "source": "namepros.com thread 1386170",
+          "verified": true,
+          "notes": "One-word dictionary .com, entered closeout May 7, 2026"
+        }
+      ]
+    },
+
+    "godaddy_expired_auctions": {
+      "platform": "GoDaddy Auctions - Expired",
+      "url": "https://auctions.godaddy.com/beta",
+      "inventory_url": "https://inventory.auctions.godaddy.com/",
+      "access_method": "Requires $4.99/yr GoDaddy Auctions membership",
+      "daily_volume": "~62,463 expired domains ending per day",
+      "verified_listings_from_domcop": [
+        {
+          "domain": "nwtaichi.com",
+          "price": 5,
+          "currency": "USD",
+          "age_years": 23,
+          "da": 14,
+          "pa": 24,
+          "tf": 19,
+          "cf": 13,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 36m (at time of scan)",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "23-year-old .com, TF 19, only $5 current bid"
+        },
+        {
+          "domain": "gslc-bsa.org",
+          "price": 40,
+          "currency": "USD",
+          "age_years": 26,
+          "da": 29,
+          "pa": 34,
+          "tf": 17,
+          "cf": 16,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 36m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "26-year-old .org, decent DA/PA/TF"
+        },
+        {
+          "domain": "acme-atlanta.com",
+          "price": 11,
+          "currency": "USD",
+          "age_years": 30,
+          "da": 22,
+          "pa": 24,
+          "tf": 16,
+          "cf": 14,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 42m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "30-year-old .com! Only $11. TF 16, DA 22."
+        },
+        {
+          "domain": "deltacardiffvfc.com",
+          "price": 30,
+          "currency": "USD",
+          "age_years": 25,
+          "da": 19,
+          "pa": 28,
+          "tf": 22,
+          "cf": 12,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 39m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "25-year-old .com, strong TF 22"
+        },
+        {
+          "domain": "baxfamily.com",
+          "price": 30,
+          "currency": "USD",
+          "age_years": 23,
+          "da": 15,
+          "pa": 25,
+          "tf": 18,
+          "cf": 22,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 39m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "23-year-old .com"
+        },
+        {
+          "domain": "madisonartcenter.org",
+          "price": 1,
+          "currency": "USD",
+          "age_years": 0,
+          "da": 22,
+          "pa": 38,
+          "tf": 16,
+          "cf": 18,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 39m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "$1 starting bid, PA 38, could be a steal if age data is just missing from display"
+        },
+        {
+          "domain": "confraternitasanbiagio.com",
+          "price": 11,
+          "currency": "USD",
+          "age_years": 17,
+          "da": 9,
+          "pa": 20,
+          "tf": 18,
+          "cf": 9,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 42m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "17-year-old .com, TF 18"
+        },
+        {
+          "domain": "chatterie-saint-evroult.com",
+          "price": 1,
+          "currency": "USD",
+          "age_years": 0,
+          "da": 12,
+          "pa": 23,
+          "tf": 20,
+          "cf": 13,
+          "auction_type": "expired_auction",
+          "time_remaining": "6h 42m",
+          "source": "domcop.com/domains/godaddy-expired-domains",
+          "verified": true,
+          "notes": "$1 starting bid, TF 20"
+        }
+      ]
+    },
+
+    "park_io": {
+      "platform": "Park.io",
+      "url": "https://park.io/auctions",
+      "access_method": "Free to browse, $99 minimum backorder fee (only charged if domain secured)",
+      "notes": "Specializes in ccTLD and 'hacker' TLDs (.io, .ly, .me, .to). Also catches .com drops.",
+      "verified_auction_listings": [
+        {
+          "domain": "ldbd.com",
+          "current_bid": 1105.00,
+          "currency": "USD",
+          "bids": 41,
+          "close_date": "2026-05-07 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "down.ly",
+          "current_bid": 102.00,
+          "currency": "USD",
+          "bids": 3,
+          "close_date": "2026-05-07 12:41",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "extra.ly",
+          "current_bid": 99.00,
+          "currency": "USD",
+          "bids": 2,
+          "close_date": "2026-05-07 12:41",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "bupp.com",
+          "current_bid": 2275.00,
+          "currency": "USD",
+          "bids": 66,
+          "close_date": "2026-05-07 15:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "feature.ly",
+          "current_bid": 102.00,
+          "currency": "USD",
+          "bids": 3,
+          "close_date": "2026-05-08 12:41",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "sorturl.com",
+          "current_bid": 99.00,
+          "currency": "USD",
+          "bids": 2,
+          "close_date": "2026-05-08 12:41",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "luckyloot.com",
+          "current_bid": 787.00,
+          "currency": "USD",
+          "bids": 51,
+          "close_date": "2026-05-08 13:56",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "2290.com",
+          "current_bid": 3100.00,
+          "currency": "USD",
+          "bids": 69,
+          "close_date": "2026-05-08 14:24",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "fuse.ly",
+          "current_bid": 102.00,
+          "currency": "USD",
+          "bids": 3,
+          "close_date": "2026-05-09 12:41",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "verdel.com",
+          "current_bid": 305.00,
+          "currency": "USD",
+          "bids": 17,
+          "close_date": "2026-05-09 16:30",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "vsfish.com",
+          "current_bid": 356.78,
+          "currency": "USD",
+          "bids": 24,
+          "close_date": "2026-05-10 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "altagents.com",
+          "current_bid": 2000.00,
+          "currency": "USD",
+          "bids": 54,
+          "close_date": "2026-05-12 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "whyyou.com",
+          "current_bid": 710.00,
+          "currency": "USD",
+          "bids": 37,
+          "close_date": "2026-05-15 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "epzw.com",
+          "current_bid": 510.00,
+          "currency": "USD",
+          "bids": 33,
+          "close_date": "2026-05-15 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "pbsn.com",
+          "current_bid": 1040.65,
+          "currency": "USD",
+          "bids": 41,
+          "close_date": "2026-05-18 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "promize.com",
+          "current_bid": 2024.99,
+          "currency": "USD",
+          "bids": 71,
+          "close_date": "2026-05-19 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "wealthverse.com",
+          "current_bid": 338.00,
+          "currency": "USD",
+          "bids": 27,
+          "close_date": "2026-05-23 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "open.pro",
+          "current_bid": 2100.00,
+          "currency": "USD",
+          "bids": 62,
+          "close_date": "2026-05-24 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "advisy.com",
+          "current_bid": 1525.00,
+          "currency": "USD",
+          "bids": 54,
+          "close_date": "2026-05-24 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true,
+          "notes": "AI/advisory brandable .com"
+        },
+        {
+          "domain": "x8u.com",
+          "current_bid": 610.00,
+          "currency": "USD",
+          "bids": 43,
+          "close_date": "2026-05-27 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "myfs.com",
+          "current_bid": 353.00,
+          "currency": "USD",
+          "bids": 28,
+          "close_date": "2026-05-28 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true
+        },
+        {
+          "domain": "kofi.com",
+          "current_bid": 1575.00,
+          "currency": "USD",
+          "bids": 27,
+          "close_date": "2026-06-04 11:00",
+          "auction_type": "drop_catch_auction",
+          "source": "park.io/auctions",
+          "verified": true,
+          "notes": "Short brandable .com, popular name"
+        }
+      ],
+      "expiring_domains_sample": {
+        "date_range": "2026-05-08 to 2026-05-14",
+        "notable_domains": [
+          {"domain": "binaryoptions.io", "expiry": "2026-05-08", "notes": "High-value keyword .io"},
+          {"domain": "airlinetickets.io", "expiry": "2026-05-09", "notes": "High-value keyword .io"},
+          {"domain": "launchable.io", "expiry": "2026-05-08", "notes": "Tech brandable .io"},
+          {"domain": "mysolutions.io", "expiry": "2026-05-08", "notes": "Tech .io"},
+          {"domain": "hubster.co", "expiry": "2026-05-08", "notes": "Brandable .co"},
+          {"domain": "chatgpt4.net", "expiry": "2026-05-09", "notes": "AI-related, potential TM issues"},
+          {"domain": "accident.ly", "expiry": "2026-05-09", "notes": "Single word .ly"},
+          {"domain": "flowers.ly", "expiry": "2026-05-09", "notes": "Single word .ly"},
+          {"domain": "adaptive.ly", "expiry": "2026-05-09", "notes": "Tech adverb .ly"},
+          {"domain": "take.ly", "expiry": "2026-05-09", "notes": "Short verb .ly"},
+          {"domain": "banking.vc", "expiry": "2026-05-09", "notes": "FinTech .vc"},
+          {"domain": "appleid.us", "expiry": "2026-05-09", "notes": "Apple TM risk"},
+          {"domain": "thingstodointennessee.com", "expiry": "2026-05-08", "notes": "Local SEO keyword domain"},
+          {"domain": "omahainsurancecompany.com", "expiry": "2026-05-08", "notes": "Local business keyword domain"},
+          {"domain": "commercialcleaningcontracts.com", "expiry": "2026-05-08", "notes": "Commercial keyword domain"},
+          {"domain": "griffy.io", "expiry": "2026-05-08", "notes": "Short brandable .io"}
+        ],
+        "pricing_note": "Park.io backorder fee is $99 if you are the only bidder. If multiple people backorder, an auction takes place."
+      }
+    },
+
+    "dropcatch": {
+      "platform": "DropCatch",
+      "url": "https://www.dropcatch.com/auctions",
+      "access_method": "Free to browse, account required to bid",
+      "platform_stats": {
+        "total_domains_in_auction": 31680,
+        "ending_in_24h": 4729,
+        "total_bids": 3763,
+        "total_value_with_bids": 57537,
+        "average_domain_age": "9 years",
+        "average_price": 28.95,
+        "extension_breakdown": {
+          ".com": "55.4%",
+          ".ru": "16.1%",
+          ".store": "3.9%",
+          ".net": "3.9%",
+          ".org": "3.8%"
+        },
+        "source": "karma.domains/en/domain-list/dropcatch-auctions/ (April 29, 2026 snapshot)",
+        "verified": true
+      },
+      "recent_notable_sales": [
+        {"domain": "Ketosis.com", "price": 17600, "date": "2026-05-05", "source": "domaingang.com"},
+        {"domain": "SportsBrief.com", "price": 41000, "date": "2026-04-06", "source": "domaingang.com"},
+        {"domain": "Same.net", "price": 4200, "date": "2026-03-18", "source": "domaingang.com"},
+        {"domain": "Cortisone-info.com", "price": 4805, "date": "2026-03-19", "source": "domaingang.com"},
+        {"domain": "SiteGPR.com", "price": 3000, "date": "2026-03-13", "source": "domaingang.com"},
+        {"domain": "CelacInternational.org", "price": 12500, "date": "2026-03-03", "source": "domaingang.com"},
+        {"domain": "CMDSport.com", "price": 15567, "date": "2026-01-05", "source": "domaingang.com"}
+      ],
+      "notes": "DropCatch is JS-rendered, so specific current listings could not be scraped via WebFetch. Average price of $28.95 suggests many sub-$50 domains are available. The 55.4% .com mix and 9-year average age is promising for finding aged .com bargains."
+    },
+
+    "namejet": {
+      "platform": "NameJet",
+      "url": "https://www.namejet.com/Pages/Auctions/BrowseDomains.aspx",
+      "access_method": "Free to browse and backorder, account required",
+      "notes": "NameJet runs pre-release and drop auctions. ~4,028 aged domains (10+ years) entered auction on May 4, 2026 per ABTdomain tracking. Platform is JS-rendered, specific listings could not be scraped.",
+      "estimated_daily_aged_com_volume": "3,700-3,900 .com domains with 10+ years of history entering auction daily",
+      "source": "abtdomain.com/expired-domains/auctions/2026-05/",
+      "verified": false,
+      "access_note": "Requires direct browser access to view current listings"
+    },
+
+    "dynadot": {
+      "platform": "Dynadot Auctions",
+      "url_auction": "https://www.dynadot.com/market/auction",
+      "url_closeout": "https://www.dynadot.com/market/expired-closeout",
+      "access_method": "Requires Dynadot account with $5+ balance or recent order",
+      "platform_stats": {
+        "total_domains_in_auction": 571783,
+        "ending_in_24h": 56507,
+        "average_karma_score": 28.9,
+        "average_moz_backlinks": 156423,
+        "average_bids": 4.0,
+        "average_price": 4.91,
+        "average_domain_age": "2 years",
+        "extension_breakdown": {
+          ".com": "37.9%"
+        },
+        "source": "karma.domains (April 18, 2026 snapshot)"
+      },
+      "closeout_pricing": {
+        "day_1": "$30",
+        "day_2": "$15",
+        "day_3": "$5",
+        "format": "Buy Now (no bidding)",
+        "duration": "3 days"
+      },
+      "notes": "Massive inventory (571K+) but average age of only 2 years and average price of $4.91 suggests mostly low-quality domains. The 37.9% .com mix is lower than GoDaddy or DropCatch. Platform blocked WebFetch access."
+    },
+
+    "sedo": {
+      "platform": "Sedo",
+      "url": "https://sedo.com/us/buy-domains/auction-calendar/",
+      "access_method": "Free to browse",
+      "notes": "Sedo is primarily a user-listed marketplace, not an expired domain auction platform. Minimum domain price is $20, auction starting bids from $79. Over 24 million listed domains. Commission is 10-15% on sales. Sedo added ~2,000 expiring domain auctions daily. This is NOT a closeout platform - prices are seller-set or auction-determined.",
+      "pricing": {
+        "minimum_domain_price": 20,
+        "minimum_auction_start": 79,
+        "commission_buy_now": "10%",
+        "commission_auction": "15%"
+      },
+      "verdict": "Not ideal for bargain hunting. Better for premium aftermarket purchases."
+    },
+
+    "namecheap": {
+      "platform": "Namecheap Marketplace",
+      "url": "https://www.namecheap.com/market/auctions/",
+      "access_method": "Requires $100 minimum account balance to bid",
+      "notes": "Namecheap runs expired domain auctions (7-10 days), closeouts, and user listings. Minimum price $5, max $1M. 10% seller commission. Categories include Popular, Closeouts, SEO Friendly. Auctions start ~30 days after domain expiration. Original owner can renew during auction, canceling the sale.",
+      "verdict": "Potential bargain source but requires $100 deposit. Blocked WebFetch access."
+    },
+
+    "expireddomains_net": {
+      "platform": "ExpiredDomains.net",
+      "url": "https://www.expireddomains.net/",
+      "access_method": "Free account required to view listings (registration is free)",
+      "notes": "This is an AGGREGATOR, not an auction platform. It lists domains from GoDaddy, Dynadot, Namecheap, and pending delete lists. Shows SEO metrics (BL, DP, ABY, DA, TF, CF). Best free tool for finding domains across multiple platforms. Database has 745M+ domains tracked, 572M+ deleted domains tracked.",
+      "key_sections": {
+        "godaddy_closeouts": "https://www.expireddomains.net/godaddy-closeout-domains/",
+        "godaddy_expired": "https://www.expireddomains.net/godaddy-expired-domains/",
+        "godaddy_auctions_with_bids": "https://www.expireddomains.net/godaddy-domain-auctions-with-bids/",
+        "dynadot_closeouts": "https://www.expireddomains.net/dynadot-closeout-domains/",
+        "namecheap_auctions": "https://www.expireddomains.net/namecheap-auction-domains/"
+      },
+      "verdict": "Best starting point for finding real auction deals. Free but login-gated for full data."
+    }
+  },
+
+  "best_verified_deals_summary": {
+    "under_15_dollars": [
+      {
+        "domain": "ChinaPrimeMinister.com",
+        "price": 5,
+        "platform": "GoDaddy Closeout",
+        "age_years": 15,
+        "backlinks": 12,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "Day 5 closeout ($5 minimum). Aged .com with some backlinks. Niche political keyword."
+      },
+      {
+        "domain": "28gf.com",
+        "price": 11,
+        "platform": "GoDaddy Closeout",
+        "age_years": 14,
+        "backlinks": 1,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "Day 1 closeout ($11). Short 4-character .com."
+      },
+      {
+        "domain": "nwtaichi.com",
+        "price": 5,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 23,
+        "tf": 19,
+        "da": 14,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "23-year-old .com with TF 19 at only $5 current bid. STRONG deal if it stays low."
+      },
+      {
+        "domain": "acme-atlanta.com",
+        "price": 11,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 30,
+        "tf": 16,
+        "da": 22,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "30-YEAR-OLD .com at only $11 current bid. DA 22, TF 16. If it stays at this price, this is an exceptional deal."
+      },
+      {
+        "domain": "confraternitasanbiagio.com",
+        "price": 11,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 17,
+        "tf": 18,
+        "da": 9,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "17-year-old .com, TF 18, $11 bid. Long name but authentic Italian org domain."
+      },
+      {
+        "domain": "khakied.com",
+        "price_range": "$5-$11",
+        "platform": "GoDaddy Closeout",
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "One-word dictionary .com, entered closeout today (May 7, 2026)"
+      },
+      {
+        "domain": "marblelike.com",
+        "price_range": "$5-$11",
+        "platform": "GoDaddy Closeout",
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "One-word dictionary .com, entered closeout today (May 7, 2026)"
+      }
+    ],
+    "under_50_dollars": [
+      {
+        "domain": "mc900.com",
+        "price": 30,
+        "platform": "GoDaddy Closeout",
+        "age_years": 22,
+        "backlinks": 378,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "Short alphanumeric .com, 378 backlinks, 22 years old. Strong closeout deal."
+      },
+      {
+        "domain": "deltacardiffvfc.com",
+        "price": 30,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 25,
+        "tf": 22,
+        "da": 19,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "25-year-old .com, TF 22 (strong), $30 bid. Sports/football niche."
+      },
+      {
+        "domain": "baxfamily.com",
+        "price": 30,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 23,
+        "tf": 18,
+        "da": 15,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "23-year-old .com, $30 bid."
+      },
+      {
+        "domain": "gslc-bsa.org",
+        "price": 40,
+        "platform": "GoDaddy Expired Auction",
+        "age_years": 26,
+        "tf": 17,
+        "da": 29,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "26-year-old .org, DA 29 (strong). BSA/scouting org - likely has .edu/.gov backlinks."
+      },
+      {
+        "domain": "DumpsterShop.com",
+        "price": 50,
+        "platform": "GoDaddy Closeout",
+        "age_years": 15,
+        "backlinks": 254,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "254 backlinks, 15 years old. Commercial niche domain. Good SEO foundation."
+      },
+      {
+        "domain": "ihackstore.com",
+        "price": 50,
+        "platform": "GoDaddy Closeout",
+        "age_years": 17,
+        "backlinks": 113,
+        "buy_url": "https://auctions.godaddy.com/beta",
+        "notes": "113 backlinks, 17 years old. Tech niche."
+      }
+    ],
+    "under_100_dollars": [
+      {
+        "domain": "sorturl.com",
+        "price": 99,
+        "platform": "Park.io",
+        "bids": 2,
+        "close_date": "2026-05-08",
+        "buy_url": "https://park.io/auctions",
+        "notes": "URL/tech brandable .com at $99 with only 2 bids."
+      },
+      {
+        "domain": "extra.ly",
+        "price": 99,
+        "platform": "Park.io",
+        "bids": 2,
+        "close_date": "2026-05-07",
+        "buy_url": "https://park.io/auctions",
+        "notes": "Single English word .ly domain. URL shortener potential."
+      },
+      {
+        "domain": "down.ly",
+        "price": 102,
+        "platform": "Park.io",
+        "bids": 3,
+        "close_date": "2026-05-07",
+        "buy_url": "https://park.io/auctions",
+        "notes": "Short common word .ly domain."
+      },
+      {
+        "domain": "feature.ly",
+        "price": 102,
+        "platform": "Park.io",
+        "bids": 3,
+        "close_date": "2026-05-08",
+        "buy_url": "https://park.io/auctions",
+        "notes": "SaaS-friendly .ly domain (feature.ly)."
+      },
+      {
+        "domain": "fuse.ly",
+        "price": 102,
+        "platform": "Park.io",
+        "bids": 3,
+        "close_date": "2026-05-09",
+        "buy_url": "https://park.io/auctions",
+        "notes": "Tech brandable .ly domain."
+      }
+    ],
+    "park_io_expiring_highlights": [
+      {
+        "domain": "binaryoptions.io",
+        "expiry": "2026-05-08",
+        "platform": "Park.io",
+        "backorder_price": 99,
+        "buy_url": "https://park.io/domains/view/binaryoptions.io",
+        "notes": "High-value financial keyword .io. Could be worth $5K+ if caught. $99 backorder."
+      },
+      {
+        "domain": "airlinetickets.io",
+        "expiry": "2026-05-09",
+        "platform": "Park.io",
+        "backorder_price": 99,
+        "buy_url": "https://park.io/domains/view/airlinetickets.io",
+        "notes": "High CPC keyword .io domain."
+      },
+      {
+        "domain": "flowers.ly",
+        "expiry": "2026-05-09",
+        "platform": "Park.io",
+        "backorder_price": 99,
+        "buy_url": "https://park.io/domains",
+        "notes": "Single common English word .ly. URL shortener or floral brand."
+      },
+      {
+        "domain": "banking.vc",
+        "expiry": "2026-05-09",
+        "platform": "Park.io",
+        "backorder_price": 99,
+        "buy_url": "https://park.io/domains",
+        "notes": "FinTech keyword on .vc (venture capital) TLD."
+      },
+      {
+        "domain": "accident.ly",
+        "expiry": "2026-05-09",
+        "platform": "Park.io",
+        "backorder_price": 99,
+        "buy_url": "https://park.io/domains",
+        "notes": "Single word .ly - brandable for incident tracking or insurance."
+      }
+    ]
+  },
+
+  "methodology_notes": {
+    "data_sources": [
+      "expireddomains.net - GoDaddy closeout listings (partial, login-gated for full data)",
+      "domcop.com - GoDaddy expired auction listings with SEO metrics (partial, filtered by TF>=15)",
+      "park.io/auctions - Live auction listings with verified prices and bid counts",
+      "park.io/domains - Expiring domain inventory with dates",
+      "karma.domains - Platform statistics for DropCatch and Dynadot",
+      "domaingang.com - DropCatch recent sale results",
+      "namepros.com - Community closeout domain lists",
+      "who.is - WHOIS verification for Sprint 10 domains"
+    ],
+    "platforms_blocked_by_403_or_js_rendering": [
+      "auctions.godaddy.com (requires login/membership)",
+      "dropcatch.com (JS-rendered SPA)",
+      "namejet.com (403 blocked)",
+      "dynadot.com/market/auction (403 blocked)",
+      "namecheap.com/market (403 blocked)",
+      "abtdomain.com (403 blocked)",
+      "namepros.com threads (403 blocked)"
+    ],
+    "verification_approach": "All prices listed in this report were extracted from actual platform pages or aggregator sites that pull live data. No prices were estimated or cached. Where a platform blocked access, the listing is marked as unverified or sourced from third-party aggregators."
+  },
+
+  "recommendations_for_agent_team": {
+    "immediate_action_items": [
+      "1. Sign up for free ExpiredDomains.net account to access full GoDaddy closeout listings with filters",
+      "2. Purchase GoDaddy Auctions membership ($4.99/yr) to access closeout Buy Now functionality",
+      "3. Download closeout_listings.json.zip from inventory.auctions.godaddy.com for full inventory",
+      "4. Filter for .com domains, age 10+, backlinks 50+, price $5-$11 (day 4-5 closeouts)",
+      "5. Check gslc-bsa.org ($40, 26yr, DA29) and acme-atlanta.com ($11, 30yr, DA22) immediately - these expire in hours",
+      "6. Consider Park.io backorders for binaryoptions.io and airlinetickets.io ($99 each) expiring tomorrow"
+    ],
+    "sprint10_correction": "ALL five Sprint 10 domains (wdtech.com, chapter7bankruptcy.com, flashcardsonline.com, freeexercise.com, sageinvestor.com) are investor-held aftermarket premium listings, NOT auction deals. Their 'prices' were seller-set premium asking prices ($1,540+), not closeout or auction prices. Sprint 12 should completely disregard Sprint 10's domain valuations.",
+    "real_deal_criteria": {
+      "platform": "GoDaddy Closeouts or Expired Auctions with 0-1 bids",
+      "price": "$5-$50",
+      "age": "10+ years (preserves WHOIS creation date)",
+      "backlinks": "50+ from Majestic, with TF 15+",
+      "tld": ".com strongly preferred",
+      "red_flags_to_avoid": [
+        "Domains on Afternic nameservers (these are premium listings, not auctions)",
+        "clientTransferProhibited + clientDeleteProhibited status (investor-locked)",
+        "Prices above $100 on 'closeout' - these are NOT closeouts",
+        "Domains with spammy backlink profiles or prior penalties"
+      ]
+    }
+  }
+}

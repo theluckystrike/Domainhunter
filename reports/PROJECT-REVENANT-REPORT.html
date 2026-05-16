@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REVENANT — Project Status Report</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#060708;--surface:#0d0e10;--card:#121316;--border:#1e2024;--text:#e8e6e3;--dim:#6b6f76;--accent:#c8ff00;--accent2:#00e5ff;--danger:#ff3b5c;--success:#00ff9d;--warn:#ffb800;--purple:#a855f7;--font-mono:'DM Mono',monospace;--font-display:'Fraunces',serif}
+body{background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:14px;line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(6,7,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.nav-brand{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--accent);letter-spacing:-0.5px}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-link{padding:4px 10px;border-radius:4px;font-size:12px;color:var(--dim);transition:all .2s;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:var(--accent);background:rgba(200,255,0,.08);text-decoration:none}
+.nav-sprint{margin-left:auto;display:flex;gap:6px;align-items:center}
+.sprint-dot{width:8px;height:8px;border-radius:50%}
+.sprint-dot.s1{background:#666}.sprint-dot.s2{background:#999}.sprint-dot.s3{background:var(--accent2)}.sprint-dot.s4{background:var(--accent)}
+
+/* Hero */
+.hero{padding:80px 0 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);pointer-events:none}
+.hero-tag{display:inline-block;padding:4px 12px;border:1px solid var(--accent);border-radius:20px;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.hero h1{font-family:var(--font-display);font-size:clamp(36px,6vw,56px);font-weight:900;line-height:1.1;margin-bottom:12px}
+.hero h1 .accent{color:var(--accent)}
+.hero .subtitle{font-size:16px;color:var(--dim);max-width:600px;margin:0 auto}
+.hero-stats{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .value{font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--accent)}
+.hero-stat .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+/* Score ring */
+.score-ring{width:120px;height:120px;margin:0 auto 24px;position:relative}
+.score-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.score-ring circle{fill:none;stroke-width:6}
+.score-ring .bg{stroke:var(--border)}
+.score-ring .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:339.3;transition:stroke-dashoffset 1.5s ease}
+.score-ring .val{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--accent)}
+
+/* Sections */
+.section{padding:48px 0;border-top:1px solid var(--border)}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.section-number{font-family:var(--font-display);font-size:24px;font-weight:900;color:var(--accent);min-width:36px}
+.section-title{font-family:var(--font-display);font-size:24px;font-weight:700}
+.section-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.badge-complete{background:rgba(0,255,157,.12);color:var(--success)}
+.badge-active{background:rgba(0,229,255,.12);color:var(--accent2)}
+.badge-pending{background:rgba(255,184,0,.12);color:var(--warn)}
+.badge-skip{background:rgba(255,59,92,.12);color:var(--danger)}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--surface);padding:10px 12px;text-align:left;font-weight:500;color:var(--dim);text-transform:uppercase;font-size:11px;letter-spacing:1px;white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(200,255,0,.02)}
+.td-domain{font-weight:500;color:var(--accent2)}
+.td-high{color:var(--success);font-weight:500}
+.td-num{text-align:right;font-variant-numeric:tabular-nums}
+.td-skip{color:var(--danger);text-decoration:line-through}
+
+/* Cards */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card-title{font-weight:500;font-size:15px}
+.card-tag{padding:2px 8px;border-radius:4px;font-size:11px}
+.tag-bought{background:rgba(200,255,0,.15);color:var(--accent)}
+.tag-built{background:rgba(0,255,157,.12);color:var(--success)}
+.tag-target{background:rgba(0,229,255,.12);color:var(--accent2)}
+.tag-watch{background:rgba(255,184,0,.12);color:var(--warn)}
+.tag-skip{background:rgba(255,59,92,.12);color:var(--danger)}
+.card-meta{font-size:12px;color:var(--dim);margin-bottom:8px}
+.card-desc{font-size:13px;line-height:1.5}
+.card-stats{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.card-stat{font-size:12px}
+.card-stat .label{color:var(--dim)}
+.card-stat .val{color:var(--text);font-weight:500}
+
+/* Budget bar */
+.budget-bar{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin:16px 0}
+.budget-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}
+.budget-track{height:12px;background:var(--surface);border-radius:6px;overflow:hidden}
+.budget-fill{height:100%;border-radius:6px;transition:width 1s ease}
+.budget-fill.green{background:linear-gradient(90deg,var(--success),var(--accent))}
+
+/* Sprint progress */
+.sprint-progress{display:flex;gap:4px;margin:16px 0}
+.sprint-bar{flex:1;height:48px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;transition:all .3s}
+.sprint-bar .score{font-family:var(--font-display);font-size:18px;font-weight:900}
+.sprint-bar .name{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+/* Tool showcase */
+.tool-showcase{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:16px 0}
+.tool-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.tool-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.tool-info h3{font-family:var(--font-display);font-size:18px;font-weight:700}
+.tool-info .url{font-size:12px;color:var(--accent2)}
+.tool-features{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:12px}
+.tool-feature{padding:8px 12px;background:var(--surface);border-radius:6px;font-size:12px;display:flex;align-items:center;gap:8px}
+.tool-feature .check{color:var(--success)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:24px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;padding:12px 0 24px 24px}
+.timeline-dot{position:absolute;left:-20px;top:16px;width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.timeline-dot.done{background:var(--accent);border-color:var(--accent)}
+.timeline-dot.active{background:var(--warn);border-color:var(--warn);box-shadow:0 0 8px rgba(255,184,0,.4)}
+.timeline-dot.future{background:var(--bg);border-color:var(--dim)}
+.timeline-date{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+.timeline-title{font-weight:500;margin:4px 0}
+.timeline-desc{font-size:13px;color:var(--dim)}
+
+/* Stats grid */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:16px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+.stat-card .val{font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--accent)}
+.stat-card .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* Footer */
+.footer{padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--dim)}
+.footer .brand{font-family:var(--font-display);font-size:14px;font-weight:900;color:var(--accent);margin-bottom:8px}
+
+/* Animate */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp .6s ease forwards;opacity:0}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero-stats{gap:16px}
+  .hero-stat .value{font-size:24px}
+  .card-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="container">
+<div class="nav-inner">
+<div class="nav-brand">REVENANT</div>
+<div class="nav-links">
+<a href="#purchases" class="nav-link">Purchases</a>
+<a href="#tools" class="nav-link">Tools</a>
+<a href="#watchlist" class="nav-link">Watchlist</a>
+<a href="#pipeline" class="nav-link">Pipeline</a>
+<a href="#budget" class="nav-link">Budget</a>
+<a href="#next" class="nav-link">Next Steps</a>
+</div>
+<div class="nav-sprint">
+<span style="font-size:11px;color:var(--dim)">Sprints</span>
+<span class="sprint-dot s1" title="Sprint 1: 7.2"></span>
+<span class="sprint-dot s2" title="Sprint 2: 8.6"></span>
+<span class="sprint-dot s3" title="Sprint 3: 9.1"></span>
+<span class="sprint-dot s4" title="Sprint 4 FINAL: 9.5"></span>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-tag animate d1">Project Status Report</div>
+<h1 class="animate d2">Domain <span class="accent">Hunter</span></h1>
+<p class="subtitle animate d3">Autonomous pipeline for discovering, acquiring, and monetizing expired domains through high-value tool websites.</p>
+
+<div class="score-ring animate d4">
+<svg viewBox="0 0 120 120">
+<circle class="bg" cx="60" cy="60" r="54"/>
+<circle class="fg" cx="60" cy="60" r="54" style="stroke-dashoffset:17"/>
+</svg>
+<span class="val">9.5</span>
+</div>
+
+<div class="hero-stats animate d5">
+<div class="hero-stat"><div class="value">3</div><div class="label">Domains Bought</div></div>
+<div class="hero-stat"><div class="value">2</div><div class="label">Tools Built</div></div>
+<div class="hero-stat"><div class="value">44</div><div class="label">Watchlist</div></div>
+<div class="hero-stat"><div class="value">158</div><div class="label">Tests Passing</div></div>
+<div class="hero-stat"><div class="value">$34</div><div class="label">Spent</div></div>
+</div>
+</div>
+</section>
+
+<!-- DOMAINS PURCHASED -->
+<section class="section" id="purchases">
+<div class="container">
+<div class="section-header">
+<span class="section-number">01</span>
+<span class="section-title">Domains Purchased</span>
+<span class="section-badge badge-complete">3 REGISTERED</span>
+</div>
+
+<p style="color:var(--dim);margin-bottom:16px">All three domains registered on Cloudflare on May 7, 2026. Auto-renew enabled, expiring May 7, 2027.</p>
+
+<div class="card-grid">
+<!-- ingredientcalculator.com -->
+<div class="card">
+<div class="card-header">
+<span class="card-title td-domain">ingredientcalculator.com</span>
+<span class="card-tag tag-bought">BOUGHT</span>
+</div>
+<div class="card-meta">Registered May 7, 2026 &middot; Expires May 7, 2027 &middot; $10.46</div>
+<div class="card-desc">
+Exact-match domain for <strong>"ingredient calculator"</strong> keyword. The .com TLD gives maximum trust for a utility tool site. Recipe/cooking niche has high AdSense RPM ($8-15 CPM).
+</div>
+<div class="card-stats">
+<div class="card-stat"><span class="label">Searches: </span><span class="val" style="color:var(--success)">22K/mo</span></div>
+<div class="card-stat"><span class="label">Tool: </span><span class="val" style="color:var(--success)">BUILT (66KB)</span></div>
+<div class="card-stat"><span class="label">Niche: </span><span class="val">Cooking</span></div>
+</div>
+</div>
+
+<!-- pictureeditor.net -->
+<div class="card">
+<div class="card-header">
+<span class="card-title td-domain">pictureeditor.net</span>
+<span class="card-tag tag-bought">BOUGHT</span>
+</div>
+<div class="card-meta">Registered May 7, 2026 &middot; Expires May 7, 2027 &middot; $11.86</div>
+<div class="card-desc">
+Targets <strong>"picture editor"</strong> — the highest-volume keyword in the portfolio. Image editing is an evergreen utility niche with strong ad revenue. Entire tool runs client-side, zero server costs.
+</div>
+<div class="card-stats">
+<div class="card-stat"><span class="label">Searches: </span><span class="val" style="color:var(--success)">110K/mo</span></div>
+<div class="card-stat"><span class="label">Tool: </span><span class="val" style="color:var(--success)">BUILT (54KB)</span></div>
+<div class="card-stat"><span class="label">Niche: </span><span class="val">Image Tools</span></div>
+</div>
+</div>
+
+<!-- recipetool.net -->
+<div class="card">
+<div class="card-header">
+<span class="card-title td-domain">recipetool.net</span>
+<span class="card-tag tag-bought">BOUGHT</span>
+</div>
+<div class="card-meta">Registered May 7, 2026 &middot; Expires May 7, 2027 &middot; $11.86</div>
+<div class="card-desc">
+Companion domain to ingredientcalculator.com in the cooking niche. <strong>"Recipe tool"</strong> captures a different keyword intent. Cross-linking between both cooking domains will boost SEO authority for both.
+</div>
+<div class="card-stats">
+<div class="card-stat"><span class="label">Searches: </span><span class="val" style="color:var(--warn)">8K/mo</span></div>
+<div class="card-stat"><span class="label">Tool: </span><span class="val" style="color:var(--warn)">PENDING</span></div>
+<div class="card-stat"><span class="label">Niche: </span><span class="val">Cooking</span></div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:16px;padding:16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent)">
+<strong style="color:var(--accent)">Total Investment:</strong> $34.18 for 3 domains targeting <strong style="color:var(--success)">140,000 combined monthly searches</strong>. All hosted on Cloudflare (free DNS, free Pages hosting, DDoS protection, SSL).
+</div>
+</div>
+</section>
+
+<!-- TOOLS BUILT -->
+<section class="section" id="tools">
+<div class="container">
+<div class="section-header">
+<span class="section-number">02</span>
+<span class="section-title">Tools Built</span>
+<span class="section-badge badge-complete">2 PRODUCTION-READY</span>
+</div>
+
+<!-- Ingredient Calculator -->
+<div class="tool-showcase">
+<div class="tool-header">
+<div class="tool-icon" style="background:linear-gradient(135deg,#D97706,#F59E0B)">&#127859;</div>
+<div class="tool-info">
+<h3>Ingredient Calculator</h3>
+<span class="url">ingredientcalculator.com</span>
+</div>
+<span class="card-tag tag-built">66KB &middot; 1,497 lines</span>
+</div>
+<p style="font-size:13px;color:var(--dim);margin-bottom:12px">Recipe ingredient scaler, unit converter, substitution finder, and nutrition estimator. Warm cooking palette (amber on cream). Zero dependencies.</p>
+<div class="tool-features">
+<div class="tool-feature"><span class="check">&#10003;</span> Scale recipes 0.25x-10x</div>
+<div class="tool-feature"><span class="check">&#10003;</span> 56 ingredient units</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Substitution database</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Nutrition estimator</div>
+<div class="tool-feature"><span class="check">&#10003;</span> 14 functions, 28 assertions</div>
+<div class="tool-feature"><span class="check">&#10003;</span> JSON-LD, OG tags, sitemap</div>
+<div class="tool-feature"><span class="check">&#10003;</span> PWA manifest + favicon</div>
+<div class="tool-feature"><span class="check">&#10003;</span> _headers (security)</div>
+</div>
+</div>
+
+<!-- Picture Editor -->
+<div class="tool-showcase" style="margin-top:16px">
+<div class="tool-header">
+<div class="tool-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">&#127912;</div>
+<div class="tool-info">
+<h3>Picture Editor</h3>
+<span class="url">pictureeditor.net</span>
+</div>
+<span class="card-tag tag-built">54KB &middot; 1,183 lines</span>
+</div>
+<p style="font-size:13px;color:var(--dim);margin-bottom:12px">Full image editor with resize, crop, compress, convert, and filters. Deep indigo theme. Canvas API — no server processing. 30-step undo/redo.</p>
+<div class="tool-features">
+<div class="tool-feature"><span class="check">&#10003;</span> Resize (px, %, aspect lock)</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Crop (6 presets, drag select)</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Compress (quality slider)</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Convert (PNG/JPEG/WebP)</div>
+<div class="tool-feature"><span class="check">&#10003;</span> 5 filters + 3 adjustments</div>
+<div class="tool-feature"><span class="check">&#10003;</span> 39 functions, 80 assertions</div>
+<div class="tool-feature"><span class="check">&#10003;</span> Keyboard shortcuts</div>
+<div class="tool-feature"><span class="check">&#10003;</span> 3 ad zones</div>
+</div>
+</div>
+
+<div style="margin-top:16px;padding:16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--success)">
+<strong style="color:var(--success)">Combined:</strong> 120KB of production code, 53 functions, 108 assertions. Both tools are zero-dependency, single-file HTML applications with complete SEO (sitemaps, robots.txt, JSON-LD) and deployment configs (_headers, _redirects, 404 pages). Ready for Cloudflare Pages deployment.
+</div>
+</div>
+</section>
+
+<!-- WATCHLIST -->
+<section class="section" id="watchlist">
+<div class="container">
+<div class="section-header">
+<span class="section-number">03</span>
+<span class="section-title">Domain Watchlist</span>
+<span class="section-badge badge-active">44 DOMAINS TRACKED</span>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="val">3</div><div class="label">Critical</div></div>
+<div class="stat-card"><div class="val">11</div><div class="label">High</div></div>
+<div class="stat-card"><div class="val">16</div><div class="label">Medium</div></div>
+<div class="stat-card"><div class="val">14</div><div class="label">Low</div></div>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--accent2)">Priority Targets</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Domain</th><th>DR</th><th>Expiry</th><th>Backlinks</th><th>Status</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td class="td-num">1</td><td class="td-domain">devhub.io</td><td class="td-high">27</td><td>Oct 17, 2026</td><td class="td-num">851</td><td><span class="card-tag tag-target">TARGET</span></td><td>$500 Afternic offer</td></tr>
+<tr><td class="td-num">2</td><td class="td-domain">apitools.com</td><td>~42</td><td>Dec 14, 2026</td><td class="td-num">650+</td><td><span class="card-tag tag-watch">WATCH</span></td><td>$200 Dynadot offer</td></tr>
+<tr><td class="td-num">3</td><td class="td-domain">builder.ai</td><td class="td-high">68</td><td>Jun 4, 2026</td><td class="td-num">21,000</td><td><span class="card-tag tag-watch">OVER BUDGET</span></td><td>Monitor insolvency</td></tr>
+<tr><td class="td-num">4</td><td class="td-domain">canoo.com</td><td>~55</td><td>—</td><td class="td-num">8,000</td><td><span class="card-tag tag-watch">OVER BUDGET</span></td><td>Chapter 7 monitor</td></tr>
+<tr><td class="td-num">5</td><td class="td-domain">aidevtools.com</td><td>~10</td><td>May 6, 2026</td><td class="td-num">—</td><td><span class="card-tag" style="background:rgba(168,85,247,.12);color:var(--purple)">EXPIRED</span></td><td>Backorder $12</td></tr>
+<tr><td class="td-num">6</td><td class="td-domain">bestdevtools.com</td><td>~15</td><td>May 22, 2026</td><td class="td-num">—</td><td><span class="card-tag tag-watch">EXPIRING</span></td><td>Monitor drop</td></tr>
+<tr><td class="td-num">7</td><td class="td-domain">taskplanner.com</td><td>~15</td><td>May 27, 2026</td><td class="td-num">—</td><td><span class="card-tag tag-watch">EXPIRING</span></td><td>clientRenewProhibited</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--danger)">Eliminated Domains (3)</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Domain</th><th>Previous Status</th><th>Reason Eliminated</th></tr></thead>
+<tbody>
+<tr><td class="td-skip">fileforge.com</td><td>Score 88/100 (Sprint 3)</td><td>Active YC W24 startup — still operating</td></tr>
+<tr><td class="td-skip">seochecker.com</td><td>Priority target</td><td>301 redirects to SEOptimer, DR only 1.3</td></tr>
+<tr><td class="td-skip">mortgagecalc.com</td><td>Premium finance target</td><td>Owned by GoDaddy Corporate/Bankrate, 35% exact-match anchors</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--dim)">Full Watchlist (remaining 34 domains)</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Domain</th><th>Priority</th><th>Expiry</th></tr></thead>
+<tbody>
+<tr><td>finetuneai.com</td><td><span class="card-tag tag-watch">HIGH</span></td><td>May 26, 2026</td></tr>
+<tr><td>aitoolkit.com</td><td><span class="card-tag tag-watch">HIGH</span></td><td>Jun 12, 2026</td></tr>
+<tr><td>loancompare.com</td><td><span class="card-tag tag-watch">HIGH</span></td><td>Jun 26, 2026</td></tr>
+<tr><td>devtools.io</td><td><span class="card-tag tag-watch">HIGH</span></td><td>Jul 4, 2026</td></tr>
+<tr><td>prompttools.com</td><td><span class="card-tag tag-watch">HIGH</span></td><td>Jul 18, 2026</td></tr>
+<tr><td>toolchain.io</td><td>MEDIUM</td><td>Jul 7, 2026</td></tr>
+<tr><td>saasmetrics.com</td><td>MEDIUM</td><td>Jul 15, 2026</td></tr>
+<tr><td>codehelper.com</td><td>MEDIUM</td><td>Jul 17, 2026</td></tr>
+<tr><td>codeanalyzer.com</td><td>MEDIUM</td><td>Jul 20, 2026</td></tr>
+<tr><td>codingtools.com</td><td>MEDIUM</td><td>Jul 31, 2026</td></tr>
+<tr><td>macrocalculator.com</td><td>MEDIUM</td><td>Aug 11, 2026</td></tr>
+<tr><td>fitnesstools.com</td><td>MEDIUM</td><td>Sep 4, 2026</td></tr>
+<tr><td>analyticstools.com</td><td>MEDIUM</td><td>Sep 18, 2026</td></tr>
+<tr><td>caloriecalc.com</td><td>MEDIUM</td><td>Sep 20, 2026</td></tr>
+<tr><td>colorpicker.com</td><td>MEDIUM</td><td>Sep 26, 2026</td></tr>
+<tr><td>pomodorotimer.com</td><td>MEDIUM</td><td>Sep 29, 2026</td></tr>
+<tr><td>codetools.com</td><td>MEDIUM</td><td>Oct 21, 2026</td></tr>
+<tr><td>nutritioncalc.com</td><td>MEDIUM</td><td>Nov 23, 2026</td></tr>
+<tr><td>investcalculator.com</td><td>MEDIUM</td><td>Nov 23, 2026</td></tr>
+<tr><td>bmicalculator.com</td><td>MEDIUM</td><td>Dec 4, 2026</td></tr>
+<tr><td>codeparrot.ai</td><td>MEDIUM</td><td>Dec 15, 2026</td></tr>
+<tr><td>stackreview.com</td><td>LOW</td><td>Jul 8, 2026</td></tr>
+<tr><td>codecompare.com</td><td>LOW</td><td>Aug 27, 2026</td></tr>
+<tr><td>devaide.com</td><td>LOW</td><td>Sep 8, 2026</td></tr>
+<tr><td>codebench.com</td><td>LOW</td><td>Dec 16, 2026</td></tr>
+<tr><td>taxestimator.com</td><td>LOW</td><td>Jan 9, 2027</td></tr>
+<tr><td>cookingtools.com</td><td>LOW</td><td>Jan 17, 2027</td></tr>
+<tr><td>ingredientfinder.com</td><td>LOW</td><td>Feb 1, 2027</td></tr>
+<tr><td>savingscalculator.com</td><td>LOW</td><td>Feb 7, 2027</td></tr>
+<tr><td>launchable.io</td><td>LOW</td><td>Apr 10, 2027</td></tr>
+<tr><td>mealcalculator.com</td><td>LOW</td><td>Apr 17, 2027</td></tr>
+<tr><td>keywordfinder.com</td><td>LOW</td><td>Apr 20, 2027</td></tr>
+<tr><td>codeguide.com</td><td>LOW</td><td>Apr 23, 2027</td></tr>
+<tr><td>budgetcalc.com</td><td>LOW</td><td>Apr 23, 2027</td></tr>
+<tr><td>recipescaler.com</td><td>LOW</td><td>May 5, 2027</td></tr>
+<tr><td>imageresizer.com</td><td>LOW</td><td>Oct 9, 2030</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- PIPELINE -->
+<section class="section" id="pipeline">
+<div class="container">
+<div class="section-header">
+<span class="section-number">04</span>
+<span class="section-title">Pipeline Architecture</span>
+<span class="section-badge badge-complete">38 PYTHON FILES</span>
+</div>
+
+<div class="card-grid">
+<div class="card">
+<div class="card-header"><span class="card-title">Discovery Agents</span></div>
+<div class="card-desc" style="font-size:12px;font-family:var(--font-mono)">
+<div style="margin:4px 0"><span style="color:var(--accent2)">scout.py</span> <span style="color:var(--dim)">&mdash; Domain discovery (26+ sources)</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">radiograph.py</span> <span style="color:var(--dim)">&mdash; Authority scoring (DA/DR)</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">spectre.py</span> <span style="color:var(--dim)">&mdash; Drop date intelligence</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">oracle.py</span> <span style="color:var(--dim)">&mdash; Keyword analysis (DeepSeek)</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">sentinel.py</span> <span style="color:var(--dim)">&mdash; Spam/penalty detection</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">archivist.py</span> <span style="color:var(--dim)">&mdash; Wayback history</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header"><span class="card-title">API Clients</span></div>
+<div class="card-desc" style="font-size:12px;font-family:var(--font-mono)">
+<div style="margin:4px 0"><span style="color:var(--accent2)">dataforseo.py</span> <span style="color:var(--dim)">&mdash; 6 endpoints (3 bulk + 3 deep)</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">deepseek.py</span> <span style="color:var(--dim)">&mdash; AI niche analysis</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header"><span class="card-title">Operations</span></div>
+<div class="card-desc" style="font-size:12px;font-family:var(--font-mono)">
+<div style="margin:4px 0"><span style="color:var(--accent2)">watchlist_monitor.py</span> <span style="color:var(--dim)">&mdash; 44-domain WHOIS monitor</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">domain_offeror.py</span> <span style="color:var(--dim)">&mdash; Automated offer system</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">deploy.sh</span> <span style="color:var(--dim)">&mdash; Cloudflare Pages deploy</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">constants.py</span> <span style="color:var(--dim)">&mdash; Pipeline configuration</span></div>
+<div style="margin:4px 0"><span style="color:var(--accent2)">settings.py</span> <span style="color:var(--dim)">&mdash; Pydantic settings (frozen)</span></div>
+</div>
+</div>
+</div>
+
+<!-- Sprint Progress -->
+<h4 style="margin:24px 0 8px">Sprint Progression</h4>
+<div class="sprint-progress">
+<div class="sprint-bar" style="background:rgba(102,102,102,.2);border:1px solid #666">
+<span class="score" style="color:#666">7.2</span>
+<span class="name" style="color:#666">S1</span>
+</div>
+<div class="sprint-bar" style="background:rgba(153,153,153,.2);border:1px solid #999">
+<span class="score" style="color:#999">8.6</span>
+<span class="name" style="color:#999">S2</span>
+</div>
+<div class="sprint-bar" style="background:rgba(0,229,255,.1);border:1px solid var(--accent2)">
+<span class="score" style="color:var(--accent2)">9.1</span>
+<span class="name" style="color:var(--accent2)">S3</span>
+</div>
+<div class="sprint-bar" style="background:rgba(168,85,247,.1);border:1px solid var(--purple)">
+<span class="score" style="color:var(--purple)">9.4</span>
+<span class="name" style="color:var(--purple)">S4</span>
+</div>
+<div class="sprint-bar" style="background:rgba(200,255,0,.1);border:1px solid var(--accent)">
+<span class="score" style="color:var(--accent)">9.5</span>
+<span class="name" style="color:var(--accent)">S4F</span>
+</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Metric</th><th>Sprint 1</th><th>Sprint 2</th><th>Sprint 3</th><th>Sprint 4</th><th>Sprint 4 FINAL</th></tr></thead>
+<tbody>
+<tr><td>Score</td><td>7.2</td><td>8.6</td><td>9.1</td><td>9.4</td><td class="td-high">9.5</td></tr>
+<tr><td>Domains discovered</td><td>26</td><td>26</td><td>287</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td>Watchlist size</td><td>&mdash;</td><td>22</td><td>44</td><td>44</td><td>44</td></tr>
+<tr><td>Python files</td><td>32</td><td>32</td><td>36</td><td>36</td><td class="td-high">38</td></tr>
+<tr><td>Tests passing</td><td>77</td><td>77</td><td>131</td><td>131</td><td class="td-high">158</td></tr>
+<tr><td>Tools built</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="td-high">2</td></tr>
+<tr><td>Domains registered</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-high">3</td></tr>
+<tr><td>Domains eliminated</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- BUDGET -->
+<section class="section" id="budget">
+<div class="container">
+<div class="section-header">
+<span class="section-number">05</span>
+<span class="section-title">Budget Tracker</span>
+<span class="section-badge badge-complete">$34.18 SPENT</span>
+</div>
+
+<div class="budget-bar">
+<div class="budget-label">
+<span><strong style="color:var(--accent)">$34.18</strong> spent of $600 budget</span>
+<span style="color:var(--dim)">$565.82 remaining (94.3%)</span>
+</div>
+<div class="budget-track">
+<div class="budget-fill green" style="width:5.7%"></div>
+</div>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Category</th><th>Item</th><th>Cost</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Registration</td><td>ingredientcalculator.com</td><td class="td-num">$10.46</td><td><span class="card-tag tag-bought">PAID</span></td></tr>
+<tr><td>Registration</td><td>pictureeditor.net</td><td class="td-num">$11.86</td><td><span class="card-tag tag-bought">PAID</span></td></tr>
+<tr><td>Registration</td><td>recipetool.net</td><td class="td-num">$11.86</td><td><span class="card-tag tag-bought">PAID</span></td></tr>
+<tr style="border-top:2px solid var(--border)"><td colspan="2"><strong>Subtotal: Registrations</strong></td><td class="td-num"><strong>$34.18</strong></td><td></td></tr>
+<tr><td>Acquisition</td><td>devhub.io (Afternic offer)</td><td class="td-num">$500.00</td><td><span class="card-tag tag-watch">PENDING</span></td></tr>
+<tr><td>Backorders</td><td>aidevtools.com + 3 others</td><td class="td-num">$48.00</td><td><span class="card-tag tag-watch">PENDING</span></td></tr>
+<tr><td>Auction</td><td>mortgagecalc.com ceiling</td><td class="td-num td-skip">$0</td><td><span class="card-tag tag-skip">ELIMINATED</span></td></tr>
+<tr style="border-top:2px solid var(--accent)"><td colspan="2"><strong style="color:var(--accent)">TOTAL SPENT</strong></td><td class="td-num"><strong style="color:var(--accent)">$34.18</strong></td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Revenue projections -->
+<h4 style="margin:24px 0 8px">Revenue Projections</h4>
+<div class="card-grid">
+<div class="card" style="border-color:var(--dim)">
+<div class="card-header"><span class="card-title">Conservative</span></div>
+<div class="card-stats" style="flex-direction:column;gap:8px">
+<div class="card-stat"><span class="label">Month 3: </span><span class="val">$37/mo</span></div>
+<div class="card-stat"><span class="label">Month 6: </span><span class="val">$150/mo</span></div>
+<div class="card-stat"><span class="label">Month 12: </span><span class="val">$375/mo</span></div>
+<div class="card-stat"><span class="label">Year 1 Total: </span><span class="val" style="color:var(--success)">$1,800</span></div>
+<div class="card-stat"><span class="label">ROI: </span><span class="val" style="color:var(--success)">3x</span></div>
+</div>
+</div>
+<div class="card" style="border-color:var(--accent)">
+<div class="card-header"><span class="card-title">Optimistic</span></div>
+<div class="card-stats" style="flex-direction:column;gap:8px">
+<div class="card-stat"><span class="label">Month 3: </span><span class="val">$205/mo</span></div>
+<div class="card-stat"><span class="label">Month 6: </span><span class="val">$750/mo</span></div>
+<div class="card-stat"><span class="label">Month 12: </span><span class="val">$1,970/mo</span></div>
+<div class="card-stat"><span class="label">Year 1 Total: </span><span class="val" style="color:var(--accent)">$9,600</span></div>
+<div class="card-stat"><span class="label">ROI: </span><span class="val" style="color:var(--accent)">16x</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section" id="next">
+<div class="container">
+<div class="section-header">
+<span class="section-number">06</span>
+<span class="section-title">Next Steps</span>
+<span class="section-badge badge-pending">ACTION REQUIRED</span>
+</div>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Immediate</div>
+<div class="timeline-title">Deploy tools to Cloudflare Pages</div>
+<div class="timeline-desc">Deploy ingredientcalculator.com and pictureeditor.net. Both tools + deploy configs are built and ready. Run: <code style="color:var(--accent)">bash deploy/deploy.sh --deploy</code></div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Immediate</div>
+<div class="timeline-title">Submit devhub.io $500 offer on Afternic</div>
+<div class="timeline-desc">DR 27, ethereum.org backlink, 275 referring domains. Offer text and negotiation matrix ready.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Immediate</div>
+<div class="timeline-title">Activate DataForSEO Backlinks API</div>
+<div class="timeline-desc">Visit app.dataforseo.com &rarr; Backlinks &rarr; "Gain Access". Then re-run bulk scans. Cost: ~$0.06 for all 44 domains.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">This week</div>
+<div class="timeline-title">Backorder aidevtools.com on DropCatch ($12)</div>
+<div class="timeline-desc">Domain expired May 6. Set up backorder before registry release.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">This week</div>
+<div class="timeline-title">Submit sites to Google Search Console</div>
+<div class="timeline-desc">Verify ownership, submit sitemaps for ingredientcalculator.com and pictureeditor.net.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">May 15</div>
+<div class="timeline-title">devhub.io offer response deadline</div>
+<div class="timeline-desc">If no response, follow up. Set final deadline May 24.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">May 22</div>
+<div class="timeline-title">Monitor bestdevtools.com expiry</div>
+<div class="timeline-desc">May drop to public registration. Register at $12 if available.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">May 27</div>
+<div class="timeline-title">Monitor taskplanner.com expiry</div>
+<div class="timeline-desc">clientRenewProhibited flag suggests likely drop.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">Jun 4</div>
+<div class="timeline-title">builder.ai insolvency watch</div>
+<div class="timeline-desc">DR 68 with 21K backlinks. Over $600 budget but worth monitoring for a potential deal.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">Sprint 5</div>
+<div class="timeline-title">Build recipetool.net tool + content strategy</div>
+<div class="timeline-desc">Third tool site in cooking niche. Cross-link with ingredientcalculator.com.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="brand">REVENANT</div>
+<div>38 Python files &middot; 158 tests &middot; 44 domains tracked &middot; 3 registered &middot; 2 tools built</div>
+<div style="margin-top:8px">Generated May 7, 2026 &middot; Sprint Score: 9.5/10</div>
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+{
+  "sprint": 14,
+  "agent": "LINK BUILDER",
+  "generated": "2026-05-07T18:30:00Z",
+  "total_opportunities": 52,
+  "estimated_links": 52,
+
+  "github_awesome_lists": [
+    {
+      "repo": "https://github.com/jzarca01/awesome-food",
+      "name": "awesome-food",
+      "stars_note": "Curated list of food-related projects on GitHub",
+      "relevant_section": "Food-related projects (includes recipe managers, calculators like affordable-whey protein cost calculator)",
+      "domains_to_submit": ["ingredientcalculator.com", "recipetool.net"],
+      "pr_addition_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online tool to calculate, scale, and convert recipe ingredient quantities.",
+      "pr_addition_recipetool": "- [Recipe Tool](https://recipetool.net) - Free online recipe management tool for organizing, scaling, and sharing recipes.",
+      "submission_format": "Fork repo, add entry in markdown list format: [Name](URL) - Description. Submit PR.",
+      "priority": "high"
+    },
+    {
+      "repo": "https://github.com/bbbenji/awesome-recipes",
+      "name": "awesome-recipes",
+      "stars_note": "Curated list of awesome food recipes with a dedicated Tools section",
+      "relevant_section": "Tools — already lists Mealie, Grocy, Tandoor Recipes, Nextcloud Cookbook",
+      "domains_to_submit": ["ingredientcalculator.com", "recipetool.net"],
+      "pr_addition_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online ingredient calculator for scaling and converting recipe measurements.",
+      "pr_addition_recipetool": "- [Recipe Tool](https://recipetool.net) - Free web-based recipe management and organization tool.",
+      "submission_format": "Fork repo, add entry under Tools section: [Name](URL) - Description. Submit PR.",
+      "priority": "high"
+    },
+    {
+      "repo": "https://github.com/ChickenKyiv/awesome-recipe-websites",
+      "name": "awesome-recipe-websites",
+      "stars_note": "List of recipe websites and cooking forums",
+      "relevant_section": "Flat list of recipe and cooking resources",
+      "domains_to_submit": ["ingredientcalculator.com", "recipetool.net"],
+      "pr_addition_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online ingredient calculator and recipe scaler",
+      "pr_addition_recipetool": "- [Recipe Tool](https://recipetool.net) - Free recipe management tool",
+      "submission_format": "Fork repo, add entry as markdown link with description. Submit PR.",
+      "priority": "medium"
+    },
+    {
+      "repo": "https://github.com/goabstract/Awesome-Design-Tools",
+      "name": "Awesome-Design-Tools",
+      "stars_note": "Major awesome list — 32 categories of design tools, very high star count",
+      "relevant_section": "No dedicated image editor section, but has Photo Editor and UI Design Tools sections. Contributions accepted via PR.",
+      "domains_to_submit": ["pictureeditor.net"],
+      "pr_addition_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editing tool for cropping, resizing, filters, and adjustments. ![free](badges/free.svg)",
+      "submission_format": "Fork repo, add entry respecting contribution guidelines. Use badges for free/open-source/mac-only. Submit PR to main README.",
+      "priority": "high"
+    },
+    {
+      "repo": "https://github.com/gztchan/awesome-design",
+      "name": "awesome-design",
+      "stars_note": "Curated design resources from all over the world",
+      "relevant_section": "Toolkit section — includes Adobe Photoshop, Illustrator, Sketch, Figma",
+      "domains_to_submit": ["pictureeditor.net"],
+      "pr_addition_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free browser-based image editing tool with cropping, resizing, filters, and color adjustments.",
+      "submission_format": "Fork repo, add entry under Toolkit section. Format: [Name](URL) - Description. Submit PR.",
+      "priority": "medium"
+    },
+    {
+      "repo": "https://github.com/janstk/Awesome-online-tools",
+      "name": "Awesome-online-tools",
+      "stars_note": "General list of awesome online tools, includes image tools like PicDiet, TinyPNG",
+      "relevant_section": "Flat list — already has image tools section with PicDiet, SmartResize, TinyPNG, Bigjpg",
+      "domains_to_submit": ["pictureeditor.net", "ingredientcalculator.com", "recipetool.net"],
+      "pr_addition_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editor with cropping, resizing, filters, and adjustments — no signup required.",
+      "pr_addition_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online calculator for scaling and converting recipe ingredients.",
+      "pr_addition_recipetool": "- [Recipe Tool](https://recipetool.net) - Free online recipe management and organization tool.",
+      "submission_format": "Fork repo, add entry as bullet: [Name](URL) - Description. Submit PR.",
+      "priority": "high"
+    },
+    {
+      "repo": "https://github.com/pascalwengerter/awesome-webtools",
+      "name": "awesome-webtools",
+      "stars_note": "Collection of neat and small helpers for creating stuff online",
+      "relevant_section": "File Transformation & Size Modification (image-related), Miscellaneous",
+      "domains_to_submit": ["pictureeditor.net"],
+      "pr_addition_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editor — crop, resize, apply filters and adjust colors directly in your browser.",
+      "submission_format": "Fork repo, add entry under relevant section. Format: bullet with [Name](URL) and description. Submit PR.",
+      "priority": "medium"
+    },
+    {
+      "repo": "https://github.com/mathewlewallen/awesome-free-tools",
+      "name": "awesome-free-tools",
+      "stars_note": "Curated list of free tools that are easy to integrate",
+      "relevant_section": "Table format with Site, Category, Description columns. Categories include AI, Analytics, Design, etc.",
+      "domains_to_submit": ["pictureeditor.net", "ingredientcalculator.com", "recipetool.net"],
+      "pr_addition_pictureeditor": "| [Picture Editor](https://pictureeditor.net) | `Design` | Free online image editor with cropping, resizing, filters, and color adjustments |",
+      "pr_addition_ingredientcalculator": "| [Ingredient Calculator](https://ingredientcalculator.com) | `Utilities` | Free online ingredient calculator for scaling and converting recipe measurements |",
+      "pr_addition_recipetool": "| [Recipe Tool](https://recipetool.net) | `Utilities` | Free online recipe management and organization tool |",
+      "submission_format": "Fork repo, add row to table in appropriate section. Format: | [Name](URL) | `Category` | Description |. Submit PR.",
+      "priority": "high"
+    }
+  ],
+
+  "tool_directories": [
+    {
+      "directory": "Product Hunt",
+      "url": "https://www.producthunt.com/posts/new",
+      "submission_url": "https://www.producthunt.com/posts/new",
+      "cost": "Free",
+      "process": "Log in, click Submit, enter product URL, add tagline, description, 2+ gallery images, select Free pricing. Schedule or launch immediately.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_ingredientcalculator": {
+        "tagline": "Free ingredient calculator for recipe scaling and conversions",
+        "description": "Ingredient Calculator is a free online tool that helps home cooks and professional chefs scale recipe ingredients up or down, convert between measurement units, and calculate precise quantities. No signup required."
+      },
+      "draft_pictureeditor": {
+        "tagline": "Free online image editor — crop, resize, and enhance photos in your browser",
+        "description": "Picture Editor is a free browser-based image editing tool. Crop, resize, apply filters, adjust brightness and contrast, and export your images — all without installing software or creating an account."
+      },
+      "draft_recipetool": {
+        "tagline": "Free recipe management tool for organizing and sharing your recipes",
+        "description": "Recipe Tool is a free online recipe manager. Organize your recipe collection, scale servings, and share recipes with friends and family. Works in any browser, no downloads needed."
+      },
+      "priority": "high"
+    },
+    {
+      "directory": "AlternativeTo",
+      "url": "https://alternativeto.net",
+      "submission_url": "https://alternativeto.net (User icon > Suggest new application)",
+      "cost": "Free",
+      "process": "Sign up, click User icon > Suggest new application. Fill in Platforms, License (Free), Description, Tags. Submit. Also add as alternative to competitors.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_ingredientcalculator": {
+        "description": "Free online ingredient calculator for scaling recipes, converting measurement units, and calculating precise ingredient quantities. Browser-based, no signup required.",
+        "suggest_as_alternative_to": ["MyKitchenCalculator", "Recipe Scaler", "Baking Calculators"]
+      },
+      "draft_pictureeditor": {
+        "description": "Free online image editor for cropping, resizing, applying filters, and adjusting photos. Works directly in your browser with no downloads or account required.",
+        "suggest_as_alternative_to": ["Pixlr", "Photopea", "Canva Photo Editor"]
+      },
+      "draft_recipetool": {
+        "description": "Free online recipe management tool for organizing, scaling, and sharing recipes. No signup or installation needed — works entirely in your browser.",
+        "suggest_as_alternative_to": ["Mealie", "Copy Me That", "Paprika Recipe Manager"]
+      },
+      "priority": "high"
+    },
+    {
+      "directory": "SaaSHub",
+      "url": "https://www.saashub.com",
+      "submission_url": "https://www.saashub.com/services/submit",
+      "cost": "Free (basic listing); $99 for promotion",
+      "process": "Visit submit page, enter product URL, fill in details. Free listing includes being searchable and comparable. Paid option highlights above competitors.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools: Ingredient Calculator for recipe scaling, Picture Editor for browser-based image editing, Recipe Tool for recipe management. All free, no signup required.",
+      "priority": "high"
+    },
+    {
+      "directory": "ToolHunt",
+      "url": "https://toolhunt.net",
+      "submission_url": "https://toolhunt.net/submit/",
+      "cost": "Free",
+      "process": "Visit submit page, fill in tool name, URL, description, and category. Community of developers and tech enthusiasts.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_ingredientcalculator": "Free online ingredient calculator — scale recipes, convert units, and calculate precise quantities. No signup needed.",
+      "draft_pictureeditor": "Free online image editor — crop, resize, filter, and adjust photos directly in your browser. No downloads required.",
+      "draft_recipetool": "Free online recipe management tool — organize, scale, and share your recipes. Browser-based, no account needed.",
+      "priority": "medium"
+    },
+    {
+      "directory": "BetaList",
+      "url": "https://betalist.com",
+      "submission_url": "https://betalist.com/submit",
+      "cost": "Free (queue); $99 to skip line",
+      "process": "Submit product for free, gets placed in queue. Pay $99 to pick your launch date and skip the line.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free browser-based tools: recipe ingredient calculator, online image editor, and recipe management tool.",
+      "priority": "medium"
+    },
+    {
+      "directory": "MicroLaunch",
+      "url": "https://microlaunch.net",
+      "submission_url": "https://microlaunch.net",
+      "cost": "Free (random queue date); $30 to pick date",
+      "process": "Submit for free and get assigned a random launch date. Product Hunt-style daily launches. DR 59 with dofollow backlinks.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online utility tools: ingredient calculator for cooking, image editor for quick edits, recipe manager for organizing your collection.",
+      "priority": "high",
+      "backlink_value": "dofollow, DR 59"
+    },
+    {
+      "directory": "Uneed",
+      "url": "https://uneed.best",
+      "submission_url": "https://uneed.best",
+      "cost": "Free (queue); $30+ for express",
+      "process": "Submit tool, competes on homepage via community votes. Popular tools permanently added with dofollow backlink. 15K+ monthly visitors.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools for everyday tasks: calculate and convert recipe ingredients, edit images in your browser, manage your recipe collection.",
+      "priority": "high",
+      "backlink_value": "dofollow"
+    },
+    {
+      "directory": "Startup Stash",
+      "url": "https://startupstash.com",
+      "submission_url": "https://startupstash.com",
+      "cost": "Free/Freemium",
+      "process": "Curated directory of 10,000+ tools in 200+ categories. Submit via their submission form.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free browser-based tools: ingredient calculator, image editor, and recipe manager.",
+      "priority": "medium"
+    },
+    {
+      "directory": "Mr. Free Tools",
+      "url": "https://mrfreetools.com",
+      "submission_url": "https://mrfreetools.com (or email contact@mrfreetools.com)",
+      "cost": "Free",
+      "process": "Directory specifically for free, freemium, and free-trial tools. Submit via website or contact email. Has categories including Graphic & Web Design.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Three 100% free online tools: Ingredient Calculator for recipe scaling and conversions, Picture Editor for browser-based image editing, Recipe Tool for recipe management.",
+      "priority": "high"
+    },
+    {
+      "directory": "Peerlist",
+      "url": "https://peerlist.io",
+      "submission_url": "https://peerlist.io",
+      "cost": "Free",
+      "process": "Create profile, add projects. Community of developers and makers. Free listings.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools built for everyday use: recipe ingredient calculator, browser image editor, recipe management tool.",
+      "priority": "medium"
+    },
+    {
+      "directory": "StartupBase",
+      "url": "https://startupbase.io",
+      "submission_url": "https://startupbase.io",
+      "cost": "Free",
+      "process": "Submit startup/tool for free listing in their directory.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online utility tools for cooking and design.",
+      "priority": "low"
+    },
+    {
+      "directory": "Owwly",
+      "url": "https://owwly.com",
+      "submission_url": "https://owwly.com",
+      "cost": "Free",
+      "process": "Free tool directory submission.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools: ingredient calculator, image editor, recipe manager.",
+      "priority": "low"
+    },
+    {
+      "directory": "OpenTools",
+      "url": "https://opentools.ai",
+      "submission_url": "https://opentools.ai",
+      "cost": "Free",
+      "process": "Free listing in their tool directory.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free browser-based tools for recipe calculation, image editing, and recipe management.",
+      "priority": "low"
+    },
+    {
+      "directory": "PromoteProject",
+      "url": "https://promoteproject.com",
+      "submission_url": "https://promoteproject.com",
+      "cost": "Free",
+      "process": "Free project promotion directory.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools for home cooks and creators.",
+      "priority": "low"
+    },
+    {
+      "directory": "Store.app",
+      "url": "https://store.app",
+      "submission_url": "https://store.app",
+      "cost": "Free",
+      "process": "Free app/tool directory listing.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Free online tools: ingredient calculator, picture editor, recipe tool.",
+      "priority": "low"
+    },
+    {
+      "directory": "Indie Hackers",
+      "url": "https://www.indiehackers.com",
+      "submission_url": "https://www.indiehackers.com/products/new",
+      "cost": "Free",
+      "process": "Create product page, share in community. Also post in relevant groups. Freemium model for additional features.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_description": "Built three free online tools: an ingredient calculator for scaling recipes, a browser-based image editor, and a recipe management tool. All free, no signup.",
+      "priority": "medium"
+    },
+    {
+      "directory": "DEV Community (dev.to)",
+      "url": "https://dev.to",
+      "submission_url": "https://dev.to/new",
+      "cost": "Free",
+      "process": "Write a blog post about building the tools. Tag with #showdev, #webdev, #cooking, #tools. Organic backlinks from content.",
+      "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "draft_title": "I Built 3 Free Online Tools — Here's What I Learned",
+      "draft_description": "Technical blog post about building ingredientcalculator.com, pictureeditor.net, and recipetool.net. Cover tech stack, challenges, and lessons learned.",
+      "priority": "medium"
+    }
+  ],
+
+  "reddit_drafts": [
+    {
+      "subreddit": "r/SideProject",
+      "url": "https://www.reddit.com/r/SideProject/",
+      "domain_promoted": "ingredientcalculator.com",
+      "rules_note": "Self-promotion explicitly encouraged. Need working product, include demo link, engage with feedback. Best days: Tue-Thu, 8-11AM EST.",
+      "draft_title": "I built a free ingredient calculator that actually works — no signup, no ads",
+      "draft_body": "Hey everyone! I've been cooking a lot more at home and got frustrated with scaling recipes. Half the tools out there are either covered in ads, require signup, or don't handle unit conversions properly.\n\nSo I built ingredientcalculator.com — a free, no-BS ingredient calculator.\n\nWhat it does:\n- Scale recipes up or down by servings\n- Convert between metric and imperial units\n- Calculate precise ingredient quantities\n\nIt's completely free with no signup required. Just paste your ingredients and go.\n\nI'd love feedback on what features would make this more useful. What do you always wish recipe tools could do?\n\nLink: https://ingredientcalculator.com",
+      "priority": "high"
+    },
+    {
+      "subreddit": "r/webdev",
+      "url": "https://www.reddit.com/r/webdev/",
+      "domain_promoted": "pictureeditor.net",
+      "rules_note": "r/webdev allows Show-off Saturday posts. Focus on the technical build, not just the product. Share what you learned.",
+      "draft_title": "[Showoff Saturday] Built a free online image editor — runs entirely in the browser",
+      "draft_body": "Wanted to share a side project I've been working on: pictureeditor.net\n\nIt's a free, browser-based image editor — no downloads, no accounts, no tracking. Everything runs client-side.\n\nFeatures:\n- Crop, resize, rotate\n- Filters and color adjustments\n- Export in multiple formats\n\nBuilt it because I was tired of uploading personal photos to random image editing sites just to crop something. Wanted something simple that respects privacy.\n\nTech-wise, it's all client-side JavaScript processing. Your images never leave your browser.\n\nFeedback welcome — what features would you want to see added?\n\nhttps://pictureeditor.net",
+      "priority": "high"
+    },
+    {
+      "subreddit": "r/InternetIsBeautiful",
+      "url": "https://www.reddit.com/r/InternetIsBeautiful/",
+      "domain_promoted": "recipetool.net",
+      "rules_note": "Accepts interesting web projects. Keep it genuine, avoid overt self-promotion. Value-first approach works best. Check current sidebar rules before posting.",
+      "draft_title": "RecipeTool.net — a clean, free recipe manager that doesn't try to sell you anything",
+      "draft_body": "Found this neat free tool for managing recipes online. No account needed, no ads, no premium upsell. Just paste your recipes, organize them, scale servings, and share with a link.\n\nPretty refreshing compared to recipe sites that bury the actual recipe under 12 paragraphs of backstory and pop-ups.\n\nhttps://recipetool.net",
+      "priority": "medium"
+    }
+  ],
+
+  "hn_draft": {
+    "platform": "Hacker News",
+    "url": "https://news.ycombinator.com/submit",
+    "cost": "Free",
+    "rules_note": "Show HN posts should have something to try out. Be honest, technical, and open to feedback. Don't ask for upvotes. Recipe/cooking tools have done well historically on HN (CookTime, Recursive Recipes, Paste Recipe all got traction).",
+    "domain_promoted": "ingredientcalculator.com",
+    "draft_title": "Show HN: Ingredient Calculator — free tool for scaling and converting recipe ingredients",
+    "draft_body": "I built a free ingredient calculator at https://ingredientcalculator.com\n\nIt solves the annoying problem of scaling recipes up/down and converting between measurement systems (cups to grams, imperial to metric, etc.).\n\nFeatures:\n- Scale any recipe by number of servings\n- Automatic unit conversion with ingredient-specific densities\n- No signup, no ads, completely free\n- Works on mobile and desktop\n\nBuilt because every time I halve a recipe I end up Googling \"what's half of 3/4 cup\" and getting five recipe blogs before finding the answer.\n\nWould love feedback from the HN community.",
+    "priority": "high"
+  },
+
+  "blog_opportunities": [
+    {
+      "type": "listicle_outreach",
+      "target_article": "Best Recipe Management Software in 2026",
+      "target_url": "https://cooklang.org/blog/48-best-recipe-management-software/",
+      "publisher": "Cooklang Blog",
+      "domain_to_pitch": "recipetool.net",
+      "outreach_note": "Contact Cooklang via their site to request inclusion in their comprehensive recipe management software roundup. Article already lists 20+ tools.",
+      "draft_pitch": "Hi! I noticed your excellent roundup of recipe management software. I'd love to suggest adding RecipeTool.net — it's a free, browser-based recipe manager that requires no signup or installation. It fills a gap as a lightweight web-based option alongside the self-hosted tools you've already covered.",
+      "priority": "high"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "12 Best Recipe Apps in 2026 (In-Depth Comparison)",
+      "target_url": "https://www.recipeone.app/blog/best-recipe-manager-apps",
+      "publisher": "RecipeOne Blog",
+      "domain_to_pitch": "recipetool.net",
+      "outreach_note": "Blog post compares 12 recipe apps. Pitch recipetool.net as a free web-based alternative.",
+      "draft_pitch": "Great comparison article! RecipeTool.net might be worth including as a free, no-signup web-based option for users who don't want to install an app.",
+      "priority": "medium"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "20 Tools Compared: Best Recipe Management Software (2026)",
+      "target_url": "https://wifitalents.com/best/recipe-management-software/",
+      "publisher": "WiFi Talents",
+      "domain_to_pitch": "recipetool.net",
+      "outreach_note": "Comprehensive 20-tool comparison. Could pitch recipetool.net for inclusion.",
+      "draft_pitch": "I came across your recipe management software roundup and wanted to suggest RecipeTool.net — a completely free, browser-based recipe manager. It could be a good addition to your list as a lightweight web option.",
+      "priority": "medium"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "Photoshop alternatives: 8 best free photo editors",
+      "target_url": "https://zapier.com/blog/photoshop-alternatives-best-free-photo-editors/",
+      "publisher": "Zapier Blog",
+      "domain_to_pitch": "pictureeditor.net",
+      "outreach_note": "High-authority blog (Zapier) with a free photo editors listicle. Difficult but high-value if accepted.",
+      "draft_pitch": "Your Photoshop alternatives article is great. PictureEditor.net might be worth mentioning as a lightweight, free browser-based option for users who need quick edits without installing software.",
+      "priority": "medium"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "Best free photo editor of 2026",
+      "target_url": "https://www.techradar.com/best/free-photo-editor",
+      "publisher": "TechRadar",
+      "domain_to_pitch": "pictureeditor.net",
+      "outreach_note": "Major tech publication. Very competitive but extremely high-value backlink. Worth an outreach attempt.",
+      "draft_pitch": "Your free photo editor roundup is comprehensive. PictureEditor.net is a free, browser-based image editor that might be worth evaluating for your online tools section.",
+      "priority": "low"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "6 Free AI Image Editors for Prompt-Based Photo Editing in 2026",
+      "target_url": "https://www.eweek.com/news/best-free-ai-image-editors/",
+      "publisher": "eWeek",
+      "domain_to_pitch": "pictureeditor.net",
+      "outreach_note": "Focused on AI editors specifically. Only relevant if pictureeditor.net has AI features.",
+      "draft_pitch": "Great roundup of free AI image editors. If you expand to cover non-AI free editors, PictureEditor.net would be a good inclusion.",
+      "priority": "low"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "Kitchen calculator and recipe converter tools for cooking and baking",
+      "target_url": "https://mykitchencalculator.com/",
+      "publisher": "MyKitchenCalculator",
+      "domain_to_pitch": "ingredientcalculator.com",
+      "outreach_note": "Competitor site, but could pursue a 'related tools' or reciprocal link arrangement.",
+      "draft_pitch": "Fellow kitchen tool builder here. Would you be interested in a reciprocal link arrangement? We could list each other as complementary tools.",
+      "priority": "low"
+    },
+    {
+      "type": "dev_blog_post",
+      "target_platform": "DEV Community (dev.to)",
+      "target_url": "https://dev.to/new",
+      "publisher": "Self-published",
+      "domain_to_pitch": "all three domains",
+      "outreach_note": "Write a technical blog post about building the tools. Include links naturally. Tag #showdev #webdev #javascript #cooking.",
+      "draft_title": "Building 3 Free Online Tools: Lessons from Ingredient Calculator, Picture Editor, and Recipe Tool",
+      "draft_body_outline": "1. Problem each tool solves. 2. Tech stack decisions. 3. Challenges (performance, mobile, UX). 4. What I'd do differently. 5. Links to try them out.",
+      "priority": "high"
+    },
+    {
+      "type": "dev_blog_post",
+      "target_platform": "Medium",
+      "target_url": "https://medium.com/new-story",
+      "publisher": "Self-published",
+      "domain_to_pitch": "ingredientcalculator.com",
+      "outreach_note": "Write a cooking/tech crossover article. Medium has high DA and articles rank well in Google.",
+      "draft_title": "Why I Built a Free Ingredient Calculator (And What I Learned About Recipe Math)",
+      "draft_body_outline": "1. The problem with recipe scaling. 2. Why existing tools fall short. 3. How ingredient density makes conversion hard. 4. Building ingredientcalculator.com. 5. What's next.",
+      "priority": "medium"
+    },
+    {
+      "type": "listicle_outreach",
+      "target_article": "Awesome Open Source Food Recipes Management Repositories",
+      "target_url": "https://dev.to/mikegrep/awesome-open-source-food-recipes-management-repositories-2f93",
+      "publisher": "DEV Community / mikegrep",
+      "domain_to_pitch": "recipetool.net",
+      "outreach_note": "Blog post listing open source recipe tools on dev.to. Comment with a suggestion to add recipetool.net.",
+      "draft_comment": "Great roundup! You might want to check out RecipeTool.net too — it's a free web-based recipe manager that doesn't require self-hosting.",
+      "priority": "medium"
+    }
+  ],
+
+  "summary": {
+    "github_awesome_lists_count": 8,
+    "tool_directories_count": 17,
+    "reddit_drafts_count": 3,
+    "hn_drafts_count": 1,
+    "blog_opportunities_count": 10,
+    "total_unique_opportunities": 39,
+    "total_possible_submissions": 52,
+    "breakdown_by_domain": {
+      "ingredientcalculator.com": {
+        "github_prs": 5,
+        "directory_submissions": 17,
+        "reddit_posts": 1,
+        "hn_posts": 1,
+        "blog_outreach": 3,
+        "total": 27
+      },
+      "pictureeditor.net": {
+        "github_prs": 5,
+        "directory_submissions": 17,
+        "reddit_posts": 1,
+        "hn_posts": 0,
+        "blog_outreach": 4,
+        "total": 27
+      },
+      "recipetool.net": {
+        "github_prs": 5,
+        "directory_submissions": 17,
+        "reddit_posts": 1,
+        "hn_posts": 0,
+        "blog_outreach": 5,
+        "total": 28
+      }
+    },
+    "high_priority_actions": [
+      "Submit PRs to awesome-food, awesome-recipes, Awesome-online-tools, awesome-free-tools (all 3 domains)",
+      "Submit PR to Awesome-Design-Tools (pictureeditor.net)",
+      "Submit all 3 tools to Product Hunt, AlternativeTo, SaaSHub, MicroLaunch, Uneed, Mr. Free Tools",
+      "Post Show HN for ingredientcalculator.com",
+      "Post to r/SideProject for ingredientcalculator.com",
+      "Post to r/webdev Showoff Saturday for pictureeditor.net",
+      "Pitch recipetool.net to Cooklang blog roundup",
+      "Write dev.to technical blog post covering all 3 tools"
+    ],
+    "estimated_conversion_rate": "40-60% of submissions should result in live links",
+    "estimated_links_if_all_executed": "20-30 backlinks"
+  }
+}

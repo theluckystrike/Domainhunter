@@ -1,0 +1,886 @@
+{
+  "metadata": {
+    "generated": "2026-05-07",
+    "sprint": 9,
+    "description": "Day-by-day timeline of all events, drops, deadlines, and required actions",
+    "budget_remaining": 565.82,
+    "total_pending_actions": 17,
+    "emergency_actions": 5,
+    "urgent_actions": 4
+  },
+  "timeline": [
+    {
+      "date": "2026-05-07",
+      "day_label": "TODAY",
+      "events": [
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "EMERGENCY",
+          "action": "Unblock DropCatch account verification",
+          "details": "Log in to dropcatch.com, check verification status, call support if pending. This blocks 15 backorders.",
+          "url": "https://www.dropcatch.com",
+          "status": "PENDING_SINCE_SPRINT_4"
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "EMERGENCY",
+          "action": "Sign up Dynadot, deposit $5, backorder ALL 16 domains",
+          "details": "Cheapest catch platform ($24.99/catch). Independent from DropCatch/SnapNames. Covers all 16 domains.",
+          "url": "https://www.dynadot.com/market/backorder",
+          "cost": 5.00,
+          "status": "NOT_STARTED"
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "EMERGENCY",
+          "action": "Sign up SnapNames, backorder 9 domains",
+          "details": "ektopos.com, bishopswaltham.net, ciudadsegontia.com, lindisima.com, itsnewsweb.com, bluedogcafe.com, bestdevtools.com, finetuneai.com, scififoods.com",
+          "url": "https://www.snapnames.com",
+          "cost": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "EMERGENCY",
+          "action": "Sign up NameJet, backorder 6 domains with proxy bids",
+          "details": "aidevtools.com ($75), taskplanner.com ($75), jerusalemonline.com ($300), sushifaq.com ($250), ghostautonomy.com ($400), globalgeopark.org ($150)",
+          "url": "https://www.namejet.com",
+          "cost": 0,
+          "status": "NOT_STARTED"
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "EMERGENCY",
+          "action": "Check GoDaddy Auctions for all 16 domains",
+          "details": "Search each domain. If any are listed, bid immediately within max_bid limits.",
+          "url": "https://auctions.godaddy.com/beta",
+          "cost": 4.99,
+          "status": "NOT_STARTED"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "day_label": "TOMORROW",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "EMERGENCY",
+          "domain": "bishopswaltham.net",
+          "da": 55,
+          "rd": 41,
+          "max_bid": 75,
+          "niche": "local/geographic",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Backorders MUST be placed by now. If not done, do IMMEDIATELY.",
+          "notes": "If backorders not placed by drop time, domain is likely lost."
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "URGENT",
+          "action": "Verify 3 GSC properties",
+          "details": "Go to search.google.com/search-console, add properties for ingredientcalculator.com, pictureeditor.net, recipetool.net. TXT records already live — just click Verify.",
+          "url": "https://search.google.com/search-console",
+          "status": "TXT_RECORDS_LIVE_SINCE_SPRINT_7"
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "URGENT",
+          "action": "Activate DataForSEO Backlinks API",
+          "details": "Log in to app.dataforseo.com, navigate to API Access/Subscriptions, activate Backlinks API. Currently returning 40204 access denied.",
+          "url": "https://app.dataforseo.com",
+          "status": "PENDING_SINCE_SPRINT_4"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-09",
+      "day_label": "May 9 (Fri)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "EMERGENCY",
+          "domain": "ektopos.com",
+          "da": 47,
+          "rd": 483,
+          "max_bid": 150,
+          "niche": "general",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Backorders must already be placed. Monitor for catch notifications.",
+          "notes": "483 referring domains — valuable backlink profile."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-10",
+      "day_label": "May 10 (Sat)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "EMERGENCY",
+          "domain": "ciudadsegontia.com",
+          "da": 56,
+          "rd": 82,
+          "max_bid": 75,
+          "niche": "local/geographic",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Monitor for catch notifications across all platforms."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-11",
+      "day_label": "May 11 (Sun)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "lindisima.com",
+          "da": 50,
+          "rd": 301,
+          "max_bid": 100,
+          "niche": "beauty",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Monitor for catch notifications."
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "HIGH",
+          "action": "Test daily_hunter.py dry run",
+          "details": "Run: cd /Users/mike/Desktop/domainhunter && python3 tools/daily_hunter.py --dry-run",
+          "status": "NEVER_TESTED"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "day_label": "May 12 (Mon)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "itsnewsweb.com",
+          "da": 55,
+          "rd": 350,
+          "max_bid": 100,
+          "niche": "news",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Monitor for catch notifications."
+        },
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "reggiewatts.com",
+          "da": 51,
+          "rd": 523,
+          "max_bid": 75,
+          "niche": "entertainment",
+          "trademark_risk": true,
+          "backorder_platforms": ["Dynadot only (if opted in)"],
+          "action": "TRADEMARK WARNING — only pursue if you have legitimate non-infringing use.",
+          "notes": "Reggie Watts is a living public figure. High UDRP risk."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-13",
+      "day_label": "May 13 (Tue)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "globalgeopark.org",
+          "da": 49,
+          "rd": 627,
+          "max_bid": 150,
+          "niche": "education/tourism",
+          "backorder_platforms": ["DropCatch ($59)", "NameJet ($150 proxy)", "Dynadot ($0 up)"],
+          "action": "Monitor for catch notifications. 627 RDs — strong backlink profile."
+        },
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "MEDIUM",
+          "action": "Set up cron job for daily_hunter.py",
+          "details": "crontab -e, add: 0 6 * * * cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py >> logs/daily_hunter.log 2>&1",
+          "status": "NOT_DONE"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-14",
+      "day_label": "May 14 (Wed) — OFFER FOLLOW-UP DAY",
+      "events": [
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "apitools.com",
+          "original_offer": 200,
+          "platform": "Dynadot Marketplace",
+          "walk_away": 350,
+          "action": "Check Dynadot dashboard for response. If none, send follow-up message."
+        },
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "sitegrader.com",
+          "original_offer": 100,
+          "platform": "WHOIS contact",
+          "walk_away": 200,
+          "action": "Reply to original email with follow-up."
+        },
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "imageeditor.net",
+          "original_offer": 75,
+          "platform": "WHOIS contact",
+          "walk_away": 150,
+          "action": "Reply to original email with follow-up."
+        },
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "codeguide.com",
+          "original_offer": 50,
+          "platform": "WHOIS contact",
+          "walk_away": 100,
+          "action": "Reply to original email with follow-up."
+        },
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "bestdevtools.com",
+          "original_offer": 75,
+          "platform": "WHOIS contact",
+          "walk_away": 150,
+          "action": "Reply to original email. Note: domain expires May 22, so time pressure is real.",
+          "notes": "Also backordered — offer and backorder are parallel strategies."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "day_label": "May 15 (Thu)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "sushifaq.com",
+          "da": 51,
+          "rd": 769,
+          "max_bid": 250,
+          "niche": "food",
+          "niche_synergy": "FOOD CLUSTER — pairs with ingredientcalculator.com and recipetool.net",
+          "backorder_platforms": ["DropCatch ($59)", "NameJet ($250 proxy)", "Dynadot ($0 up)"],
+          "action": "HIGH VALUE TARGET. Monitor all platforms for catch notifications."
+        },
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "jerusalemonline.com",
+          "da": 64,
+          "rd": 1101,
+          "max_bid": 300,
+          "niche": "travel/news",
+          "backorder_platforms": ["DropCatch ($59)", "NameJet ($300 proxy)", "Dynadot ($0 up)"],
+          "action": "HIGHEST DA IN BATCH. 1101 referring domains. Top acquisition priority."
+        },
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "URGENT",
+          "domain": "bluedogcafe.com",
+          "da": 41,
+          "rd": 251,
+          "max_bid": 150,
+          "niche": "food",
+          "niche_synergy": "FOOD CLUSTER — restaurant/cafe domain",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Monitor for catch notifications."
+        },
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "HIGH",
+          "domain": "devhub.io",
+          "original_offer": 500,
+          "platform": "Afternic",
+          "walk_away": 1500,
+          "action": "Check Afternic dashboard. If no response, send follow-up through Afternic messaging."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-16",
+      "day_label": "May 16 (Fri)",
+      "events": [
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "MEDIUM",
+          "action": "Create accounts on Sedo, Flippa, ExpiredDomains.net, Moonsy",
+          "details": "Research and aftermarket monitoring platforms. Free to create accounts.",
+          "urls": {
+            "sedo": "https://www.sedo.com",
+            "flippa": "https://www.flippa.com",
+            "expireddomains": "https://www.expireddomains.net",
+            "moonsy": "https://www.moonsy.com"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "day_label": "May 22 (Thu)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "bestdevtools.com",
+          "registrar": "1API GmbH (DNSimple)",
+          "action": "Domain expires today. Backorder should already be active on DropCatch + SnapNames + Dynadot. Grace period begins (~30 days).",
+          "est_drop_date": "2026-07-03",
+          "notes": "Also has pending $75 offer. If offer accepted, cancel backorders."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "day_label": "May 24 (Sat)",
+      "events": [
+        {
+          "type": "OFFER_FOLLOWUP",
+          "priority": "MEDIUM",
+          "domain": "devhub.io",
+          "action": "Final follow-up deadline. If no response after 2 attempts, mark as cold. Consider increasing offer to $750 if strategically important."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "day_label": "May 26 (Mon)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "finetuneai.com",
+          "registrar": "NameCheap, Inc.",
+          "action": "Domain expires today. Backorders should be active. Grace period begins.",
+          "est_drop_date": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "day_label": "May 27 (Tue)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "CRITICAL",
+          "domain": "taskplanner.com",
+          "registrar": "GoDaddy.com, LLC",
+          "action": "Domain expires today. clientRenewProhibited flag = VERY HIGH drop probability. Start monitoring GoDaddy Auctions — it may appear there first.",
+          "est_drop_date": "2026-07-09",
+          "notes": "GoDaddy domains often go to GoDaddy Auctions 26 days after expiry. Check auctions.godaddy.com/beta starting ~Jun 22."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "day_label": "May 28 (Wed)",
+      "events": [
+        {
+          "type": "WATCHLIST_EVAL",
+          "priority": "MEDIUM",
+          "domain": "aitoolkit.com",
+          "action": "Evaluate for backorder. Check WHOIS for drop signals. Expires Jun 12.",
+          "url_check": "whois aitoolkit.com"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "day_label": "Jun 1 (Sun)",
+      "events": [
+        {
+          "type": "WHALE_MONITOR",
+          "priority": "MONITOR",
+          "domain": "builder.ai",
+          "action": "Check WHOIS for builder.ai. Expires Jun 4. DR 68, $50K-200K estimated value. Monitor only — over budget.",
+          "url_check": "whois builder.ai"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-07",
+      "day_label": "Jun 7 (Sat)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "HIGH",
+          "domain": "ghostautonomy.com",
+          "estimated_dr": 45,
+          "max_bid": 400,
+          "niche": "tech/AI",
+          "trademark_risk": "moderate",
+          "backorder_platforms": ["DropCatch ($59)", "NameJet ($400 proxy)", "Dynadot ($0 up)"],
+          "action": "Former OpenAI-backed startup domain. Moderate trademark risk. High value if caught.",
+          "notes": "Check if Ghost Autonomy trademark was sold during asset liquidation before aggressive bidding."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-09",
+      "day_label": "Jun 9 (Mon)",
+      "events": [
+        {
+          "type": "GRACE_PERIOD_END",
+          "priority": "HIGH",
+          "domain": "bestdevtools.com",
+          "action": "Grace period ends (estimated). Monitor registrar for auction listing or pendingDelete status."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "day_label": "Jun 12 (Thu)",
+      "events": [
+        {
+          "type": "WATCHLIST_EVAL",
+          "priority": "MEDIUM",
+          "domain": "aitoolkit.com",
+          "action": "Expires today. Check WHOIS. If dropping, place backorders on all platforms.",
+          "url_check": "whois aitoolkit.com"
+        },
+        {
+          "type": "WATCHLIST_EVAL",
+          "priority": "MEDIUM",
+          "domain": "loancompare.com",
+          "action": "Evaluate for backorder. Expires Jun 26. Check WHOIS.",
+          "url_check": "whois loancompare.com"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "day_label": "Jun 13 (Fri)",
+      "events": [
+        {
+          "type": "GRACE_PERIOD_END",
+          "priority": "HIGH",
+          "domain": "finetuneai.com",
+          "action": "Grace period ends (estimated). Monitor registrar."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "day_label": "Jun 14 (Sat)",
+      "events": [
+        {
+          "type": "DOMAIN_DROP",
+          "priority": "HIGH",
+          "domain": "scififoods.com",
+          "estimated_dr": 25,
+          "max_bid": 75,
+          "niche": "food/tech",
+          "niche_synergy": "FOOD CLUSTER — cultivated meat startup domain",
+          "backorder_platforms": ["DropCatch ($59)", "SnapNames ($0 up)", "Dynadot ($0 up)"],
+          "action": "Food niche domain. Backorders should be active. Monitor for catch.",
+          "notes": "Cultivated meat startup, raised $30M, shut down."
+        },
+        {
+          "type": "GRACE_PERIOD_END",
+          "priority": "HIGH",
+          "domain": "taskplanner.com",
+          "action": "Grace period ends (estimated). Very high drop probability (clientRenewProhibited)."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "day_label": "Jun 17 (Tue)",
+      "events": [
+        {
+          "type": "PENDING_DELETE",
+          "priority": "CRITICAL",
+          "domain": "aidevtools.com",
+          "action": "Estimated pendingDelete date. DropCatch/SnapNames/Dynadot will attempt catch. Monitor email for notifications.",
+          "est_drop_date": "2026-06-17"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "day_label": "Jun 20 (Fri)",
+      "events": [
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "devtools.io",
+          "action": "Place backorders. Expires Jul 4. Use Park.io for .io TLD + DropCatch.",
+          "notes": "Park.io specializes in .io domains — this is the one to use it for."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-22",
+      "day_label": "Jun 22 (Mon)",
+      "events": [
+        {
+          "type": "ACTION_REQUIRED",
+          "priority": "HIGH",
+          "domain": "taskplanner.com",
+          "action": "Start checking GoDaddy Auctions daily. GoDaddy-registered domain may appear in their auction ~26 days after expiry (May 27 + 26 = ~Jun 22).",
+          "url": "https://auctions.godaddy.com/beta"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "day_label": "Jun 23 (Tue)",
+      "events": [
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "toolchain.io",
+          "action": "Place backorders. Expires Jul 7. Use Park.io for .io TLD."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "day_label": "Jun 24 (Wed)",
+      "events": [
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "stackreview.com",
+          "action": "Place backorders on DropCatch + SnapNames/NameJet + Dynadot. Expires Jul 8."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "day_label": "Jun 26 (Thu)",
+      "events": [
+        {
+          "type": "WATCHLIST_EVAL",
+          "priority": "MEDIUM",
+          "domain": "loancompare.com",
+          "action": "Expires today. Check WHOIS. If dropping, evaluate backorder."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "day_label": "Jul 1 (Tue)",
+      "events": [
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "saasmetrics.com",
+          "action": "Place backorders. Expires Jul 15."
+        },
+        {
+          "type": "WHALE_MONITOR",
+          "priority": "MONITOR",
+          "domain": "goodglamm.com",
+          "action": "Check WHOIS. Indian beauty conglomerate shut down. Evaluate if dropping."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "day_label": "Jul 3 (Thu)",
+      "events": [
+        {
+          "type": "PENDING_DELETE",
+          "priority": "CRITICAL",
+          "domain": "bestdevtools.com",
+          "action": "Estimated pendingDelete date. Monitor for catch notifications across all platforms.",
+          "est_drop_date": "2026-07-03"
+        },
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "codehelper.com",
+          "action": "Place backorders. Expires Jul 17."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "day_label": "Jul 4 (Fri)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "devtools.io",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "day_label": "Jul 6 (Sun)",
+      "events": [
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "codeanalyzer.com",
+          "action": "Place backorders. Expires Jul 20."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "day_label": "Jul 7 (Mon)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "toolchain.io",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "day_label": "Jul 8 (Tue)",
+      "events": [
+        {
+          "type": "PENDING_DELETE",
+          "priority": "CRITICAL",
+          "domain": "finetuneai.com",
+          "action": "Estimated pendingDelete date. Monitor for catch.",
+          "est_drop_date": "2026-07-08"
+        },
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "stackreview.com",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "day_label": "Jul 9 (Wed)",
+      "events": [
+        {
+          "type": "PENDING_DELETE",
+          "priority": "CRITICAL",
+          "domain": "taskplanner.com",
+          "action": "Estimated pendingDelete date. VERY HIGH drop probability (clientRenewProhibited). This is the most likely catch in the portfolio.",
+          "est_drop_date": "2026-07-09"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "day_label": "Jul 15 (Tue)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "saasmetrics.com",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "day_label": "Jul 17 (Thu)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "codehelper.com",
+          "action": "Expires today. Backorders should already be placed."
+        },
+        {
+          "type": "WATCHLIST_BACKORDER",
+          "priority": "HIGH",
+          "domain": "codingtools.com",
+          "action": "Place backorders. Expires Jul 31."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-20",
+      "day_label": "Jul 20 (Sun)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "codeanalyzer.com",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-07-31",
+      "day_label": "Jul 31 (Thu)",
+      "events": [
+        {
+          "type": "DOMAIN_EXPIRY",
+          "priority": "HIGH",
+          "domain": "codingtools.com",
+          "action": "Expires today. Backorders should already be placed."
+        }
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "day_label": "Sep 1 (Mon)",
+      "events": [
+        {
+          "type": "WHALE_MONITOR",
+          "priority": "MONITOR",
+          "domain": "withokra.com",
+          "action": "Check WHOIS. Food delivery startup, shut down. If dropping, backorder immediately — fits food cluster perfectly."
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "day_label": "Oct 15 (Wed)",
+      "events": [
+        {
+          "type": "PORTFOLIO_REVIEW",
+          "priority": "MEDIUM",
+          "action": "Q4 Portfolio Review — assess all acquisitions, plan monetization strategy",
+          "details": "Review all caught domains, traffic stats, monetization options. Decide which to develop, which to park, which to flip."
+        }
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "day_label": "Nov 1 (Sat)",
+      "events": [
+        {
+          "type": "PORTFOLIO_REVIEW",
+          "priority": "MEDIUM",
+          "action": "Portfolio Audit — renewal decisions",
+          "details": "Decide which domains to renew vs. let expire based on performance data."
+        }
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "day_label": "Dec 1 (Mon)",
+      "events": [
+        {
+          "type": "PORTFOLIO_REVIEW",
+          "priority": "MEDIUM",
+          "action": "Annual strategy review — plan 2027 acquisitions",
+          "details": "Assess 2026 results, set 2027 budget and target criteria."
+        }
+      ]
+    }
+  ],
+  "offer_tracking": {
+    "total_offers": 6,
+    "total_value_if_accepted": 1000,
+    "offers": [
+      {
+        "domain": "devhub.io",
+        "offer_amount": 500,
+        "walk_away": 1500,
+        "platform": "Afternic",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-15",
+        "final_follow_up": "2026-05-24",
+        "status": "pending",
+        "dr": 27,
+        "rd": 275,
+        "notable": "ethereum.org backlink (DR 93)"
+      },
+      {
+        "domain": "apitools.com",
+        "offer_amount": 200,
+        "walk_away": 350,
+        "platform": "Dynadot Marketplace",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-14",
+        "status": "pending"
+      },
+      {
+        "domain": "sitegrader.com",
+        "offer_amount": 100,
+        "walk_away": 200,
+        "platform": "WHOIS contact",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-14",
+        "status": "pending"
+      },
+      {
+        "domain": "imageeditor.net",
+        "offer_amount": 75,
+        "walk_away": 150,
+        "platform": "WHOIS contact",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-14",
+        "status": "pending"
+      },
+      {
+        "domain": "codeguide.com",
+        "offer_amount": 50,
+        "walk_away": 100,
+        "platform": "WHOIS contact",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-14",
+        "status": "pending"
+      },
+      {
+        "domain": "bestdevtools.com",
+        "offer_amount": 75,
+        "walk_away": 150,
+        "platform": "WHOIS contact",
+        "submitted": "2026-05-07",
+        "follow_up_date": "2026-05-14",
+        "status": "pending",
+        "notes": "Also backordered — expires May 22. Dual strategy: offer + backorder."
+      }
+    ]
+  },
+  "platform_status": {
+    "dropcatch": {
+      "account_created": true,
+      "verified": false,
+      "blocker": "ID verification pending since Sprint 4",
+      "backorders_placed": 4,
+      "backorders_needed": 11,
+      "action": "CALL SUPPORT TO EXPEDITE VERIFICATION"
+    },
+    "snapnames": {
+      "account_created": false,
+      "backorders_needed": 9,
+      "action": "CREATE ACCOUNT TODAY"
+    },
+    "namejet": {
+      "account_created": false,
+      "backorders_needed": 6,
+      "action": "CREATE ACCOUNT TODAY"
+    },
+    "dynadot": {
+      "account_created": false,
+      "deposit_needed": 5.00,
+      "backorders_needed": 16,
+      "action": "CREATE ACCOUNT + DEPOSIT $5 TODAY"
+    },
+    "godaddy_auctions": {
+      "membership_purchased": false,
+      "membership_cost": 4.99,
+      "domains_to_check": 16,
+      "action": "PURCHASE MEMBERSHIP + SEARCH ALL DOMAINS"
+    }
+  },
+  "action_counts": {
+    "total_actions": 17,
+    "completed": 0,
+    "emergency_pending": 5,
+    "urgent_pending": 4,
+    "high_pending": 4,
+    "medium_pending": 4,
+    "blocking_chain": "DropCatch verification (#1) blocks DropCatch backorders (#9) which blocks catch attempts for 15 domains"
+  }
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Background Remover - Remove Image Background Free Online</title>
+<meta name="description" content="Free online background remover. Remove backgrounds from images instantly in your browser. Replace with transparent, white, or any color. Download as PNG. No upload to servers.">
+<meta name="keywords" content="remove background, background remover, background eraser, transparent background, remove bg, photo background remover, image background removal">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/remove-background.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pictureeditor.net/remove-background.html">
+<meta property="og:title" content="Background Remover - Free Online Tool">
+<meta property="og:description" content="Remove image backgrounds instantly. Replace with transparent, white, or custom color. Free and private.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Background Remover - Free Online">
+<meta name="twitter:description" content="Remove backgrounds from images instantly. Free online tool, no upload required.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Background Remover","url":"https://pictureeditor.net/remove-background.html","description":"Free online background remover. Remove and replace image backgrounds instantly in your browser.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:960px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px}
+.subtitle{color:var(--text-secondary);margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.hidden{display:none!important}
+.controls{margin-bottom:20px}
+.control-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.control-row{grid-template-columns:1fr}}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.field select,.field input[type="number"],.field input[type="color"]{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem}
+.field select:focus,.field input:focus{outline:none;border-color:var(--accent)}
+.field input[type="color"]{height:40px;cursor:pointer}
+.slider-field{margin-bottom:12px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.preview-area{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.preview-pane canvas,.preview-pane img{max-width:100%;max-height:400px;border-radius:8px;border:1px solid var(--border)}
+.checker-bg{background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.375rem;padding:.625rem 1.25rem;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.tip-box{padding:12px;background:#fef3c7;border-radius:8px;font-size:.85rem;color:#92400e;margin-top:12px}
+footer{text-align:center;padding:32px 16px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:48px}
+footer a{color:var(--accent);text-decoration:none}
+.faq h3{font-size:1rem;margin:20px 0 6px}
+.faq p{color:var(--text-secondary);font-size:.9rem;margin-bottom:8px}
+.color-presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.color-preset{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);cursor:pointer;transition:.15s}
+.color-preset:hover{border-color:var(--accent);transform:scale(1.15)}
+.color-preset.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><a href="/">Picture Editor</a></h1>
+  <nav>
+    <a href="/">Editor</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/convert.html">Convert</a>
+  </nav>
+</div>
+<main class="container">
+  <h2>Background Remover</h2>
+  <p class="subtitle">Remove backgrounds from images using threshold-based color detection. Works best with high-contrast images and solid-colored backgrounds. All processing happens in your browser.</p>
+
+  <div class="card">
+    <div class="drop-zone" id="drop-zone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2"/></svg>
+      <p>Drop image here or click to upload</p>
+      <p class="sub">Works best with solid-colored backgrounds (white, green, blue, etc.)</p>
+      <input type="file" id="file-input" accept="image/*" style="display:none">
+    </div>
+
+    <div class="hidden" id="editor">
+      <div class="controls">
+        <div class="control-row">
+          <div class="field">
+            <label for="bg-mode">Background Action</label>
+            <select id="bg-mode">
+              <option value="transparent">Make Transparent</option>
+              <option value="color">Replace with Color</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pick-color">Pick BG Color to Remove</label>
+            <select id="pick-color">
+              <option value="auto">Auto-detect (corners)</option>
+              <option value="white">White</option>
+              <option value="black">Black</option>
+              <option value="green">Green screen</option>
+              <option value="blue">Blue screen</option>
+              <option value="custom">Click on image</option>
+            </select>
+          </div>
+          <div class="field hidden" id="replace-color-field">
+            <label for="replace-color">Replacement Color</label>
+            <input type="color" id="replace-color" value="#ffffff">
+            <div class="color-presets">
+              <div class="color-preset" style="background:#fff" data-color="#ffffff"></div>
+              <div class="color-preset" style="background:#000" data-color="#000000"></div>
+              <div class="color-preset" style="background:#f87171" data-color="#f87171"></div>
+              <div class="color-preset" style="background:#60a5fa" data-color="#60a5fa"></div>
+              <div class="color-preset" style="background:#34d399" data-color="#34d399"></div>
+              <div class="color-preset" style="background:#fbbf24" data-color="#fbbf24"></div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-field">
+          <label>Color Tolerance <span id="tolerance-val">30</span></label>
+          <input type="range" id="tolerance" min="1" max="100" value="30">
+        </div>
+        <div class="slider-field">
+          <label>Edge Softness <span id="softness-val">2</span></label>
+          <input type="range" id="softness" min="0" max="10" value="2">
+        </div>
+        <button class="btn btn-primary" id="process-btn">Remove Background</button>
+      </div>
+
+      <div class="preview-area">
+        <div class="preview-pane">
+          <div class="pane-label">Original</div>
+          <canvas id="original-canvas"></canvas>
+        </div>
+        <div class="preview-pane">
+          <div class="pane-label">Result</div>
+          <div class="checker-bg" style="display:inline-block;border-radius:8px;overflow:hidden">
+            <canvas id="result-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="tip-box">Tip: Adjust the tolerance slider to control how aggressively the background is removed. Higher values remove more similar colors. Use "Click on image" mode for precise color picking.</div>
+      <div class="actions" style="margin-top:16px">
+        <button class="btn btn-success" id="download-btn">Download PNG</button>
+        <button class="btn btn-outline" id="reset-btn">Upload New Image</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>How does the background remover work?</h3>
+    <p>This tool detects the background color (either automatically from the image corners or from your selection) and removes all pixels within the specified color tolerance. It uses edge softness to create smooth transitions. For best results, use images with high contrast between the subject and background.</p>
+    <h3>What types of images work best?</h3>
+    <p>Images with solid, uniform backgrounds (white, green screen, blue screen) work best. Product photos on white backgrounds, headshots with solid backgrounds, and green-screen photos give excellent results. Complex or gradient backgrounds may need higher tolerance and manual adjustment.</p>
+    <h3>Can I replace the background with a custom color?</h3>
+    <p>Yes. Select "Replace with Color" from the Background Action dropdown, then choose your desired replacement color using the color picker or preset swatches.</p>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2026 <a href="/">PictureEditor.net</a> — Free online image tools</p>
+  <p style="margin-top:8px">
+    <a href="/">Editor</a> &middot;
+    <a href="/compress.html">Compressor</a> &middot;
+    <a href="/crop.html">Cropper</a> &middot;
+    <a href="/convert.html">Converter</a> &middot;
+    <a href="/remove-background.html">BG Remover</a>
+  </p>
+</footer>
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const editor = document.getElementById('editor');
+const bgMode = document.getElementById('bg-mode');
+const pickColor = document.getElementById('pick-color');
+const replaceColorField = document.getElementById('replace-color-field');
+const replaceColorInput = document.getElementById('replace-color');
+const toleranceSlider = document.getElementById('tolerance');
+const toleranceVal = document.getElementById('tolerance-val');
+const softnessSlider = document.getElementById('softness');
+const softnessVal = document.getElementById('softness-val');
+const processBtn = document.getElementById('process-btn');
+const downloadBtn = document.getElementById('download-btn');
+const resetBtn = document.getElementById('reset-btn');
+const origCanvas = document.getElementById('original-canvas');
+const resultCanvas = document.getElementById('result-canvas');
+const origCtx = origCanvas.getContext('2d');
+const resultCtx = resultCanvas.getContext('2d');
+
+let loadedImage = null;
+let pickedColor = null; // {r,g,b} if user clicked on canvas
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length) loadImage(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files.length) loadImage(fileInput.files[0]); });
+
+bgMode.addEventListener('change', () => {
+  replaceColorField.classList.toggle('hidden', bgMode.value !== 'color');
+});
+
+toleranceSlider.addEventListener('input', () => { toleranceVal.textContent = toleranceSlider.value; });
+softnessSlider.addEventListener('input', () => { softnessVal.textContent = softnessSlider.value; });
+
+document.querySelectorAll('.color-preset').forEach(swatch => {
+  swatch.addEventListener('click', () => {
+    replaceColorInput.value = swatch.dataset.color;
+    document.querySelectorAll('.color-preset').forEach(s => s.classList.remove('active'));
+    swatch.classList.add('active');
+  });
+});
+
+origCanvas.addEventListener('click', e => {
+  if (pickColor.value !== 'custom') return;
+  const rect = origCanvas.getBoundingClientRect();
+  const scaleX = origCanvas.width / rect.width;
+  const scaleY = origCanvas.height / rect.height;
+  const x = Math.round((e.clientX - rect.left) * scaleX);
+  const y = Math.round((e.clientY - rect.top) * scaleY);
+  const data = origCtx.getImageData(x, y, 1, 1).data;
+  pickedColor = { r: data[0], g: data[1], b: data[2] };
+  processBtn.textContent = `Remove Background (picked: rgb(${data[0]},${data[1]},${data[2]}))`;
+});
+
+function loadImage(file) {
+  if (!file.type.startsWith('image/')) { alert('Please select an image file.'); return; }
+  loadedImage = new Image();
+  loadedImage.onload = () => {
+    // Scale down for display if too large
+    let w = loadedImage.naturalWidth;
+    let h = loadedImage.naturalHeight;
+    const maxDim = 1200;
+    if (w > maxDim || h > maxDim) {
+      const scale = maxDim / Math.max(w, h);
+      w = Math.round(w * scale);
+      h = Math.round(h * scale);
+    }
+    origCanvas.width = w; origCanvas.height = h;
+    resultCanvas.width = w; resultCanvas.height = h;
+    origCtx.drawImage(loadedImage, 0, 0, w, h);
+    resultCtx.drawImage(loadedImage, 0, 0, w, h);
+    dropZone.classList.add('hidden');
+    editor.classList.remove('hidden');
+  };
+  loadedImage.src = URL.createObjectURL(file);
+}
+
+function getTargetColor() {
+  const mode = pickColor.value;
+  if (mode === 'custom' && pickedColor) return pickedColor;
+  if (mode === 'white') return { r: 255, g: 255, b: 255 };
+  if (mode === 'black') return { r: 0, g: 0, b: 0 };
+  if (mode === 'green') return { r: 0, g: 177, b: 64 };
+  if (mode === 'blue') return { r: 0, g: 71, b: 187 };
+  // Auto-detect: sample corners
+  const data = origCtx.getImageData(0, 0, origCanvas.width, origCanvas.height).data;
+  const w = origCanvas.width;
+  const h = origCanvas.height;
+  const corners = [
+    [0, 0], [w-1, 0], [0, h-1], [w-1, h-1],
+    [Math.floor(w*0.1), Math.floor(h*0.1)],
+    [Math.floor(w*0.9), Math.floor(h*0.1)]
+  ];
+  let rSum = 0, gSum = 0, bSum = 0;
+  corners.forEach(([cx, cy]) => {
+    const idx = (cy * w + cx) * 4;
+    rSum += data[idx]; gSum += data[idx+1]; bSum += data[idx+2];
+  });
+  return { r: Math.round(rSum/corners.length), g: Math.round(gSum/corners.length), b: Math.round(bSum/corners.length) };
+}
+
+processBtn.addEventListener('click', () => {
+  const tolerance = parseInt(toleranceSlider.value);
+  const softness = parseInt(softnessSlider.value);
+  const targetCol = getTargetColor();
+  const isTransparent = bgMode.value === 'transparent';
+  const replaceHex = replaceColorInput.value;
+  const replaceCol = hexToRgb(replaceHex);
+
+  const imageData = origCtx.getImageData(0, 0, origCanvas.width, origCanvas.height);
+  const data = imageData.data;
+
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i], g = data[i+1], b = data[i+2];
+    const dist = Math.sqrt((r-targetCol.r)**2 + (g-targetCol.g)**2 + (b-targetCol.b)**2);
+    const maxDist = tolerance * 4.41; // scale tolerance to color distance (max ~441)
+    if (dist < maxDist) {
+      if (softness > 0 && dist > maxDist - softness * 10) {
+        // Edge softness: partial transparency
+        const alpha = Math.round(((dist - (maxDist - softness * 10)) / (softness * 10)) * 255);
+        if (isTransparent) {
+          data[i+3] = alpha;
+        } else {
+          const blend = alpha / 255;
+          data[i] = Math.round(r * blend + replaceCol.r * (1 - blend));
+          data[i+1] = Math.round(g * blend + replaceCol.g * (1 - blend));
+          data[i+2] = Math.round(b * blend + replaceCol.b * (1 - blend));
+        }
+      } else {
+        if (isTransparent) {
+          data[i+3] = 0; // fully transparent
+        } else {
+          data[i] = replaceCol.r;
+          data[i+1] = replaceCol.g;
+          data[i+2] = replaceCol.b;
+        }
+      }
+    }
+  }
+
+  resultCtx.putImageData(imageData, 0, 0);
+});
+
+downloadBtn.addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = resultCanvas.toDataURL('image/png');
+  a.download = 'background-removed.png';
+  a.click();
+});
+
+resetBtn.addEventListener('click', () => {
+  loadedImage = null;
+  pickedColor = null;
+  editor.classList.add('hidden');
+  dropZone.classList.remove('hidden');
+  fileInput.value = '';
+  processBtn.textContent = 'Remove Background';
+});
+
+function hexToRgb(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+}
+</script>
+</body>
+</html>

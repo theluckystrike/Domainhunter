@@ -1,0 +1,259 @@
+{
+  "generated_at": "2026-05-15T14:03:24.152955+00:00",
+  "sprint": "25",
+  "action": "retry_backorder_placement",
+  "total_domains": 19,
+  "succeeded": 0,
+  "failed": 19,
+  "balance_before": "{\n  \"Response\": {\n    \"ResponseCode\": \"-1\",\n    \"Error\": \"incorrect command name\"\n  }\n}",
+  "balance_after": "{\n  \"Response\": {\n    \"ResponseCode\": \"-1\",\n    \"Error\": \"incorrect command name\"\n  }\n}",
+  "results": [
+    {
+      "domain": "ghostautonomy.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : ghostautonomy.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : ghostautonomy.com"
+        }
+      }
+    },
+    {
+      "domain": "sunnyray.org",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : sunnyray.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : sunnyray.org"
+        }
+      }
+    },
+    {
+      "domain": "globalgeopark.org",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : globalgeopark.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : globalgeopark.org"
+        }
+      }
+    },
+    {
+      "domain": "guerrameats.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : guerrameats.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : guerrameats.com"
+        }
+      }
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : goodglammgroup.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : goodglammgroup.com"
+        }
+      }
+    },
+    {
+      "domain": "sendy.co",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : sendy.co",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : sendy.co"
+        }
+      }
+    },
+    {
+      "domain": "readingfoundation.org",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : readingfoundation.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : readingfoundation.org"
+        }
+      }
+    },
+    {
+      "domain": "humane.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : humane.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : humane.com"
+        }
+      }
+    },
+    {
+      "domain": "arrival.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : arrival.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : arrival.com"
+        }
+      }
+    },
+    {
+      "domain": "irl.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : irl.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : irl.com"
+        }
+      }
+    },
+    {
+      "domain": "olive.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : olive.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : olive.com"
+        }
+      }
+    },
+    {
+      "domain": "boweryfarming.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : boweryfarming.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : boweryfarming.com"
+        }
+      }
+    },
+    {
+      "domain": "convoy.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : convoy.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : convoy.com"
+        }
+      }
+    },
+    {
+      "domain": "stenn.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : stenn.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : stenn.com"
+        }
+      }
+    },
+    {
+      "domain": "veev.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : veev.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : veev.com"
+        }
+      }
+    },
+    {
+      "domain": "infarm.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : infarm.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : infarm.com"
+        }
+      }
+    },
+    {
+      "domain": "fiskerinc.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : fiskerinc.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : fiskerinc.com"
+        }
+      }
+    },
+    {
+      "domain": "northvolt.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : northvolt.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : northvolt.com"
+        }
+      }
+    },
+    {
+      "domain": "easyknock.com",
+      "success": false,
+      "status": "error",
+      "message": "could not find backorder fot this domain : easyknock.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : easyknock.com"
+        }
+      }
+    }
+  ]
+}

@@ -7,3 +7,11 @@ logs/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+.DS_Store
+.coverage
+domains/satellite/
+node_modules/
+data/gd_expiring/
+data/gd_closeout/
+data/gd_inventory_cache/
+data/gd_recent/

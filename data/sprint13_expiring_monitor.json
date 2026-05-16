@@ -1,0 +1,3587 @@
+{
+  "sprint": 13,
+  "agent": "EXPIRING DOMAIN MONITOR",
+  "scan_date": "2026-05-08",
+  "total_checked": 150,
+  "expiring_30_days": 3,
+  "expiring_90_days": 18,
+  "domains_available": 1,
+  "critical_count": 3,
+  "high_count": 12,
+  "critical_opportunities": [
+    {
+      "domain": "gamepicker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-13",
+      "days_remaining": 6,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.0,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Afternic lander page active; Ultra-premium aged domain (26.0y); EXPIRING IN 6 DAYS",
+      "live_status": "Redirects to /lander - GoDaddy Afternic landing page. Domain is for sale and expiring in 6 days."
+    },
+    {
+      "domain": "decoder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-26",
+      "days_remaining": 19,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1324.AWSDNS-37.ORG",
+        "NS-2035.AWSDNS-62.CO.UK",
+        "NS-209.AWSDNS-26.COM",
+        "NS-547.AWSDNS-04.NET"
+      ],
+      "created": "1996",
+      "age_years": 30.1,
+      "category": "CRITICAL",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.1y); SSL broken/no content = CONFIRMED ABANDONED; Single-word .com dictionary domain",
+      "live_status": "SSL broken, no content served. AWS nameservers leftover from previous use. 301 redirect to HTTPS fails. Confirmed abandoned."
+    },
+    {
+      "domain": "cookingtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-17",
+      "days_remaining": 71,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.8,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Premium aged domain (21.8y); EXPIRING SOON - 71 days",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    }
+  ],
+  "high_opportunities": [
+    {
+      "domain": "debtcalc.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-06-07",
+      "days_remaining": 31,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Afternic lander page active; Premium aged domain (23.9y); Finance keyword domain; EXPIRING SOON - 31 days",
+      "live_status": "Redirects to /lander - Afternic for-sale landing page."
+    },
+    {
+      "domain": "beautifier.com",
+      "registrar": "Sav.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "LUNLUN.NS.GIANTPANDA.COM",
+        "YANGYANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.9,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Parked/for-sale nameservers (GiantPanda NS); HTTP 204 empty response; Premium single-word .com; Premium aged domain (22.9y); EXPIRING SOON - 44 days",
+      "live_status": "Returns HTTP 204 No Content via openresty. Essentially empty/parked."
+    },
+    {
+      "domain": "fileconverter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS49.DOMAINCONTROL.COM",
+        "NS50.DOMAINCONTROL.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; GoDaddy forsale lander active; High search volume keyword; Premium aged domain (23.9y); EXPIRING SOON - 44 days",
+      "live_status": "GoDaddy 'Forsale Lander' page. Domain is for sale via Afternic/GoDaddy."
+    },
+    {
+      "domain": "fileshare.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-06-29",
+      "days_remaining": 53,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.VENTURE.COM",
+        "NS2.VENTURE.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Listed on Venture.com marketplace; Premium keyword (.com) with massive search volume; Premium aged domain (24.9y); EXPIRING SOON - 53 days",
+      "live_status": "Redirecting to Venture.com domain marketplace. Actively being sold. Has Facebook Pixel + Google Tag Manager tracking."
+    },
+    {
+      "domain": "reviewer.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2026-07-23",
+      "days_remaining": 77,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.BUYDOMAINS.COM",
+        "NS2.BUYDOMAINS.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.8,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "BuyDomains.com NS (professional domain broker); Ultra-premium aged domain (30.8y); Single-word dictionary .com; No active website; EXPIRING SOON - 77 days",
+      "live_status": "No HTTP response. BuyDomains NS - domain broker holding. 30-year-old domain."
+    },
+    {
+      "domain": "socialchecker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-10",
+      "days_remaining": 95,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS01.CASHPARKING.COM",
+        "NS02.CASHPARKING.COM"
+      ],
+      "created": "2006",
+      "age_years": 19.7,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers"
+    },
+    {
+      "domain": "savingsrate.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-22",
+      "days_remaining": 107,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "1999",
+      "age_years": 26.7,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Finance keyword domain; Ultra-premium aged domain (26.7y)",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    },
+    {
+      "domain": "exercisetool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-31",
+      "days_remaining": 116,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "JIAOQING.NS.GIANTPANDA.COM",
+        "PO.NS.GIANTPANDA.COM"
+      ],
+      "created": "2008",
+      "age_years": 17.7,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers"
+    },
+    {
+      "domain": "travelplanner.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-09-07",
+      "days_remaining": 123,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "LUNLUN.NS.GIANTPANDA.COM",
+        "YANGYANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.7,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked with minimal content; Ultra-premium travel keyword .com; Ultra-premium aged domain (30.7y)",
+      "live_status": "Returns just 'OK' text - minimal parking page."
+    },
+    {
+      "domain": "diettool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-11",
+      "days_remaining": 157,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2014",
+      "age_years": 11.6,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "portionsize.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-25",
+      "days_remaining": 171,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2007",
+      "age_years": 18.5,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket)"
+    },
+    {
+      "domain": "caloriefinder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-30",
+      "days_remaining": 176,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.5,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); Premium aged domain (22.5y)"
+    }
+  ],
+  "results": [
+    {
+      "domain": "gamepicker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-13",
+      "days_remaining": 6,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.0,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Afternic lander page active; Ultra-premium aged domain (26.0y); EXPIRING IN 6 DAYS",
+      "live_status": "Redirects to /lander - GoDaddy Afternic landing page. Domain is for sale and expiring in 6 days."
+    },
+    {
+      "domain": "decoder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-26",
+      "days_remaining": 19,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1324.AWSDNS-37.ORG",
+        "NS-2035.AWSDNS-62.CO.UK",
+        "NS-209.AWSDNS-26.COM",
+        "NS-547.AWSDNS-04.NET"
+      ],
+      "created": "1996",
+      "age_years": 30.1,
+      "category": "CRITICAL",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.1y); SSL broken/no content = CONFIRMED ABANDONED; Single-word .com dictionary domain",
+      "live_status": "SSL broken, no content served. AWS nameservers leftover from previous use. 301 redirect to HTTPS fails. Confirmed abandoned."
+    },
+    {
+      "domain": "tester.com",
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2026-06-06",
+      "days_remaining": 30,
+      "status_codes": [
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.MAILBANK.COM",
+        "NS2.MAILBANK.COM"
+      ],
+      "created": "1996",
+      "age_years": 29.9,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (29.9y)"
+    },
+    {
+      "domain": "debtcalc.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-06-07",
+      "days_remaining": 31,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Afternic lander page active; Premium aged domain (23.9y); Finance keyword domain; EXPIRING SOON - 31 days",
+      "live_status": "Redirects to /lander - Afternic for-sale landing page."
+    },
+    {
+      "domain": "mortgagecalc.com",
+      "registrar": "GoDaddy Corporate Domains, LLC",
+      "expiry": "2026-06-15",
+      "days_remaining": 39,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS11.GCD-DNS.COM",
+        "NS12.GCD-DNS.COM"
+      ],
+      "created": "1998",
+      "age_years": 27.8,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (27.8y); EXPIRING SOON - 39 days"
+    },
+    {
+      "domain": "recipebook.com",
+      "registrar": "Epik LLC",
+      "expiry": "2026-06-16",
+      "days_remaining": 40,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DNS.ORG",
+        "NS2.DNS.ORG"
+      ],
+      "created": "1996",
+      "age_years": 29.9,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (29.9y); EXPIRING SOON - 40 days"
+    },
+    {
+      "domain": "beautifier.com",
+      "registrar": "Sav.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "LUNLUN.NS.GIANTPANDA.COM",
+        "YANGYANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.9,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Parked/for-sale nameservers (GiantPanda NS); HTTP 204 empty response; Premium single-word .com; Premium aged domain (22.9y); EXPIRING SOON - 44 days",
+      "live_status": "Returns HTTP 204 No Content via openresty. Essentially empty/parked."
+    },
+    {
+      "domain": "fileconverter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS49.DOMAINCONTROL.COM",
+        "NS50.DOMAINCONTROL.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; GoDaddy forsale lander active; High search volume keyword; Premium aged domain (23.9y); EXPIRING SOON - 44 days",
+      "live_status": "GoDaddy 'Forsale Lander' page. Domain is for sale via Afternic/GoDaddy."
+    },
+    {
+      "domain": "fileshare.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-06-29",
+      "days_remaining": 53,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.VENTURE.COM",
+        "NS2.VENTURE.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Listed on Venture.com marketplace; Premium keyword (.com) with massive search volume; Premium aged domain (24.9y); EXPIRING SOON - 53 days",
+      "live_status": "Redirecting to Venture.com domain marketplace. Actively being sold. Has Facebook Pixel + Google Tag Manager tracking."
+    },
+    {
+      "domain": "pdfmaker.com",
+      "registrar": "Nom-iq Ltd. dba COM LAUDE",
+      "expiry": "2026-06-29",
+      "days_remaining": 53,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS201.ADOBE.NET",
+        "NS202.ADOBE.NET",
+        "NS203.ADOBE.NET",
+        "NS204.ADOBE.NET",
+        "NS205.ADOBE.NET",
+        "NS206.ADOBE.NET"
+      ],
+      "created": "1999",
+      "age_years": 26.9,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (26.9y); EXPIRING SOON - 53 days"
+    },
+    {
+      "domain": "homefinder.com",
+      "registrar": "Register.com - Network Solutions, LLC",
+      "expiry": "2026-07-01",
+      "days_remaining": 55,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "NS-1381.AWSDNS-44.ORG",
+        "NS-1885.AWSDNS-43.CO.UK",
+        "NS-452.AWSDNS-56.COM",
+        "NS-637.AWSDNS-15.NET"
+      ],
+      "created": "1995",
+      "age_years": 31.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (31.2y)"
+    },
+    {
+      "domain": "sorter.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-07-02",
+      "days_remaining": 56,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "LANA.NS.CLOUDFLARE.COM",
+        "TIM.NS.CLOUDFLARE.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.8,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Premium aged domain (24.8y)"
+    },
+    {
+      "domain": "dividendcalc.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-07-16",
+      "days_remaining": 70,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "CDNS1.INTERSERVER.NET",
+        "CDNS2.INTERSERVER.NET",
+        "CDNS3.INTERSERVER.NET"
+      ],
+      "created": "2025",
+      "age_years": 0.8,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "domaincheck.com",
+      "registrar": "Sea Wasp, LLC",
+      "expiry": "2026-07-16",
+      "days_remaining": 70,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.FABULOUS.COM",
+        "NS2.FABULOUS.COM",
+        "NS3.FABULOUS.COM",
+        "NS4.FABULOUS.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.8,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (28.8y); EXPIRING SOON - 70 days"
+    },
+    {
+      "domain": "cookingtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-17",
+      "days_remaining": 71,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.8,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Premium aged domain (21.8y); EXPIRING SOON - 71 days",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    },
+    {
+      "domain": "nftmaker.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-07-19",
+      "days_remaining": 73,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DNSOWL.COM",
+        "NS2.DNSOWL.COM",
+        "NS3.DNSOWL.COM"
+      ],
+      "created": "2019",
+      "age_years": 6.8,
+      "category": "MONITOR",
+      "estimated_value": "$500-$5,000",
+      "notes": "EXPIRING SOON - 73 days"
+    },
+    {
+      "domain": "reviewer.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2026-07-23",
+      "days_remaining": 77,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.BUYDOMAINS.COM",
+        "NS2.BUYDOMAINS.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.8,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "BuyDomains.com NS (professional domain broker); Ultra-premium aged domain (30.8y); Single-word dictionary .com; No active website; EXPIRING SOON - 77 days",
+      "live_status": "No HTTP response. BuyDomains NS - domain broker holding. 30-year-old domain."
+    },
+    {
+      "domain": "workoutplanner.com",
+      "registrar": "CSL Computer Service Langenbach GmbH d/b/a joker.com",
+      "expiry": "2026-07-28",
+      "days_remaining": 82,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS01.ONE.COM",
+        "NS02.ONE.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.8,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Premium aged domain (22.8y)"
+    },
+    {
+      "domain": "socialchecker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-10",
+      "days_remaining": 95,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS01.CASHPARKING.COM",
+        "NS02.CASHPARKING.COM"
+      ],
+      "created": "2006",
+      "age_years": 19.7,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers"
+    },
+    {
+      "domain": "runner.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-20",
+      "days_remaining": 105,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS49.DOMAINCONTROL.COM",
+        "NS50.DOMAINCONTROL.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.7,
+      "category": "MONITOR",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.7y)"
+    },
+    {
+      "domain": "savingsrate.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-22",
+      "days_remaining": 107,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "1999",
+      "age_years": 26.7,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Finance keyword domain; Ultra-premium aged domain (26.7y)",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    },
+    {
+      "domain": "gametool.com",
+      "registrar": "eName Technology Co., Ltd.",
+      "expiry": "2026-08-29",
+      "days_remaining": 114,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.ALIDNS.COM",
+        "NS2.ALIDNS.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.7,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (21.7y)"
+    },
+    {
+      "domain": "exercisetool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-31",
+      "days_remaining": 116,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "JIAOQING.NS.GIANTPANDA.COM",
+        "PO.NS.GIANTPANDA.COM"
+      ],
+      "created": "2008",
+      "age_years": 17.7,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers"
+    },
+    {
+      "domain": "travelplanner.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-09-07",
+      "days_remaining": 123,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "LUNLUN.NS.GIANTPANDA.COM",
+        "YANGYANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.7,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked with minimal content; Ultra-premium travel keyword .com; Ultra-premium aged domain (30.7y)",
+      "live_status": "Returns just 'OK' text - minimal parking page."
+    },
+    {
+      "domain": "symptomscheck.com",
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-09-09",
+      "days_remaining": 125,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS55.DOMAINCONTROL.COM",
+        "NS56.DOMAINCONTROL.COM"
+      ],
+      "created": "2007",
+      "age_years": 18.7,
+      "category": "MONITOR",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "scheduler.com",
+      "registrar": "CSC Corporate Domains, Inc.",
+      "expiry": "2026-09-19",
+      "days_remaining": 135,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "A.NS.UKG.COM",
+        "B.NS.UKG.COM",
+        "C.NS.UKG.COM",
+        "D.NS.UKG.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.6,
+      "category": "MONITOR",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.6y)"
+    },
+    {
+      "domain": "investcalc.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-09-20",
+      "days_remaining": 136,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NSG1.NAMEBRIGHTDNS.COM",
+        "NSG2.NAMEBRIGHTDNS.COM"
+      ],
+      "created": "2016",
+      "age_years": 9.6,
+      "category": "MONITOR",
+      "estimated_value": "$500-$5,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "gamefinder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-09-28",
+      "days_remaining": 144,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS17.DOMAINCONTROL.COM",
+        "NS18.DOMAINCONTROL.COM"
+      ],
+      "created": "1999",
+      "age_years": 26.6,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (26.6y)"
+    },
+    {
+      "domain": "projectplan.com",
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-10-01",
+      "days_remaining": 147,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-125.AWSDNS-15.COM",
+        "NS-1510.AWSDNS-60.ORG",
+        "NS-1965.AWSDNS-53.CO.UK",
+        "NS-883.AWSDNS-46.NET"
+      ],
+      "created": "1997",
+      "age_years": 28.6,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (28.6y)"
+    },
+    {
+      "domain": "diettool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-11",
+      "days_remaining": 157,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2014",
+      "age_years": 11.6,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "annuitycalc.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2026-10-18",
+      "days_remaining": 164,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DYNA-NS.NET",
+        "NS2.DYNA-NS.NET"
+      ],
+      "created": "2013",
+      "age_years": 12.5,
+      "category": "MONITOR",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "codetools.com",
+      "registrar": "Porkbun LLC",
+      "expiry": "2026-10-21",
+      "days_remaining": 167,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.DUNDAS.COM",
+        "NS2.DUNDAS.COM"
+      ],
+      "created": "1999",
+      "age_years": 26.5,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (26.5y)"
+    },
+    {
+      "domain": "stopwatch.com",
+      "registrar": "Spaceship, Inc.",
+      "expiry": "2026-10-23",
+      "days_remaining": 169,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.PARKINGCREW.NET",
+        "NS2.PARKINGCREW.NET"
+      ],
+      "created": "1995",
+      "age_years": 30.5,
+      "category": "PREMIUM",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Parked/for-sale nameservers; Ultra-premium aged domain (30.5y)"
+    },
+    {
+      "domain": "webtools.com",
+      "registrar": "SafeNames Ltd.",
+      "expiry": "2026-10-24",
+      "days_remaining": 170,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.UBMDNS.COM",
+        "NS2.UBMDNS.COM"
+      ],
+      "created": "1998",
+      "age_years": 27.5,
+      "category": "MONITOR",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (27.5y)"
+    },
+    {
+      "domain": "portionsize.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-25",
+      "days_remaining": 171,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2007",
+      "age_years": 18.5,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket)"
+    },
+    {
+      "domain": "caloriefinder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-30",
+      "days_remaining": 176,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.5,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); Premium aged domain (22.5y)"
+    },
+    {
+      "domain": "clipboard.com",
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2026-11-06",
+      "days_remaining": 183,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "DNS01.SALESFORCE.COM",
+        "DNS02.SALESFORCE.COM",
+        "DNS03.SALESFORCE.COM",
+        "DNS04.SALESFORCE.COM",
+        "DNS05.SALESFORCE.COM",
+        "DNS06.SALESFORCE.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.5,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (30.5y)"
+    },
+    {
+      "domain": "codekit.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-11-12",
+      "days_remaining": 189,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.7,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Premium aged domain (21.7y)"
+    },
+    {
+      "domain": "healthcheck.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-11-16",
+      "days_remaining": 193,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS55.DOMAINCONTROL.COM",
+        "NS56.DOMAINCONTROL.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.5,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.5y)"
+    },
+    {
+      "domain": "tripcalc.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2026-11-20",
+      "days_remaining": 197,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.TRUPOD.COM",
+        "NS2.TRUPOD.COM"
+      ],
+      "created": "2000",
+      "age_years": 25.5,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (25.5y)"
+    },
+    {
+      "domain": "nutritioncalc.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-11-23",
+      "days_remaining": 200,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "DOMAIN-FOR-SALE.HUGEDOMAINSDNS.COM",
+        "FORSALE.HUGEDOMAINSDNS.COM"
+      ],
+      "created": "2013",
+      "age_years": 12.4,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Parked/for-sale nameservers"
+    },
+    {
+      "domain": "websitecheck.com",
+      "registrar": "TLDS L.L.C. d/b/a SRSPlus",
+      "expiry": "2026-11-29",
+      "days_remaining": 206,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.ICSP.COM",
+        "NS.ICSP.NET"
+      ],
+      "created": "1999",
+      "age_years": 26.4,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (26.4y)"
+    },
+    {
+      "domain": "routeplanner.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-12-03",
+      "days_remaining": 210,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.VENTURE.COM",
+        "NS2.VENTURE.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.4,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (28.4y)"
+    },
+    {
+      "domain": "apitools.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2026-12-14",
+      "days_remaining": 221,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DYNA-NS.NET",
+        "NS2.DYNA-NS.NET"
+      ],
+      "created": "2020",
+      "age_years": 5.4,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "datacleaner.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-12-14",
+      "days_remaining": 221,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1454.AWSDNS-53.ORG",
+        "NS-1823.AWSDNS-35.CO.UK",
+        "NS-224.AWSDNS-28.COM",
+        "NS-698.AWSDNS-23.NET"
+      ],
+      "created": "1999",
+      "age_years": 26.4,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Ultra-premium aged domain (26.4y)"
+    },
+    {
+      "domain": "fitnesscalc.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-12-15",
+      "days_remaining": 222,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DIGITALOCEAN.COM",
+        "NS2.DIGITALOCEAN.COM",
+        "NS3.DIGITALOCEAN.COM"
+      ],
+      "created": "2014",
+      "age_years": 11.4,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "deployer.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-12-17",
+      "days_remaining": 224,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.P201.DNS.ORACLECLOUD.NET",
+        "NS2.P201.DNS.ORACLECLOUD.NET",
+        "NS3.P201.DNS.ORACLECLOUD.NET",
+        "NS4.P201.DNS.ORACLECLOUD.NET"
+      ],
+      "created": "1999",
+      "age_years": 26.4,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (26.4y)"
+    },
+    {
+      "domain": "profilecheck.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-12-17",
+      "days_remaining": 224,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.PARKINGCREW.NET",
+        "NS2.PARKINGCREW.NET"
+      ],
+      "created": "2001",
+      "age_years": 24.4,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Parked/for-sale nameservers; Premium aged domain (24.4y)"
+    },
+    {
+      "domain": "hashtagfinder.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2026-12-19",
+      "days_remaining": 226,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2011",
+      "age_years": 14.4,
+      "category": "PREMIUM",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "flashcards.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-12-22",
+      "days_remaining": 229,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "BETH.NS.CLOUDFLARE.COM",
+        "IVAN.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.4,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.4y)"
+    },
+    {
+      "domain": "finder.com",
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2026-12-28",
+      "days_remaining": 235,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ALGIN.NS.CLOUDFLARE.COM",
+        "MEADOW.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1994",
+      "age_years": 31.4,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (31.4y)"
+    },
+    {
+      "domain": "foodcalc.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-12-31",
+      "days_remaining": 238,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "PDNS09.DOMAINCONTROL.COM",
+        "PDNS10.DOMAINCONTROL.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (22.3y)"
+    },
+    {
+      "domain": "rentcalc.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-12-31",
+      "days_remaining": 238,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS49.DOMAINCONTROL.COM",
+        "NS50.DOMAINCONTROL.COM"
+      ],
+      "created": "2001",
+      "age_years": 25.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (25.0y)"
+    },
+    {
+      "domain": "contentcheck.com",
+      "registrar": "Domain The Net Technologies Ltd.",
+      "expiry": "2027-01-02",
+      "days_remaining": 240,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DTNT.INFO",
+        "NS2.DTNT.INFO",
+        "NS3.DTNT.INFO"
+      ],
+      "created": "1999",
+      "age_years": 26.5,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (26.5y)"
+    },
+    {
+      "domain": "planner.com",
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2027-01-03",
+      "days_remaining": 241,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "OWEN.NS.CLOUDFLARE.COM",
+        "RITA.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1995",
+      "age_years": 31.2,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (31.2y)"
+    },
+    {
+      "domain": "rankcheck.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-01-07",
+      "days_remaining": 245,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2004",
+      "age_years": 22.3,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Premium aged domain (22.3y)"
+    },
+    {
+      "domain": "expensetracker.com",
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2027-01-09",
+      "days_remaining": 247,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "CHRISTIAN.NS.CLOUDFLARE.COM",
+        "SARA.NS.CLOUDFLARE.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (26.3y)"
+    },
+    {
+      "domain": "plagiarismcheck.com",
+      "registrar": "INWX GmbH",
+      "expiry": "2027-01-12",
+      "days_remaining": 250,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.INWX.DE",
+        "NS2.INWX.DE",
+        "NS3.INWX.EU"
+      ],
+      "created": "2005",
+      "age_years": 21.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (21.3y)"
+    },
+    {
+      "domain": "encoder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-01-18",
+      "days_remaining": 256,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS03.DOMAINCONTROL.COM",
+        "NS04.DOMAINCONTROL.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.3,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.3y)"
+    },
+    {
+      "domain": "recipemaker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-01-21",
+      "days_remaining": 259,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS69.WORLDNIC.COM",
+        "NS70.WORLDNIC.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (26.3y)"
+    },
+    {
+      "domain": "retirementcalc.com",
+      "registrar": "Register.com - Network Solutions, LLC",
+      "expiry": "2027-01-23",
+      "days_remaining": 261,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "DNS105.REGISTER.COM",
+        "DNS106.REGISTER.COM"
+      ],
+      "created": "2002",
+      "age_years": 24.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (24.3y)"
+    },
+    {
+      "domain": "hotelfinder.com",
+      "registrar": "eNom, LLC",
+      "expiry": "2027-01-24",
+      "days_remaining": 262,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "DNS1.NAME-SERVICES.COM",
+        "DNS2.NAME-SERVICES.COM",
+        "DNS3.NAME-SERVICES.COM",
+        "DNS4.NAME-SERVICES.COM",
+        "DNS5.NAME-SERVICES.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (30.3y)"
+    },
+    {
+      "domain": "profiler.com",
+      "registrar": "CSC Corporate Domains, Inc.",
+      "expiry": "2027-01-24",
+      "days_remaining": 262,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.PEARSON.COM",
+        "NS2.PEARSON.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.3,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.3y)"
+    },
+    {
+      "domain": "tokencalc.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-01-24",
+      "days_remaining": 262,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DNS.SALON",
+        "NS2.DNS.SALON"
+      ],
+      "created": "2021",
+      "age_years": 5.3,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "calculator.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-01-25",
+      "days_remaining": 263,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "CLARK.NS.CLOUDFLARE.COM",
+        "SARA.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.3,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Ultra-premium aged domain (30.3y)"
+    },
+    {
+      "domain": "invoicetool.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2027-01-25",
+      "days_remaining": 263,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEBRIGHTDNS.COM",
+        "NS2.NAMEBRIGHTDNS.COM"
+      ],
+      "created": "2005",
+      "age_years": 21.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (21.3y)"
+    },
+    {
+      "domain": "ingredientfinder.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-02-01",
+      "days_remaining": 270,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.SITELEADERG3462YVX.BIZ",
+        "NS2.SITELEADERU2OXTV1C.BIZ"
+      ],
+      "created": "2000",
+      "age_years": 26.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (26.3y)"
+    },
+    {
+      "domain": "loanrate.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2027-02-06",
+      "days_remaining": 275,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "1997",
+      "age_years": 29.2,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Ultra-premium aged domain (29.2y)"
+    },
+    {
+      "domain": "toolbox.com",
+      "registrar": "CSC Corporate Domains, Inc.",
+      "expiry": "2027-02-08",
+      "days_remaining": 277,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-1139.AWSDNS-14.ORG",
+        "NS-1689.AWSDNS-19.CO.UK",
+        "NS-468.AWSDNS-58.COM",
+        "NS-779.AWSDNS-33.NET"
+      ],
+      "created": "1996",
+      "age_years": 30.2,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.2y)"
+    },
+    {
+      "domain": "learningtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-10",
+      "days_remaining": 279,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "WNS2035.HOSTGATOR.COM",
+        "WNS2036.HOSTGATOR.COM"
+      ],
+      "created": "1998",
+      "age_years": 28.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (28.2y)"
+    },
+    {
+      "domain": "aichecker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-12",
+      "days_remaining": 281,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS13.DOMAINCONTROL.COM",
+        "NS14.DOMAINCONTROL.COM"
+      ],
+      "created": "2015",
+      "age_years": 11.2,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL"
+    },
+    {
+      "domain": "creditcheck.com",
+      "registrar": "Sea Wasp, LLC",
+      "expiry": "2027-02-14",
+      "days_remaining": 283,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.FABULOUS.COM",
+        "NS2.FABULOUS.COM",
+        "NS3.FABULOUS.COM",
+        "NS4.FABULOUS.COM"
+      ],
+      "created": "1997",
+      "age_years": 29.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (29.2y)"
+    },
+    {
+      "domain": "hrtool.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-02-14",
+      "days_remaining": 283,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.FABULOUS.COM",
+        "NS2.FABULOUS.COM"
+      ],
+      "created": "2002",
+      "age_years": 24.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (24.2y)"
+    },
+    {
+      "domain": "defitools.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-02-18",
+      "days_remaining": 287,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM",
+        "VERIFICATION-IVGRJVJKRZBGKHMTMQ2UZH.NS101.VERIFY.HN"
+      ],
+      "created": "2019",
+      "age_years": 7.2,
+      "category": "PREMIUM",
+      "estimated_value": "$500-$5,000",
+      "notes": "Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "randomizer.com",
+      "registrar": "PDR Ltd. d/b/a PublicDomainRegistry.com",
+      "expiry": "2027-02-23",
+      "days_remaining": 292,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.SQUADHELP.COM",
+        "NS2.SQUADHELP.COM"
+      ],
+      "created": "1999",
+      "age_years": 27.2,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (27.2y)"
+    },
+    {
+      "domain": "analyzer.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-24",
+      "days_remaining": 293,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS33.DOMAINCONTROL.COM",
+        "NS34.DOMAINCONTROL.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.2,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.2y)"
+    },
+    {
+      "domain": "webanalyzer.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-02-26",
+      "days_remaining": 295,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "GWNEW.NIKSUN.COM",
+        "QUEST.NIKSUN.COM"
+      ],
+      "created": "1999",
+      "age_years": 27.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (27.2y)"
+    },
+    {
+      "domain": "csvtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-03-09",
+      "days_remaining": 306,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.DIGITALOCEAN.COM",
+        "NS2.DIGITALOCEAN.COM",
+        "NS3.DIGITALOCEAN.COM"
+      ],
+      "created": "2018",
+      "age_years": 8.2,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use)"
+    },
+    {
+      "domain": "payrollcalc.com",
+      "registrar": "PDR Ltd. d/b/a PublicDomainRegistry.com",
+      "expiry": "2027-03-10",
+      "days_remaining": 307,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DNSOWL.COM",
+        "NS2.DNSOWL.COM",
+        "NS3.DNSOWL.COM"
+      ],
+      "created": "2020",
+      "age_years": 6.2,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "toolkit.com",
+      "registrar": "GoDaddy Corporate Domains, LLC",
+      "expiry": "2027-03-13",
+      "days_remaining": 310,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-1236.AWSDNS-26.ORG",
+        "NS-157.AWSDNS-19.COM",
+        "NS-1673.AWSDNS-17.CO.UK",
+        "NS-835.AWSDNS-40.NET"
+      ],
+      "created": "1998",
+      "age_years": 28.1,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (28.1y)"
+    },
+    {
+      "domain": "studytool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-03-17",
+      "days_remaining": 314,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS19.DOMAINCONTROL.COM",
+        "NS20.DOMAINCONTROL.COM"
+      ],
+      "created": "2010",
+      "age_years": 16.1,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL"
+    },
+    {
+      "domain": "medicaltool.com",
+      "registrar": "Inames Co., Ltd.",
+      "expiry": "2027-03-22",
+      "days_remaining": 319,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2001",
+      "age_years": 25.1,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Ultra-premium aged domain (25.1y)"
+    },
+    {
+      "domain": "mealplanner.com",
+      "registrar": "Key-Systems GmbH",
+      "expiry": "2027-03-27",
+      "days_remaining": 324,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "SANTINO.NS.CLOUDFLARE.COM",
+        "TRICIA.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1997",
+      "age_years": 29.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (29.1y)"
+    },
+    {
+      "domain": "taxcalc.com",
+      "registrar": "Gandi SAS",
+      "expiry": "2027-04-07",
+      "days_remaining": 335,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-135-A.GANDI.NET",
+        "NS-145-C.GANDI.NET",
+        "NS-200-B.GANDI.NET"
+      ],
+      "created": "1998",
+      "age_years": 28.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (28.1y)"
+    },
+    {
+      "domain": "devtools.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2027-04-12",
+      "days_remaining": 340,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "DNS1.REGISTRAR-SERVERS.COM",
+        "DNS2.REGISTRAR-SERVERS.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (30.1y)"
+    },
+    {
+      "domain": "interestrate.com",
+      "registrar": "Moniker Online Services LLC",
+      "expiry": "2027-04-13",
+      "days_remaining": 341,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.MONIKERDNS.NET",
+        "NS2.MONIKERDNS.NET",
+        "NS3.MONIKERDNS.NET",
+        "NS4.MONIKERDNS.NET"
+      ],
+      "created": "1996",
+      "age_years": 30.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (30.1y)"
+    },
+    {
+      "domain": "formatter.com",
+      "registrar": "Domain.com - Network Solutions, LLC",
+      "expiry": "2027-04-16",
+      "days_remaining": 344,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "NS5.DOTZUP.COM",
+        "NS6.DOTZUP.COM"
+      ],
+      "created": "1999",
+      "age_years": 27.1,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (27.1y)"
+    },
+    {
+      "domain": "sitecheck.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-04-16",
+      "days_remaining": 344,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS05.DOMAINCONTROL.COM",
+        "NS06.DOMAINCONTROL.COM"
+      ],
+      "created": "2001",
+      "age_years": 25.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (25.1y)"
+    },
+    {
+      "domain": "walletcheck.com",
+      "registrar": "Epik LLC",
+      "expiry": "2027-04-16",
+      "days_remaining": 344,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "CLOE.NS.CLOUDFLARE.COM",
+        "LAKAS.NS.CLOUDFLARE.COM"
+      ],
+      "created": "2014",
+      "age_years": 12.1,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "loancalc.com",
+      "registrar": "Above.com Pty Ltd.",
+      "expiry": "2027-04-22",
+      "days_remaining": 350,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.HASTYDNS.COM",
+        "NS2.HASTYDNS.COM"
+      ],
+      "created": "1998",
+      "age_years": 28.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Parked/for-sale nameservers; Ultra-premium aged domain (28.0y)"
+    },
+    {
+      "domain": "budgetcalc.com",
+      "registrar": "Annulet LLC",
+      "expiry": "2027-04-23",
+      "days_remaining": 351,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.BUYDOMAINS.COM",
+        "THIS-DOMAIN-FOR-SALE.COM"
+      ],
+      "created": "2003",
+      "age_years": 23.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Parked/for-sale nameservers; Premium aged domain (23.0y)"
+    },
+    {
+      "domain": "nutritiontool.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-04-28",
+      "days_remaining": 356,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2025",
+      "age_years": 1.0,
+      "category": "PREMIUM",
+      "estimated_value": "$500-$5,000",
+      "notes": "Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "recipefinder.com",
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2027-04-29",
+      "days_remaining": 357,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.MARKMONITOR.COM",
+        "NS2.MARKMONITOR.COM",
+        "NS3.MARKMONITOR.COM",
+        "NS4.MARKMONITOR.COM",
+        "NS5.MARKMONITOR.COM",
+        "NS6.MARKMONITOR.COM",
+        "NS7.MARKMONITOR.COM"
+      ],
+      "created": "1998",
+      "age_years": 28.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (28.0y)"
+    },
+    {
+      "domain": "readingtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-07",
+      "days_remaining": 365,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2002",
+      "age_years": 24.0,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Premium aged domain (24.0y)"
+    },
+    {
+      "domain": "writingtool.com",
+      "registrar": "CSL Computer Service Langenbach GmbH d/b/a joker.com",
+      "expiry": "2027-05-07",
+      "days_remaining": 365,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "A.NS.JOKER.COM",
+        "B.NS.JOKER.COM",
+        "C.NS.JOKER.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (26.0y)"
+    },
+    {
+      "domain": "minifier.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2027-05-15",
+      "days_remaining": 373,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.ATOM.COM",
+        "NS2.ATOM.COM"
+      ],
+      "created": "2011",
+      "age_years": 15.0,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "monitor.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-05-16",
+      "days_remaining": 374,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "AUTH20.NS.WCOM.COM",
+        "AUTH40.NS.UU.NET",
+        "DBRU.BR.NS.ELS-GMS.ATT.NET",
+        "DMTU.MT.NS.ELS-GMS.ATT.NET"
+      ],
+      "created": "1992",
+      "age_years": 34.0,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (34.0y)"
+    },
+    {
+      "domain": "builder.com",
+      "registrar": "GoDaddy Corporate Domains, LLC",
+      "expiry": "2027-05-17",
+      "days_remaining": 375,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS11.GCD-DNS.COM",
+        "NS12.GCD-DNS.COM"
+      ],
+      "created": "1997",
+      "age_years": 29.0,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (29.0y)"
+    },
+    {
+      "domain": "mathtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-18",
+      "days_remaining": 376,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2003",
+      "age_years": 23.0,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); Premium aged domain (23.0y)"
+    },
+    {
+      "domain": "sciencetool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-18",
+      "days_remaining": 376,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2009",
+      "age_years": 17.0,
+      "category": "PREMIUM",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "siteanalyzer.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-21",
+      "days_remaining": 379,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "5680.NS1.ABOVEDOMAINS.COM",
+        "5680.NS2.ABOVEDOMAINS.COM"
+      ],
+      "created": "2001",
+      "age_years": 25.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (25.0y)"
+    },
+    {
+      "domain": "pagerank.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-22",
+      "days_remaining": 380,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS77.DOMAINCONTROL.COM",
+        "NS78.DOMAINCONTROL.COM"
+      ],
+      "created": "2002",
+      "age_years": 24.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (24.0y)"
+    },
+    {
+      "domain": "organizer.com",
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2027-05-24",
+      "days_remaining": 382,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1419.AWSDNS-49.ORG",
+        "NS-1672.AWSDNS-17.CO.UK",
+        "NS-428.AWSDNS-53.COM",
+        "NS-888.AWSDNS-47.NET"
+      ],
+      "created": "1997",
+      "age_years": 28.9,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (28.9y)"
+    },
+    {
+      "domain": "screenshare.com",
+      "registrar": "Key-Systems GmbH",
+      "expiry": "2027-05-24",
+      "days_remaining": 382,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-1185.AWSDNS-20.ORG",
+        "NS-1554.AWSDNS-02.CO.UK",
+        "NS-464.AWSDNS-58.COM",
+        "NS-968.AWSDNS-57.NET"
+      ],
+      "created": "2002",
+      "age_years": 24.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Premium aged domain (24.0y)"
+    },
+    {
+      "domain": "bmicalc.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-06-23",
+      "days_remaining": 412,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.DNS-PARKING.COM",
+        "NS2.DNS-PARKING.COM"
+      ],
+      "created": "2005",
+      "age_years": 20.9,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers; Premium aged domain (20.9y)"
+    },
+    {
+      "domain": "picker.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2027-08-02",
+      "days_remaining": 452,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.SAWSELLS.COM",
+        "NS2.SAWSELLS.COM"
+      ],
+      "created": "1990",
+      "age_years": 35.8,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (35.8y)"
+    },
+    {
+      "domain": "tracker.com",
+      "registrar": "OVH sas",
+      "expiry": "2027-08-03",
+      "days_remaining": 453,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.HOSTPOINT.CH",
+        "NS2.HOSTPOINT.CH",
+        "NS3.HOSTPOINT.CH"
+      ],
+      "created": "1994",
+      "age_years": 31.8,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (31.8y)"
+    },
+    {
+      "domain": "propertyfinder.com",
+      "registrar": "101domain GRS Limited",
+      "expiry": "2027-08-09",
+      "days_remaining": 459,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-1107.AWSDNS-10.ORG",
+        "NS-1537.AWSDNS-00.CO.UK",
+        "NS-167.AWSDNS-20.COM",
+        "NS-850.AWSDNS-42.NET"
+      ],
+      "created": "2000",
+      "age_years": 25.7,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (25.7y)"
+    },
+    {
+      "domain": "quizmaker.com",
+      "registrar": "Hosting Concepts B.V. d/b/a Registrar.eu",
+      "expiry": "2027-08-16",
+      "days_remaining": 466,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "KENNETH.NS.CLOUDFLARE.COM",
+        "NAYA.NS.CLOUDFLARE.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.7,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Premium aged domain (21.7y)"
+    },
+    {
+      "domain": "checker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-08-29",
+      "days_remaining": 479,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS09.DOMAINCONTROL.COM",
+        "NS10.DOMAINCONTROL.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.7,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.7y)"
+    },
+    {
+      "domain": "chatbot.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-09-20",
+      "days_remaining": 501,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-122.AWSDNS-15.COM",
+        "NS-1401.AWSDNS-47.ORG",
+        "NS-1540.AWSDNS-00.CO.UK",
+        "NS-572.AWSDNS-07.NET"
+      ],
+      "created": "1997",
+      "age_years": 28.6,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Ultra-premium aged domain (28.6y)"
+    },
+    {
+      "domain": "crmtool.com",
+      "registrar": "Spaceship, Inc.",
+      "expiry": "2027-10-06",
+      "days_remaining": 517,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "DNS1.NAME-SERVICES.COM",
+        "DNS2.NAME-SERVICES.COM",
+        "DNS3.NAME-SERVICES.COM",
+        "DNS4.NAME-SERVICES.COM",
+        "DNS5.NAME-SERVICES.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.6,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (23.6y)"
+    },
+    {
+      "domain": "tasklist.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-10-14",
+      "days_remaining": 525,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS39.WORLDNIC.COM",
+        "NS40.WORLDNIC.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.6,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (24.6y)"
+    },
+    {
+      "domain": "debugger.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2027-11-22",
+      "days_remaining": 564,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "DNS1.REGISTRAR-SERVERS.COM",
+        "DNS2.REGISTRAR-SERVERS.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.5,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Premium aged domain (22.5y)"
+    },
+    {
+      "domain": "cryptocalc.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2027-11-25",
+      "days_remaining": 567,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2013",
+      "age_years": 12.4,
+      "category": "PREMIUM",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Afternic NS (listed for sale)"
+    },
+    {
+      "domain": "counter.com",
+      "registrar": "SafeNames Ltd.",
+      "expiry": "2027-12-04",
+      "days_remaining": 576,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "FONZIE.NS.CLOUDFLARE.COM",
+        "MARJORY.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.4,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.4y)"
+    },
+    {
+      "domain": "aibuilder.com",
+      "registrar": "Spaceship, Inc.",
+      "expiry": "2027-12-16",
+      "days_remaining": 588,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM",
+        "VERIFICATION-BP26YSNJ9GKXENJI9VYBZH.NS101.VERIFY.HN"
+      ],
+      "created": "2000",
+      "age_years": 25.4,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Ultra-premium aged domain (25.4y)"
+    },
+    {
+      "domain": "gamecalc.com",
+      "registrar": "SafeNames Ltd.",
+      "expiry": "2028-01-02",
+      "days_remaining": 605,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "DIMITRIS.NS.CLOUDFLARE.COM",
+        "WREN.NS.CLOUDFLARE.COM"
+      ],
+      "created": "2006",
+      "age_years": 20.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Active nameservers (in use); Premium aged domain (20.3y)"
+    },
+    {
+      "domain": "mltools.com",
+      "registrar": "Squarespace Domains LLC",
+      "expiry": "2028-05-15",
+      "days_remaining": 739,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS-CLOUD-B1.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B2.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B3.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B4.GOOGLEDOMAINS.COM"
+      ],
+      "created": "2012",
+      "age_years": 14.0,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "quotecalc.com",
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2028-05-21",
+      "days_remaining": 745,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "A1-189.AKAM.NET",
+        "A2-64.AKAM.NET",
+        "A24-66.AKAM.NET",
+        "EDNS1.ULTRADNS.BIZ",
+        "EDNS1.ULTRADNS.COM",
+        "EDNS1.ULTRADNS.NET"
+      ],
+      "created": "2009",
+      "age_years": 17.0,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Standard registration"
+    },
+    {
+      "domain": "seocheck.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2028-06-05",
+      "days_remaining": 760,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM",
+        "VERIFICATION-JDNWIANPZBUBH5W2REKEBA.NS101.VERIFY.HN"
+      ],
+      "created": "2005",
+      "age_years": 20.9,
+      "category": "PREMIUM",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Premium aged domain (20.9y)"
+    },
+    {
+      "domain": "aiwriter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2028-06-25",
+      "days_remaining": 780,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS67.DOMAINCONTROL.COM",
+        "NS68.DOMAINCONTROL.COM"
+      ],
+      "created": "2015",
+      "age_years": 10.9,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL"
+    },
+    {
+      "domain": "texteditor.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2028-09-16",
+      "days_remaining": 863,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "MICHELLE.NS.CLOUDFLARE.COM",
+        "SIMON.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1998",
+      "age_years": 27.8,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Ultra-premium aged domain (27.8y)"
+    },
+    {
+      "domain": "converter.com",
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2029-01-08",
+      "days_remaining": 977,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "JADE.NS.CLOUDFLARE.COM",
+        "THADDEUS.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.3,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (30.3y)"
+    },
+    {
+      "domain": "todolist.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2029-01-18",
+      "days_remaining": 987,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DYNA-NS.NET",
+        "NS2.DYNA-NS.NET"
+      ],
+      "created": "1997",
+      "age_years": 29.3,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (29.3y)"
+    },
+    {
+      "domain": "grammartool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2029-01-25",
+      "days_remaining": 994,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS23.DOMAINCONTROL.COM",
+        "NS24.DOMAINCONTROL.COM"
+      ],
+      "created": "2009",
+      "age_years": 17.3,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL"
+    },
+    {
+      "domain": "linter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2029-06-11",
+      "days_remaining": 1131,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.9,
+      "category": "PREMIUM",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Premium aged domain (24.9y)"
+    },
+    {
+      "domain": "parser.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2029-11-24",
+      "days_remaining": 1297,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.GI.NET",
+        "NS4.GI.NET"
+      ],
+      "created": "1997",
+      "age_years": 28.4,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (28.4y)"
+    },
+    {
+      "domain": "timetracker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-02-05",
+      "days_remaining": 1370,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS13.DOMAINCONTROL.COM",
+        "NS14.DOMAINCONTROL.COM"
+      ],
+      "created": "1997",
+      "age_years": 29.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (29.2y)"
+    },
+    {
+      "domain": "aitool.com",
+      "registrar": "Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)",
+      "expiry": "2030-04-10",
+      "days_remaining": 1434,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "LAUNCH1.SPACESHIP.NET",
+        "LAUNCH2.SPACESHIP.NET"
+      ],
+      "created": "2004",
+      "age_years": 22.1,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Premium aged domain (22.1y)"
+    },
+    {
+      "domain": "translator.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-06-19",
+      "days_remaining": 1504,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS53.DOMAINCONTROL.COM",
+        "NS54.DOMAINCONTROL.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.9,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (28.9y)"
+    },
+    {
+      "domain": "generator.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2030-06-24",
+      "days_remaining": 1509,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.WORLDNIC.COM",
+        "NS2.WORLDNIC.COM",
+        "NS41.WORLDNIC.COM",
+        "NS42.WORLDNIC.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.9,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (30.9y)"
+    },
+    {
+      "domain": "mortgagerate.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-07-14",
+      "days_remaining": 1529,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "DNS1.NAME-SERVICES.COM",
+        "DNS2.NAME-SERVICES.COM",
+        "DNS3.NAME-SERVICES.COM",
+        "DNS4.NAME-SERVICES.COM",
+        "DNS5.NAME-SERVICES.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.8,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (28.8y)"
+    },
+    {
+      "domain": "invoicemaker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-07-16",
+      "days_remaining": 1531,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1107.AWSDNS-10.ORG",
+        "NS-1609.AWSDNS-09.CO.UK",
+        "NS-258.AWSDNS-32.COM",
+        "NS-799.AWSDNS-35.NET"
+      ],
+      "created": "2001",
+      "age_years": 24.8,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Premium aged domain (24.8y)"
+    },
+    {
+      "domain": "salestracker.com",
+      "registrar": "123-Reg Limited",
+      "expiry": "2030-08-09",
+      "days_remaining": 1555,
+      "status_codes": [
+        "ok"
+      ],
+      "nameservers": [
+        "NS51.DOMAINCONTROL.COM",
+        "NS52.DOMAINCONTROL.COM"
+      ],
+      "created": "2000",
+      "age_years": 25.7,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Ultra-premium aged domain (25.7y)"
+    },
+    {
+      "domain": "flightfinder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-11-15",
+      "days_remaining": 1653,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS29.DOMAINCONTROL.COM",
+        "NS30.DOMAINCONTROL.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.5,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (22.5y)"
+    },
+    {
+      "domain": "seotool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2031-04-23",
+      "days_remaining": 1812,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS31.DOMAINCONTROL.COM",
+        "NS32.DOMAINCONTROL.COM"
+      ],
+      "created": "2003",
+      "age_years": 23.0,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (23.0y)"
+    },
+    {
+      "domain": "devkit.com",
+      "registrar": "Dynadot Inc",
+      "expiry": "2031-07-20",
+      "days_remaining": 1900,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.DIGITALOCEAN.COM",
+        "NS2.DIGITALOCEAN.COM"
+      ],
+      "created": "2009",
+      "age_years": 16.8,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "Active nameservers (in use)"
+    },
+    {
+      "domain": "notepad.com",
+      "registrar": "Spaceship, Inc.",
+      "expiry": "2032-03-09",
+      "days_remaining": 2133,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS1.EFTYDNS.COM",
+        "NS2.EFTYDNS.COM"
+      ],
+      "created": "1996",
+      "age_years": 30.2,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (30.2y)"
+    },
+    {
+      "domain": "backlinkcheck.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2032-08-29",
+      "days_remaining": 2306,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.LOOPIA.SE",
+        "NS2.LOOPIA.SE",
+        "NS3.LOOPIA.SE",
+        "NS4.LOOPIA.SE"
+      ],
+      "created": "2005",
+      "age_years": 20.7,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Premium aged domain (20.7y)"
+    },
+    {
+      "domain": "validator.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2032-09-14",
+      "days_remaining": 2322,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS65.DOMAINCONTROL.COM",
+        "NS66.DOMAINCONTROL.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.6,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Premium aged domain (22.6y)"
+    },
+    {
+      "domain": "compiler.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2032-10-12",
+      "days_remaining": 2350,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS61.WORLDNIC.COM",
+        "NS62.WORLDNIC.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.6,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (28.6y)"
+    },
+    {
+      "domain": "prompter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2032-10-15",
+      "days_remaining": 2353,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.AFTERNIC.COM",
+        "NS2.AFTERNIC.COM"
+      ],
+      "created": "1996",
+      "age_years": 29.6,
+      "category": "PREMIUM",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Ultra-premium aged domain (29.6y)"
+    },
+    {
+      "domain": "timer.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2032-11-01",
+      "days_remaining": 2370,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "DAMAO.NS.GIANTPANDA.COM",
+        "YANGGUANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "1997",
+      "age_years": 28.5,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers; Ultra-premium aged domain (28.5y)"
+    },
+    {
+      "domain": "keywordtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2033-02-21",
+      "days_remaining": 2482,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.LOOPIA.SE",
+        "NS2.LOOPIA.SE"
+      ],
+      "created": "2004",
+      "age_years": 22.2,
+      "category": "ACTIVE",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use); Premium aged domain (22.2y)"
+    },
+    {
+      "domain": "countdown.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2034-04-10",
+      "days_remaining": 2895,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS51.WORLDNIC.COM",
+        "NS52.WORLDNIC.COM"
+      ],
+      "created": "1998",
+      "age_years": 28.1,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Ultra-premium aged domain (28.1y)"
+    },
+    {
+      "domain": "executor.com",
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2034-06-14",
+      "days_remaining": 2960,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ADALINE.NS.CLOUDFLARE.COM",
+        "JASON.NS.CLOUDFLARE.COM"
+      ],
+      "created": "1996",
+      "age_years": 29.9,
+      "category": "ACTIVE",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Active nameservers (in use); Ultra-premium aged domain (29.9y)"
+    },
+    {
+      "domain": "aigenerator.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2034-07-04",
+      "days_remaining": 2980,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-CLOUD-D1.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-D2.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-D3.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-D4.GOOGLEDOMAINS.COM"
+      ],
+      "created": "2018",
+      "age_years": 7.8,
+      "category": "ACTIVE",
+      "estimated_value": "$500-$5,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Active nameservers (in use)"
+    },
+    {
+      "domain": "aitools.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2035-07-07",
+      "days_remaining": 3348,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS11.DOMAINCONTROL.COM",
+        "NS12.DOMAINCONTROL.COM"
+      ],
+      "created": "2008",
+      "age_years": 17.8,
+      "category": "ACTIVE",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL"
+    },
+    {
+      "domain": "vocabularytool.com",
+      "registrar": "AVAILABLE",
+      "expiry": null,
+      "days_remaining": null,
+      "status_codes": [],
+      "nameservers": [],
+      "created": null,
+      "age_years": null,
+      "category": "AVAILABLE",
+      "estimated_value": "$100-$500",
+      "notes": "Domain is currently unregistered - register immediately at ~$10"
+    }
+  ],
+  "top_10_opportunities": [
+    {
+      "domain": "gamepicker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-13",
+      "days_remaining": 6,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2000",
+      "age_years": 26.0,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Afternic NS (listed for sale); Afternic lander page active; Ultra-premium aged domain (26.0y); EXPIRING IN 6 DAYS",
+      "live_status": "Redirects to /lander - GoDaddy Afternic landing page. Domain is for sale and expiring in 6 days."
+    },
+    {
+      "domain": "decoder.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-26",
+      "days_remaining": 19,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS-1324.AWSDNS-37.ORG",
+        "NS-2035.AWSDNS-62.CO.UK",
+        "NS-209.AWSDNS-26.COM",
+        "NS-547.AWSDNS-04.NET"
+      ],
+      "created": "1996",
+      "age_years": 30.1,
+      "category": "CRITICAL",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Ultra-premium aged domain (30.1y); SSL broken/no content = CONFIRMED ABANDONED; Single-word .com dictionary domain",
+      "live_status": "SSL broken, no content served. AWS nameservers leftover from previous use. 301 redirect to HTTPS fails. Confirmed abandoned."
+    },
+    {
+      "domain": "debtcalc.com",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "expiry": "2026-06-07",
+      "days_remaining": 31,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS3.AFTERNIC.COM",
+        "NS4.AFTERNIC.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "Afternic NS (listed for sale); Afternic lander page active; Premium aged domain (23.9y); Finance keyword domain; EXPIRING SOON - 31 days",
+      "live_status": "Redirects to /lander - Afternic for-sale landing page."
+    },
+    {
+      "domain": "beautifier.com",
+      "registrar": "Sav.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "LUNLUN.NS.GIANTPANDA.COM",
+        "YANGYANG.NS.GIANTPANDA.COM"
+      ],
+      "created": "2003",
+      "age_years": 22.9,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "Parked/for-sale nameservers (GiantPanda NS); HTTP 204 empty response; Premium single-word .com; Premium aged domain (22.9y); EXPIRING SOON - 44 days",
+      "live_status": "Returns HTTP 204 No Content via openresty. Essentially empty/parked."
+    },
+    {
+      "domain": "fileconverter.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS49.DOMAINCONTROL.COM",
+        "NS50.DOMAINCONTROL.COM"
+      ],
+      "created": "2002",
+      "age_years": 23.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; GoDaddy forsale lander active; High search volume keyword; Premium aged domain (23.9y); EXPIRING SOON - 44 days",
+      "live_status": "GoDaddy 'Forsale Lander' page. Domain is for sale via Afternic/GoDaddy."
+    },
+    {
+      "domain": "fileshare.com",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "expiry": "2026-06-29",
+      "days_remaining": 53,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.VENTURE.COM",
+        "NS2.VENTURE.COM"
+      ],
+      "created": "2001",
+      "age_years": 24.9,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Listed on Venture.com marketplace; Premium keyword (.com) with massive search volume; Premium aged domain (24.9y); EXPIRING SOON - 53 days",
+      "live_status": "Redirecting to Venture.com domain marketplace. Actively being sold. Has Facebook Pixel + Google Tag Manager tracking."
+    },
+    {
+      "domain": "cookingtool.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-17",
+      "days_remaining": 71,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "2004",
+      "age_years": 21.8,
+      "category": "CRITICAL",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Premium aged domain (21.8y); EXPIRING SOON - 71 days",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    },
+    {
+      "domain": "reviewer.com",
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2026-07-23",
+      "days_remaining": 77,
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "NS.BUYDOMAINS.COM",
+        "NS2.BUYDOMAINS.COM"
+      ],
+      "created": "1995",
+      "age_years": 30.8,
+      "category": "HIGH",
+      "estimated_value": "$10,000-$100,000+",
+      "notes": "BuyDomains.com NS (professional domain broker); Ultra-premium aged domain (30.8y); Single-word dictionary .com; No active website; EXPIRING SOON - 77 days",
+      "live_status": "No HTTP response. BuyDomains NS - domain broker holding. 30-year-old domain."
+    },
+    {
+      "domain": "socialchecker.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-10",
+      "days_remaining": 95,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS01.CASHPARKING.COM",
+        "NS02.CASHPARKING.COM"
+      ],
+      "created": "2006",
+      "age_years": 19.7,
+      "category": "HIGH",
+      "estimated_value": "$1,000-$10,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; Parked/for-sale nameservers"
+    },
+    {
+      "domain": "savingsrate.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-22",
+      "days_remaining": 107,
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "NS1.NAMEFIND.COM",
+        "NS2.NAMEFIND.COM"
+      ],
+      "created": "1999",
+      "age_years": 26.7,
+      "category": "HIGH",
+      "estimated_value": "$2,000-$25,000",
+      "notes": "clientRenewProhibited - NON-RENEWAL SIGNAL; NameFind NS (GoDaddy aftermarket); For-sale lander active; Finance keyword domain; Ultra-premium aged domain (26.7y)",
+      "live_status": "Redirects to /lander - NameFind/GoDaddy for-sale page."
+    }
+  ],
+  "summary": {
+    "CRITICAL": 3,
+    "HIGH": 12,
+    "MONITOR": 15,
+    "ACTIVE": 103,
+    "PREMIUM": 16,
+    "AVAILABLE": 1
+  },
+  "action_items": {
+    "IMMEDIATE_ACTION_REQUIRED": [
+      {
+        "domain": "gamepicker.com",
+        "action": "Set up backorder on SnapNames, NameJet, DropCatch, and GoDaddy Auctions IMMEDIATELY",
+        "deadline": "2026-05-13 (6 DAYS)",
+        "rationale": "clientRenewProhibited + Afternic NS + expiring in 6 days. Will enter redemption ~May 13, drop ~June 17."
+      },
+      {
+        "domain": "decoder.com",
+        "action": "Set up backorder on ALL drop catch services (SnapNames, NameJet, DropCatch, GoDaddy, Dynadot)",
+        "deadline": "2026-05-26 (19 DAYS)",
+        "rationale": "30-year-old single-word dictionary .com with clientRenewProhibited. SSL broken, no content. CONFIRMED dropping. Estimated aftermarket value $10K-$100K+."
+      }
+    ],
+    "BACKORDER_THIS_WEEK": [
+      {
+        "domain": "debtcalc.com",
+        "action": "Set up backorder - domain on Afternic lander with 31 days to expiry",
+        "deadline": "2026-06-07"
+      },
+      {
+        "domain": "beautifier.com",
+        "action": "Set up backorder - empty/parked single-word .com expiring in 44 days",
+        "deadline": "2026-06-20"
+      },
+      {
+        "domain": "fileconverter.com",
+        "action": "Set up backorder - clientRenewProhibited on GoDaddy forsale lander",
+        "deadline": "2026-06-20"
+      },
+      {
+        "domain": "fileshare.com",
+        "action": "Set up backorder - clientRenewProhibited, listed on Venture.com marketplace",
+        "deadline": "2026-06-29"
+      }
+    ],
+    "MONITOR_WEEKLY": [
+      "cookingtool.com (2026-07-17)",
+      "reviewer.com (2026-07-23)",
+      "socialchecker.com (2026-08-10)",
+      "savingsrate.com (2026-08-22)",
+      "exercisetool.com (2026-08-31)",
+      "travelplanner.com (2026-09-07)"
+    ]
+  }
+}

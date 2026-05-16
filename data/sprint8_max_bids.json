@@ -1,0 +1,293 @@
+{
+  "metadata": {
+    "generated": "2026-05-07",
+    "sprint": 8,
+    "budget_remaining": 565,
+    "currency": "USD",
+    "notes": "Max bids represent the absolute ceiling. Never exceed these amounts. Bids include the catch fee — e.g., if catch fee is $59 and max_bid is $150, you can bid up to $150 total in auction. The catch fee is the floor, not added on top.",
+    "bid_strategy": "Start at minimum bid. Use proxy bidding where available. Only escalate if domain has strong niche fit or exceptional backlink profile."
+  },
+  "max_bids": [
+    {
+      "domain": "jerusalemonline.com",
+      "max_bid": 300,
+      "da": 64,
+      "rd": 1101,
+      "rationale": "Highest DA in batch (64). 1101 referring domains is exceptional. Travel/news niche with strong international backlink profile. Worth aggressive bidding.",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "bid_tiers": {
+        "ideal_price": 69,
+        "comfortable_price": 150,
+        "stretch_price": 250,
+        "absolute_max": 300
+      }
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "max_bid": 400,
+      "estimated_dr": 45,
+      "rd": null,
+      "rationale": "OpenAI-backed startup ($220M raised). High DR from quality tech press backlinks. Autonomous driving + AI brand potential. Moderate trademark risk — verify before bidding above $200.",
+      "priority": "HIGH",
+      "drops_in_days": 31,
+      "bid_tiers": {
+        "ideal_price": 69,
+        "comfortable_price": 150,
+        "stretch_price": 300,
+        "absolute_max": 400
+      },
+      "trademark_check_required": true
+    },
+    {
+      "domain": "sushifaq.com",
+      "max_bid": 250,
+      "da": 51,
+      "rd": 769,
+      "rationale": "769 referring domains is very strong. Food niche with perfect keyword domain. Synergizes with food portfolio. FAQ-style domains have evergreen SEO value.",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "bid_tiers": {
+        "ideal_price": 69,
+        "comfortable_price": 120,
+        "stretch_price": 200,
+        "absolute_max": 250
+      }
+    },
+    {
+      "domain": "ektopos.com",
+      "max_bid": 150,
+      "da": 47,
+      "rd": 483,
+      "rationale": "483 referring domains with DA 47. Strong backlink profile. EMERGENCY timing — drops in ~2 days. Short brandable name.",
+      "priority": "EMERGENCY",
+      "drops_in_days": 2,
+      "bid_tiers": {
+        "ideal_price": 59,
+        "comfortable_price": 80,
+        "stretch_price": 120,
+        "absolute_max": 150
+      }
+    },
+    {
+      "domain": "globalgeopark.org",
+      "max_bid": 150,
+      "da": 49,
+      "rd": 627,
+      "rationale": "627 referring domains is strong. .org TLD has trust signal advantages. Education/tourism niche. DA 49 with quality institutional backlinks likely.",
+      "priority": "URGENT",
+      "drops_in_days": 6,
+      "bid_tiers": {
+        "ideal_price": 59,
+        "comfortable_price": 80,
+        "stretch_price": 120,
+        "absolute_max": 150
+      }
+    },
+    {
+      "domain": "bluedogcafe.com",
+      "max_bid": 150,
+      "da": 41,
+      "rd": 251,
+      "rationale": "Food niche domain with 251 referring domains. Restaurant/cafe brandable name. Lower DA (41) but food niche synergy adds portfolio value.",
+      "priority": "URGENT",
+      "drops_in_days": 8,
+      "bid_tiers": {
+        "ideal_price": 59,
+        "comfortable_price": 80,
+        "stretch_price": 120,
+        "absolute_max": 150
+      }
+    },
+    {
+      "domain": "lindisima.com",
+      "max_bid": 100,
+      "da": 50,
+      "rd": 301,
+      "rationale": "DA 50 with 301 RDs. Beauty niche — monetizable but competitive. Spanish-language keyword ('beautiful'). Capped at $100 due to niche difficulty.",
+      "priority": "URGENT",
+      "drops_in_days": 4,
+      "bid_tiers": {
+        "ideal_price": 59,
+        "comfortable_price": 75,
+        "stretch_price": 90,
+        "absolute_max": 100
+      }
+    },
+    {
+      "domain": "itsnewsweb.com",
+      "max_bid": 100,
+      "da": 55,
+      "rd": 350,
+      "rationale": "DA 55 with 350 RDs. News niche is harder to monetize without constant content. Good authority but limited niche value. Cap at $100.",
+      "priority": "URGENT",
+      "drops_in_days": 5,
+      "bid_tiers": {
+        "ideal_price": 59,
+        "comfortable_price": 75,
+        "stretch_price": 90,
+        "absolute_max": 100
+      }
+    },
+    {
+      "domain": "bishopswaltham.net",
+      "max_bid": 75,
+      "da": 55,
+      "rd": 41,
+      "rationale": "DA 55 is good but only 41 referring domains — thin backlink profile. .net TLD less valuable. Geographic/local niche limits monetization. EMERGENCY drop but keep bid low.",
+      "priority": "EMERGENCY",
+      "drops_in_days": 1,
+      "bid_tiers": {
+        "ideal_price": 13.99,
+        "comfortable_price": 40,
+        "stretch_price": 60,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "ciudadsegontia.com",
+      "max_bid": 75,
+      "da": 56,
+      "rd": 82,
+      "rationale": "DA 56 but only 82 RDs. Spanish-language geographic domain. Limited English-market monetization. Keep bid conservative despite high DA.",
+      "priority": "EMERGENCY",
+      "drops_in_days": 3,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "reggiewatts.com",
+      "max_bid": 75,
+      "da": 51,
+      "rd": 523,
+      "rationale": "TRADEMARK RISK. DA 51 with 523 RDs is strong, but Reggie Watts is a living public figure. UDRP likely if acquired. Only bid if you have a legitimate use case.",
+      "priority": "URGENT",
+      "drops_in_days": 5,
+      "bid_tiers": {
+        "ideal_price": 0,
+        "comfortable_price": 0,
+        "stretch_price": 50,
+        "absolute_max": 75
+      },
+      "trademark_warning": "HIGH RISK - living public figure, likely UDRP",
+      "recommendation": "SKIP unless you have legitimate non-infringing purpose"
+    },
+    {
+      "domain": "scififoods.com",
+      "max_bid": 75,
+      "da": null,
+      "estimated_dr": 25,
+      "rd": null,
+      "rationale": "Lower DR (~25) but food/tech niche. Startup raised $30M so likely has some quality backlinks from press. Long timeline (38 days) gives room to evaluate.",
+      "priority": "HIGH",
+      "drops_in_days": 38,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "aidevtools.com",
+      "max_bid": 75,
+      "da": null,
+      "rd": null,
+      "rationale": "AI/dev tools keyword domain. Already backordered on DropCatch. Adding backup platforms as insurance.",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "bestdevtools.com",
+      "max_bid": 75,
+      "da": null,
+      "rd": null,
+      "rationale": "Dev tools keyword domain. Already backordered on DropCatch. Adding SnapNames backup.",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "taskplanner.com",
+      "max_bid": 75,
+      "da": null,
+      "rd": null,
+      "rationale": "Productivity keyword domain. Already backordered on DropCatch. Adding backup platforms.",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    },
+    {
+      "domain": "finetuneai.com",
+      "max_bid": 75,
+      "da": null,
+      "rd": null,
+      "rationale": "AI/ML keyword domain. Already backordered on DropCatch. Adding SnapNames backup.",
+      "priority": "EXISTING",
+      "drops_in_days": null,
+      "bid_tiers": {
+        "ideal_price": 24.99,
+        "comfortable_price": 50,
+        "stretch_price": 65,
+        "absolute_max": 75
+      }
+    }
+  ],
+  "budget_scenarios": {
+    "best_case": {
+      "description": "Catch 5 domains at minimum/ideal prices on Dynadot",
+      "estimated_cost": 125,
+      "domains_likely": ["ektopos.com", "ciudadsegontia.com", "bishopswaltham.net", "scififoods.com", "bluedogcafe.com"],
+      "remaining_budget": 440
+    },
+    "moderate_case": {
+      "description": "Catch 4 domains, 2 at auction prices",
+      "estimated_cost": 300,
+      "domains_likely": ["sushifaq.com", "jerusalemonline.com", "ektopos.com", "globalgeopark.org"],
+      "remaining_budget": 265
+    },
+    "aggressive_case": {
+      "description": "Win 3 high-value auctions at stretch prices",
+      "estimated_cost": 500,
+      "domains_likely": ["jerusalemonline.com", "ghostautonomy.com", "sushifaq.com"],
+      "remaining_budget": 65
+    },
+    "worst_case": {
+      "description": "Win 2 competitive auctions at max bids",
+      "estimated_cost": 550,
+      "domains_likely": ["jerusalemonline.com", "ghostautonomy.com"],
+      "remaining_budget": 15,
+      "warning": "DANGEROUSLY LOW — would need to skip remaining targets"
+    }
+  },
+  "bidding_rules": [
+    "NEVER exceed the absolute_max for any domain — no exceptions",
+    "Start bidding at ideal_price tier and only escalate if outbid",
+    "Use proxy bidding where available (NameJet, GoDaddy) — set to absolute_max and let the system bid minimally",
+    "If two domains are in simultaneous auctions, prioritize by DA * RD score",
+    "Track total committed spend across all platforms to avoid exceeding $565 budget",
+    "If you win jerusalemonline.com at $300, reduce ghostautonomy.com max to $200",
+    "If you win ghostautonomy.com at $400, skip all remaining auctions above $75",
+    "Reserve at least $100 for unexpected opportunities"
+  ]
+}

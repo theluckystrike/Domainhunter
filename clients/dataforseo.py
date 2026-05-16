@@ -22,7 +22,12 @@ _FIXTURE_PATH: str = str(
     Path(__file__).parent.parent / "tests" / "fixtures" / "dataforseo_sample.json"
 )
 _BASE_URL: str = "https://api.dataforseo.com/v3/backlinks/summary/live"
+_BULK_RANKS_URL: str = "https://api.dataforseo.com/v3/backlinks/bulk_ranks/live"
+_BULK_REFERRING_URL: str = "https://api.dataforseo.com/v3/backlinks/bulk_referring_domains/live"
+_BULK_SUMMARY_URL: str = "https://api.dataforseo.com/v3/backlinks/bulk_pages_summary/live"
 _TIMEOUT_SECONDS: int = 20
+_BULK_TIMEOUT_SECONDS: int = 60
+_MAX_BULK_TARGETS: int = 1000
 
 
 class DataForSEOError(Exception):
@@ -203,4 +208,168 @@ class DataForSEOClient:
         # Fallback: use first task
         result: dict[str, Any] = self._extract_summary(raw_data)
         assert isinstance(result, dict), "mock result must be a dict"
+        return result
+
+    # ------------------------------------------------------------------
+    # Bulk API methods (up to 1000 domains per call)
+    # ------------------------------------------------------------------
+
+    async def _bulk_post(self, url: str, domains: list[str]) -> dict[str, Any]:
+        """Execute a bulk POST request to DataForSEO Backlinks API.
+
+        Args:
+            url: Full endpoint URL.
+            domains: List of target domains (max 1000).
+
+        Returns:
+            Parsed JSON response dict.
+        """
+        assert isinstance(domains, list), "domains must be a list"
+        assert 0 < len(domains) <= _MAX_BULK_TARGETS, (
+            f"domains count must be 1-{_MAX_BULK_TARGETS}, got {len(domains)}"
+        )
+
+        headers: dict[str, str] = {
+            "Authorization": self._build_auth_header(),
+            "Content-Type": "application/json",
+        }
+        post_body: list[dict[str, Any]] = [{"targets": domains}]
+        timeout: aiohttp.ClientTimeout = aiohttp.ClientTimeout(
+            total=_BULK_TIMEOUT_SECONDS
+        )
+
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            async with session.post(url, headers=headers, json=post_body) as resp:
+                status: int = resp.status
+                if status != 200:
+                    body_text: str = await resp.text()
+                    logger.error(
+                        "dataforseo_bulk_error",
+                        endpoint=url, status=status, body=body_text[:500],
+                    )
+                    raise DataForSEOError(
+                        f"Bulk API returned {status}: {body_text[:200]}"
+                    )
+                raw: dict[str, Any] = await resp.json()
+
+        assert isinstance(raw, dict), "response must be a dict"
+        assert "tasks" in raw, "response must contain 'tasks'"
+        return raw
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=1, max=30),
+        reraise=True,
+    )
+    async def bulk_ranks(self, domains: list[str]) -> dict[str, int]:
+        """Get DataForSEO rank for up to 1000 domains in one call.
+
+        Args:
+            domains: Target domain names.
+
+        Returns:
+            Dict mapping domain -> rank (int).
+        """
+        assert isinstance(domains, list), "domains must be a list"
+        assert all(isinstance(d, str) for d in domains), "all domains must be str"
+
+        raw: dict[str, Any] = await self._bulk_post(_BULK_RANKS_URL, domains)
+        task: dict[str, Any] = raw["tasks"][0]
+
+        if task.get("status_code") != 20000:
+            raise DataForSEOError(
+                f"bulk_ranks failed: {task.get('status_message', 'unknown')}"
+            )
+
+        items: list[dict[str, Any]] = task.get("result", []) or []
+        result: dict[str, int] = {}
+        for item in items:
+            target: str = item.get("target", "")
+            rank: int = item.get("rank", 0)
+            result[target] = rank
+
+        assert isinstance(result, dict), "result must be a dict"
+        logger.info("bulk_ranks_fetched", count=len(result))
+        return result
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=1, max=30),
+        reraise=True,
+    )
+    async def bulk_referring_domains(self, domains: list[str]) -> dict[str, int]:
+        """Get referring domain count for up to 1000 domains.
+
+        Args:
+            domains: Target domain names.
+
+        Returns:
+            Dict mapping domain -> referring_domains count.
+        """
+        assert isinstance(domains, list), "domains must be a list"
+        assert all(isinstance(d, str) for d in domains), "all domains must be str"
+
+        raw: dict[str, Any] = await self._bulk_post(_BULK_REFERRING_URL, domains)
+        task: dict[str, Any] = raw["tasks"][0]
+
+        if task.get("status_code") != 20000:
+            raise DataForSEOError(
+                f"bulk_referring failed: {task.get('status_message', 'unknown')}"
+            )
+
+        items: list[dict[str, Any]] = task.get("result", []) or []
+        result: dict[str, int] = {}
+        for item in items:
+            target: str = item.get("target", "")
+            ref_count: int = item.get("referring_domains", 0)
+            result[target] = ref_count
+
+        assert isinstance(result, dict), "result must be a dict"
+        logger.info("bulk_referring_fetched", count=len(result))
+        return result
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=1, max=30),
+        reraise=True,
+    )
+    async def bulk_pages_summary(self, domains: list[str]) -> list[dict]:
+        """Get comprehensive backlink summary for up to 1000 domains.
+
+        Args:
+            domains: Target domain names.
+
+        Returns:
+            List of dicts with target, page, rank, backlinks,
+            referring_domains, referring_main_domains, etc.
+        """
+        assert isinstance(domains, list), "domains must be a list"
+        assert all(isinstance(d, str) for d in domains), "all domains must be str"
+
+        raw: dict[str, Any] = await self._bulk_post(_BULK_SUMMARY_URL, domains)
+        task: dict[str, Any] = raw["tasks"][0]
+
+        if task.get("status_code") != 20000:
+            raise DataForSEOError(
+                f"bulk_pages_summary failed: {task.get('status_message', 'unknown')}"
+            )
+
+        items: list[dict[str, Any]] = task.get("result", []) or []
+        result: list[dict] = []
+        for item in items:
+            entry: dict[str, Any] = {
+                "target": item.get("target", ""),
+                "page": item.get("page", ""),
+                "rank": item.get("rank", 0),
+                "backlinks": item.get("backlinks", 0),
+                "referring_domains": item.get("referring_domains", 0),
+                "referring_main_domains": item.get("referring_main_domains", 0),
+                "broken_backlinks": item.get("broken_backlinks", 0),
+                "referring_pages": item.get("referring_pages", 0),
+                "spam_score": item.get("spam_score", 0),
+            }
+            result.append(entry)
+
+        assert isinstance(result, list), "result must be a list"
+        logger.info("bulk_pages_summary_fetched", count=len(result))
         return result

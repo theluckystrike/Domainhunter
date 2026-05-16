@@ -1,0 +1,718 @@
+{
+  "sprint": 13,
+  "agent": "BACKORDER COMMANDER",
+  "scan_date": "2026-05-08",
+  "research_summary": "Comprehensive backorder platform audit covering 8 platforms. Key finding: NameJet and SnapNames share identical inventory since 2020 — use only ONE of them per domain to avoid bidding against yourself. Park.io does NOT cover .com or .org (ccTLDs only). Namecheap does NOT offer backorders. Porkbun does NOT offer backorders (uses Dynadot DAX for expired auctions). GoDaddy discontinued backorders in Oct 2025 — auction-only now.",
+
+  "platforms": [
+    {
+      "name": "DropCatch",
+      "url": "https://www.dropcatch.com",
+      "signup_url": "https://www.dropcatch.com/Registration",
+      "how_it_works_url": "https://www.dropcatch.com/hiw/backorders",
+      "our_status": "ACCOUNT CREATED — verification PENDING (Sprint 10 blocker)",
+      "verification_requirements": {
+        "summary": "DropCatch requires identity verification before auction participation",
+        "methods": [
+          "Phone number verification",
+          "Email verification",
+          "Government-issued photo ID (passport or driver's license) — high-quality color scan/photo",
+          "Selfie holding your government ID",
+          "Valid credit card added to DropCatch or NameBright account",
+          "Credit card deposit may be required"
+        ],
+        "when_required": "Required for all auction participation. May be re-triggered for high-value bids or suspicious activity.",
+        "action_needed": "Complete ID verification by uploading government ID + selfie. This is the Sprint 10 blocker that must be resolved FIRST."
+      },
+      "signup_steps": [
+        "1. Go to https://www.dropcatch.com/Registration",
+        "2. Create account with email and password (DONE — account exists)",
+        "3. Verify email address via confirmation link",
+        "4. Navigate to Account Settings > Verification",
+        "5. Upload government-issued photo ID (passport or driver's license)",
+        "6. Take and upload a selfie holding the same ID",
+        "7. Add a valid credit card to your account",
+        "8. Wait for manual review (typically 1-3 business days)",
+        "9. Once verified, navigate to the backorder search page",
+        "10. Search for each target domain and click 'Backorder'"
+      ],
+      "cost_structure": {
+        "signup_fee": "$0",
+        "standard_backorder": "$59 per domain (highest priority tier)",
+        "discount_club_backorder": "$10-$58 per domain (lower priority — HugeDomains gets first pick)",
+        "if_caught_uncontested": "Pay your backorder price ($59 standard)",
+        "if_caught_contested": "Goes to PUBLIC 3-day auction — highest bidder wins",
+        "if_not_caught": "$0 — no charge",
+        "recommendation": "USE STANDARD $59 BACKORDERS for priority domains. Discount club is deprioritized behind corporate partners like HugeDomains."
+      },
+      "supported_tlds": [".com", ".net", ".org", ".info", ".biz", ".io", "and 100+ more"],
+      "success_rate": "Industry-leading catch rate. Operates 1,200+ registrar accreditations for drop-catching. Highest volume catcher for .com domains.",
+      "strengths": [
+        "Largest drop-catching infrastructure (1,200+ registrars)",
+        "Best catch rate for .com domains",
+        "Public auction means you can still win even if others backordered",
+        "No charge if domain not caught"
+      ],
+      "weaknesses": [
+        "Discount Club backorders are deprioritized behind corporate partners",
+        "Verification process can be slow",
+        "Public auctions can drive prices up quickly"
+      ],
+      "estimated_cost_9_domains": {
+        "backorder_placement": "$59 x 6 domains = $354 (only placing on 6 — see matrix)",
+        "if_all_caught_uncontested": "$354",
+        "if_auctions_occur": "Variable — depends on competition"
+      }
+    },
+    {
+      "name": "SnapNames",
+      "url": "https://www.snapnames.com",
+      "signup_url": "https://www.snapnames.com/registration.action",
+      "faq_url": "https://www.snapnames.com/faqs.action",
+      "how_to_backorder_url": "https://www.snapnames.com/how-to-backorder-domain-name.action",
+      "our_status": "NO ACCOUNT — needs signup",
+      "critical_note": "SnapNames and NameJet share IDENTICAL inventory since 2020. Placing backorders on BOTH platforms for the same domain means BIDDING AGAINST YOURSELF. Choose ONE platform per domain.",
+      "signup_steps": [
+        "1. Go to https://www.snapnames.com/registration.action",
+        "2. Fill in: username, email, password, name, address",
+        "3. Verify email via confirmation link",
+        "4. Log in and add payment method (credit card)",
+        "5. Search for target domain in the backorder search",
+        "6. Click 'Backorder' on each target domain",
+        "7. Set your backorder amount (minimum $79)",
+        "8. Confirm checkout — no charge until domain is caught"
+      ],
+      "cost_structure": {
+        "signup_fee": "$0",
+        "minimum_backorder": "$79 per domain",
+        "if_caught_sole_backorder": "Pay $79 (or your backorder amount)",
+        "if_caught_multiple_backorders": "Private 3-day auction among all who backordered. Only backorder holders can bid.",
+        "if_not_caught": "$0 — no charge",
+        "note": "Your backorder amount is NOT a proxy bid. It's the starting price you'd pay if uncontested."
+      },
+      "supported_tlds": [".com", ".net", ".org", ".info", ".biz", "and 200+ gTLDs"],
+      "catches_org": true,
+      "success_rate": "Moderate. Shares catch infrastructure with NameJet. Together they are the #2 catching service behind DropCatch.",
+      "strengths": [
+        "200+ TLDs supported including .org",
+        "Private auctions (only backorder holders can bid — less competition)",
+        "No charge if not caught",
+        "Chronological priority if multiple backorders but no auction bids"
+      ],
+      "weaknesses": [
+        "Shares inventory with NameJet — do NOT use both",
+        "Higher minimum ($79) vs DropCatch ($59)",
+        "Lower catch rate than DropCatch for .com"
+      ],
+      "estimated_cost_9_domains": {
+        "backorder_placement": "$79 x 9 domains = $711",
+        "if_all_caught_uncontested": "$711",
+        "if_auctions_occur": "Variable — private auction among backorder holders"
+      }
+    },
+    {
+      "name": "NameJet",
+      "url": "https://www.namejet.com",
+      "signup_url": "https://www.namejet.com/registration.action",
+      "faq_url": "https://www.namejet.com/faqs.action",
+      "our_status": "NO ACCOUNT — needs signup",
+      "critical_note": "NameJet and SnapNames share IDENTICAL inventory since 2020. USE ONLY ONE of these two platforms per domain. Bidding on both = bidding against yourself.",
+      "signup_steps": [
+        "1. Go to https://www.namejet.com/registration.action",
+        "2. Create account with email, username, password",
+        "3. Verify email address",
+        "4. Add payment method (credit card)",
+        "5. Search for target domain",
+        "6. Click 'Place Backorder' or 'Pre-Bid'",
+        "7. Enter your backorder amount (minimum $79 for pending delete)",
+        "8. Confirm — no charge until caught"
+      ],
+      "cost_structure": {
+        "signup_fee": "$0",
+        "minimum_backorder_pending_delete": "$79",
+        "if_caught_sole_backorder": "Pay your backorder amount",
+        "if_caught_multiple_backorders": "Private auction among backorder holders only",
+        "if_not_caught": "$0 — no charge at all",
+        "registration_included": "Yes — domain registration fee is included in your winning bid. You pay what you bid, nothing more.",
+        "pre_release_vs_drop_catch": {
+          "pre_release": "Domain listed by registrar before it actually drops. Auction happens while domain is still in redemption/grace. Registrar can pull domain from auction if owner renews.",
+          "pending_delete": "Domain has passed all grace periods and is in the 5-day pending delete phase. This is the true 'drop catch' — domain will be deleted and re-registered."
+        }
+      },
+      "supported_tlds": [".com", ".net", ".org", ".info", ".biz", "and 200+ gTLDs"],
+      "success_rate": "Moderate-High. Same catch infrastructure as SnapNames. Strong for pre-release domains from partner registrars.",
+      "strengths": [
+        "Pre-release access to domains from partner registrars (Bluehost, HostGator, etc.)",
+        "Registration included in bid price",
+        "Private auctions reduce competition",
+        "Backorder is NOT a proxy bid — transparent pricing"
+      ],
+      "weaknesses": [
+        "Shares inventory with SnapNames — do NOT use both",
+        "Higher minimum ($79) vs DropCatch ($59)",
+        "Pre-release domains can be pulled if owner renews"
+      ],
+      "estimated_cost_9_domains": {
+        "backorder_placement": "$79 x 6 domains = $474 (only placing on 6 — see matrix)",
+        "if_all_caught_uncontested": "$474",
+        "if_auctions_occur": "Variable"
+      }
+    },
+    {
+      "name": "Dynadot",
+      "url": "https://www.dynadot.com",
+      "signup_url": "https://www.dynadot.com/account/create",
+      "backorder_url": "https://www.dynadot.com/market/backorder",
+      "expired_auction_url": "https://www.dynadot.com/market/auction",
+      "our_status": "NO ACCOUNT — needs signup",
+      "signup_steps": [
+        "1. Go to https://www.dynadot.com/account/create",
+        "2. Enter email, create password, fill in contact details",
+        "3. Verify email via confirmation link",
+        "4. Log in and add $5 minimum to account balance (or make any $5+ purchase)",
+        "5. Navigate to https://www.dynadot.com/market/backorder",
+        "6. Search for each target domain",
+        "7. Click 'Backorder' and confirm",
+        "8. No charge until domain is successfully caught"
+      ],
+      "cost_structure": {
+        "signup_fee": "$0",
+        "minimum_deposit": "$5 (account balance or prior purchase)",
+        "backorder_cost_com": "~$10-15 per .com backorder (varies by TLD — check backorder page for exact pricing)",
+        "if_caught_sole_backorder": "Pay backorder price",
+        "if_caught_multiple_backorders": "Private 3-day auction among backorder holders. Starting bid = backorder price of first requester.",
+        "if_not_caught": "$0",
+        "expired_auction": {
+          "description": "Domains that expire at Dynadot go through their own expired auction pipeline",
+          "minimum_bid": "Varies",
+          "duration": "Standard auction length",
+          "payment_window": "48 hours after winning"
+        },
+        "expired_closeout": {
+          "description": "Domains that received no bids in expired auction go to closeout with declining daily pricing",
+          "day_1_price": "$30",
+          "day_2_price": "$15",
+          "day_3_price": "$5",
+          "note": "Must pay immediately — first come first served"
+        }
+      },
+      "supported_tlds": [".com", ".net", ".org", ".info", ".co", "and many more — use TLD filter on backorder page"],
+      "success_rate": "Moderate. Smaller catching infrastructure than DropCatch but budget-friendly entry point.",
+      "strengths": [
+        "Lowest barrier to entry ($5 minimum deposit)",
+        "Budget-friendly backorder pricing",
+        "Expired closeout can yield domains for as little as $5",
+        "Transparent declining closeout pricing"
+      ],
+      "weaknesses": [
+        "Smaller catch infrastructure — lower success rate for competitive .com domains",
+        "Less catch volume than DropCatch or SnapNames/NameJet"
+      ],
+      "estimated_cost_9_domains": {
+        "backorder_placement": "~$15 x 5 domains = ~$75 (only placing on 5 — see matrix)",
+        "minimum_deposit": "$5",
+        "if_all_caught_uncontested": "~$75",
+        "total_upfront": "$5 deposit"
+      }
+    },
+    {
+      "name": "Park.io",
+      "url": "https://park.io",
+      "signup_url": "https://park.io/users/sign_up",
+      "support_url": "https://park.io/support",
+      "our_status": "NOT APPLICABLE — does not cover .com or .org",
+      "critical_note": "Park.io specializes EXCLUSIVELY in ccTLDs (country-code domains). It does NOT cover .com, .net, or .org. None of our 9 target domains can be backordered here.",
+      "signup_steps": [
+        "NOT NEEDED — Park.io does not support any of our target TLDs"
+      ],
+      "cost_structure": {
+        "signup_fee": "$0",
+        "backorder_price_uncontested": "$99 per domain",
+        "if_contested": "10-day public auction. First backorder holder gets first bid automatically.",
+        "auction_end_time": "12:40pm ET, extended if bids in last hour"
+      },
+      "supported_tlds": [".io", ".ly", ".to", ".me", ".sh", ".ac", ".vc", ".je", ".gg", ".co"],
+      "does_NOT_support": [".com", ".net", ".org", ".info"],
+      "success_rate": "High for ccTLDs — specialized infrastructure",
+      "relevance_to_our_campaign": "NONE — all 9 targets are .com or .org. Skip this platform entirely.",
+      "estimated_cost_9_domains": {
+        "note": "N/A — does not support our target TLDs"
+      }
+    },
+    {
+      "name": "GoDaddy Auctions",
+      "url": "https://auctions.godaddy.com",
+      "signup_url": "https://auctions.godaddy.com",
+      "membership_url": "https://www.godaddy.com/domain-auctions",
+      "our_status": "NO MEMBERSHIP — needs signup",
+      "critical_note": "GoDaddy DISCONTINUED backorder service in October 2025. They now only offer expired domain AUCTIONS (no pre-placement backorders). You cannot 'backorder' a domain on GoDaddy anymore — you must watch for it to appear in their auction pipeline and bid manually.",
+      "signup_steps": [
+        "1. Go to https://auctions.godaddy.com",
+        "2. Create a GoDaddy account (or log in if you have one)",
+        "3. Purchase GoDaddy Auctions membership ($4.99/year)",
+        "4. Add payment method for bidding",
+        "5. Set up Watchlist alerts for target domains (if they are GoDaddy-registered)",
+        "6. Monitor the Expired Auctions section daily for target domains",
+        "7. Bid when domains appear in auction"
+      ],
+      "cost_structure": {
+        "membership_fee": "$4.99/year",
+        "expired_auction": {
+          "description": "Domains expired at GoDaddy enter auction 26 days after expiration",
+          "duration": "10 days",
+          "minimum_bid": "Varies (often starts at $10-20)",
+          "buyer_fee": "Winning bid + renewal fee (~$20 for .com)"
+        },
+        "closeout": {
+          "description": "Domains with no bids after 10-day auction enter 5-day closeout (reverse/Dutch auction)",
+          "day_1_price": "$11 + renewal",
+          "day_2_price": "$10 + renewal",
+          "day_3_price": "$9 + renewal",
+          "day_4_price": "$8 + renewal (estimate)",
+          "day_5_price": "$5 + renewal (minimum)",
+          "total_minimum": "~$25 ($5 closeout + ~$20 renewal)"
+        },
+        "alerts": "Yes — you can set up domain watchlist/alerts, but only for domains registered at GoDaddy"
+      },
+      "supported_tlds": [".com", ".net", ".org", ".info", ".co", "and most gTLDs"],
+      "success_rate": "Only catches domains registered AT GoDaddy. Not a universal drop-catcher.",
+      "relevance_to_our_campaign": "MODERATE — useful only if target domains are registered at GoDaddy. Check WHOIS for each domain's registrar.",
+      "strengths": [
+        "Cheapest membership fee ($4.99/year)",
+        "Closeout pricing can be very low ($5-11)",
+        "Huge inventory of GoDaddy-registered expiring domains",
+        "Watchlist alerts"
+      ],
+      "weaknesses": [
+        "Backorder service DISCONTINUED — auction only",
+        "Only catches GoDaddy-registered domains",
+        "Cannot pre-place backorders — must monitor and bid manually",
+        "10-day auction window means more competition"
+      ],
+      "estimated_cost_9_domains": {
+        "membership": "$4.99",
+        "note": "Only relevant for domains currently registered at GoDaddy. Check WHOIS first."
+      }
+    },
+    {
+      "name": "Porkbun",
+      "url": "https://porkbun.com",
+      "our_status": "NOT APPLICABLE — no backorder service",
+      "critical_note": "Porkbun does NOT offer a backorder service. Expired Porkbun domains are sent to third-party auction services (partnered with Dynadot DAX) around 26 days after expiration. Porkbun is a registrar, not a drop-catcher.",
+      "has_backorder_service": false,
+      "expired_domain_process": {
+        "day_1_to_10": "Domain suspended, owner can still renew",
+        "day_21": "Domain submitted to third-party auction service",
+        "day_26_to_37": "Domain available at third-party auction (Dynadot DAX)",
+        "day_31": "Domain removed from Porkbun account",
+        "day_35_to_45": "Domain deleted by registry"
+      },
+      "relevance_to_our_campaign": "NONE — not a backorder platform. Skip entirely.",
+      "estimated_cost_9_domains": {
+        "note": "N/A — no backorder service available"
+      }
+    },
+    {
+      "name": "Namecheap",
+      "url": "https://www.namecheap.com",
+      "marketplace_url": "https://www.namecheap.com/domains/marketplace/",
+      "our_status": "NOT APPLICABLE — no backorder service",
+      "critical_note": "Namecheap DOES NOT offer backordering services. Their customer support has confirmed this directly. They only offer an expired domain auction for domains registered at Namecheap. For backordering, they recommend third-party services (DropCatch, SnapNames, NameJet).",
+      "has_backorder_service": false,
+      "expired_auction_details": {
+        "description": "Only for domains registered at Namecheap",
+        "start_time": "~30 days after expiration",
+        "minimum_account_balance": "$100 required to bid",
+        "auction_end_time": "All auctions end at 11:00 AM ET (changed in 2025)",
+        "closeout": "Available after auction if no bids"
+      },
+      "relevance_to_our_campaign": "MONITOR ONLY — if any target domain is registered at Namecheap, watch their expired auction. But cannot pre-place backorders.",
+      "estimated_cost_9_domains": {
+        "note": "N/A — no backorder service. $100 minimum balance required for auction bidding."
+      }
+    }
+  ],
+
+  "platform_comparison_summary": {
+    "tier_1_must_use": {
+      "DropCatch": {
+        "reason": "Highest catch rate with 1,200+ registrar accreditations",
+        "cost": "$59/backorder",
+        "priority": "HIGHEST"
+      },
+      "SnapNames_OR_NameJet": {
+        "reason": "Second largest catching service. Shared inventory — pick ONE.",
+        "cost": "$79/backorder",
+        "recommendation": "Use SnapNames (slightly cleaner interface). Do NOT also use NameJet for same domains.",
+        "priority": "HIGH"
+      }
+    },
+    "tier_2_supplemental": {
+      "Dynadot": {
+        "reason": "Budget-friendly backup with independent catch infrastructure",
+        "cost": "~$10-15/backorder + $5 deposit",
+        "priority": "MEDIUM"
+      }
+    },
+    "tier_3_monitor_only": {
+      "GoDaddy_Auctions": {
+        "reason": "Only for GoDaddy-registered domains. No backorders, auction only.",
+        "cost": "$4.99 membership + bid",
+        "priority": "LOW — check WHOIS first"
+      },
+      "Namecheap": {
+        "reason": "Only for Namecheap-registered domains. No backorders.",
+        "cost": "$100 minimum balance for bidding",
+        "priority": "LOW — check WHOIS first"
+      }
+    },
+    "not_applicable": {
+      "Park.io": "Does not cover .com or .org",
+      "Porkbun": "No backorder service"
+    }
+  },
+
+  "backorder_matrix": [
+    {
+      "domain": "bestdevtools.com",
+      "tld": ".com",
+      "max_bid": 100,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames — would bid against self" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS — auction only if GoDaddy-registered" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage (DropCatch + SnapNames + Dynadot). Max auction bid $100."
+    },
+    {
+      "domain": "taskplanner.com",
+      "tld": ".com",
+      "max_bid": 75,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. Max auction bid $75."
+    },
+    {
+      "domain": "finetuneai.com",
+      "tld": ".com",
+      "max_bid": 75,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. AI domain — could attract competition. Max auction bid $75."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "tld": ".org",
+      "max_bid": 400,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD — .org supported" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY — .org confirmed supported" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .org" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "HIGHEST VALUE TARGET ($400 max bid). Triple-platform essential. The .org TLD has fewer competing drop-catchers which may improve catch odds."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "tld": ".com",
+      "max_bid": 75,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. Former startup domain — moderate competition expected. Max auction bid $75."
+    },
+    {
+      "domain": "sushifaq.com",
+      "tld": ".com",
+      "max_bid": 75,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. Niche food domain — likely low competition. Max auction bid $75."
+    },
+    {
+      "domain": "codeguide.com",
+      "tld": ".com",
+      "max_bid": 50,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. Generic 2-word .com — HIGH competition risk. May exceed $50 max bid at auction. Consider raising max bid.",
+      "competition_warning": "codeguide.com is a premium generic 2-word .com. Expect significant competition from domainers. $50 max bid may be too low."
+    },
+    {
+      "domain": "fitocracy.com",
+      "tld": ".com",
+      "max_bid": 200,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "HIGH PRIORITY TARGET ($200 max bid). Triple-platform essential. Known startup brand with backlinks — will attract competition."
+    },
+    {
+      "domain": "sitegrader.com",
+      "tld": ".com",
+      "max_bid": 75,
+      "platforms": {
+        "DropCatch": { "place": true, "backorder_amount": 59, "priority": "STANDARD" },
+        "SnapNames": { "place": true, "backorder_amount": 79, "priority": "PRIMARY" },
+        "NameJet": { "place": false, "reason": "Shares inventory with SnapNames" },
+        "Dynadot": { "place": true, "backorder_amount": 15, "priority": "BACKUP" },
+        "Park.io": { "place": false, "reason": "Does not support .com" },
+        "GoDaddy": { "place": false, "reason": "Check WHOIS" }
+      },
+      "total_backorder_cost": 153,
+      "strategy": "Triple-platform coverage. SEO tool name — moderate competition expected. Max auction bid $75."
+    }
+  ],
+
+  "backorder_matrix_summary_table": {
+    "header": "| Domain | DropCatch ($59) | SnapNames ($79) | NameJet | Dynadot (~$15) | Park.io | Max Bid |",
+    "rows": [
+      "| bestdevtools.com  | YES | YES | SKIP* | YES | N/A | $100 |",
+      "| taskplanner.com   | YES | YES | SKIP* | YES | N/A | $75  |",
+      "| finetuneai.com    | YES | YES | SKIP* | YES | N/A | $75  |",
+      "| globalgeopark.org | YES | YES | SKIP* | YES | N/A | $400 |",
+      "| ghostautonomy.com | YES | YES | SKIP* | YES | N/A | $75  |",
+      "| sushifaq.com      | YES | YES | SKIP* | YES | N/A | $75  |",
+      "| codeguide.com     | YES | YES | SKIP* | YES | N/A | $50  |",
+      "| fitocracy.com     | YES | YES | SKIP* | YES | N/A | $200 |",
+      "| sitegrader.com    | YES | YES | SKIP* | YES | N/A | $75  |"
+    ],
+    "footnote": "* NameJet SKIP = shares identical inventory with SnapNames since 2020. Using both = bidding against yourself. Use SnapNames only."
+  },
+
+  "total_estimated_cost": {
+    "scenario_1_all_backorders_placed": {
+      "dropcatch_9x59": 531,
+      "snapnames_9x79": 711,
+      "dynadot_9x15": 135,
+      "dynadot_deposit": 5,
+      "godaddy_membership": 4.99,
+      "total_backorder_placement": 1386.99,
+      "note": "This is the MAXIMUM cost if ALL platforms catch ALL domains uncontested. In practice, only ONE platform catches each domain."
+    },
+    "scenario_2_realistic_catch": {
+      "description": "Typically 1 platform catches each domain. You pay only the winning platform.",
+      "average_cost_per_caught_domain": "$59-79 (depending on which platform catches it)",
+      "if_6_of_9_caught": "$354-$474",
+      "if_all_9_caught_uncontested": "$531-$711",
+      "auction_risk": "If multiple platforms catch AND multiple users backordered, expect auctions. Budget 2-3x backorder price for competitive domains."
+    },
+    "scenario_3_max_budget_all_auctions": {
+      "description": "Worst case: all domains go to auction at max bid",
+      "total_at_max_bids": 1125,
+      "breakdown": "$100 + $75 + $75 + $400 + $75 + $75 + $50 + $200 + $75 = $1,125"
+    }
+  },
+
+  "drop_date_calendar": [
+    {
+      "domain": "bestdevtools.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "timeline": {
+        "expiry_plus_0_days": "Expiration date — grace period begins",
+        "expiry_plus_30_days": "Grace period ends — redemption begins",
+        "expiry_plus_60_days": "Redemption ends — pending delete begins",
+        "expiry_plus_65_days": "Domain drops — available for catch"
+      },
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms BEFORE the estimated drop date"
+    },
+    {
+      "domain": "taskplanner.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms ASAP"
+    },
+    {
+      "domain": "finetuneai.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms ASAP"
+    },
+    {
+      "domain": "globalgeopark.org",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "HIGHEST PRIORITY — place backorders on all 3 platforms immediately"
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms ASAP"
+    },
+    {
+      "domain": "sushifaq.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms ASAP"
+    },
+    {
+      "domain": "codeguide.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms. WARNING: generic 2-word .com will attract competition."
+    },
+    {
+      "domain": "fitocracy.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "HIGH PRIORITY — place backorders on all 3 platforms. Known brand, expect auction."
+    },
+    {
+      "domain": "sitegrader.com",
+      "estimated_expiry": "TBD — check WHOIS",
+      "platforms_to_watch": ["DropCatch", "SnapNames", "Dynadot"],
+      "action": "Place backorders on all 3 platforms ASAP"
+    }
+  ],
+
+  "drop_date_formula": {
+    "standard_gtld_timeline": {
+      "step_1": "Domain expiration date (from WHOIS)",
+      "step_2": "+30-45 days grace period (registrar dependent, typically 30 for .com)",
+      "step_3": "+30 days redemption period",
+      "step_4": "+5 days pending delete",
+      "total": "~65-80 days from expiry to drop",
+      "formula": "Estimated Drop Date = Expiry Date + 65 days (for .com/.org)"
+    },
+    "org_specific": {
+      "grace_period": "30 days (PIR/Public Interest Registry)",
+      "redemption": "30 days",
+      "pending_delete": "5 days",
+      "total": "~65 days from expiry"
+    },
+    "important_note": "Backorders should be placed WELL BEFORE the estimated drop date. Most platforms accept backorders months in advance. Place them NOW."
+  },
+
+  "multi_platform_strategy": {
+    "what_happens_when_multiple_platforms_catch": {
+      "scenario": "You placed backorders on DropCatch + SnapNames + Dynadot for the same domain",
+      "outcome": "Only ONE platform actually catches the domain (the one whose registrar accreditation wins the race at the registry). You only pay the platform that catches it.",
+      "you_pay": "Only the winning platform. Other platforms charge $0.",
+      "no_double_payment": "Correct — you never pay two platforms for the same domain."
+    },
+    "what_happens_within_one_platform": {
+      "scenario": "Multiple USERS backordered the same domain on DropCatch",
+      "outcome": "Domain goes to auction. DropCatch: public 3-day auction. SnapNames/NameJet: private auction (backorder holders only). Dynadot: private 3-day auction.",
+      "you_pay": "Your winning bid amount"
+    },
+    "average_catch_rate": {
+      "per_platform": "10-30% per platform for competitive .com domains",
+      "with_3_platforms": "30-60% combined probability",
+      "for_niche_domains": "Higher — less competition on niche terms like sushifaq.com",
+      "for_generic_domains": "Lower — codeguide.com will face heavy competition"
+    },
+    "maximize_catch_probability": [
+      "1. Place backorders on ALL 3 platforms (DropCatch + SnapNames + Dynadot) for every domain",
+      "2. Use STANDARD priority on DropCatch ($59) — NOT discount club",
+      "3. Place backorders as early as possible — some platforms give chronological priority",
+      "4. Monitor GoDaddy Auctions and Namecheap Auctions for domains registered at those registrars",
+      "5. Set max auction bids BEFORE auctions start — don't get caught up in bidding wars",
+      "6. For globalgeopark.org and fitocracy.com (highest value), consider raising max bids"
+    ]
+  },
+
+  "execution_checklist": {
+    "phase_1_immediate": [
+      "BLOCKER: Complete DropCatch verification (upload government ID + selfie)",
+      "Create SnapNames account at https://www.snapnames.com/registration.action",
+      "Create Dynadot account at https://www.dynadot.com/account/create",
+      "Deposit $5 minimum at Dynadot"
+    ],
+    "phase_2_backorder_placement": [
+      "DropCatch: Place $59 standard backorders on all 9 domains (after verification)",
+      "SnapNames: Place $79 backorders on all 9 domains",
+      "Dynadot: Place backorders on all 9 domains (~$15 each)",
+      "DO NOT also use NameJet — same inventory as SnapNames"
+    ],
+    "phase_3_monitoring": [
+      "Purchase GoDaddy Auctions membership ($4.99) for monitoring",
+      "Check WHOIS for each domain's registrar — if GoDaddy or Namecheap, set alerts on those platforms",
+      "Run WHOIS on all 9 domains to get exact expiry dates",
+      "Calculate estimated drop dates using formula: expiry + 65 days",
+      "Set calendar reminders 1 week before each estimated drop date"
+    ],
+    "phase_4_auction_readiness": [
+      "Set max bid limits BEFORE auctions open",
+      "Do NOT exceed max bids in the heat of auction",
+      "Budget: $1,125 max if all 9 go to auction at max bid",
+      "Realistic budget: $400-700 for catching 4-6 domains"
+    ]
+  },
+
+  "risk_analysis": {
+    "codeguide_com": {
+      "risk": "HIGH",
+      "reason": "Generic 2-word .com ('code' + 'guide') will attract professional domainers",
+      "recommendation": "Consider raising max bid from $50 to $150+ or accept likely loss"
+    },
+    "fitocracy_com": {
+      "risk": "HIGH",
+      "reason": "Known startup brand with substantial backlink profile. Domainers monitor dead startup lists.",
+      "recommendation": "$200 max bid may be competitive. Budget $300+ if this is a must-win."
+    },
+    "globalgeopark_org": {
+      "risk": "MEDIUM",
+      "reason": ".org TLD has fewer competing drop-catchers. Niche topic reduces competition.",
+      "recommendation": "$400 max bid should be more than sufficient for a .org niche domain."
+    },
+    "sushifaq_com": {
+      "risk": "LOW",
+      "reason": "Very niche topic. Unlikely to attract professional domainers.",
+      "recommendation": "Likely catchable at base backorder price ($59-79). May not even go to auction."
+    },
+    "ghostautonomy_com": {
+      "risk": "MEDIUM",
+      "reason": "AI/autonomy is a hot sector. 'Ghost' brand recognition possible.",
+      "recommendation": "$75 max bid reasonable. Monitor closely."
+    }
+  }
+}

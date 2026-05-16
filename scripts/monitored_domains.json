@@ -1,0 +1,786 @@
+{
+  "active_targets": {
+    "critical": [
+      {
+        "domain": "cytheris.com",
+        "etv": 0,
+        "max_bid": 150,
+        "reaper_score": 0.0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-04T16:24:53Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-06-30",
+        "notes": "Cytheris SA, $45.7M biotech (liquidated 2013), clientRenewProhibited, DNS DEAD, GoDaddy auction route ~Jun 30, 24yr domain age, TM LIKELY CLEAR"
+      },
+      {
+        "domain": "olive.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 82.5,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-11-21T05:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "TBD",
+        "notes": "Olive AI, $902M funded, reaper=82.5, clientRenewProhibited, expires 2027-11-21"
+      },
+      {
+        "domain": "infarm.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 81.0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-02-18T05:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "TBD",
+        "notes": "Infarm, $500M funded, reaper=81.0, dry_run, Returns 403 from Cloudflare = domain held but site blocked. Re-emerged as Infarm"
+      },
+      {
+        "domain": "veev.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 75.8,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-07-02T03:59:59Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "TBD",
+        "notes": "Veev, $600M funded, reaper=75.8, dry_run, WordPress site still loads. $1B+ peak valuation. Premium 4-letter .com."
+      },
+      {
+        "domain": "ambri.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 75.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-06-20T04:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Ambri, $223M funded, reaper=75.2, dry_run, WordPress site still running. Bill Gates-backed. Asset sale completed to investo"
+      },
+      {
+        "domain": "guerrameats.com",
+        "etv": 11376,
+        "max_bid": 200,
+        "reaper_score": 0.0,
+        "registrar": "Squarespace Domains II LLC",
+        "expiry_date": "2027-04-07T02:36:43Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client hold",
+          "client transfer prohibited"
+        ],
+        "drop_est": "2026-06-26",
+        "notes": "clientHold + DNS DEAD, dropping ~Jun 26"
+      },
+      {
+        "domain": "sunnyray.org",
+        "etv": 2842,
+        "max_bid": 100,
+        "reaper_score": 0.0,
+        "registrar": "Tucows Domains Inc.",
+        "expiry_date": "2027-04-11T09:19:44.317Z",
+        "epp_statuses": [
+          "auto renew period"
+        ],
+        "drop_est": "2026-06-30",
+        "notes": "autoRenewPeriod, dropping ~Jun 30"
+      },
+      {
+        "domain": "globalgeopark.org",
+        "etv": 626,
+        "max_bid": 400,
+        "reaper_score": 0.0,
+        "registrar": "Tucows Domains Inc.",
+        "expiry_date": "2027-04-11T02:12:38.271Z",
+        "epp_statuses": [
+          "auto renew period"
+        ],
+        "drop_est": "2026-07-01",
+        "notes": "autoRenewPeriod, dropping ~Jul 1"
+      }
+    ],
+    "high": [
+      {
+        "domain": "runningtide.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 68.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-01-30T05:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Running Tide, $54M funded, reaper=68.2, dry_run, Domain completely unresolvable (no response HTTP or HTTPS). Registered on GoDadd"
+      },
+      {
+        "domain": "cerebras.net",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 62.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Cerebras Systems, $720M funded, reaper=62.5, clientRenewProhibited, expires 2035-04-16"
+      },
+      {
+        "domain": "datarobot.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 62.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "DataRobot, $1.0B funded, reaper=62.5, clientRenewProhibited, expires 2029-06-28"
+      },
+      {
+        "domain": "noogata.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 61.5,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-04-28T15:58:26Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Noogata, $28M funded, reaper=61.5, dry_run, Returns 405 Method Not Allowed = likely parked or minimal server. Recently shut "
+      },
+      {
+        "domain": "peartherapeutics.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 61.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Pear Therapeutics, $400M funded, reaper=61.0, clientRenewProhibited, expires 2026-09-13"
+      },
+      {
+        "domain": "inscripta.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 60.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Inscripta, $260M funded, reaper=60.5, clientRenewProhibited, expires 2028-01-01"
+      },
+      {
+        "domain": "motional.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 60.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Motional, $4.0B funded, reaper=60.0, clientRenewProhibited, expires 2026-10-07"
+      },
+      {
+        "domain": "katerra.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 59.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Katerra, $2.0B funded, reaper=59.5, clientRenewProhibited, expires 2027-03-27"
+      },
+      {
+        "domain": "kintsugi.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 59.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-03-15T13:55:47Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Kintsugi (Mental Health), $30M funded, reaper=59.2, dry_run, Redirects to DomainEasy.com buy page = ACTIVELY FOR SALE. Health/mental health n"
+      },
+      {
+        "domain": "quantumscape.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 59.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "QuantumScape, $1.5B funded, reaper=59.0, clientRenewProhibited, expires 2027-04-30"
+      },
+      {
+        "domain": "brandless.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 58.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Brandless, $300M funded, reaper=58.5, clientRenewProhibited, expires 2027-01-03"
+      },
+      {
+        "domain": "thredup.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 58.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "ThredUp, $300M funded, reaper=58.5, clientRenewProhibited, expires 2026-10-16"
+      },
+      {
+        "domain": "scififoods.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 57.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-14T21:33:28Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "SCiFi Foods, $30M funded, reaper=57.2, dry_run, Shows Payment required - DEPLOYMENT_DISABLED on Vercel = hosting unpaid. clien"
+      },
+      {
+        "domain": "ionicmaterials.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 57.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2028-03-12T12:21:39Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Ionic Materials, $65M funded, reaper=57.2, dry_run, HTTPS fails, HTTP returns 409 Conflict = server misconfigured/abandoned. Domain "
+      },
+      {
+        "domain": "tally.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 56.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Tally, $92M funded, reaper=56.5, clientRenewProhibited, expires 2026-07-07"
+      },
+      {
+        "domain": "ghostautonomy.com",
+        "etv": 1428,
+        "max_bid": 200,
+        "reaper_score": 55.6,
+        "registrar": "Wild West Domains, LLC",
+        "expiry_date": "2026-06-07T00:53:13Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-08-06",
+        "notes": "$220M funded, DA 52, TM ABANDONED, UDRP-proof, expires 2026-06-07, registrar WildWest/GoDaddy, pendingDelete ~Aug 2026"
+      },
+      {
+        "domain": "vineventures.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 55.5,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "Vine Ventures, $150M funded, reaper=55.5, clientRenewProhibited, expires 2026-08-25"
+      },
+      {
+        "domain": "fiskerinc.com",
+        "etv": 0,
+        "max_bid": 300,
+        "reaper_score": 54.4,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-09-21T23:52:51Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "TBD",
+        "notes": "Fisker, $1.5B funded, reaper=54.4, clientRenewProhibited, expires 2026-09-21"
+      },
+      {
+        "domain": "northvolt.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 54.4,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-01-24T20:34:12Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "TBD",
+        "notes": "Northvolt, $13000M funded, reaper=54.4, dry_run, Active website still running during Chapter 11 proceedings. Massive DR from $13B"
+      },
+      {
+        "domain": "radpowerbikes.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 52.7,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-03-07T19:45:39Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "",
+        "notes": "Rad Power Bikes, $325M funded, reaper=52.7, dry_run, Active website, in Chapter 11, seeking sale. Domain part of bankruptcy estate. $"
+      },
+      {
+        "domain": "goodglammgroup.com",
+        "etv": 0,
+        "max_bid": 100,
+        "reaper_score": 0.0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-07-06T18:20:52Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-07-06",
+        "notes": "clientRenewProhibited, Jul 6"
+      },
+      {
+        "domain": "sendy.co",
+        "etv": 3179,
+        "max_bid": 150,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "2026-07-16",
+        "notes": "clientRenewProhibited, Jul 16"
+      },
+      {
+        "domain": "readingfoundation.org",
+        "etv": 7207,
+        "max_bid": 200,
+        "reaper_score": 0.0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-07-30T04:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-07-30",
+        "notes": "clientRenewProhibited, Jul 30"
+      }
+    ],
+    "medium": [
+      {
+        "domain": "imageeditor.net",
+        "etv": 246,
+        "max_bid": 200,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, Nov 2026"
+      },
+      {
+        "domain": "bestdevtools.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "DNS DEAD, May 22"
+      },
+      {
+        "domain": "taskplanner.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, May 27"
+      },
+      {
+        "domain": "codehelper.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, Jul 17"
+      },
+      {
+        "domain": "codeanalyzer.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, Jul 20"
+      },
+      {
+        "domain": "fileconverter.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, Jun 20"
+      },
+      {
+        "domain": "cookingtool.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0.0,
+        "registrar": "unknown",
+        "expiry_date": "",
+        "epp_statuses": [],
+        "drop_est": "",
+        "notes": "clientRenewProhibited, Jul 17"
+      }
+    ],
+    "low": []
+  },
+  "watch_list": [
+    {
+      "domain": "arrival.com",
+      "classification": "MAYBE",
+      "reason": "Active (Name.com), expiry 2026-12-03. Company dead (NASDAQ delisted). Origin connection timeout = server down. Premium one-word .com. Reaper 77.0. Watch for clientRenewProhibited transition.",
+      "reaper_score": 77.0,
+      "registrar": "Name.com, Inc.",
+      "expiry_date": "2026-12-03T19:44:47Z",
+      "notes": "Arrival, $1.0B funded, reaper=77.0, dry_run, expires "
+    },
+    {
+      "domain": "mindstrong.com",
+      "classification": "MAYBE",
+      "reason": "Expiry 2027-02-08 (9mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 63.0,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry_date": "2027-02-08T00:32:59Z",
+      "notes": "Mindstrong, $160M funded, reaper=63.0, dry_run, HTTP redirects to HTTPS but HTTPS doesn't resolve = SSL expired/broken. Domain r"
+    },
+    {
+      "domain": "pandion.com",
+      "classification": "MAYBE",
+      "reason": "Expiry 2027-03-22 (10mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 62.8,
+      "registrar": "Cloudflare, Inc.",
+      "expiry_date": "2027-03-22T04:00:00Z",
+      "notes": "Pandion, $125M funded, reaper=62.8, dry_run, HTTPS times out but HTTP returns 301 via nginx. Domain registered on Cloudflare,"
+    },
+    {
+      "domain": "cushion.ai",
+      "classification": "MAYBE",
+      "reason": "Expiry 2026-10-28 (5mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 61.2,
+      "registrar": "101domain GRS Limited",
+      "expiry_date": "2026-10-28T02:11:52Z",
+      "notes": "Cushion, $21M funded, reaper=61.2, dry_run, Redirects to www.cushion.ai. May have been acquired by Lending Club. Domain appe"
+    },
+    {
+      "domain": "maas.global",
+      "classification": "MAYBE",
+      "reason": "Expiry 2027-03-01 (10mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 54.2,
+      "registrar": "Gandi SAS",
+      "expiry_date": "2027-03-01T19:49:31.24Z",
+      "notes": "MaaS Global (Whim), $162M funded, reaper=54.2, dry_run, Domain completely unresolvable. Toyota, Mitsubishi, BP Ventures backed. Finnish "
+    },
+    {
+      "domain": "universalhydrogen.com",
+      "classification": "MAYBE",
+      "reason": "Expiry 2027-02-16 (9mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 54.0,
+      "registrar": "Name.com, Inc.",
+      "expiry_date": "2027-02-16T20:36:58Z",
+      "notes": "Universal Hydrogen, $100M funded, reaper=54.0, dry_run, Shows parking page (Parking/1.0 server). Domain parked but registered through Fe"
+    },
+    {
+      "domain": "eaze.com",
+      "classification": "MAYBE",
+      "reason": "Expiry 2026-12-12 (7mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 49.7,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry_date": "2026-12-12T05:00:00Z",
+      "notes": "Eaze, $250M funded, reaper=49.7, dry_run, Shows Cloudflare challenge page = active but protected. Reopened under new owner"
+    },
+    {
+      "domain": "ubiquitousenergy.com",
+      "classification": "MAYBE",
+      "reason": "Expiry 2026-12-19 (7mo). No drop signal yet. Watch for transition.",
+      "reaper_score": 42.1,
+      "registrar": "Moniker Online Services LLC",
+      "expiry_date": "2026-12-19T18:48:39Z",
+      "notes": "Ubiquitous Energy, $70M funded, reaper=42.1, dry_run, HTTP returns 405 Method Not Allowed = likely parked. On Moniker registrar. Expir"
+    },
+    {
+      "domain": "codeparrot.ai",
+      "classification": "MAYBE",
+      "reason": "No RDAP data available. Manual check required.",
+      "reaper_score": 0.0,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Dead AI startup, Dec 2026"
+    },
+    {
+      "domain": "canoo.com",
+      "classification": "MAYBE",
+      "reason": "No RDAP data available. Manual check required.",
+      "reaper_score": 0.0,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Chapter 7, monitor only"
+    },
+    {
+      "domain": "quibi.com",
+      "classification": "MAYBE",
+      "reason": "No RDAP data available. Manual check required.",
+      "reaper_score": 0.0,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "$1.75B startup, monitor only"
+    },
+    {
+      "domain": "recroom.com",
+      "classification": "MAYBE",
+      "reason": "No RDAP data available. Manual check required.",
+      "reaper_score": 0.0,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Expires 2029, NOT dropping"
+    },
+    {
+      "domain": "irl.com",
+      "classification": "UNCATCHABLE",
+      "reason": "MarkMonitor registrar + 6 lock statuses incl. 3 server-side. Brand-protection fortress.",
+      "reaper_score": 75.5,
+      "registrar": "MarkMonitor Inc.",
+      "expiry_date": "2027-05-11T04:00:00Z",
+      "notes": "IRL, $200M funded, reaper=75.5, dry_run, expires "
+    },
+    {
+      "domain": "convoy.com",
+      "classification": "UNCATCHABLE",
+      "reason": "SafeNames registrar + 6 lock statuses incl. 3 server-side. Registered through 2028-10. Assets acquired by Flexport.",
+      "reaper_score": 73.0,
+      "registrar": "SafeNames Ltd.",
+      "expiry_date": "2028-10-31T10:36:20Z",
+      "notes": "Convoy, $1000M funded, reaper=73.0, dry_run, Active site on Cloudflare. Assets acquired by Flexport for $16M. Bezos and Gates"
+    },
+    {
+      "domain": "stenn.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Recently renewed (last_changed 2026-04-23, <1 month ago). NameCheap registrar, administration with legal proceedings.",
+      "reaper_score": 69.8,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2027-04-27T03:50:29Z",
+      "notes": "Stenn, $700M funded, reaper=69.8, dry_run, Website still active. In administration with legal proceedings. Domain likely pa"
+    },
+    {
+      "domain": "easyknock.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Cloudflare registrar, registered through 2028-01. No drop signals. Legal complications may tie up domain.",
+      "reaper_score": 68.5,
+      "registrar": "Cloudflare, Inc.",
+      "expiry_date": "2028-01-12T19:07:55Z",
+      "notes": "EasyKnock, $455M funded, reaper=68.5, dry_run, Shows Google-hosted static page. Domain on Cloudflare, registered through 2028. "
+    },
+    {
+      "domain": "zume.com",
+      "classification": "UNCATCHABLE",
+      "reason": "No drop signals. Registrar: Network Solutions, LLC. Registered with no clear path to catch.",
+      "reaper_score": 66.0,
+      "registrar": "Network Solutions, LLC",
+      "expiry_date": "2027-05-28T18:19:47Z",
+      "notes": "Zume, $445M funded, reaper=66.0, dry_run, Shows Wix 404 error page with noindex. Domain on Wix but no site configured = ab"
+    },
+    {
+      "domain": "synapsefi.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Registered through 2032-10. Domain does not resolve but 6+ years to expiry. No drop signals.",
+      "reaper_score": 65.2,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2032-10-07T02:04:04Z",
+      "notes": "Synapse Financial, $50M funded, reaper=65.2, dry_run, Domain does not resolve at all (no HTTP/HTTPS response). Registered through 2032"
+    },
+    {
+      "domain": "hermd.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Acquired and relaunched as virtual-only platform. Active website under new ownership.",
+      "reaper_score": 62.5,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-03-07T20:35:30Z",
+      "notes": "HerMD, $36M funded, reaper=62.5, dry_run, Active website. Acquired and relaunched as virtual-only platform."
+    },
+    {
+      "domain": "bench.co",
+      "classification": "UNCATCHABLE",
+      "reason": "Acquired by Employer.com. Active business under new ownership. RDAP 404 = .co ccTLD RDAP limitation, NOT availability.",
+      "reaper_score": 60.0,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Bench, $113M funded, reaper=60.0, dry_run, Acquired by Employer.com. Active website serving customers under new ownership."
+    },
+    {
+      "domain": "moxionpower.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Assets acquired (redirects to viridiparente.com). Registered through 2032-11. Domain controlled by acquirer.",
+      "reaper_score": 60.0,
+      "registrar": "Squarespace Domains II LLC",
+      "expiry_date": "2032-11-27T00:39:28Z",
+      "notes": "Moxion Power, $110M funded, reaper=60.0, dry_run, Redirects to viridiparente.com/moxion-inquire/ = assets acquired. Domain control"
+    },
+    {
+      "domain": "tally.co",
+      "classification": "UNCATCHABLE",
+      "reason": "Redirects to www.tally.co -- different company (form builder). Active business. RDAP 404 = .co ccTLD limitation.",
+      "reaper_score": 59.8,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Tally, $172M funded, reaper=59.8, dry_run, tally.co redirects to www.tally.co which appears to be a different company (form"
+    },
+    {
+      "domain": "capway.com",
+      "classification": "UNCATCHABLE",
+      "reason": "No drop signals. Registrar: Domain.com - Network Solutions, LLC. Registered with no clear path to catch.",
+      "reaper_score": 57.8,
+      "registrar": "Domain.com - Network Solutions, LLC",
+      "expiry_date": "2027-12-15T05:00:00Z",
+      "notes": "CapWay, $800000 funded, reaper=57.8, dry_run, Shows shutdown/thank you page. Only raised $800K so lower DR estimate. YC Summer"
+    },
+    {
+      "domain": "humane.com",
+      "classification": "UNCATCHABLE",
+      "reason": "NameCheap registrar, registered through 2032-09. HP acquired Humane. Domain in active use.",
+      "reaper_score": 56.5,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2032-09-19T04:00:00Z",
+      "notes": "Humane, $241M funded, reaper=56.5, dry_run, expires "
+    },
+    {
+      "domain": "allplants.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Acquired by Ella Mills (Feb 2025). Active website. Domain in use by new owner.",
+      "reaper_score": 52.2,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "notes": "Allplants, $81M funded, reaper=52.2, dry_run, Acquired by Ella Mills in Feb 2025. Active website."
+    },
+    {
+      "domain": "wyre.com",
+      "classification": "UNCATCHABLE",
+      "reason": "No drop signals. Registrar: GKG.Net, Inc.. Registered with no clear path to catch.",
+      "reaper_score": 51.8,
+      "registrar": "GKG.Net, Inc.",
+      "expiry_date": "2027-05-21T04:00:00Z",
+      "notes": "Wyre, $50M funded, reaper=51.8, dry_run, Shows private for-sale message: starting bid is $500,000. Premium 4-letter .co"
+    },
+    {
+      "domain": "plastiq.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Acquired by Priority Technology Holdings. Active WordPress site under new ownership.",
+      "reaper_score": 50.0,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-03-16T21:10:44Z",
+      "notes": "Plastiq, $220M funded, reaper=50.0, dry_run, Active WordPress site. Acquired by Priority Technology Holdings. Domain in use."
+    },
+    {
+      "domain": "themessenger.com",
+      "classification": "UNCATCHABLE",
+      "reason": "Registered through 2033-01. clientRenewProhibited on GoDaddy but 7+ years to expiry. Not dropping anytime soon.",
+      "reaper_score": 36.2,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2033-01-11T23:32:37Z",
+      "notes": "The Messenger, $50M funded, reaper=36.2, dry_run, Shows static shutdown page. Domain registered through 2033 = not expiring soon. "
+    },
+    {
+      "domain": "boweryfarming.com",
+      "classification": "DEAD",
+      "reason": "Re-registered Aug 2025 by Spaceship (creation_date=2025-08-02). Original Bowery Farming shut down; domain picked up by new owner.",
+      "reaper_score": 71.5,
+      "registrar": "Spaceship, Inc.",
+      "expiry_date": "2027-08-02T18:27:26Z",
+      "notes": "Bowery Farming, $700M funded, reaper=71.5, dry_run, expires "
+    }
+  ],
+  "summary": {
+    "total_domains": 67,
+    "catchable": 38,
+    "watch_list_count": 29,
+    "generated_at": "2026-05-15T00:00:00+00:00"
+  }
+}

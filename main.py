@@ -7,6 +7,8 @@ Usage:
   python -m main                        # Full pipeline (live APIs)
   python -m main --dry-run              # Mock data only
   python -m main --from-stage sentinel  # Resume from specific stage
+  python -m main --sprint "objective"   # Agentic Sprint OS mode
+  python -m main --sprint continue --state-file path/to/state.json
 
 NASA Power of 10 rules enforced throughout.
 """
@@ -30,6 +32,7 @@ from models.verdict import DomainVerdict, VerdictType
 from models.verified import VerifiedDomain
 from models.vetted import VettedDomain
 from notifications.notifier import Notifier
+from sprint_orchestrator import add_sprint_args, is_sprint_mode, run_sprint_mode
 from storage.database import Database
 
 logger = structlog.get_logger(__name__)
@@ -69,6 +72,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         choices=list(_STAGES),
         help="Resume pipeline from a specific stage (default: scout)",
     )
+    add_sprint_args(parser)
     return parser.parse_args(argv)
 
 
@@ -429,6 +433,18 @@ def main() -> None:
 
     assert isinstance(args.dry_run, bool), "dry_run must be bool"
     assert args.from_stage in _STAGES, f"invalid from_stage: {args.from_stage}"
+
+    # Sprint mode dispatch (Agentic Sprint OS v3.0)
+    if is_sprint_mode(args):
+        structlog.configure(
+            processors=[
+                structlog.processors.TimeStamper(fmt="iso"),
+                structlog.processors.add_log_level,
+                structlog.dev.ConsoleRenderer(),
+            ],
+        )
+        exit_code = run_sprint_mode(args)
+        sys.exit(exit_code)
 
     structlog.configure(
         processors=[

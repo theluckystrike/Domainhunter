@@ -1,0 +1,92 @@
+============================================================================================================================================
+#    Domain                 Has History  First Snapshot   Last Snapshot    Archive Age  Span         Avail API      Notes
+============================================================================================================================================
+1    codetools.com          YES          1998-01-15       N/A (API 503)    ~28y                      api_error      First curl returned data from 1998; subsequent CDX calls 503'd
+2    devstack.com           YES          N/A (API 503)    2025-08-21       ~1y                       api_error      
+3    aicode.com             YES          N/A (API 503)    2025-07-10       ~1y                       api_error      
+4    codereview.net         YES          2001-12-02       2025-07-16       ~24y         ~24y span    no_snapshot    Avail API: no_snapshot
+5    toolchain.io           YES          2014-11-14       N/A (API 503)    ~11y                      api_error      
+6    codecompare.com        YES          2005-02-16       N/A (API 503)    ~21y                      api_error      
+7    devhub.io              YES          2015-11-14       N/A (API 503)    ~10y                      api_error      
+8    techstack.com          YES          2010-04-23       2026-03-08       ~16y         ~16y span    api_error      
+9    apitools.com           YES          2000-12-06       N/A (API 503)    ~25y                      no_snapshot    Avail API: no_snapshot
+10   codeassist.com         NO / 503     N/A (API 503)    N/A (API 503)    N/A                       api_error      No CDX data in any run
+11   devtools.io            YES          2021-12-16       2022-03-09       ~4y          ~0y span     api_error      
+12   codebench.com          YES          2001-04-28       2013-11-26       ~25y         ~13y span    no_snapshot    Avail API: no_snapshot
+13   stackreview.com        YES          N/A (API 503)    2018-01-05       ~8y                       api_error      
+14   aitool.com             YES          N/A (API 503)    2023-01-27       ~3y                       api_error      
+15   devcompare.com         YES          2016-08-17       2025-10-14       ~10y         ~9y span     api_error      
+16   codehelper.com         YES          2002-08-06       2025-07-11       ~24y         ~23y span    api_error      
+17   tooldev.com            YES          2001-03-03       2025-11-09       ~25y         ~25y span    api_error      
+18   aidev.com              YES          N/A (API 503)    2026-03-12       ~0y                       api_error      
+19   codeguide.com          YES          2001-08-03       N/A (API 503)    ~25y                      api_error      
+20   devkit.io              NO / 503     N/A (API 503)    N/A (API 503)    N/A                       api_error      No CDX data in any run
+21   prompttools.com        NO / 503     N/A (API 503)    N/A (API 503)    N/A                       api_error      No CDX data in any run
+22   llmtools.com           NO / 503     N/A (API 503)    N/A (API 503)    N/A                       api_error      No CDX data in any run
+23   codingtools.com        YES          N/A (API 503)    2025-03-24       ~1y                       api_error      
+24   aicoder.com            YES          2010-10-30       2025-12-21       ~16y         ~15y span    api_error      
+25   devaide.com            YES          2011-02-02       2015-04-07       ~15y         ~4y span     api_error      
+============================================================================================================================================
+
+Summary: 21/25 domains have confirmed archive history, 4/25 returned no CDX data (may be due to 503 errors)
+
+NOTABLE FINDINGS:
+--------------------------------------------------------------------------------
+
+Domains with OLDEST archives (strongest domain age/authority):
+  codetools.com          first archived 1998-01-15 (~28y)
+  apitools.com           first archived 2000-12-06 (~25y)
+  tooldev.com            first archived 2001-03-03 (~25y)
+  codebench.com          first archived 2001-04-28 (~25y)
+  codeguide.com          first archived 2001-08-03 (~25y)
+  codereview.net         first archived 2001-12-02 (~24y)
+  codehelper.com         first archived 2002-08-06 (~24y)
+  codecompare.com        first archived 2005-02-16 (~21y)
+  techstack.com          first archived 2010-04-23 (~16y)
+  aicoder.com            first archived 2010-10-30 (~16y)
+  devaide.com            first archived 2011-02-02 (~15y)
+  toolchain.io           first archived 2014-11-14 (~11y)
+  devhub.io              first archived 2015-11-14 (~10y)
+  devcompare.com         first archived 2016-08-17 (~10y)
+  devtools.io            first archived 2021-12-16 (~4y)
+
+Domains with MOST RECENT snapshots (likely still registered/active):
+  aidev.com              last archived 2026-03-12 -> LIKELY ACTIVE
+  techstack.com          last archived 2026-03-08 -> LIKELY ACTIVE
+  aicoder.com            last archived 2025-12-21 -> LIKELY ACTIVE
+  tooldev.com            last archived 2025-11-09 -> LIKELY ACTIVE
+  devcompare.com         last archived 2025-10-14 -> LIKELY ACTIVE
+  devstack.com           last archived 2025-08-21 -> LIKELY ACTIVE
+  codereview.net         last archived 2025-07-16 -> LIKELY ACTIVE
+  codehelper.com         last archived 2025-07-11 -> LIKELY ACTIVE
+  aicode.com             last archived 2025-07-10 -> LIKELY ACTIVE
+  codingtools.com        last archived 2025-03-24 -> LIKELY ACTIVE
+  aitool.com             last archived 2023-01-27 -> POSSIBLY EXPIRED
+  devtools.io            last archived 2022-03-09 -> POSSIBLY EXPIRED
+  stackreview.com        last archived 2018-01-05 -> POSSIBLY EXPIRED
+  devaide.com            last archived 2015-04-07 -> POSSIBLY EXPIRED
+  codebench.com          last archived 2013-11-26 -> POSSIBLY EXPIRED
+
+Domains with NO CDX data at all (possible expired/never-registered or API failures):
+  codeassist.com         -> Worth checking registration directly
+  devkit.io              -> Worth checking registration directly
+  prompttools.com        -> Worth checking registration directly
+  llmtools.com           -> Worth checking registration directly
+
+Domains with availability API = 'no_snapshot' (strongest expiration signal):
+  codereview.net         -> Wayback sees no current snapshot (likely offline/expired)
+  apitools.com           -> Wayback sees no current snapshot (likely offline/expired)
+  codebench.com          -> Wayback sees no current snapshot (likely offline/expired)
+
+BEST EXPIRATION CANDIDATES (old archive + no recent snapshots):
+  codetools.com          first=1998-01-15       last=N/A (API 503)    age=~28y
+  toolchain.io           first=2014-11-14       last=N/A (API 503)    age=~11y
+  codecompare.com        first=2005-02-16       last=N/A (API 503)    age=~21y
+  devhub.io              first=2015-11-14       last=N/A (API 503)    age=~10y
+  apitools.com           first=2000-12-06       last=N/A (API 503)    age=~25y
+  devtools.io            first=2021-12-16       last=2022-03-09       age=~4y
+  codebench.com          first=2001-04-28       last=2013-11-26       age=~25y
+  stackreview.com        first=N/A (API 503)    last=2018-01-05       age=~8y
+  aitool.com             first=N/A (API 503)    last=2023-01-27       age=~3y
+  codeguide.com          first=2001-08-03       last=N/A (API 503)    age=~25y
+  devaide.com            first=2011-02-02       last=2015-04-07       age=~15y

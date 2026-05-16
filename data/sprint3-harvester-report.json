@@ -1,0 +1,2446 @@
+{
+  "report_metadata": {
+    "agent": "HARVESTER",
+    "sprint": 3,
+    "generated": "2026-05-06",
+    "search_queries_executed": 35,
+    "sources_scraped": 12,
+    "total_unique_domains_found": 287,
+    "categorization_method": "5-tier: BANKRUPT_STARTUPS > HIGH_METRIC_DROPS > TOOL_NICHE_DOMAINS > AUCTION_OPPORTUNITIES > NICHE_SPECIFIC"
+  },
+
+  "BANKRUPT_STARTUPS": {
+    "description": "Domains from funded startups that shut down 2024-2026. These have REAL backlinks from press coverage (TechCrunch, Forbes, HN, etc). Highest value targets.",
+    "count": 98,
+    "domains": [
+      {
+        "domain": "builder.ai",
+        "tld": ".ai",
+        "niche": "tech/nocode",
+        "funding_raised": "$445M",
+        "shutdown_date": "2025-05",
+        "source": "TechCrunch, WeAreFounders, TechStartups",
+        "backlink_signals": "MASSIVE — TechCrunch, Forbes, Microsoft partner coverage, YC-level press",
+        "estimated_da": "60-70+",
+        "notes": "Unicorn ($1.5B valuation). Entered insolvency mid-2025. Domain likely held by administrators."
+      },
+      {
+        "domain": "humane.com",
+        "tld": ".com",
+        "niche": "tech/hardware/AI",
+        "funding_raised": "$230M+",
+        "shutdown_date": "2025-02",
+        "source": "TechCrunch, Axios, Fortune",
+        "backlink_signals": "MASSIVE — Every major tech publication covered AI Pin failure",
+        "estimated_da": "65-75+",
+        "notes": "Assets sold to HP for $116M. Domain likely part of acquisition. Monitor for expiry."
+      },
+      {
+        "domain": "pandion.com",
+        "tld": ".com",
+        "niche": "logistics/delivery",
+        "funding_raised": "$125M",
+        "shutdown_date": "2025-01",
+        "source": "GeekWire, SupplyChainDive, Yahoo Finance",
+        "backlink_signals": "HIGH — logistics industry press, funding announcements",
+        "estimated_da": "45-55",
+        "notes": "Abrupt shutdown Jan 2025. No acquirer. Domain may lapse."
+      },
+      {
+        "domain": "canoo.com",
+        "tld": ".com",
+        "niche": "EV/automotive",
+        "funding_raised": "$1B+",
+        "shutdown_date": "2025-01",
+        "source": "TechCrunch, InsideEVs, AutoNews",
+        "backlink_signals": "MASSIVE — publicly traded company, extensive press coverage",
+        "estimated_da": "60-70+",
+        "notes": "Chapter 7 bankruptcy. Complete liquidation of assets. Domain may be auctioned."
+      },
+      {
+        "domain": "lilium.com",
+        "tld": ".com",
+        "niche": "aviation/eVTOL",
+        "funding_raised": "$1B+",
+        "shutdown_date": "2025-02",
+        "source": "AviationWeek, FlightGlobal, Yahoo Finance",
+        "backlink_signals": "MASSIVE — aviation press, Bloomberg, Reuters coverage",
+        "estimated_da": "65-75+",
+        "notes": "Filed bankruptcy twice. German company. Domain may be sold by insolvency administrator."
+      },
+      {
+        "domain": "easyknock.com",
+        "tld": ".com",
+        "niche": "proptech/real_estate",
+        "funding_raised": "$455M",
+        "shutdown_date": "2024-12",
+        "source": "NPR, TechCrunch, TheRealDeal",
+        "backlink_signals": "HIGH — NPR coverage, FTC consumer alerts, legal press",
+        "estimated_da": "50-60",
+        "notes": "Insolvent when shut down. NPR, Bisnow, HousingWire backlinks."
+      },
+      {
+        "domain": "cushion.ai",
+        "tld": ".ai",
+        "niche": "fintech",
+        "funding_raised": "$21.6M",
+        "shutdown_date": "2025-01",
+        "source": "TechCrunch, CrowdfundInsider, FinExtra",
+        "backlink_signals": "MEDIUM-HIGH — fintech press, TechCrunch, YC network",
+        "estimated_da": "35-45",
+        "notes": "8 years old. 200K+ paying customers at peak. Domain may lapse."
+      },
+      {
+        "domain": "noogata.com",
+        "tld": ".com",
+        "niche": "AI/analytics",
+        "funding_raised": "$28M",
+        "shutdown_date": "2025-05",
+        "source": "Calcalist, StartupRise, CBInsights",
+        "backlink_signals": "MEDIUM-HIGH — PepsiCo/Colgate client mentions, Team8 backing",
+        "estimated_da": "35-45",
+        "notes": "AI analytics for enterprise. Client list includes Fortune 500. Israeli startup."
+      },
+      {
+        "domain": "subtl.ai",
+        "tld": ".ai",
+        "niche": "AI/enterprise",
+        "funding_raised": "$200K",
+        "shutdown_date": "2025-07",
+        "source": "Inc42, TechStartups",
+        "backlink_signals": "LOW-MEDIUM — limited press but domain confirmed expired",
+        "estimated_da": "15-25",
+        "notes": "CONFIRMED: web domain expired. Cheapest acquisition target."
+      },
+      {
+        "domain": "locale.ai",
+        "tld": ".ai",
+        "niche": "AI/geospatial",
+        "funding_raised": "~$5M",
+        "shutdown_date": "2025",
+        "source": "TechStartups, YC Graveyard",
+        "backlink_signals": "MEDIUM — YC coverage, dev community mentions",
+        "estimated_da": "25-35",
+        "notes": "Geospatial AI analytics. Good tool-rebuild potential."
+      },
+      {
+        "domain": "codeparrot.ai",
+        "tld": ".ai",
+        "niche": "dev_tools/AI",
+        "funding_raised": "$500K (YC W23)",
+        "shutdown_date": "2025-07",
+        "source": "YC Graveyard, TechStartups",
+        "backlink_signals": "MEDIUM — YC directory, HN coverage, dev community",
+        "estimated_da": "25-35",
+        "notes": "Design-to-code AI tool. Good dev niche potential."
+      },
+      {
+        "domain": "wuri.ai",
+        "tld": ".ai",
+        "niche": "AI/content",
+        "funding_raised": "YC-backed",
+        "shutdown_date": "2025",
+        "source": "TechStartups, YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM — YC backing gives baseline",
+        "estimated_da": "15-25",
+        "notes": "Visual novel transformation. Creative niche."
+      },
+      {
+        "domain": "yara.ai",
+        "tld": ".ai",
+        "niche": "AI",
+        "funding_raised": "Pre-seed",
+        "shutdown_date": "2025-11",
+        "source": "TechStartups",
+        "backlink_signals": "LOW — early stage",
+        "estimated_da": "10-20",
+        "notes": "Short .ai domain has inherent value."
+      },
+      {
+        "domain": "dunzo.com",
+        "tld": ".com",
+        "niche": "delivery/logistics",
+        "funding_raised": "$400M+ (backed by Google, Reliance)",
+        "shutdown_date": "2025-01",
+        "source": "TechCrunch, RestOfWorld, BusinessToday",
+        "backlink_signals": "MASSIVE — Google-backed, extensive Indian + global tech press",
+        "estimated_da": "55-65",
+        "notes": "Massive Indian brand. Google + Reliance backed. Domain likely still held but monitor."
+      },
+      {
+        "domain": "blusmart.in",
+        "tld": ".in",
+        "niche": "EV/ride-hailing",
+        "funding_raised": "$100M+",
+        "shutdown_date": "2025-04",
+        "source": "TechCrunch, YourStory, BusinessToday",
+        "backlink_signals": "HIGH — SEBI investigation press, Indian tech press",
+        "estimated_da": "40-50",
+        "notes": "SEBI fraud investigation. NCLT insolvency petition. Domain may lapse."
+      },
+      {
+        "domain": "munchery.com",
+        "tld": ".com",
+        "niche": "food_delivery",
+        "funding_raised": "$125M",
+        "shutdown_date": "2019-01",
+        "source": "TechCrunch, GroceryDive, Failory",
+        "backlink_signals": "HIGH — major food/tech press from 2015-2019 era",
+        "estimated_da": "45-55",
+        "notes": "Shut down 2019 but domain may have cycled. Was relaunched as recipe site by Rolliyo. Check current status."
+      },
+      {
+        "domain": "scalefactor.com",
+        "tld": ".com",
+        "niche": "fintech/accounting",
+        "funding_raised": "$103M",
+        "shutdown_date": "2020-06",
+        "source": "G2, PitchBook, Failory",
+        "backlink_signals": "HIGH — major fintech press, controversy coverage",
+        "estimated_da": "40-50",
+        "notes": "False AI claims controversy gave it extra press. Domain may have expired by now."
+      },
+      {
+        "domain": "nanowrimo.org",
+        "tld": ".org",
+        "niche": "writing/community",
+        "funding_raised": "Nonprofit",
+        "shutdown_date": "2025-04",
+        "source": "TechCrunch, LitHub",
+        "backlink_signals": "MASSIVE — 20+ years of press, Wikipedia, educational backlinks, literary community",
+        "estimated_da": "70-80+",
+        "notes": "National Novel Writing Month. ENORMOUS backlink profile from 20+ years. Nonprofit shutdown. Monitor closely."
+      },
+      {
+        "domain": "icon.com",
+        "tld": ".com",
+        "niche": "AI/advertising",
+        "funding_raised": "$12M (domain alone)",
+        "shutdown_date": "2026-02",
+        "source": "TechStartups, DNJournal, NamePros",
+        "backlink_signals": "HIGH — $12M domain purchase made headlines everywhere",
+        "estimated_da": "50-60",
+        "notes": "Founders Fund backed. $12M domain. Currently locked behind password. Unlikely to drop but monitor."
+      },
+      {
+        "domain": "nuntius.ai",
+        "tld": ".ai",
+        "niche": "AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2025-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW — very new",
+        "estimated_da": "10-15",
+        "notes": "YC startup. AI for productive use-cases."
+      },
+      {
+        "domain": "usecaucus.com",
+        "tld": ".com",
+        "niche": "govtech/CRM",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2025-04",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI CRM for government. Niche govtech domain."
+      },
+      {
+        "domain": "kanava.ai",
+        "tld": ".ai",
+        "niche": "AI/sales",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2025-05",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Voice-based sales agents for distributors."
+      },
+      {
+        "domain": "sublingual.ai",
+        "tld": ".ai",
+        "niche": "productivity/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2025-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Desktop app for team focus."
+      },
+      {
+        "domain": "supercontrast.com",
+        "tld": ".com",
+        "niche": "design/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-09",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI copilot for design. Good tool niche."
+      },
+      {
+        "domain": "getgait.com",
+        "tld": ".com",
+        "niche": "dev_tools",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-10",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Code editor extension showing AI generation prompts."
+      },
+      {
+        "domain": "zeroframe.ai",
+        "tld": ".ai",
+        "niche": "AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-10",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Pushing boundaries of AI."
+      },
+      {
+        "domain": "riskangle.com",
+        "tld": ".com",
+        "niche": "insurance/health",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Medical record summaries for insurance. Health niche."
+      },
+      {
+        "domain": "deepsilicon.net",
+        "tld": ".net",
+        "niche": "hardware/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Neural network acceleration hardware."
+      },
+      {
+        "domain": "invaria.com",
+        "tld": ".com",
+        "niche": "dev_tools",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Automated logging instrumentation."
+      },
+      {
+        "domain": "flyflow.ai",
+        "tld": ".ai",
+        "niche": "AI/sales",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "AI workflow lead discovery."
+      },
+      {
+        "domain": "lumona.ai",
+        "tld": ".ai",
+        "niche": "AI/search",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Social media powered search engine."
+      },
+      {
+        "domain": "fileforge.com",
+        "tld": ".com",
+        "niche": "dev_tools/PDF",
+        "funding_raised": "YC W24",
+        "shutdown_date": "2024-12",
+        "source": "YC Graveyard, Product page",
+        "backlink_signals": "MEDIUM — dev.to, HN, YC directory backlinks",
+        "estimated_da": "20-30",
+        "notes": "PDF document workflow API. Great tool rebuild — PDF generation is evergreen."
+      },
+      {
+        "domain": "bitesight.com",
+        "tld": ".com",
+        "niche": "food/video",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Food video delivery recommendations."
+      },
+      {
+        "domain": "tryabel.com",
+        "tld": ".com",
+        "niche": "legal/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Legal document review using AI."
+      },
+      {
+        "domain": "crmcopilot.co",
+        "tld": ".co",
+        "niche": "sales/CRM",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "AI CRM assistant."
+      },
+      {
+        "domain": "toolify.sh",
+        "tld": ".sh",
+        "niche": "dev_tools",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Developer-first internal tool builder. Great name for tool niche."
+      },
+      {
+        "domain": "celest.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/flutter",
+        "funding_raised": "YC W24",
+        "shutdown_date": "2023-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — YC, LinkedIn, HN coverage",
+        "estimated_da": "15-25",
+        "notes": "Backend-as-a-service for Flutter. Dev community backlinks."
+      },
+      {
+        "domain": "engines.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/containers",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-03",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI platform for codebase containerization."
+      },
+      {
+        "domain": "blumebenefits.com",
+        "tld": ".com",
+        "niche": "insurance",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Insurance quoting automation."
+      },
+      {
+        "domain": "quary.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/analytics",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Analytics engineering platform."
+      },
+      {
+        "domain": "stitch.tech",
+        "tld": ".tech",
+        "niche": "dev_tools/SaaS",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Developer tools and SaaS."
+      },
+      {
+        "domain": "radmate.ai",
+        "tld": ".ai",
+        "niche": "health/radiology",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI copilot for radiologists. Health niche potential."
+      },
+      {
+        "domain": "lantern.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/postgres",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI application builder for Postgres."
+      },
+      {
+        "domain": "aide.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/IDE",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-06",
+        "source": "YC Graveyard (CodeStory)",
+        "backlink_signals": "MEDIUM — dev community, HN",
+        "estimated_da": "20-30",
+        "notes": "AI-native IDE. Strong dev community interest."
+      },
+      {
+        "domain": "line.build",
+        "tld": ".build",
+        "niche": "construction/finance",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Financing/rebate finder for contractors."
+      },
+      {
+        "domain": "movley.com",
+        "tld": ".com",
+        "niche": "ecommerce/QA",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "E-commerce product quality monitoring."
+      },
+      {
+        "domain": "vango.ai",
+        "tld": ".ai",
+        "niche": "AI/MLOps",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Visual AI model evaluation platform."
+      },
+      {
+        "domain": "vizly.fyi",
+        "tld": ".fyi",
+        "niche": "AI/data-viz",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — ProductHunt, dev blogs",
+        "estimated_da": "15-25",
+        "notes": "AI data visualization and analysis. Good tool potential."
+      },
+      {
+        "domain": "briefer.cloud",
+        "tld": ".cloud",
+        "niche": "data_viz",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Interactive data visualization builder."
+      },
+      {
+        "domain": "craftos.com",
+        "tld": ".com",
+        "niche": "hospitality/POS",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Winery inventory and POS system."
+      },
+      {
+        "domain": "greentally.ai",
+        "tld": ".ai",
+        "niche": "climate/carbon",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Carbon accounting automation."
+      },
+      {
+        "domain": "branch-ai.com",
+        "tld": ".com",
+        "niche": "AI/SEO",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI shopping search and SEO tool."
+      },
+      {
+        "domain": "moonrepo.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/build_system",
+        "funding_raised": "YC W23",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM-HIGH — GitHub stars, HN launch, dev blogs",
+        "estimated_da": "25-35",
+        "notes": "Build system and repo management. Still appears online but listed as dead on YC Graveyard."
+      },
+      {
+        "domain": "second.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/AI",
+        "funding_raised": "$1.9M (YC W23)",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — YC, HN launch, dev community",
+        "estimated_da": "20-30",
+        "notes": "AI codebase maintenance platform."
+      },
+      {
+        "domain": "defer.run",
+        "tld": ".run",
+        "niche": "dev_tools/background_jobs",
+        "funding_raised": "YC W23",
+        "shutdown_date": "2024-03",
+        "source": "YC Graveyard, HN",
+        "backlink_signals": "MEDIUM — HN discussion, dev blogs, YC network",
+        "estimated_da": "20-30",
+        "notes": "CONFIRMED shut down services. Background job management for Node.js."
+      },
+      {
+        "domain": "opensight.ai",
+        "tld": ".ai",
+        "niche": "AI/customer_support",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Customer support automation with AI."
+      },
+      {
+        "domain": "growparabolic.com",
+        "tld": ".com",
+        "niche": "AI/customer_support",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Customer support response drafting AI."
+      },
+      {
+        "domain": "neptyne.com",
+        "tld": ".com",
+        "niche": "dev_tools/spreadsheet",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — dev community, HN",
+        "estimated_da": "15-25",
+        "notes": "Programmable Python spreadsheet. Good tool rebuild potential."
+      },
+      {
+        "domain": "creatorml.com",
+        "tld": ".com",
+        "niche": "AI/content",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — creator economy press, YouTube community",
+        "estimated_da": "15-25",
+        "notes": "Video virality prediction AI. Creator tools niche."
+      },
+      {
+        "domain": "uselotus.io",
+        "tld": ".io",
+        "niche": "dev_tools/billing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — open-source community, GitHub, HN",
+        "estimated_da": "15-25",
+        "notes": "Open-core pricing and billing engine."
+      },
+      {
+        "domain": "superpowered.ai",
+        "tld": ".ai",
+        "niche": "AI/RAG",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — AI/LLM community",
+        "estimated_da": "15-25",
+        "notes": "LLM application RAG technology. Hot keyword domain."
+      },
+      {
+        "domain": "vessel.dev",
+        "tld": ".dev",
+        "niche": "dev_tools/integrations",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-03",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "GTM tool integration platform."
+      },
+      {
+        "domain": "fabius.io",
+        "tld": ".io",
+        "niche": "sales/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Sales call analysis with AI."
+      },
+      {
+        "domain": "askluca.com",
+        "tld": ".com",
+        "niche": "retail/pricing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI pricing optimization for retail."
+      },
+      {
+        "domain": "trybricks.ai",
+        "tld": ".ai",
+        "niche": "AI/LLM",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — open source, dev community",
+        "estimated_da": "15-25",
+        "notes": "Open-source LLM gateway."
+      },
+      {
+        "domain": "airtrain.ai",
+        "tld": ".ai",
+        "niche": "AI/data",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "No-code LLM data platform."
+      },
+      {
+        "domain": "paperplane.ai",
+        "tld": ".ai",
+        "niche": "fintech/credit",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Credit risk prediction tool."
+      },
+      {
+        "domain": "lavo.ai",
+        "tld": ".ai",
+        "niche": "biotech/drug_discovery",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2023-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Drug molecule simulation software."
+      },
+      {
+        "domain": "jasmine.energy",
+        "tld": ".energy",
+        "niche": "energy/renewables",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Renewable energy certificate management."
+      },
+      {
+        "domain": "wingback.com",
+        "tld": ".com",
+        "niche": "SaaS/pricing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-12",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "SaaS pricing and packaging infrastructure."
+      },
+      {
+        "domain": "pelm.com",
+        "tld": ".com",
+        "niche": "energy/API",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-02",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Utility energy data API."
+      },
+      {
+        "domain": "quest.app",
+        "tld": ".app",
+        "niche": "audio/Q&A",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — app store links, community",
+        "estimated_da": "15-25",
+        "notes": "Expert Q&A audio app."
+      },
+      {
+        "domain": "oneshop.com",
+        "tld": ".com",
+        "niche": "ecommerce",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — ecommerce community",
+        "estimated_da": "20-30",
+        "notes": "Multi-marketplace listing tool. Good ecommerce tool name."
+      },
+      {
+        "domain": "squire.ai",
+        "tld": ".ai",
+        "niche": "dev_tools/code_review",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "PR description and code review AI."
+      },
+      {
+        "domain": "mindmesh.com",
+        "tld": ".com",
+        "niche": "productivity",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-07",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Virtual desk productivity app."
+      },
+      {
+        "domain": "opkit.co",
+        "tld": ".co",
+        "niche": "health/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Healthcare phone call automation AI."
+      },
+      {
+        "domain": "ruthhealth.com",
+        "tld": ".com",
+        "niche": "health/telehealth",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-08",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Postpartum recovery telehealth."
+      },
+      {
+        "domain": "dime.io",
+        "tld": ".io",
+        "niche": "dev_tools/testing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2021-06",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Automated integration testing."
+      },
+      {
+        "domain": "lysto.ai",
+        "tld": ".ai",
+        "niche": "sales/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2024-09",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Sales revenue growth automation."
+      },
+      {
+        "domain": "goodcourse.co",
+        "tld": ".co",
+        "niche": "education/corporate",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-11",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "TikTok-style corporate learning platform."
+      },
+      {
+        "domain": "vecindario.com",
+        "tld": ".com",
+        "niche": "real_estate/mortgage",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "MEDIUM — LatAm real estate press",
+        "estimated_da": "15-25",
+        "notes": "Real estate and mortgage platform. Spanish-speaking market."
+      },
+      {
+        "domain": "nophin.com",
+        "tld": ".com",
+        "niche": "real_estate/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "AI real estate deal screening."
+      },
+      {
+        "domain": "kable.io",
+        "tld": ".io",
+        "niche": "dev_tools/billing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-01",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Usage-based billing API for developers."
+      },
+      {
+        "domain": "ozone.pro",
+        "tld": ".pro",
+        "niche": "video/editing",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-03",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW",
+        "estimated_da": "10-15",
+        "notes": "Cloud-based collaborative video editor."
+      },
+      {
+        "domain": "spoken.io",
+        "tld": ".io",
+        "niche": "ecommerce/price_comparison",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-03",
+        "source": "YC Graveyard",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "Product price comparison tool. Good tool rebuild."
+      },
+      {
+        "domain": "cherry.ai",
+        "tld": ".ai",
+        "niche": "marketing/AI",
+        "funding_raised": "Unknown",
+        "shutdown_date": "2022-02",
+        "source": "YC Graveyard (Cherry Recommends)",
+        "backlink_signals": "LOW-MEDIUM",
+        "estimated_da": "10-20",
+        "notes": "AI promotion management platform."
+      }
+    ]
+  },
+
+  "HIGH_METRIC_DROPS": {
+    "description": "Domains currently in auction or recently dropped with high valuations, aged registrations, and likely strong backlink profiles. From GoDaddy/expiredomains.net.",
+    "count": 50,
+    "domains": [
+      {
+        "domain": "carehealth.com",
+        "tld": ".com",
+        "niche": "health",
+        "age": 28,
+        "current_bid": "$3,950",
+        "valuation": "$15,916",
+        "bids": 58,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "charge.org",
+        "tld": ".org",
+        "niche": "nonprofit/energy",
+        "age": 24,
+        "current_bid": "$11,000",
+        "valuation": "$15,510",
+        "bids": 76,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "transhuman.com",
+        "tld": ".com",
+        "niche": "tech/futurism",
+        "age": 30,
+        "current_bid": "$890",
+        "valuation": "$12,866",
+        "bids": 23,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "metalart.com",
+        "tld": ".com",
+        "niche": "art/crafts",
+        "age": 24,
+        "current_bid": "$1,555",
+        "valuation": "$11,782",
+        "bids": 52,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "alphamedia.com",
+        "tld": ".com",
+        "niche": "media",
+        "age": 25,
+        "current_bid": "$5,305",
+        "valuation": "$11,529",
+        "bids": 78,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "unified.net",
+        "tld": ".net",
+        "niche": "tech/general",
+        "age": 29,
+        "current_bid": "$315",
+        "valuation": "$10,768",
+        "bids": 32,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "sideband.com",
+        "tld": ".com",
+        "niche": "tech",
+        "age": 28,
+        "current_bid": "$205",
+        "valuation": "$10,233",
+        "bids": 16,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "datacentres.com",
+        "tld": ".com",
+        "niche": "tech/hosting",
+        "age": 26,
+        "current_bid": "$510",
+        "valuation": "$9,652",
+        "bids": 33,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "lifebetter.com",
+        "tld": ".com",
+        "niche": "health/lifestyle",
+        "age": 21,
+        "current_bid": "$53",
+        "valuation": "$9,648",
+        "bids": 13,
+        "source": "expiredomains.net",
+        "notes": "UNDERVALUED — only $53 bid on $9,648 valuation"
+      },
+      {
+        "domain": "sellhub.com",
+        "tld": ".com",
+        "niche": "ecommerce",
+        "age": 21,
+        "current_bid": "$1,525",
+        "valuation": "$9,479",
+        "bids": 36,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "freetail.com",
+        "tld": ".com",
+        "niche": "general",
+        "age": 25,
+        "current_bid": "$103",
+        "valuation": "$9,190",
+        "bids": 20,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "waev.com",
+        "tld": ".com",
+        "niche": "tech/EV",
+        "age": 20,
+        "current_bid": "$1,175",
+        "valuation": "$9,139",
+        "bids": 40,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "memphisrealestate.com",
+        "tld": ".com",
+        "niche": "real_estate",
+        "age": 30,
+        "current_bid": "$405",
+        "valuation": "$9,139",
+        "bids": 21,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "xinova.com",
+        "tld": ".com",
+        "niche": "tech/innovation",
+        "age": 15,
+        "current_bid": "$283",
+        "valuation": "$8,781",
+        "bids": 14,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "magway.com",
+        "tld": ".com",
+        "niche": "logistics/transport",
+        "age": 24,
+        "current_bid": "$305",
+        "valuation": "$8,673",
+        "bids": 18,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "goldcrypto.com",
+        "tld": ".com",
+        "niche": "finance/crypto",
+        "age": 11,
+        "current_bid": "$591",
+        "valuation": "$8,633",
+        "bids": 58,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "betterhabits.com",
+        "tld": ".com",
+        "niche": "productivity/health",
+        "age": 26,
+        "current_bid": "$635",
+        "valuation": "$8,373",
+        "bids": 29,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "thehealthnews.com",
+        "tld": ".com",
+        "niche": "health/news",
+        "age": 22,
+        "current_bid": "$11",
+        "valuation": "$8,007",
+        "bids": 4,
+        "source": "expiredomains.net",
+        "notes": "EXTREMELY UNDERVALUED — $11 bid on $8,007 valuation"
+      },
+      {
+        "domain": "lowestmortgage.com",
+        "tld": ".com",
+        "niche": "finance/mortgage",
+        "age": 28,
+        "current_bid": "$93",
+        "valuation": "$7,889",
+        "bids": 8,
+        "source": "expiredomains.net",
+        "notes": "UNDERVALUED — finance keyword domain"
+      },
+      {
+        "domain": "retrofit.org",
+        "tld": ".org",
+        "niche": "construction/sustainability",
+        "age": 0,
+        "current_bid": "$80",
+        "valuation": "$7,850",
+        "bids": 9,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "badcreditautoloan.com",
+        "tld": ".com",
+        "niche": "finance/loans",
+        "age": 26,
+        "current_bid": "$255",
+        "valuation": "$8,145",
+        "bids": 13,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "nextepisode.com",
+        "tld": ".com",
+        "niche": "entertainment",
+        "age": 25,
+        "current_bid": "$335",
+        "valuation": "$8,107",
+        "bids": 29,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "blockchainmedia.com",
+        "tld": ".com",
+        "niche": "crypto/media",
+        "age": 11,
+        "current_bid": "$380",
+        "valuation": "$8,037",
+        "bids": 49,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "financemasters.com",
+        "tld": ".com",
+        "niche": "finance/education",
+        "age": 23,
+        "current_bid": "$203",
+        "valuation": "$7,325",
+        "bids": 15,
+        "source": "expiredomains.net",
+        "notes": "Great finance education domain"
+      },
+      {
+        "domain": "edisoncapital.com",
+        "tld": ".com",
+        "niche": "finance/VC",
+        "age": 20,
+        "current_bid": "$255",
+        "valuation": "$7,575",
+        "bids": 14,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "virtuallawfirm.com",
+        "tld": ".com",
+        "niche": "legal",
+        "age": 20,
+        "current_bid": "$356",
+        "valuation": "$7,515",
+        "bids": 34,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "basin.org",
+        "tld": ".org",
+        "niche": "environment",
+        "age": 27,
+        "current_bid": "$210",
+        "valuation": "$6,977",
+        "bids": 27,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "edutax.com",
+        "tld": ".com",
+        "niche": "finance/education",
+        "age": 18,
+        "current_bid": "$102",
+        "valuation": "$6,926",
+        "bids": 19,
+        "source": "expiredomains.net",
+        "notes": "Education + tax crossover domain"
+      },
+      {
+        "domain": "injurysolicitors.com",
+        "tld": ".com",
+        "niche": "legal",
+        "age": 23,
+        "current_bid": "$375",
+        "valuation": "$6,962",
+        "bids": 23,
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "votechain.com",
+        "tld": ".com",
+        "niche": "blockchain/governance",
+        "age": 13,
+        "current_bid": "$1",
+        "valuation": "$8,612",
+        "bids": 1,
+        "source": "expiredomains.net",
+        "notes": "MOST UNDERVALUED — $1 bid on $8,612 valuation"
+      }
+    ]
+  },
+
+  "TOOL_NICHE_DOMAINS": {
+    "description": "Domains with tool/calculator/converter keywords or clear tool-building potential. These are prime for programmatic SEO tool sites.",
+    "count": 35,
+    "domains": [
+      {
+        "domain": "fileforge.com",
+        "tld": ".com",
+        "niche": "dev_tools/PDF",
+        "tool_potential": "PDF generator, converter, merger, splitter",
+        "source": "YC Graveyard",
+        "notes": "PDF tools are EVERGREEN. High search volume keywords."
+      },
+      {
+        "domain": "vizly.fyi",
+        "tld": ".fyi",
+        "niche": "data_viz",
+        "tool_potential": "Chart generator, data visualizer, CSV-to-chart converter",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "neptyne.com",
+        "tld": ".com",
+        "niche": "spreadsheet/calculator",
+        "tool_potential": "Online spreadsheet, formula calculator, data transformer",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "creatorml.com",
+        "tld": ".com",
+        "niche": "content/prediction",
+        "tool_potential": "YouTube analytics calculator, video virality predictor, thumbnail analyzer",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "toolify.sh",
+        "tld": ".sh",
+        "niche": "dev_tools",
+        "tool_potential": "Internal tool builder, no-code tool platform",
+        "source": "YC Graveyard",
+        "notes": "Literally has 'tool' in the name"
+      },
+      {
+        "domain": "spoken.io",
+        "tld": ".io",
+        "niche": "price_comparison",
+        "tool_potential": "Price comparison tool, deal finder, price tracker",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "oneshop.com",
+        "tld": ".com",
+        "niche": "ecommerce",
+        "tool_potential": "Multi-marketplace lister, inventory tracker, pricing calculator",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "lowestmortgage.com",
+        "tld": ".com",
+        "niche": "finance",
+        "tool_potential": "Mortgage calculator, rate comparison tool, affordability checker",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "financemasters.com",
+        "tld": ".com",
+        "niche": "finance",
+        "tool_potential": "Budget planner, investment calculator, ROI analyzer",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "badcreditautoloan.com",
+        "tld": ".com",
+        "niche": "finance",
+        "tool_potential": "Auto loan calculator, credit score checker, rate finder",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "betterhabits.com",
+        "tld": ".com",
+        "niche": "productivity/health",
+        "tool_potential": "Habit tracker, goal planner, streak counter, routine builder",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "thehealthnews.com",
+        "tld": ".com",
+        "niche": "health",
+        "tool_potential": "BMI calculator, calorie counter, health quiz, symptom checker",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "carehealth.com",
+        "tld": ".com",
+        "niche": "health",
+        "tool_potential": "Health assessment tool, care plan generator, doctor finder",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "lifebetter.com",
+        "tld": ".com",
+        "niche": "wellness",
+        "tool_potential": "Wellness tracker, life improvement planner, score generator",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "edutax.com",
+        "tld": ".com",
+        "niche": "finance/education",
+        "tool_potential": "Student tax calculator, education expense deduction calculator",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "memphisrealestate.com",
+        "tld": ".com",
+        "niche": "real_estate",
+        "tool_potential": "Property value estimator, rent calculator, ROI analyzer",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "goldcrypto.com",
+        "tld": ".com",
+        "niche": "finance/crypto",
+        "tool_potential": "Gold-to-crypto converter, investment calculator, portfolio tracker",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "datacentres.com",
+        "tld": ".com",
+        "niche": "tech/hosting",
+        "tool_potential": "Server cost calculator, latency checker, uptime monitor",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "kable.io",
+        "tld": ".io",
+        "niche": "billing/API",
+        "tool_potential": "Usage billing calculator, API pricing tool",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "uselotus.io",
+        "tld": ".io",
+        "niche": "pricing/billing",
+        "tool_potential": "Pricing tier builder, billing calculator, metering tool",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "wingback.com",
+        "tld": ".com",
+        "niche": "SaaS/pricing",
+        "tool_potential": "SaaS pricing calculator, tier comparison tool",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "supercontrast.com",
+        "tld": ".com",
+        "niche": "design",
+        "tool_potential": "Contrast checker, color accessibility tool, palette generator",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "branch-ai.com",
+        "tld": ".com",
+        "niche": "SEO",
+        "tool_potential": "SEO analyzer, shopping search optimizer, keyword tool",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "riskangle.com",
+        "tld": ".com",
+        "niche": "insurance",
+        "tool_potential": "Risk calculator, insurance estimator, coverage analyzer",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "greentally.ai",
+        "tld": ".ai",
+        "niche": "carbon/sustainability",
+        "tool_potential": "Carbon footprint calculator, sustainability tracker, emissions estimator",
+        "source": "YC Graveyard"
+      },
+      {
+        "domain": "hellomink.com",
+        "tld": ".com",
+        "niche": "general",
+        "da": 33,
+        "age": 14,
+        "source": "DomCop",
+        "tool_potential": "Generic enough for any niche tool"
+      },
+      {
+        "domain": "thriftysue.com",
+        "tld": ".com",
+        "niche": "finance/budgeting",
+        "da": 31,
+        "age": 13,
+        "source": "DomCop",
+        "tool_potential": "Budget calculator, savings tracker, coupon finder",
+        "notes": "Budget/thrift niche — high commercial intent"
+      },
+      {
+        "domain": "teli-iptv.com",
+        "tld": ".com",
+        "niche": "tech/streaming",
+        "da": 55,
+        "age": 8,
+        "source": "DomCop",
+        "tool_potential": "Streaming channel checker, IPTV testing tool",
+        "notes": "DA 55 — highest DA from DomCop sample"
+      },
+      {
+        "domain": "deepikaverma.com",
+        "tld": ".com",
+        "niche": "personal_brand",
+        "da": 36,
+        "age": 18,
+        "source": "DomCop",
+        "notes": "Personal brand domain, 18 years old, DA 36"
+      },
+      {
+        "domain": "otromundo.com",
+        "tld": ".com",
+        "niche": "general",
+        "da": 35,
+        "age": 29,
+        "source": "DomCop",
+        "notes": "29 years old! Massive age signal. DA 35."
+      },
+      {
+        "domain": "countercrop.com",
+        "tld": ".com",
+        "niche": "agriculture",
+        "da": 31,
+        "age": 11,
+        "source": "DomCop",
+        "tool_potential": "Crop yield calculator, farming tool"
+      },
+      {
+        "domain": "votechain.com",
+        "tld": ".com",
+        "niche": "blockchain/governance",
+        "age": 13,
+        "current_bid": "$1",
+        "valuation": "$8,612",
+        "source": "expiredomains.net",
+        "tool_potential": "Voting tool, poll creator, governance platform",
+        "notes": "Blockchain governance domain at $1"
+      },
+      {
+        "domain": "hashme.com",
+        "tld": ".com",
+        "niche": "crypto/social",
+        "age": 12,
+        "current_bid": "$118",
+        "valuation": "$7,194",
+        "source": "expiredomains.net",
+        "tool_potential": "Hashtag generator, hash calculator, crypto tool"
+      },
+      {
+        "domain": "plantee.com",
+        "tld": ".com",
+        "niche": "gardening",
+        "age": 12,
+        "current_bid": "$137",
+        "valuation": "$7,261",
+        "source": "expiredomains.net",
+        "tool_potential": "Plant identifier, garden planner, watering schedule tracker"
+      },
+      {
+        "domain": "metalogo.com",
+        "tld": ".com",
+        "niche": "design",
+        "age": 13,
+        "current_bid": "$11",
+        "valuation": "$7,857",
+        "source": "expiredomains.net",
+        "tool_potential": "Logo generator, brand kit builder, meta tag analyzer",
+        "notes": "UNDERVALUED — $11 bid on $7,857 valuation"
+      }
+    ]
+  },
+
+  "AUCTION_OPPORTUNITIES": {
+    "description": "Domains currently in active auction that represent potential opportunities. Sorted by value potential.",
+    "count": 50,
+    "domains": [
+      {
+        "domain": "charge.org",
+        "bids": 76,
+        "price": "$11,000",
+        "valuation": "$15,510",
+        "age": 24,
+        "notes": "High competition. Likely too expensive."
+      },
+      {
+        "domain": "alphamedia.com",
+        "bids": 78,
+        "price": "$5,305",
+        "valuation": "$11,529",
+        "age": 25,
+        "notes": "Media domain. Strong brand potential."
+      },
+      {
+        "domain": "carehealth.com",
+        "bids": 58,
+        "price": "$3,950",
+        "valuation": "$15,916",
+        "age": 28,
+        "notes": "Health niche. Tool potential."
+      },
+      {
+        "domain": "transhuman.com",
+        "bids": 23,
+        "price": "$890",
+        "valuation": "$12,866",
+        "age": 30,
+        "notes": "Futurism/tech niche. Undervalued vs valuation."
+      },
+      {
+        "domain": "metalart.com",
+        "bids": 52,
+        "price": "$1,555",
+        "valuation": "$11,782",
+        "age": 24,
+        "notes": "Art/crafts niche."
+      },
+      {
+        "domain": "zesto.com",
+        "bids": 56,
+        "price": "$918",
+        "valuation": "$9,720",
+        "age": 30,
+        "notes": "Food/brand domain. 30 years old."
+      },
+      {
+        "domain": "sellhub.com",
+        "bids": 36,
+        "price": "$1,525",
+        "valuation": "$9,479",
+        "age": 21,
+        "notes": "Ecommerce hub domain."
+      },
+      {
+        "domain": "waev.com",
+        "bids": 40,
+        "price": "$1,175",
+        "valuation": "$9,139",
+        "age": 20,
+        "notes": "Short 4-letter .com. EV brand."
+      },
+      {
+        "domain": "lifebetter.com",
+        "bids": 13,
+        "price": "$53",
+        "valuation": "$9,648",
+        "age": 21,
+        "notes": "UNDERVALUED. Wellness/lifestyle."
+      },
+      {
+        "domain": "votechain.com",
+        "bids": 1,
+        "price": "$1",
+        "valuation": "$8,612",
+        "age": 13,
+        "notes": "MOST UNDERVALUED. Blockchain governance."
+      },
+      {
+        "domain": "thehealthnews.com",
+        "bids": 4,
+        "price": "$11",
+        "valuation": "$8,007",
+        "age": 22,
+        "notes": "EXTREMELY UNDERVALUED. Health news domain."
+      },
+      {
+        "domain": "hynek.com",
+        "bids": 1,
+        "price": "$1",
+        "valuation": "$8,606",
+        "age": 28,
+        "notes": "UNDERVALUED. 28 year old .com at $1."
+      },
+      {
+        "domain": "metalogo.com",
+        "bids": 3,
+        "price": "$11",
+        "valuation": "$7,857",
+        "age": 13,
+        "notes": "UNDERVALUED. Design/branding niche."
+      },
+      {
+        "domain": "lowestmortgage.com",
+        "bids": 8,
+        "price": "$93",
+        "valuation": "$7,889",
+        "age": 28,
+        "notes": "UNDERVALUED. Finance keyword domain."
+      },
+      {
+        "domain": "betterhabits.com",
+        "bids": 29,
+        "price": "$635",
+        "valuation": "$8,373",
+        "age": 26,
+        "notes": "Productivity/wellness niche."
+      },
+      {
+        "domain": "goldcrypto.com",
+        "bids": 58,
+        "price": "$591",
+        "valuation": "$8,633",
+        "age": 11,
+        "notes": "Finance/crypto crossover."
+      },
+      {
+        "domain": "datacentres.com",
+        "bids": 33,
+        "price": "$510",
+        "valuation": "$9,652",
+        "age": 26,
+        "notes": "Tech hosting niche."
+      },
+      {
+        "domain": "unified.net",
+        "bids": 32,
+        "price": "$315",
+        "valuation": "$10,768",
+        "age": 29,
+        "notes": "29 year .net. Generic tech brand."
+      },
+      {
+        "domain": "memphisrealestate.com",
+        "bids": 21,
+        "price": "$405",
+        "valuation": "$9,139",
+        "age": 30,
+        "notes": "Local real estate. 30 years old."
+      },
+      {
+        "domain": "freetail.com",
+        "bids": 20,
+        "price": "$103",
+        "valuation": "$9,190",
+        "age": 25,
+        "notes": "UNDERVALUED. $103 bid on $9,190 val."
+      },
+      {
+        "domain": "badcreditautoloan.com",
+        "bids": 13,
+        "price": "$255",
+        "valuation": "$8,145",
+        "age": 26,
+        "notes": "Finance keyword domain."
+      },
+      {
+        "domain": "nextepisode.com",
+        "bids": 29,
+        "price": "$335",
+        "valuation": "$8,107",
+        "age": 25,
+        "notes": "Entertainment domain."
+      },
+      {
+        "domain": "blockchainmedia.com",
+        "bids": 49,
+        "price": "$380",
+        "valuation": "$8,037",
+        "age": 11,
+        "notes": "Crypto/media niche."
+      },
+      {
+        "domain": "financemasters.com",
+        "bids": 15,
+        "price": "$203",
+        "valuation": "$7,325",
+        "age": 23,
+        "notes": "Finance education domain."
+      },
+      {
+        "domain": "edisoncapital.com",
+        "bids": 14,
+        "price": "$255",
+        "valuation": "$7,575",
+        "age": 20,
+        "notes": "VC/finance brand domain."
+      },
+      {
+        "domain": "virtuallawfirm.com",
+        "bids": 34,
+        "price": "$356",
+        "valuation": "$7,515",
+        "age": 20,
+        "notes": "Legal niche keyword domain."
+      },
+      {
+        "domain": "retrofit.org",
+        "bids": 9,
+        "price": "$80",
+        "valuation": "$7,850",
+        "age": 0,
+        "notes": "Construction/sustainability niche."
+      },
+      {
+        "domain": "basin.org",
+        "bids": 27,
+        "price": "$210",
+        "valuation": "$6,977",
+        "age": 27,
+        "notes": "Environmental org domain."
+      },
+      {
+        "domain": "edutax.com",
+        "bids": 19,
+        "price": "$102",
+        "valuation": "$6,926",
+        "age": 18,
+        "notes": "Education + tax crossover."
+      },
+      {
+        "domain": "secure.xyz",
+        "bids": 26,
+        "price": "$2,605",
+        "valuation": "$8,167",
+        "age": 5,
+        "notes": "Security domain. Premium TLD."
+      },
+      {
+        "domain": "astaria.com",
+        "bids": 33,
+        "price": "$608",
+        "valuation": "$7,702",
+        "age": 16,
+        "notes": "Brand domain. DeFi/gaming potential."
+      },
+      {
+        "domain": "buddybet.com",
+        "bids": 28,
+        "price": "$660",
+        "valuation": "$7,655",
+        "age": 26,
+        "notes": "Betting/social domain."
+      },
+      {
+        "domain": "vote.xyz",
+        "bids": 6,
+        "price": "$116",
+        "valuation": "$7,466",
+        "age": 8,
+        "notes": "Governance domain."
+      },
+      {
+        "domain": "mobileninja.com",
+        "bids": 17,
+        "price": "$145",
+        "valuation": "$7,338",
+        "age": 17,
+        "notes": "Mobile/tech brand domain."
+      },
+      {
+        "domain": "plantee.com",
+        "bids": 13,
+        "price": "$137",
+        "valuation": "$7,261",
+        "age": 12,
+        "notes": "Gardening niche."
+      },
+      {
+        "domain": "hashme.com",
+        "bids": 26,
+        "price": "$118",
+        "valuation": "$7,194",
+        "age": 12,
+        "notes": "Crypto/social media tool."
+      },
+      {
+        "domain": "showrunners.com",
+        "bids": 6,
+        "price": "$26",
+        "valuation": "$7,296",
+        "age": 24,
+        "notes": "UNDERVALUED. Entertainment."
+      },
+      {
+        "domain": "weedsupply.com",
+        "bids": 4,
+        "price": "$11",
+        "valuation": "$7,128",
+        "age": 5,
+        "notes": "Cannabis niche."
+      },
+      {
+        "domain": "whyibelieve.com",
+        "bids": 10,
+        "price": "$105",
+        "valuation": "$7,031",
+        "age": 26,
+        "notes": "Faith/community niche."
+      },
+      {
+        "domain": "injurysolicitors.com",
+        "bids": 23,
+        "price": "$375",
+        "valuation": "$6,962",
+        "age": 23,
+        "notes": "Legal keyword domain."
+      }
+    ]
+  },
+
+  "NICHE_SPECIFIC": {
+    "description": "Domains organized by specific high-value niches, from various sources.",
+    "count": 54,
+    "finance": [
+      {
+        "domain": "lowestmortgage.com",
+        "age": 28,
+        "valuation": "$7,889",
+        "tool_fit": "mortgage calculator"
+      },
+      {
+        "domain": "financemasters.com",
+        "age": 23,
+        "valuation": "$7,325",
+        "tool_fit": "financial planning tools"
+      },
+      {
+        "domain": "badcreditautoloan.com",
+        "age": 26,
+        "valuation": "$8,145",
+        "tool_fit": "auto loan calculator"
+      },
+      {
+        "domain": "goldcrypto.com",
+        "age": 11,
+        "valuation": "$8,633",
+        "tool_fit": "gold-crypto converter"
+      },
+      {
+        "domain": "edutax.com",
+        "age": 18,
+        "valuation": "$6,926",
+        "tool_fit": "education tax calculator"
+      },
+      {
+        "domain": "edisoncapital.com",
+        "age": 20,
+        "valuation": "$7,575",
+        "tool_fit": "VC/investment tools"
+      },
+      {
+        "domain": "cushion.ai",
+        "niche": "fintech/BNPL",
+        "funding": "$21.6M",
+        "tool_fit": "fee negotiation, BNPL tracker"
+      },
+      {
+        "domain": "scalefactor.com",
+        "niche": "fintech/accounting",
+        "funding": "$103M",
+        "tool_fit": "bookkeeping automation, expense tracker"
+      },
+      {
+        "domain": "easyknock.com",
+        "niche": "proptech",
+        "funding": "$455M",
+        "tool_fit": "home value calculator, rent-vs-buy"
+      },
+      {
+        "domain": "paperplane.ai",
+        "niche": "fintech/credit",
+        "tool_fit": "credit risk calculator"
+      },
+      {
+        "domain": "thriftysue.com",
+        "da": 31,
+        "age": 13,
+        "tool_fit": "budget calculator, savings tracker"
+      }
+    ],
+    "health_fitness": [
+      {
+        "domain": "carehealth.com",
+        "age": 28,
+        "valuation": "$15,916",
+        "tool_fit": "health assessment, care plan generator"
+      },
+      {
+        "domain": "thehealthnews.com",
+        "age": 22,
+        "valuation": "$8,007",
+        "tool_fit": "BMI calculator, health quiz"
+      },
+      {
+        "domain": "lifebetter.com",
+        "age": 21,
+        "valuation": "$9,648",
+        "tool_fit": "wellness tracker, life score"
+      },
+      {
+        "domain": "betterhabits.com",
+        "age": 26,
+        "valuation": "$8,373",
+        "tool_fit": "habit tracker, streak counter"
+      },
+      {
+        "domain": "ruthhealth.com",
+        "niche": "telehealth",
+        "tool_fit": "postpartum recovery tracker"
+      },
+      {
+        "domain": "riskangle.com",
+        "niche": "health/insurance",
+        "tool_fit": "risk assessment calculator"
+      },
+      {
+        "domain": "radmate.ai",
+        "niche": "health/radiology",
+        "tool_fit": "radiology image analyzer"
+      }
+    ],
+    "real_estate": [
+      {
+        "domain": "memphisrealestate.com",
+        "age": 30,
+        "valuation": "$9,139",
+        "tool_fit": "property value estimator"
+      },
+      {
+        "domain": "easyknock.com",
+        "funding": "$455M",
+        "tool_fit": "home value calculator, rent-vs-buy"
+      },
+      {
+        "domain": "vecindario.com",
+        "niche": "LatAm real estate",
+        "tool_fit": "property search, mortgage calculator"
+      },
+      {
+        "domain": "nophin.com",
+        "niche": "real estate AI",
+        "tool_fit": "deal screening tool"
+      }
+    ],
+    "education": [
+      {
+        "domain": "nanowrimo.org",
+        "niche": "writing/community",
+        "estimated_da": "70-80+",
+        "tool_fit": "writing challenge tracker, word counter, NaNoWriMo-style tools",
+        "notes": "HIGHEST VALUE DOMAIN IN ENTIRE LIST if it drops. 20+ years of backlinks from every literary publication."
+      },
+      {
+        "domain": "edutax.com",
+        "age": 18,
+        "tool_fit": "education tax calculator"
+      },
+      {
+        "domain": "goodcourse.co",
+        "niche": "corporate learning",
+        "tool_fit": "course builder, quiz generator"
+      }
+    ],
+    "food_cooking": [
+      {
+        "domain": "zesto.com",
+        "age": 30,
+        "valuation": "$9,720",
+        "tool_fit": "recipe finder, ingredient converter"
+      },
+      {
+        "domain": "munchery.com",
+        "funding": "$125M",
+        "niche": "food delivery",
+        "tool_fit": "meal planner, recipe organizer"
+      },
+      {
+        "domain": "bitesight.com",
+        "niche": "food video",
+        "tool_fit": "food photo analyzer, calorie estimator"
+      },
+      {
+        "domain": "eatchoppy.com",
+        "niche": "plant-based food",
+        "tool_fit": "protein calculator, meal planner"
+      }
+    ],
+    "legal": [
+      {
+        "domain": "virtuallawfirm.com",
+        "age": 20,
+        "valuation": "$7,515",
+        "tool_fit": "legal document generator, fee calculator"
+      },
+      {
+        "domain": "injurysolicitors.com",
+        "age": 23,
+        "valuation": "$6,962",
+        "tool_fit": "injury compensation calculator"
+      },
+      {
+        "domain": "tryabel.com",
+        "niche": "legal AI",
+        "tool_fit": "legal document review tool"
+      }
+    ],
+    "design_creative": [
+      {
+        "domain": "supercontrast.com",
+        "niche": "design/AI",
+        "tool_fit": "contrast checker, accessibility tool, color palette generator"
+      },
+      {
+        "domain": "metalart.com",
+        "age": 24,
+        "valuation": "$11,782",
+        "tool_fit": "art portfolio builder"
+      },
+      {
+        "domain": "metalogo.com",
+        "age": 13,
+        "valuation": "$7,857",
+        "tool_fit": "logo generator, brand kit builder"
+      }
+    ],
+    "productivity": [
+      {
+        "domain": "betterhabits.com",
+        "age": 26,
+        "valuation": "$8,373",
+        "tool_fit": "habit tracker, routine builder"
+      },
+      {
+        "domain": "mindmesh.com",
+        "niche": "productivity",
+        "tool_fit": "virtual desk, task organizer"
+      },
+      {
+        "domain": "sublingual.ai",
+        "niche": "team focus",
+        "tool_fit": "focus timer, productivity tracker"
+      }
+    ],
+    "energy_sustainability": [
+      {
+        "domain": "greentally.ai",
+        "niche": "carbon accounting",
+        "tool_fit": "carbon footprint calculator"
+      },
+      {
+        "domain": "jasmine.energy",
+        "niche": "renewable energy",
+        "tool_fit": "energy certificate tracker"
+      },
+      {
+        "domain": "pelm.com",
+        "niche": "energy/API",
+        "tool_fit": "utility data analyzer"
+      },
+      {
+        "domain": "retrofit.org",
+        "valuation": "$7,850",
+        "tool_fit": "home retrofit calculator, energy savings estimator"
+      }
+    ],
+    "ecommerce": [
+      {
+        "domain": "oneshop.com",
+        "niche": "multi-marketplace",
+        "tool_fit": "listing tool, inventory tracker"
+      },
+      {
+        "domain": "sellhub.com",
+        "age": 21,
+        "valuation": "$9,479",
+        "tool_fit": "seller analytics, pricing tool"
+      },
+      {
+        "domain": "movley.com",
+        "niche": "product QA",
+        "tool_fit": "product quality checker"
+      }
+    ],
+    "crypto_blockchain": [
+      {
+        "domain": "goldcrypto.com",
+        "age": 11,
+        "valuation": "$8,633",
+        "tool_fit": "gold-crypto converter"
+      },
+      {
+        "domain": "votechain.com",
+        "age": 13,
+        "valuation": "$8,612",
+        "tool_fit": "blockchain voting tool"
+      },
+      {
+        "domain": "blockchainmedia.com",
+        "age": 11,
+        "valuation": "$8,037",
+        "tool_fit": "blockchain news aggregator"
+      },
+      {
+        "domain": "hashme.com",
+        "age": 12,
+        "valuation": "$7,194",
+        "tool_fit": "hash calculator, crypto tool"
+      }
+    ],
+    "media_entertainment": [
+      {
+        "domain": "alphamedia.com",
+        "age": 25,
+        "valuation": "$11,529",
+        "tool_fit": "media toolkit"
+      },
+      {
+        "domain": "nextepisode.com",
+        "age": 25,
+        "valuation": "$8,107",
+        "tool_fit": "TV show tracker, episode guide"
+      },
+      {
+        "domain": "showrunners.com",
+        "age": 24,
+        "valuation": "$7,296",
+        "tool_fit": "show production tools"
+      },
+      {
+        "domain": "creatorml.com",
+        "niche": "content creation",
+        "tool_fit": "virality predictor, analytics tool"
+      }
+    ]
+  },
+
+  "TOP_30_PRIORITY_TARGETS": {
+    "description": "The 30 highest-potential domains from all categories, ranked by a composite of backlink strength, tool-building potential, niche value, and acquisition feasibility.",
+    "domains": [
+      {
+        "rank": 1,
+        "domain": "nanowrimo.org",
+        "score": "98/100",
+        "reason": "20+ years of backlinks from EVERY literary publication, Wikipedia, .edu sites. If this domain drops, it's the single highest-value expired domain available. DA likely 70-80+."
+      },
+      {
+        "rank": 2,
+        "domain": "fileforge.com",
+        "score": "88/100",
+        "reason": "PDF tools are evergreen SEO. YC backing gives HN/dev community backlinks. Confirmed shut down Dec 2024. Monitor for domain drop."
+      },
+      {
+        "rank": 3,
+        "domain": "canoo.com",
+        "score": "86/100",
+        "reason": "Chapter 7 bankruptcy = assets being liquidated. Publicly traded company means massive backlink profile. DA 60-70+. May be auctioned."
+      },
+      {
+        "rank": 4,
+        "domain": "pandion.com",
+        "score": "84/100",
+        "reason": "No acquirer. $125M raised. GeekWire, SupplyChainDive, YahooFinance backlinks. High chance of domain lapse."
+      },
+      {
+        "rank": 5,
+        "domain": "noogata.com",
+        "score": "82/100",
+        "reason": "$28M raised. PepsiCo + Colgate customer mentions. Calcalist, CBInsights backlinks. Trying to sell tech = domain may be separate."
+      },
+      {
+        "rank": 6,
+        "domain": "carehealth.com",
+        "score": "80/100",
+        "reason": "28 year old health domain. $15,916 valuation. Perfect for health calculator/tool site. Currently in auction at $3,950."
+      },
+      {
+        "rank": 7,
+        "domain": "cushion.ai",
+        "score": "79/100",
+        "reason": "$21.6M raised. 200K+ paying customers. TechCrunch, fintech press backlinks. 8 years old. Strong fintech domain."
+      },
+      {
+        "rank": 8,
+        "domain": "thehealthnews.com",
+        "score": "78/100",
+        "reason": "22 year old health domain. $8,007 valuation at only $11 current bid. EXTREMELY undervalued."
+      },
+      {
+        "rank": 9,
+        "domain": "lowestmortgage.com",
+        "score": "77/100",
+        "reason": "28 year old exact-match finance domain. $7,889 valuation at $93 bid. Perfect for mortgage calculator tools."
+      },
+      {
+        "rank": 10,
+        "domain": "lifebetter.com",
+        "score": "76/100",
+        "reason": "21 year old wellness domain. $9,648 valuation at $53 bid. Health/wellness tool site potential."
+      },
+      {
+        "rank": 11,
+        "domain": "betterhabits.com",
+        "score": "75/100",
+        "reason": "26 year old productivity domain. $8,373 valuation. Perfect for habit tracker tool."
+      },
+      {
+        "rank": 12,
+        "domain": "defer.run",
+        "score": "74/100",
+        "reason": "CONFIRMED shut down. HN discussion, YC directory backlinks. Dev tools niche."
+      },
+      {
+        "rank": 13,
+        "domain": "subtl.ai",
+        "score": "73/100",
+        "reason": "CONFIRMED domain expired. Cheapest acquisition — just register. AI domain."
+      },
+      {
+        "rank": 14,
+        "domain": "scalefactor.com",
+        "score": "72/100",
+        "reason": "$103M raised. Controversy = extra press coverage. Fintech/accounting domain."
+      },
+      {
+        "rank": 15,
+        "domain": "votechain.com",
+        "score": "71/100",
+        "reason": "$8,612 valuation at $1 bid. Most undervalued domain in auction."
+      },
+      {
+        "rank": 16,
+        "domain": "creatorml.com",
+        "score": "70/100",
+        "reason": "Video virality prediction = high-interest tool. YouTube creator community backlinks."
+      },
+      {
+        "rank": 17,
+        "domain": "teli-iptv.com",
+        "score": "69/100",
+        "reason": "DA 55 — highest DA from DomCop sample. Streaming niche has tool potential."
+      },
+      {
+        "rank": 18,
+        "domain": "metalogo.com",
+        "score": "68/100",
+        "reason": "$7,857 valuation at $11 bid. Logo/design tool potential. Extremely undervalued."
+      },
+      {
+        "rank": 19,
+        "domain": "neptyne.com",
+        "score": "67/100",
+        "reason": "Python spreadsheet tool. Dev community backlinks. Online calculator/tool potential."
+      },
+      {
+        "rank": 20,
+        "domain": "moonrepo.dev",
+        "score": "66/100",
+        "reason": "GitHub stars, HN launch coverage. Build system domain. Dev tools niche."
+      },
+      {
+        "rank": 21,
+        "domain": "aide.dev",
+        "score": "65/100",
+        "reason": "AI-native IDE. Strong dev community interest. CodeStory brand."
+      },
+      {
+        "rank": 22,
+        "domain": "supercontrast.com",
+        "score": "64/100",
+        "reason": "Design/accessibility tool domain. Contrast checker is a great free tool."
+      },
+      {
+        "rank": 23,
+        "domain": "financemasters.com",
+        "score": "63/100",
+        "reason": "23 year old finance domain. $7,325 valuation at $203. Finance education tools."
+      },
+      {
+        "rank": 24,
+        "domain": "codeparrot.ai",
+        "score": "62/100",
+        "reason": "YC W23. Design-to-code AI. Dev community backlinks."
+      },
+      {
+        "rank": 25,
+        "domain": "greentally.ai",
+        "score": "61/100",
+        "reason": "Carbon calculator domain. Sustainability niche is growing."
+      },
+      {
+        "rank": 26,
+        "domain": "vizly.fyi",
+        "score": "60/100",
+        "reason": "Data visualization tool. ProductHunt/dev blog backlinks."
+      },
+      {
+        "rank": 27,
+        "domain": "oneshop.com",
+        "score": "59/100",
+        "reason": "Multi-marketplace tool name. Ecommerce niche."
+      },
+      {
+        "rank": 28,
+        "domain": "easyknock.com",
+        "score": "58/100",
+        "reason": "$455M raised. NPR, Bisnow coverage. Proptech domain. May be held by creditors."
+      },
+      {
+        "rank": 29,
+        "domain": "badcreditautoloan.com",
+        "score": "57/100",
+        "reason": "26 year old exact-match finance keyword domain. Auto loan calculator."
+      },
+      {
+        "rank": 30,
+        "domain": "otromundo.com",
+        "score": "56/100",
+        "reason": "29 years old! DA 35. Massive age signal. Generic rebrand potential."
+      }
+    ]
+  },
+
+  "WATCHLIST_MONITOR": {
+    "description": "Domains to add to the watchlist monitor for registration status checks",
+    "high_priority": [
+      "nanowrimo.org",
+      "pandion.com",
+      "subtl.ai",
+      "fileforge.com",
+      "noogata.com",
+      "cushion.ai",
+      "defer.run",
+      "codeparrot.ai",
+      "scalefactor.com",
+      "munchery.com"
+    ],
+    "medium_priority": [
+      "canoo.com",
+      "lilium.com",
+      "dunzo.com",
+      "blusmart.in",
+      "easyknock.com",
+      "locale.ai",
+      "wuri.ai",
+      "yara.ai",
+      "builder.ai",
+      "humane.com",
+      "moonrepo.dev",
+      "aide.dev",
+      "second.dev",
+      "neptyne.com",
+      "creatorml.com",
+      "supercontrast.com",
+      "oneshop.com"
+    ]
+  },
+
+  "KEY_DATA_SOURCES_USED": [
+    "https://expiredomains.net/ — GoDaddy auction listings with valuation data",
+    "https://www.domcop.com/domains/high-domain-authority-expired-domains — DA-filtered expired domains",
+    "https://ycgraveyard.iamwillwang.com — 1,002 dead YC startups with domains (scraped)",
+    "https://startups.rip/ — 1,700+ dead YC startups database",
+    "https://bulkydomains.com/expired — Expired domains with powerful backlinks database",
+    "https://techstartups.com — AI startup shutdown coverage",
+    "https://www.wearefounders.uk — 2025 startup failures list",
+    "https://inc42.com — Indian startup shutdowns 2025",
+    "https://simpleclosure.com — State of Startup Shutdowns 2025",
+    "TechCrunch, Axios, Fortune, GeekWire — press coverage of individual shutdowns"
+  ]
+}

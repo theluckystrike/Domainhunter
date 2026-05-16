@@ -1,0 +1,176 @@
+{
+  "audit_timestamp": "2026-05-15T14:24:17.488167+00:00",
+  "sprint": 26,
+  "agent": 8,
+  "title": "Notification + Alerting Hardening Audit",
+  "guerrameats_countdown": {
+    "domain": "guerrameats.com",
+    "drop_estimate": "2026-06-26",
+    "days_remaining": 42,
+    "status": "ON TRACK"
+  },
+  "launchd_verification": {
+    "loaded_agents": [
+      {
+        "label": "com.domainhunter.drop-monitor-critical",
+        "pid": "-",
+        "exit_status": "0"
+      },
+      {
+        "label": "com.domainhunter.startup-reaper",
+        "pid": "-",
+        "exit_status": "0"
+      },
+      {
+        "label": "com.domainhunter.drop-monitor-all",
+        "pid": "-",
+        "exit_status": "0"
+      }
+    ],
+    "plist_files": [
+      {
+        "path": "/Users/mike/Library/LaunchAgents/com.domainhunter.drop-monitor-all.plist",
+        "label": "com.domainhunter.drop-monitor-all",
+        "size_bytes": 1208,
+        "modified": "2026-05-15T13:40:19.298172+00:00"
+      },
+      {
+        "path": "/Users/mike/Library/LaunchAgents/com.domainhunter.drop-monitor-critical.plist",
+        "label": "com.domainhunter.drop-monitor-critical",
+        "size_bytes": 1744,
+        "modified": "2026-05-15T13:40:19.281897+00:00"
+      },
+      {
+        "path": "/Users/mike/Library/LaunchAgents/com.domainhunter.startup-reaper.plist",
+        "label": "com.domainhunter.startup-reaper",
+        "size_bytes": 1210,
+        "modified": "2026-05-15T13:40:19.306742+00:00"
+      }
+    ],
+    "all_loaded": true,
+    "issues": []
+  },
+  "plist_schedules": {
+    "com.domainhunter.drop-monitor-all": "Daily at 03:00",
+    "com.domainhunter.drop-monitor-critical": "Every 6 hours (00:00, 06:00, 12:00, 18:00)",
+    "com.domainhunter.startup-reaper": "Weekly, Monday at 06:30"
+  },
+  "notification_chain_trace": {
+    "trigger": "launchd fires run_drop_monitor.sh on schedule",
+    "step_1": "run_drop_monitor.sh activates venv, loads .env, runs drop_monitor.py --tier <tier>",
+    "step_2": "drop_monitor.py loads monitored_domains.json, queries RDAP for each domain",
+    "step_3": "RDAP result compared to last known status from drop_monitor.db via detect_transition()",
+    "step_4_pendingDelete": "On pendingDelete detection: alert_on_transition() fires",
+    "step_4a_backorder": "place_backorder() calls Dynadot API to place backorder (if max_bid > 0 and API key present)",
+    "step_4b_desktop": "send_desktop_notification() fires osascript display notification",
+    "step_4c_slack": "send_slack_alert() posts to SLACK_WEBHOOK_URL (critical/high tier only)",
+    "step_5_db": "save_check() persists result to drop_monitor.db with status_changed=1",
+    "step_6_log": "run_drop_monitor.sh tee pipes all output to logs/drop_monitor_YYYY-MM-DD_HHMMSS.log",
+    "step_7_heartbeat": "On success, touches logs/.drop_monitor_heartbeat",
+    "step_8_notify": "run_drop_monitor.sh fires final osascript completion notification"
+  },
+  "heartbeat_status": {
+    "drop_monitor": {
+      "exists": false,
+      "last_beat": null,
+      "note": "Never run via launchd (plists loaded but not yet triggered by schedule)"
+    },
+    "startup_reaper": {
+      "exists": false,
+      "last_beat": null,
+      "note": "Never run via launchd (plists loaded but not yet triggered by schedule)"
+    },
+    "daily_digest": {
+      "exists": false,
+      "last_beat": null,
+      "note": "Never run via launchd (plists loaded but not yet triggered by schedule)"
+    }
+  },
+  "scripts_verified": {
+    "drop_monitor.py": {
+      "exists": true,
+      "size_bytes": 25869,
+      "executable": false
+    },
+    "run_drop_monitor.sh": {
+      "exists": true,
+      "size_bytes": 1684,
+      "executable": true
+    },
+    "run_startup_reaper.sh": {
+      "exists": true,
+      "size_bytes": 2203,
+      "executable": true
+    },
+    "run_daily_digest.sh": {
+      "exists": true,
+      "size_bytes": 1013,
+      "executable": true
+    },
+    "sprint26_notification_test.py": {
+      "exists": true,
+      "size_bytes": 12110,
+      "executable": false
+    },
+    "sprint26_daily_digest.py": {
+      "exists": true,
+      "size_bytes": 14259,
+      "executable": false
+    },
+    "alert_formatter.py": {
+      "exists": true,
+      "size_bytes": 5713,
+      "executable": false
+    }
+  },
+  "test_results": {
+    "desktop_notification": "PASS",
+    "log_write": "PASS",
+    "log_verify": "PASS",
+    "backorder_queue_check": "PASS (19 entries, balance=$25.0)",
+    "drop_monitor_db_check": "PASS (53 records)",
+    "daily_digest_run": "PASS (19 domains, guerrameats 42d)"
+  },
+  "drop_monitor_db": {
+    "total_records": 53,
+    "status_changes": 0,
+    "distinct_domains": 18,
+    "latest_check": "2026-05-15T12:48:19.268396+00:00"
+  },
+  "data_files": {
+    "backorder_queue.json": {
+      "exists": true,
+      "size_bytes": 10193,
+      "modified": "2026-05-15T14:00:43.582389+00:00"
+    },
+    "calendar_alerts.json": {
+      "exists": true,
+      "size_bytes": 10025,
+      "modified": "2026-05-06T23:54:53.764787+00:00"
+    }
+  },
+  "environment_check": {
+    "DYNADOT_API_KEY": false,
+    "DOMAIN_HUNTER_SLACK_WEBHOOK": false
+  },
+  "new_files_created": [
+    "scripts/sprint26_notification_test.py",
+    "scripts/sprint26_daily_digest.py",
+    "scripts/run_daily_digest.sh",
+    "config/launchd/com.domainhunter.daily-digest.plist"
+  ],
+  "manual_steps_required": [
+    "Copy plist: cp config/launchd/com.domainhunter.daily-digest.plist ~/Library/LaunchAgents/",
+    "Load plist: launchctl load ~/Library/LaunchAgents/com.domainhunter.daily-digest.plist",
+    "Verify: launchctl list | grep domainhunter"
+  ],
+  "issues_found": [
+    "SLACK_WEBHOOK not set -- Slack alerts will silently fail for critical transitions"
+  ],
+  "recommendations": [
+    "monitored_domains.json was overwritten to empty active_targets format by sprint25 scripts -- needs restoration from backorder_queue.json data",
+    "No heartbeat files exist yet -- plists are loaded but have not fired (schedules are future)",
+    "Slack webhook not configured -- desktop notifications are the sole alert channel",
+    "Dynadot balance is .00 -- consider topping up before guerrameats.com drop window"
+  ]
+}

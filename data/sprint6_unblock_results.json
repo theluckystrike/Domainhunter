@@ -1,0 +1,224 @@
+{
+  "sprint": 6,
+  "agent": "UNBLOCK",
+  "timestamp": "2026-05-07T05:57:00Z",
+  "account": {
+    "login": "support@zovo.one",
+    "balance": 3.944,
+    "total_deposited": 101,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "daily_limit": 1000
+  },
+  "backlinks_api": {
+    "status": "BLOCKED",
+    "error_code": 40204,
+    "message": "Access denied. Visit Plans and Subscriptions to activate your subscription: https://app.dataforseo.com/backlinks-subscription",
+    "action_required": "Manual activation at https://app.dataforseo.com/backlinks-subscription"
+  },
+  "bulk_traffic_estimation": {
+    "api_cost": 0.0116,
+    "domains_scanned": 16,
+    "results": [
+      {
+        "domain": "builder.ai",
+        "organic_etv": 114084.56,
+        "organic_keywords": 11066,
+        "tier": "HIGH_VALUE"
+      },
+      {
+        "domain": "nanowrimo.org",
+        "organic_etv": 22802.07,
+        "organic_keywords": 62,
+        "tier": "HIGH_VALUE"
+      },
+      {
+        "domain": "imageeditor.net",
+        "organic_etv": 1521.02,
+        "organic_keywords": 463,
+        "tier": "MODERATE"
+      },
+      {
+        "domain": "fitocracy.com",
+        "organic_etv": 289.15,
+        "organic_keywords": 19,
+        "tier": "LOW"
+      },
+      {
+        "domain": "canoo.com",
+        "organic_etv": 0.44,
+        "organic_keywords": 1,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "devhub.io",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "apitools.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "sitegrader.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "codeguide.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "bestdevtools.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "taskplanner.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "codetools.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "prompttools.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "mortgagecalc.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "seochecker.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      },
+      {
+        "domain": "freetail.com",
+        "organic_etv": 0,
+        "organic_keywords": 0,
+        "tier": "DEAD"
+      }
+    ]
+  },
+  "domain_rank_overview": {
+    "api_cost": 0.0622,
+    "results": {
+      "builder.ai": {
+        "india_en": {
+          "organic_etv": 31456.37,
+          "keywords_count": 1094,
+          "estimated_paid_traffic_cost": 37164.24,
+          "pos_1": 9,
+          "pos_2_3": 8,
+          "pos_4_10": 35,
+          "pos_top10_total": 52,
+          "is_new": 660,
+          "is_lost": 701
+        },
+        "australia_en": {
+          "organic_etv": 1041.5,
+          "keywords_count": 435,
+          "estimated_paid_traffic_cost": 18845.18,
+          "pos_1": 1,
+          "pos_top10_total": 3
+        },
+        "global_organic_etv": 114084.56,
+        "global_keywords": 11066,
+        "assessment": "ACTIVE BUSINESS - major SaaS company, likely NOT available for acquisition"
+      },
+      "nanowrimo.org": {
+        "us_en": {
+          "organic_etv": 11090.65,
+          "keywords_count": 28,
+          "estimated_paid_traffic_cost": 51744.31,
+          "pos_1": 4,
+          "pos_2_3": 2,
+          "pos_4_10": 3,
+          "pos_top10_total": 9,
+          "is_new": 9,
+          "is_lost": 283
+        },
+        "assessment": "DECLINING - lost 283 keywords, only 28 remaining. National Novel Writing Month org had controversy. HIGH acquisition potential due to brand value vs declining metrics"
+      },
+      "imageeditor.net": {
+        "us_en": {
+          "organic_etv": 246.27,
+          "keywords_count": 55,
+          "estimated_paid_traffic_cost": 714.29
+        },
+        "global_organic_etv": 1521.02,
+        "global_keywords": 463,
+        "assessment": "MODERATE value - exact match domain for image editing, steady organic presence across 78 geos"
+      },
+      "devhub.io": {
+        "items_count": 0,
+        "assessment": "DEAD - no ranking data"
+      },
+      "mortgagecalc.com": {
+        "items_count": 0,
+        "assessment": "DEAD - no ranking data despite premium keyword domain"
+      },
+      "seochecker.com": {
+        "items_count": 0,
+        "assessment": "DEAD - no ranking data"
+      }
+    }
+  },
+  "total_api_cost_this_session": 0.0738,
+  "remaining_balance_estimate": 3.87,
+  "summary": {
+    "backlinks_api": "Still BLOCKED (40204). Requires manual subscription activation at https://app.dataforseo.com/backlinks-subscription. Cannot assess backlink profiles without this.",
+    "top_findings": [
+      "builder.ai: 114K ETV, 11K keywords - ACTIVE major SaaS business, NOT a target for acquisition",
+      "nanowrimo.org: 22.8K ETV globally but DECLINING fast (lost 283 US keywords). Brand value high, $51.7K estimated traffic cost. Best acquisition target IF organization is selling.",
+      "imageeditor.net: 1.5K ETV, 463 keywords across 78 geos. Exact-match domain with steady traffic. Good acquisition target.",
+      "fitocracy.com: 289 ETV, 19 keywords. Brand recognition but minimal SEO presence. Cheap pickup.",
+      "12 of 16 domains are DEAD (0 organic traffic) - devhub.io, apitools.com, sitegrader.com, codeguide.com, bestdevtools.com, taskplanner.com, codetools.com, prompttools.com, mortgagecalc.com, seochecker.com, freetail.com, canoo.com"
+    ],
+    "recommended_targets": [
+      {
+        "domain": "nanowrimo.org",
+        "reason": "High brand value + declining metrics = potential distressed asset. $51.7K traffic cost equivalent."
+      },
+      {
+        "domain": "imageeditor.net",
+        "reason": "Exact match domain, 463 keywords, steady international traffic."
+      },
+      {
+        "domain": "mortgagecalc.com",
+        "reason": "Premium keyword domain currently dead - could be rebuilt with high-value mortgage keywords."
+      },
+      {
+        "domain": "seochecker.com",
+        "reason": "Premium keyword domain currently dead - SEO tools market remains hot."
+      },
+      {
+        "domain": "codeguide.com",
+        "reason": "Premium keyword domain in AI/dev space, currently dead."
+      }
+    ],
+    "next_steps": [
+      "Activate Backlinks API subscription at https://app.dataforseo.com/backlinks-subscription to assess backlink profiles",
+      "Check WHOIS/expiry dates for DEAD domains - they may be expiring soon",
+      "For nanowrimo.org: investigate if organization is shutting down/selling (they had major controversy in 2023)",
+      "For dead premium keyword domains: check if they are parked or actually available"
+    ]
+  }
+}

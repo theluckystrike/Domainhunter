@@ -1,0 +1,322 @@
+{
+  "plan_created": "2026-05-16",
+  "plan_name": "Sprint 27 -- 42-Day Monitoring Plan (May 16 - June 26)",
+  "first_catch_window": "2026-06-26",
+  "first_catch_domain": "guerrameats.com",
+  "days_remaining_to_first_catch": 41,
+  "total_monitoring_horizon": "2026-07-30",
+  "total_monitoring_days": 75,
+
+  "launchd_status": {
+    "checked_at": "2026-05-16T00:33:00Z",
+    "com.domainhunter.daily-digest": {
+      "status": "LOADED",
+      "schedule": "Daily 09:00",
+      "last_exit": 0,
+      "script": "scripts/run_daily_digest.sh"
+    },
+    "com.domainhunter.drop-monitor-all": {
+      "status": "LOADED_BUT_PERMISSION_DENIED",
+      "schedule": "Daily 03:00",
+      "last_exit": 126,
+      "script": "scripts/run_drop_monitor.sh --tier all",
+      "issue": "macOS Full Disk Access not granted to /bin/bash. Fix: System Preferences > Privacy & Security > Full Disk Access > add /bin/bash or Terminal.app",
+      "workaround": "Run manually: bash scripts/run_drop_monitor.sh --tier all"
+    },
+    "com.domainhunter.drop-monitor-critical": {
+      "status": "LOADED_BUT_PERMISSION_DENIED",
+      "schedule": "Every 6h (00:00, 06:00, 12:00, 18:00)",
+      "last_exit": 126,
+      "script": "scripts/run_drop_monitor.sh --tier critical",
+      "issue": "macOS Full Disk Access not granted to /bin/bash. Same fix as above.",
+      "workaround": "Run manually: bash scripts/run_drop_monitor.sh --tier critical"
+    },
+    "com.domainhunter.startup-reaper": {
+      "status": "LOADED",
+      "last_exit": 0
+    },
+    "ACTION_REQUIRED": "Grant Full Disk Access to Terminal.app or /bin/bash in System Preferences > Privacy & Security > Full Disk Access. Without this, automated RDAP monitoring will NOT run."
+  },
+
+  "portfolio_snapshot": {
+    "total_monitored": 37,
+    "critical": 7,
+    "high": 23,
+    "medium": 7,
+    "low": 0,
+    "dynadot_balance": 25.00,
+    "recommended_balance": 75.00,
+    "critical_domains_with_dates": [
+      { "domain": "guerrameats.com", "drop_est": "2026-06-26", "days": 41, "etv": 11376 },
+      { "domain": "sunnyray.org", "drop_est": "2026-06-30", "days": 45, "etv": 2842 },
+      { "domain": "globalgeopark.org", "drop_est": "2026-07-01", "days": 46, "etv": 626 },
+      { "domain": "ghostautonomy.com", "drop_est": "2026-08-06", "days": 82, "etv": 1428, "expiry": "2026-06-07" },
+      { "domain": "olive.com", "drop_est": "TBD", "etv": 0, "notes": "GoDaddy, expires 2027-11-21, reaper=82.5" },
+      { "domain": "infarm.com", "drop_est": "TBD", "etv": 0, "notes": "GoDaddy, expires 2027-02-18, reaper=81.0" },
+      { "domain": "veev.com", "drop_est": "TBD", "etv": 0, "notes": "GoDaddy, expires 2027-07-02, reaper=75.8" }
+    ]
+  },
+
+  "daily_tasks": [
+    "Check macOS notification from daily digest (fires at 09:00)",
+    "If notification missing, run: python3 scripts/sprint26_daily_digest.py",
+    "Review daily_digest.log for status changes",
+    "If any domain shows pendingDelete or redemptionPeriod, trigger IMMEDIATE backorder"
+  ],
+
+  "weekly_milestones": [
+    {
+      "week": 1,
+      "dates": "May 16-22",
+      "days_to_guerrameats": "41-35",
+      "tasks": [
+        "FIX: Grant Full Disk Access to Terminal.app/bash for launchd jobs (drop-monitor-all and drop-monitor-critical both returning 126)",
+        "Verify all 4 launchd jobs running clean (exit 0) after FDA fix",
+        "Manual RDAP check on bestdevtools.com (noted expiry ~May 22)",
+        "Run drop_monitor.sh --tier all manually to verify RDAP pipeline works",
+        "Check Kaggle batch of 500 domains if pipeline ready"
+      ],
+      "key_date": { "date": "2026-05-22", "event": "bestdevtools.com noted expiry", "action": "RDAP check for pendingDelete transition" }
+    },
+    {
+      "week": 2,
+      "dates": "May 23-29",
+      "days_to_guerrameats": "34-28",
+      "tasks": [
+        "RDAP re-check on taskplanner.com (noted expiry ~May 27)",
+        "Verify launchd automation is running (check heartbeat files in logs/)",
+        "Review daily digest logs for any status changes",
+        "Begin Dynadot balance planning: target $50 minimum before June drops"
+      ],
+      "key_date": { "date": "2026-05-27", "event": "taskplanner.com noted expiry", "action": "RDAP check for pendingDelete transition" }
+    },
+    {
+      "week": 3,
+      "dates": "May 30 - Jun 5",
+      "days_to_guerrameats": "27-21",
+      "tasks": [
+        "TOP UP Dynadot balance to $50+ (3 domains approaching pendingDelete in June)",
+        "ghostautonomy.com pre-expiry monitoring: increase RDAP checks to daily",
+        "Review competition intel for guerrameats.com (check GoDaddy Auctions, SnapNames, DropCatch)",
+        "Test Dynadot backorder API with a dry-run to confirm credentials work",
+        "Check scififoods.com RDAP (GoDaddy, expires Jun 14)"
+      ]
+    },
+    {
+      "week": 4,
+      "dates": "Jun 6-12",
+      "days_to_guerrameats": "20-14",
+      "tasks": [
+        "ghostautonomy.com EXPIRES Jun 7 -- begin daily RDAP checks for autoRenewPeriod entry",
+        "Monitor ghostautonomy.com for any re-registration or renewal",
+        "Verify guerrameats.com still in clientHold (no renewal activity)",
+        "scififoods.com approaches expiry (Jun 14) -- monitor daily",
+        "fileconverter.com approaches noted date (Jun 20) -- add to daily checks"
+      ],
+      "key_date": { "date": "2026-06-07", "event": "ghostautonomy.com registration expires", "action": "Daily RDAP checks. If NOT renewed, enters 30-day autoRenewPeriod until ~Jul 7, then redemption ~Aug 6" }
+    },
+    {
+      "week": 5,
+      "dates": "Jun 13-19",
+      "days_to_guerrameats": "13-7",
+      "tasks": [
+        "scififoods.com expires Jun 14 -- daily RDAP monitoring",
+        "guerrameats.com T-minus 13 to 7 days: daily RDAP checks mandatory",
+        "Verify Dynadot balance is $50+ (CRITICAL -- backorders cost ~$11 each)",
+        "Test backorder placement on Dynadot for a throwaway domain to confirm workflow",
+        "fileconverter.com noted date Jun 20 -- begin monitoring",
+        "Check GoDaddy Auctions for any ghostautonomy.com or scififoods.com listings"
+      ],
+      "key_date": { "date": "2026-06-14", "event": "scififoods.com GoDaddy expiry", "action": "Monitor for autoRenewPeriod entry. GoDaddy = 42-day grace then 30-day redemption" }
+    },
+    {
+      "week": 6,
+      "dates": "Jun 20-26",
+      "days_to_guerrameats": "6-0",
+      "tasks": [
+        "CRITICAL WEEK: guerrameats.com expected pendingDelete ~Jun 26",
+        "Jun 20: fileconverter.com noted date -- RDAP check",
+        "Jun 20-25: Run RDAP on guerrameats.com TWICE DAILY (morning + evening)",
+        "Jun 25: Pre-stage Dynadot backorder for guerrameats.com if not already placed",
+        "Jun 26: guerrameats.com DROP DAY -- check RDAP every 2 hours for pendingDelete",
+        "Jun 26: If pendingDelete confirmed, PLACE DYNADOT BACKORDER IMMEDIATELY",
+        "Jun 26: Also check DropCatch, SnapNames, NameJet for competing backorders",
+        "Verify ghostautonomy.com and scififoods.com status (should be in autoRenewPeriod)"
+      ],
+      "key_date": { "date": "2026-06-26", "event": "guerrameats.com estimated pendingDelete", "action": "PLACE BACKORDER IMMEDIATELY when pendingDelete confirmed in RDAP" }
+    },
+    {
+      "week": 7,
+      "dates": "Jun 27 - Jul 3",
+      "days_to_guerrameats": "post-drop",
+      "tasks": [
+        "If guerrameats.com backorder placed: monitor for catch result (typically 1-5 days after pendingDelete)",
+        "If guerrameats.com NOT yet in pendingDelete: continue twice-daily RDAP checks (estimate may be off by days)",
+        "sunnyray.org approaching drop ~Jun 30 -- daily RDAP checks",
+        "globalgeopark.org approaching drop ~Jul 1 -- daily RDAP checks",
+        "Jun 30: sunnyray.org expected pendingDelete -- PLACE BACKORDER if confirmed",
+        "Jul 1: globalgeopark.org expected pendingDelete -- PLACE BACKORDER if confirmed",
+        "Check ghostautonomy.com for GoDaddy auction listing (typically 25-30 days after expiry)"
+      ],
+      "key_date": { "date": "2026-06-30", "event": "sunnyray.org expected pendingDelete", "action": "Place Dynadot backorder" }
+    },
+    {
+      "week": 8,
+      "dates": "Jul 4-10",
+      "tasks": [
+        "goodglammgroup.com approaches expiry Jul 6 -- daily RDAP checks",
+        "tally.com expiry ~Jul 7 -- monitor for autoRenewPeriod entry",
+        "Review catch results for guerrameats.com, sunnyray.org, globalgeopark.org",
+        "If any catches successful: begin DNS setup and content deployment",
+        "ghostautonomy.com: check GoDaddy Auctions for listing"
+      ],
+      "key_date": { "date": "2026-07-06", "event": "goodglammgroup.com expiry", "action": "Monitor for autoRenewPeriod. GoDaddy registrar = 42-day grace period" }
+    },
+    {
+      "week": 9,
+      "dates": "Jul 11-17",
+      "tasks": [
+        "sendy.co approaching drop ~Jul 16 -- daily RDAP checks",
+        "cookingtool.com and codehelper.com noted dates Jul 17 -- RDAP checks",
+        "Review all pending backorder results",
+        "ghostautonomy.com: should be nearing end of autoRenewPeriod (~30 days after Jun 7 = Jul 7)",
+        "If ghostautonomy.com enters redemptionPeriod: monitor for 30 days then pendingDelete ~Aug 6"
+      ],
+      "key_date": { "date": "2026-07-16", "event": "sendy.co expected drop (ETV $3,179)", "action": "Place backorder when pendingDelete confirmed" }
+    },
+    {
+      "week": 10,
+      "dates": "Jul 18-24",
+      "tasks": [
+        "codeanalyzer.com noted date Jul 20 -- RDAP check",
+        "Review all catch results to date",
+        "Begin content/monetization planning for any caught domains",
+        "readingfoundation.org approaching Jul 30 -- begin monitoring (ETV $7,207, highest value target)"
+      ],
+      "key_date": { "date": "2026-07-20", "event": "codeanalyzer.com noted date", "action": "RDAP check for status transition" }
+    },
+    {
+      "week": 11,
+      "dates": "Jul 25-31",
+      "tasks": [
+        "readingfoundation.org expected drop ~Jul 30 -- daily RDAP, PLACE BACKORDER when confirmed",
+        "ghostautonomy.com approaching estimated pendingDelete ~Aug 6",
+        "Full portfolio status review: compile catch/miss results for all June-July targets",
+        "Assess Dynadot balance and refill if needed for August targets"
+      ],
+      "key_date": { "date": "2026-07-30", "event": "readingfoundation.org expected drop (ETV $7,207)", "action": "PLACE BACKORDER IMMEDIATELY -- highest ETV target in portfolio" }
+    }
+  ],
+
+  "key_dates_timeline": [
+    { "date": "2026-05-22", "domain": "bestdevtools.com", "event": "Noted expiry date", "action": "RDAP check for pendingDelete", "priority": "medium" },
+    { "date": "2026-05-27", "domain": "taskplanner.com", "event": "Noted expiry date", "action": "RDAP check for pendingDelete", "priority": "medium" },
+    { "date": "2026-06-07", "domain": "ghostautonomy.com", "event": "Registration expires ($220M funded startup, DA 52)", "action": "Begin daily RDAP checks for autoRenewPeriod entry", "priority": "high" },
+    { "date": "2026-06-14", "domain": "scififoods.com", "event": "GoDaddy expiry date", "action": "Monitor for autoRenewPeriod (42-day GoDaddy grace)", "priority": "high" },
+    { "date": "2026-06-20", "domain": "fileconverter.com", "event": "Noted date", "action": "RDAP check", "priority": "medium" },
+    { "date": "2026-06-26", "domain": "guerrameats.com", "event": "ESTIMATED pendingDelete (ETV $11,376)", "action": "PLACE DYNADOT BACKORDER IMMEDIATELY", "priority": "CRITICAL" },
+    { "date": "2026-06-30", "domain": "sunnyray.org", "event": "Estimated pendingDelete (ETV $2,842)", "action": "Place Dynadot backorder", "priority": "CRITICAL" },
+    { "date": "2026-07-01", "domain": "globalgeopark.org", "event": "Estimated pendingDelete (ETV $626)", "action": "Place Dynadot backorder", "priority": "CRITICAL" },
+    { "date": "2026-07-06", "domain": "goodglammgroup.com", "event": "Expiry date (GoDaddy)", "action": "Monitor for autoRenewPeriod, 42-day grace", "priority": "high" },
+    { "date": "2026-07-07", "domain": "tally.com", "event": "Expiry date", "action": "Monitor for autoRenewPeriod", "priority": "high" },
+    { "date": "2026-07-07", "domain": "ghostautonomy.com", "event": "Approx end of autoRenewPeriod (30d post-expiry)", "action": "Monitor for redemptionPeriod entry", "priority": "high" },
+    { "date": "2026-07-16", "domain": "sendy.co", "event": "Estimated drop (ETV $3,179)", "action": "Place backorder", "priority": "high" },
+    { "date": "2026-07-17", "domain": "cookingtool.com", "event": "Noted date", "action": "RDAP check", "priority": "medium" },
+    { "date": "2026-07-17", "domain": "codehelper.com", "event": "Noted date", "action": "RDAP check", "priority": "medium" },
+    { "date": "2026-07-20", "domain": "codeanalyzer.com", "event": "Noted date", "action": "RDAP check", "priority": "medium" },
+    { "date": "2026-07-30", "domain": "readingfoundation.org", "event": "Estimated drop (ETV $7,207 -- HIGHEST VALUE)", "action": "PLACE BACKORDER IMMEDIATELY", "priority": "CRITICAL" },
+    { "date": "2026-08-06", "domain": "ghostautonomy.com", "event": "Estimated pendingDelete (ETV $1,428)", "action": "Place backorder or bid at GoDaddy auction", "priority": "CRITICAL" }
+  ],
+
+  "escalation_triggers": [
+    {
+      "trigger": "Any critical domain RDAP shows pendingDelete",
+      "action": "IMMEDIATE Dynadot backorder placement. Do not wait.",
+      "domains": ["guerrameats.com", "sunnyray.org", "globalgeopark.org", "ghostautonomy.com"]
+    },
+    {
+      "trigger": "ghostautonomy.com RDAP shows re-registration (new creation_date or new registrar)",
+      "action": "ABORT monitoring for this domain. Someone caught it.",
+      "domains": ["ghostautonomy.com"]
+    },
+    {
+      "trigger": "guerrameats.com RDAP shows renewal (clientHold removed, new expiry date)",
+      "action": "ABORT monitoring. Owner renewed.",
+      "domains": ["guerrameats.com"]
+    },
+    {
+      "trigger": "Dynadot balance drops below $25",
+      "action": "Top up to $75 immediately. Multiple backorders may fire simultaneously.",
+      "domains": []
+    },
+    {
+      "trigger": "Any domain shows redemptionPeriod earlier than estimated",
+      "action": "Recalculate pendingDelete date (redemption is typically 30 days). Move up backorder timeline.",
+      "domains": []
+    },
+    {
+      "trigger": "New competitor sighting on DropCatch/SnapNames/NameJet for any critical domain",
+      "action": "Reassess competition level. Consider placing backorder on multiple platforms for highest-value targets.",
+      "domains": ["guerrameats.com", "ghostautonomy.com", "readingfoundation.org"]
+    },
+    {
+      "trigger": "Launchd job still returning exit 126 after Week 1",
+      "action": "Manual RDAP monitoring required until FDA granted. Run drop_monitor.sh manually each morning.",
+      "domains": []
+    }
+  ],
+
+  "budget_plan": {
+    "current_balance": 25.00,
+    "backorder_cost_per_domain": 10.99,
+    "june_targets": ["guerrameats.com", "sunnyray.org", "globalgeopark.org"],
+    "june_cost_estimate": 32.97,
+    "july_targets": ["goodglammgroup.com", "sendy.co", "readingfoundation.org"],
+    "july_cost_estimate": 32.97,
+    "total_needed": 65.94,
+    "shortfall": 40.94,
+    "action": "Top up Dynadot to $75 by June 1. Covers all 6 target backorders plus buffer."
+  },
+
+  "registrar_behavior_notes": {
+    "squarespace": {
+      "applies_to": ["guerrameats.com"],
+      "grace_period": "~30 days autoRenewPeriod",
+      "redemption": "~30 days redemptionPeriod",
+      "total_hold": "~60 days from expiry to pendingDelete",
+      "notes": "guerrameats.com already in clientHold, DNS dead. Drop estimate Jun 26 is based on observed Squarespace timelines."
+    },
+    "godaddy_wildwest": {
+      "applies_to": ["ghostautonomy.com", "scififoods.com", "goodglammgroup.com"],
+      "grace_period": "42 days autoRenewPeriod (GoDaddy is generous)",
+      "redemption": "30 days redemptionPeriod (GoDaddy charges $80 redemption fee)",
+      "auction": "GoDaddy may list high-value expiring domains in their own auction (GoDaddy Auctions) BEFORE pendingDelete",
+      "notes": "ghostautonomy.com on Wild West Domains (GoDaddy subsidiary). May go to GoDaddy auction rather than clean pendingDelete."
+    },
+    "tucows": {
+      "applies_to": ["sunnyray.org", "globalgeopark.org"],
+      "grace_period": "~40 days autoRenewPeriod (already in this phase)",
+      "redemption": "~30 days redemptionPeriod",
+      "notes": "Both already in autoRenewPeriod as of May 15. Drop estimates Jun 30 / Jul 1 are well-calibrated."
+    }
+  },
+
+  "monitoring_frequency_schedule": {
+    "normal": {
+      "frequency": "Once daily via launchd (or manual if FDA not granted)",
+      "applies_when": "Domain >14 days from estimated drop"
+    },
+    "elevated": {
+      "frequency": "Twice daily (morning + evening manual RDAP checks)",
+      "applies_when": "Domain 7-14 days from estimated drop"
+    },
+    "critical": {
+      "frequency": "Every 2-4 hours",
+      "applies_when": "Domain 0-7 days from estimated drop or showing redemptionPeriod"
+    },
+    "immediate": {
+      "frequency": "Check RDAP, place backorder within 1 hour",
+      "applies_when": "Domain shows pendingDelete in RDAP"
+    }
+  }
+}

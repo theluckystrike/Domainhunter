@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-05-15T14:00:57.344547+00:00",
+  "probe_type": "co_availability_deep",
+  "domains_checked": [
+    "bench.co",
+    "tally.co"
+  ],
+  "results": [
+    {
+      "domain": "bench.co",
+      "verdict": "REGISTERED",
+      "probes": [
+        {
+          "source": "rdap_generic",
+          "url": "https://rdap.org/domain/bench.co",
+          "http_status": 404,
+          "signal": "NOT_FOUND",
+          "note": "404 \u2014 domain not in RDAP bootstrap (available or TLD not indexed)"
+        },
+        {
+          "source": "rdap_nic_co",
+          "url": "https://rdap.nic.co/domain/bench.co",
+          "signal": "ERROR",
+          "error": "[Errno 8] nodename nor servname provided, or not known"
+        },
+        {
+          "source": "http_head",
+          "url": "https://bench.co",
+          "http_status": 200,
+          "final_url": "https://www.bench.co/",
+          "signal": "RESOLVES",
+          "note": "Domain resolves via https -> 200"
+        },
+        {
+          "source": "dynadot_search",
+          "http_status": 200,
+          "raw_response": {
+            "SearchResponse": {
+              "ResponseCode": "0",
+              "SearchResults": [
+                {
+                  "DomainName": "bench.co",
+                  "Status": "success",
+                  "Available": "no"
+                }
+              ]
+            }
+          },
+          "dynadot_available": "no",
+          "signal": "REGISTERED",
+          "note": "Dynadot confirms domain is registered"
+        }
+      ],
+      "timestamp": "2026-05-15T14:00:49.072251+00:00"
+    },
+    {
+      "domain": "tally.co",
+      "verdict": "REGISTERED",
+      "probes": [
+        {
+          "source": "rdap_generic",
+          "url": "https://rdap.org/domain/tally.co",
+          "http_status": 404,
+          "signal": "NOT_FOUND",
+          "note": "404 \u2014 domain not in RDAP bootstrap (available or TLD not indexed)"
+        },
+        {
+          "source": "rdap_nic_co",
+          "url": "https://rdap.nic.co/domain/tally.co",
+          "signal": "ERROR",
+          "error": "[Errno 8] nodename nor servname provided, or not known"
+        },
+        {
+          "source": "http_head",
+          "url": "https://tally.co",
+          "http_status": 200,
+          "final_url": "https://www.tally.co/",
+          "signal": "RESOLVES",
+          "note": "Domain resolves via https -> 200"
+        },
+        {
+          "source": "dynadot_search",
+          "http_status": 200,
+          "raw_response": {
+            "SearchResponse": {
+              "ResponseCode": "0",
+              "SearchResults": [
+                {
+                  "DomainName": "tally.co",
+                  "Status": "success",
+                  "Available": "no"
+                }
+              ]
+            }
+          },
+          "dynadot_available": "no",
+          "signal": "REGISTERED",
+          "note": "Dynadot confirms domain is registered"
+        }
+      ],
+      "timestamp": "2026-05-15T14:00:57.343584+00:00"
+    }
+  ]
+}

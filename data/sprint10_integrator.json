@@ -1,0 +1,66 @@
+{
+  "sprint": 10,
+  "agent": "INTEGRATOR (Agent 1)",
+  "date": "2026-05-07",
+  "status": "complete",
+  "integrations": [
+    {
+      "name": "catchdoms_apify",
+      "type": "source",
+      "endpoint": "https://api.apify.com/v2/acts/catchdoms~expired-domains-api/runs/last/dataset/items",
+      "auth_required": false,
+      "daily_volume": "55K+ domains from 12 platforms",
+      "filters_applied": {
+        "quality_score_min": 30,
+        "da_min": 15
+      },
+      "fields_captured": ["domain", "DA", "TF", "CF", "referring_domains", "dofollow%", "wayback_age", "quality_score", "platform", "price"],
+      "functions_added": ["fetch_catchdoms_apify", "_parse_catchdoms_response", "_catchdoms_item_to_candidate", "_mock_catchdoms_apify"],
+      "mock_domains_count": 8,
+      "dispatcher_key": "catchdoms_apify"
+    },
+    {
+      "name": "openrank_crosscheck",
+      "type": "cross_validation",
+      "endpoint": "https://openrank.io/api/v1/domain/batch",
+      "auth_required": false,
+      "rate_limits": {
+        "requests_per_day": 10000,
+        "domains_per_request": 50
+      },
+      "purpose": "Cross-validate DA scores: compare OpenPageRank vs OpenRank, flag discrepancies >= 15 points",
+      "functions_added": ["openrank_cross_validate", "_openrank_check_batch", "_build_openrank_score_map", "_merge_openrank_scores", "_mock_openrank_scores"],
+      "pipeline_position": "after bulk_da_check, before filter_by_min_da",
+      "discrepancy_threshold": 15
+    },
+    {
+      "name": "openpagerank",
+      "type": "existing_source_verification",
+      "status": "already integrated (lines 642-724)",
+      "env_var": "OPEN_PAGERANK_API_KEY",
+      "action": "verified integration, added to config via openrank_crosscheck flag"
+    }
+  ],
+  "constants_added": [
+    "CATCHDOMS_MIN_QUALITY = 30",
+    "CATCHDOMS_MIN_DA = 15",
+    "OPENRANK_BATCH_SIZE = 50",
+    "OPENRANK_MAX_DAILY_REQUESTS = 10000",
+    "DA_DISCREPANCY_THRESHOLD = 15"
+  ],
+  "files_modified": [
+    "tools/daily_hunter.py",
+    "tools/daily_hunter_config.json"
+  ],
+  "files_created": [
+    "data/sprint10_integrator.json"
+  ],
+  "nasa_power_of_10_compliance": {
+    "functions_under_60_lines": true,
+    "min_2_assertions_per_function": true,
+    "fixed_loop_bounds": true,
+    "no_global_mutable_state": true,
+    "frozen_dataclasses": true,
+    "no_recursion": true
+  }
+}

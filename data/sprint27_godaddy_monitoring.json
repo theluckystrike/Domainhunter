@@ -1,0 +1,417 @@
+{
+  "generated_at": "2026-05-16T00:00:00Z",
+  "sprint": "27",
+  "agent": 4,
+  "pipeline": "godaddy_auction_monitoring_setup",
+  "research_summary": {
+    "title": "GoDaddy Auctions Monitoring: Complete Setup Guide for 6 GoDaddy Domains",
+    "key_finding": "GoDaddy provides THREE monitoring channels: (1) Watchlist with email/push notifications on auctions.godaddy.com, (2) Inventory Protocol bulk download at inventory.auctions.godaddy.com for automated scanning, (3) GoDaddy Investor mobile app with push notifications. Additionally, the Auctions API supports programmatic bidding but NOT search. Third-party service notify.domains ($24/yr per domain) can alert when domains appear in GoDaddy Auctions.",
+    "monitoring_retired": "GoDaddy retired its dedicated 'Backorders & Monitoring' service on October 7, 2025. Backorder credits stopped selling August 8, 2024. The watchlist and auction search remain active as replacements."
+  },
+
+  "monitoring_channels": {
+    "channel_1_watchlist": {
+      "name": "GoDaddy Auctions Watchlist",
+      "url": "https://auctions.godaddy.com/beta",
+      "cost": "Free (requires $4.99/yr GoDaddy Auctions membership to bid)",
+      "setup_status": "MEMBERSHIP CONFIRMED (conf# 4082361684)",
+      "how_it_works": "Add domains to your watchlist. When an auction you're watching is about to expire (1 hour remaining), you receive email + push notification. You can also get outbid notifications and offer notifications.",
+      "limitations": [
+        "Can only watch domains ALREADY listed in auction -- cannot pre-add domains that haven't appeared yet",
+        "Notification only fires 1 hour before auction end, not when domain first appears",
+        "Must manually check or search for domains to add them to watchlist first",
+        "Watchlist pages still on legacy interface (not yet migrated to beta UI)"
+      ],
+      "alert_types": [
+        "Auction Watching expires in one hour",
+        "Auction Bid expires in one hour",
+        "Outbid Notification",
+        "When you receive an offer"
+      ],
+      "bulk_import": {
+        "available": true,
+        "max_domains": 500,
+        "how": "Log in to GoDaddy Auctions desktop -> click Watchlist tab -> click 'Import List' button -> paste up to 500 domains",
+        "note": "Bulk import only works for domains currently in auction. Domains not yet listed will be silently ignored."
+      },
+      "setup_steps": [
+        "1. Log in to https://auctions.godaddy.com/beta with GoDaddy account",
+        "2. Click 'Watchlist' in left sidebar",
+        "3. Search for each target domain one by one",
+        "4. Click 'Watch' on any domain found in auction",
+        "5. Go to Settings -> enable email alerts and SMS alerts",
+        "6. Install GoDaddy Investor app for push notifications"
+      ],
+      "action_required": "DAILY: Search for each target domain starting from their expected auction date. Add to watchlist as soon as they appear."
+    },
+
+    "channel_2_inventory_protocol": {
+      "name": "GoDaddy Inventory Protocol (Bulk Download)",
+      "url": "https://inventory.auctions.godaddy.com/",
+      "cost": "Free, no authentication required",
+      "how_it_works": "GoDaddy publishes daily inventory files of ALL auction listings. Files updated between 7-8am PST. Available in JSON, XML, and CSV. Contains 43+ files including expired domain auctions, closeouts, and biddable auctions. Our script can download and grep for target domains.",
+      "key_files": [
+        {
+          "name": "expiring_service_auctions (JSON/XML/CSV)",
+          "description": "ALL expiring/expired domain auctions. Largest file (~76MB XML). This is our primary monitoring target.",
+          "use": "Download daily, grep for our 6 domains"
+        },
+        {
+          "name": "biddable_auctions_no_adult (JSON/XML)",
+          "description": "All currently biddable auctions excluding adult domains",
+          "use": "Cross-reference for active bidding opportunities"
+        },
+        {
+          "name": "closeout_service_auctions (JSON/XML)",
+          "description": "Domains in 5-day closeout phase (reverse auction, declining price)",
+          "use": "Monitor for domains entering closeout at $50-$5 price range"
+        },
+        {
+          "name": "metadata.json",
+          "description": "Updated daily 7-8am PST. Lists all available files with timestamps.",
+          "use": "Check this first to see if new data is available before downloading large files"
+        }
+      ],
+      "automation_approach": "Our sprint27_godaddy_check.py script downloads the metadata.json, then fetches the expiring auctions CSV, and searches for our target domains. This is the MOST RELIABLE automated monitoring method.",
+      "update_frequency": "Daily between 7:00-8:00 AM PST (10:00-11:00 AM EST)"
+    },
+
+    "channel_3_investor_app": {
+      "name": "GoDaddy Investor Mobile App",
+      "platform": "iOS + Android",
+      "ios_url": "https://apps.apple.com/us/app/godaddy-investor/id1056238239",
+      "android_url": "https://play.google.com/store/apps/details?id=com.godaddy.gdm.investorapp",
+      "cost": "Free (requires GoDaddy account)",
+      "features": [
+        "Search and bid on auction domains",
+        "Watch list with push notifications",
+        "Portfolio management",
+        "Auction ending alerts"
+      ],
+      "limitations": [
+        "Push notifications reported as unreliable by some users",
+        "Same watchlist limitations as web -- can only watch domains already in auction",
+        "No bulk import on mobile"
+      ],
+      "setup_steps": [
+        "1. Install GoDaddy Investor app",
+        "2. Log in with GoDaddy account",
+        "3. Enable push notifications in app settings AND iOS/Android settings",
+        "4. Search for target domains and add to watch list when found"
+      ]
+    },
+
+    "channel_4_api": {
+      "name": "GoDaddy Auctions API",
+      "documentation": "https://developer.godaddy.com/doc/endpoint/auctions",
+      "swagger_spec": "https://api.godaddy.com/swagger/swagger_auctions.json",
+      "production_base": "https://api.godaddy.com",
+      "test_base": "https://api.ote-godaddy.com",
+      "cost": "Free (20,000 API calls/month with 1+ active domain)",
+      "capabilities": {
+        "can_bid": true,
+        "can_search": false,
+        "can_list_auctions": false,
+        "can_filter": false,
+        "bid_endpoint": "POST /v1/auctions/{auctionId}/bid (requires auctionId from web/inventory)"
+      },
+      "critical_limitation": "The API only supports PLACING BIDS on auctions where you already know the auctionId. There is NO search endpoint to find domains in auction. You must get the auctionId from the web interface or inventory downloads first.",
+      "authentication": "API Key + Secret from https://developer.godaddy.com/keys. Header: Authorization: sso-key {key}:{secret}",
+      "use_case": "Once our monitoring script detects a domain in auction via inventory download, we could potentially automate bid placement via API. But domain discovery must happen through inventory files or manual search.",
+      "api_key_setup": [
+        "1. Go to https://developer.godaddy.com/keys",
+        "2. Create a new API key (Production environment)",
+        "3. Save the key and secret",
+        "4. Store in .env file as GODADDY_API_KEY and GODADDY_API_SECRET"
+      ]
+    },
+
+    "channel_5_third_party": {
+      "name": "notify.domains (Third-Party Monitoring)",
+      "url": "https://notify.domains/",
+      "cost": "$24/year per domain ($2/month)",
+      "cost_for_6_domains": "$144/year",
+      "free_trial": "7 days, 1 domain, no credit card required",
+      "how_it_works": "Monitors domains 15+ times per day across WHOIS, RDAP, registrar auctions, marketplaces, DNS, and 150+ attributes. Sends instant alerts when domains appear in GoDaddy Auctions with auction end dates and valuation benchmarks.",
+      "alert_delivery": ["Email", "Slack", "HTTPS webhooks"],
+      "key_advantage": "ONLY service that can alert when a domain FIRST APPEARS in GoDaddy Auctions. GoDaddy's own watchlist only alerts when auctions are about to end.",
+      "recommended": true,
+      "recommended_domains": ["ghostautonomy.com", "fiskerinc.com"],
+      "reasoning": "At $24/yr per domain, monitor the 2 nearest-expiry domains that have a realistic chance of affordable acquisition. ghostautonomy.com ($24/yr) and fiskerinc.com ($24/yr) = $48/yr total. Not worth $144/yr for all 6 when olive.com and veev.com are out of budget anyway."
+    }
+  },
+
+  "manual_check_urls": {
+    "search_url_template": "https://auctions.godaddy.com/beta?q={domain}",
+    "search_urls": {
+      "ghostautonomy.com": "https://auctions.godaddy.com/beta?q=ghostautonomy.com",
+      "fiskerinc.com": "https://auctions.godaddy.com/beta?q=fiskerinc.com",
+      "northvolt.com": "https://auctions.godaddy.com/beta?q=northvolt.com",
+      "infarm.com": "https://auctions.godaddy.com/beta?q=infarm.com",
+      "veev.com": "https://auctions.godaddy.com/beta?q=veev.com",
+      "olive.com": "https://auctions.godaddy.com/beta?q=olive.com"
+    },
+    "inventory_url": "https://inventory.auctions.godaddy.com/",
+    "advanced_search_url": "https://auctions.godaddy.com/beta",
+    "legacy_listing_url_format": "https://auctions.godaddy.com/trpItemListing.aspx?miid={auction_id}",
+    "how_to_manual_check": [
+      "1. Go to https://auctions.godaddy.com/beta",
+      "2. Log in with GoDaddy account",
+      "3. Type domain name in search bar (e.g., 'ghostautonomy.com')",
+      "4. Press Enter",
+      "5. If domain appears: note current bid, time remaining, auction type (Expired/Closeout)",
+      "6. If no results: domain is NOT YET in auction. Check again tomorrow.",
+      "7. If found: click 'Watch' to add to watchlist, or place bid immediately"
+    ]
+  },
+
+  "monitored_domains": [
+    {
+      "domain": "ghostautonomy.com",
+      "registrar": "Wild West Domains, LLC (GoDaddy subsidiary)",
+      "expiry_date": "2026-06-07",
+      "godaddy_auction_risk": "LOW-MEDIUM",
+      "probability_sold_at_auction": "40-60%",
+      "expected_auction_price": "$25-$200",
+      "timeline": {
+        "day_0_expiry": "2026-06-07",
+        "day_5_parked": "2026-06-12",
+        "day_18_removed": "2026-06-25",
+        "day_26_auction_starts": "2026-07-03",
+        "day_36_auction_ends": "2026-07-13",
+        "day_41_closeout_ends": "2026-07-18",
+        "day_72_redemption_ends": "2026-08-18",
+        "day_77_drop": "2026-08-23"
+      },
+      "monitoring_schedule": {
+        "now_to_jun_7": "Nothing to do. Domain still active.",
+        "jun_7_to_jul_2": "Domain expired. Owner may renew. Check RDAP weekly for status changes.",
+        "jul_3_onwards": "CRITICAL: Check GoDaddy Auctions DAILY. Domain should appear ~Jul 3. Search: https://auctions.godaddy.com/beta?q=ghostautonomy.com",
+        "jul_3_to_jul_13": "10-day auction period. If listed: decide to bid or watch.",
+        "jul_13_to_jul_18": "Closeout period. Price declines from ~$50 to $5. First click wins.",
+        "jul_18_to_aug_23": "If unsold: wait for pendingDelete. DropCatch/Dynadot backorders should be active.",
+        "aug_23": "Estimated drop date. Backorders fire."
+      },
+      "recommended_budget": "$25-$100 at GoDaddy Auction",
+      "strategy": "Monitor daily from Jul 3. Bid $25-$100 at auction. Also maintain DropCatch + Dynadot backorders as fallback."
+    },
+    {
+      "domain": "fiskerinc.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-21",
+      "godaddy_auction_risk": "LOW",
+      "probability_sold_at_auction": "30-50%",
+      "expected_auction_price": "$25-$200",
+      "timeline": {
+        "day_0_expiry": "2026-09-21",
+        "day_5_parked": "2026-09-26",
+        "day_18_removed": "2026-10-09",
+        "day_26_auction_starts": "2026-10-17",
+        "day_36_auction_ends": "2026-10-27",
+        "day_41_closeout_ends": "2026-11-01",
+        "day_72_redemption_ends": "2026-12-02",
+        "day_77_drop": "2026-12-07"
+      },
+      "monitoring_schedule": {
+        "now_to_sep_21": "Nothing to do. Domain still active.",
+        "sep_21_to_oct_16": "Domain expired. Check RDAP weekly.",
+        "oct_17_onwards": "Check GoDaddy Auctions DAILY. Search: https://auctions.godaddy.com/beta?q=fiskerinc.com",
+        "oct_17_to_oct_27": "10-day auction period.",
+        "oct_27_to_nov_1": "Closeout period.",
+        "nov_1_to_dec_7": "Wait for pendingDelete if unsold.",
+        "dec_7": "Estimated drop date."
+      },
+      "recommended_budget": "$25-$100 at GoDaddy Auction",
+      "strategy": "Monitor daily from Oct 17. Low-bid strategy ($25-$100). DropCatch + Dynadot backorders as fallback."
+    },
+    {
+      "domain": "northvolt.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-01-24",
+      "godaddy_auction_risk": "MEDIUM-HIGH",
+      "probability_sold_at_auction": "70-85%",
+      "expected_auction_price": "$200-$2,000",
+      "timeline": {
+        "day_0_expiry": "2027-01-24",
+        "day_26_auction_starts": "2027-02-19",
+        "day_36_auction_ends": "2027-03-01",
+        "day_41_closeout_ends": "2027-03-06",
+        "day_77_drop": "2027-04-11"
+      },
+      "monitoring_schedule": {
+        "feb_19_onwards": "Check GoDaddy Auctions DAILY. Search: https://auctions.godaddy.com/beta?q=northvolt.com"
+      },
+      "recommended_budget": "$200-$1,000",
+      "strategy": "Monitor from Feb 2027. Bid at GoDaddy Auction if budget allows. Watch bankruptcy proceedings -- domain may be reclaimed."
+    },
+    {
+      "domain": "infarm.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-02-18",
+      "godaddy_auction_risk": "HIGH",
+      "probability_sold_at_auction": "85-95%",
+      "expected_auction_price": "$500-$5,000",
+      "timeline": {
+        "day_0_expiry": "2027-02-18",
+        "day_26_auction_starts": "2027-03-16",
+        "day_36_auction_ends": "2027-03-26",
+        "day_41_closeout_ends": "2027-03-31",
+        "day_77_drop": "2027-05-06"
+      },
+      "monitoring_schedule": {
+        "mar_16_onwards": "Check GoDaddy Auctions DAILY. Search: https://auctions.godaddy.com/beta?q=infarm.com"
+      },
+      "recommended_budget": "$500-$2,000",
+      "strategy": "GoDaddy Auction bid required. Budget $500-$2,000. DropCatch backorder as backup."
+    },
+    {
+      "domain": "veev.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-07-02",
+      "godaddy_auction_risk": "CERTAIN",
+      "probability_sold_at_auction": "98%+",
+      "expected_auction_price": "$5,000-$30,000+",
+      "timeline": {
+        "day_0_expiry": "2027-07-02",
+        "day_26_auction_starts": "2027-07-28",
+        "day_36_auction_ends": "2027-08-07",
+        "day_41_closeout_ends": "2027-08-12",
+        "day_77_drop": "2027-09-17"
+      },
+      "monitoring_schedule": {
+        "jul_28_onwards": "Check GoDaddy Auctions DAILY. Search: https://auctions.godaddy.com/beta?q=veev.com"
+      },
+      "recommended_budget": "$5,000-$20,000",
+      "strategy": "Premium 4-letter .com. Will almost certainly sell at auction. Budget $5K-$20K or skip."
+    },
+    {
+      "domain": "olive.com",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-11-21",
+      "godaddy_auction_risk": "CERTAIN",
+      "probability_sold_at_auction": "99%+",
+      "expected_auction_price": "$10,000-$100,000+",
+      "timeline": {
+        "day_0_expiry": "2027-11-21",
+        "day_26_auction_starts": "2027-12-17",
+        "day_36_auction_ends": "2027-12-27",
+        "day_41_closeout_ends": "2028-01-01",
+        "day_77_drop": "2028-02-06"
+      },
+      "monitoring_schedule": {
+        "dec_17_onwards": "Check GoDaddy Auctions DAILY. Search: https://auctions.godaddy.com/beta?q=olive.com"
+      },
+      "recommended_budget": "$10,000-$50,000",
+      "strategy": "Premium 1-word .com. WILL sell at auction. Budget $10K-$50K or abandon."
+    }
+  ],
+
+  "key_answers": {
+    "can_we_set_up_email_alerts": {
+      "answer": "PARTIALLY. GoDaddy Auctions sends email alerts when a WATCHED auction is about to expire (1 hour warning). But you can only watch domains that are already listed in auction. There is NO native way to get alerted when a domain FIRST APPEARS in auction. For first-appearance alerts, use notify.domains ($24/yr per domain) or our automated inventory download script.",
+      "email_alerts_available": true,
+      "email_alert_trigger": "Auction ending in 1 hour (for watched domains only)",
+      "sms_alerts_available": true,
+      "sms_setup": "GoDaddy Auctions -> Settings -> SMS Settings -> enter phone number and provider",
+      "push_alerts_available": true,
+      "push_setup": "Install GoDaddy Investor app, enable notifications"
+    },
+    "is_there_an_api_we_can_poll": {
+      "answer": "NO for search/discovery. The GoDaddy Auctions API only supports PLACING BIDS, not searching or listing auctions. However, GoDaddy provides free daily inventory file downloads at inventory.auctions.godaddy.com that contain ALL auction listings. Our script can download these daily and grep for target domains. This is effectively our API polling replacement.",
+      "api_can_search": false,
+      "api_can_bid": true,
+      "inventory_download_available": true,
+      "inventory_url": "https://inventory.auctions.godaddy.com/",
+      "inventory_update_time": "Daily 7-8am PST"
+    },
+    "exact_url_to_check_domain": {
+      "answer": "https://auctions.godaddy.com/beta?q={domain_name}",
+      "examples": [
+        "https://auctions.godaddy.com/beta?q=ghostautonomy.com",
+        "https://auctions.godaddy.com/beta?q=fiskerinc.com"
+      ],
+      "note": "Requires login with GoDaddy account. If domain is not in auction, search returns no results."
+    },
+    "can_we_bid_via_api": {
+      "answer": "YES, but with caveats. The API supports POST /v1/auctions/{auctionId}/bid to place a bid. However, you must first know the auctionId, which is only obtainable from the web interface or inventory downloads. So the workflow is: (1) detect domain in inventory file, (2) extract auctionId, (3) place bid via API. Full automation is possible but requires inventory file parsing as the discovery step.",
+      "api_bid_endpoint": "POST /v1/auctions/{auctionId}/bid",
+      "authentication": "Authorization: sso-key {api_key}:{api_secret}",
+      "prerequisite": "Must obtain auctionId from inventory file or web search first"
+    }
+  },
+
+  "recommended_monitoring_plan": {
+    "immediate_actions": [
+      "1. DONE: GoDaddy Auctions membership ($4.99/yr) -- conf# 4082361684",
+      "2. TODO: Configure email + SMS alerts in GoDaddy Auctions Settings",
+      "3. TODO: Install GoDaddy Investor app, enable push notifications",
+      "4. TODO: Set up sprint27_godaddy_check.py as daily cron job",
+      "5. OPTIONAL: Sign up for notify.domains free trial for ghostautonomy.com ($0 for 7 days)"
+    ],
+    "cron_schedule": {
+      "command": "cd ~/Desktop/domainhunter && python3 scripts/sprint27_godaddy_check.py --check-inventory 2>&1 >> logs/godaddy_auction_check.log",
+      "frequency": "Daily at 8:30 AM PST (after GoDaddy inventory update at 7-8am PST)",
+      "cron_line": "30 15 * * * cd ~/Desktop/domainhunter && python3 scripts/sprint27_godaddy_check.py --check-inventory 2>&1 >> logs/godaddy_auction_check.log"
+    },
+    "manual_check_schedule": {
+      "ghostautonomy_com": {
+        "start_checking": "2026-07-01",
+        "check_frequency": "Daily from Jul 1 - Jul 18",
+        "reason": "Auction expected ~Jul 3, ends ~Jul 18"
+      },
+      "fiskerinc_com": {
+        "start_checking": "2026-10-15",
+        "check_frequency": "Daily from Oct 15 - Nov 1",
+        "reason": "Auction expected ~Oct 17, ends ~Nov 1"
+      },
+      "northvolt_com": {
+        "start_checking": "2027-02-17",
+        "check_frequency": "Daily from Feb 17 - Mar 6"
+      },
+      "infarm_com": {
+        "start_checking": "2027-03-14",
+        "check_frequency": "Daily from Mar 14 - Mar 31"
+      },
+      "veev_com": {
+        "start_checking": "2027-07-26",
+        "check_frequency": "Daily from Jul 26 - Aug 12"
+      },
+      "olive_com": {
+        "start_checking": "2027-12-15",
+        "check_frequency": "Daily from Dec 15 - Jan 1"
+      }
+    }
+  },
+
+  "bidding_strategy": {
+    "proxy_bidding": "GoDaddy Auctions uses a proxy bidding system (like eBay). Set your maximum bid and the system bids incrementally on your behalf up to your max. Other bidders only see the current bid, not your max.",
+    "bid_increments": {
+      "$0-$49": "$1 increment",
+      "$50-$99": "$5 increment",
+      "$100-$499": "$10 increment",
+      "$500-$999": "$25 increment",
+      "$1000-$4999": "$50 increment",
+      "$5000+": "$100 increment"
+    },
+    "sniping_risk": "HugeDomains and other automated bidders often place bids in the last seconds. GoDaddy extends auctions by 5 minutes if a bid is placed in the last 5 minutes (anti-sniping). Strategy: place your max proxy bid early and let the system handle it.",
+    "closeout_strategy": "If domain enters closeout (day 37-42): price starts at ~$50 and declines daily to $5. First 'Buy Now' click wins. Check daily during closeout period. Best value is waiting until price drops to $5-$10, but risk of someone else buying first.",
+    "total_cost": "Winning bid + ICANN fee ($0.18) + GoDaddy renewal fee (~$10) = total. No buyer's premium."
+  },
+
+  "sources": [
+    {"title": "Backorders and monitoring are being retired", "url": "https://www.godaddy.com/help/backorders-and-monitoring-are-being-retired-42709"},
+    {"title": "GoDaddy Auctions API documentation", "url": "https://developer.godaddy.com/doc/endpoint/auctions"},
+    {"title": "GoDaddy Aftermarket API documentation", "url": "https://developer.godaddy.com/doc/endpoint/aftermarket"},
+    {"title": "GoDaddy Auctions inventory download", "url": "https://inventory.auctions.godaddy.com/"},
+    {"title": "Setting up text message alerts", "url": "https://www.godaddy.com/help/setting-up-text-message-alerts-for-go-daddy-auctions-1528"},
+    {"title": "Edit GoDaddy Auctions account settings", "url": "https://www.godaddy.com/help/edit-your-godaddy-auctions-account-settings-912"},
+    {"title": "GoDaddy Investor app push notifications", "url": "https://www.godaddy.com/help/manage-push-notifications-with-godaddy-investor-20101"},
+    {"title": "How to bulk add domains to watchlist", "url": "https://domainnamewire.com/2025/12/11/how-to-bulk-add-domains-to-your-godaddy-auctions-watchlist/"},
+    {"title": "GoDaddy Auctions migrates from FTP", "url": "https://www.godaddy.com/resources/news/godaddy-auctions-migrates-from-ftp-on-june-30"},
+    {"title": "Notify.domains - third-party monitoring", "url": "https://notify.domains/"},
+    {"title": "GoDaddy Auctions beta interface", "url": "https://auctions.godaddy.com/beta"},
+    {"title": "GoDaddy Auctions product updates", "url": "https://www.godaddy.com/resources/news/godaddy-auctions-the-latest-product-updates"},
+    {"title": "Timeline for GoDaddy Auctions expired domains", "url": "https://www.godaddy.com/help/timeline-for-godaddy-auctions-expired-domains-42743"},
+    {"title": "GoDaddy API access requirements", "url": "https://www.godaddy.com/help/how-do-i-access-domain-related-apis-42424"}
+  ]
+}

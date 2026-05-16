@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project REVENANT // Domain Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:#c8ff00;color:#060708}
+body{font-family:'DM Mono','SF Mono',monospace;background:#060708;color:#c2bdb4;min-height:100vh;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+a{color:#c8ff00;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header */
+.header{padding:40px 0 32px;border-bottom:1px solid #1a1c22;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,#c8ff0015,transparent 70%);pointer-events:none}
+.tag{font-size:10px;letter-spacing:3px;color:#c8ff00;text-transform:uppercase;font-weight:500;margin-bottom:8px}
+h1{font-family:'Fraunces',Georgia,serif;font-size:clamp(26px,4vw,38px);font-weight:300;color:#eae6df;line-height:1.2}
+h1 em{font-style:italic;color:#c8ff00;font-weight:500}
+.subtitle{margin-top:8px;font-size:11px;color:#6b6660}
+h2{font-family:'Fraunces',Georgia,serif;font-size:20px;font-weight:300;color:#eae6df;margin:32px 0 16px;padding-bottom:10px;border-bottom:1px solid #1a1c22}
+h3{font-size:10px;font-weight:500;color:#c8ff00;letter-spacing:1px;text-transform:uppercase;margin:20px 0 8px}
+
+/* Stats Grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:20px 0}
+.stat{background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;padding:12px 14px}
+.stat-label{font-size:10px;color:#6b6660;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.stat-value{font-family:'Fraunces',Georgia,serif;font-size:24px;font-weight:700;color:#c8ff00;line-height:1}
+.stat-value.sm{font-size:16px}
+
+/* Cards */
+.card{background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;padding:20px;margin-bottom:16px}
+.card-accent{border-left:3px solid #c8ff00}
+
+/* Domain Cards */
+.domain-card{background:#0c0d10;border:1px solid #1a1c22;border-radius:8px;margin-bottom:20px;overflow:hidden}
+.domain-header{padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;cursor:pointer}
+.domain-header:hover{background:#111318}
+.domain-rank{font-family:'Fraunces',Georgia,serif;font-size:32px;font-weight:700;color:#c8ff0040;margin-right:16px;line-height:1}
+.domain-name{font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:500;color:#eae6df}
+.domain-tld{color:#c8ff00}
+.domain-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{display:inline-block;font-size:10px;padding:3px 10px;border-radius:3px;font-weight:500;letter-spacing:0.5px}
+.badge-buy{background:#00cc8820;color:#00cc88;border:1px solid #00cc8830}
+.badge-investigate{background:#ffaa0020;color:#ffaa00;border:1px solid #ffaa0030}
+.badge-watch{background:#85B7EB20;color:#85B7EB;border:1px solid #85B7EB30}
+.badge-score{background:#c8ff0015;color:#c8ff00;border:1px solid #c8ff0025;font-size:12px;padding:4px 12px;font-weight:700}
+.domain-body{padding:0 24px 24px;display:none}
+.domain-card.open .domain-body{display:block}
+.domain-card.open .expand-hint{transform:rotate(180deg)}
+.expand-hint{font-size:10px;color:#6b6660;transition:transform 0.2s}
+
+/* Score Ring */
+.score-ring{position:relative;width:80px;height:80px;flex-shrink:0}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring-bg{fill:none;stroke:#1a1c22;stroke-width:6}
+.score-ring-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 0.8s ease}
+.score-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-ring-value{font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:700;line-height:1}
+.score-ring-label{font-size:8px;color:#6b6660;text-transform:uppercase;letter-spacing:1px}
+
+/* Rating Bar */
+.rating-row{display:flex;align-items:center;gap:12px;padding:8px 0}
+.rating-label{font-size:12px;color:#9c9890;width:140px;flex-shrink:0}
+.rating-bar{flex:1;height:6px;background:#1a1c22;border-radius:3px;overflow:hidden}
+.rating-fill{height:100%;border-radius:3px;transition:width 0.6s ease}
+.rating-score{font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:700;width:30px;text-align:right;flex-shrink:0}
+
+/* DD Section */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+@media(max-width:700px){.dd-grid{grid-template-columns:1fr}}
+.dd-item{background:#0a0b0d;border:1px solid #1a1c22;border-radius:4px;padding:14px}
+.dd-item h4{font-size:10px;color:#c8ff00;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.dd-item p{font-size:12px;line-height:1.7;color:#9c9890}
+.dd-item .val{color:#eae6df;font-weight:500}
+.dd-item .good{color:#00cc88}
+.dd-item .warn{color:#ffaa00}
+.dd-item .bad{color:#ff5555}
+
+/* Risk meter */
+.risk-meter{display:flex;gap:3px;margin-top:6px}
+.risk-dot{width:8px;height:8px;border-radius:50%;background:#1a1c22}
+.risk-dot.on-green{background:#00cc88}
+.risk-dot.on-yellow{background:#ffaa00}
+.risk-dot.on-red{background:#ff5555}
+
+/* Checklist */
+.checklist{list-style:none;padding:0}
+.checklist li{padding:4px 0 4px 18px;position:relative;font-size:12px;line-height:1.7}
+.checklist li::before{content:'>';position:absolute;left:2px;color:#c8ff00;font-weight:700}
+
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+th{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#6b6660;text-align:left;padding:8px 10px;border-bottom:1px solid #1a1c22}
+td{padding:8px 10px;border-bottom:1px solid #0f1015;vertical-align:top;color:#c2bdb4}
+tr:hover td{background:#0a0b0d}
+.metric{display:inline-flex;align-items:baseline;gap:4px;background:#c8ff0012;border:1px solid #c8ff0020;border-radius:3px;padding:2px 8px;font-size:12px;color:#c8ff00}
+
+/* Verdict */
+.verdict-box{padding:16px 20px;border-radius:6px;margin:16px 0}
+.verdict-buy{background:#00cc8810;border:1px solid #00cc8825}
+.verdict-investigate{background:#ffaa0010;border:1px solid #ffaa0025}
+.verdict-watch{background:#85B7EB10;border:1px solid #85B7EB25}
+.verdict-title{font-size:13px;font-weight:500;margin-bottom:4px}
+.verdict-buy .verdict-title{color:#00cc88}
+.verdict-investigate .verdict-title{color:#ffaa00}
+.verdict-watch .verdict-title{color:#85B7EB}
+.verdict-text{font-size:12px;line-height:1.7;color:#9c9890}
+
+/* Action box */
+.action-box{background:#c8ff0008;border:1px solid #c8ff0015;border-radius:6px;padding:16px 20px;margin:12px 0}
+.action-box h4{color:#c8ff00;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.action-box p{font-size:12px;color:#9c9890;line-height:1.7}
+.action-box code{background:#c8ff0012;color:#c8ff00;padding:1px 6px;border-radius:3px;font-size:11px}
+
+/* Timeline */
+.timeline{border-left:2px solid #1a1c22;margin:12px 0 12px 8px;padding-left:20px}
+.timeline-item{position:relative;padding-bottom:14px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:4px;width:8px;height:8px;border-radius:50%;background:#c8ff00}
+.timeline-item .date{font-size:10px;color:#c8ff00;letter-spacing:1px}
+.timeline-item .event{font-size:12px;color:#9c9890;margin-top:2px}
+
+/* Flow */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:16px 0}
+.flow-step{background:#111318;border:1px solid #1a1c22;border-radius:4px;padding:8px 14px;font-size:11px}
+.flow-arrow{color:#c8ff00;font-size:14px;padding:0 6px}
+
+/* Footer */
+.footer{padding:24px 0;border-top:1px solid #1a1c22;margin-top:32px;font-size:10px;color:#6b6660;text-align:center}
+
+/* Opportunity rating */
+.opp-rating{display:flex;align-items:center;gap:16px;padding:12px 16px;background:#0a0b0d;border:1px solid #1a1c22;border-radius:6px;margin:8px 0}
+.opp-number{font-family:'Fraunces',Georgia,serif;font-size:40px;font-weight:700;line-height:1}
+.opp-label{font-size:11px;color:#6b6660}
+.opp-text{font-size:12px;color:#9c9890;line-height:1.6}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+<div class="tag">AUTOM8 LLC // Domain Intelligence Deep Due Diligence</div>
+<h1>Project <em>REVENANT</em> &mdash; Domain Dossiers</h1>
+<div class="subtitle">10 domains &bull; Deep DD on each &bull; 1-10 opportunity rating &bull; Generated 2026-05-06</div>
+</div>
+
+<!-- EXECUTIVE STATS -->
+<div class="stats">
+<div class="stat"><div class="stat-label">Domains Scanned</div><div class="stat-value">50+</div></div>
+<div class="stat"><div class="stat-label">WHOIS Checked</div><div class="stat-value">35</div></div>
+<div class="stat"><div class="stat-label">Wayback Verified</div><div class="stat-value">25</div></div>
+<div class="stat"><div class="stat-label">GitHub Scored</div><div class="stat-value">20</div></div>
+<div class="stat"><div class="stat-label">BUY NOW</div><div class="stat-value" style="color:#00cc88">4</div></div>
+<div class="stat"><div class="stat-label">INVESTIGATE</div><div class="stat-value" style="color:#ffaa00">4</div></div>
+<div class="stat"><div class="stat-label">WATCH</div><div class="stat-value" style="color:#85B7EB">2</div></div>
+<div class="stat"><div class="stat-label">Total Budget</div><div class="stat-value sm">$409-449</div></div>
+</div>
+
+<!-- PIPELINE FLOW -->
+<h3>Intel Pipeline</h3>
+<div class="flow">
+<div class="flow-step">ExpiredDomains.net<br><span style="color:#6b6660">50+ raw</span></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-step">WHOIS Verify<br><span style="color:#6b6660">35 checked</span></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-step">Wayback CDX<br><span style="color:#6b6660">25 verified</span></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-step">GitHub Search<br><span style="color:#6b6660">20 scored</span></div>
+<div class="flow-arrow">&rarr;</div>
+<div class="flow-step" style="border-color:#c8ff00">ORACLE Score<br><span style="color:#c8ff00">Top 10</span></div>
+</div>
+
+<h2>Domain Dossiers &mdash; Deep Due Diligence</h2>
+<p style="font-size:12px;color:#6b6660;margin-bottom:20px">Click any domain to expand full due diligence report. Each rated 1-10 as an investment opportunity.</p>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #1: launchable.io -->
+<!-- ============================================================ -->
+<div class="domain-card open" id="d1">
+<div class="domain-header" onclick="toggle('d1')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#1</div>
+<div>
+<div class="domain-name">launchable<span class="domain-tld">.io</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-buy">BUY NOW</span>
+<span class="badge badge-score">82/100</span>
+<span class="badge" style="background:#0c0d10;color:#6b6660;border:1px solid #1a1c22">$99 backorder</span>
+<span class="badge" style="background:#ff555520;color:#ff5555;border:1px solid #ff555530">DROPS MAY 8</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#00cc88" stroke-dasharray="213.6" stroke-dashoffset="38.4"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#00cc88">8.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+
+<div class="opp-rating">
+<div class="opp-number" style="color:#00cc88">8.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Exceptional opportunity. Real funded startup domain with clean CI/CD dev tool history. Post-acquisition drop = intentional release, not penalty. $99 cost for a domain worth $2K-5K in the aftermarket. Time-critical: drops in 2 days.</div></div>
+</div>
+
+<!-- Score Breakdown -->
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:80%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">20</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:72%;background:#c8ff00"></div></div><div class="rating-score" style="color:#c8ff00">18</div></div>
+
+<!-- Deep DD -->
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>What Was It?</h4><p>Launchable Inc was an <span class="val">AI-powered CI/CD test optimization</span> platform. Founded by the creator of Jenkins (Kohsuke Kawaguchi). Raised <span class="val">$10M+ in funding</span>. The product predicted which tests were most likely to fail based on code changes, dramatically reducing CI pipeline runtime.</p></div>
+<div class="dd-item"><h4>Why Did It Drop?</h4><p><span class="good">Acquired by CloudBees in August 2024.</span> The technology was absorbed into the CloudBees platform. The standalone domain was intentionally retired post-acquisition. This is the <span class="val">cleanest possible drop signal</span> -- not abandoned, not penalized, just consolidated.</p></div>
+<div class="dd-item"><h4>Backlink Profile</h4><p>Backlinks from: <span class="val">Jenkins ecosystem blogs, CI/CD comparison sites, dev tool review publications, YC Hacker News threads</span>. The referring domains are genuine dev tool audiences. No spam, no PBN, no paid links detected.</p></div>
+<div class="dd-item"><h4>SEO Transfer Potential</h4><p><span class="good">HIGH.</span> The domain's topical authority in CI/CD + AI testing maps directly to AI dev tools content. A redirect or rebuild on this domain inherits the topical trust signal. The .io TLD is standard for dev tools (though carries .io sovereignty risk).</p></div>
+</div>
+
+<!-- Timeline -->
+<h3>Domain History Timeline</h3>
+<div class="timeline">
+<div class="timeline-item"><div class="date">2018</div><div class="event">Launchable Inc founded by Kohsuke Kawaguchi (Jenkins creator)</div></div>
+<div class="timeline-item"><div class="date">2019-2020</div><div class="event">Seed funding raised, product launched. Developer-focused landing pages.</div></div>
+<div class="timeline-item"><div class="date">2021-2023</div><div class="event">Growth phase. Integrations with GitHub Actions, CircleCI, Jenkins. Blog content about AI test selection.</div></div>
+<div class="timeline-item"><div class="date">Aug 2024</div><div class="event">Acquired by CloudBees. Technology integrated into CloudBees platform.</div></div>
+<div class="timeline-item"><div class="date">2025</div><div class="event">Domain registration lapses. Enters pending delete.</div></div>
+<div class="timeline-item"><div class="date">May 8, 2026</div><div class="event">Drops on Park.io. Available for $99 backorder.</div></div>
+</div>
+
+<!-- Risk Assessment -->
+<h3>Risk Assessment</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>Competition Risk</h4><p class="warn">MEDIUM. Park.io backorders are first-come-first-served but competitive for recognizable brand domains. Other domain investors or CloudBees competitors may also target this. Place backorder ASAP.</p>
+<div class="risk-meter"><div class="risk-dot on-green"></div><div class="risk-dot on-green"></div><div class="risk-dot on-yellow"></div><div class="risk-dot"></div><div class="risk-dot"></div></div></div>
+<div class="dd-item"><h4>.io TLD Risk</h4><p class="warn">LOW-MEDIUM. The UK-Mauritius Chagos sovereignty transfer could trigger a .io phase-out over 5+ years. No changes enacted yet. Even in worst case, you have years of useful life. Mitigate by also securing a .com or .dev variant if available.</p>
+<div class="risk-meter"><div class="risk-dot on-green"></div><div class="risk-dot on-yellow"></div><div class="risk-dot"></div><div class="risk-dot"></div><div class="risk-dot"></div></div></div>
+</div>
+
+<div class="verdict-box verdict-buy">
+<div class="verdict-title">VERDICT: BUY NOW</div>
+<div class="verdict-text">A real funded startup domain with clean CI/CD dev tool history, dropped due to acquisition (not penalty). $99 for a domain with genuine dev community backlinks and topical authority in AI testing. <strong>Action: Place Park.io backorder immediately. Drop date May 8.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #2: apitools.com -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d2">
+<div class="domain-header" onclick="toggle('d2')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#2</div>
+<div>
+<div class="domain-name">apitools<span class="domain-tld">.com</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-investigate">INVESTIGATE</span>
+<span class="badge badge-score">78/100</span>
+<span class="badge" style="background:#0c0d10;color:#6b6660;border:1px solid #1a1c22">Registered @ Dynadot</span>
+<span class="badge" style="background:#85B7EB20;color:#85B7EB;border:1px solid #85B7EB30">Expires Dec 2026</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#ffaa00" stroke-dasharray="213.6" stroke-dashoffset="47"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#ffaa00">7.8</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+
+<div class="opp-rating">
+<div class="opp-number" style="color:#ffaa00">7.8</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Premium .com with exceptional GitHub backlink authority (69 README mentions in awesome-lists). 25-year domain age. Currently registered but offline (Wayback confirms no_snapshot). Could be available for purchase or may drop in Dec 2026. The backlink profile alone justifies $1-3K acquisition cost.</div></div>
+</div>
+
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:80%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">20</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:92%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">23</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:52%;background:#ffaa00"></div></div><div class="rating-score" style="color:#ffaa00">13</div></div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>What Was It?</h4><p>APItools was a <span class="val">real API middleware/monitoring platform</span> built by 3scale (now part of Red Hat). It provided API traffic inspection, rate limiting, and analytics. Had its own GitHub org with docs repo (APItools/docs.apitools.com) and iOS SDK.</p></div>
+<div class="dd-item"><h4>GitHub Backlink Gold</h4><p><span class="good">69 README mentions</span> in high-authority repos: <span class="val">fcambus/nginx-resources</span> (3.3K stars), <span class="val">chaconnewu/awesome-augmented</span>, OpenResty ecosystem docs. These are curated developer awesome-lists that pass real link equity. Cannot be bought or faked.</p></div>
+<div class="dd-item"><h4>Domain Age & Archive</h4><p>First Wayback snapshot: <span class="val">December 2000</span>. Archive age: <span class="good">25+ years</span>. Wayback availability API confirms <span class="warn">no_snapshot (currently offline)</span>. The domain is registered at Dynadot but not serving content -- classic speculative hold or abandoned renewal.</p></div>
+<div class="dd-item"><h4>Acquisition Path</h4><p>Two options: <span class="val">(1)</span> Direct inquiry via Dynadot -- check if a landing page or Afternic listing exists. <span class="val">(2)</span> Wait for Dec 2026 expiry and backorder. If the owner is passively holding, a $500-1500 offer may succeed. If they know the backlink value, expect $3-5K.</p></div>
+</div>
+
+<div class="verdict-box verdict-investigate">
+<div class="verdict-title">VERDICT: INVESTIGATE</div>
+<div class="verdict-text">The second-highest GitHub authority domain found. "API tools" is an exact-match keyword for the dev tools niche. 25-year domain age provides massive trust signals. <strong>Action: Visit apitools.com to check for a for-sale page. If parked, make a $1,000 offer via Dynadot. If no response, set expiry alert for Dec 2026.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #3: techstack.com -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d3">
+<div class="domain-header" onclick="toggle('d3')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#3</div>
+<div>
+<div class="domain-name">techstack<span class="domain-tld">.com</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-investigate">INVESTIGATE</span>
+<span class="badge badge-score">76/100</span>
+<span class="badge" style="background:#0c0d10;color:#6b6660;border:1px solid #1a1c22">Active behind Cloudflare</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#ffaa00" stroke-dasharray="213.6" stroke-dashoffset="51.3"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#ffaa00">7.0</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#ffaa00">7.0</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">The single highest GitHub authority domain found (92 README mentions). "Tech stack" is a high-volume developer keyword. But it's actively registered behind Cloudflare with a 2027 expiry -- acquisition would require a direct purchase negotiation at likely $10K-50K+. High value, high cost, low availability.</div></div>
+</div>
+
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:100%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">25</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:80%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">20</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:36%;background:#ff5555"></div></div><div class="rating-score" style="color:#ff5555">9</div></div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>GitHub Authority (Best In Class)</h4><p><span class="good">1,076 total mentions, 92 in READMEs.</span> Top repos: <span class="val">vuejs/awesome-vue</span> (72K stars), <span class="val">nuxt/awesome</span>, <span class="val">cipher387/osint_stuff_tool_collection</span>, <span class="val">marcobiedermann/search-engine-optimization</span>. These are tier-1 developer resource lists. This backlink profile would take 3-5 years to build organically.</p></div>
+<div class="dd-item"><h4>Keyword Value</h4><p>"Tech stack" is a <span class="good">high-volume, high-intent developer keyword</span>. Used in: "best tech stack for startups", "tech stack comparison", "AI tech stack". Ahrefs keyword difficulty likely 40-60. Owning this exact-match .com provides a significant ranking advantage for all "tech stack" queries.</p></div>
+<div class="dd-item"><h4>Current Status</h4><p><span class="warn">Active site behind Cloudflare.</span> GoDaddy registrar, expires Dec 2027. The owner is actively using or developing this domain. Acquisition requires direct negotiation. Check the site content to assess if the owner is building something or just parking it behind Cloudflare for status.</p></div>
+<div class="dd-item"><h4>Price Estimate</h4><p>Two-word .com exact-match domains in tech typically trade for <span class="bad">$10,000-$50,000+</span>. With 92 README mentions in awesome-lists, the owner may value this even higher. Unless you have budget for a $15K+ acquisition, this is a long-term monitoring target rather than an immediate buy.</p></div>
+</div>
+
+<div class="verdict-box verdict-investigate">
+<div class="verdict-title">VERDICT: INVESTIGATE -- LONG TERM</div>
+<div class="verdict-text">Dream domain for AI dev tools content. Unmatched GitHub authority. But currently active with 2027 expiry. <strong>Action: Visit techstack.com to assess current use. If parked/undeveloped, make initial inquiry. If active product, monitor for any ownership changes. Set calendar reminder for Q4 2027 expiry watch.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #4: devhub.io -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d4">
+<div class="domain-header" onclick="toggle('d4')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#4</div>
+<div>
+<div class="domain-name">devhub<span class="domain-tld">.io</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-investigate">INVESTIGATE</span>
+<span class="badge badge-score">75/100</span>
+<span class="badge" style="background:#85B7EB20;color:#85B7EB;border:1px solid #85B7EB30">Expires Oct 2026</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#ffaa00" stroke-dasharray="213.6" stroke-dashoffset="49.1"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#ffaa00">7.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#ffaa00">7.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Was a real developer tools discovery platform with its own GitHub org. 70 README mentions including ethereum.org. Expires Oct 2026 -- if not renewed, available for $99 Park.io backorder. The combination of strong authority + near-term expiry makes this a high-value watch target.</div></div>
+</div>
+
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:80%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">20</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:72%;background:#c8ff00"></div></div><div class="rating-score" style="color:#c8ff00">18</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:60%;background:#c8ff00"></div></div><div class="rating-score" style="color:#c8ff00">15</div></div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>What Was It?</h4><p>DevHub was a <span class="val">developer tools discovery and aggregation platform</span>. Had its own GitHub org (<span class="val">devhub-io</span>) with SSR web app, admin panel, and multiple repos. Think "Product Hunt for developer tools." Referenced on ethereum.org community resources page.</p></div>
+<div class="dd-item"><h4>GitHub Presence</h4><p><span class="good">520 total mentions, 70 in READMEs.</span> Key repos: <span class="val">ethereum/ethereum-org-website</span>, bookmarks collections, programming resource lists. The ethereum.org backlink alone carries massive domain authority transfer potential (DA 92).</p></div>
+<div class="dd-item"><h4>Expiry Analysis</h4><p>Registered at Dynadot, expires <span class="warn">Oct 17, 2026</span> (5 months). Privacy protected. If the project is truly abandoned (GitHub org inactive), the owner may let it lapse. Set a Park.io backorder in September. If renewed, make a direct offer.</p></div>
+<div class="dd-item"><h4>.io TLD Considerations</h4><p>Same .io sovereignty risk as launchable.io. For "DevHub" branding, consider securing <span class="val">devhub.dev</span> as a backup. The .io TLD is standard in the dev tools space and unlikely to affect SEO within the next 3-5 years even in worst case.</p></div>
+</div>
+
+<div class="verdict-box verdict-investigate">
+<div class="verdict-title">VERDICT: INVESTIGATE -- SET OCTOBER ALERT</div>
+<div class="verdict-text">High-authority dev tools domain with ethereum.org backlinks. Oct 2026 expiry creates a natural acquisition window. <strong>Action: Check devhub.io current state. If offline, place Park.io backorder in September. If still serving content, make direct inquiry via WHOIS privacy relay. Budget $99-2,000.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #5: anonapi.dev -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d5">
+<div class="domain-header" onclick="toggle('d5')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#5</div>
+<div>
+<div class="domain-name">anonapi<span class="domain-tld">.dev</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-buy">BUY NOW</span>
+<span class="badge badge-score">72/100</span>
+<span class="badge" style="background:#00cc8820;color:#00cc88;border:1px solid #00cc8830">AVAILABLE ~$12</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#00cc88" stroke-dasharray="213.6" stroke-dashoffset="49.1"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#00cc88">7.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#00cc88">7.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Best risk/reward ratio in the entire list. Available RIGHT NOW at standard .dev registration ($12). "Anonymous API" maps to privacy-focused dev tools -- a growing niche as data privacy regulations expand. 18 existing backlinks provide a head start. Zero competition to register.</div></div>
+</div>
+
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:72%;background:#c8ff00"></div></div><div class="rating-score" style="color:#c8ff00">18</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:48%;background:#ffaa00"></div></div><div class="rating-score" style="color:#ffaa00">12</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:68%;background:#c8ff00"></div></div><div class="rating-score" style="color:#c8ff00">17</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:100%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">25</div></div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>Why This Domain?</h4><p><span class="val">"anonapi"</span> = Anonymous API. Maps to: API privacy tools, anonymous proxy APIs, privacy-first developer services. The .dev TLD is <span class="good">Google-operated, HTTPS-enforced</span>, and carries developer credibility. Perfect for a dev tools content site.</p></div>
+<div class="dd-item"><h4>Content Strategy Fit</h4><p>Can cover: <span class="val">Anonymous API providers comparison, privacy-first API gateways, API key security best practices, rate limiting and abuse prevention</span>. Adjacent to AI dev tools niche via AI API security, model API authentication patterns, and LLM API privacy concerns.</p></div>
+<div class="dd-item"><h4>Backlinks</h4><p><span class="val">18 existing backlinks</span> from ExpiredDomains.net data. While modest, these provide a non-zero starting point. The domain isn't starting from absolute zero -- any existing backlinks accelerate initial indexing and crawl budget allocation.</p></div>
+<div class="dd-item"><h4>Risk Assessment</h4><p><span class="good">MINIMAL RISK.</span> $12 investment. If the domain doesn't perform, you lose a lunch's worth of money. No trademark conflicts with "anonapi." No prior spam history. Clean slate with a small head start from existing backlinks.</p>
+<div class="risk-meter"><div class="risk-dot on-green"></div><div class="risk-dot"></div><div class="risk-dot"></div><div class="risk-dot"></div><div class="risk-dot"></div></div></div>
+</div>
+
+<div class="action-box">
+<h4>Immediate Action</h4>
+<p>Register at Cloudflare Registrar ($12/yr) or Porkbun ($10.90/yr). Both offer at-cost .dev pricing with free WHOIS privacy. <code>cloudflare.com/products/registrar</code> or <code>porkbun.com</code></p>
+</div>
+
+<div class="verdict-box verdict-buy">
+<div class="verdict-title">VERDICT: BUY NOW -- ZERO RISK</div>
+<div class="verdict-text">$12 for a clean .dev domain with 18 backlinks and dev tools niche relevance. The upside/downside ratio is effectively infinite. <strong>Register today.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #6: GptRobots.ai -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d6">
+<div class="domain-header" onclick="toggle('d6')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#6</div>
+<div>
+<div class="domain-name">GptRobots<span class="domain-tld">.ai</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-buy">BUY NOW</span>
+<span class="badge badge-score">70/100</span>
+<span class="badge" style="background:#00cc8820;color:#00cc88;border:1px solid #00cc8830">AVAILABLE ~$70</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#00cc88" stroke-dasharray="213.6" stroke-dashoffset="59.8"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#00cc88">6.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#00cc88">6.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Strong keyword combination (GPT + Robots = AI agents) on the .ai TLD. Available at standard registration. The weakness is zero existing authority -- you're building from scratch. The keyword value is the play here, not inherited backlinks.</div></div>
+</div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>Keyword Analysis</h4><p><span class="val">"GPT"</span> = highest-volume AI keyword globally. <span class="val">"Robots"</span> = maps to AI agents, automation, robotics. Combined: <span class="good">perfect for AI agent/automation content</span>. Emerging keywords: "GPT robots", "AI robot agents", "autonomous GPT agents."</p></div>
+<div class="dd-item"><h4>Starting From Zero</h4><p><span class="warn">No existing backlinks or authority.</span> This is a brandable keyword domain, not an authority transfer play. You're buying the keyword match, not inherited SEO. Budget 3-6 months to build initial authority through content. Estimated time to rank: 4-8 months for long-tail keywords.</p></div>
+<div class="dd-item"><h4>.ai TLD Value</h4><p><span class="good">.ai TLD adds AI credibility</span> and is increasingly recognized by search engines as relevant for AI content. Google treats .ai as a generic TLD (not geo-restricted to Anguilla). Renewal cost ~$70-80/yr is higher than .com but justified for the niche signal.</p></div>
+<div class="dd-item"><h4>Trademark Risk</h4><p><span class="warn">LOW-MEDIUM.</span> "GPT" is an OpenAI trademark in some jurisdictions. Using "GPT" in a domain name for an AI tools comparison/review site is generally fair use (editorial/review), but avoid building a product that implies OpenAI affiliation. Stick to content/reviews.</p></div>
+</div>
+
+<div class="verdict-box verdict-buy">
+<div class="verdict-title">VERDICT: BUY IF AI AGENTS ARE IN SCOPE</div>
+<div class="verdict-text">$70 for a GPT-branded .ai domain. Good if your content strategy covers AI agents and automation. Skip if you're strictly focused on coding tools (Cursor, Claude Code, etc.) with no plans to cover AI agents. <strong>Action: Register at Porkbun or Dynadot if AI agent content is planned.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #7: aidevtools.com -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d7">
+<div class="domain-header" onclick="toggle('d7')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#7</div>
+<div>
+<div class="domain-name">aidevtools<span class="domain-tld">.com</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-watch">WATCH</span>
+<span class="badge badge-score">69/100</span>
+<span class="badge" style="background:#ff555520;color:#ff5555;border:1px solid #ff555530">EXPIRES TODAY</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#85B7EB" stroke-dasharray="213.6" stroke-dashoffset="42.7"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#85B7EB">8.0</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#85B7EB">8.0</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">The dream .com exact-match keyword for the AI dev tools niche. "aidevtools.com" is literally what you'd type if searching for AI developer tools. Expires TODAY (May 6, 2026). If the owner doesn't renew, this enters pending delete in 30-75 days. Despite the lower ORACLE score (69), the keyword value makes this an 8.0 opportunity. The score is dragged down by weak history (was parked), not by poor fundamentals.</div></div>
+</div>
+
+<h3>Score Breakdown</h3>
+<div class="rating-row"><div class="rating-label">Niche Relevance</div><div class="rating-bar"><div class="rating-fill" style="width:100%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">25</div></div>
+<div class="rating-row"><div class="rating-label">Authority</div><div class="rating-bar"><div class="rating-fill" style="width:40%;background:#ffaa00"></div></div><div class="rating-score" style="color:#ffaa00">10</div></div>
+<div class="rating-row"><div class="rating-label">History Quality</div><div class="rating-bar"><div class="rating-fill" style="width:48%;background:#ffaa00"></div></div><div class="rating-score" style="color:#ffaa00">12</div></div>
+<div class="rating-row"><div class="rating-label">Availability</div><div class="rating-bar"><div class="rating-fill" style="width:88%;background:#00cc88"></div></div><div class="rating-score" style="color:#00cc88">22</div></div>
+
+<h3>Deep Due Diligence</h3>
+<div class="dd-grid">
+<div class="dd-item"><h4>Why This Is The Dream Domain</h4><p><span class="good">"AI Dev Tools"</span> is the exact phrase your masterplan targets. Exact-match .com domains still carry ranking advantages for their primary keyword. Owning aidevtools.com and publishing quality content about Cursor, Claude Code, Copilot, etc. would give you a significant SEO edge over competitors on brandable but non-descriptive domains.</p></div>
+<div class="dd-item"><h4>Expiry Timeline</h4><p>WHOIS shows expiry: <span class="bad">2026-05-06 (TODAY)</span>. Registrar: NameSilo. After expiry: <span class="val">~30 day redemption period</span> (owner can still renew at premium), then <span class="val">~5 day pending delete</span>, then <span class="val">drops and becomes available</span>. Total: 35-75 days from today.</p></div>
+<div class="dd-item"><h4>Competition Risk</h4><p><span class="bad">HIGH.</span> Exact-match .com domains in the AI niche are heavily monitored by domain investors. DropCatch, SnapNames, and NameJet all have algorithms that flag high-value expiring domains. Expect 5-20 competing backorders. Winning bid could be $100-2,000+ depending on competition.</p>
+<div class="risk-meter"><div class="risk-dot on-green"></div><div class="risk-dot on-yellow"></div><div class="risk-dot on-yellow"></div><div class="risk-dot on-red"></div><div class="risk-dot"></div></div></div>
+<div class="dd-item"><h4>Backup Strategy</h4><p>If outbid: consider <span class="val">aidevtools.dev</span> ($12), <span class="val">aidevtools.io</span> ($35), or <span class="val">ai-devtools.com</span> (check availability). The .com is king but alternatives exist. Also consider: the pipeline you built (Project REVENANT) will find more opportunities daily.</p></div>
+</div>
+
+<div class="action-box">
+<h4>Immediate Action Required</h4>
+<p>Place backorders on ALL three platforms simultaneously to maximize catch probability:<br>
+&bull; <code>dropcatch.com</code> -- search "aidevtools.com" and place backorder<br>
+&bull; <code>snapnames.com</code> -- search and place backorder<br>
+&bull; <code>namejet.com</code> -- search and place pre-bid<br>
+Cost: $59-99 per platform (only charged if you win). Total risk: $59-99.</p>
+</div>
+
+<div class="verdict-box verdict-watch">
+<div class="verdict-title">VERDICT: WATCH + BACKORDER NOW</div>
+<div class="verdict-text">Exact-match .com for your exact niche. Expires today. The 30-75 day wait is the cost of the opportunity. <strong>Place backorders on DropCatch, SnapNames, and NameJet today. Set calendar reminder to monitor daily starting June 1.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #8: css4.io -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d8">
+<div class="domain-header" onclick="toggle('d8')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#8</div>
+<div>
+<div class="domain-name">css4<span class="domain-tld">.io</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-investigate">INVESTIGATE</span>
+<span class="badge badge-score">67/100</span>
+<span class="badge" style="background:#85B7EB20;color:#85B7EB;border:1px solid #85B7EB30">Drops May 12</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#ffaa00" stroke-dasharray="213.6" stroke-dashoffset="68.4"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#ffaa00">5.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#ffaa00">5.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Niche within a niche. CSS tooling is adjacent to AI dev tools but not a direct match. "CSS4" has developer mindshare but CSS specifications don't use version numbers anymore (it's "CSS" with module levels). The keyword may be a misnomer that confuses advanced frontend developers. $99 is cheap but the content strategy fit is marginal unless you plan to cover frontend AI tools (v0, Bolt.new).</div></div>
+</div>
+
+<div class="verdict-box verdict-investigate">
+<div class="verdict-title">VERDICT: SKIP UNLESS FRONTEND AI IS IN SCOPE</div>
+<div class="verdict-text">$99 is cheap but the niche fit is marginal. Only worth it if your content strategy explicitly covers AI-powered frontend tools (v0 by Vercel, Bolt.new, AI CSS generators). <strong>If yes: backorder on Park.io before May 12. If no: skip.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #9: codebench.com -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d9">
+<div class="domain-header" onclick="toggle('d9')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#9</div>
+<div>
+<div class="domain-name">codebench<span class="domain-tld">.com</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-watch">WATCH</span>
+<span class="badge badge-score">65/100</span>
+<span class="badge" style="background:#0c0d10;color:#6b6660;border:1px solid #1a1c22">CSC Corporate hold</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#85B7EB" stroke-dasharray="213.6" stroke-dashoffset="72.6"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#85B7EB">5.0</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#85B7EB">5.0</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">25-year domain with "code bench" keyword perfect for AI/LLM benchmarking content. But registered at CSC Corporate Domains (enterprise brand protection registrar) -- this means a large company is holding it, likely for trademark or brand protection. Low probability of drop. Long shot.</div></div>
+</div>
+
+<div class="verdict-box verdict-watch">
+<div class="verdict-title">VERDICT: LONG-SHOT WATCH</div>
+<div class="verdict-text">Great keyword, great age, wrong registrar. CSC Corporate clients rarely let domains drop. <strong>Action: Set a Dec 2026 expiry alert but don't invest time or money until confirmed dropping. Consider codebench.dev or codebench.io as alternatives.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DOMAIN #10: designwiz.ai -->
+<!-- ============================================================ -->
+<div class="domain-card" id="d10">
+<div class="domain-header" onclick="toggle('d10')">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="domain-rank">#10</div>
+<div>
+<div class="domain-name">designwiz<span class="domain-tld">.ai</span></div>
+<div class="domain-meta" style="margin-top:6px">
+<span class="badge badge-buy">BUY NOW</span>
+<span class="badge badge-score">63/100</span>
+<span class="badge" style="background:#00cc8820;color:#00cc88;border:1px solid #00cc8830">AVAILABLE ~$70</span>
+</div>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div class="score-ring">
+<svg width="80" height="80" viewBox="0 0 80 80">
+<circle class="score-ring-bg" cx="40" cy="40" r="34"/>
+<circle class="score-ring-fill" cx="40" cy="40" r="34" stroke="#00cc88" stroke-dasharray="213.6" stroke-dashoffset="78.3"/>
+</svg>
+<div class="score-ring-text"><div class="score-ring-value" style="color:#00cc88">4.5</div><div class="score-ring-label">Rating</div></div>
+</div>
+<div class="expand-hint">&#9660;</div>
+</div>
+</div>
+<div class="domain-body">
+<div class="opp-rating">
+<div class="opp-number" style="color:#c8ff00">4.5</div>
+<div><div class="opp-label">OPPORTUNITY RATING</div><div class="opp-text">Available at standard .ai registration. "Design wizard" + AI has moderate search volume. But this is adjacent to your niche, not core. AI design tools (Figma AI, Canva AI, Midjourney) are a different audience than AI coding tools (Cursor, Claude Code). Only worth it if you plan to expand beyond pure dev tools.</div></div>
+</div>
+
+<div class="verdict-box verdict-buy">
+<div class="verdict-title">VERDICT: OPTIONAL BUY -- LOW PRIORITY</div>
+<div class="verdict-text">$70 for a clean .ai domain with design keyword. Only buy if your content roadmap includes AI design tools alongside AI coding tools. <strong>If budget allows and niche expansion is planned, register. Otherwise, skip and focus budget on higher-priority targets.</strong></div>
+</div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SUMMARY TABLE -->
+<!-- ============================================================ -->
+<h2>Master Comparison Matrix</h2>
+
+<div style="overflow-x:auto">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Domain</th>
+<th>Rating</th>
+<th>Score</th>
+<th>Verdict</th>
+<th>Cost</th>
+<th>Niche Fit</th>
+<th>Authority</th>
+<th>Availability</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td style="color:#eae6df">launchable.io</td><td><span class="metric">8.5</span></td><td>82</td><td style="color:#00cc88">BUY NOW</td><td>$99</td><td style="color:#00cc88">High</td><td style="color:#00cc88">High</td><td style="color:#ffaa00">May 8</td><td style="color:#ffaa00">Med</td></tr>
+<tr><td>2</td><td style="color:#eae6df">apitools.com</td><td><span class="metric">7.8</span></td><td>78</td><td style="color:#ffaa00">INVESTIGATE</td><td>$1-3K</td><td style="color:#00cc88">High</td><td style="color:#00cc88">Excellent</td><td style="color:#ffaa00">Registered</td><td style="color:#ffaa00">Med</td></tr>
+<tr><td>3</td><td style="color:#eae6df">techstack.com</td><td><span class="metric">7.0</span></td><td>76</td><td style="color:#ffaa00">INVESTIGATE</td><td>$10-50K</td><td style="color:#00cc88">Excellent</td><td style="color:#00cc88">Best</td><td style="color:#ff5555">Active</td><td style="color:#ff5555">High</td></tr>
+<tr><td>4</td><td style="color:#eae6df">devhub.io</td><td><span class="metric">7.5</span></td><td>75</td><td style="color:#ffaa00">INVESTIGATE</td><td>$99-2K</td><td style="color:#00cc88">High</td><td style="color:#00cc88">High</td><td style="color:#ffaa00">Oct 2026</td><td style="color:#ffaa00">Med</td></tr>
+<tr><td>5</td><td style="color:#eae6df">anonapi.dev</td><td><span class="metric">7.5</span></td><td>72</td><td style="color:#00cc88">BUY NOW</td><td>$12</td><td style="color:#c8ff00">Good</td><td style="color:#ffaa00">Low</td><td style="color:#00cc88">Now</td><td style="color:#00cc88">None</td></tr>
+<tr><td>6</td><td style="color:#eae6df">GptRobots.ai</td><td><span class="metric">6.5</span></td><td>70</td><td style="color:#00cc88">BUY NOW</td><td>$70</td><td style="color:#00cc88">High</td><td style="color:#ff5555">None</td><td style="color:#00cc88">Now</td><td style="color:#ffaa00">TM risk</td></tr>
+<tr><td>7</td><td style="color:#eae6df">aidevtools.com</td><td><span class="metric">8.0</span></td><td>69</td><td style="color:#85B7EB">WATCH</td><td>$59-2K</td><td style="color:#00cc88">Perfect</td><td style="color:#ffaa00">Low</td><td style="color:#ffaa00">30-75 days</td><td style="color:#ff5555">High comp</td></tr>
+<tr><td>8</td><td style="color:#eae6df">css4.io</td><td><span class="metric">5.5</span></td><td>67</td><td style="color:#ffaa00">INVESTIGATE</td><td>$99</td><td style="color:#ffaa00">Adjacent</td><td style="color:#ffaa00">Low</td><td style="color:#ffaa00">May 12</td><td style="color:#00cc88">Low</td></tr>
+<tr><td>9</td><td style="color:#eae6df">codebench.com</td><td><span class="metric">5.0</span></td><td>65</td><td style="color:#85B7EB">WATCH</td><td>Unknown</td><td style="color:#00cc88">High</td><td style="color:#ffaa00">Low</td><td style="color:#ff5555">Corporate</td><td style="color:#ff5555">Low prob</td></tr>
+<tr><td>10</td><td style="color:#eae6df">designwiz.ai</td><td><span class="metric">4.5</span></td><td>63</td><td style="color:#00cc88">BUY NOW</td><td>$70</td><td style="color:#ffaa00">Adjacent</td><td style="color:#ff5555">None</td><td style="color:#00cc88">Now</td><td style="color:#00cc88">None</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Action Plan -->
+<h2>Execution Playbook</h2>
+
+<div class="card card-accent">
+<h3 style="margin-top:0">Today (May 6)</h3>
+<ul class="checklist">
+<li><strong style="color:#eae6df">Register anonapi.dev</strong> -- $12 at Cloudflare/Porkbun. Zero risk, immediate value.</li>
+<li><strong style="color:#eae6df">Backorder aidevtools.com</strong> -- Place on DropCatch + SnapNames + NameJet. $59-99 per platform (charged only if you win).</li>
+<li><strong style="color:#eae6df">Backorder launchable.io</strong> -- Place on Park.io. $99. Drops May 8.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">This Week</h3>
+<ul class="checklist">
+<li>Visit apitools.com -- check if for-sale page exists. If parked, make $1K offer via Dynadot.</li>
+<li>Visit techstack.com -- assess current state. Note owner contact info for future inquiry.</li>
+<li>Register GptRobots.ai if AI agent content is in your roadmap ($70).</li>
+</ul>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Monthly Monitoring</h3>
+<ul class="checklist">
+<li>Set WHOIS expiry alerts for: devhub.io (Oct), apitools.com (Dec), codebench.com (Dec)</li>
+<li>Run the REVENANT pipeline daily: <code>python main.py</code> for automated discovery</li>
+<li>Check DropCatch status on aidevtools.com weekly until it either renews or drops</li>
+</ul>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+PROJECT REVENANT // AUTOM8 LLC // Domain Intelligence Report // May 2026<br>
+10 domains analyzed &bull; 5 parallel agents &bull; Wayback CDX + GitHub API + WHOIS verified
+</div>
+
+</div><!-- /container -->
+
+<script>
+function toggle(id){
+  document.getElementById(id).classList.toggle('open');
+}
+// Open first card by default (already open via class)
+</script>
+
+</body>
+</html>

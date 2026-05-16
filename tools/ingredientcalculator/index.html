@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingredient Calculator - Scale Recipes, Convert Units &amp; Find Substitutions</title>
+<meta name="description" content="Free ingredient calculator to scale recipes to any serving size, convert cooking units (cups, grams, oz, mL), find ingredient substitutions, and estimate nutrition. Fast, accurate, no signup required.">
+<meta name="keywords" content="ingredient calculator, recipe scaler, cooking unit converter, ingredient substitution, recipe converter, cooking calculator, baking calculator, measurement converter">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/">
+<meta property="og:title" content="Ingredient Calculator - Scale Recipes, Convert Units &amp; Find Substitutions">
+<meta property="og:description" content="Free ingredient calculator to scale recipes to any serving size, convert cooking units, find ingredient substitutions, and estimate nutrition.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ingredient Calculator - Scale Recipes &amp; Convert Units">
+<meta name="twitter:description" content="Free ingredient calculator. Scale recipes, convert cooking units, find substitutions, estimate nutrition.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Ingredient Calculator",
+  "url": "https://ingredientcalculator.com",
+  "description": "Free ingredient calculator to scale recipes, convert cooking units, find ingredient substitutions, and estimate nutrition.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Recipe ingredient scaling",
+    "Cooking unit conversion",
+    "Ingredient substitutions",
+    "Nutrition estimation"
+  ]
+}
+</script>
+<style>
+/* ============================================================
+   CSS — Mobile-first, system font stack, warm cooking palette
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Layout ---- */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+/* ---- Skip link (a11y) ---- */
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* ---- Header ---- */
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+/* ---- Ad zones ---- */
+.ad-zone {
+  text-align: center; padding: 12px 0; min-height: 20px;
+}
+
+/* ---- Hero ---- */
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px;
+  line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+/* ---- Tab navigation ---- */
+.tabs {
+  display: flex; gap: 4px; padding: 4px;
+  background: var(--clr-surface-alt);
+  border-radius: var(--radius);
+  margin: 32px auto 0; max-width: 600px;
+  border: 1px solid var(--clr-border);
+}
+.tab-btn {
+  flex: 1; padding: 10px 8px; border: none; background: transparent;
+  font-family: var(--font); font-size: 0.85rem; font-weight: 600;
+  color: var(--clr-text-muted); cursor: pointer;
+  border-radius: var(--radius-sm); transition: all var(--transition);
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--clr-text); }
+.tab-btn.active {
+  background: var(--clr-surface); color: var(--clr-accent);
+  box-shadow: 0 1px 3px var(--clr-shadow);
+}
+.tab-btn:focus-visible {
+  outline: 2px solid var(--clr-accent); outline-offset: 2px;
+}
+
+/* ---- Cards / Panels ---- */
+.panel {
+  display: none; background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel.active { display: block; }
+.panel h2 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;
+}
+.panel .subtitle {
+  color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px;
+}
+
+/* ---- Form elements ---- */
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+
+.form-row {
+  display: grid; gap: 16px; margin-bottom: 16px;
+}
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--clr-accent); color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+/* ---- Result areas ---- */
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success);
+}
+.result-table {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem;
+}
+.result-table th, .result-table td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid #D1FAE5;
+}
+.result-table th {
+  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.result-table tr:last-child td { border-bottom: none; }
+
+/* ---- Converter-specific ---- */
+.converter-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px;
+  align-items: end;
+}
+.swap-btn {
+  background: var(--clr-accent-light); border: 1px solid var(--clr-border);
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; transition: all var(--transition);
+  margin-bottom: 2px;
+}
+.swap-btn:hover { background: var(--clr-accent); color: #fff; }
+.converter-result {
+  text-align: center; font-size: 1.8rem; font-weight: 800;
+  color: var(--clr-accent); padding: 20px; margin-top: 16px;
+  background: var(--clr-accent-bg); border-radius: var(--radius-sm);
+}
+.converter-result small {
+  display: block; font-size: 0.8rem; font-weight: 500; color: var(--clr-text-muted);
+  margin-top: 4px;
+}
+
+/* ---- Substitution cards ---- */
+.sub-search { position: relative; margin-bottom: 16px; }
+.sub-search input { padding-left: 36px; }
+.sub-search-icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--clr-text-muted); font-size: 0.9rem; pointer-events: none;
+  margin-top: 10px;
+}
+.sub-grid {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.sub-card {
+  background: var(--clr-surface-alt); border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); padding: 14px;
+  transition: box-shadow var(--transition);
+}
+.sub-card:hover { box-shadow: 0 2px 8px var(--clr-shadow); }
+.sub-card h4 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--clr-text);
+}
+.sub-card .sub-list { list-style: none; }
+.sub-card .sub-list li {
+  padding: 4px 0; font-size: 0.88rem; color: var(--clr-text-muted);
+  border-bottom: 1px dashed var(--clr-border);
+  display: flex; align-items: baseline; gap: 6px;
+}
+.sub-card .sub-list li:last-child { border-bottom: none; }
+.sub-arrow { color: var(--clr-accent); font-weight: 700; }
+.sub-note {
+  font-size: 0.78rem; color: var(--clr-text-muted); font-style: italic;
+  margin-top: 6px;
+}
+
+/* ---- Nutrition panel ---- */
+.nutrition-result {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.nutr-card {
+  text-align: center; padding: 16px; background: var(--clr-surface-alt);
+  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
+}
+.nutr-card .nutr-val {
+  font-size: 1.6rem; font-weight: 800; color: var(--clr-accent);
+}
+.nutr-card .nutr-label {
+  font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-top: 2px;
+}
+.nutr-card .nutr-unit {
+  font-size: 0.8rem; color: var(--clr-text-muted);
+}
+
+/* ---- Info section ---- */
+.info-section {
+  max-width: 900px; margin: 40px auto; padding: 0 16px;
+}
+.info-section h2 {
+  font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;
+}
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+/* ---- Footer ---- */
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+  .converter-grid { grid-template-columns: 1fr; }
+  .swap-btn { margin: 0 auto; transform: rotate(90deg); }
+  .tabs { flex-wrap: wrap; }
+  .tab-btn { font-size: 0.78rem; padding: 8px 6px; }
+  .panel { padding: 16px; }
+  nav { display: none; }
+}
+
+/* ---- Print ---- */
+@media print {
+  header, footer, .hero, .tabs, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { display: block !important; border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+/* ---- Focus-visible for a11y ---- */
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+
+/* ---- Animations ---- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel.active { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header>
+  <!-- AD ZONE: Header leaderboard 728x90 -->
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#scaler" class="active" data-nav="scaler">Recipe Scaler</a>
+      <a href="#converter" data-nav="converter">Unit Converter</a>
+      <a href="#substitutions" data-nav="substitutions">Substitutions</a>
+      <a href="#nutrition" data-nav="nutrition">Nutrition</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/egg-substitute.html">Egg Substitutes</a>
+      <a href="/recipe-converter.html">Recipe Converter</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Ingredient Calculator</span> &mdash; Scale, Convert &amp; Substitute</h1>
+    <p>Scale any recipe to your desired serving size, convert between cooking units, find ingredient substitutions, and estimate nutrition &mdash; all in one free tool.</p>
+
+    <!-- Tab navigation -->
+    <div class="tabs" role="tablist" aria-label="Calculator tools">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-scaler" id="tab-scaler" data-panel="scaler">Recipe Scaler</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-converter" id="tab-converter" data-panel="converter">Unit Converter</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-substitutions" id="tab-substitutions" data-panel="substitutions">Substitutions</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-nutrition" id="tab-nutrition" data-panel="nutrition">Nutrition</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main id="main-content" class="container">
+
+  <!-- ========== PANEL 1: Recipe Scaler ========== -->
+  <section class="panel active" id="panel-scaler" role="tabpanel" aria-labelledby="tab-scaler">
+    <h2>Recipe Ingredient Scaler</h2>
+    <p class="subtitle">Paste your ingredient list, set original and desired servings, and scale instantly.</p>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="scaler-original">Original Servings</label>
+        <input type="number" id="scaler-original" min="0.25" step="0.25" value="4" aria-describedby="scaler-help">
+      </div>
+      <div class="form-group">
+        <label for="scaler-desired">Desired Servings</label>
+        <input type="number" id="scaler-desired" min="0.25" step="0.25" value="8" aria-describedby="scaler-help">
+      </div>
+    </div>
+    <small id="scaler-help" style="color:var(--clr-text-muted);display:block;margin-bottom:12px;">Enter one ingredient per line, e.g. "2 cups flour" or "1.5 tsp salt"</small>
+
+    <div class="form-group">
+      <label for="scaler-input">Ingredients (one per line)</label>
+      <textarea id="scaler-input" placeholder="2 cups all-purpose flour&#10;1 cup sugar&#10;0.5 tsp salt&#10;3 large eggs&#10;1.5 cups milk&#10;0.25 cup butter, melted" aria-label="Ingredient list"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="scaler-calc" aria-label="Scale recipe ingredients">Scale Recipe</button>
+      <button class="btn btn-secondary" id="scaler-clear" aria-label="Clear all fields">Clear</button>
+      <button class="btn btn-secondary" id="scaler-copy" aria-label="Copy scaled results" style="display:none;">Copy Results</button>
+    </div>
+
+    <div class="result-box" id="scaler-result" aria-live="polite">
+      <h3>Scaled Ingredients</h3>
+      <table class="result-table" id="scaler-table" aria-label="Scaled ingredient results">
+        <thead><tr><th>Original</th><th>Scaled</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== PANEL 2: Unit Converter ========== -->
+  <section class="panel" id="panel-converter" role="tabpanel" aria-labelledby="tab-converter">
+    <h2>Cooking Unit Converter</h2>
+    <p class="subtitle">Convert between common cooking measurements instantly.</p>
+
+    <div class="form-group" style="margin-bottom:16px;">
+      <label for="conv-category">Category</label>
+      <select id="conv-category" aria-label="Measurement category">
+        <option value="volume">Volume (cups, mL, tbsp, tsp, fl oz, L)</option>
+        <option value="weight">Weight (g, oz, lb, kg)</option>
+        <option value="temperature">Temperature (F, C)</option>
+      </select>
+    </div>
+
+    <div class="converter-grid">
+      <div class="form-group">
+        <label for="conv-value">Value</label>
+        <input type="number" id="conv-value" min="0" step="any" value="1" aria-label="Value to convert">
+        <select id="conv-from" style="margin-top:8px;" aria-label="Convert from unit"></select>
+      </div>
+      <button class="swap-btn" id="conv-swap" aria-label="Swap units" title="Swap units">&#8644;</button>
+      <div class="form-group">
+        <label for="conv-result-val">Result</label>
+        <input type="text" id="conv-result-val" readonly aria-label="Conversion result" tabindex="-1" style="background:var(--clr-surface-alt);font-weight:700;">
+        <select id="conv-to" style="margin-top:8px;" aria-label="Convert to unit"></select>
+      </div>
+    </div>
+
+    <div class="converter-result" id="conv-display" aria-live="polite" style="display:none;">
+      <span id="conv-display-text"></span>
+      <small id="conv-display-formula"></small>
+    </div>
+
+    <!-- AD ZONE: Below converter 300x250 -->
+    <div class="ad-zone" aria-hidden="true" style="margin-top:24px;"><!-- AD ZONE: SIDEBAR RECTANGLE 300x250 --></div>
+
+    <div style="margin-top:24px;">
+      <h3 style="font-size:1rem;margin-bottom:12px;">Quick Reference</h3>
+      <div class="result-box visible" style="background:var(--clr-info-bg);border-color:#BAE6FD;">
+        <table class="result-table" aria-label="Common conversions reference" style="font-size:0.85rem;">
+          <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+          <tbody>
+            <tr><td>1 cup</td><td>mL</td><td>236.588</td></tr>
+            <tr><td>1 tbsp</td><td>mL</td><td>14.787</td></tr>
+            <tr><td>1 tsp</td><td>mL</td><td>4.929</td></tr>
+            <tr><td>1 oz (weight)</td><td>grams</td><td>28.3495</td></tr>
+            <tr><td>1 fl oz</td><td>mL</td><td>29.5735</td></tr>
+            <tr><td>1 lb</td><td>grams</td><td>453.592</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PANEL 3: Substitutions ========== -->
+  <section class="panel" id="panel-substitutions" role="tabpanel" aria-labelledby="tab-substitutions">
+    <h2>Ingredient Substitutions</h2>
+    <p class="subtitle">Find common replacements for ingredients you don't have on hand.</p>
+
+    <div class="sub-search">
+      <span class="sub-search-icon" aria-hidden="true">&#128269;</span>
+      <label for="sub-search-input">Search ingredients</label>
+      <input type="text" id="sub-search-input" placeholder="Type an ingredient name (e.g. butter, egg, milk)..." aria-label="Search for ingredient substitutions">
+    </div>
+
+    <div class="sub-grid" id="sub-grid" aria-label="Ingredient substitution cards"></div>
+  </section>
+
+  <!-- ========== PANEL 4: Nutrition Estimator ========== -->
+  <section class="panel" id="panel-nutrition" role="tabpanel" aria-labelledby="tab-nutrition">
+    <h2>Nutrition Estimator</h2>
+    <p class="subtitle">Get calorie and macro estimates for common cooking ingredients.</p>
+
+    <div class="form-row cols-3">
+      <div class="form-group">
+        <label for="nutr-ingredient">Ingredient</label>
+        <select id="nutr-ingredient" aria-label="Select ingredient for nutrition info"></select>
+      </div>
+      <div class="form-group">
+        <label for="nutr-amount">Amount</label>
+        <input type="number" id="nutr-amount" min="0" step="any" value="100" aria-label="Amount of ingredient">
+      </div>
+      <div class="form-group">
+        <label for="nutr-unit">Unit</label>
+        <select id="nutr-unit" aria-label="Unit for nutrition calculation">
+          <option value="g">grams (g)</option>
+          <option value="oz">ounces (oz)</option>
+          <option value="cup">cups</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="nutr-calc" aria-label="Estimate nutrition">Estimate Nutrition</button>
+    </div>
+
+    <div class="nutrition-result" id="nutr-result" style="display:none;" aria-live="polite">
+      <div class="nutr-card">
+        <div class="nutr-val" id="nutr-cal">0</div>
+        <div class="nutr-label">Calories</div>
+        <div class="nutr-unit">kcal</div>
+      </div>
+      <div class="nutr-card">
+        <div class="nutr-val" id="nutr-protein">0</div>
+        <div class="nutr-label">Protein</div>
+        <div class="nutr-unit">g</div>
+      </div>
+      <div class="nutr-card">
+        <div class="nutr-val" id="nutr-carbs">0</div>
+        <div class="nutr-label">Carbs</div>
+        <div class="nutr-unit">g</div>
+      </div>
+      <div class="nutr-card">
+        <div class="nutr-val" id="nutr-fat">0</div>
+        <div class="nutr-label">Fat</div>
+        <div class="nutr-unit">g</div>
+      </div>
+      <div class="nutr-card">
+        <div class="nutr-val" id="nutr-fiber">0</div>
+        <div class="nutr-label">Fiber</div>
+        <div class="nutr-unit">g</div>
+      </div>
+    </div>
+
+    <div class="result-box visible" style="margin-top:20px;background:var(--clr-accent-bg);border-color:#FDE68A;">
+      <p style="font-size:0.85rem;color:var(--clr-text-muted);"><strong>Note:</strong> Nutrition values are estimates based on USDA averages. Actual values vary by brand, preparation method, and specific variety. For precise dietary planning, consult a registered dietitian or use USDA FoodData Central.</p>
+    </div>
+  </section>
+
+  <!-- AD ZONE: Below calculator responsive -->
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<!-- ============================================================
+     INFO / SEO CONTENT
+     ============================================================ -->
+<section class="info-section" aria-label="About Ingredient Calculator">
+  <h2>Why Use an Ingredient Calculator?</h2>
+  <p>Whether you're doubling a family recipe, halving a batch of cookies, or converting a European recipe from metric to imperial, an ingredient calculator saves time and prevents costly mistakes. Our free tool handles the math so you can focus on cooking.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Recipe Scaling</h3>
+      <p>Instantly scale any recipe up or down. Enter your ingredients, set the original and desired serving sizes, and get perfectly proportioned quantities. Works with fractions, decimals, and mixed units.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Unit Conversion</h3>
+      <p>Convert between cups, milliliters, tablespoons, teaspoons, fluid ounces, grams, ounces, pounds, and temperature units. Essential for following international recipes or baking with precision.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Smart Substitutions</h3>
+      <p>Out of an ingredient? Find common substitutions instantly. Our database covers dairy, eggs, flour, sweeteners, fats, and more &mdash; with ratio guidance for each swap.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Nutrition Estimates</h3>
+      <p>Get approximate calorie and macronutrient breakdowns for 50+ common ingredients. Helpful for meal planning, portion control, and dietary tracking.</p>
+    </article>
+  </div>
+
+  <h2 style="margin-top:40px;">Common Cooking Conversions</h2>
+  <ul>
+    <li><strong>3 teaspoons</strong> = 1 tablespoon</li>
+    <li><strong>4 tablespoons</strong> = 1/4 cup</li>
+    <li><strong>16 tablespoons</strong> = 1 cup</li>
+    <li><strong>1 cup</strong> = 236.6 mL (approx. 240 mL)</li>
+    <li><strong>1 fluid ounce</strong> = 29.57 mL</li>
+    <li><strong>1 stick of butter</strong> = 1/2 cup = 113g</li>
+    <li><strong>1 pound</strong> = 453.6 grams</li>
+    <li><strong>Fahrenheit to Celsius</strong>: (F - 32) &times; 5/9</li>
+  </ul>
+
+  <!-- AD ZONE: Sidebar rectangle 300x250 -->
+  <div class="ad-zone" aria-hidden="true" style="margin-top:24px;"><!-- AD ZONE: SIDEBAR RECTANGLE 300x250 --></div>
+</section>
+
+<!-- ============================================================
+     MORE TOOLS
+     ============================================================ -->
+<section style="padding:48px 0 24px;background:var(--clr-surface-alt);border-top:1px solid var(--clr-border);">
+  <div class="container" style="max-width:900px;">
+    <h2 style="font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:24px;">More Cooking & Baking Tools</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+      <a href="/cups-to-grams.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
+        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Cups to Grams Converter</strong>
+        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Convert cups to grams for 35+ ingredients. Accurate baking measurements.</span>
+      </a>
+      <a href="/egg-substitute.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
+        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Egg Substitute Calculator</strong>
+        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Find the perfect egg replacement for baking. Vegan and allergy-friendly options.</span>
+      </a>
+      <a href="/recipe-converter.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
+        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Recipe Unit Converter</strong>
+        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Convert between US, metric, and imperial. Volume, weight, and temperature.</span>
+      </a>
+      <a href="/baking-ratios.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
+        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Baking Ratios Calculator</strong>
+        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Classic baking ratios by weight. Pound cake, cookies, pie crust, bread.</span>
+      </a>
+      <a href="/serving-size-calculator.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
+        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Serving Size Calculator</strong>
+        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Scale recipes for any group size. Party planning mode for large events.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/egg-substitute.html" style="color:var(--clr-accent);text-decoration:none;">Egg Substitutes</a> &middot;
+      <a href="/recipe-converter.html" style="color:var(--clr-accent);text-decoration:none;">Unit Converter</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/serving-size-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Serving Size</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT — NASA Power of 10 Compliant
+     All functions < 60 lines, min 2 assertions per function,
+     fixed loop bounds, no global mutable state, frozen data.
+     ============================================================ -->
+<script>
+"use strict";
+(function () {
+
+  /* ===========================================================
+     INGREDIENT DATABASE — 55 common ingredients
+     Each: name, category, density (g/cup), calories/100g,
+           protein/100g, carbs/100g, fat/100g, fiber/100g
+     =========================================================== */
+  const INGREDIENTS = Object.freeze([
+    Object.freeze({ name: "All-Purpose Flour", category: "grain", density: 125, cal: 364, protein: 10.3, carbs: 76.3, fat: 1.0, fiber: 2.7 }),
+    Object.freeze({ name: "Whole Wheat Flour", category: "grain", density: 120, cal: 340, protein: 13.2, carbs: 72.0, fat: 2.5, fiber: 10.7 }),
+    Object.freeze({ name: "Bread Flour", category: "grain", density: 127, cal: 361, protein: 12.0, carbs: 72.5, fat: 1.7, fiber: 2.4 }),
+    Object.freeze({ name: "Cake Flour", category: "grain", density: 114, cal: 362, protein: 8.0, carbs: 78.0, fat: 1.0, fiber: 1.8 }),
+    Object.freeze({ name: "Cornstarch", category: "grain", density: 128, cal: 381, protein: 0.3, carbs: 91.3, fat: 0.1, fiber: 0.9 }),
+    Object.freeze({ name: "Granulated Sugar", category: "grain", density: 200, cal: 387, protein: 0.0, carbs: 100.0, fat: 0.0, fiber: 0.0 }),
+    Object.freeze({ name: "Brown Sugar (packed)", category: "grain", density: 220, cal: 380, protein: 0.1, carbs: 98.1, fat: 0.0, fiber: 0.0 }),
+    Object.freeze({ name: "Powdered Sugar", category: "grain", density: 120, cal: 389, protein: 0.0, carbs: 99.8, fat: 0.0, fiber: 0.0 }),
+    Object.freeze({ name: "Honey", category: "liquid", density: 340, cal: 304, protein: 0.3, carbs: 82.4, fat: 0.0, fiber: 0.2 }),
+    Object.freeze({ name: "Maple Syrup", category: "liquid", density: 312, cal: 260, protein: 0.0, carbs: 67.0, fat: 0.1, fiber: 0.0 }),
+    Object.freeze({ name: "Butter (unsalted)", category: "dairy", density: 227, cal: 717, protein: 0.9, carbs: 0.1, fat: 81.1, fiber: 0.0 }),
+    Object.freeze({ name: "Butter (salted)", category: "dairy", density: 227, cal: 717, protein: 0.9, carbs: 0.1, fat: 81.1, fiber: 0.0 }),
+    Object.freeze({ name: "Margarine", category: "dairy", density: 227, cal: 717, protein: 0.2, carbs: 0.7, fat: 80.7, fiber: 0.0 }),
+    Object.freeze({ name: "Vegetable Oil", category: "liquid", density: 218, cal: 884, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
+    Object.freeze({ name: "Olive Oil", category: "liquid", density: 216, cal: 884, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
+    Object.freeze({ name: "Coconut Oil", category: "liquid", density: 218, cal: 862, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
+    Object.freeze({ name: "Whole Milk", category: "dairy", density: 244, cal: 61, protein: 3.2, carbs: 4.8, fat: 3.3, fiber: 0.0 }),
+    Object.freeze({ name: "Skim Milk", category: "dairy", density: 245, cal: 34, protein: 3.4, carbs: 5.0, fat: 0.1, fiber: 0.0 }),
+    Object.freeze({ name: "Heavy Cream", category: "dairy", density: 238, cal: 340, protein: 2.1, carbs: 2.8, fat: 36.1, fiber: 0.0 }),
+    Object.freeze({ name: "Half-and-Half", category: "dairy", density: 242, cal: 130, protein: 2.6, carbs: 4.3, fat: 11.5, fiber: 0.0 }),
+    Object.freeze({ name: "Sour Cream", category: "dairy", density: 230, cal: 198, protein: 2.4, carbs: 4.6, fat: 19.4, fiber: 0.0 }),
+    Object.freeze({ name: "Greek Yogurt", category: "dairy", density: 245, cal: 59, protein: 10.2, carbs: 3.6, fat: 0.4, fiber: 0.0 }),
+    Object.freeze({ name: "Cream Cheese", category: "dairy", density: 232, cal: 342, protein: 5.9, carbs: 4.1, fat: 34.2, fiber: 0.0 }),
+    Object.freeze({ name: "Cheddar Cheese (shredded)", category: "dairy", density: 113, cal: 403, protein: 24.9, carbs: 1.3, fat: 33.1, fiber: 0.0 }),
+    Object.freeze({ name: "Parmesan (grated)", category: "dairy", density: 100, cal: 431, protein: 38.5, carbs: 4.1, fat: 28.6, fiber: 0.0 }),
+    Object.freeze({ name: "Egg (large, ~50g)", category: "protein", density: 243, cal: 155, protein: 12.6, carbs: 1.1, fat: 10.6, fiber: 0.0 }),
+    Object.freeze({ name: "Chicken Breast", category: "protein", density: 140, cal: 165, protein: 31.0, carbs: 0.0, fat: 3.6, fiber: 0.0 }),
+    Object.freeze({ name: "Ground Beef (80/20)", category: "protein", density: 225, cal: 254, protein: 17.2, carbs: 0.0, fat: 20.0, fiber: 0.0 }),
+    Object.freeze({ name: "Salmon Fillet", category: "protein", density: 143, cal: 208, protein: 20.4, carbs: 0.0, fat: 13.4, fiber: 0.0 }),
+    Object.freeze({ name: "Tofu (firm)", category: "protein", density: 252, cal: 76, protein: 8.1, carbs: 1.9, fat: 4.8, fiber: 0.3 }),
+    Object.freeze({ name: "White Rice (uncooked)", category: "grain", density: 185, cal: 365, protein: 7.1, carbs: 80.0, fat: 0.7, fiber: 1.3 }),
+    Object.freeze({ name: "Brown Rice (uncooked)", category: "grain", density: 190, cal: 370, protein: 7.9, carbs: 77.2, fat: 2.9, fiber: 3.5 }),
+    Object.freeze({ name: "Rolled Oats", category: "grain", density: 80, cal: 389, protein: 16.9, carbs: 66.3, fat: 6.9, fiber: 10.6 }),
+    Object.freeze({ name: "Pasta (dry)", category: "grain", density: 105, cal: 371, protein: 13.0, carbs: 74.7, fat: 1.5, fiber: 3.2 }),
+    Object.freeze({ name: "Breadcrumbs", category: "grain", density: 108, cal: 395, protein: 13.4, carbs: 72.0, fat: 5.3, fiber: 4.5 }),
+    Object.freeze({ name: "Baking Powder", category: "spice", density: 230, cal: 53, protein: 0.0, carbs: 27.7, fat: 0.0, fiber: 0.2 }),
+    Object.freeze({ name: "Baking Soda", category: "spice", density: 288, cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 }),
+    Object.freeze({ name: "Salt", category: "spice", density: 292, cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 }),
+    Object.freeze({ name: "Black Pepper", category: "spice", density: 116, cal: 251, protein: 10.4, carbs: 63.9, fat: 3.3, fiber: 25.3 }),
+    Object.freeze({ name: "Cinnamon", category: "spice", density: 132, cal: 247, protein: 4.0, carbs: 80.6, fat: 1.2, fiber: 53.1 }),
+    Object.freeze({ name: "Garlic Powder", category: "spice", density: 155, cal: 331, protein: 16.6, carbs: 72.7, fat: 0.7, fiber: 9.0 }),
+    Object.freeze({ name: "Onion (diced)", category: "produce", density: 160, cal: 40, protein: 1.1, carbs: 9.3, fat: 0.1, fiber: 1.7 }),
+    Object.freeze({ name: "Garlic (minced)", category: "produce", density: 136, cal: 149, protein: 6.4, carbs: 33.1, fat: 0.5, fiber: 2.1 }),
+    Object.freeze({ name: "Tomato (diced)", category: "produce", density: 180, cal: 18, protein: 0.9, carbs: 3.9, fat: 0.2, fiber: 1.2 }),
+    Object.freeze({ name: "Potato (diced)", category: "produce", density: 150, cal: 77, protein: 2.0, carbs: 17.5, fat: 0.1, fiber: 2.2 }),
+    Object.freeze({ name: "Carrot (diced)", category: "produce", density: 128, cal: 41, protein: 0.9, carbs: 9.6, fat: 0.2, fiber: 2.8 }),
+    Object.freeze({ name: "Spinach (raw)", category: "produce", density: 30, cal: 23, protein: 2.9, carbs: 3.6, fat: 0.4, fiber: 2.2 }),
+    Object.freeze({ name: "Banana", category: "produce", density: 225, cal: 89, protein: 1.1, carbs: 22.8, fat: 0.3, fiber: 2.6 }),
+    Object.freeze({ name: "Lemon Juice", category: "liquid", density: 244, cal: 22, protein: 0.4, carbs: 6.9, fat: 0.2, fiber: 0.3 }),
+    Object.freeze({ name: "Vanilla Extract", category: "liquid", density: 208, cal: 288, protein: 0.1, carbs: 12.7, fat: 0.1, fiber: 0.0 }),
+    Object.freeze({ name: "Soy Sauce", category: "liquid", density: 255, cal: 53, protein: 8.1, carbs: 4.9, fat: 0.6, fiber: 0.8 }),
+    Object.freeze({ name: "Cocoa Powder", category: "spice", density: 86, cal: 228, protein: 19.6, carbs: 57.9, fat: 13.7, fiber: 33.2 }),
+    Object.freeze({ name: "Chocolate Chips", category: "grain", density: 170, cal: 502, protein: 5.5, carbs: 60.5, fat: 30.0, fiber: 5.9 }),
+    Object.freeze({ name: "Peanut Butter", category: "protein", density: 258, cal: 588, protein: 25.1, carbs: 20.0, fat: 50.4, fiber: 6.0 }),
+    Object.freeze({ name: "Almonds (sliced)", category: "protein", density: 92, cal: 579, protein: 21.2, carbs: 21.6, fat: 49.9, fiber: 12.5 }),
+    Object.freeze({ name: "Walnuts (chopped)", category: "protein", density: 120, cal: 654, protein: 15.2, carbs: 13.7, fat: 65.2, fiber: 6.7 }),
+  ]);
+
+  /* ===========================================================
+     SUBSTITUTION DATABASE
+     =========================================================== */
+  const SUBSTITUTIONS = Object.freeze([
+    Object.freeze({ ingredient: "Butter", subs: Object.freeze([
+      "Coconut oil (equal amount, solid)",
+      "Applesauce (half the amount, reduces fat)",
+      "Greek yogurt (half the amount, adds protein)",
+      "Avocado (equal amount, mashed)",
+      "Olive oil (3/4 the amount)"
+    ]), note: "For baking, solid fats work best as replacements." }),
+    Object.freeze({ ingredient: "Eggs", subs: Object.freeze([
+      "Flax egg: 1 tbsp ground flax + 3 tbsp water per egg",
+      "Chia egg: 1 tbsp chia seeds + 3 tbsp water per egg",
+      "1/4 cup applesauce per egg",
+      "1/4 cup mashed banana per egg",
+      "3 tbsp aquafaba (chickpea liquid) per egg"
+    ]), note: "Vegan options work best in baked goods, not custards." }),
+    Object.freeze({ ingredient: "Milk (whole)", subs: Object.freeze([
+      "Oat milk (equal amount)",
+      "Almond milk (equal amount)",
+      "Soy milk (equal amount, closest protein match)",
+      "Coconut milk (equal amount, richer)",
+      "Half-and-half + water (1:1 ratio)"
+    ]), note: "Non-dairy milks may slightly alter flavor." }),
+    Object.freeze({ ingredient: "Heavy Cream", subs: Object.freeze([
+      "Coconut cream (equal amount)",
+      "Cashew cream (blended soaked cashews)",
+      "Evaporated milk (equal amount, lighter)",
+      "Greek yogurt + milk (3:1 ratio)",
+      "Silken tofu (blended, equal amount)"
+    ]), note: "Coconut cream whips similarly to dairy cream." }),
+    Object.freeze({ ingredient: "All-Purpose Flour", subs: Object.freeze([
+      "Whole wheat flour (equal amount, denser result)",
+      "Almond flour (use 1:1 but add binding agent)",
+      "Oat flour (equal amount, blend rolled oats)",
+      "Coconut flour (use 1/4 to 1/3 the amount + extra liquid)",
+      "Gluten-free 1:1 blend (equal amount)"
+    ]), note: "Gluten-free flours often need xanthan gum for structure." }),
+    Object.freeze({ ingredient: "Sugar (granulated)", subs: Object.freeze([
+      "Honey (use 3/4 cup per 1 cup sugar, reduce liquid)",
+      "Maple syrup (use 3/4 cup, reduce liquid by 3 tbsp)",
+      "Coconut sugar (equal amount)",
+      "Stevia (check package for conversion ratio)",
+      "Monk fruit sweetener (equal amount for baking blends)"
+    ]), note: "Liquid sweeteners require reducing other liquids in recipe." }),
+    Object.freeze({ ingredient: "Brown Sugar", subs: Object.freeze([
+      "White sugar + 1 tbsp molasses per cup",
+      "Coconut sugar (equal amount)",
+      "Maple syrup (3/4 cup per 1 cup, reduce liquid)",
+      "Date sugar (equal amount, won't melt)",
+      "Muscovado sugar (equal amount, stronger flavor)"
+    ]), note: "The molasses + white sugar trick is the most accurate swap." }),
+    Object.freeze({ ingredient: "Baking Powder", subs: Object.freeze([
+      "1/4 tsp baking soda + 1/2 tsp cream of tartar per 1 tsp",
+      "1/4 tsp baking soda + 1/2 cup buttermilk (reduce liquid)",
+      "Self-rising flour (already contains baking powder)"
+    ]), note: "Baking soda is 3-4x stronger than baking powder." }),
+    Object.freeze({ ingredient: "Buttermilk", subs: Object.freeze([
+      "1 cup milk + 1 tbsp lemon juice (let sit 5 min)",
+      "1 cup milk + 1 tbsp white vinegar (let sit 5 min)",
+      "1 cup plain yogurt thinned with milk",
+      "1 cup kefir (equal amount)"
+    ]), note: "The acid reaction is what matters for leavening." }),
+    Object.freeze({ ingredient: "Sour Cream", subs: Object.freeze([
+      "Greek yogurt (equal amount, tangier)",
+      "Cottage cheese (blended smooth)",
+      "Cashew cream + lemon juice",
+      "Coconut cream + lemon juice (dairy-free)"
+    ]), note: "Greek yogurt is the closest match in both texture and tang." }),
+    Object.freeze({ ingredient: "Cream Cheese", subs: Object.freeze([
+      "Mascarpone (richer, softer)",
+      "Neufchatel cheese (lower fat, equal amount)",
+      "Cashew cream cheese (dairy-free)",
+      "Silken tofu + lemon juice (blended)"
+    ]), note: "Mascarpone is softer; may need to chill for spreading." }),
+    Object.freeze({ ingredient: "Vegetable Oil", subs: Object.freeze([
+      "Melted coconut oil (equal amount)",
+      "Melted butter (equal amount, adds flavor)",
+      "Applesauce (equal amount, for baking, reduces fat)",
+      "Avocado oil (equal amount, high smoke point)",
+      "Canola oil (equal amount)"
+    ]), note: "For frying, match smoke point of original oil." }),
+    Object.freeze({ ingredient: "Cornstarch", subs: Object.freeze([
+      "All-purpose flour (use 2x the amount)",
+      "Arrowroot powder (equal amount)",
+      "Tapioca starch (equal amount)",
+      "Potato starch (equal amount, not potato flour)"
+    ]), note: "Flour-thickened sauces will be more opaque." }),
+    Object.freeze({ ingredient: "Honey", subs: Object.freeze([
+      "Maple syrup (equal amount)",
+      "Agave nectar (equal amount, milder flavor)",
+      "Corn syrup (equal amount, less sweet)",
+      "Molasses (equal amount, much stronger flavor)",
+      "Brown rice syrup (equal amount)"
+    ]), note: "Flavor profiles vary widely between liquid sweeteners." }),
+    Object.freeze({ ingredient: "Soy Sauce", subs: Object.freeze([
+      "Tamari (equal amount, gluten-free option)",
+      "Coconut aminos (equal amount, less sodium)",
+      "Worcestershire sauce (half the amount + salt)",
+      "Liquid aminos (equal amount)"
+    ]), note: "Coconut aminos is sweeter and lower sodium than soy sauce." }),
+    Object.freeze({ ingredient: "Garlic (fresh)", subs: Object.freeze([
+      "1/8 tsp garlic powder per clove",
+      "1/2 tsp minced garlic (jarred) per clove",
+      "1/2 tsp garlic flakes per clove",
+      "1/4 tsp garlic salt per clove (reduce other salt)"
+    ]), note: "Fresh garlic has a more pungent flavor than dried." }),
+    Object.freeze({ ingredient: "Lemon Juice", subs: Object.freeze([
+      "Lime juice (equal amount)",
+      "White wine vinegar (half the amount)",
+      "Apple cider vinegar (half the amount)",
+      "Orange juice (equal amount, sweeter)"
+    ]), note: "Vinegar substitutes are more acidic; use less." }),
+    Object.freeze({ ingredient: "Vanilla Extract", subs: Object.freeze([
+      "Vanilla bean paste (equal amount)",
+      "Vanilla bean (1 bean = 1 tbsp extract)",
+      "Almond extract (use half the amount)",
+      "Maple syrup (equal amount, different flavor)"
+    ]), note: "Almond extract is much stronger; use sparingly." }),
+    Object.freeze({ ingredient: "Cocoa Powder", subs: Object.freeze([
+      "Carob powder (equal amount, sweeter)",
+      "Hot chocolate mix (reduce sugar in recipe)",
+      "Melted chocolate (1 oz = 3 tbsp cocoa + 1 tbsp fat)"
+    ]), note: "Dutch-process and natural cocoa react differently with leaveners." }),
+    Object.freeze({ ingredient: "Chicken Broth", subs: Object.freeze([
+      "Vegetable broth (equal amount)",
+      "Beef broth (equal amount, darker flavor)",
+      "Bouillon cube + water (1 cube per cup)",
+      "Mushroom broth (equal amount, umami-rich)",
+      "Water + soy sauce (1 cup water + 1 tsp soy sauce)"
+    ]), note: "Homemade stock has less sodium than store-bought." }),
+  ]);
+
+  /* ===========================================================
+     UNIT CONVERSION DATA
+     =========================================================== */
+  const UNIT_DEFS = Object.freeze({
+    volume: Object.freeze([
+      Object.freeze({ id: "cup", label: "Cups", toML: 236.588 }),
+      Object.freeze({ id: "tbsp", label: "Tablespoons", toML: 14.787 }),
+      Object.freeze({ id: "tsp", label: "Teaspoons", toML: 4.929 }),
+      Object.freeze({ id: "floz", label: "Fluid Ounces", toML: 29.5735 }),
+      Object.freeze({ id: "ml", label: "Milliliters (mL)", toML: 1 }),
+      Object.freeze({ id: "l", label: "Liters (L)", toML: 1000 }),
+      Object.freeze({ id: "pint", label: "Pints", toML: 473.176 }),
+      Object.freeze({ id: "quart", label: "Quarts", toML: 946.353 }),
+      Object.freeze({ id: "gallon", label: "Gallons", toML: 3785.41 }),
+    ]),
+    weight: Object.freeze([
+      Object.freeze({ id: "g", label: "Grams (g)", toG: 1 }),
+      Object.freeze({ id: "kg", label: "Kilograms (kg)", toG: 1000 }),
+      Object.freeze({ id: "oz", label: "Ounces (oz)", toG: 28.3495 }),
+      Object.freeze({ id: "lb", label: "Pounds (lb)", toG: 453.592 }),
+      Object.freeze({ id: "mg", label: "Milligrams (mg)", toG: 0.001 }),
+    ]),
+    temperature: Object.freeze([
+      Object.freeze({ id: "f", label: "Fahrenheit (\u00B0F)" }),
+      Object.freeze({ id: "c", label: "Celsius (\u00B0C)" }),
+    ]),
+  });
+
+  /* ===========================================================
+     FRACTION PARSING PATTERNS
+     =========================================================== */
+  const FRACTION_MAP = Object.freeze({
+    "\u00BC": 0.25, "\u00BD": 0.5, "\u00BE": 0.75,
+    "\u2153": 1/3, "\u2154": 2/3, "\u215B": 0.125,
+    "\u215C": 3/8, "\u215D": 5/8, "\u215E": 7/8,
+  });
+
+  /* ===========================================================
+     UTILITY: Parse a quantity string (handles fractions)
+     =========================================================== */
+  function parseQuantity(str) {
+    console.assert(typeof str === "string", "parseQuantity: input must be string");
+    console.assert(str.length > 0, "parseQuantity: input must not be empty");
+
+    var s = str.trim();
+
+    // Unicode fractions
+    for (var key in FRACTION_MAP) {
+      if (s.indexOf(key) !== -1) {
+        var parts = s.split(key);
+        var whole = parts[0].trim();
+        var fracVal = FRACTION_MAP[key];
+        return (whole.length > 0 ? parseFloat(whole) : 0) + fracVal;
+      }
+    }
+
+    // Slash fractions like "1/2" or "1 1/2"
+    var slashMatch = s.match(/^(\d+)?\s*(\d+)\s*\/\s*(\d+)$/);
+    if (slashMatch) {
+      var wholeNum = slashMatch[1] ? parseFloat(slashMatch[1]) : 0;
+      var num = parseFloat(slashMatch[2]);
+      var den = parseFloat(slashMatch[3]);
+      if (den === 0) { return 0; }
+      return wholeNum + (num / den);
+    }
+
+    var result = parseFloat(s);
+    return isNaN(result) ? 0 : result;
+  }
+
+  /* ===========================================================
+     UTILITY: Format a number nicely for display
+     =========================================================== */
+  function formatNumber(n) {
+    console.assert(typeof n === "number", "formatNumber: input must be number");
+    console.assert(isFinite(n), "formatNumber: input must be finite");
+
+    if (n === 0) { return "0"; }
+    if (Number.isInteger(n)) { return n.toString(); }
+
+    // Show common fractions
+    var frac = n % 1;
+    var whole = Math.floor(n);
+    var FRACS = [
+      [0.125, "\u215B"], [0.25, "\u00BC"], [0.333, "\u2153"],
+      [0.375, "\u215C"], [0.5, "\u00BD"], [0.625, "\u215D"],
+      [0.667, "\u2154"], [0.75, "\u00BE"], [0.875, "\u215E"],
+    ];
+    for (var i = 0; i < FRACS.length; i++) {
+      if (Math.abs(frac - FRACS[i][0]) < 0.02) {
+        return (whole > 0 ? whole + " " : "") + FRACS[i][1];
+      }
+    }
+    // Round to 2 decimal places
+    return (Math.round(n * 100) / 100).toString();
+  }
+
+  /* ===========================================================
+     UTILITY: Parse an ingredient line
+     Returns { quantity, unit, name, original }
+     =========================================================== */
+  function parseIngredientLine(line) {
+    console.assert(typeof line === "string", "parseIngredientLine: must be string");
+    console.assert(line.trim().length > 0, "parseIngredientLine: must not be empty");
+
+    var s = line.trim();
+    var original = s;
+
+    // Match: optional quantity, optional unit, rest is name
+    var units = [
+      "cups?", "tablespoons?", "tbsp", "teaspoons?", "tsp",
+      "ounces?", "oz", "pounds?", "lbs?", "grams?", "g",
+      "ml", "milliliters?", "liters?", "l",
+      "fluid ounces?", "fl oz", "pints?", "quarts?",
+      "gallons?", "pinch(?:es)?", "dash(?:es)?",
+      "sticks?", "cans?", "large", "medium", "small", "cloves?",
+      "slices?", "pieces?", "whole", "heads?"
+    ];
+
+    var patternStr = "^([\\d\\s./\u00BC\u00BD\u00BE\u2153\u2154\u215B\u215C\u215D\u215E]+)?\\s*(" + units.join("|") + ")\\.?\\s+(.+)$";
+    var re = new RegExp(patternStr, "i");
+    var m = s.match(re);
+
+    if (m) {
+      return {
+        quantity: m[1] ? parseQuantity(m[1]) : 1,
+        unit: m[2].toLowerCase(),
+        name: m[3],
+        original: original
+      };
+    }
+
+    // Fallback: just a number + name
+    var numMatch = s.match(/^([\d\s./\u00BC\u00BD\u00BE\u2153\u2154\u215B\u215C\u215D\u215E]+)\s+(.+)$/);
+    if (numMatch) {
+      return {
+        quantity: parseQuantity(numMatch[1]),
+        unit: "",
+        name: numMatch[2],
+        original: original
+      };
+    }
+
+    return { quantity: 0, unit: "", name: s, original: original };
+  }
+
+  /* ===========================================================
+     RECIPE SCALER
+     =========================================================== */
+  function scaleRecipe(text, originalServings, desiredServings) {
+    console.assert(typeof text === "string", "scaleRecipe: text must be string");
+    console.assert(originalServings > 0 && desiredServings > 0, "scaleRecipe: servings must be positive");
+
+    var lines = text.split("\n");
+    var factor = desiredServings / originalServings;
+    var results = [];
+    var maxLines = 200; // fixed loop bound
+
+    for (var i = 0; i < lines.length && i < maxLines; i++) {
+      var trimmed = lines[i].trim();
+      if (trimmed.length === 0) { continue; }
+
+      var parsed = parseIngredientLine(trimmed);
+      if (parsed.quantity > 0) {
+        var scaled = parsed.quantity * factor;
+        var scaledText = formatNumber(scaled) +
+          (parsed.unit ? " " + parsed.unit : "") +
+          " " + parsed.name;
+        results.push({ original: parsed.original, scaled: scaledText });
+      } else {
+        results.push({ original: parsed.original, scaled: parsed.original });
+      }
+    }
+
+    return results;
+  }
+
+  /* ===========================================================
+     UNIT CONVERTER
+     =========================================================== */
+  function convertUnit(value, fromId, toId, category) {
+    console.assert(typeof value === "number" && isFinite(value), "convertUnit: value must be finite number");
+    console.assert(typeof category === "string", "convertUnit: category must be string");
+
+    if (category === "temperature") {
+      if (fromId === "f" && toId === "c") { return (value - 32) * 5 / 9; }
+      if (fromId === "c" && toId === "f") { return value * 9 / 5 + 32; }
+      return value;
+    }
+
+    var units = UNIT_DEFS[category];
+    if (!units) { return 0; }
+
+    var fromUnit = null;
+    var toUnit = null;
+    for (var i = 0; i < units.length; i++) {
+      if (units[i].id === fromId) { fromUnit = units[i]; }
+      if (units[i].id === toId) { toUnit = units[i]; }
+    }
+
+    if (!fromUnit || !toUnit) { return 0; }
+
+    if (category === "volume") {
+      return value * fromUnit.toML / toUnit.toML;
+    }
+    if (category === "weight") {
+      return value * fromUnit.toG / toUnit.toG;
+    }
+
+    return 0;
+  }
+
+  /* ===========================================================
+     NUTRITION ESTIMATOR
+     =========================================================== */
+  function estimateNutrition(ingredientName, amountGrams) {
+    console.assert(typeof ingredientName === "string", "estimateNutrition: name must be string");
+    console.assert(typeof amountGrams === "number" && amountGrams >= 0, "estimateNutrition: amount must be non-negative");
+
+    var found = null;
+    var nameLower = ingredientName.toLowerCase();
+
+    for (var i = 0; i < INGREDIENTS.length; i++) {
+      if (INGREDIENTS[i].name.toLowerCase() === nameLower) {
+        found = INGREDIENTS[i];
+        break;
+      }
+    }
+
+    if (!found) {
+      return { cal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, found: false };
+    }
+
+    var factor = amountGrams / 100;
+    return {
+      cal: Math.round(found.cal * factor),
+      protein: Math.round(found.protein * factor * 10) / 10,
+      carbs: Math.round(found.carbs * factor * 10) / 10,
+      fat: Math.round(found.fat * factor * 10) / 10,
+      fiber: Math.round(found.fiber * factor * 10) / 10,
+      found: true
+    };
+  }
+
+  /* ===========================================================
+     AMOUNT-TO-GRAMS CONVERTER (for nutrition panel)
+     =========================================================== */
+  function amountToGrams(ingredientName, amount, unit) {
+    console.assert(typeof amount === "number", "amountToGrams: amount must be number");
+    console.assert(typeof unit === "string", "amountToGrams: unit must be string");
+
+    if (unit === "g") { return amount; }
+    if (unit === "oz") { return amount * 28.3495; }
+
+    // cups: use density from database
+    if (unit === "cup") {
+      var nameLower = ingredientName.toLowerCase();
+      for (var i = 0; i < INGREDIENTS.length; i++) {
+        if (INGREDIENTS[i].name.toLowerCase() === nameLower) {
+          return amount * INGREDIENTS[i].density;
+        }
+      }
+      return amount * 240; // fallback: water density
+    }
+
+    return amount;
+  }
+
+  /* ===========================================================
+     DOM REFERENCES (captured once)
+     =========================================================== */
+  var DOM = Object.freeze({
+    tabBtns: document.querySelectorAll(".tab-btn"),
+    navLinks: document.querySelectorAll("nav a[data-nav]"),
+    panels: document.querySelectorAll(".panel"),
+    // Scaler
+    scalerOriginal: document.getElementById("scaler-original"),
+    scalerDesired: document.getElementById("scaler-desired"),
+    scalerInput: document.getElementById("scaler-input"),
+    scalerCalc: document.getElementById("scaler-calc"),
+    scalerClear: document.getElementById("scaler-clear"),
+    scalerCopy: document.getElementById("scaler-copy"),
+    scalerResult: document.getElementById("scaler-result"),
+    scalerTable: document.getElementById("scaler-table"),
+    // Converter
+    convCategory: document.getElementById("conv-category"),
+    convValue: document.getElementById("conv-value"),
+    convFrom: document.getElementById("conv-from"),
+    convTo: document.getElementById("conv-to"),
+    convResultVal: document.getElementById("conv-result-val"),
+    convSwap: document.getElementById("conv-swap"),
+    convDisplay: document.getElementById("conv-display"),
+    convDisplayText: document.getElementById("conv-display-text"),
+    convDisplayFormula: document.getElementById("conv-display-formula"),
+    // Substitutions
+    subSearchInput: document.getElementById("sub-search-input"),
+    subGrid: document.getElementById("sub-grid"),
+    // Nutrition
+    nutrIngredient: document.getElementById("nutr-ingredient"),
+    nutrAmount: document.getElementById("nutr-amount"),
+    nutrUnit: document.getElementById("nutr-unit"),
+    nutrCalc: document.getElementById("nutr-calc"),
+    nutrResult: document.getElementById("nutr-result"),
+    nutrCal: document.getElementById("nutr-cal"),
+    nutrProtein: document.getElementById("nutr-protein"),
+    nutrCarbs: document.getElementById("nutr-carbs"),
+    nutrFat: document.getElementById("nutr-fat"),
+    nutrFiber: document.getElementById("nutr-fiber"),
+  });
+
+  /* ===========================================================
+     TAB SWITCHING
+     =========================================================== */
+  function switchTab(panelId) {
+    console.assert(typeof panelId === "string", "switchTab: panelId must be string");
+    console.assert(panelId.length > 0, "switchTab: panelId must not be empty");
+
+    for (var i = 0; i < DOM.tabBtns.length; i++) {
+      var btn = DOM.tabBtns[i];
+      var isActive = btn.getAttribute("data-panel") === panelId;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-selected", isActive ? "true" : "false");
+    }
+
+    for (var j = 0; j < DOM.panels.length; j++) {
+      var panel = DOM.panels[j];
+      var show = panel.id === "panel-" + panelId;
+      panel.classList.toggle("active", show);
+    }
+
+    for (var k = 0; k < DOM.navLinks.length; k++) {
+      var link = DOM.navLinks[k];
+      link.classList.toggle("active", link.getAttribute("data-nav") === panelId);
+    }
+  }
+
+  /* ===========================================================
+     POPULATE UNIT CONVERTER SELECTS
+     =========================================================== */
+  function populateUnitSelects(category) {
+    console.assert(typeof category === "string", "populateUnitSelects: category must be string");
+    console.assert(UNIT_DEFS[category], "populateUnitSelects: invalid category");
+
+    var units = UNIT_DEFS[category];
+    DOM.convFrom.innerHTML = "";
+    DOM.convTo.innerHTML = "";
+
+    for (var i = 0; i < units.length; i++) {
+      var opt1 = document.createElement("option");
+      opt1.value = units[i].id;
+      opt1.textContent = units[i].label;
+      DOM.convFrom.appendChild(opt1);
+
+      var opt2 = document.createElement("option");
+      opt2.value = units[i].id;
+      opt2.textContent = units[i].label;
+      DOM.convTo.appendChild(opt2);
+    }
+
+    if (units.length > 1) {
+      DOM.convTo.selectedIndex = 1;
+    }
+  }
+
+  /* ===========================================================
+     RUN CONVERSION (called on every input change)
+     =========================================================== */
+  function runConversion() {
+    console.assert(DOM.convValue, "runConversion: convValue element must exist");
+    console.assert(DOM.convFrom, "runConversion: convFrom element must exist");
+
+    var val = parseFloat(DOM.convValue.value);
+    if (isNaN(val)) {
+      DOM.convResultVal.value = "";
+      DOM.convDisplay.style.display = "none";
+      return;
+    }
+
+    var cat = DOM.convCategory.value;
+    var fromId = DOM.convFrom.value;
+    var toId = DOM.convTo.value;
+    var result = convertUnit(val, fromId, toId, cat);
+    var rounded = Math.round(result * 10000) / 10000;
+
+    DOM.convResultVal.value = rounded;
+    DOM.convDisplay.style.display = "block";
+
+    var fromLabel = DOM.convFrom.options[DOM.convFrom.selectedIndex].textContent;
+    var toLabel = DOM.convTo.options[DOM.convTo.selectedIndex].textContent;
+
+    DOM.convDisplayText.textContent = val + " " + fromLabel + " = " + rounded + " " + toLabel;
+
+    if (cat === "temperature") {
+      var formula = fromId === "f" ? "(\u00B0F - 32) \u00D7 5/9 = \u00B0C" : "\u00B0C \u00D7 9/5 + 32 = \u00B0F";
+      DOM.convDisplayFormula.textContent = formula;
+    } else {
+      DOM.convDisplayFormula.textContent = "";
+    }
+  }
+
+  /* ===========================================================
+     RENDER SUBSTITUTION CARDS
+     =========================================================== */
+  function renderSubstitutions(filter) {
+    console.assert(typeof filter === "string", "renderSubstitutions: filter must be string");
+    console.assert(DOM.subGrid !== null, "renderSubstitutions: subGrid must exist");
+
+    DOM.subGrid.innerHTML = "";
+    var filterLower = filter.toLowerCase();
+    var count = 0;
+    var maxCards = 100; // fixed bound
+
+    for (var i = 0; i < SUBSTITUTIONS.length && count < maxCards; i++) {
+      var sub = SUBSTITUTIONS[i];
+      if (filterLower.length > 0 && sub.ingredient.toLowerCase().indexOf(filterLower) === -1) {
+        continue;
+      }
+
+      var card = document.createElement("div");
+      card.className = "sub-card";
+
+      var title = document.createElement("h4");
+      title.textContent = sub.ingredient;
+      card.appendChild(title);
+
+      var ul = document.createElement("ul");
+      ul.className = "sub-list";
+
+      for (var j = 0; j < sub.subs.length; j++) {
+        var li = document.createElement("li");
+        var arrow = document.createElement("span");
+        arrow.className = "sub-arrow";
+        arrow.textContent = "\u2192";
+        arrow.setAttribute("aria-hidden", "true");
+        li.appendChild(arrow);
+        li.appendChild(document.createTextNode(" " + sub.subs[j]));
+        ul.appendChild(li);
+      }
+
+      card.appendChild(ul);
+
+      if (sub.note) {
+        var note = document.createElement("p");
+        note.className = "sub-note";
+        note.textContent = sub.note;
+        card.appendChild(note);
+      }
+
+      DOM.subGrid.appendChild(card);
+      count++;
+    }
+
+    if (count === 0) {
+      var empty = document.createElement("p");
+      empty.style.color = "var(--clr-text-muted)";
+      empty.style.gridColumn = "1 / -1";
+      empty.textContent = 'No substitutions found for "' + filter + '". Try a different ingredient name.';
+      DOM.subGrid.appendChild(empty);
+    }
+  }
+
+  /* ===========================================================
+     POPULATE NUTRITION INGREDIENT SELECT
+     =========================================================== */
+  function populateNutritionSelect() {
+    console.assert(DOM.nutrIngredient !== null, "populateNutritionSelect: select must exist");
+    console.assert(INGREDIENTS.length > 0, "populateNutritionSelect: must have ingredients");
+
+    DOM.nutrIngredient.innerHTML = "";
+    for (var i = 0; i < INGREDIENTS.length; i++) {
+      var opt = document.createElement("option");
+      opt.value = INGREDIENTS[i].name;
+      opt.textContent = INGREDIENTS[i].name + " (" + INGREDIENTS[i].category + ")";
+      DOM.nutrIngredient.appendChild(opt);
+    }
+  }
+
+  /* ===========================================================
+     EVENT BINDINGS
+     =========================================================== */
+  function bindEvents() {
+    console.assert(DOM.tabBtns.length > 0, "bindEvents: tab buttons must exist");
+    console.assert(DOM.scalerCalc !== null, "bindEvents: scaler button must exist");
+
+    // Tab buttons
+    for (var i = 0; i < DOM.tabBtns.length; i++) {
+      DOM.tabBtns[i].addEventListener("click", function (e) {
+        switchTab(e.currentTarget.getAttribute("data-panel"));
+      });
+    }
+
+    // Nav links
+    for (var j = 0; j < DOM.navLinks.length; j++) {
+      DOM.navLinks[j].addEventListener("click", function (e) {
+        e.preventDefault();
+        switchTab(e.currentTarget.getAttribute("data-nav"));
+      });
+    }
+
+    // ---- Scaler ----
+    DOM.scalerCalc.addEventListener("click", function () {
+      var text = DOM.scalerInput.value.trim();
+      if (text.length === 0) { return; }
+
+      var orig = parseFloat(DOM.scalerOriginal.value);
+      var desired = parseFloat(DOM.scalerDesired.value);
+      if (!orig || orig <= 0 || !desired || desired <= 0) { return; }
+
+      var results = scaleRecipe(text, orig, desired);
+      var tbody = DOM.scalerTable.querySelector("tbody");
+      tbody.innerHTML = "";
+
+      for (var k = 0; k < results.length; k++) {
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.textContent = results[k].original;
+        var td2 = document.createElement("td");
+        td2.textContent = results[k].scaled;
+        td2.style.fontWeight = "600";
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tbody.appendChild(tr);
+      }
+
+      DOM.scalerResult.classList.add("visible");
+      DOM.scalerCopy.style.display = "inline-flex";
+    });
+
+    DOM.scalerClear.addEventListener("click", function () {
+      DOM.scalerInput.value = "";
+      DOM.scalerOriginal.value = "4";
+      DOM.scalerDesired.value = "8";
+      DOM.scalerResult.classList.remove("visible");
+      DOM.scalerCopy.style.display = "none";
+    });
+
+    DOM.scalerCopy.addEventListener("click", function () {
+      var rows = DOM.scalerTable.querySelectorAll("tbody tr");
+      var text = "";
+      for (var m = 0; m < rows.length; m++) {
+        text += rows[m].cells[1].textContent + "\n";
+      }
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text.trim());
+        DOM.scalerCopy.textContent = "Copied!";
+        setTimeout(function () { DOM.scalerCopy.textContent = "Copy Results"; }, 1500);
+      }
+    });
+
+    // ---- Converter ----
+    DOM.convCategory.addEventListener("change", function () {
+      populateUnitSelects(DOM.convCategory.value);
+      runConversion();
+    });
+
+    DOM.convValue.addEventListener("input", runConversion);
+    DOM.convFrom.addEventListener("change", runConversion);
+    DOM.convTo.addEventListener("change", runConversion);
+
+    DOM.convSwap.addEventListener("click", function () {
+      var fromIdx = DOM.convFrom.selectedIndex;
+      var toIdx = DOM.convTo.selectedIndex;
+      DOM.convFrom.selectedIndex = toIdx;
+      DOM.convTo.selectedIndex = fromIdx;
+      runConversion();
+    });
+
+    // ---- Substitutions ----
+    DOM.subSearchInput.addEventListener("input", function () {
+      renderSubstitutions(DOM.subSearchInput.value);
+    });
+
+    // ---- Nutrition ----
+    DOM.nutrCalc.addEventListener("click", function () {
+      var name = DOM.nutrIngredient.value;
+      var amount = parseFloat(DOM.nutrAmount.value);
+      var unit = DOM.nutrUnit.value;
+
+      if (!amount || amount <= 0) { return; }
+
+      var grams = amountToGrams(name, amount, unit);
+      var nutr = estimateNutrition(name, grams);
+
+      DOM.nutrCal.textContent = nutr.cal;
+      DOM.nutrProtein.textContent = nutr.protein;
+      DOM.nutrCarbs.textContent = nutr.carbs;
+      DOM.nutrFat.textContent = nutr.fat;
+      DOM.nutrFiber.textContent = nutr.fiber;
+      DOM.nutrResult.style.display = "grid";
+    });
+
+    // ---- Keyboard: Enter key triggers calculation in active panel ----
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter") { return; }
+      var active = document.querySelector(".panel.active");
+      if (!active) { return; }
+
+      if (active.id === "panel-scaler" && e.target.tagName !== "TEXTAREA") {
+        DOM.scalerCalc.click();
+      }
+      if (active.id === "panel-nutrition") {
+        DOM.nutrCalc.click();
+      }
+    });
+  }
+
+  /* ===========================================================
+     INIT
+     =========================================================== */
+  function init() {
+    console.assert(document.readyState !== "loading", "init: DOM must be ready");
+    console.assert(INGREDIENTS.length >= 50, "init: must have at least 50 ingredients");
+
+    populateUnitSelects("volume");
+    renderSubstitutions("");
+    populateNutritionSelect();
+    bindEvents();
+
+    // Check hash for direct tab linking
+    var hash = window.location.hash.replace("#", "");
+    var validTabs = ["scaler", "converter", "substitutions", "nutrition"];
+    if (validTabs.indexOf(hash) !== -1) {
+      switchTab(hash);
+    }
+  }
+
+  // Boot
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+</body>
+</html>

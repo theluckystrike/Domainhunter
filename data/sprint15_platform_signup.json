@@ -1,0 +1,408 @@
+{
+  "sprint": 15,
+  "agent": "PLATFORM SIGNUP",
+  "scan_date": "2026-05-08",
+  "dropcatch_status": {
+    "submitted": "2026-05-07",
+    "expected_verification": "2026-05-09 to 2026-05-10",
+    "current_status": "PENDING — 72hr window not yet elapsed",
+    "hours_elapsed_approx": 24,
+    "hours_remaining_approx": 48,
+    "official_timeline": "Up to 72 hours, but varies (some report 3-4 hours, others up to 1 week)",
+    "can_place_backorders": false,
+    "expedite_option": {
+      "support_email": "support@dropcatch.com",
+      "support_phone": "1-303-502-9098",
+      "method": "Contact support via form or phone during business hours — users report verification in under 1 hour after contacting support",
+      "recommendation": "CALL the phone number during business hours (Mountain Time) to expedite"
+    },
+    "action_items": [
+      "Check verification status at dropcatch.com/account",
+      "If still pending by May 9 morning, call 1-303-502-9098",
+      "Cannot place backorders until verified — this is the bottleneck"
+    ]
+  },
+  "platforms": {
+    "snapnames": {
+      "url": "https://www.snapnames.com",
+      "signup_url": "https://www.snapnames.com/registration.action",
+      "backorder_price": "$79 (only charged if domain is caught)",
+      "minimum_bid": "$69-$79",
+      "payment_methods": ["Credit card (primary)", "Wire transfer (for purchases over $25,000)", "PayPal prefunding (limited)"],
+      "deposit_required": "None — credit card on file required",
+      "signup_steps": [
+        "Go to https://www.snapnames.com",
+        "Click 'Sign Up' or 'Register'",
+        "Enter username, password, and bid alias (this is PUBLIC — choose wisely)",
+        "Enter contact information (name, address, phone)",
+        "Enter billing/credit card information",
+        "Verify email address",
+        "Account is active immediately after email verification"
+      ],
+      "how_to_search": [
+        "Use the search bar on the homepage",
+        "Enter the domain name you want (e.g., globalgeopark.org)",
+        "Results show availability, expiration date, and backorder status"
+      ],
+      "how_to_backorder": [
+        "Search for the domain name",
+        "Click 'Backorder' to add to cart, or click the name for more details",
+        "Review your cart",
+        "Complete checkout — no charge until domain is caught",
+        "View/modify orders in Buyer Dashboard > Pending Orders",
+        "SnapNames will notify you when domain becomes available",
+        "If caught and you're the only backorder: you win at $79",
+        "If caught and multiple backorders: goes to auction among backorder holders"
+      ],
+      "what_happens_when_caught": {
+        "single_backorder": "Domain is yours at the backorder price ($79)",
+        "multiple_backorders": "3-day auction among all backorder holders",
+        "auction_type": "Private auction among backorder holders only"
+      },
+      "fees": {
+        "backorder_fee": "$79 (includes 1 year registration)",
+        "auction_commission": "15% seller commission (relevant if you later sell)",
+        "renewal": "Standard renewal rates apply after first year"
+      },
+      "tips": [
+        "CRITICAL: SnapNames and NameJet share identical inventory since 2020 — NEVER backorder the same domain on both platforms or you will bid against yourself",
+        "Choose SnapNames OR NameJet for each domain, not both",
+        "Bid alias is public — do not use your real name or business name if you want anonymity",
+        "Credit card must be valid and current — if payment fails you lose the domain",
+        "You can place unlimited backorders at no upfront cost",
+        "Lower catch rate than DropCatch (fewer registrar accreditations)"
+      ],
+      "shared_inventory_with": "NameJet"
+    },
+    "dynadot": {
+      "url": "https://www.dynadot.com",
+      "signup_url": "https://www.dynadot.com/account/create",
+      "backorder_price": {
+        "standard": "$24.99 (includes registration fee for .com/.net/.org)",
+        "high_priority": "$124.99 (attempts to catch before release)",
+        "low_priority": "$64.99 (attempts to catch at release)",
+        "note": "Only charged if domain is caught"
+      },
+      "minimum_deposit": "$5.00 (required to place backorders or bid in auctions)",
+      "payment_methods": ["Credit card", "PayPal", "Wire transfer", "Account balance", "Alipay", "Union Pay"],
+      "signup_steps": [
+        "Go to https://www.dynadot.com",
+        "Click 'Create Account' or 'Sign Up'",
+        "Enter email address and password",
+        "Complete contact information",
+        "Verify email address",
+        "CRITICAL: Add $5 minimum to account balance before placing backorders",
+        "Go to Account > Add Funds",
+        "Add $5 via credit card or PayPal",
+        "Account is now backorder-ready"
+      ],
+      "how_to_search": [
+        "Go to https://www.dynadot.com/market/backorder",
+        "Use the search bar to find expiring domains",
+        "Filter by TLD, date, or keyword",
+        "Check the 'Pending Delete' list for upcoming drops"
+      ],
+      "how_to_backorder": [
+        "Navigate to the domain's backorder page",
+        "Click 'Backorder' or 'Place Backorder'",
+        "Choose priority level (standard, high, or low)",
+        "Confirm the backorder — no charge until caught",
+        "If caught and you're the only backorder: domain is yours at backorder price",
+        "If caught and multiple backorders: goes to 7-day backorder auction",
+        "Minimum bid in auction is $5"
+      ],
+      "what_happens_when_caught": {
+        "single_backorder": "Domain is yours at the backorder price",
+        "multiple_backorders": "7-day public auction (anyone can join, not just backorder holders)",
+        "auction_type": "Public 7-day auction"
+      },
+      "fees": {
+        "backorder_fee": "$24.99 standard (includes 1 year registration)",
+        "auction_deposit": "10% deposit required for bids over $2,000",
+        "renewal": "Standard Dynadot renewal rates",
+        "account_minimum": "$5 deposit or $5+ order in last 365 days"
+      },
+      "tips": [
+        "CHEAPEST backorder platform at $24.99 standard — best for budget coverage",
+        "Must have $5 balance BEFORE placing backorders — do this during signup",
+        "Lower catch rate than DropCatch (only ~15 registrar accreditations vs DropCatch's 1,200+)",
+        "Public auctions mean anyone can jump in — less control than SnapNames private auctions",
+        "High priority ($124.99) is NOT worth it for most domains — stick with standard",
+        "Good as supplementary coverage alongside DropCatch, not as primary platform",
+        "Mixed user reviews on catch success — manage expectations"
+      ]
+    },
+    "namejet": {
+      "url": "https://www.namejet.com",
+      "signup_url": "https://www.namejet.com/registration.action",
+      "backorder_price": "$79 (only charged if domain is caught)",
+      "minimum_bid": "$69",
+      "payment_methods": ["Credit card (primary)", "Wire transfer (for large purchases)"],
+      "deposit_required": "None — credit card on file required",
+      "prebid_system": {
+        "description": "NameJet uses a pre-bid/backorder system where your backorder amount IS your starting bid — it is NOT a proxy bid",
+        "how_it_works": [
+          "Enter the exact amount you're willing to pay as your backorder amount",
+          "This amount becomes your STARTING BID in any auction — not a maximum",
+          "If you're the only backorder holder, you win at your bid amount (minimum $69)",
+          "If multiple backorder holders exist, a 3-day private auction begins",
+          "During the auction, you can increase your maximum bid",
+          "Proxy bidding is used during the auction phase (auto-increments up to your max)"
+        ],
+        "critical_warning": "Your backorder amount is NOT a proxy bid — it's the literal amount you'll pay if you're the only bidder. Set it to $69 (minimum) unless you want to start higher."
+      },
+      "signup_steps": [
+        "Go to https://www.namejet.com",
+        "Click 'Sign Up' or 'Register'",
+        "Enter username, password, and bid alias (PUBLIC — same as SnapNames)",
+        "Enter contact and billing information",
+        "Enter credit card details",
+        "Verify email address",
+        "Account is active immediately"
+      ],
+      "how_to_search": [
+        "Use the search bar on the homepage",
+        "Browse Pre-Release and Pending Delete lists",
+        "Filter by TLD, keyword, or date"
+      ],
+      "how_to_backorder": [
+        "Search for the domain name",
+        "Click 'Backorder' on the domain listing",
+        "Enter your backorder amount (minimum $69 — this is your starting bid!)",
+        "Confirm the backorder",
+        "Domain is added to your backorder list",
+        "NameJet monitors and notifies you when domain enters Pre-Release or Pending Delete",
+        "If caught: win at your bid (sole backorder) or enter 3-day auction (multiple backorders)"
+      ],
+      "what_happens_when_caught": {
+        "single_backorder": "Domain is yours at your backorder bid amount",
+        "multiple_backorders": "3-day private auction among backorder holders",
+        "auction_type": "Private auction — only backorder holders can bid"
+      },
+      "fees": {
+        "backorder_fee": "$79 minimum (includes 1 year registration)",
+        "auction_commission": "15% seller commission",
+        "renewal": "Standard renewal rates"
+      },
+      "shared_with_snapnames": true,
+      "tips": [
+        "CRITICAL: Shares inventory with SnapNames — use ONE or the OTHER per domain, never both",
+        "Backorder amount = starting bid, NOT proxy bid — set to $69 minimum unless you have a reason to bid higher",
+        "NameJet is better for pre-bid strategy; SnapNames has simpler interface",
+        "If you already signed up for SnapNames, NameJet is OPTIONAL (same inventory)",
+        "RECOMMENDATION: Sign up for SnapNames instead — simpler, same results",
+        "Unlimited free backorders — no charge until you win",
+        "Keep credit card current — failed payment = lost domain"
+      ]
+    },
+    "godaddy_auctions": {
+      "url": "https://auctions.godaddy.com",
+      "membership_cost": "$4.99/year",
+      "how_to_join": [
+        "Log in to your existing GoDaddy account at godaddy.com",
+        "Navigate to https://auctions.godaddy.com",
+        "Click 'Join Now' or you'll be prompted to add membership",
+        "Review and agree to GoDaddy Auctions Membership Agreement",
+        "Pay $4.99 membership fee",
+        "Membership is active immediately"
+      ],
+      "how_it_works": {
+        "expired_domain_timeline": [
+          "Day 0: Domain expires",
+          "Day 1-25: Grace period (registrant can still renew)",
+          "Day 26-36: Domain listed as Expired Domain on GoDaddy Auctions (10-day auction)",
+          "Day 30-36: Current registrant CANNOT manually renew if there's an active bid",
+          "Day 37-42: Final Closeout auction (5 days) if no winner",
+          "Day 43: All auctions end — winner gets domain or domain releases to registry"
+        ],
+        "auction_types": [
+          "Expired domain auctions (GoDaddy-registered domains only)",
+          "Closeout auctions (final chance, lower competition)",
+          "User-listed auctions (domains listed by other GoDaddy users)"
+        ]
+      },
+      "auction_process": [
+        "Search for domains at auctions.godaddy.com",
+        "Filter by 'Expiring' to find expired domain auctions",
+        "Place a bid on domains you want",
+        "Auction runs for the listed duration",
+        "If you win, payment is due within 48 hours",
+        "Domain transfers to your account within 15 days of payment"
+      ],
+      "payment_methods": ["Credit card", "PayPal", "GoDaddy account balance"],
+      "fees": {
+        "membership": "$4.99/year",
+        "buyer_commission": "None on expired domain auctions",
+        "renewal_fee": "One year renewal fee added to winning bid",
+        "seller_commission": "15% (GoDaddy nameservers) or 25% (other nameservers)"
+      },
+      "tips": [
+        "GoDaddy eliminated their backorder service in 2024-2025 — auctions are now the only way",
+        "Only GoDaddy-registered domains appear in their expired auctions — limited inventory",
+        "Lower priority than DropCatch/SnapNames for catching specific domains",
+        "Good for browsing and opportunistic buys, not for targeted backorders",
+        "Closeout auctions (Day 37-42) often have much lower competition",
+        "Payment must be made within 48 hours of winning — have funds ready",
+        "$4.99/yr membership is worth it just for browsing access"
+      ]
+    }
+  },
+  "action_plan_15min": [
+    {
+      "minute": "0-2",
+      "action": "Check DropCatch verification status",
+      "steps": [
+        "Log in to https://www.dropcatch.com",
+        "Go to Account settings/verification section",
+        "Check if photo ID verification is approved",
+        "If still pending: note status, plan to call support if not verified by May 9",
+        "If verified: immediately search for globalgeopark.org and place backorder"
+      ]
+    },
+    {
+      "minute": "2-5",
+      "action": "Sign up for SnapNames",
+      "steps": [
+        "Go to https://www.snapnames.com",
+        "Click Register/Sign Up",
+        "Create username, password, bid alias (use something anonymous)",
+        "Enter contact info and credit card",
+        "Verify email",
+        "Search for globalgeopark.org — place backorder at $79",
+        "Search for imageeditor.net — place backorder at $79"
+      ]
+    },
+    {
+      "minute": "5-9",
+      "action": "Sign up for Dynadot + deposit $5",
+      "steps": [
+        "Go to https://www.dynadot.com",
+        "Create account with email and password",
+        "Complete contact info",
+        "Verify email",
+        "Go to Account > Add Funds",
+        "Add $5 via credit card or PayPal",
+        "Navigate to Market > Backorder",
+        "Search for globalgeopark.org — place backorder ($24.99)",
+        "Search for imageeditor.net — place backorder ($24.99)"
+      ]
+    },
+    {
+      "minute": "9-12",
+      "action": "Place backorders on all platforms",
+      "steps": [
+        "Return to DropCatch (if verified) — place backorders",
+        "On SnapNames: verify both backorders are confirmed in Buyer Dashboard > Pending Orders",
+        "On Dynadot: verify both backorders in your backorder list",
+        "DO NOT backorder on NameJet if already on SnapNames (same inventory!)",
+        "Optional: Sign up for GoDaddy Auctions ($4.99) for browsing access"
+      ]
+    },
+    {
+      "minute": "12-15",
+      "action": "Verify all orders and document",
+      "steps": [
+        "Screenshot each platform's confirmation page",
+        "Verify credit cards are valid on all platforms",
+        "Set calendar reminder: Check DropCatch verification May 9 AM",
+        "Set calendar reminder: Monitor globalgeopark.org drop date",
+        "Review: globalgeopark.org should be on 2-3 platforms, imageeditor.net on 2-3 platforms",
+        "Do NOT place olive.com backorders yet — pending investigation"
+      ]
+    }
+  ],
+  "total_upfront_cost": {
+    "dynadot_deposit": "$5.00",
+    "godaddy_membership": "$4.99",
+    "snapnames": "$0 (charged only if caught)",
+    "namejet": "$0 (skip — same inventory as SnapNames)",
+    "dropcatch": "$0 (already has account)",
+    "total_immediate": "$9.99",
+    "total_if_domains_caught": {
+      "globalgeopark_org": {
+        "dropcatch": "$59-60",
+        "snapnames": "$79",
+        "dynadot": "$24.99",
+        "note": "Only pay on ONE platform — whichever catches it first"
+      },
+      "imageeditor_net": {
+        "dropcatch": "$59-60",
+        "snapnames": "$79",
+        "dynadot": "$24.99",
+        "note": "Only pay on ONE platform"
+      }
+    }
+  },
+  "domains_to_backorder": [
+    {
+      "priority": 1,
+      "domain": "globalgeopark.org",
+      "etv": 626,
+      "status": "In grace period NOW",
+      "urgency": "HIGH — could drop any day after grace period ends",
+      "max_bid": "$200-300 (ETV $626, aim for 30-50% of value)",
+      "platforms": ["DropCatch (when verified)", "SnapNames", "Dynadot"],
+      "notes": "Place backorder on ALL three platforms immediately. Different catch systems = higher total probability."
+    },
+    {
+      "priority": 2,
+      "domain": "imageeditor.net",
+      "etv": 246,
+      "status": "clientRenewProhibited — owner may have abandoned",
+      "urgency": "MEDIUM — clientRenewProhibited suggests deletion path but timeline uncertain",
+      "max_bid": "$100-150 (ETV $246, aim for 40-60% of value)",
+      "platforms": ["DropCatch (when verified)", "SnapNames", "Dynadot"],
+      "notes": "clientRenewProhibited means registrar has locked renewal — likely heading to deletion. Place backorders on all platforms."
+    },
+    {
+      "priority": 3,
+      "domain": "olive.com",
+      "etv": 2923,
+      "status": "Pending investigation — do NOT backorder yet",
+      "urgency": "LOW — investigation needed first",
+      "max_bid": "TBD pending investigation results",
+      "platforms": ["TBD"],
+      "notes": "Premium 5-letter .com. Wait for Agent 2 (OLIVE INVESTIGATION) results before any action. Could be worth $50K-500K+ on open market regardless of SEO value. Do not tip hand by placing visible backorders."
+    }
+  ],
+  "platform_priority_ranking": [
+    {
+      "rank": 1,
+      "platform": "DropCatch",
+      "reason": "Highest catch rate (1,200+ registrar accreditations), industry leader for drop-catching",
+      "blocker": "Verification pending — cannot place backorders until verified"
+    },
+    {
+      "rank": 2,
+      "platform": "SnapNames",
+      "reason": "Strong catch rate, private auctions among backorder holders only, $79 all-in",
+      "blocker": "None — sign up immediately"
+    },
+    {
+      "rank": 3,
+      "platform": "Dynadot",
+      "reason": "Cheapest at $24.99, good supplementary coverage",
+      "blocker": "Need $5 deposit — trivial"
+    },
+    {
+      "rank": 4,
+      "platform": "NameJet",
+      "reason": "Skip — same inventory as SnapNames, redundant",
+      "blocker": "N/A"
+    },
+    {
+      "rank": 5,
+      "platform": "GoDaddy Auctions",
+      "reason": "Only for GoDaddy-registered domains, limited utility for specific targets",
+      "blocker": "$4.99 membership — optional"
+    }
+  ],
+  "critical_warnings": [
+    "SnapNames and NameJet share IDENTICAL inventory — NEVER backorder the same domain on both or you bid against yourself",
+    "DropCatch verification MUST complete before you can place backorders — this is the #1 bottleneck",
+    "globalgeopark.org is in grace period NOW — every hour of delay increases risk of someone else catching it",
+    "Do NOT place backorders on olive.com until investigation is complete — it's a premium domain that will attract attention",
+    "Keep all credit cards valid and funded — failed payment after winning = lost domain permanently",
+    "DropCatch auctions are PUBLIC — other investors can see what you're targeting and pile on"
+  ]
+}

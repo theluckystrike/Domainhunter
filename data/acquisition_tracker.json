@@ -1,0 +1,763 @@
+{
+  "updated": "2026-05-08",
+  "project": "REVENANT",
+  "sprint": 13,
+  "registered": [
+    {
+      "domain": "ingredientcalculator.com",
+      "cost": 10.46,
+      "date": "2026-05-07",
+      "registrar": "Cloudflare",
+      "status": "active",
+      "expiry": "2027-05-07",
+      "category": "recipe/cooking"
+    },
+    {
+      "domain": "pictureeditor.net",
+      "cost": 11.86,
+      "date": "2026-05-07",
+      "registrar": "Cloudflare",
+      "status": "active",
+      "expiry": "2027-05-07",
+      "category": "image tools"
+    },
+    {
+      "domain": "recipetool.net",
+      "cost": 11.86,
+      "date": "2026-05-07",
+      "registrar": "Cloudflare",
+      "status": "active",
+      "expiry": "2027-05-07",
+      "category": "recipe/cooking"
+    }
+  ],
+  "crown_jewels": [
+    {
+      "domain": "decoder.com",
+      "age_years": 30.1,
+      "created": "1996",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-26",
+      "days_remaining": 19,
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "nameservers": ["NS-1324.AWSDNS-37.ORG", "NS-2035.AWSDNS-62.CO.UK", "NS-209.AWSDNS-26.COM", "NS-547.AWSDNS-04.NET"],
+      "http_status": "SSL broken, no content — CONFIRMED ABANDONED",
+      "estimated_value": "$10,000-$100,000+",
+      "max_bid": 500,
+      "drop_probability": "very_high",
+      "action": "BACKORDER IMMEDIATELY on all 3 platforms",
+      "notes": "Single-word .com dictionary domain. 30 years old. clientRenewProhibited. AWS nameservers leftover from previous use. SSL broken, no content served. This is the highest-value drop candidate ever found in Project REVENANT.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "gamepicker.com",
+      "age_years": 26.0,
+      "created": "2000",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-05-13",
+      "days_remaining": 6,
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "nameservers": ["NS3.AFTERNIC.COM", "NS4.AFTERNIC.COM"],
+      "http_status": "Redirects to /lander — Afternic for-sale page",
+      "estimated_value": "$2,000-$25,000",
+      "max_bid": 200,
+      "drop_probability": "very_high",
+      "action": "BACKORDER NOW — 6 DAYS TO EXPIRY",
+      "notes": "26-year domain with clientRenewProhibited. Afternic NS confirms for-sale listing. Expiring in 6 days — MOST URGENT action item.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "beautifier.com",
+      "age_years": 22.9,
+      "created": "2003",
+      "registrar": "Sav.com, LLC",
+      "expiry": "2026-06-20",
+      "days_remaining": 44,
+      "status_codes": ["clientTransferProhibited"],
+      "nameservers": ["LUNLUN.NS.GIANTPANDA.COM", "YANGYANG.NS.GIANTPANDA.COM"],
+      "http_status": "HTTP 204 No Content — empty/parked",
+      "estimated_value": "$10,000-$100,000+",
+      "max_bid": 300,
+      "drop_probability": "medium",
+      "action": "MONITOR — no clientRenewProhibited yet",
+      "notes": "Single-word .com, 23 years old. GiantPanda NS = parked. No renewProhibited signal but parked and empty. If renewProhibited appears, escalate to BACKORDER immediately.",
+      "sprint_found": 13
+    }
+  ],
+  "offers_pending": [
+    {
+      "domain": "devhub.io",
+      "offer_amount": 500,
+      "walk_away": 1500,
+      "platform": "Afternic",
+      "date_submitted": "2026-05-07",
+      "status": "CANCEL — Sprint 9 debunked",
+      "follow_up_date": "2026-05-15",
+      "dr": 27,
+      "sprint9_finding": "ethereum.org backlink DOES NOT EXIST. Zero keywords, zero traffic. $500 offer was based on false premise.",
+      "revised_max_bid": 75
+    },
+    {
+      "domain": "apitools.com",
+      "offer_amount": 200,
+      "walk_away": 350,
+      "platform": "Dynadot Marketplace",
+      "date_submitted": "2026-05-07",
+      "status": "pending",
+      "follow_up_date": "2026-05-14",
+      "sprint12_whois": "Active at Dynadot, expires 2026-12-14. clientTransferProhibited. No distress signals."
+    },
+    {
+      "domain": "sitegrader.com",
+      "offer_amount": 100,
+      "walk_away": 200,
+      "platform": "WHOIS contact",
+      "date_submitted": "2026-05-07",
+      "status": "pending — clientRenewProhibited confirmed Sprint 12+13",
+      "follow_up_date": "2026-05-14",
+      "sprint13_whois": "Still clientRenewProhibited at GoDaddy. Cloudflare NS. Expires 2026-10-08. Confirmed drop Oct 2026."
+    },
+    {
+      "domain": "imageeditor.net",
+      "offer_amount": 75,
+      "walk_away": 150,
+      "platform": "WHOIS contact",
+      "date_submitted": "2026-05-07",
+      "status": "pending — clientRenewProhibited confirmed Sprint 12+13",
+      "follow_up_date": "2026-05-14",
+      "sprint13_whois": "Still clientRenewProhibited at GoDaddy. Expires 2026-09-20. Active free image editor site. Confirmed drop Sep 2026."
+    },
+    {
+      "domain": "codeguide.com",
+      "offer_amount": 50,
+      "walk_away": 100,
+      "platform": "WHOIS contact",
+      "date_submitted": "2026-05-07",
+      "status": "CANCEL — RENEWED through April 2027",
+      "follow_up_date": null,
+      "sprint13_finding": "Domain RENEWED. Registrar expiry extended to 2027-04-23 by Omnicore Software (Germany). Active management confirmed. No drop expected. Cancel offer and remove from watchlist."
+    },
+    {
+      "domain": "bestdevtools.com",
+      "offer_amount": 75,
+      "walk_away": 150,
+      "platform": "WHOIS contact",
+      "date_submitted": "2026-05-07",
+      "status": "pending — expires May 22 (15 days), DNS dead",
+      "follow_up_date": "2026-05-14",
+      "sprint13_whois": "DNS completely dead — no A record, NS not propagating. Expires May 22. Very likely to drop. Also tracking as backorder."
+    }
+  ],
+  "sprint13_offers_generated": {
+    "total": 50,
+    "total_value": 1915.66,
+    "average": 38.31,
+    "expected_acceptance_rate": "2-5%",
+    "expected_spend": "$38-96",
+    "by_niche": {
+      "dev_tools": 25,
+      "seo_marketing": 6,
+      "recipe_cooking": 5,
+      "education": 5,
+      "finance": 3,
+      "general_utility": 3,
+      "health_fitness": 2,
+      "image_media": 1
+    },
+    "by_platform": {
+      "dan_com_afternic": 25,
+      "afternic": 9,
+      "direct_whois": 7,
+      "fresh_registration": 6,
+      "godaddy_aftermarket": 1,
+      "domainmarket": 1,
+      "sav_spaceship": 1
+    },
+    "data_file": "sprint13_offers.json"
+  },
+  "backorders_pending": [
+    {
+      "domain": "decoder.com",
+      "expires": "2026-05-26",
+      "status": "CROWN JEWEL — clientRenewProhibited",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["NS-1324.AWSDNS-37.ORG", "NS-2035.AWSDNS-62.CO.UK"],
+      "platforms": ["DropCatch", "SnapNames", "Dynadot"],
+      "est_drop_date": "2026-07-08",
+      "max_bid": 500,
+      "drop_probability": "very_high",
+      "priority": 1,
+      "priority_label": "CROWN JEWEL — 19 days to expiry",
+      "human_action": "BACKORDER IMMEDIATELY on all 3 platforms",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "notes": "30-year single-word .com dictionary domain. clientRenewProhibited. SSL broken, no content. AWS NS leftover. Highest-value target ever found. GoDaddy may catch and auction internally.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "gamepicker.com",
+      "expires": "2026-05-13",
+      "status": "CRITICAL — clientRenewProhibited, 6 DAYS",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["NS3.AFTERNIC.COM", "NS4.AFTERNIC.COM"],
+      "platforms": ["DropCatch", "SnapNames", "Dynadot"],
+      "est_drop_date": "2026-06-25",
+      "max_bid": 200,
+      "drop_probability": "very_high",
+      "priority": 1,
+      "priority_label": "CRITICAL — 6 DAYS to expiry",
+      "human_action": "BACKORDER NOW — most time-sensitive domain",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "notes": "26-year domain. Afternic NS confirms for-sale. clientRenewProhibited. Will enter grace period May 13. Drop expected ~late June.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "bestdevtools.com",
+      "expires": "2026-05-22",
+      "status": "active_expiring — DNS DEAD, 15 DAYS",
+      "registrar": "1API GmbH (DNSimple)",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["ns1.dnsimple.com", "ns2.dnsimple-edge.net", "ns3.dnsimple.com", "ns4.dnsimple-edge.org"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-07-03",
+      "max_bid": 200,
+      "drop_probability": "very_high",
+      "priority": 1,
+      "priority_label": "CRITICAL — 15 days, DNS dead",
+      "human_action": "URGENT — place backorder on DropCatch + SnapNames IMMEDIATELY",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "sprint13_whois": "DNS completely dead — no A record, NS listed but not resolving. Last updated Nov 2025. 6 months inactive. Very likely to drop.",
+      "sprint_found": 10
+    },
+    {
+      "domain": "taskplanner.com",
+      "expires": "2026-05-27",
+      "status": "active_clientRenewProhibited",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["ns19.domaincontrol.com", "ns20.domaincontrol.com"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-07-09",
+      "max_bid": 75,
+      "drop_probability": "very_high",
+      "priority": 2,
+      "priority_label": "HIGH — 20 days, clientRenewProhibited confirmed",
+      "human_action": "PENDING — place backorder on DropCatch + SnapNames",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "sprint13_whois": "CONFIRMED — still clientRenewProhibited at GoDaddy. GoDaddy for-sale lander active. Will drop.",
+      "sprint_found": 10
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "expires": "2026-06-07",
+      "status": "clientRenewProhibited — dead startup ($220M OpenAI-backed)",
+      "registrar": "Wild West Domains, LLC (GoDaddy subsidiary)",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["coby.ns.cloudflare.com", "melody.ns.cloudflare.com"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-07-20",
+      "max_bid": 75,
+      "drop_probability": "very_high",
+      "priority": 2,
+      "priority_label": "HIGH — 31 days, dead startup confirmed",
+      "human_action": "PENDING — place backorder when platforms ready",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "notes": "Ghost Autonomy: autonomous driving startup, shut down Apr 2024. $220M raised. Patents sold to Applied Intuition. 403 Forbidden. Will drop.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "sushifaq.com",
+      "expires": "2026-04-10",
+      "status": "PAST EXPIRY — in auto-renew grace period NOW",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["ns75.domaincontrol.com", "ns76.domaincontrol.com"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-05-25",
+      "max_bid": 75,
+      "drop_probability": "very_high",
+      "priority": 2,
+      "priority_label": "HIGH — past expiry, in grace period",
+      "human_action": "BACKORDER immediately — could drop any day",
+      "blocker": "DropCatch verification + SnapNames signup",
+      "notes": "26-year-old sushi FAQ site (since 2000). clientRenewProhibited + past registrar expiry + GoDaddy parking = imminent drop. Registry auto-renewed to 2027 but owner hasn't paid. Drop expected within 2-4 weeks.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "cookingtool.com",
+      "expires": "2026-07-17",
+      "status": "clientRenewProhibited — NameFind for-sale lander",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["NS1.NAMEFIND.COM", "NS2.NAMEFIND.COM"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-08-29",
+      "max_bid": 50,
+      "drop_probability": "very_high",
+      "priority": 3,
+      "priority_label": "MEDIUM — 71 days",
+      "human_action": "Place backorder next month",
+      "notes": "22-year domain. NameFind NS = GoDaddy aftermarket. clientRenewProhibited. Cooking niche aligns with portfolio (ingredientcalculator.com, recipetool.net).",
+      "sprint_found": 13
+    },
+    {
+      "domain": "fileconverter.com",
+      "expires": "2026-06-20",
+      "status": "clientRenewProhibited — GoDaddy forsale lander",
+      "registrar": "GoDaddy.com, LLC",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["NS49.DOMAINCONTROL.COM", "NS50.DOMAINCONTROL.COM"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-08-02",
+      "max_bid": 75,
+      "drop_probability": "very_high",
+      "priority": 3,
+      "priority_label": "MEDIUM — 44 days",
+      "human_action": "Place backorder this month",
+      "notes": "24-year domain. High search volume keyword. GoDaddy forsale lander active. clientRenewProhibited.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "fileshare.com",
+      "expires": "2026-06-29",
+      "status": "clientRenewProhibited — Venture.com marketplace listing",
+      "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "name_servers": ["NS1.VENTURE.COM", "NS2.VENTURE.COM"],
+      "platforms": ["DropCatch", "SnapNames"],
+      "est_drop_date": "2026-08-11",
+      "max_bid": 75,
+      "drop_probability": "very_high",
+      "priority": 3,
+      "priority_label": "MEDIUM — 53 days",
+      "human_action": "Place backorder this month",
+      "notes": "25-year domain. Venture.com marketplace listing with FB Pixel + GTM tracking. clientRenewProhibited. Premium keyword.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "aidevtools.com",
+      "expires": "2027-05-06",
+      "status": "RENEWED — ELIMINATED",
+      "registrar": "NameSilo, LLC",
+      "status_codes": ["clientTransferProhibited"],
+      "platforms": [],
+      "max_bid": 0,
+      "drop_probability": "zero",
+      "priority": null,
+      "priority_label": "ELIMINATED",
+      "human_action": "CANCEL all backorders — domain was renewed",
+      "sprint_found": 10,
+      "sprint_eliminated": 12
+    }
+  ],
+  "backorder_strategy": {
+    "sprint13_discovery": "NameJet = SnapNames (identical inventory since 2020). Park.io does NOT cover .com/.org. GoDaddy killed backorders Oct 2025.",
+    "recommended_platforms": [
+      {
+        "name": "DropCatch",
+        "cost_per_backorder": 59,
+        "status": "ACCOUNT CREATED — verification PENDING",
+        "catch_rate": "Industry-leading for .com",
+        "notes": "1,200+ registrar accreditations. Standard $59 tier recommended (Discount Club deprioritized behind HugeDomains)."
+      },
+      {
+        "name": "SnapNames",
+        "cost_per_backorder": 79,
+        "status": "NO ACCOUNT — needs signup",
+        "catch_rate": "Second-tier, shares inventory with NameJet",
+        "notes": "Use EITHER SnapNames OR NameJet per domain — never both (same inventory since 2020)."
+      },
+      {
+        "name": "Dynadot",
+        "cost_per_backorder": 15,
+        "status": "NO ACCOUNT — needs signup",
+        "catch_rate": "Lower, but cheapest option",
+        "notes": "Budget catch platform. $15/backorder. DAX auction if contested."
+      }
+    ],
+    "rule": "Place each domain on 2-3 platforms. Only pay the ONE that catches. Never use NameJet + SnapNames for same domain."
+  },
+  "human_actions_pending": [
+    {
+      "action": "BACKORDER gamepicker.com — 6 DAYS TO EXPIRY",
+      "status": "CRITICAL",
+      "priority": "IMMEDIATE",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    },
+    {
+      "action": "BACKORDER decoder.com — CROWN JEWEL, 19 days to expiry",
+      "status": "CRITICAL",
+      "priority": "IMMEDIATE",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    },
+    {
+      "action": "Complete DropCatch account verification (ID + selfie + credit card)",
+      "status": "pending — BLOCKS ALL BACKORDERS",
+      "priority": "IMMEDIATE",
+      "notes": "Account created but verification pending. Required: government ID photo, selfie holding ID, credit card. Typically 1-3 business days for review.",
+      "date_added": "2026-05-07",
+      "sprint": 10
+    },
+    {
+      "action": "Create SnapNames account (snapnames.com/registration.action)",
+      "status": "pending",
+      "priority": "IMMEDIATE",
+      "notes": "Second catch platform. $79/backorder. Shares inventory with NameJet — use ONE per domain.",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    },
+    {
+      "action": "Purchase GoDaddy Auctions membership ($4.99/yr)",
+      "status": "pending",
+      "priority": "URGENT",
+      "notes": "Required to bid on GoDaddy expired auctions. decoder.com and gamepicker.com may go to GoDaddy Auction instead of public drop.",
+      "date_added": "2026-05-07",
+      "sprint": 12
+    },
+    {
+      "action": "Cancel codeguide.com offer — domain RENEWED through April 2027",
+      "status": "new",
+      "priority": "HIGH",
+      "notes": "Sprint 13 confirmed registrar expiry extended to 2027-04-23 by Omnicore Software (Germany). Active management. No drop expected.",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    },
+    {
+      "action": "Create Dynadot account — third catch platform (~$15/backorder)",
+      "status": "pending",
+      "priority": "HIGH",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    },
+    {
+      "action": "VERIFY PRICES before buying ANY GoDaddy domain",
+      "status": "PERMANENT POLICY",
+      "priority": "CRITICAL",
+      "notes": "Sprint 12 lesson: GoDaddy has 4 different marketplaces. Prices in search results mix all 4. ALWAYS verify at checkout.",
+      "date_added": "2026-05-07",
+      "sprint": 12
+    },
+    {
+      "action": "Fund DataForSEO account ($-0.03 balance)",
+      "status": "pending",
+      "priority": "HIGH",
+      "date_added": "2026-05-07",
+      "sprint": 12
+    },
+    {
+      "action": "Install crontab for automated pipeline (3 cron jobs)",
+      "status": "pending",
+      "priority": "MEDIUM",
+      "date_added": "2026-05-07",
+      "sprint": 10
+    },
+    {
+      "action": "Sign up for ExpiredDomains.net (free account)",
+      "status": "pending",
+      "priority": "MEDIUM",
+      "date_added": "2026-05-07",
+      "sprint": 10
+    },
+    {
+      "action": "Get OpenPageRank API key (free, 10K calls/hr)",
+      "status": "pending",
+      "priority": "MEDIUM",
+      "date_added": "2026-05-07",
+      "sprint": 10
+    },
+    {
+      "action": "Get DeepSeek API key — enables batch domain classification",
+      "status": "pending",
+      "priority": "MEDIUM",
+      "notes": "Pipeline v4.0 has DeepSeek integration ready (6 functions). Cost: ~$0.14/1M tokens. Set env var DEEPSEEK_API_KEY or add to config.",
+      "date_added": "2026-05-08",
+      "sprint": 13
+    }
+  ],
+  "whales_monitoring": [
+    {
+      "domain": "builder.ai",
+      "status": "active_expiring — 28 DAYS",
+      "registrar": "101domain GRS Limited",
+      "expiry_date": "2026-06-04",
+      "dr": 68,
+      "estimated_value": "$50,000-200,000",
+      "feasibility": "low",
+      "action": "Monitor DAILY — expires Jun 4",
+      "notes": "Bankrupt May 2025, redirects to Prometric. No clientRenewProhibited. SD2Labs registrant. AWS NS still active. Domain may be in insolvency proceedings. If NS die or WHOIS changes, escalate to BACKORDER immediately.",
+      "sprint13_whois": "Still at 101domain. clientTransferProhibited only. Redirects to Prometric FineTune page. Updated 2025-06-12."
+    },
+    {
+      "domain": "canoo.com",
+      "status": "active_clientRenewProhibited",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-15",
+      "dr": 55,
+      "estimated_value": "$20,000-75,000",
+      "feasibility": "low",
+      "action": "Monitor monthly — Chapter 7 bankruptcy",
+      "sprint13_whois": "CONFIRMED clientRenewProhibited. Chapter 7 bankruptcy. CEO bought assets for $4M. Domain fate uncertain."
+    },
+    {
+      "domain": "reviewer.com",
+      "status": "for-sale — BuyDomains listing",
+      "registrar": "Network Solutions, LLC",
+      "expiry_date": "2026-07-23",
+      "dr": null,
+      "age_years": 30.8,
+      "estimated_value": "$10,000-100,000+",
+      "feasibility": "low",
+      "action": "Monitor — 31yr single-word .com",
+      "notes": "BuyDomains NS. For-sale listing. Single-word .com dictionary domain. 77 days to expiry.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "jawbone.com",
+      "status": "ACTIVE — transferred to Cloudflare",
+      "registrar": "Cloudflare, Inc.",
+      "expiry_date": "2026-06-12",
+      "dr": 65,
+      "estimated_value": "$10,000-50,000",
+      "feasibility": "very_low",
+      "action": "Monitor only — actively managed",
+      "sprint13_status": "Transferred to Cloudflare. Someone is actively managing. Won't drop."
+    },
+    {
+      "domain": "fitocracy.com",
+      "status": "active_clientRenewProhibited",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-07",
+      "dr": 3,
+      "estimated_value": "$200-500",
+      "feasibility": "low",
+      "action": "Deprioritized — verified DA 3"
+    }
+  ],
+  "watchlist": [
+    {
+      "domain": "beautifier.com",
+      "expires": "2026-06-20",
+      "priority": "crown_jewel",
+      "notes": "23yr single-word .com. Sav.com registrar. GiantPanda NS (parked). HTTP 204 empty. No clientRenewProhibited yet — if it appears, BACKORDER immediately.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "debtcalc.com",
+      "expires": "2026-06-07",
+      "priority": "high",
+      "notes": "24yr finance keyword domain. Afternic NS (for-sale). NameBright registrar. 31 days to expiry.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "fileconverter.com",
+      "expires": "2026-06-20",
+      "priority": "high",
+      "notes": "24yr dev tools domain. clientRenewProhibited. GoDaddy forsale lander. Also in backorder list.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "fileshare.com",
+      "expires": "2026-06-29",
+      "priority": "high",
+      "notes": "25yr premium keyword. clientRenewProhibited. Venture.com listing. Also in backorder list.",
+      "sprint_found": 13
+    },
+    {
+      "domain": "aitoolkit.com",
+      "expires": "2026-06-12",
+      "priority": "monitor",
+      "sprint_found": 10
+    },
+    {
+      "domain": "saasmetrics.com",
+      "expires": "2026-07-31",
+      "priority": "high",
+      "sprint13_whois": "clientRenewProhibited. GoDaddy DomainControl NS (parking). Confirmed drop."
+    },
+    {
+      "domain": "codehelper.com",
+      "expires": "2026-07-17",
+      "priority": "high",
+      "sprint13_whois": "clientRenewProhibited. Afternic NS (for-sale parking). Confirmed drop."
+    },
+    {
+      "domain": "codeanalyzer.com",
+      "expires": "2026-07-20",
+      "priority": "high",
+      "sprint13_whois": "clientRenewProhibited. NameFind NS (GoDaddy for-sale parking). Confirmed drop."
+    },
+    {
+      "domain": "codingtools.com",
+      "expires": "2026-07-31",
+      "priority": "high"
+    },
+    {
+      "domain": "sitegrader.com",
+      "expires": "2026-10-08",
+      "priority": "high",
+      "sprint13_whois": "CONFIRMED clientRenewProhibited at GoDaddy. Cloudflare NS. Expires Oct 2026."
+    },
+    {
+      "domain": "imageeditor.net",
+      "expires": "2026-09-20",
+      "priority": "high",
+      "sprint13_whois": "CONFIRMED clientRenewProhibited at GoDaddy. Active free image editor site. Expires Sep 2026."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "expires": "2026-04-11",
+      "priority": "high",
+      "notes": "DA 49. UNESCO association. In auto-renew grace period. Chinese registrant abandoned. Max bid $400. Will drop within weeks.",
+      "sprint_found": 13
+    }
+  ],
+  "dead_startups": {
+    "total_tracked": 136,
+    "us_startups": 58,
+    "international_startups": 78,
+    "domains_with_drop_signals": 24,
+    "top_targets": [
+      {
+        "domain": "ghostautonomy.com",
+        "funding": "$220M",
+        "backer": "OpenAI Startup Fund",
+        "shutdown": "Apr 2024",
+        "status": "clientRenewProhibited — BACKORDER target"
+      },
+      {
+        "domain": "noogata.com",
+        "funding": "$52M",
+        "shutdown": "2024",
+        "status": "Past expiry — may have already dropped"
+      },
+      {
+        "domain": "goforward.com",
+        "company": "Forward Health",
+        "funding": "$650M",
+        "shutdown": "Jan 2025",
+        "status": "Monitoring — domain registered till 2028"
+      }
+    ],
+    "data_files": ["sprint13_crunchbase_reaper.json", "sprint13_global_hunter.json"]
+  },
+  "eliminated": [
+    {
+      "domain": "seochecker.com",
+      "reason": "Redirects to SEOptimer — no standalone value",
+      "expires": "2026-05-08",
+      "sprint_eliminated": 10
+    },
+    {
+      "domain": "mortgagecalc.com",
+      "reason": "GoDaddy Corporate / Bankrate owned — will not drop",
+      "expires": "2026-06-15",
+      "sprint_eliminated": 10
+    },
+    {
+      "domain": "stackreview.com",
+      "reason": "HugeDomains listing, will NOT drop. Backorder futile. Zero keywords.",
+      "expires": "2026-07-08",
+      "sprint_eliminated": 10
+    },
+    {
+      "domain": "aidevtools.com",
+      "reason": "Owner renewed during NameSilo 30-day grace period. Expiry extended to 2027-05-06.",
+      "expires": "2027-05-06",
+      "sprint_eliminated": 12
+    },
+    {
+      "domain": "codeguide.com",
+      "reason": "RENEWED through April 2027 by Omnicore Software (Germany). Active management confirmed. Registrar expiry 2027-04-23.",
+      "expires": "2027-04-23",
+      "sprint_eliminated": 13
+    },
+    {
+      "domain": "devtools.io",
+      "reason": "Zero keywords, zero traffic. Max $100 brand value only. Debunked Sprint 10.",
+      "expires": "2026-07-04",
+      "sprint_eliminated": 13
+    },
+    {
+      "domain": "toolchain.io",
+      "reason": "Zero keywords, zero traffic. WHOIS timed out, DNS confirms active (Spaceship NS). May never drop.",
+      "expires": "2026-07-07",
+      "sprint_eliminated": 13
+    },
+    {
+      "domain": "nanowrimo.org",
+      "reason": "Registered until 2030. Pre-paid 5+ years. Hosting unrelated content — sold/transferred.",
+      "verified_date": "2026-05-07",
+      "sprint_eliminated": 12
+    },
+    {
+      "domain": "finetuneai.com",
+      "reason": "Redirects to Prometric (major company). Active management. Low drop probability despite approaching expiry.",
+      "expires": "2026-05-26",
+      "sprint_eliminated": 13,
+      "notes": "Keep monitoring in case Prometric lets it lapse — would be incredible catch. But not worth a backorder bid."
+    }
+  ],
+  "lessons_learned": [
+    {
+      "sprint": 12,
+      "lesson": "GoDaddy has 4 different marketplaces that are trivially confused",
+      "financial_impact": "Prevented $3,605 in overspending"
+    },
+    {
+      "sprint": 12,
+      "lesson": "Expired domains in grace period can be renewed — never assume a drop",
+      "financial_impact": "Saved $50 backorder bid (aidevtools.com)"
+    },
+    {
+      "sprint": 13,
+      "lesson": "NameJet = SnapNames — identical inventory since 2020. Never backorder same domain on both.",
+      "financial_impact": "Prevents bidding against yourself and inflating prices"
+    },
+    {
+      "sprint": 13,
+      "lesson": "Park.io does NOT cover .com or .org — ccTLDs only (.io, .ly, .co)",
+      "financial_impact": "Prevents wasting $99/domain on futile backorders"
+    },
+    {
+      "sprint": 13,
+      "lesson": "GoDaddy discontinued backorders Oct 2025 — auction-only now",
+      "financial_impact": "Redirects strategy to DropCatch + SnapNames + Dynadot"
+    },
+    {
+      "sprint": 13,
+      "lesson": "Dead startup strategy is VALIDATED — cubyn.com (French, $150M) caught by DropCatch Mar 2025",
+      "financial_impact": "Proves the pipeline works. 136 dead startups now tracked."
+    }
+  ],
+  "financials": {
+    "budget_total": 600.00,
+    "budget_spent": 34.98,
+    "budget_remaining": 565.02,
+    "breakdown": {
+      "registrations": 34.18,
+      "dataforseo_api": 0.80,
+      "total_spent": 34.98,
+      "offers_expected_spend": "38-96 (2-5% of $1,916 total offers)",
+      "backorders_max_bids": 1325.00,
+      "backorders_expected_spend": "118-375 (2-3 domains caught)",
+      "max_theoretical_exposure": 1925.98
+    },
+    "cumulative_verification_savings": 4850.00,
+    "notes": "Sprint 13: No new spend. 50 offers generated ($1,916 total). 9 active backorders ($1,325 max bids). Expected actual spend if 2-3 domains caught: $118-$375. Budget healthy at $565.02 remaining."
+  },
+  "pipeline": {
+    "version": "4.0",
+    "loc": 2682,
+    "file": "daily_hunter.py",
+    "sprint13_additions": {
+      "lines_added": 655,
+      "functions_added": 20,
+      "dataclasses_added": 3,
+      "features": ["DeepSeek V3 Batch Classification", "OpenRank Bulk Authority Check", "Expiring Domain Monitor"]
+    },
+    "flow": "Sources(5) → Dedup → OpenPageRank → OpenRank → DA Filter → DataForSEO → Classify → PRICE_VERIFY → DeepSeek → OpenRank Authority → Expiry Monitor → Store → Alert"
+  }
+}

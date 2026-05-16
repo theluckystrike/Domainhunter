@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Porkbun Batch Price Checker</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: monospace; background: #0a0a0a; color: #e0e0e0; padding: 2rem; }
+    h1 { color: #ff6b9d; margin-bottom: 1rem; }
+    .instructions { background: #1a1a2e; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #333; }
+    .instructions h2 { color: #88ccff; margin-bottom: 0.5rem; }
+    .instructions ol { padding-left: 1.5rem; }
+    .instructions li { margin-bottom: 0.5rem; }
+    .instructions code { background: #2a2a4e; padding: 2px 6px; border-radius: 3px; color: #ff6b9d; }
+    pre { background: #1a1a2e; padding: 1rem; border-radius: 8px; overflow-x: auto; border: 1px solid #333; margin: 1rem 0; font-size: 0.85rem; line-height: 1.5; }
+    .copy-btn { background: #ff6b9d; color: #0a0a0a; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; margin: 0.5rem 0; }
+    .copy-btn:hover { background: #ff8db5; }
+    .warning { background: #2a1a0a; border: 1px solid #ff6b00; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+    .warning strong { color: #ff6b00; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th { background: #1a1a2e; color: #88ccff; padding: 0.5rem; text-align: left; border-bottom: 2px solid #333; }
+    td { padding: 0.5rem; border-bottom: 1px solid #1a1a1a; }
+    .premium { color: #ff4444; font-weight: bold; }
+    .affordable { color: #00ff88; font-weight: bold; }
+    .risk-high { background: #2a0a0a; }
+    .risk-low { background: #0a2a0a; }
+  </style>
+</head>
+<body>
+  <h1>Porkbun Batch Domain Price Checker</h1>
+  
+  <div class="warning">
+    <strong>CRITICAL:</strong> epic.lol and boss.mom were found to be PREMIUM domains at $2,183.84/yr despite showing as "available" in DNS/WHOIS. 
+    Many registries mark common dictionary words as premiums. <strong>Always verify actual pricing before buying.</strong>
+  </div>
+
+  <div class="instructions">
+    <h2>How to Use</h2>
+    <ol>
+      <li>Go to <a href="https://porkbun.com" style="color:#ff6b9d">porkbun.com</a> and log in</li>
+      <li>Open browser DevTools (Cmd+Option+J on Mac)</li>
+      <li>Paste the script below into the Console tab</li>
+      <li>Press Enter — it will check each domain and show real prices</li>
+      <li>Results appear in the console as a table</li>
+    </ol>
+  </div>
+
+  <h2>Browser Console Script</h2>
+  <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('script').textContent)">Copy Script</button>
+  <pre id="script">
+// === PORKBUN BATCH PRICE CHECKER ===
+// Paste this in your browser console at porkbun.com
+// It uses Porkbun's internal search API (same session auth)
+
+const DOMAINS = [
+  // Hair ($1.54 base)
+  'silk.hair','glow.hair','pure.hair','bold.hair','soft.hair','gold.hair',
+  'wave.hair','curl.hair','jade.hair','mint.hair','rose.hair','lush.hair',
+  'wild.hair','long.hair','flex.hair',
+  // Skin ($1.54 base)
+  'glow.skin','pure.skin','silk.skin','soft.skin','gold.skin','bare.skin',
+  'rose.skin','mist.skin','mint.skin','dawn.skin',
+  // Beauty ($1.54 base)
+  'ruby.beauty','pure.beauty','bold.beauty','glow.beauty','dawn.beauty',
+  'wild.beauty','lush.beauty','silk.beauty','rose.beauty','soft.beauty',
+  // Quest ($1.54 base)
+  'ghost.quest','wolf.quest','sus.quest',
+  // LOL ($1.54 base)
+  'epic.lol','chad.lol','wild.lol',
+  // Monster ($1.54 base)
+  'your.monster','chad.monster','foam.monster',
+  // Click ($1.54 base)
+  'do.click','go.click','fork.click','dash.click',
+  // Beer ($1.54 base)
+  'hop.beer','hops.beer','pine.beer','lime.beer','plum.beer',
+  // Mom ($1.54 base)
+  'boss.mom','best.mom','play.mom','wise.mom',
+  // Rest/Pics/Garden ($1.54 base)
+  'good.rest','star.pics','cool.pics','dew.garden',
+  // Surf ($1.54 base)
+  'tide.surf','dawn.surf','dusk.surf','mist.surf','gold.surf',
+  // Best ($1.72 base)
+  'stay.best','win.best','code.best','data.best','cook.best',
+  // Space ($1.96 base)
+  'hack.space','zen.space','dawn.space','mist.space',
+];
+
+const results = [];
+const DELAY_MS = 2000; // 2 sec between checks (be nice)
+
+async function checkDomain(domain) {
+  try {
+    const resp = await fetch(`/checkout/api/checkDomain?search=${encodeURIComponent(domain)}`, {
+      method: 'GET',
+      credentials: 'same-origin',
+    });
+    const data = await resp.json();
+    return data;
+  } catch (e) {
+    return { error: e.message };
+  }
+}
+
+async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+console.log(`%c=== PORKBUN BATCH PRICE CHECK: ${DOMAINS.length} domains ===`, 'color: #ff6b9d; font-size: 16px');
+
+for (let i = 0; i < DOMAINS.length; i++) {
+  const domain = DOMAINS[i];
+  const data = await checkDomain(domain);
+  
+  let price = '?';
+  let renew = '?';
+  let isPremium = false;
+  let status = 'unknown';
+  
+  // Try to extract pricing from response
+  if (data && data.pricing) {
+    price = data.pricing.registration || '?';
+    renew = data.pricing.renewal || '?';
+    isPremium = data.premium === true || parseFloat(price) > 50;
+    status = data.avail === 'yes' ? 'available' : 'taken';
+  } else if (data && data.domains) {
+    // Alternative response format
+    const match = data.domains?.find(d => d.domain === domain);
+    if (match) {
+      price = match.price || match.registration || '?';
+      renew = match.renewal || '?';
+      isPremium = match.premium || parseFloat(price) > 50;
+      status = match.available ? 'available' : 'taken';
+    }
+  }
+  
+  const result = { domain, price, renew, isPremium, status, raw: data };
+  results.push(result);
+  
+  if (isPremium) {
+    console.log(`%c  PREMIUM: ${domain} — $${price}/yr (renews $${renew}/yr) SKIP!`, 'color: #ff4444; font-weight: bold');
+  } else if (status === 'available') {
+    console.log(`%c  OK: ${domain} — $${price}/yr (renews $${renew}/yr)`, 'color: #00ff88');
+  } else {
+    console.log(`  ${status}: ${domain} — $${price}/yr`, '');
+  }
+  
+  // Progress
+  if ((i + 1) % 10 === 0) {
+    console.log(`%c  ... ${i + 1}/${DOMAINS.length} checked ...`, 'color: #888');
+  }
+  
+  if (i < DOMAINS.length - 1) await sleep(DELAY_MS);
+}
+
+// Summary
+const affordable = results.filter(r => !r.isPremium && r.status === 'available');
+const premiums = results.filter(r => r.isPremium);
+const taken = results.filter(r => r.status === 'taken');
+
+console.log('\n%c=== RESULTS ===', 'color: #ff6b9d; font-size: 16px');
+console.log(`%c  Affordable + Available: ${affordable.length}`, 'color: #00ff88; font-size: 14px');
+console.log(`%c  PREMIUM (skip): ${premiums.length}`, 'color: #ff4444; font-size: 14px');
+console.log(`  Taken: ${taken.length}`);
+
+if (affordable.length > 0) {
+  console.log('\n%c  BUY THESE:', 'color: #00ff88; font-weight: bold');
+  console.table(affordable.map(r => ({
+    Domain: r.domain,
+    Price: `$${r.price}/yr`,
+    Renewal: `$${r.renew}/yr`,
+  })));
+}
+
+if (premiums.length > 0) {
+  console.log('\n%c  PREMIUM — DO NOT BUY:', 'color: #ff4444; font-weight: bold');
+  console.table(premiums.map(r => ({
+    Domain: r.domain,
+    Price: `$${r.price}/yr`,
+    Renewal: `$${r.renew}/yr`,
+  })));
+}
+
+// Save results to clipboard
+const report = results.map(r => `${r.domain}\t${r.status}\t$${r.price}\t$${r.renew}\t${r.isPremium ? 'PREMIUM' : 'ok'}`).join('\n');
+navigator.clipboard.writeText(report).then(() => {
+  console.log('%c  Results copied to clipboard (tab-separated)', 'color: #88ccff');
+});
+  </pre>
+
+  <h2 style="margin-top: 2rem;">Premium Risk Assessment</h2>
+  <p style="color: #888; margin-bottom: 1rem;">Based on registry behavior patterns. Higher risk = more likely to be premium-priced.</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>TLD</th>
+        <th>Registry</th>
+        <th>Base Price</th>
+        <th>Premium Risk</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="risk-high">
+        <td>.lol</td><td>Uniregistry/GoDaddy</td><td>$1.54</td>
+        <td class="premium">VERY HIGH</td>
+        <td>epic.lol confirmed $2,183/yr. Most dictionary words are premium.</td>
+      </tr>
+      <tr class="risk-high">
+        <td>.mom</td><td>Uniregistry/GoDaddy</td><td>$1.54</td>
+        <td class="premium">VERY HIGH</td>
+        <td>boss.mom confirmed $2,183/yr. Same registry as .lol.</td>
+      </tr>
+      <tr class="risk-high">
+        <td>.click</td><td>Uniregistry/GoDaddy</td><td>$1.54</td>
+        <td class="premium">VERY HIGH</td>
+        <td>Same registry. Short action words likely premium.</td>
+      </tr>
+      <tr class="risk-high">
+        <td>.pics</td><td>Uniregistry/GoDaddy</td><td>$1.54</td>
+        <td class="premium">HIGH</td>
+        <td>Same registry. Common words likely premium.</td>
+      </tr>
+      <tr class="risk-high">
+        <td>.help</td><td>Identity Digital</td><td>$1.54</td>
+        <td class="premium">HIGH</td>
+        <td>Identity Digital is aggressive with premiums.</td>
+      </tr>
+      <tr class="risk-high">
+        <td>.best</td><td>BestTLD</td><td>$1.72</td>
+        <td class="premium">HIGH</td>
+        <td>Common motivational words likely premium.</td>
+      </tr>
+      <tr>
+        <td>.quest</td><td>XYZ Registry</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>XYZ is less aggressive but gaming words may be reserved.</td>
+      </tr>
+      <tr>
+        <td>.monster</td><td>XYZ Registry</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Same XYZ registry.</td>
+      </tr>
+      <tr>
+        <td>.skin</td><td>XYZ Registry</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Beauty words could be premium.</td>
+      </tr>
+      <tr>
+        <td>.hair</td><td>XYZ Registry</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Hair-related words could be premium.</td>
+      </tr>
+      <tr>
+        <td>.beauty</td><td>XYZ Registry</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Beauty-related words could be premium.</td>
+      </tr>
+      <tr class="risk-low">
+        <td>.beer</td><td>Famous Four Media</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Niche TLD, fewer premiums expected.</td>
+      </tr>
+      <tr class="risk-low">
+        <td>.surf</td><td>Famous Four Media</td><td>$1.54</td>
+        <td class="affordable">LOW</td>
+        <td>Niche TLD, uncommon enough to avoid premiums.</td>
+      </tr>
+      <tr class="risk-low">
+        <td>.garden</td><td>Identity Digital</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Identity Digital but garden words less premium.</td>
+      </tr>
+      <tr class="risk-low">
+        <td>.rest</td><td>Neustar</td><td>$1.54</td>
+        <td style="color: #ffaa00;">MEDIUM</td>
+        <td>Sleep/wellness words may be premium.</td>
+      </tr>
+      <tr class="risk-low">
+        <td>.space</td><td>Radix</td><td>$1.96</td>
+        <td class="affordable">LOW-MED</td>
+        <td>Radix has fewer premiums than Uniregistry.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning" style="margin-top: 2rem;">
+    <strong>LESSON LEARNED:</strong> DNS/WHOIS availability checks cannot detect registry premium pricing. 
+    A domain showing as "available" via NXDOMAIN may cost $50-$5,000+/yr at the registry level.
+    <strong>Always verify actual registrar pricing before buying.</strong>
+    The browser script above is the only reliable way without Porkbun API keys.
+  </div>
+
+  <footer style="color: #555; margin-top: 3rem; border-top: 1px solid #222; padding-top: 1rem;">
+    Domain Hunter Price Checker v1.1 | 2026-05-01
+  </footer>
+</body>
+</html>

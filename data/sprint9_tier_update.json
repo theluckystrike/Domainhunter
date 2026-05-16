@@ -1,0 +1,108 @@
+[
+  {
+    "domain": "globalgeopark.org",
+    "previous_tier": 1,
+    "new_tier": 1,
+    "previous_max_bid": 350,
+    "new_max_bid": 400,
+    "change_reason": "UNESCO backlink claim DEBUNKED (UNESCO links to globalgeoparksnetwork.org instead), but 814 keywords and $3,623 ETV CONFIRMED by DataForSEO. 249 US English keywords with 46 in top 10 including 'geological park' (pos 5), 'geoparks' (pos 8). Educational niche is clean and defensible. Raising bid because the core value proposition (real traffic, real keywords) is verified. The UNESCO link was bonus, not foundation.",
+    "verification_summary": {
+      "dataforseo_etv": 3623.34,
+      "dataforseo_keywords": 814,
+      "unesco_backlink": "DOES NOT EXIST",
+      "spam_assessment": "clean",
+      "trademark_risk": "low",
+      "confidence": "high"
+    }
+  },
+  {
+    "domain": "jerusalemonline.com",
+    "previous_tier": 1,
+    "new_tier": 3,
+    "previous_max_bid": 250,
+    "new_max_bid": 50,
+    "change_reason": "CRITICAL DOWNGRADE. DataForSEO confirms ZERO keywords and ZERO traffic despite HypeStat claiming 4,564 RD and 2.7M backlinks. A domain with zero Google rankings despite massive claimed backlinks is either penalized or the metrics are fraudulent. The 99.4% follow ratio (2.76M follow vs 17K nofollow) is a classic spam indicator. This is a fitocracy.com repeat — inflated metrics hiding zero real value.",
+    "verification_summary": {
+      "dataforseo_etv": 0,
+      "dataforseo_keywords": 0,
+      "claimed_backlinks": 2781919,
+      "claimed_referring_domains": 4564,
+      "spam_assessment": "suspect",
+      "trademark_risk": "moderate",
+      "confidence": "high"
+    }
+  },
+  {
+    "domain": "fiskerinc.com",
+    "previous_tier": 2,
+    "new_tier": "DO NOT PURSUE",
+    "previous_max_bid": 200,
+    "new_max_bid": 0,
+    "change_reason": "REMOVED FROM ALL TIERS. Triple disqualification: (1) TRADEMARK RISK — 'Fisker' is a personal name trademark held by the bankruptcy estate, usage would trigger legal action. (2) DOMAIN LOCK — clientRenewProhibited means domain likely won't drop at all, controlled by bankruptcy estate. (3) WASTING ASSET — all 10 keywords are navigational for a dead brand with -50% quarterly search volume decline. Even the press backlinks (Bloomberg, CNBC, WSJ) can't be leveraged without using the Fisker brand.",
+    "verification_summary": {
+      "dataforseo_etv": 70.86,
+      "dataforseo_keywords": 13,
+      "trademark_risk": "VERY HIGH",
+      "domain_lock": "clientRenewProhibited",
+      "all_keywords_navigational": true,
+      "search_volume_declining": "-50% quarterly",
+      "confidence": "high"
+    }
+  },
+  {
+    "domain": "sushifaq.com",
+    "previous_tier": 2,
+    "new_tier": 2,
+    "previous_max_bid": 150,
+    "new_max_bid": 75,
+    "change_reason": "REDUCED BID. DA 51 claim is unverifiable and contradicts the reality of $6.22 ETV and zero keywords in top 30. Best position is #40. Lost 21 keywords recently. However: (1) 15 new keywords appearing (recovery signal), (2) 26-year domain age, (3) clean food niche, (4) no trademark issues. The domain has speculative value for a food portfolio but the DA/RD claims appear inflated relative to actual performance. Keeping at Tier 2 with reduced bid as a speculative food niche play.",
+    "verification_summary": {
+      "dataforseo_etv": 6.22,
+      "dataforseo_keywords": 20,
+      "claimed_da": 51,
+      "claimed_rd": 769,
+      "best_position": 40,
+      "keywords_lost": 21,
+      "keywords_new": 15,
+      "spam_assessment": "moderate",
+      "trademark_risk": "none",
+      "confidence": "low"
+    }
+  },
+  {
+    "domain": "devhub.io",
+    "previous_tier": 2,
+    "new_tier": 3,
+    "previous_max_bid": 500,
+    "new_max_bid": 75,
+    "change_reason": "CRITICAL DOWNGRADE. Two key claims debunked: (1) ethereum.org backlink DOES NOT EXIST — devhub.io linked TO ethereum repos, not the reverse. Ethereum.org developer tools page has no mention of devhub.io. (2) Zero keywords, zero traffic in DataForSEO despite DR 27 with 275 RD. The $500 offer was based on a false premise. DR 27 with a .io TLD has some residual value for a tech site redirect, but max $75.",
+    "verification_summary": {
+      "dataforseo_etv": 0,
+      "dataforseo_keywords": 0,
+      "ahrefs_dr": 27,
+      "ahrefs_rd": 275,
+      "ethereum_backlink": "FALSE — link direction was reversed",
+      "spam_assessment": "unknown",
+      "trademark_risk": "low",
+      "confidence": "high"
+    }
+  },
+  {
+    "domain": "lagerhousedetroit.com",
+    "previous_tier": 2,
+    "new_tier": 3,
+    "previous_max_bid": 150,
+    "new_max_bid": 30,
+    "change_reason": "DOWNGRADE. DataForSEO confirms zero keywords, zero traffic. The business operates using thelagerhouse.com as its primary domain — this is an abandoned secondary domain. DA 53 with only 89 RD from directory/review sites has limited value. Local restaurant directory links (TripAdvisor, Yelp, DoorDash) provide minimal redirect equity. Only worth a minimum bid as a food niche domain.",
+    "verification_summary": {
+      "dataforseo_etv": 0,
+      "dataforseo_keywords": 0,
+      "claimed_da": 53,
+      "claimed_rd": 89,
+      "primary_site": "thelagerhouse.com",
+      "spam_assessment": "clean",
+      "trademark_risk": "low-moderate",
+      "confidence": "medium"
+    }
+  }
+]

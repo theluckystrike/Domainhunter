@@ -12,7 +12,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     """Immutable pipeline configuration loaded from .env file."""
 
-    model_config = {"frozen": True, "env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {"frozen": True, "env_file": ".env", "env_file_encoding": "utf-8", "extra": "ignore"}
 
     # SCOUT API keys
     whoisfreaks_api_key: str = ""
@@ -33,6 +33,23 @@ class Settings(BaseSettings):
 
     # ORACLE + SPECTRE
     anthropic_api_key: str = ""
+
+    # CLASSIFIER (Sprint 3 — DeepSeek)
+    deepseek_api_key: str = ""
+
+    # REGISTRAR (Dynadot backorders)
+    dynadot_api_key: str = ""
+
+    # REGISTRAR (DropCatch backorders — via NameBright OAuth2)
+    # Format: client_id = "accountname:appname"
+    # Setup: https://www.namebright.com/Settings#Api
+    dropcatch_client_id: str = ""
+    dropcatch_client_secret: str = ""
+
+    # Sprint 19 — Drop Monitor
+    drop_monitor_db_path: str = "data/domain_monitoring.db"
+    monitored_domains_path: str = "scripts/monitored_domains.json"
+    rdap_rate_limit: float = 3.0
 
     # Infrastructure
     database_url: str = "sqlite:///domainhunter.db"

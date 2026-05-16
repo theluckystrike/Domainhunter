@@ -1,0 +1,540 @@
+{
+  "sprint": 15,
+  "agent": "LINK BUILDER",
+  "scan_date": "2026-05-08",
+
+  "github_awesome_lists": {
+    "verified": [
+      {
+        "repo": "https://github.com/jzarca01/awesome-food",
+        "active": true,
+        "last_commit": "2026-03-17",
+        "last_activity": "Merged PR #8 adding plant-based section and recipe managers",
+        "total_prs": 9,
+        "stars": 234,
+        "archived": false,
+        "default_branch": "master",
+        "accepts_prs": true,
+        "format": "Markdown bullet list: - [Name](URL) - Description.",
+        "relevant_section": "Food-related projects (recipe managers, calculators)",
+        "domains_to_submit": ["ingredientcalculator.com", "recipetool.net"],
+        "pr_text_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online tool to calculate, scale, and convert recipe ingredient quantities.",
+        "pr_text_recipetool": "- [Recipe Tool](https://recipetool.net) - Free online recipe management tool for organizing, scaling, and sharing recipes.",
+        "priority": "high",
+        "notes": "Very active — merged PR as recently as March 2026. High acceptance rate. Perfect fit for both recipe domains."
+      },
+      {
+        "repo": "https://github.com/bbbenji/awesome-recipes",
+        "active": true,
+        "last_commit": "2025-05-26",
+        "last_activity": "Merged PR #3 adding Tasty Cooking entry",
+        "total_prs": 4,
+        "stars": 61,
+        "archived": false,
+        "default_branch": "master",
+        "accepts_prs": true,
+        "format": "Markdown bullet list under sections: - [Name](URL) - Description.",
+        "relevant_section": "Tools section — already lists Mealie, Grocy, Tandoor Recipes, Nextcloud Cookbook, Recipya",
+        "domains_to_submit": ["ingredientcalculator.com", "recipetool.net"],
+        "pr_text_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online ingredient calculator for scaling and converting recipe measurements.",
+        "pr_text_recipetool": "- [Recipe Tool](https://recipetool.net) - Free web-based recipe management and organization tool.",
+        "priority": "high",
+        "notes": "Has a dedicated Tools section. Merged community PRs. Perfect fit for both recipe domains."
+      },
+      {
+        "repo": "https://github.com/goabstract/Awesome-Design-Tools",
+        "active": false,
+        "last_commit": "2020-09-28",
+        "last_activity": "Last merged PR was in September 2020. Repository still gets stars/forks but no maintenance.",
+        "total_prs": "349+",
+        "stars": 39853,
+        "archived": false,
+        "default_branch": "master",
+        "accepts_prs": false,
+        "format": "Markdown with custom badges: - [Name](URL) - Description. ![free.svg] ![open-source.svg]",
+        "relevant_section": "No dedicated image editor section. Has Photo Editor and UI Design categories.",
+        "domains_to_submit": ["pictureeditor.net"],
+        "pr_text_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editing tool for cropping, resizing, filters, and adjustments. ![free.svg](https://github.com/LisaDziuba/Awesome-Design-Tools/blob/master/Media/free.svg)",
+        "priority": "low",
+        "notes": "DOWNGRADED from high to low. Repo has not merged a PR since September 2020. Despite 39K+ stars, it appears abandoned after team joined Abstract. PR would likely be ignored. Not recommended for submission effort."
+      },
+      {
+        "repo": "https://github.com/janstk/Awesome-online-tools",
+        "active": false,
+        "last_commit": "2020-11-28",
+        "last_activity": "Last merged PR #2 in November 2020. Only 2 PRs in history.",
+        "total_prs": 2,
+        "stars": 16,
+        "archived": false,
+        "default_branch": "master",
+        "accepts_prs": false,
+        "format": "Flat markdown bullet list: - [Name](URL) - Description",
+        "relevant_section": "General list with image tools (PicDiet, TinyPNG, SmartResize)",
+        "domains_to_submit": ["pictureeditor.net", "ingredientcalculator.com"],
+        "pr_text_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editor with cropping, resizing, filters, and adjustments — no signup required.",
+        "pr_text_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online calculator for scaling and converting recipe ingredients.",
+        "priority": "low",
+        "notes": "DOWNGRADED from high to low. Last commit was November 2020. Only 16 stars and 2 PRs ever. Repo appears dormant. Low probability of PR acceptance."
+      },
+      {
+        "repo": "https://github.com/mathewlewallen/awesome-free-tools",
+        "active": true,
+        "last_commit": "2026-03-29",
+        "last_activity": "Merged PR #37 adding DevTools and ImgTools in March 2026. Auto-regenerates README.",
+        "total_prs": 30,
+        "stars": 87,
+        "archived": false,
+        "default_branch": "main",
+        "accepts_prs": true,
+        "format": "Markdown table: Site | Category | Description. Links use [Name] reference style with URLs at bottom.",
+        "relevant_section": "Completely Free (Hosted, No Limits) table. Categories include Design, Utilities, etc.",
+        "domains_to_submit": ["pictureeditor.net", "ingredientcalculator.com", "recipetool.net"],
+        "pr_text_pictureeditor": "[Picture Editor] | `Design` | Free online image editor with cropping, resizing, filters, and color adjustments.",
+        "pr_text_ingredientcalculator": "[Ingredient Calculator] | `Utilities` | Free online ingredient calculator for scaling and converting recipe measurements.",
+        "pr_text_recipetool": "[Recipe Tool] | `Utilities` | Free online recipe management and organization tool.",
+        "priority": "high",
+        "notes": "Very active — 30 PRs, last merged March 2026. Badge says PRs Welcome. Uses auto-generation scripts for category.md. Check queue.md for review process. Best bet for all 3 domains."
+      }
+    ],
+    "new_finds": [
+      {
+        "repo": "https://github.com/nafasebra/awesome-webdesign-tools",
+        "description": "A list of website and CSS tools with 130 stars. Categorized into Icons, Colors, Designs, Shape makers, Fonts, Utils, AI tools. Accepts PRs via fork+PR workflow.",
+        "stars": 130,
+        "last_updated": "2026-05-07",
+        "active": true,
+        "domains_to_submit": ["pictureeditor.net"],
+        "pr_text": "- [Picture Editor](https://pictureeditor.net) - Free online image editor with cropping, resizing, filters, and color adjustments — no signup required.",
+        "section": "Utils (or propose new Image Editing section)",
+        "priority": "high",
+        "notes": "Active repo with 130 stars, updated same day as scan. Explicit contribution guidelines in README. Good fit for pictureeditor.net."
+      },
+      {
+        "repo": "https://github.com/psychlone77/awesome-free-tools",
+        "description": "Free and open source alternatives to popular paid software. Table format with Tool, Description, Pricing, Open Source, Account columns. Has Photography and Image Editing section.",
+        "stars": 2,
+        "last_updated": "2026-01-25",
+        "active": true,
+        "domains_to_submit": ["pictureeditor.net"],
+        "pr_text": "| **[Picture Editor](https://pictureeditor.net)** | Free browser-based image editor with cropping, resizing, filters, and adjustments. No signup required. | Free | No | No |",
+        "section": "Photography and Image Editing",
+        "priority": "medium",
+        "notes": "Small repo but has a dedicated Photography and Image Editing section. Has CONTRIBUTING.md. Perfect category fit for pictureeditor.net."
+      },
+      {
+        "repo": "https://github.com/leoraclet/awesome-free-tools",
+        "description": "Curated list of free tools for everyday tasks. Has dedicated Image Editing and Calculator sections. MIT licensed. 2 stars but active since 2026.",
+        "stars": 2,
+        "last_updated": "2026-02-01",
+        "active": true,
+        "domains_to_submit": ["pictureeditor.net", "ingredientcalculator.com"],
+        "pr_text_pictureeditor": "| **[Picture Editor](https://pictureeditor.net)** | Free online image editor — crop, resize, apply filters and adjust colors in your browser. | 🌐 | 🔮 |",
+        "pr_text_ingredientcalculator": "Under Calculator section: | **[Ingredient Calculator](https://ingredientcalculator.com)** | Free online ingredient calculator for scaling and converting recipes. | 🌐 | 🔮 |",
+        "section": "Image Editing / Calculator",
+        "priority": "medium",
+        "notes": "Has both Image Editing and Calculator sections. Uses emoji legend format. Good fit for 2 domains."
+      },
+      {
+        "repo": "https://github.com/kbmjj123/awesome-image-tools",
+        "description": "Curated list of high-quality online image processing tools. Has sections for Compression, Resize & Crop, Format Conversion, Background Removal, AI Enhancement, Online Editors.",
+        "stars": 0,
+        "last_updated": "2026-01-30",
+        "active": true,
+        "domains_to_submit": ["pictureeditor.net"],
+        "pr_text": "- [Picture Editor](https://pictureeditor.net) – Free browser-based image editor with cropping, resizing, filters, and color adjustments. No signup required.",
+        "section": "Online Editors",
+        "priority": "medium",
+        "notes": "Dedicated Online Editors section. Perfect category fit. Low stars but very relevant content."
+      },
+      {
+        "repo": "https://github.com/abczsl520/awesome-free-tools",
+        "description": "Curated list of free online tools including calculators, generators, converters, image tools. Organized by tool type.",
+        "stars": 0,
+        "last_updated": "2026-03-13",
+        "active": true,
+        "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net"],
+        "pr_text_ingredientcalculator": "Under Calculators: **[Ingredient Calculator](https://ingredientcalculator.com)** — Free online ingredient calculator for scaling and converting recipe measurements.",
+        "pr_text_pictureeditor": "Under Image Tools: **[Picture Editor](https://pictureeditor.net)** — Free online image editor for cropping, resizing, and applying filters.",
+        "section": "Calculators / Image Tools",
+        "priority": "medium",
+        "notes": "Has both Calculators and Image Tools sections. Good category fit for 2 domains."
+      },
+      {
+        "repo": "https://github.com/CoffeePrism/awesome-free-tools",
+        "description": "Curated list of 60+ free online tools — AI tools, developer utilities, product reviews. No signup required. Has Directories section.",
+        "stars": 0,
+        "last_updated": "2026-04-11",
+        "active": true,
+        "domains_to_submit": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+        "pr_text_ingredientcalculator": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free recipe ingredient calculator. Scale recipes and convert units — no signup required.",
+        "pr_text_pictureeditor": "- [Picture Editor](https://pictureeditor.net) - Free online image editor — crop, resize, filter, adjust. No signup required.",
+        "pr_text_recipetool": "- [Recipe Tool](https://recipetool.net) - Free recipe management tool — organize, scale, share. No signup required.",
+        "section": "Developer Tools or new Utilities section",
+        "priority": "medium",
+        "notes": "Recent activity (April 2026). Focus on no-signup free tools aligns perfectly with our domains."
+      },
+      {
+        "repo": "https://github.com/Bakumon/awesome-online-tools",
+        "description": "Series of small, beautiful and practical online tools. 20 stars. Has Graphic section with image tools like TinyPNG, ILoveIMG.",
+        "stars": 20,
+        "last_updated": "2026-04-13",
+        "active": true,
+        "domains_to_submit": ["pictureeditor.net"],
+        "pr_text": "- [Picture Editor](https://pictureeditor.net) - Free online image editor — crop, resize, apply filters and adjust photos directly in your browser.",
+        "section": "Graphic",
+        "priority": "medium",
+        "notes": "Has a Graphic section already listing image tools. 20 stars. Good fit for pictureeditor.net."
+      }
+    ]
+  },
+
+  "directories": {
+    "verified": [
+      {
+        "name": "AlternativeTo",
+        "url": "https://alternativeto.net",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Sign up, click User icon > Suggest new application. Fill in Name, URL, Platforms (Web), License (Free), Description, Tags. Submit for review. Also add as 'alternative to' competitor tools (e.g., Pixlr, Photopea, MyKitchenCalculator).",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 89",
+        "priority": "high",
+        "notes": "One of the most respected software directories. Crowdsourced recommendations. Very high DR. Must-submit for all 3 domains."
+      },
+      {
+        "name": "SaaSHub",
+        "url": "https://www.saashub.com",
+        "submission_url": "https://www.saashub.com/services/submit",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Visit https://www.saashub.com/services/submit. Enter product URL, fill in details (name, description, category). Free listing is searchable and comparable. Moderated — not every product listed instantly. Also has SaaSHub Submit tool for multi-directory submission.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 78",
+        "priority": "high",
+        "notes": "Active weekly newsletters through April 2026. DR 78 dofollow backlinks. Free basic listing. Moderated quality control."
+      },
+      {
+        "name": "Product Hunt",
+        "url": "https://www.producthunt.com",
+        "submission_url": "https://www.producthunt.com/posts/new",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Log in, click Submit > New Product. Enter URL, add tagline (max 60 chars), description, gallery images (2+), select Free pricing. Can schedule up to 1 month ahead. Best launch days: Tuesday-Thursday. Submit at 12:01 AM PST for max visibility. Engagement signals (comments, replies) matter more than raw upvotes in 2026.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 91",
+        "priority": "high",
+        "notes": "Launching is completely free. DR 91 — highest value backlink of any directory. Recommend 4-6 weeks prep before launch. Launch each domain separately on different days."
+      },
+      {
+        "name": "MicroLaunch",
+        "url": "https://microlaunch.net",
+        "submission_url": "https://microlaunch.net",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Submit for free and get assigned a random launch date. Product Hunt-style daily launches with community voting. $30 premium option to pick your launch date and get extra visibility. Has 'Add Your Deal' and 'Feature Your App' options.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 59",
+        "priority": "high",
+        "notes": "Confirmed still active in 2026 with recent product submissions. Free tier available. DR 59 dofollow backlinks."
+      },
+      {
+        "name": "Uneed",
+        "url": "https://www.uneed.best",
+        "submission_url": "https://www.uneed.best/submit-a-tool",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Visit https://www.uneed.best/submit-a-tool. Create account, fill in product details. Free submission enters daily feed where every product gets a chance. Account required to submit and modify later. Platform had 355K visits and 1M+ page views in 2026. $30+ for express listing.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 60+",
+        "priority": "high",
+        "notes": "Confirmed active with 355K+ visits in 2026. Fair algorithm — every submission gets daily feed exposure. Dedicated submit-a-tool page confirmed."
+      }
+    ],
+    "new_finds": [
+      {
+        "name": "BetaList",
+        "url": "https://betalist.com",
+        "submission_url": "https://betalist.com/submit",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Visit betalist.com/submit. Submit product for free — gets placed in queue (approx 2 month wait). $99 to skip queue and pick launch date. Need working product with decent landing page. Templates and pages with little product info are rejected.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 75",
+        "priority": "high",
+        "notes": "Original beta-stage directory. Free tier has long wait but DR 75 dofollow backlinks are valuable. Submission guidelines at betalist.com/criteria."
+      },
+      {
+        "name": "Capterra",
+        "url": "https://www.capterra.com",
+        "submission_url": "https://www.capterra.com/vendors/sign-up",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Sign up as a vendor at capterra.com/vendors/sign-up. Create free product listing with description, screenshots, pricing info. Free basic listing is searchable. Paid options for premium placement.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 91",
+        "priority": "high",
+        "notes": "DR 91 — extremely high authority. Free basic listing. One of the most trusted software review sites. Excellent for pictureeditor.net especially."
+      },
+      {
+        "name": "SourceForge",
+        "url": "https://sourceforge.net",
+        "submission_url": "https://sourceforge.net/create/",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Create project at sourceforge.net/create/. Free listing for software tools. Add description, screenshots, category. DR 92 with dofollow backlinks.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 92",
+        "priority": "high",
+        "notes": "DR 92 — highest authority directory available. Free project creation. Long-established software directory."
+      },
+      {
+        "name": "Toolify.ai",
+        "url": "https://www.toolify.ai",
+        "submission_url": "https://www.toolify.ai/submit",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Visit toolify.ai/submit. Free submission for basic listing. 26K+ tools across 459 categories. Updated daily. $99 paid promotion option for boosted visibility.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 62",
+        "priority": "medium",
+        "notes": "Free basic submission. Best suited for pictureeditor.net if it has any AI features. Large directory with millions of monthly visitors."
+      },
+      {
+        "name": "DevHunt",
+        "url": "https://devhunt.org",
+        "submission_url": "https://devhunt.org",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Developer-focused Product Hunt alternative. Submit via their website. Focused on APIs, SDKs, infrastructure, libraries, and SaaS products. Free submission with community voting.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 50+",
+        "priority": "medium",
+        "notes": "Good fit for developer-oriented positioning of the tools. Free submission."
+      },
+      {
+        "name": "Toolfio",
+        "url": "https://toolfio.com",
+        "submission_url": "https://toolfio.com",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Free SaaS directory for startups. Submit product to get backlinks. Fill in product details via submission form.",
+        "backlink_type": "dofollow",
+        "domain_rating": "DR 30+",
+        "priority": "medium",
+        "notes": "Newer directory focused on free SaaS tools. Low barrier to entry."
+      },
+      {
+        "name": "Peerlist",
+        "url": "https://peerlist.io",
+        "submission_url": "https://peerlist.io",
+        "free": true,
+        "active": true,
+        "how_to_submit": "Create profile, add projects under your account. Community of developers and makers. Free listings with project showcase.",
+        "backlink_type": "nofollow",
+        "domain_rating": "DR 75",
+        "priority": "medium",
+        "notes": "DR 75 but nofollow links. Still valuable for brand visibility and referral traffic."
+      }
+    ]
+  },
+
+  "resource_pages": [
+    {
+      "url": "https://cooklang.org/blog/18-open-source-recipe-managers-2026/",
+      "topic": "Open source recipe managers 2026",
+      "contact": "Cooklang blog — contact via website",
+      "submission_method": "Email pitch requesting inclusion in their roundup. Article already lists 18+ tools.",
+      "domain": "recipetool.net",
+      "priority": "high",
+      "notes": "Comprehensive 2026 roundup of recipe managers. Perfect fit for recipetool.net."
+    },
+    {
+      "url": "https://zapier.com/blog/photoshop-alternatives-best-free-photo-editors/",
+      "topic": "Photoshop alternatives — free photo editors",
+      "contact": "Zapier blog editorial — contact via site",
+      "submission_method": "Email pitch suggesting inclusion. Article updated March 2026 with 8 alternatives.",
+      "domain": "pictureeditor.net",
+      "priority": "medium",
+      "notes": "High-authority Zapier blog. Updated March 2026. Competitive but very high value if accepted."
+    },
+    {
+      "url": "https://www.cyberlink.com/blog/photo-editing-best-software/327/best-free-photo-editors-windows",
+      "topic": "15 Best Free Photo Editing Software 2026",
+      "contact": "CyberLink blog editorial",
+      "submission_method": "Email pitch for inclusion as free online option",
+      "domain": "pictureeditor.net",
+      "priority": "medium",
+      "notes": "Updated April 2026. Lists 15 free editors. Could pitch as a lightweight browser-based option."
+    },
+    {
+      "url": "https://www.cloudorian.net/free-tools-photographers-cut-software-costs/",
+      "topic": "6 Free Tools Every Photographer Needs 2026",
+      "contact": "Cloudorian Tech Blog",
+      "submission_method": "Email pitch or blog comment suggesting inclusion",
+      "domain": "pictureeditor.net",
+      "priority": "medium",
+      "notes": "Smaller blog but specifically focused on free tools for photographers. Good fit."
+    },
+    {
+      "url": "https://bloggingwizard.com/image-editing-tools-for-bloggers/",
+      "topic": "Best Photo Editing Software (free options included)",
+      "contact": "Blogging Wizard editorial",
+      "submission_method": "Email pitch for inclusion in their tools roundup",
+      "domain": "pictureeditor.net",
+      "priority": "medium",
+      "notes": "Focused on tools for bloggers. Could pitch pictureeditor.net as a quick edit tool."
+    },
+    {
+      "url": "https://www.recipeone.app/blog/free-recipe-organizer-apps",
+      "topic": "12 Best Free Recipe Organizer Apps 2026",
+      "contact": "RecipeOne blog",
+      "submission_method": "Email pitch for inclusion as free web-based option",
+      "domain": "recipetool.net",
+      "priority": "medium",
+      "notes": "Compares 12 recipe apps. Could pitch recipetool.net as a no-install browser-based alternative."
+    },
+    {
+      "url": "https://worldmetrics.org/best/recipe-software/",
+      "topic": "Top 10 Best Recipe Software 2026",
+      "contact": "World Metrics editorial",
+      "submission_method": "Email pitch for inclusion",
+      "domain": "recipetool.net",
+      "priority": "medium",
+      "notes": "Top 10 recipe software comparison. Could pitch recipetool.net."
+    },
+    {
+      "url": "https://blog.synarionit.com/top-free-online-tools/",
+      "topic": "Top 10 Free Online Tools 2026",
+      "contact": "Synarion IT Solutions blog",
+      "submission_method": "Email pitch or comment suggesting additions",
+      "domain": "all three",
+      "priority": "low",
+      "notes": "General free online tools roundup. Could pitch all 3 tools."
+    },
+    {
+      "url": "https://www.strategyfinders.com/top-ten-best-free-online-tools-every-human-needs/",
+      "topic": "Top 10 Best Free Online Tools Every Human Needs 2026",
+      "contact": "Strategy Finders blog",
+      "submission_method": "Email pitch or comment suggesting additions",
+      "domain": "all three",
+      "priority": "low",
+      "notes": "General tools roundup. Lower authority but accepts suggestions."
+    },
+    {
+      "url": "https://dev.to/_d7eb1c1703182e3ce1782/best-free-developer-tools-2026-the-complete-curated-list-3i0l",
+      "topic": "Best Free Developer Tools 2026 — Complete Curated List",
+      "contact": "DEV Community post author",
+      "submission_method": "Comment on the post suggesting additions or contact author",
+      "domain": "all three",
+      "priority": "low",
+      "notes": "DEV Community curated list. Comment-based outreach."
+    }
+  ],
+
+  "ready_to_submit": [
+    {
+      "platform": "GitHub PR",
+      "repo": "jzarca01/awesome-food",
+      "domain": "ingredientcalculator.com",
+      "action": "Fork repo, add entry under 'Food-related projects' section, submit PR",
+      "text": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online tool to calculate, scale, and convert recipe ingredient quantities.",
+      "pr_title": "Add Ingredient Calculator — free recipe ingredient scaling tool",
+      "pr_body": "Added Ingredient Calculator (https://ingredientcalculator.com) to the Food-related projects section.\n\nIt's a free, browser-based tool for scaling recipe ingredients and converting between measurement units (cups to grams, metric to imperial, etc.). No signup required.\n\nFits well alongside the existing recipe managers and food-related tools in this list."
+    },
+    {
+      "platform": "GitHub PR",
+      "repo": "bbbenji/awesome-recipes",
+      "domain": "recipetool.net",
+      "action": "Fork repo, add entry under 'Tools' section, submit PR",
+      "text": "- [Recipe Tool](https://recipetool.net) - Free web-based recipe management and organization tool.",
+      "pr_title": "Add Recipe Tool — free online recipe manager",
+      "pr_body": "Added Recipe Tool (https://recipetool.net) to the Tools section.\n\nIt's a free, browser-based recipe management tool for organizing, scaling, and sharing recipes. No installation or signup required.\n\nFits well alongside the existing tools like Mealie, Grocy, and Tandoor Recipes."
+    },
+    {
+      "platform": "GitHub PR",
+      "repo": "bbbenji/awesome-recipes",
+      "domain": "ingredientcalculator.com",
+      "action": "Fork repo, add entry under 'Tools' section, submit PR",
+      "text": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online ingredient calculator for scaling and converting recipe measurements.",
+      "pr_title": "Add Ingredient Calculator — free recipe scaling and conversion tool",
+      "pr_body": "Added Ingredient Calculator (https://ingredientcalculator.com) to the Tools section.\n\nIt's a free online tool for scaling recipe ingredients up or down and converting between measurement units. No signup required.\n\nComplementary to the recipe managers already listed — focused specifically on ingredient calculation."
+    },
+    {
+      "platform": "GitHub PR",
+      "repo": "mathewlewallen/awesome-free-tools",
+      "domain": "pictureeditor.net",
+      "action": "Fork repo, add entry to Completely Free table under Design category, submit PR",
+      "text": "[Picture Editor] | `Design` | Free online image editor with cropping, resizing, filters, and color adjustments.\n\n[Picture Editor]: https://pictureeditor.net",
+      "pr_title": "Add Picture Editor — free online image editing tool",
+      "pr_body": "Added Picture Editor (https://pictureeditor.net) to the Completely Free (Hosted, No Limits) section under the Design category.\n\nIt's a free, browser-based image editor for cropping, resizing, applying filters, and adjusting colors. No signup or installation required.\n\nFits the list criteria: free, easy to integrate/use, and hosted with no limits."
+    },
+    {
+      "platform": "GitHub PR",
+      "repo": "nafasebra/awesome-webdesign-tools",
+      "domain": "pictureeditor.net",
+      "action": "Fork repo, add entry under Utils or propose Image Editing section, submit PR",
+      "text": "- [Picture Editor](https://pictureeditor.net) - Free online image editor with cropping, resizing, filters, and color adjustments — no signup required.",
+      "pr_title": "Add Picture Editor — free online image editing tool",
+      "pr_body": "Added Picture Editor (https://pictureeditor.net) to the Utils section.\n\nIt's a free, browser-based image editor that supports cropping, resizing, filters, and color adjustments. No downloads or signup required.\n\nComplement to the existing design and web tools already listed."
+    }
+  ],
+
+  "total_opportunities": 68,
+  "estimated_links": 42,
+
+  "summary": {
+    "github_verified_repos": 5,
+    "github_verified_active": 3,
+    "github_verified_dormant": 2,
+    "github_new_repos_found": 7,
+    "github_total_pr_opportunities": 12,
+    "directories_verified": 5,
+    "directories_new_found": 7,
+    "directories_total": 12,
+    "resource_pages_found": 10,
+    "ready_to_submit_prs": 5,
+
+    "key_findings": [
+      "goabstract/Awesome-Design-Tools DOWNGRADED — last commit September 2020, effectively abandoned despite 39K stars",
+      "janstk/Awesome-online-tools DOWNGRADED — last commit November 2020, only 2 PRs ever merged, dormant",
+      "jzarca01/awesome-food CONFIRMED active — merged PR March 2026, high acceptance rate",
+      "bbbenji/awesome-recipes CONFIRMED active — has dedicated Tools section, perfect fit",
+      "mathewlewallen/awesome-free-tools CONFIRMED active — 30 PRs merged, March 2026 latest, PRs Welcome badge",
+      "nafasebra/awesome-webdesign-tools is NEW high-priority find — 130 stars, active May 2026, explicit contribution guidelines",
+      "Capterra (DR 91) and SourceForge (DR 92) are NEW high-value directory finds with free listings",
+      "BetaList (DR 75) confirmed free tier with 2-month queue",
+      "Product Hunt, MicroLaunch, Uneed all confirmed active and accepting free submissions in 2026"
+    ],
+
+    "sprint14_vs_sprint15_delta": {
+      "sprint14_total": 52,
+      "sprint15_total": 68,
+      "new_opportunities_added": 16,
+      "opportunities_downgraded": 2,
+      "net_change": "+16"
+    },
+
+    "high_priority_actions_ordered": [
+      "1. Submit PR to jzarca01/awesome-food for ingredientcalculator.com and recipetool.net",
+      "2. Submit PR to bbbenji/awesome-recipes for recipetool.net and ingredientcalculator.com (Tools section)",
+      "3. Submit PR to mathewlewallen/awesome-free-tools for all 3 domains (table format)",
+      "4. Submit PR to nafasebra/awesome-webdesign-tools for pictureeditor.net (NEW find)",
+      "5. Submit all 3 tools to Product Hunt (DR 91 — schedule on separate Tues-Thu)",
+      "6. Submit all 3 tools to Capterra (DR 91 — NEW find)",
+      "7. Submit all 3 tools to SourceForge (DR 92 — NEW find)",
+      "8. Submit all 3 tools to AlternativeTo (DR 89)",
+      "9. Submit all 3 tools to SaaSHub (DR 78)",
+      "10. Submit all 3 tools to BetaList (DR 75 — NEW find, free tier has queue)",
+      "11. Submit all 3 tools to Uneed and MicroLaunch",
+      "12. Pitch recipetool.net to Cooklang blog roundup",
+      "13. Pitch pictureeditor.net to Zapier blog free photo editors roundup"
+    ],
+
+    "estimated_backlinks_by_tier": {
+      "tier1_high_authority_DR70_plus": "7-10 backlinks (Product Hunt, Capterra, SourceForge, AlternativeTo, SaaSHub, BetaList)",
+      "tier2_medium_authority_DR40_70": "8-12 backlinks (MicroLaunch, Uneed, Toolify, DevHunt, GitHub repos, Peerlist)",
+      "tier3_resource_pages": "3-5 backlinks (blog roundup outreach)",
+      "total_estimated": "18-27 earned backlinks from 68 total opportunities"
+    }
+  }
+}

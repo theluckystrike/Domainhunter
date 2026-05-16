@@ -1,0 +1,12 @@
+# SPA rewrites - serve index.html for all routes
+/resize      /index.html   200
+/crop        /index.html   200
+/compress    /index.html   200
+/convert     /index.html   200
+/filters     /index.html   200
+/editor      /index.html   200
+
+# Legacy/common misspellings
+/picture-editor    /   301
+/image-editor      /   301
+/photo-editor      /   301

@@ -1,0 +1,1822 @@
+{
+  "sprint": 16,
+  "agent": "WHALE WHOIS BLITZ",
+  "scan_date": "2026-05-08",
+  "total_checked": 98,
+  "dropping": [
+    {
+      "domain": "alabe.com",
+      "etv": 802529.4413484931,
+      "keywords": 4552,
+      "expiry": "2027-04-09T23:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "pdns09.domaincontrol.com",
+        "pdns10.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "calculator.com",
+      "etv": 761404.1746613216,
+      "keywords": 7997,
+      "expiry": "2027-01-25T00:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "clark.ns.cloudflare.com",
+        "sara.ns.cloudflare.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "bench.co",
+      "etv": 481196.82147855125,
+      "keywords": 87680,
+      "expiry": "2027-07-19T23:59:59.0Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "ns-1409.awsdns-48.org",
+        "ns-1900.awsdns-45.co.uk",
+        "ns-604.awsdns-11.net",
+        "ns-227.awsdns-28.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "chatbot.com",
+      "etv": 433613.95170123316,
+      "keywords": 4636,
+      "expiry": "2027-09-20T04:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-122.awsdns-15.com",
+        "ns-1401.awsdns-47.org",
+        "ns-1540.awsdns-00.co.uk",
+        "ns-572.awsdns-07.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "asciitable.com",
+      "etv": 83254.30294286273,
+      "keywords": 1863,
+      "expiry": "2026-11-12T13:54:06Z",
+      "registrar": "Wild West Domains, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "hgns1.hostgator.com",
+        "hgns2.hostgator.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "encoder.com",
+      "etv": 43112.59822772443,
+      "keywords": 944,
+      "expiry": "2027-01-18T05:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns03.domaincontrol.com",
+        "ns04.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "invoicemaker.com",
+      "etv": 40046.12731285021,
+      "keywords": 3017,
+      "expiry": "2030-07-16T10:49:57Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1107.awsdns-10.org",
+        "ns-1609.awsdns-09.co.uk",
+        "ns-258.awsdns-32.com",
+        "ns-799.awsdns-35.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "foodbank.org",
+      "etv": 30697.974395619705,
+      "keywords": 1365,
+      "expiry": "2026-11-14T05:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns23.domaincontrol.com",
+        "ns24.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "nonprofitaccountingbasics.org",
+      "etv": 29112.209336431697,
+      "keywords": 4921,
+      "expiry": "2026-09-17T21:50:37Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.linode.com",
+        "ns2.linode.com",
+        "ns3.linode.com",
+        "ns4.linode.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "texteditor.com",
+      "etv": 27448.088816143572,
+      "keywords": 2212,
+      "expiry": "2028-09-16T03:59:59Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "michelle.ns.cloudflare.com",
+        "simon.ns.cloudflare.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "jsondiff.com",
+      "etv": 26697.53244420141,
+      "keywords": 863,
+      "expiry": "2026-09-22T13:20:42Z",
+      "registrar": "Wild West Domains, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.mediatemple.net",
+        "ns2.mediatemple.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "aigenerator.com",
+      "etv": 26531.48264261894,
+      "keywords": 4195,
+      "expiry": "2034-07-04T18:43:26Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-cloud-d1.googledomains.com",
+        "ns-cloud-d2.googledomains.com",
+        "ns-cloud-d3.googledomains.com",
+        "ns-cloud-d4.googledomains.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "bmicalc.com",
+      "etv": 24658.556749928743,
+      "keywords": 226,
+      "expiry": "2027-06-23T18:57:15Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.dns-parking.com",
+        "ns2.dns-parking.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "plastiq.com",
+      "etv": 23769.243986602873,
+      "keywords": 3179,
+      "expiry": "2027-03-16T21:10:44Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-120.awsdns-15.com",
+        "ns-1335.awsdns-38.org",
+        "ns-1569.awsdns-04.co.uk",
+        "ns-669.awsdns-19.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "conferenceindex.org",
+      "etv": 15213.948141373694,
+      "keywords": 10747,
+      "expiry": "2026-09-14T16:03:15Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "howard.ns.cloudflare.com",
+        "wally.ns.cloudflare.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "eatatmurphs.com",
+      "etv": 14977.64662880823,
+      "keywords": 958,
+      "expiry": "2026-04-08T13:57:48Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientRenewProhibited"
+      ],
+      "nameservers": [
+        "ns69.domaincontrol.com",
+        "ns70.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "guerrameats.com",
+      "etv": 11375.679474463686,
+      "keywords": 99,
+      "expiry": "2026-04-07T02:36:43Z",
+      "registrar": "Squarespace Domains II LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientHold",
+        "clientTransferProhibited",
+        "client"
+      ],
+      "nameservers": [
+        "ns-cloud-b1.googledomains.com",
+        "ns-cloud-b4.googledomains.com",
+        "ns-cloud-b3.googledomains.com",
+        "ns-cloud-b2.googledomains.com"
+      ],
+      "signal": "EXPIRED: 2026-04-07T02:36:43Z",
+      "action": "URGENT: Domain past expiry date"
+    },
+    {
+      "domain": "globalhealth.org",
+      "etv": 9599.225438119844,
+      "keywords": 934,
+      "expiry": "2026-07-02T04:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns37.domaincontrol.com",
+        "ns38.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "lumio.com",
+      "etv": 9191.245988570154,
+      "keywords": 141,
+      "expiry": "2028-09-02T04:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns1.p08.nsone.net",
+        "dns2.p08.nsone.net",
+        "dns3.p08.nsone.net",
+        "dns4.p08.nsone.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "readingfoundation.org",
+      "etv": 7206.591023886576,
+      "keywords": 816,
+      "expiry": "2026-07-30T04:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns11.eapps.com",
+        "ns12.eapps.com",
+        "ns13.eapps.com",
+        "ns14.eapps.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "newcap.org",
+      "etv": 5462.539024557918,
+      "keywords": 973,
+      "expiry": "2027-01-12T05:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns67.domaincontrol.com",
+        "ns68.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "codeparrot.ai",
+      "etv": 5351.938527619466,
+      "keywords": 1213,
+      "expiry": "2026-12-26T13:42:16Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns07.domaincontrol.com",
+        "ns08.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "sitecheck.com",
+      "etv": 4399.404195196927,
+      "keywords": 3,
+      "expiry": "2027-04-16T10:32:12Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns05.domaincontrol.com",
+        "ns06.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "getir.com",
+      "etv": 3931.1667593866587,
+      "keywords": 948,
+      "expiry": "2027-05-22T13:24:17Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1986.awsdns-56.co.uk",
+        "ns-829.awsdns-39.net",
+        "ns-1339.awsdns-39.org",
+        "ns-371.awsdns-46.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "sendy.co",
+      "etv": 3179.4622493200004,
+      "keywords": 410,
+      "expiry": "2026-07-16T23:59:59Z",
+      "registrar": "Wild West Domains, Inc.",
+      "status": [
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "ns-1163.awsdns-17.org",
+        "ns-156.awsdns-19.com",
+        "ns-1857.awsdns-40.co.uk",
+        "ns-615.awsdns-12.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "itsflip.com",
+      "etv": 3179.436975490302,
+      "keywords": 207,
+      "expiry": "2026-08-03T13:09:43Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns71.domaincontrol.com",
+        "ns72.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "sunnyray.org",
+      "etv": 2841.649001505226,
+      "keywords": 2080,
+      "expiry": "2026-04-11T09:19:44",
+      "registrar": "Tucows Domains Inc.",
+      "status": [
+        "autoRenewPeriod",
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "signal": "EXPIRED: 2026-04-11T09:19:44",
+      "action": "URGENT: Domain past expiry date"
+    },
+    {
+      "domain": "ammonoosuc.org",
+      "etv": 2678.2820279505104,
+      "keywords": 264,
+      "expiry": "2026-12-19T19:09:19Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns41.domaincontrol.com",
+        "ns42.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "themessenger.com",
+      "etv": 1922.1159412562847,
+      "keywords": 38,
+      "expiry": "2033-01-11T18:32:37Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-54.awsdns-06.com",
+        "ns-2008.awsdns-59.co.uk",
+        "ns-1358.awsdns-41.org",
+        "ns-641.awsdns-16.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "woodysseafood.com",
+      "etv": 1825.6540204957128,
+      "keywords": 87,
+      "expiry": "2026-04-07T23:00:00Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns25.domaincontrol.com",
+        "ns26.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "northvolt.com",
+      "etv": 1716.1044306289405,
+      "keywords": 93,
+      "expiry": "2027-01-24T15:34:12Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-605.awsdns-11.net",
+        "ns-172.awsdns-21.com",
+        "ns-1196.awsdns-21.org",
+        "ns-1928.awsdns-49.co.uk"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "juicero.com",
+      "etv": 1404.386949583888,
+      "keywords": 63,
+      "expiry": "2035-04-06T19:40:46Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "paityn.ns.cloudflare.com",
+        "rocky.ns.cloudflare.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "veev.com",
+      "etv": 1306.9549896270037,
+      "keywords": 27,
+      "expiry": "2027-07-02T03:59:59Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1499.awsdns-59.org",
+        "ns-1778.awsdns-30.co.uk",
+        "ns-426.awsdns-53.com",
+        "ns-916.awsdns-50.net"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "mikespienh.com",
+      "etv": 1287.0679709799588,
+      "keywords": 119,
+      "expiry": "2027-04-02T23:15:22Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns09.domaincontrol.com",
+        "ns10.domaincontrol.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "internetfreedom.org",
+      "etv": 1118.4570215214044,
+      "keywords": 28,
+      "expiry": "2026-10-12T22:24:06Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns4.acosm.com",
+        "dns5.acosm.com",
+        "dns6.acosm.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "rtfkt.com",
+      "etv": 1112.9670175220817,
+      "keywords": 83,
+      "expiry": "2031-03-19T12:25:42Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "guy.ns.cloudflare.com",
+        "lia.ns.cloudflare.com"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    },
+    {
+      "domain": "affordableeducation.org",
+      "etv": 1028.968936599791,
+      "keywords": 171,
+      "expiry": "2026-09-11T15:59:08Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns0-east.unc.cloud",
+        "dns0-west.unc.cloud"
+      ],
+      "signal": "Status: clientRenewProhibited",
+      "action": "IMMEDIATE: Monitor for auction/drop"
+    }
+  ],
+  "distressed": [
+    {
+      "domain": "ask.com",
+      "etv": 1233760.5368662886,
+      "keywords": 221869,
+      "expiry": "2026-10-19T00:00:00+0000",
+      "registrar": "MarkMonitor Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns3.p06.nsone.net",
+        "dns1.p06.nsone.net",
+        "dns2.p06.nsone.net",
+        "dns4.p06.nsone.net"
+      ],
+      "signal": "Expiring in 5.4 months (2026-10-19T00:00:00+0000)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "councilofnonprofits.org",
+      "etv": 835379.0367030781,
+      "keywords": 19752,
+      "expiry": "2026-08-18T13:51:38Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "cleo.ns.cloudflare.com",
+        "princess.ns.cloudflare.com"
+      ],
+      "signal": "Expiring in 3.4 months (2026-08-18T13:51:38Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "rittal.com",
+      "etv": 769358.4932568781,
+      "keywords": 2509,
+      "expiry": "2026-05-27T15:00:47Z",
+      "registrar": "InterNetX GmbH",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "gail.ns.cloudflare.com",
+        "matias.ns.cloudflare.com"
+      ],
+      "signal": "Expiring SOON in 0.6 months (2026-05-27T15:00:47Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "homefinder.com",
+      "etv": 478292.0780748464,
+      "keywords": 237610,
+      "expiry": "2026-07-01T11:59:59Z",
+      "registrar": "Register.com - Network Solutions, LLC",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns-1381.awsdns-44.org",
+        "ns-1885.awsdns-43.co.uk",
+        "ns-452.awsdns-56.com",
+        "ns-637.awsdns-15.net"
+      ],
+      "signal": "Expiring SOON in 1.8 months (2026-07-01T11:59:59Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "color.com",
+      "etv": 31116.553964754567,
+      "keywords": 1242,
+      "expiry": "2026-09-22T04:00:00Z",
+      "registrar": "Amazon Registrar, Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-361.awsdns-45.com",
+        "ns-883.awsdns-46.net",
+        "ns-1644.awsdns-13.co.uk",
+        "ns-1495.awsdns-58.org"
+      ],
+      "signal": "Expiring in 4.5 months (2026-09-22T04:00:00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "ridecake.com",
+      "etv": 22082.142999358475,
+      "keywords": 462,
+      "expiry": "2026-08-15T14:08:49Z",
+      "registrar": "1API GmbH",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "apollo.ns.cloudflare.com",
+        "stephane.ns.cloudflare.com"
+      ],
+      "signal": "Expiring in 3.3 months (2026-08-15T14:08:49Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "magiceden.io",
+      "etv": 12294.429363794625,
+      "keywords": 1856,
+      "expiry": "2026-09-02T23:48:12Z",
+      "registrar": "Cloudflare, Inc",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "donna.ns.cloudflare.com",
+        "felicity.ns.cloudflare.com"
+      ],
+      "signal": "Expiring in 3.9 months (2026-09-02T23:48:12Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "sslchecker.com",
+      "etv": 11978.212985165417,
+      "keywords": 749,
+      "expiry": "2026-10-19T20:25:09.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.sslchecker.com",
+        "ns2.sslchecker.com"
+      ],
+      "signal": "Expiring in 5.5 months (2026-10-19T20:25:09.00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "jawbone.com",
+      "etv": 9617.191377101466,
+      "keywords": 114,
+      "expiry": "2026-06-12T04:00:00Z",
+      "registrar": "Cloudflare, Inc.",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "alex.ns.cloudflare.com",
+        "athena.ns.cloudflare.com"
+      ],
+      "signal": "Expiring SOON in 1.1 months (2026-06-12T04:00:00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "regextester.com",
+      "etv": 9411.796112582088,
+      "keywords": 553,
+      "expiry": "2026-07-24T13:16:33Z",
+      "registrar": "Gandi SAS",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1387.awsdns-45.org",
+        "ns-2041.awsdns-63.co.uk",
+        "ns-585.awsdns-09.net",
+        "ns-182.awsdns-22.com"
+      ],
+      "signal": "Expiring SOON in 2.5 months (2026-07-24T13:16:33Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "proterra.com",
+      "etv": 5107.667934766039,
+      "keywords": 132,
+      "expiry": "2026-08-09T04:00:00Z",
+      "registrar": "Amazon Registrar, Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "edna.ns.cloudflare.com",
+        "salvador.ns.cloudflare.com"
+      ],
+      "signal": "Expiring in 3.1 months (2026-08-09T04:00:00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "stopwatch.com",
+      "etv": 4216.631986159831,
+      "keywords": 21,
+      "expiry": "2026-10-23T04:00:00Z",
+      "registrar": "Spaceship, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.parkingcrew.net",
+        "ns2.parkingcrew.net"
+      ],
+      "signal": "Expiring in 5.6 months (2026-10-23T04:00:00Z); Parking NS detected",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "icannwiki.org",
+      "etv": 3557.6494322735816,
+      "keywords": 530,
+      "expiry": "2026-06-29T20:45:32Z",
+      "registrar": "Porkbun LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "deborah.ns.cloudflare.com",
+        "dom.ns.cloudflare.com"
+      ],
+      "signal": "Expiring SOON in 1.7 months (2026-06-29T20:45:32Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "niftygateway.com",
+      "etv": 3391.0409563537687,
+      "keywords": 846,
+      "expiry": "2026-07-31T22:29:48Z",
+      "registrar": "Amazon Registrar, Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1312.awsdns-36.org",
+        "ns-375.awsdns-46.com",
+        "ns-659.awsdns-18.net",
+        "ns-1793.awsdns-32.co.uk"
+      ],
+      "signal": "Expiring SOON in 2.8 months (2026-07-31T22:29:48Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "hyrecar.com",
+      "etv": 3229.9318803586066,
+      "keywords": 25,
+      "expiry": "2026-06-23T21:02:31Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1084.awsdns-07.org",
+        "ns-1751.awsdns-26.co.uk",
+        "ns-235.awsdns-29.com",
+        "ns-987.awsdns-59.net"
+      ],
+      "signal": "Expiring SOON in 1.5 months (2026-06-23T21:02:31Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "smallhold.com",
+      "etv": 3187.35693548806,
+      "keywords": 899,
+      "expiry": "2026-07-10T18:02:44Z",
+      "registrar": "Amazon Registrar, Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-330.awsdns-41.com",
+        "ns-869.awsdns-44.net",
+        "ns-1060.awsdns-04.org",
+        "ns-1704.awsdns-21.co.uk"
+      ],
+      "signal": "Expiring SOON in 2.1 months (2026-07-10T18:02:44Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "communityaction.org",
+      "etv": 2822.3373549524695,
+      "keywords": 441,
+      "expiry": "2026-10-02T04:00:00Z",
+      "registrar": "Bluehost Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.bluehost.com",
+        "ns2.bluehost.com"
+      ],
+      "signal": "Expiring in 4.9 months (2026-10-02T04:00:00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "jsonbeautify.com",
+      "etv": 2376.798992522061,
+      "keywords": 23,
+      "expiry": "2026-08-08T19:03:48Z",
+      "registrar": "Sav.com, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "pete.ns.cloudflare.com",
+        "rita.ns.cloudflare.com"
+      ],
+      "signal": "Expiring SOON in 3.0 months (2026-08-08T19:03:48Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "moodtracker.com",
+      "etv": 2227.6639586910605,
+      "keywords": 66,
+      "expiry": "2026-09-12T05:15:48Z",
+      "registrar": "Cloudflare, Inc.",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "gracie.ns.cloudflare.com",
+        "jeff.ns.cloudflare.com"
+      ],
+      "signal": "Expiring in 4.2 months (2026-09-12T05:15:48Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "sorter.com",
+      "etv": 1977.2880374602973,
+      "keywords": 206,
+      "expiry": "2026-07-02T10:31:55.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "lana.ns.cloudflare.com",
+        "tim.ns.cloudflare.com"
+      ],
+      "signal": "Expiring SOON in 1.8 months (2026-07-02T10:31:55.00Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "allplants.com",
+      "etv": 1777.095939554274,
+      "keywords": 194,
+      "expiry": "2026-08-31T21:17:03.000Z",
+      "registrar": "IONOS SE",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1070.ui-dns.org",
+        "ns1031.ui-dns.de",
+        "ns1033.ui-dns.biz",
+        "ns1121.ui-dns.com"
+      ],
+      "signal": "Expiring in 3.8 months (2026-08-31T21:17:03.000Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    },
+    {
+      "domain": "braid.co",
+      "etv": 1387.1342291757464,
+      "keywords": 990,
+      "expiry": "2026-09-27T23:59:59Z",
+      "registrar": "Key-Systems GmbH",
+      "status": [
+        "clientTransferProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "dns1.p03.nsone.net",
+        "dns2.p03.nsone.net",
+        "dns3.p03.nsone.net",
+        "dns4.p03.nsone.net"
+      ],
+      "signal": "Expiring in 4.7 months (2026-09-27T23:59:59Z)",
+      "action": "MONITOR: Check if domain becomes available"
+    }
+  ],
+  "active": [
+    {
+      "domain": "byjus.com",
+      "etv": 69941307.63432898,
+      "keywords": 1666360,
+      "expiry": "2032-06-19T18:01:45Z",
+      "registrar": "Internet Domain Service BS Corp",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns1.icedns.is",
+        "dns2.icedns.is"
+      ],
+      "signal": "Normal registration (expires: 2032-06-19T18:01:45Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "wework.com",
+      "etv": 1304938.9930783007,
+      "keywords": 57715,
+      "expiry": "2027-11-16T00:00:00+0000",
+      "registrar": "MarkMonitor Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "may.ns.cloudflare.com",
+        "sam.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2027-11-16T00:00:00+0000)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "aerlingus.com",
+      "etv": 899856.3454958424,
+      "keywords": 56076,
+      "expiry": "2027-03-19T04:00:00Z",
+      "registrar": "SafeNames Ltd.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1278.awsdns-31.org",
+        "ns-1562.awsdns-03.co.uk",
+        "ns-354.awsdns-44.com",
+        "ns-931.awsdns-52.net"
+      ],
+      "signal": "Normal registration (expires: 2027-03-19T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "finder.com",
+      "etv": 710156.3087157067,
+      "keywords": 146238,
+      "expiry": "2026-12-28T00:00:00+0000",
+      "registrar": "MarkMonitor Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "meadow.ns.cloudflare.com",
+        "algin.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2026-12-28T00:00:00+0000)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "goto.com",
+      "etv": 684467.0312269535,
+      "keywords": 27599,
+      "expiry": "2027-06-10T00:00:00Z",
+      "registrar": "Nom-iq Ltd. dba COM LAUDE",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited",
+        "transferPeriod"
+      ],
+      "nameservers": [
+        "ns1.getgo.com",
+        "ns2.getgo.com",
+        "ns3.getgo.com"
+      ],
+      "signal": "Normal registration (expires: 2027-06-10T00:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "iie.org",
+      "etv": 543939.8964769058,
+      "keywords": 4815,
+      "expiry": "2030-05-25T04:00:00Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns73.worldnic.com",
+        "ns74.worldnic.com"
+      ],
+      "signal": "Normal registration (expires: 2030-05-25T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "parentmap.com",
+      "etv": 321161.1462279223,
+      "keywords": 56507,
+      "expiry": "2030-03-19T01:03:31Z",
+      "registrar": "Register.com - Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ada.ns.cloudflare.com",
+        "graham.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2030-03-19T01:03:31Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "getaround.com",
+      "etv": 271258.4597073123,
+      "keywords": 12048,
+      "expiry": "2028-04-22T18:11:26Z",
+      "registrar": "Gandi SAS",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "matt.ns.cloudflare.com",
+        "tia.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2028-04-22T18:11:26Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "insideclimatenews.org",
+      "etv": 255888.67323309556,
+      "keywords": 36109,
+      "expiry": "2028-07-25T13:22:16",
+      "registrar": "Tucows Domains Inc.",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "phil.ns.cloudflare.com",
+        "wanda.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2028-07-25T13:22:16)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "kunc.org",
+      "etv": 226508.94379703328,
+      "keywords": 39742,
+      "expiry": "2028-09-30T04:00:00Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.worldnic.com",
+        "ns2.worldnic.com"
+      ],
+      "signal": "Normal registration (expires: 2028-09-30T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "bird.co",
+      "etv": 189176.43948501348,
+      "keywords": 6422,
+      "expiry": "2026-12-25T23:59:59Z",
+      "registrar": "Gandi SAS",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-795.awsdns-35.net",
+        "ns-478.awsdns-59.com",
+        "ns-1558.awsdns-02.co.uk",
+        "ns-1380.awsdns-44.org"
+      ],
+      "signal": "Normal registration (expires: 2026-12-25T23:59:59Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "sunpower.com",
+      "etv": 142227.2616344653,
+      "keywords": 6772,
+      "expiry": "2028-04-18T00:00:00+0000",
+      "registrar": "MarkMonitor Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "verification.easydns.net",
+        "dns1.easydns.com",
+        "dns2.easydns.net",
+        "dns3.easydns.ca"
+      ],
+      "signal": "Normal registration (expires: 2028-04-18T00:00:00+0000)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "counter.com",
+      "etv": 105552.68076049909,
+      "keywords": 8835,
+      "expiry": "2027-12-04T21:16:24Z",
+      "registrar": "SafeNames Ltd.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "fonzie.ns.cloudflare.com",
+        "marjory.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2027-12-04T21:16:24Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "watereducation.org",
+      "etv": 103292.42832206562,
+      "keywords": 15649,
+      "expiry": "2030-10-30T22:32:17Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns85.worldnic.com",
+        "ns86.worldnic.com"
+      ],
+      "signal": "Normal registration (expires: 2030-10-30T22:32:17Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "recroom.com",
+      "etv": 89957.52914916724,
+      "keywords": 2939,
+      "expiry": "2029-11-28T07:12:01Z",
+      "registrar": "Squarespace Domains II LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "client"
+      ],
+      "nameservers": [
+        "ns-cloud-a2.googledomains.com",
+        "ns-cloud-a4.googledomains.com",
+        "ns-cloud-a1.googledomains.com",
+        "ns-cloud-a3.googledomains.com"
+      ],
+      "signal": "Normal registration (expires: 2029-11-28T07:12:01Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "hydro.com",
+      "etv": 82745.15256837755,
+      "keywords": 5278,
+      "expiry": "2027-05-14T04:00:00Z",
+      "registrar": "Abion AB",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "a.portsdns.se",
+        "b.portsdns.net"
+      ],
+      "signal": "Normal registration (expires: 2027-05-14T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "jsonlint.com",
+      "etv": 77397.45829254948,
+      "keywords": 3003,
+      "expiry": "2027-01-07T14:58:14.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dina.ns.cloudflare.com",
+        "roan.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2027-01-07T14:58:14.00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "digg.com",
+      "etv": 71296.78152218275,
+      "keywords": 6965,
+      "expiry": "2028-12-29T02:29:44.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "barbara.ns.cloudflare.com",
+        "darl.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2028-12-29T02:29:44.00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "dappradar.com",
+      "etv": 61142.048589350656,
+      "keywords": 7912,
+      "expiry": "2028-02-03T10:06:11Z",
+      "registrar": "SafeNames Ltd.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "ok"
+      ],
+      "nameservers": [
+        "beau.ns.cloudflare.com",
+        "tara.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2028-02-03T10:06:11Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "privacyrights.org",
+      "etv": 58417.1754114721,
+      "keywords": 3999,
+      "expiry": "2026-12-06T05:00:00Z",
+      "registrar": "Domain.com - Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.dotster.com",
+        "ns2.dotster.com"
+      ],
+      "signal": "Normal registration (expires: 2026-12-06T05:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "nonprofitoregon.org",
+      "etv": 26378.19280471839,
+      "keywords": 5190,
+      "expiry": "2027-05-09T21:27:06Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "coen.ns.cloudflare.com",
+        "roxy.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2027-05-09T21:27:06Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "cazoo.co.uk",
+      "etv": 18050.057530185208,
+      "keywords": 12333,
+      "expiry": "27-Jul-2029",
+      "registrar": "",
+      "status": [],
+      "nameservers": [
+        "ns1-35.azure-dns.com",
+        "ns2-35.azure-dns.net",
+        "ns3-35.azure-dns.org",
+        "ns4-35.azure-dns.info"
+      ],
+      "signal": "Normal registration (expires: 27-Jul-2029)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "convoy.com",
+      "etv": 17426.250920662656,
+      "keywords": 1388,
+      "expiry": "2028-10-31T10:36:20Z",
+      "registrar": "SafeNames Ltd.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1297.awsdns-34.org",
+        "ns-184.awsdns-23.com",
+        "ns-1981.awsdns-55.co.uk",
+        "ns-572.awsdns-07.net"
+      ],
+      "signal": "Normal registration (expires: 2028-10-31T10:36:20Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "view.com",
+      "etv": 15245.765412576497,
+      "keywords": 249,
+      "expiry": "2028-10-31T04:00:00Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "greg.ns.cloudflare.com",
+        "olga.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2028-10-31T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "plenty.ag",
+      "etv": 8981.200206490234,
+      "keywords": 344,
+      "expiry": "2027-01-17T17:17:24Z",
+      "registrar": "Instra Corporation Pty Ltd.",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns-1439.awsdns-51.org",
+        "ns-1833.awsdns-37.co.uk",
+        "ns-314.awsdns-39.com",
+        "ns-633.awsdns-15.net"
+      ],
+      "signal": "Normal registration (expires: 2027-01-17T17:17:24Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "sprig.com",
+      "etv": 8971.719110194594,
+      "keywords": 838,
+      "expiry": "2030-01-28T05:00:00Z",
+      "registrar": "1API GmbH",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1076.awsdns-06.org",
+        "ns-15.awsdns-01.com",
+        "ns-1691.awsdns-19.co.uk",
+        "ns-647.awsdns-16.net"
+      ],
+      "signal": "Normal registration (expires: 2030-01-28T05:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "aerofarms.com",
+      "etv": 8208.699897237122,
+      "keywords": 598,
+      "expiry": "2031-01-02T05:00:00Z",
+      "registrar": "Network Solutions, LLC",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "leonidas.ns.cloudflare.com",
+        "michelle.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2031-01-02T05:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "yamllint.com",
+      "etv": 6299.832093153149,
+      "keywords": 311,
+      "expiry": "2033-08-19T15:29:12.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns1.registrar-servers.com",
+        "dns2.registrar-servers.com"
+      ],
+      "signal": "Normal registration (expires: 2033-08-19T15:29:12.00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "lstribune.net",
+      "etv": 4938.112388810143,
+      "keywords": 575,
+      "expiry": "2027-04-10T21:02:28Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns29.domaincontrol.com",
+        "ns30.domaincontrol.com"
+      ],
+      "signal": "Normal registration (expires: 2027-04-10T21:02:28Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "lilium.com",
+      "etv": 4424.54595669359,
+      "keywords": 143,
+      "expiry": "2027-06-02T04:00:00Z",
+      "registrar": "Amazon Registrar, Inc.",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-673.awsdns-20.net",
+        "ns-363.awsdns-45.com",
+        "ns-1574.awsdns-04.co.uk",
+        "ns-1125.awsdns-12.org"
+      ],
+      "signal": "Normal registration (expires: 2027-06-02T04:00:00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "prophesee.ai",
+      "etv": 4087.5410073772073,
+      "keywords": 180,
+      "expiry": "2027-10-20T04:54:15Z",
+      "registrar": "EuroDNS S.A.",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [],
+      "signal": "Normal registration (expires: 2027-10-20)",
+      "action": "No action needed - actively registered (Prophesee SA, French company)"
+    },
+    {
+      "domain": "cronmaker.com",
+      "etv": 2536.661021422595,
+      "keywords": 291,
+      "expiry": "2033-04-16T06:34:10Z",
+      "registrar": "IHS Telekom, Inc.",
+      "status": [
+        "ok",
+        "OK"
+      ],
+      "nameservers": [
+        "ns1.digitalocean.com",
+        "ns2.digitalocean.com",
+        "ns3.digitalocean.com"
+      ],
+      "signal": "Normal registration (expires: 2033-04-16T06:34:10Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "volocopter.com",
+      "etv": 2489.020972561091,
+      "keywords": 389,
+      "expiry": "2027-11-21T09:13:25Z",
+      "registrar": "Key-Systems GmbH",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.domainoffensive.de",
+        "ns2.domainoffensive.eu",
+        "ns3.domainoffensive.net"
+      ],
+      "signal": "Normal registration (expires: 2027-11-21T09:13:25Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "yupp.ai",
+      "etv": 1943.553944569081,
+      "keywords": 84,
+      "expiry": "2034-06-01T07:13:10Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns1.registrar-servers.com",
+        "dns2.registrar-servers.com"
+      ],
+      "signal": "Normal registration (expires: 2034-06-01T07:13:10Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "natow.org",
+      "etv": 1717.3840076830238,
+      "keywords": 454,
+      "expiry": "2027-04-10T02:41:34Z",
+      "registrar": "GoDaddy.com, LLC",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "autoRenewPeriod"
+      ],
+      "nameservers": [
+        "ns13.domaincontrol.com",
+        "ns14.domaincontrol.com"
+      ],
+      "signal": "Normal registration (expires: 2027-04-10T02:41:34Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "converter.com",
+      "etv": 1668.9429920129478,
+      "keywords": 338,
+      "expiry": "2029-01-08T05:00:00.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited",
+        "transferPeriod"
+      ],
+      "nameservers": [
+        "jade.ns.cloudflare.com",
+        "thaddeus.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2029-01-08T05:00:00.00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "solyndra.com",
+      "etv": 1181.1465164609253,
+      "keywords": 746,
+      "expiry": "2026-12-06T17:28:05.00Z",
+      "registrar": "NameCheap, Inc.",
+      "status": [
+        "clientTransferProhibited",
+        "transferPeriod"
+      ],
+      "nameservers": [
+        "bonnie.ns.cloudflare.com",
+        "peyton.ns.cloudflare.com"
+      ],
+      "signal": "Normal registration (expires: 2026-12-06T17:28:05.00Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "hiphi.com",
+      "etv": 1070.6760002076626,
+      "keywords": 50,
+      "expiry": "2027-02-03T19:12:39Z",
+      "registrar": "Alibaba Cloud Computing (Beijing) Co., Ltd.",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "dns21.hichina.com",
+        "dns22.hichina.com"
+      ],
+      "signal": "Normal registration (expires: 2027-02-03T19:12:39Z)",
+      "action": "No action needed - actively registered"
+    },
+    {
+      "domain": "freeforcharity.org",
+      "etv": 1016.8620130680501,
+      "keywords": 242,
+      "expiry": "2029-04-02T13:59:46Z",
+      "registrar": "Cloudflare, Inc.",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.freeforcharity.org",
+        "ns2.freeforcharity.org"
+      ],
+      "signal": "Normal registration (expires: 2029-04-02T13:59:46Z)",
+      "action": "No action needed - actively registered"
+    }
+  ],
+  "error": [],
+  "summary": {
+    "dropping_count": 37,
+    "distressed_count": 22,
+    "active_count": 39,
+    "error_count": 0
+  }
+}

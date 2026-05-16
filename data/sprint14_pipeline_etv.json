@@ -1,0 +1,48 @@
+{
+  "sprint": 14,
+  "agent": "PIPELINE ETV UPGRADER",
+  "previous_loc": 2682,
+  "new_loc": 2998,
+  "functions_added": [
+    "_parse_etv_response",
+    "_call_dataforseo_etv",
+    "_mock_etv_verification",
+    "verify_etv_batch",
+    "_log_etv_results",
+    "_apply_etv_to_candidate",
+    "run_etv_verification_stage"
+  ],
+  "constants_added": [
+    "ETV_MIN_THRESHOLD",
+    "ETV_WHALE_THRESHOLD",
+    "ETV_API_COST",
+    "MAX_ETV_CHECKS_PER_RUN",
+    "ETV_RATE_LIMIT_DELAY"
+  ],
+  "dataclasses_added": [
+    "ETVVerification"
+  ],
+  "config_keys_added": [
+    "etv_enabled",
+    "etv_min_threshold",
+    "etv_max_checks_per_run"
+  ],
+  "pipeline_flow": "SOURCES -> DEDUP -> DA_CHECK -> OPENRANK_CROSSVAL -> DA_FILTER -> DATAFORSEO_TRAFFIC -> NICHE_CLASSIFY -> PRICE_VERIFY -> SPRINT13_STAGES -> ETV_VERIFY -> STORE -> ALERTS",
+  "pipeline_flow_previous": "SOURCES -> DEDUP -> DA_CHECK -> OPENRANK_CROSSVAL -> DA_FILTER -> DATAFORSEO_TRAFFIC -> NICHE_CLASSIFY -> PRICE_VERIFY -> SPRINT13_STAGES -> STORE -> ALERTS",
+  "api_endpoint": "https://api.dataforseo.com/v3/dataforseo_labs/google/domain_rank_overview/live",
+  "auth_method": "HTTP Basic via DATAFORSEO_LOGIN + DATAFORSEO_PASSWORD env vars",
+  "rate_limit": "5 calls/second (0.2s delay between calls)",
+  "budget_guard": "MAX_ETV_CHECKS_PER_RUN = 100",
+  "cost_per_call": 0.01,
+  "max_cost_per_run": 1.00,
+  "default_etv_threshold": 100.0,
+  "whale_etv_threshold": 1000.0,
+  "nasa_compliance": {
+    "all_functions_under_60_lines": true,
+    "all_functions_have_2_plus_assertions": true,
+    "no_global_mutable_state": true,
+    "frozen_dataclasses_only": true,
+    "fixed_loop_bounds": true,
+    "no_new_dependencies": true
+  }
+}

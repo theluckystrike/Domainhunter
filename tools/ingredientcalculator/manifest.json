@@ -1,0 +1,20 @@
+{
+  "name": "Ingredient Calculator — Recipe Scaler & Unit Converter",
+  "short_name": "Ingredient Calc",
+  "description": "Scale recipes, convert measurement units, and find ingredient substitutions. Free online cooking calculator.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e85d26",
+  "orientation": "any",
+  "categories": ["food", "utilities", "lifestyle"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

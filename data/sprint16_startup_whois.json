@@ -1,0 +1,5009 @@
+{
+  "sprint": 16,
+  "agent": "STARTUP WHOIS SWEEP",
+  "scan_date": "2026-05-08",
+  "total_checked": 205,
+  "summary": {
+    "dropping": 44,
+    "distressed": 110,
+    "active": 51,
+    "error": 0,
+    "high_value_dropping": [
+      "northvolt.com",
+      "theranos.com",
+      "katerra.com",
+      "olive.com",
+      "canoo.com",
+      "quibi.com",
+      "veev.com",
+      "getir.com",
+      "infarm.com",
+      "builderai.com",
+      "dunzo.com",
+      "jokr.com",
+      "essential.com",
+      "fulcrum-bioenergy.com",
+      "frubana.com",
+      "itsflip.com",
+      "ambri.com",
+      "efishery.com",
+      "goodglammgroup.com",
+      "lyndra.com",
+      "natronenergy.com",
+      "beepi.com",
+      "plastiq.com",
+      "juicero.com",
+      "gro-intelligence.com",
+      "bench.co",
+      "swvl.com"
+    ],
+    "high_value_distressed": [
+      "proterra.com",
+      "fisker.com",
+      "jawbone.com",
+      "builder.ai",
+      "cazoo.co.uk",
+      "hopin.com",
+      "appharvest.com",
+      "tritiumcharging.com",
+      "quirky.com",
+      "meettally.com",
+      "zeuslivingrentals.com",
+      "magiceden.io",
+      "prophesee.ai",
+      "copiaglobal.com"
+    ]
+  },
+  "dropping": [
+    {
+      "domain": "northvolt.com",
+      "company": "Northvolt",
+      "funding": "$13B+",
+      "funding_numeric": 13000000000.0,
+      "sector": "battery manufacturing",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-01-24",
+      "creation_date": "2017-01-24",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1196.awsdns-21.org",
+        "ns-172.awsdns-21.com",
+        "ns-1928.awsdns-49.co.uk",
+        "ns-605.awsdns-11.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "WHALE",
+        "max_bid": 50000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. WHALE tier domain from $13000M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "theranos.com",
+      "company": "Theranos",
+      "funding": "$1.4B",
+      "funding_numeric": 1400000000.0,
+      "sector": "healthtech/diagnostics",
+      "shutdown_year": 2018,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-06-04",
+      "creation_date": "2004-06-04",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns0.dnsmadeeasy.com",
+        "ns1.dnsmadeeasy.com",
+        "ns2.dnsmadeeasy.com",
+        "ns3.dnsmadeeasy.com",
+        "ns4.dnsmadeeasy.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "WHALE",
+        "max_bid": 50000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. WHALE tier domain from $1400M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "katerra.com",
+      "company": "Katerra",
+      "funding": "$2B",
+      "funding_numeric": 2000000000.0,
+      "sector": "Construction Tech",
+      "shutdown_year": 2021,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-03-27",
+      "creation_date": "2005-03-27",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1088.awsdns-08.org",
+        "ns-1565.awsdns-03.co.uk",
+        "ns-285.awsdns-35.com",
+        "ns-779.awsdns-33.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "WHALE",
+        "max_bid": 50000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. WHALE tier domain from $2000M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "olive.com",
+      "company": "Olive AI",
+      "funding": "$832M",
+      "funding_numeric": 832000000.0,
+      "sector": "Healthtech/AI",
+      "shutdown_year": 2023,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-11-21",
+      "creation_date": "1996-11-22",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns0.dnsmadeeasy.com",
+        "ns1.dnsmadeeasy.com",
+        "ns2.dnsmadeeasy.com",
+        "ns3.dnsmadeeasy.com",
+        "ns4.dnsmadeeasy.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "HIGH",
+        "max_bid": 25000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. HIGH tier domain from $832M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "canoo.com",
+      "company": "Canoo",
+      "funding": "$600M+ (public company)",
+      "funding_numeric": 600000000.0,
+      "sector": "EV/Automotive",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-09-15",
+      "creation_date": "1999-08-22",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "mallory.ns.cloudflare.com",
+        "sid.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "HIGH",
+        "max_bid": 25000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. HIGH tier domain from $600M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "quibi.com",
+      "company": "Quibi",
+      "funding": "$1.75B",
+      "funding_numeric": 1750000000.0,
+      "sector": "Media/Streaming",
+      "shutdown_year": 2020,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-09-20",
+      "creation_date": "2004-09-20",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns65.domaincontrol.com",
+        "ns66.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "WHALE",
+        "max_bid": 50000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. WHALE tier domain from $1750M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "veev.com",
+      "company": "Veev",
+      "funding": "$600M",
+      "funding_numeric": 600000000.0,
+      "sector": "Proptech/Construction",
+      "shutdown_year": 2023,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-07-02",
+      "creation_date": "1999-03-12",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1499.awsdns-59.org",
+        "ns-1778.awsdns-30.co.uk",
+        "ns-426.awsdns-53.com",
+        "ns-916.awsdns-50.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "HIGH",
+        "max_bid": 25000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. HIGH tier domain from $600M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "getir.com",
+      "company": "Getir",
+      "funding": "$1.8B",
+      "funding_numeric": 1800000000.0,
+      "sector": "ultra-fast grocery delivery",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-05-22",
+      "creation_date": "2002-05-22",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1339.awsdns-39.org",
+        "ns-1986.awsdns-56.co.uk",
+        "ns-371.awsdns-46.com",
+        "ns-829.awsdns-39.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "WHALE",
+        "max_bid": 50000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. WHALE tier domain from $1800M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "infarm.com",
+      "company": "Infarm",
+      "funding": "$500M",
+      "funding_numeric": 500000000.0,
+      "sector": "vertical farming",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-18",
+      "creation_date": "1999-02-18",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "drew.ns.cloudflare.com",
+        "monroe.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "HIGH",
+        "max_bid": 25000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. HIGH tier domain from $500M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "builderai.com",
+      "company": "Builder.ai",
+      "funding": "$445M",
+      "funding_numeric": 445000000.0,
+      "sector": "AI/No-Code",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-07",
+      "creation_date": "2016-10-07",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns51.domaincontrol.com",
+        "ns52.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $445M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "dunzo.com",
+      "company": "Dunzo",
+      "funding": "$400M+",
+      "funding_numeric": 400000000.0,
+      "sector": "hyperlocal delivery",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2028-01-26",
+      "creation_date": "2006-01-26",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns1.bigrock.in",
+        "dns2.bigrock.in",
+        "dns3.bigrock.in",
+        "dns4.bigrock.in"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $400M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "jokr.com",
+      "company": "Jokr",
+      "funding": "$400M+",
+      "funding_numeric": 400000000.0,
+      "sector": "ultra-fast grocery delivery",
+      "shutdown_year": 2023,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-15",
+      "creation_date": "2003-06-15",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "mia.ns.cloudflare.com",
+        "sean.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $400M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "essential.com",
+      "company": "Essential Products",
+      "funding": "$330M",
+      "funding_numeric": 330000000.0,
+      "sector": "consumer hardware/phones",
+      "shutdown_year": 2020,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2032-06-22",
+      "creation_date": "1997-06-23",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns03.domaincontrol.com",
+        "ns04.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $330M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "fulcrum-bioenergy.com",
+      "company": "Fulcrum BioEnergy",
+      "funding": "$300M+",
+      "funding_numeric": 300000000.0,
+      "sector": "sustainable aviation fuel",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2034-04-03",
+      "creation_date": "2007-04-03",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1-06.azure-dns.com",
+        "ns2-06.azure-dns.net",
+        "ns3-06.azure-dns.org",
+        "ns4-06.azure-dns.info"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $300M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "frubana.com",
+      "company": "Frubana",
+      "funding": "$271M",
+      "funding_numeric": 271000000.0,
+      "sector": "agri supply chain",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2028-11-17",
+      "creation_date": "2018-11-17",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-110.awsdns-13.com",
+        "ns-1324.awsdns-37.org",
+        "ns-1714.awsdns-22.co.uk",
+        "ns-835.awsdns-40.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $271M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "itsflip.com",
+      "company": "Flip",
+      "funding": "$236M",
+      "funding_numeric": 236000000.0,
+      "sector": "Social Commerce/E-commerce",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-03",
+      "creation_date": "2014-08-03",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns71.domaincontrol.com",
+        "ns72.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $236M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "ambri.com",
+      "company": "Ambri",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "energy storage/batteries",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-06-20",
+      "creation_date": "1997-06-21",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns13.domaincontrol.com",
+        "ns14.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $200M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "efishery.com",
+      "company": "eFishery",
+      "funding": "$200M+ (unicorn)",
+      "funding_numeric": 200000000.0,
+      "sector": "agritech/aquaculture",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2032-09-13",
+      "creation_date": "2013-09-13",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "perla.ns.cloudflare.com",
+        "roman.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $200M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "company": "Good Glamm Group",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "beauty/ecommerce",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-06",
+      "creation_date": "2021-07-06",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns43.domaincontrol.com",
+        "ns44.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $200M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "lyndra.com",
+      "company": "Lyndra Therapeutics",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "biotech/long-acting drugs",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2029-05-01",
+      "creation_date": "2006-05-01",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns09.domaincontrol.com",
+        "ns10.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $200M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "natronenergy.com",
+      "company": "Natron Energy",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "sodium-ion batteries",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-12-22",
+      "creation_date": "2020-12-22",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns45.domaincontrol.com",
+        "ns46.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $200M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "beepi.com",
+      "company": "Beepi",
+      "funding": "$148M",
+      "funding_numeric": 148000000.0,
+      "sector": "used car marketplace",
+      "shutdown_year": 2017,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-08-25",
+      "creation_date": "2010-08-25",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns33.domaincontrol.com",
+        "ns34.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $148M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "plastiq.com",
+      "company": "Plastiq",
+      "funding": "$140M",
+      "funding_numeric": 140000000.0,
+      "sector": "Fintech/B2B Payments",
+      "shutdown_year": 2023,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-03-16",
+      "creation_date": "2003-03-16",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-120.awsdns-15.com",
+        "ns-1335.awsdns-38.org",
+        "ns-1569.awsdns-04.co.uk",
+        "ns-669.awsdns-19.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $140M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "juicero.com",
+      "company": "Juicero",
+      "funding": "$120M",
+      "funding_numeric": 120000000.0,
+      "sector": "consumer hardware/food",
+      "shutdown_year": 2017,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2035-04-06",
+      "creation_date": "2013-04-06",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "paityn.ns.cloudflare.com",
+        "rocky.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $120M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "gro-intelligence.com",
+      "company": "Gro Intelligence",
+      "funding": "$117M",
+      "funding_numeric": 117000000.0,
+      "sector": "agri data/AI",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-19",
+      "creation_date": "2012-07-19",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns27.domaincontrol.com",
+        "ns28.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $117M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "bench.co",
+      "company": "Bench",
+      "funding": "$100M+",
+      "funding_numeric": 100000000.0,
+      "sector": "Fintech/Accounting",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-07-19",
+      "creation_date": "2010-07-20",
+      "status": [
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "ns-1409.awsdns-48.org",
+        "ns-1900.awsdns-45.co.uk",
+        "ns-604.awsdns-11.net",
+        "ns-227.awsdns-28.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $100M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "swvl.com",
+      "company": "Swvl",
+      "funding": "$100M+",
+      "funding_numeric": 100000000.0,
+      "sector": "mass transit/ride-sharing",
+      "shutdown_year": 2022,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2030-06-10",
+      "creation_date": "2006-06-10",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-cloud-d1.googledomains.com",
+        "ns-cloud-d2.googledomains.com",
+        "ns-cloud-d3.googledomains.com",
+        "ns-cloud-d4.googledomains.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "MEDIUM",
+        "max_bid": 10000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. MEDIUM tier domain from $100M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "solidfi.com",
+      "company": "Solid Financial",
+      "funding": "$81M",
+      "funding_numeric": 81000000.0,
+      "sector": "fintech/BaaS",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-12-31",
+      "creation_date": "2012-12-31",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1327.awsdns-37.org",
+        "ns-1745.awsdns-26.co.uk",
+        "ns-70.awsdns-08.com",
+        "ns-903.awsdns-48.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $81M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "walkingfishtx.com",
+      "company": "Walking Fish Therapeutics",
+      "funding": "$73M",
+      "funding_numeric": 73000000.0,
+      "sector": "biotech/cell therapy",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-30",
+      "creation_date": "2020-10-30",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "kianchau.ns.cloudflare.com",
+        "selah.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $73M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "spotlighttx.com",
+      "company": "Spotlight Therapeutics",
+      "funding": "$66M",
+      "funding_numeric": 66000000.0,
+      "sector": "biotech/gene editing",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-03",
+      "creation_date": "2017-02-03",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns35.domaincontrol.com",
+        "ns36.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $66M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "ionicmaterials.com",
+      "company": "Ionic Materials",
+      "funding": "$65M+",
+      "funding_numeric": 65000000.0,
+      "sector": "battery materials",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2028-03-12",
+      "creation_date": "2009-03-12",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns33.domaincontrol.com",
+        "ns34.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $65M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "shyp.com",
+      "company": "Shyp",
+      "funding": "$62M",
+      "funding_numeric": 62000000.0,
+      "sector": "shipping/logistics",
+      "shutdown_year": 2018,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2029-01-25",
+      "creation_date": "2005-01-25",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns43.domaincontrol.com",
+        "ns44.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $62M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "log9materials.com",
+      "company": "Log9 Materials",
+      "funding": "$60M+",
+      "funding_numeric": 60000000.0,
+      "sector": "EV battery tech",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-09-11",
+      "creation_date": "2014-09-11",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns71.domaincontrol.com",
+        "ns72.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $60M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "runningtide.com",
+      "company": "Running Tide",
+      "funding": "$54M+",
+      "funding_numeric": 54000000.0,
+      "sector": "carbon removal/ocean",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-01-30",
+      "creation_date": "1996-01-29",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-cloud-e1.googledomains.com",
+        "ns-cloud-e2.googledomains.com",
+        "ns-cloud-e3.googledomains.com",
+        "ns-cloud-e4.googledomains.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $54M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "appiabio.com",
+      "company": "Appia Bio",
+      "funding": "$52M",
+      "funding_numeric": 52000000.0,
+      "sector": "biotech/cell therapy",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-01",
+      "creation_date": "2020-07-01",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns05.domaincontrol.com",
+        "ns06.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $52M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "themessenger.com",
+      "company": "The Messenger",
+      "funding": "$50M",
+      "funding_numeric": 50000000.0,
+      "sector": "digital news/media",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2033-01-11",
+      "creation_date": "2000-01-11",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1358.awsdns-41.org",
+        "ns-2008.awsdns-59.co.uk",
+        "ns-54.awsdns-06.com",
+        "ns-641.awsdns-16.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW-MEDIUM",
+        "max_bid": 5000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW-MEDIUM tier domain from $50M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "aspirefg.com",
+      "company": "Aspire Food Group",
+      "funding": "$42M+",
+      "funding_numeric": 42000000.0,
+      "sector": "insect farming",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-06",
+      "creation_date": "2013-07-06",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns57.domaincontrol.com",
+        "ns58.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $42M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "altigreen.com",
+      "company": "Altigreen",
+      "funding": "$40M+",
+      "funding_numeric": 40000000.0,
+      "sector": "EV manufacturing",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-10-22",
+      "creation_date": "2012-10-22",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns59.domaincontrol.com",
+        "ns60.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $40M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "blockfills.com",
+      "company": "BlockFills",
+      "funding": "$40M+",
+      "funding_numeric": 40000000.0,
+      "sector": "crypto trading/lending",
+      "shutdown_year": 2026,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-11-02",
+      "creation_date": "2017-11-02",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1527.awsdns-62.org",
+        "ns-1943.awsdns-50.co.uk",
+        "ns-237.awsdns-29.com",
+        "ns-732.awsdns-27.net"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $40M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "homejoy.com",
+      "company": "Homejoy",
+      "funding": "$40M",
+      "funding_numeric": 40000000.0,
+      "sector": "home services marketplace",
+      "shutdown_year": 2015,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2035-01-31",
+      "creation_date": "2000-01-31",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns1.dnsimple.com",
+        "ns2.dnsimple.com",
+        "ns3.dnsimple.com",
+        "ns4.dnsimple.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $40M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "scififoods.com",
+      "company": "SCiFi Foods",
+      "funding": "$30M+",
+      "funding_numeric": 30000000.0,
+      "sector": "cultivated meat",
+      "shutdown_year": 2024,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-14",
+      "creation_date": "2018-06-14",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns47.domaincontrol.com",
+        "ns48.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $30M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "noogata.com",
+      "company": "Noogata",
+      "funding": "$28M",
+      "funding_numeric": 28000000.0,
+      "sector": "AI/Analytics",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-04-28",
+      "creation_date": "2019-04-28",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns47.domaincontrol.com",
+        "ns48.domaincontrol.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $28M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "sendy.co",
+      "company": "Sendy",
+      "funding": "$27M",
+      "funding_numeric": 27000000.0,
+      "sector": "logistics",
+      "shutdown_year": 2023,
+      "registrar": "Wild West Domains, Inc.",
+      "expiry": "2026-07-16",
+      "creation_date": "2012-07-17",
+      "status": [
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "ns-156.awsdns-19.com",
+        "ns-615.awsdns-12.net",
+        "ns-1857.awsdns-40.co.uk",
+        "ns-1163.awsdns-17.org"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $27M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    },
+    {
+      "domain": "banxso.com",
+      "company": "Banxso",
+      "funding": "$20M+",
+      "funding_numeric": 20000000.0,
+      "sector": "trading platform",
+      "shutdown_year": 2025,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2027-02-17",
+      "creation_date": "2021-02-17",
+      "status": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "burt.ns.cloudflare.com",
+        "fatima.ns.cloudflare.com"
+      ],
+      "signal": [
+        "STATUS:clientrenewprohibited"
+      ],
+      "classification": "DROPPING",
+      "recommendation": {
+        "tier": "LOW",
+        "max_bid": 2000,
+        "platforms": [
+          "DropCatch.com",
+          "NameJet.com",
+          "SnapNames.com",
+          "GoDaddy Closeouts",
+          "Dynadot Backorder"
+        ],
+        "strategy": "Place backorders on ALL platforms. LOW tier domain from $20M funded startup. Watch auction closely.",
+        "urgency": "HIGH"
+      }
+    }
+  ],
+  "distressed": [
+    {
+      "domain": "proterra.com",
+      "company": "Proterra",
+      "funding": "$1B+",
+      "funding_numeric": 1000000000.0,
+      "sector": "electric buses",
+      "shutdown_year": 2023,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-08-09",
+      "creation_date": "1996-08-10",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "edna.ns.cloudflare.com",
+        "salvador.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-08-09(3.1mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "fisker.com",
+      "company": "Fisker",
+      "funding": "$1B+ (public company)",
+      "funding_numeric": 1000000000.0,
+      "sector": "EV/Automotive",
+      "shutdown_year": 2024,
+      "registrar": "Bluehost Inc.",
+      "expiry": "2026-09-19",
+      "creation_date": "1996-09-20",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.verio.com",
+        "ns2.verio.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-09-19(4.4mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "jawbone.com",
+      "company": "Jawbone",
+      "funding": "$930M",
+      "funding_numeric": 930000000.0,
+      "sector": "consumer hardware/wearables",
+      "shutdown_year": 2017,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2026-06-12",
+      "creation_date": "1997-06-13",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "alex.ns.cloudflare.com",
+        "athena.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-06-12(1.1mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "builder.ai",
+      "company": "Builder.ai",
+      "funding": "$450M",
+      "funding_numeric": 450000000.0,
+      "sector": "no-code/AI",
+      "shutdown_year": 2025,
+      "registrar": "101domain GRS Limited",
+      "expiry": "2026-06-04",
+      "creation_date": "2018-06-04",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1509.awsdns-60.org",
+        "ns-1827.awsdns-36.co.uk",
+        "ns-165.awsdns-20.com",
+        "ns-706.awsdns-24.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-06-04(0.9mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "cazoo.co.uk",
+      "company": "Cazoo",
+      "funding": "$2B+ (public listing)",
+      "funding_numeric": 2000000000.0,
+      "sector": "automotive marketplace",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": "2029-07-27",
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "hopin.com",
+      "company": "Hopin",
+      "funding": "$1B+",
+      "funding_numeric": 1000000000.0,
+      "sector": "virtual events",
+      "shutdown_year": 2024,
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2026-06-10",
+      "creation_date": "1998-06-11",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "henry.ns.cloudflare.com",
+        "katja.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-06-10(1.1mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "appharvest.com",
+      "company": "AppHarvest",
+      "funding": "$635M (public)",
+      "funding_numeric": 635000000.0,
+      "sector": "indoor farming",
+      "shutdown_year": 2023,
+      "registrar": "Porkbun LLC",
+      "expiry": "2028-02-01",
+      "creation_date": "2014-02-01",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "curitiba.ns.porkbun.com",
+        "fortaleza.ns.porkbun.com",
+        "maceio.ns.porkbun.com",
+        "salvador.ns.porkbun.com"
+      ],
+      "signal": [
+        "PARKING_NS:porkbun.com"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "tritiumcharging.com",
+      "company": "Tritium",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "EV charging",
+      "shutdown_year": 2024,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-07-11",
+      "creation_date": "2019-07-11",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "blair.ns.cloudflare.com",
+        "yichun.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-07-11(2.1mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "quirky.com",
+      "company": "Quirky",
+      "funding": "$185M",
+      "funding_numeric": 185000000.0,
+      "sector": "crowdsourced invention",
+      "shutdown_year": 2015,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "meettally.com",
+      "company": "Tally",
+      "funding": "$172M",
+      "funding_numeric": 172000000.0,
+      "sector": "Fintech",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "zeuslivingrentals.com",
+      "company": "Zeus Living",
+      "funding": "$150M",
+      "funding_numeric": 150000000.0,
+      "sector": "short-term rental/proptech",
+      "shutdown_year": 2023,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "magiceden.io",
+      "company": "Magic Eden Wallet",
+      "funding": "$130M+ (raised as company)",
+      "funding_numeric": 130000000.0,
+      "sector": "NFT/Crypto",
+      "shutdown_year": 2026,
+      "registrar": "Cloudflare, Inc",
+      "expiry": "2026-09-02",
+      "creation_date": "2021-09-02",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "donna.ns.cloudflare.com",
+        "felicity.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-09-02(3.9mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "prophesee.ai",
+      "company": "Prophesee",
+      "funding": "$126M",
+      "funding_numeric": 126000000.0,
+      "sector": "deeptech/computer vision",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "copiaglobal.com",
+      "company": "Copia Global",
+      "funding": "$120M+",
+      "funding_numeric": 120000000.0,
+      "sector": "ecommerce",
+      "shutdown_year": 2024,
+      "registrar": "Squarespace Domains LLC",
+      "expiry": "2026-11-01",
+      "creation_date": "2011-11-01",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "client"
+      ],
+      "nameservers": [
+        "ns-cloud-d1.googledomains.com",
+        "ns-cloud-d2.googledomains.com",
+        "ns-cloud-d3.googledomains.com",
+        "ns-cloud-d4.googledomains.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-11-01(5.9mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "easymile.com",
+      "company": "EasyMile",
+      "funding": "$90M",
+      "funding_numeric": 90000000.0,
+      "sector": "autonomous vehicles",
+      "shutdown_year": 2024,
+      "registrar": "OVH sas",
+      "expiry": "2026-08-25",
+      "creation_date": "2009-08-25",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns200.anycast.me",
+        "ns200.anycast.me"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-08-25(3.6mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "allplants.com",
+      "company": "Allplants",
+      "funding": "$81M",
+      "funding_numeric": 81000000.0,
+      "sector": "foodtech/vegan meals",
+      "shutdown_year": 2024,
+      "registrar": "IONOS SE",
+      "expiry": "2026-08-31",
+      "creation_date": "2002-08-31",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1031.ui-dns.de",
+        "ns1033.ui-dns.biz",
+        "ns1070.ui-dns.org",
+        "ns1121.ui-dns.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-08-31(3.8mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "atrium.co",
+      "company": "Atrium",
+      "funding": "$75M",
+      "funding_numeric": 75000000.0,
+      "sector": "LegalTech",
+      "shutdown_year": 2020,
+      "registrar": "GrepApps Technology Inc.",
+      "expiry": "2026-11-04",
+      "creation_date": "2024-11-04",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.afternic.com",
+        "ns2.afternic.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-11-04(6.0mo)",
+        "PARKING_NS:afternic"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "masteos.com",
+      "company": "Masteos",
+      "funding": "$70M",
+      "funding_numeric": 70000000.0,
+      "sector": "proptech",
+      "shutdown_year": 2024,
+      "registrar": "Gandi SAS",
+      "expiry": "2026-08-07",
+      "creation_date": "2018-08-07",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "colette.ns.cloudflare.com",
+        "jay.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-08-07(3.0mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "ubiquitousenergy.com",
+      "company": "Ubiquitous Energy",
+      "funding": "$70M+",
+      "funding_numeric": 70000000.0,
+      "sector": "solar windows",
+      "shutdown_year": 2024,
+      "registrar": "Moniker Online Services LLC",
+      "expiry": "2026-12-19",
+      "creation_date": "2007-12-19",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns3.afternic.com",
+        "ns4.afternic.com"
+      ],
+      "signal": [
+        "PARKING_NS:afternic"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "tanihub.com",
+      "company": "TaniHub",
+      "funding": "$65M+",
+      "funding_numeric": 65000000.0,
+      "sector": "agritech/grocery",
+      "shutdown_year": 2025,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-10-03",
+      "creation_date": "2015-10-03",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1419.awsdns-49.org",
+        "ns-2004.awsdns-58.co.uk",
+        "ns-254.awsdns-31.com",
+        "ns-884.awsdns-46.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-10-03(4.9mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "kooapp.com",
+      "company": "Koo",
+      "funding": "$60M",
+      "funding_numeric": 60000000.0,
+      "sector": "social media",
+      "shutdown_year": 2024,
+      "registrar": "HOSTINGER operations, UAB",
+      "expiry": "2026-10-29",
+      "creation_date": "2019-10-29",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns2.wixdns.net",
+        "ns3.wixdns.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-10-29(5.8mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "ridecake.com",
+      "company": "Cake",
+      "funding": "$60M",
+      "funding_numeric": 60000000.0,
+      "sector": "electric motorcycles",
+      "shutdown_year": 2024,
+      "registrar": "1API GmbH",
+      "expiry": "2026-08-15",
+      "creation_date": "2016-08-15",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "apollo.ns.cloudflare.com",
+        "stephane.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-08-15(3.3mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "hyrecar.com",
+      "company": "HyreCar",
+      "funding": "$50M+",
+      "funding_numeric": 50000000.0,
+      "sector": "car-sharing/gig economy",
+      "shutdown_year": 2025,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-06-23",
+      "creation_date": "2014-06-23",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1084.awsdns-07.org",
+        "ns-1751.awsdns-26.co.uk",
+        "ns-235.awsdns-29.com",
+        "ns-987.awsdns-59.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-06-23(1.5mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "color.com",
+      "company": "Color (original)",
+      "funding": "$41M",
+      "funding_numeric": 41000000.0,
+      "sector": "photo sharing",
+      "shutdown_year": 2012,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-09-22",
+      "creation_date": "1994-09-23",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1495.awsdns-58.org",
+        "ns-1644.awsdns-13.co.uk",
+        "ns-361.awsdns-45.com",
+        "ns-883.awsdns-46.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-09-22(4.5mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "marketforce.app",
+      "company": "MarketForce",
+      "funding": "$40M",
+      "funding_numeric": 40000000.0,
+      "sector": "B2B ecommerce",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "secret.ly",
+      "company": "Secret",
+      "funding": "$35M",
+      "funding_numeric": 35000000.0,
+      "sector": "social media/anonymous",
+      "shutdown_year": 2015,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "yupp.ai",
+      "company": "Yupp.ai",
+      "funding": "$33M",
+      "funding_numeric": 33000000.0,
+      "sector": "AI feedback/crowdsource",
+      "shutdown_year": 2026,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2034-06-01",
+      "creation_date": "2024-06-01",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns1.registrar-servers.com",
+        "dns2.registrar-servers.com"
+      ],
+      "signal": [
+        "PARKING_NS:registrar-servers"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "lvl.co",
+      "company": "Level",
+      "funding": "$30.8M",
+      "funding_numeric": 30800000.0,
+      "sector": "Fintech/Insurance",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "stayfrontdesk.com",
+      "company": "Frontdesk",
+      "funding": "$30M+",
+      "funding_numeric": 30000000.0,
+      "sector": "short-term rental",
+      "shutdown_year": 2024,
+      "registrar": "Name.com, Inc.",
+      "expiry": "2026-06-05",
+      "creation_date": "2018-06-05",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1jsv.name.com",
+        "ns2bkr.name.com",
+        "ns3gnv.name.com",
+        "ns4bfy.name.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-06-05(0.9mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "entropy.xyz",
+      "company": "Entropy",
+      "funding": "$25M",
+      "funding_numeric": 25000000.0,
+      "sector": "crypto custody",
+      "shutdown_year": 2026,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2026-09-15",
+      "creation_date": "2018-09-15",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited",
+        "renewperiod"
+      ],
+      "nameservers": [
+        "mckenzie.ns.cloudflare.com",
+        "tony.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-09-15(4.3mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "smallhold.com",
+      "company": "Smallhold",
+      "funding": "$25M+",
+      "funding_numeric": 25000000.0,
+      "sector": "mushroom farming",
+      "shutdown_year": 2024,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-07-10",
+      "creation_date": "2003-07-10",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1060.awsdns-04.org",
+        "ns-1704.awsdns-21.co.uk",
+        "ns-330.awsdns-41.com",
+        "ns-869.awsdns-44.net"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-07-10(2.1mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "cushion.ai",
+      "company": "Cushion",
+      "funding": "$21.6M",
+      "funding_numeric": 21600000.0,
+      "sector": "Fintech/BNPL",
+      "shutdown_year": 2025,
+      "registrar": "101domain GRS Limited",
+      "expiry": "2026-10-28",
+      "creation_date": "2017-12-16",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "violet.ns.cloudflare.com",
+        "amit.ns.cloudflare.com"
+      ],
+      "signal": [
+        "EXPIRING_SOON:2026-10-28(5.7mo)"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "beamrobotics.com",
+      "company": "Beam Robotics",
+      "funding": "$20M+",
+      "funding_numeric": 20000000.0,
+      "sector": "climate tech/robotics",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "beepkart.com",
+      "company": "Beepkart",
+      "funding": "$20M",
+      "funding_numeric": 20000000.0,
+      "sector": "used vehicle marketplace",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bikayi.com",
+      "company": "Bikayi",
+      "funding": "$20M+",
+      "funding_numeric": 20000000.0,
+      "sector": "D2C ecommerce",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "niro.money",
+      "company": "Niro",
+      "funding": "$20M",
+      "funding_numeric": 20000000.0,
+      "sector": "embedded fintech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "sindelantal.mx",
+      "company": "SinDelantal (iFood Mexico)",
+      "funding": "$20M+",
+      "funding_numeric": 20000000.0,
+      "sector": "food delivery",
+      "shutdown_year": 2020,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "slingshot.finance",
+      "company": "Slingshot",
+      "funding": "$18.1M",
+      "funding_numeric": 18100000.0,
+      "sector": "DeFi/Crypto",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "toplyne.io",
+      "company": "Toplyne",
+      "funding": "$17.5M",
+      "funding_numeric": 17500000.0,
+      "sector": "SaaS/PLG",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "lipalater.com",
+      "company": "Lipa Later",
+      "funding": "$16.6M",
+      "funding_numeric": 16600000.000000002,
+      "sector": "BNPL fintech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "cbex.co",
+      "company": "CBEX",
+      "funding": "$16.5M+ lost (Ponzi)",
+      "funding_numeric": 16500000.0,
+      "sector": "crypto (scam)",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "lidya.co",
+      "company": "Lidya",
+      "funding": "$16.5M",
+      "funding_numeric": 16500000.0,
+      "sector": "SME lending/fintech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "okra.ng",
+      "company": "Okra",
+      "funding": "$16.5M",
+      "funding_numeric": 16500000.0,
+      "sector": "open finance/API",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "cubyn.com",
+      "company": "Cubyn",
+      "funding": "$15M+",
+      "funding_numeric": 15000000.0,
+      "sector": "logistics",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "dappradar.com",
+      "company": "DappRadar",
+      "funding": "$15M+",
+      "funding_numeric": 15000000.0,
+      "sector": "blockchain analytics",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "meerkatapp.co",
+      "company": "Meerkat",
+      "funding": "$14M",
+      "funding_numeric": 14000000.0,
+      "sector": "live streaming",
+      "shutdown_year": 2016,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "kenkohealth.com",
+      "company": "Kenko Health",
+      "funding": "$13.7M",
+      "funding_numeric": 13700000.0,
+      "sector": "healthtech",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "vassla.com",
+      "company": "Vassla",
+      "funding": "$13M",
+      "funding_numeric": 13000000.0,
+      "sector": "micromobility/e-mopeds",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "anscommerce.com",
+      "company": "ANS Commerce",
+      "funding": "$10M+",
+      "funding_numeric": 10000000.0,
+      "sector": "ecommerce SaaS",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bharatagri.com",
+      "company": "BharatAgri",
+      "funding": "$10M+",
+      "funding_numeric": 10000000.0,
+      "sector": "agritech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "braid.co",
+      "company": "Braid",
+      "funding": "$10M",
+      "funding_numeric": 10000000.0,
+      "sector": "Fintech",
+      "shutdown_year": 2023,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "crickpe.com",
+      "company": "CrickPe",
+      "funding": "$10M+",
+      "funding_numeric": 10000000.0,
+      "sector": "fantasy sports",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "epicery.com",
+      "company": "Epicery",
+      "funding": "$10M+",
+      "funding_numeric": 10000000.0,
+      "sector": "food delivery",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "tally.xyz",
+      "company": "Tally (DAO governance)",
+      "funding": "$10M+",
+      "funding_numeric": 10000000.0,
+      "sector": "DAO governance/crypto",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "embersword.com",
+      "company": "Ember Sword",
+      "funding": "$7M+",
+      "funding_numeric": 7000000.0,
+      "sector": "Web3 gaming",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "medsaf.com",
+      "company": "Medsaf",
+      "funding": "$7M+",
+      "funding_numeric": 7000000.0,
+      "sector": "pharma supply chain",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "alza.co",
+      "company": "Alza",
+      "funding": "$6.6M",
+      "funding_numeric": 6600000.0,
+      "sector": "Fintech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "parsec.finance",
+      "company": "Parsec",
+      "funding": "$5.25M",
+      "funding_numeric": 5250000.0,
+      "sector": "Crypto Analytics",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "afristay.com",
+      "company": "Afristay",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "travel/accommodation",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "angle.money",
+      "company": "Angle Protocol",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "stablecoins/DeFi",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "astra.ai",
+      "company": "Astra AI",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "AI/sales tech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "balancer.fi",
+      "company": "Balancer Labs",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "DeFi protocol",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bentoafrica.com",
+      "company": "Bento Africa",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "HR tech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "econduce.com",
+      "company": "Econduce",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "electric mobility/scooters",
+      "shutdown_year": 2020,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "genwise.in",
+      "company": "GenWise",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "elder care tech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "locale.ai",
+      "company": "Locale.ai",
+      "funding": "$5M",
+      "funding_numeric": 5000000.0,
+      "sector": "geospatial analytics/AI",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "lolyinthesky.com",
+      "company": "Loly in the Sky",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "D2C sustainable footwear",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "ohmmobility.com",
+      "company": "Ohm Mobility",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "EV financing",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "wherehouse.io",
+      "company": "Wherehouse.io",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "supply chain/warehousing",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "zingfresh.in",
+      "company": "Zing",
+      "funding": "$5M+",
+      "funding_numeric": 5000000.0,
+      "sector": "quick food delivery",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "exosonic.com",
+      "company": "Exosonic",
+      "funding": "$4.5M",
+      "funding_numeric": 4500000.0,
+      "sector": "Aerospace/Defense",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "muvin.co.in",
+      "company": "Muvin",
+      "funding": "$4M",
+      "funding_numeric": 4000000.0,
+      "sector": "neobanking",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bluelearn.in",
+      "company": "Bluelearn",
+      "funding": "$3.95M",
+      "funding_numeric": 3950000.0,
+      "sector": "edtech",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "edukoya.com",
+      "company": "Edukoya",
+      "funding": "$3.5M",
+      "funding_numeric": 3500000.0,
+      "sector": "edtech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "zoplar.com",
+      "company": "Zoplar",
+      "funding": "$3.4M",
+      "funding_numeric": 3400000.0,
+      "sector": "healthtech/medical devices",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "leapwallet.io",
+      "company": "Leap Wallet",
+      "funding": "$3.2M",
+      "funding_numeric": 3200000.0,
+      "sector": "Crypto/Wallets",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "blip.club",
+      "company": "Blip",
+      "funding": "$3M+",
+      "funding_numeric": 3000000.0,
+      "sector": "quick commerce/fashion",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "nintee.com",
+      "company": "Nintee",
+      "funding": "$3M",
+      "funding_numeric": 3000000.0,
+      "sector": "digital health",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "zerolend.xyz",
+      "company": "ZeroLend",
+      "funding": "$3M seed",
+      "funding_numeric": 3000000.0,
+      "sector": "DeFi/Crypto",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "pivo.co",
+      "company": "Pivo Africa",
+      "funding": "$2.5M",
+      "funding_numeric": 2500000.0,
+      "sector": "fintech/SME banking",
+      "shutdown_year": 2023,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "leap.club",
+      "company": "leap.club",
+      "funding": "$2.3M",
+      "funding_numeric": 2300000.0,
+      "sector": "women's community",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bonto.money",
+      "company": "Bonto",
+      "funding": "$2M+",
+      "funding_numeric": 2000000.0,
+      "sector": "remittance fintech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "investmint.club",
+      "company": "Investmint",
+      "funding": "$2M",
+      "funding_numeric": 2000000.0,
+      "sector": "fintech/trading",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "step.finance",
+      "company": "Step Finance",
+      "funding": "$2M+",
+      "funding_numeric": 2000000.0,
+      "sector": "DeFi/Solana",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "plusgold.in",
+      "company": "Plus Gold",
+      "funding": "$1.2M",
+      "funding_numeric": 1200000.0,
+      "sector": "digital gold",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "greenikk.com",
+      "company": "Greenikk",
+      "funding": "$1M",
+      "funding_numeric": 1000000.0,
+      "sector": "agritech/banana",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "capway.com",
+      "company": "CapWay",
+      "funding": "$0.8M",
+      "funding_numeric": 800000.0,
+      "sector": "Fintech",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "codeparrot.ai",
+      "company": "CodeParrot",
+      "funding": "$500K",
+      "funding_numeric": 500000.0,
+      "sector": "developer tools",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "subtl.ai",
+      "company": "Subtl.ai",
+      "funding": "$200K",
+      "funding_numeric": 200000.0,
+      "sector": "enterprise AI/RAG",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "goldpe.in",
+      "company": "GoldPe",
+      "funding": "$100K",
+      "funding_numeric": 100000.0,
+      "sector": "fintech/digital gold",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "joovlin.com",
+      "company": "Joovlin",
+      "funding": "$100K",
+      "funding_numeric": 100000.0,
+      "sector": "fintech/retail",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "artifact.news",
+      "company": "Artifact",
+      "funding": "Undisclosed (Instagram founders self-funded)",
+      "funding_numeric": 0,
+      "sector": "News/AI",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "ask.com",
+      "company": "Ask.com",
+      "funding": "N/A (owned by IAC)",
+      "funding_numeric": 0,
+      "sector": "Search/Internet",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "bit.com",
+      "company": "Bit.com",
+      "funding": "Owned by Matrixport",
+      "funding_numeric": 0,
+      "sector": "Crypto/Exchange",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "digg.com",
+      "company": "Digg",
+      "funding": "Various rounds",
+      "funding_numeric": 0,
+      "sector": "Social/News",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "dmail.ai",
+      "company": "Dmail",
+      "funding": "Undisclosed",
+      "funding_numeric": 0,
+      "sector": "Web3/Messaging",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "fiskerinc.com",
+      "company": "Fisker (duplicate check for fiskerinc.com)",
+      "funding": "see fisker.com",
+      "funding_numeric": 0,
+      "sector": "EV/Automotive",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "insurstaq.ai",
+      "company": "InsurStaq.ai",
+      "funding": "undisclosed",
+      "funding_numeric": 0,
+      "sector": "insurtech/AI",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "lumio.com",
+      "company": "Lumio",
+      "funding": "undisclosed",
+      "funding_numeric": 0,
+      "sector": "solar installation",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "niftygateway.com",
+      "company": "Nifty Gateway",
+      "funding": "Owned by Gemini (Winklevoss twins)",
+      "funding_numeric": 0,
+      "sector": "NFT/Crypto",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "pepperpay.com",
+      "company": "Pepper Pay",
+      "funding": "Unknown",
+      "funding_numeric": 0,
+      "sector": "Fintech/Payments",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "polynomial.fi",
+      "company": "Polynomial Protocol",
+      "funding": "undisclosed",
+      "funding_numeric": 0,
+      "sector": "DeFi derivatives",
+      "shutdown_year": 2026,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "rdio.com",
+      "company": "Rdio",
+      "funding": "undisclosed",
+      "funding_numeric": 0,
+      "sector": "music streaming",
+      "shutdown_year": 2015,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "rtfkt.com",
+      "company": "RTFKT (Nike-owned)",
+      "funding": "acquired by Nike",
+      "funding_numeric": 0,
+      "sector": "NFT/digital fashion",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "stoa.com",
+      "company": "Stoa School",
+      "funding": "Undisclosed (backed by Zerodha founder)",
+      "funding_numeric": 0,
+      "sector": "Edtech",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "toledosolar.com",
+      "company": "Toledo Solar",
+      "funding": "undisclosed",
+      "funding_numeric": 0,
+      "sector": "solar panels",
+      "shutdown_year": 2024,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "tuneai.com",
+      "company": "Tune AI",
+      "funding": "Seed (Accel)",
+      "funding_numeric": 0,
+      "sector": "GenAI platform",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "vine.co",
+      "company": "Vine",
+      "funding": "acquired by Twitter",
+      "funding_numeric": 0,
+      "sector": "social media/video",
+      "shutdown_year": 2017,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "wuri.ai",
+      "company": "Wuri",
+      "funding": "YC-backed seed",
+      "funding_numeric": 0,
+      "sector": "consumer/enterprise AI",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    },
+    {
+      "domain": "yara.ai",
+      "company": "Yara AI",
+      "funding": "Pre-seed",
+      "funding_numeric": 0,
+      "sector": "mental health AI",
+      "shutdown_year": 2025,
+      "registrar": null,
+      "expiry": null,
+      "creation_date": null,
+      "status": [],
+      "nameservers": [],
+      "signal": [
+        "NO_NAMESERVERS"
+      ],
+      "classification": "DISTRESSED"
+    }
+  ],
+  "active": [
+    {
+      "domain": "sunpower.com",
+      "company": "SunPower",
+      "funding": "$2B+ (public)",
+      "funding_numeric": 2000000000.0,
+      "sector": "solar energy",
+      "shutdown_year": 2024,
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2028-04-18",
+      "creation_date": "1996-04-17",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "dns1.easydns.com",
+        "dns2.easydns.net",
+        "dns3.easydns.ca",
+        "verification.easydns.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "getaround.com",
+      "company": "Getaround",
+      "funding": "$600M+",
+      "funding_numeric": 600000000.0,
+      "sector": "car-sharing/mobility",
+      "shutdown_year": 2024,
+      "registrar": "Gandi SAS",
+      "expiry": "2028-04-22",
+      "creation_date": "2003-04-22",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "matt.ns.cloudflare.com",
+        "tia.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "boweryfarming.com",
+      "company": "Bowery Farming",
+      "funding": "$700M+",
+      "funding_numeric": 700000000.0,
+      "sector": "vertical farming",
+      "shutdown_year": 2024,
+      "registrar": "Spaceship, Inc.",
+      "expiry": "2027-08-02",
+      "creation_date": "2025-08-02",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "hera.ns.cloudflare.com",
+        "jasper.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "invisionapp.com",
+      "company": "InVision",
+      "funding": "$350M+",
+      "funding_numeric": 350000000.0,
+      "sector": "design collaboration/SaaS",
+      "shutdown_year": 2024,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2026-11-19",
+      "creation_date": "2009-11-19",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-111.awsdns-13.com",
+        "ns-1264.awsdns-30.org",
+        "ns-1923.awsdns-48.co.uk",
+        "ns-593.awsdns-10.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "bird.co",
+      "company": "Bird",
+      "funding": "$1B+ (public company)",
+      "funding_numeric": 1000000000.0,
+      "sector": "Micromobility/Scooters",
+      "shutdown_year": 2023,
+      "registrar": "Gandi SAS",
+      "expiry": "2026-12-25",
+      "creation_date": "2016-12-26",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-795.awsdns-35.net",
+        "ns-478.awsdns-59.com",
+        "ns-1558.awsdns-02.co.uk",
+        "ns-1380.awsdns-44.org"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "convoy.com",
+      "company": "Convoy",
+      "funding": "$900M+",
+      "funding_numeric": 900000000.0,
+      "sector": "Logistics/Freight",
+      "shutdown_year": 2023,
+      "registrar": "SafeNames Ltd.",
+      "expiry": "2028-10-31",
+      "creation_date": "2000-10-31",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1297.awsdns-34.org",
+        "ns-184.awsdns-23.com",
+        "ns-1981.awsdns-55.co.uk",
+        "ns-572.awsdns-07.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "lilium.com",
+      "company": "Lilium",
+      "funding": "$1B+",
+      "funding_numeric": 1000000000.0,
+      "sector": "flying taxis/eVTOL",
+      "shutdown_year": 2025,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2027-06-02",
+      "creation_date": "1998-06-03",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1125.awsdns-12.org",
+        "ns-1574.awsdns-04.co.uk",
+        "ns-363.awsdns-45.com",
+        "ns-673.awsdns-20.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "wework.com",
+      "company": "WeWork",
+      "funding": "$22B+",
+      "funding_numeric": 22000000000.0,
+      "sector": "Real Estate/Co-working",
+      "shutdown_year": 2023,
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2027-11-16",
+      "creation_date": "1998-11-17",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "may.ns.cloudflare.com",
+        "sam.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "byjus.com",
+      "company": "Byju's",
+      "funding": "$5.5B+",
+      "funding_numeric": 5500000000.0,
+      "sector": "Edtech",
+      "shutdown_year": 2024,
+      "registrar": "Internet Domain Service BS Corp",
+      "expiry": "2032-06-19",
+      "creation_date": "2013-06-19",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns1.icedns.is",
+        "dns2.icedns.is"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "arrival.com",
+      "company": "Arrival",
+      "funding": "$1.3B+",
+      "funding_numeric": 1300000000.0,
+      "sector": "electric vehicles",
+      "shutdown_year": 2024,
+      "registrar": "Name.com, Inc.",
+      "expiry": "2026-12-03",
+      "creation_date": "1998-06-08",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "brenda.ns.cloudflare.com",
+        "kurt.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "solyndra.com",
+      "company": "Solyndra",
+      "funding": "$1.1B",
+      "funding_numeric": 1100000000.0,
+      "sector": "solar energy",
+      "shutdown_year": 2011,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2026-12-06",
+      "creation_date": "2005-12-06",
+      "status": [
+        "clientTransferProhibited",
+        "transferPeriod"
+      ],
+      "nameservers": [
+        "bonnie.ns.cloudflare.com",
+        "peyton.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "view.com",
+      "company": "View Inc.",
+      "funding": "$1.6B (public)",
+      "funding_numeric": 1600000000.0,
+      "sector": "smart glass/proptech",
+      "shutdown_year": 2024,
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2028-10-31",
+      "creation_date": "1994-11-01",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "greg.ns.cloudflare.com",
+        "olga.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "humane.com",
+      "company": "Humane",
+      "funding": "$230M+",
+      "funding_numeric": 230000000.0,
+      "sector": "AI/Consumer Hardware",
+      "shutdown_year": 2025,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2032-09-19",
+      "creation_date": "1995-09-20",
+      "status": [
+        "clientTransferProhibited",
+        "transferPeriod"
+      ],
+      "nameservers": [
+        "ns-1393.awsdns-46.org",
+        "ns-1570.awsdns-04.co.uk",
+        "ns-638.awsdns-15.net",
+        "ns-94.awsdns-11.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "lordstownmotors.com",
+      "company": "Lordstown Motors",
+      "funding": "$700M+",
+      "funding_numeric": 700000000.0,
+      "sector": "electric trucks",
+      "shutdown_year": 2023,
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-04-30",
+      "creation_date": "2019-04-30",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "hal.ns.cloudflare.com",
+        "kiki.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "nikolamotor.com",
+      "company": "Nikola Motors",
+      "funding": "$1B+ (public)",
+      "funding_numeric": 1000000000.0,
+      "sector": "EV/hydrogen trucks",
+      "shutdown_year": 2025,
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-12-21",
+      "creation_date": "2014-12-21",
+      "status": [
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1080.awsdns-07.org",
+        "ns-1666.awsdns-16.co.uk",
+        "ns-170.awsdns-21.com",
+        "ns-971.awsdns-57.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "gorillas.io",
+      "company": "Gorillas",
+      "funding": "$1.3B",
+      "funding_numeric": 1300000000.0,
+      "sector": "ultra-fast grocery delivery",
+      "shutdown_year": 2024,
+      "registrar": "NETIM SAS",
+      "expiry": "2028-04-22",
+      "creation_date": "2018-04-22",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dana.ns.cloudflare.com",
+        "everton.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "plenty.ag",
+      "company": "Plenty",
+      "funding": "$941M",
+      "funding_numeric": 941000000.0,
+      "sector": "AgTech/Vertical Farming",
+      "shutdown_year": 2025,
+      "registrar": "Instra Corporation Pty Ltd.",
+      "expiry": "2027-01-17",
+      "creation_date": "2017-01-17",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns-314.awsdns-39.com",
+        "ns-633.awsdns-15.net",
+        "ns-1833.awsdns-37.co.uk",
+        "ns-1439.awsdns-51.org"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "stenn.com",
+      "company": "Stenn",
+      "funding": "$900M valuation",
+      "funding_numeric": 900000000.0,
+      "sector": "fintech/invoice financing",
+      "shutdown_year": 2024,
+      "registrar": "NameCheap, Inc.",
+      "expiry": "2027-04-27",
+      "creation_date": "2003-04-27",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1-02.azure-dns.com",
+        "ns2-02.azure-dns.net",
+        "ns3-02.azure-dns.org",
+        "ns4-02.azure-dns.info"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "hiphi.com",
+      "company": "HiPhi (Human Horizons)",
+      "funding": "$800M+",
+      "funding_numeric": 800000000.0,
+      "sector": "luxury EVs",
+      "shutdown_year": 2024,
+      "registrar": "Alibaba Cloud Computing (Beijing) Co., Ltd.",
+      "expiry": "2027-02-03",
+      "creation_date": "2005-02-03",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "dns21.hichina.com",
+        "dns22.hichina.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "goforward.com",
+      "company": "Forward Health",
+      "funding": "$657M",
+      "funding_numeric": 657000000.0,
+      "sector": "Healthtech",
+      "shutdown_year": 2024,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2029-06-10",
+      "creation_date": "1998-06-11",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1453.awsdns-53.org",
+        "ns-1622.awsdns-10.co.uk",
+        "ns-361.awsdns-45.com",
+        "ns-871.awsdns-44.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "ynsect.com",
+      "company": "Ynsect",
+      "funding": "$600M+",
+      "funding_numeric": 600000000.0,
+      "sector": "insect farming/agtech",
+      "shutdown_year": 2025,
+      "registrar": "OVH sas",
+      "expiry": "2027-03-05",
+      "creation_date": "2011-03-05",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "dns200.anycast.me",
+        "ns200.anycast.me"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "hyzonmotors.com",
+      "company": "Hyzon Motors",
+      "funding": "$500M+ (public)",
+      "funding_numeric": 500000000.0,
+      "sector": "hydrogen fuel cell trucks",
+      "shutdown_year": 2025,
+      "registrar": "Dreamscape Networks International Pte Ltd",
+      "expiry": "2026-12-05",
+      "creation_date": "2019-12-05",
+      "status": [
+        "ok",
+        "3"
+      ],
+      "nameservers": [
+        "ns1.vodien.com",
+        "ns2.vodien.com",
+        "ns3.vodien.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "volocopter.com",
+      "company": "Volocopter",
+      "funding": "$500M+",
+      "funding_numeric": 500000000.0,
+      "sector": "flying taxis/eVTOL",
+      "shutdown_year": 2025,
+      "registrar": "Key-Systems GmbH",
+      "expiry": "2027-11-21",
+      "creation_date": "2011-11-21",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.domainoffensive.de",
+        "ns2.domainoffensive.eu",
+        "ns3.domainoffensive.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "easyknock.com",
+      "company": "EasyKnock",
+      "funding": "$455M",
+      "funding_numeric": 455000000.0,
+      "sector": "Proptech/Fintech",
+      "shutdown_year": 2024,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2028-01-12",
+      "creation_date": "2016-01-12",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "garrett.ns.cloudflare.com",
+        "sima.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "zume.com",
+      "company": "Zume",
+      "funding": "$445M",
+      "funding_numeric": 445000000.0,
+      "sector": "FoodTech/Robotics",
+      "shutdown_year": 2023,
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-05-28",
+      "creation_date": "2002-05-28",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "jasmine.ns.cloudflare.com",
+        "ray.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "zilingo.com",
+      "company": "Zilingo",
+      "funding": "$300M+",
+      "funding_numeric": 300000000.0,
+      "sector": "fashion tech/B2B",
+      "shutdown_year": 2023,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2027-05-24",
+      "creation_date": "2015-05-24",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1013.awsdns-62.net",
+        "ns-1170.awsdns-18.org",
+        "ns-1922.awsdns-48.co.uk",
+        "ns-292.awsdns-36.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "hike.in",
+      "company": "Hike",
+      "funding": "$261M",
+      "funding_numeric": 261000000.0,
+      "sector": "messaging/web3 gaming",
+      "shutdown_year": 2025,
+      "registrar": "Gandi SAS",
+      "expiry": "2027-05-03",
+      "creation_date": "2006-05-03",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns-713.awsdns-25.net",
+        "ns-27.awsdns-03.com",
+        "ns-1329.awsdns-38.org",
+        "ns-1935.awsdns-49.co.uk"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "aerofarms.com",
+      "company": "AeroFarms",
+      "funding": "$238M",
+      "funding_numeric": 238000000.0,
+      "sector": "vertical farming",
+      "shutdown_year": 2023,
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2031-01-02",
+      "creation_date": "2008-01-02",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "leonidas.ns.cloudflare.com",
+        "michelle.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "britishvolt.com",
+      "company": "Britishvolt",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "EV battery manufacturing",
+      "shutdown_year": 2023,
+      "registrar": "Internet Domain Service BS Corp",
+      "expiry": "2027-03-13",
+      "creation_date": "2024-03-13",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "laylah.ns.cloudflare.com",
+        "ruben.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "irl.com",
+      "company": "IRL",
+      "funding": "$200M+",
+      "funding_numeric": 200000000.0,
+      "sector": "Social/Consumer",
+      "shutdown_year": 2023,
+      "registrar": "MarkMonitor Inc.",
+      "expiry": "2027-05-11",
+      "creation_date": "1991-05-10",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "serverDeleteProhibited",
+        "serverTransferProhibited",
+        "serverUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-106.awsdns-13.com",
+        "ns-1136.awsdns-14.org",
+        "ns-2032.awsdns-62.co.uk",
+        "ns-835.awsdns-40.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "omegatherapeutics.com",
+      "company": "Omega Therapeutics",
+      "funding": "$200M+ (public)",
+      "funding_numeric": 200000000.0,
+      "sector": "biotech/epigenetics",
+      "shutdown_year": 2025,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2027-11-23",
+      "creation_date": "2016-11-23",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "amit.ns.cloudflare.com",
+        "bristol.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "blusmart.com",
+      "company": "BluSmart",
+      "funding": "$168M",
+      "funding_numeric": 168000000.0,
+      "sector": "EV ride-hailing",
+      "shutdown_year": 2025,
+      "registrar": "Dynadot Inc",
+      "expiry": "2033-10-21",
+      "creation_date": "2010-10-21",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.bluehost.com",
+        "ns2.bluehost.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "whimapp.com",
+      "company": "MaaS Global (Whim)",
+      "funding": "$162M",
+      "funding_numeric": 162000000.0,
+      "sector": "mobility-as-a-service",
+      "shutdown_year": 2024,
+      "registrar": "Amazon Registrar, Inc.",
+      "expiry": "2027-06-02",
+      "creation_date": "2011-06-02",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns-1108.awsdns-10.org",
+        "ns-1976.awsdns-55.co.uk",
+        "ns-493.awsdns-61.com",
+        "ns-960.awsdns-56.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "rain.ai",
+      "company": "Rain AI",
+      "funding": "$146M",
+      "funding_numeric": 146000000.0,
+      "sector": "AI/Chips",
+      "shutdown_year": 2025,
+      "registrar": "Key-Systems GmbH",
+      "expiry": "2030-03-08",
+      "creation_date": "2017-12-15",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.onlydomains.com",
+        "ns2.onlydomains.com",
+        "ns3.onlydomains.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "availmedsystems.com",
+      "company": "Avail Medsystems",
+      "funding": "$130M",
+      "funding_numeric": 130000000.0,
+      "sector": "medtech/telehealth",
+      "shutdown_year": 2023,
+      "registrar": "Cloud Yuqu LLC",
+      "expiry": "2027-01-14",
+      "creation_date": "2025-01-14",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.huaweicloud-dns.cn",
+        "ns1.huaweicloud-dns.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "pandion.com",
+      "company": "Pandion",
+      "funding": "$125M",
+      "funding_numeric": 125000000.0,
+      "sector": "Logistics/Delivery",
+      "shutdown_year": 2025,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2027-03-22",
+      "creation_date": "1996-03-21",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited",
+        "renewperiod"
+      ],
+      "nameservers": [
+        "daisy.ns.cloudflare.com",
+        "drew.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "moxionpower.com",
+      "company": "Moxion Power",
+      "funding": "$110M+",
+      "funding_numeric": 110000000.0,
+      "sector": "portable batteries",
+      "shutdown_year": 2024,
+      "registrar": "Squarespace Domains II LLC",
+      "expiry": "2032-11-27",
+      "creation_date": "2019-11-27",
+      "status": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "client"
+      ],
+      "nameservers": [
+        "ns-cloud-e1.googledomains.com",
+        "ns-cloud-e2.googledomains.com",
+        "ns-cloud-e3.googledomains.com",
+        "ns-cloud-e4.googledomains.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "agronutris.com",
+      "company": "Agronutris",
+      "funding": "$100M",
+      "funding_numeric": 100000000.0,
+      "sector": "insect farming",
+      "shutdown_year": 2025,
+      "registrar": "Scaleway SAS",
+      "expiry": "2029-01-07",
+      "creation_date": "2019-01-07",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.o2switch.net",
+        "ns2.o2switch.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "irokotv.com",
+      "company": "IrokoTV",
+      "funding": "$100M spent",
+      "funding_numeric": 100000000.0,
+      "sector": "video streaming",
+      "shutdown_year": 2025,
+      "registrar": "eNom, LLC",
+      "expiry": "2030-09-04",
+      "creation_date": "2011-09-04",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "carl.ns.cloudflare.com",
+        "delilah.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "thebeat.co",
+      "company": "Beat (LATAM)",
+      "funding": "$100M+ (FreeNow/Daimler)",
+      "funding_numeric": 100000000.0,
+      "sector": "ride-sharing",
+      "shutdown_year": 2022,
+      "registrar": "Gandi SAS",
+      "expiry": "2027-05-11",
+      "creation_date": "2015-05-12",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-949.awsdns-54.net",
+        "ns-1943.awsdns-50.co.uk",
+        "ns-1163.awsdns-17.org",
+        "ns-416.awsdns-52.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "universalhydrogen.com",
+      "company": "Universal Hydrogen",
+      "funding": "$100M+",
+      "funding_numeric": 100000000.0,
+      "sector": "hydrogen aviation",
+      "shutdown_year": 2024,
+      "registrar": "Name.com, Inc.",
+      "expiry": "2027-02-16",
+      "creation_date": "2017-02-16",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1stv.name.com",
+        "ns2lns.name.com",
+        "ns3jwx.name.com",
+        "ns4htz.name.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "auctionata.com",
+      "company": "Auctionata",
+      "funding": "$97M",
+      "funding_numeric": 97000000.0,
+      "sector": "online auctions",
+      "shutdown_year": 2017,
+      "registrar": "IONOS SE",
+      "expiry": "2027-03-05",
+      "creation_date": "2010-03-05",
+      "status": [
+        "clientTransferProhibited",
+        "autoRenewPeriod"
+      ],
+      "nameservers": [
+        "ns1054.ui-dns.org",
+        "ns1069.ui-dns.de",
+        "ns1101.ui-dns.biz",
+        "ns1104.ui-dns.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "yik-yak.com",
+      "company": "Yik Yak",
+      "funding": "$73.5M",
+      "funding_numeric": 73500000.0,
+      "sector": "social media/anonymous",
+      "shutdown_year": 2017,
+      "registrar": "Cloudflare, Inc.",
+      "expiry": "2027-03-27",
+      "creation_date": "2026-03-27",
+      "status": [
+        "clientTransferProhibited",
+        "clienttransferprohibited"
+      ],
+      "nameservers": [
+        "aisha.ns.cloudflare.com",
+        "sevki.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "meatable.com",
+      "company": "Meatable",
+      "funding": "$60M+",
+      "funding_numeric": 60000000.0,
+      "sector": "lab-grown meat",
+      "shutdown_year": 2025,
+      "registrar": "The Registrar Company B.V.",
+      "expiry": "2027-04-07",
+      "creation_date": "2018-04-07",
+      "status": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.thednscompany.com",
+        "ns2.thednscompany.com",
+        "ns3.thednscompany.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "secondhome.io",
+      "company": "Second Home",
+      "funding": "$60M+",
+      "funding_numeric": 60000000.0,
+      "sector": "coworking",
+      "shutdown_year": 2024,
+      "registrar": "1API GmbH",
+      "expiry": "2027-01-18",
+      "creation_date": "2014-01-18",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "jobs.ns.cloudflare.com",
+        "treasure.ns.cloudflare.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "sprig.com",
+      "company": "Sprig",
+      "funding": "$56.7M",
+      "funding_numeric": 56700000.0,
+      "sector": "food delivery",
+      "shutdown_year": 2017,
+      "registrar": "1API GmbH",
+      "expiry": "2030-01-28",
+      "creation_date": "1996-01-27",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1076.awsdns-06.org",
+        "ns-15.awsdns-01.com",
+        "ns-1691.awsdns-19.co.uk",
+        "ns-647.awsdns-16.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "enormbiofactory.com",
+      "company": "Enorm Biofactory",
+      "funding": "$55M",
+      "funding_numeric": 55000000.0,
+      "sector": "insect farming",
+      "shutdown_year": 2025,
+      "registrar": "Key-Systems GmbH",
+      "expiry": "2027-11-20",
+      "creation_date": "2017-11-20",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.curanet.dk",
+        "ns2.curanet.dk"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "otipy.com",
+      "company": "Otipy",
+      "funding": "$44.2M",
+      "funding_numeric": 44200000.0,
+      "sector": "farm-to-fork delivery",
+      "shutdown_year": 2025,
+      "registrar": "PDR Ltd. d/b/a PublicDomainRegistry.com",
+      "expiry": "2026-12-25",
+      "creation_date": "2019-12-25",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.whois.com",
+        "ns2.whois.com",
+        "ns3.whois.com",
+        "ns4.whois.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "zenius.net",
+      "company": "Zenius",
+      "funding": "$40M",
+      "funding_numeric": 40000000.0,
+      "sector": "edtech",
+      "shutdown_year": 2024,
+      "registrar": "CSL Computer Service Langenbach GmbH d/b/a joker.com",
+      "expiry": "2027-03-08",
+      "creation_date": "2004-03-08",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-1470.awsdns-55.org",
+        "ns-1836.awsdns-37.co.uk",
+        "ns-56.awsdns-07.com",
+        "ns-863.awsdns-43.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "mycorena.com",
+      "company": "Mycorena",
+      "funding": "$35M",
+      "funding_numeric": 35000000.0,
+      "sector": "alt-protein/foodtech",
+      "shutdown_year": 2024,
+      "registrar": "Combell NV",
+      "expiry": "2027-03-10",
+      "creation_date": "2017-03-10",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns1.combell.eu",
+        "ns3.combell.net",
+        "ns4.combell.net"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    },
+    {
+      "domain": "mesamortgage.com",
+      "company": "Mesa",
+      "funding": "$33.2M",
+      "funding_numeric": 33200000.000000004,
+      "sector": "Fintech/Mortgage",
+      "shutdown_year": 2025,
+      "registrar": "Network Solutions, LLC",
+      "expiry": "2027-10-30",
+      "creation_date": "1999-10-30",
+      "status": [
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns167.websitewelcome.com",
+        "ns168.websitewelcome.com"
+      ],
+      "signal": [
+        "normal_registration"
+      ],
+      "classification": "ACTIVE"
+    }
+  ],
+  "error": []
+}

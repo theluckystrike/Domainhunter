@@ -1,0 +1,401 @@
+{
+  "metadata": {
+    "generated": "2026-05-07",
+    "sprint": 10,
+    "agent": "AGENT 4: BACKORDER EXEC",
+    "whois_check_time_utc": "2026-05-07T05:36Z",
+    "budget_remaining": 565,
+    "notes": "Live WHOIS data pulled 2026-05-07. aidevtools.com has expired and is in clientHold+renewPeriod -- imminent drop candidate."
+  },
+
+  "backorder_pipeline": {
+    "taskplanner.com": {
+      "whois_checked": "2026-05-07T05:31Z",
+      "registrar": "GoDaddy.com, LLC",
+      "registry_expiry": "2026-05-27T21:25:13Z",
+      "updated_date": "2025-05-28T16:27:52Z",
+      "creation_date": "2004-05-27T21:25:13Z",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "name_servers": [
+        "NS19.DOMAINCONTROL.COM",
+        "NS20.DOMAINCONTROL.COM"
+      ],
+      "registrant": "Domains By Proxy, LLC (privacy)",
+      "days_until_expiry": 20,
+      "estimated_drop_date": "2026-07-01 to 2026-07-11",
+      "drop_date_notes": "GoDaddy holds domains ~35 days post-expiry before releasing. clientRenewProhibited indicates owner has explicitly blocked auto-renewal -- STRONG drop signal.",
+      "status_change_since_sprint8": "NO CHANGE -- still clientRenewProhibited at GoDaddy. Expiry approaching in 20 days.",
+      "risk_assessment": "HIGH probability of dropping. clientRenewProhibited is a deliberate action by the owner. GoDaddy default nameservers still active (parked).",
+      "action": "Ensure backorders placed on DropCatch + NameJet + Dynadot before May 27"
+    },
+
+    "aidevtools.com": {
+      "whois_checked": "2026-05-07T05:31Z",
+      "registrar": "NameSilo, LLC",
+      "registry_expiry": "2026-05-06T17:04:29Z",
+      "updated_date": "2026-05-06T09:06:12Z",
+      "creation_date": "2022-05-06T17:04:29Z",
+      "status_codes": [
+        "clientTransferProhibited",
+        "renew period",
+        "client hold"
+      ],
+      "name_servers": [
+        "NS1.NS306.PARKLOGIC.COM",
+        "NS2.NS306.PARKLOGIC.COM"
+      ],
+      "registrant": "PrivacyGuardian.org (privacy)",
+      "days_until_expiry": -1,
+      "domain_expired": true,
+      "estimated_drop_date": "2026-06-05 to 2026-06-20",
+      "drop_date_notes": "EXPIRED as of 2026-05-06. Now in 'renew period' + 'client hold'. NameSilo auto-renew grace period is ~30 days. After that, 30-day redemption period. pendingDelete follows. Total ~65-75 days from expiry. ParkLogic nameservers = domain parking monetization, suggesting owner may not care about the domain.",
+      "status_change_since_sprint8": "CHANGED -- domain has now EXPIRED. Status moved from 'clientTransferProhibited' to 'clientHold + renewPeriod'. This is the auto-renew grace period.",
+      "risk_assessment": "VERY HIGH probability of dropping. Domain expired yesterday (May 6). ParkLogic parking nameservers suggest passive monetization, not active use. Owner likely won't renew.",
+      "action": "CRITICAL -- verify all backorders are live on DropCatch + SnapNames + Dynadot. This domain will enter pendingDelete in ~30-60 days.",
+      "timeline": {
+        "expired": "2026-05-06",
+        "auto_renew_grace_ends": "~2026-06-05",
+        "redemption_period_ends": "~2026-07-05",
+        "pending_delete": "~2026-07-05 to 2026-07-10",
+        "actual_drop": "~2026-07-10 to 2026-07-15"
+      }
+    },
+
+    "bestdevtools.com": {
+      "whois_checked": "2026-05-07T05:31Z",
+      "registrar": "1API GmbH (via DNSimple)",
+      "registry_expiry": "2026-05-22T13:55:23Z",
+      "updated_date": "2025-11-23T14:20:23Z",
+      "creation_date": "2014-05-22T13:55:23Z",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "name_servers": [
+        "NS1.DNSIMPLE.COM",
+        "NS2.DNSIMPLE-EDGE.NET",
+        "NS3.DNSIMPLE.COM",
+        "NS4.DNSIMPLE-EDGE.ORG"
+      ],
+      "registrant": "Redacted for Privacy (Illinois, US)",
+      "days_until_expiry": 15,
+      "estimated_drop_date": "2026-07-01 to 2026-07-22",
+      "drop_date_notes": "1API/DNSimple auto-renew grace period is typically 30-45 days. No clientRenewProhibited -- owner may still have auto-renew enabled. Less certain drop than taskplanner.com.",
+      "status_change_since_sprint8": "NO CHANGE -- still clientTransferProhibited at 1API/DNSimple. No new status codes.",
+      "risk_assessment": "MODERATE probability of dropping. Only clientTransferProhibited (standard). No explicit renew-block signal. DNSimple nameservers still active. Could be renewed.",
+      "action": "Monitor closely. If status doesn't change by May 22, watch for auto-renew grace entry."
+    },
+
+    "finetuneai.com": {
+      "whois_checked": "2026-05-07T05:36Z",
+      "registrar": "NameCheap, Inc.",
+      "registry_expiry": "2026-05-26T20:42:41Z",
+      "updated_date": "2025-05-12T13:40:23Z",
+      "creation_date": "2021-05-26T20:42:41Z",
+      "status_codes": [
+        "clientTransferProhibited"
+      ],
+      "name_servers": [
+        "NS-1336.AWSDNS-39.ORG",
+        "NS-1771.AWSDNS-29.CO.UK",
+        "NS-230.AWSDNS-28.COM",
+        "NS-760.AWSDNS-31.NET"
+      ],
+      "registrant": "Withheld for Privacy ehf (privacy)",
+      "days_until_expiry": 19,
+      "estimated_drop_date": "2026-07-01 to 2026-07-26",
+      "drop_date_notes": "NameCheap auto-renew grace is ~30 days, then 30-day redemption. AWS Route53 nameservers suggest the domain may still be in active use (or was recently). Updated date is from May 2025 (1 year ago renewal cycle).",
+      "status_change_since_sprint8": "NO CHANGE -- still clientTransferProhibited at NameCheap with AWS nameservers.",
+      "risk_assessment": "MODERATE probability of dropping. AWS nameservers suggest it may still be tied to infrastructure. However, the domain hasn't been updated since the last renewal cycle.",
+      "action": "Monitor. If AWS nameservers go down or status changes after May 26, that's the drop signal."
+    }
+  },
+
+  "offer_domains": {
+    "apitools.com": {
+      "whois_checked": "2026-05-07",
+      "registrar": "Dynadot Inc",
+      "registry_expiry": "2026-12-14T19:19:28Z",
+      "updated_date": "2026-01-13T11:18:03Z",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["NS1.DYNA-NS.NET", "NS2.DYNA-NS.NET"],
+      "ownership_changed": false,
+      "notes": "Still at Dynadot with Dyna nameservers (parked/for-sale). No ownership change detected. Updated Jan 2026 -- possibly auto-renewed or listed on aftermarket."
+    },
+    "sitegrader.com": {
+      "whois_checked": "2026-05-07",
+      "registrar": "GoDaddy.com, LLC",
+      "registry_expiry": "2026-10-08T18:25:59Z",
+      "updated_date": "2025-10-09T14:21:45Z",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "name_servers": ["KAMI.NS.CLOUDFLARE.COM", "NOAH.NS.CLOUDFLARE.COM"],
+      "ownership_changed": false,
+      "notes": "Still at GoDaddy with Cloudflare nameservers. clientRenewProhibited -- interesting, may drop Oct 2026. Worth adding to watchlist for later."
+    },
+    "imageeditor.net": {
+      "whois_checked": "2026-05-07",
+      "registrar": "GoDaddy.com, LLC",
+      "registry_expiry": "2026-09-20T05:27:46Z",
+      "updated_date": "2025-09-21T13:45:52Z",
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "name_servers": ["NS53.DOMAINCONTROL.COM", "NS54.DOMAINCONTROL.COM"],
+      "ownership_changed": false,
+      "notes": "Still at GoDaddy with default nameservers (parked). clientRenewProhibited -- may drop Sep 2026. GoDaddy default NS = not actively used. Future backorder candidate."
+    },
+    "codeguide.com": {
+      "whois_checked": "2026-05-07",
+      "registrar": "InterNetX GmbH",
+      "registry_expiry": "2026-06-07T06:01:30Z",
+      "updated_date": "2025-06-08T07:04:21Z",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["NSA1.SCHLUNDTECH.DE", "NSB1.SCHLUNDTECH.DE", "NSC1.SCHLUNDTECH.DE", "NSD1.SCHLUNDTECH.DE"],
+      "ownership_changed": false,
+      "notes": "Still at InterNetX with Schlundtech nameservers. Expires Jun 7 -- only 31 days away. If not renewed, could enter drop pipeline. Consider switching from offer to backorder strategy."
+    },
+    "bestdevtools.com": {
+      "whois_checked": "2026-05-07",
+      "notes": "Same as backorder pipeline entry above. Dual-tracked as both offer and backorder target."
+    },
+    "devhub.io": {
+      "whois_checked": "2026-05-07",
+      "registrar": "Dynadot Inc",
+      "registry_expiry": "2026-10-17T09:27:16Z",
+      "updated_date": "2025-11-22T08:53:30Z",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["NS1.AFTERNIC.COM", "NS2.AFTERNIC.COM"],
+      "ownership_changed": false,
+      "offer_cancelled": true,
+      "still_active": true,
+      "notes": "OFFER CANCELLED but domain is still active. Afternic nameservers confirm it's listed for sale on the aftermarket. Owner is actively trying to sell. If price drops, could revisit."
+    }
+  },
+
+  "watchlist_domains": {
+    "devtools.io": {
+      "whois_checked": "2026-05-07",
+      "registrar": "NameCheap, Inc.",
+      "registry_expiry": "2026-07-04T14:30:58Z",
+      "updated_date": "2025-06-04T05:42:46Z",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["NS1.DYNA-NS.NET", "NS2.DYNA-NS.NET"],
+      "days_until_expiry": 58,
+      "notes": "Still at NameCheap. Dyna nameservers suggest it may be parked or listed on Dynadot's marketplace. Expires Jul 4. Monitor for status changes in June.",
+      "status_change_since_sprint8": "NO CHANGE"
+    },
+    "toolchain.io": {
+      "whois_checked": "2026-05-07",
+      "registrar": "Unknown (.io WHOIS server timed out)",
+      "registry_expiry": "2026-07-07 (from previous check)",
+      "status_codes": ["unknown -- WHOIS server unreachable"],
+      "name_servers": ["LAUNCH1.SPACESHIP.NET", "LAUNCH2.SPACESHIP.NET"],
+      "name_servers_source": "DNS NS lookup (live)",
+      "days_until_expiry": 61,
+      "notes": "The .io WHOIS server (whois.nic.io) timed out -- this is common. DNS confirms the domain is still active with Spaceship nameservers (Namecheap's new brand). Expires Jul 7. Will retry WHOIS next week.",
+      "status_change_since_sprint8": "UNKNOWN -- WHOIS unavailable. DNS shows still active with Spaceship NS."
+    },
+    "stackreview.com": {
+      "whois_checked": "2026-05-07",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "registry_expiry": "2026-07-08T13:36:21Z",
+      "updated_date": "2025-07-09T07:16:26Z",
+      "status_codes": ["clientTransferProhibited"],
+      "name_servers": ["NSG1.NAMEBRIGHTDNS.COM", "NSG2.NAMEBRIGHTDNS.COM"],
+      "days_until_expiry": 62,
+      "notes": "Still at NameBright with their default nameservers. NameBright is known as a domain investor registrar. This domain is likely held for resale. Expires Jul 8.",
+      "status_change_since_sprint8": "NO CHANGE"
+    }
+  },
+
+  "status_changes_summary": {
+    "critical_changes": [
+      {
+        "domain": "aidevtools.com",
+        "change": "EXPIRED -- domain status changed from active to 'clientHold + renewPeriod'",
+        "detected": "2026-05-07",
+        "previous_status": "clientTransferProhibited (active)",
+        "current_status": "clientHold + renewPeriod (expired, grace period)",
+        "action_required": "Verify all backorders are placed and active. Drop expected ~July 2026."
+      }
+    ],
+    "new_observations": [
+      {
+        "domain": "sitegrader.com",
+        "observation": "Has clientRenewProhibited status -- potential future drop in Oct 2026"
+      },
+      {
+        "domain": "imageeditor.net",
+        "observation": "Has clientRenewProhibited status -- potential future drop in Sep 2026"
+      },
+      {
+        "domain": "codeguide.com",
+        "observation": "Expires Jun 7 (31 days) -- consider switching from offer to backorder strategy"
+      }
+    ],
+    "no_change": [
+      "taskplanner.com",
+      "bestdevtools.com",
+      "finetuneai.com",
+      "apitools.com",
+      "devtools.io",
+      "stackreview.com"
+    ]
+  },
+
+  "estimated_drop_calendar": {
+    "2026-06-05_to_2026-06-20": {
+      "domain": "aidevtools.com",
+      "phase": "auto-renew grace ends, enters redemption",
+      "confidence": "HIGH -- already expired + clientHold"
+    },
+    "2026-06-22_to_2026-07-01": {
+      "domain": "bestdevtools.com",
+      "phase": "enters auto-renew grace (if not renewed May 22)",
+      "confidence": "MODERATE -- no renew-block signal"
+    },
+    "2026-06-26_to_2026-07-05": {
+      "domain": "finetuneai.com",
+      "phase": "enters auto-renew grace (if not renewed May 26)",
+      "confidence": "MODERATE -- AWS NS suggest possible active use"
+    },
+    "2026-06-27_to_2026-07-11": {
+      "domain": "taskplanner.com",
+      "phase": "enters auto-renew grace (GoDaddy ~35-day hold)",
+      "confidence": "HIGH -- clientRenewProhibited explicitly set"
+    },
+    "2026-07-05_to_2026-07-15": {
+      "domain": "aidevtools.com",
+      "phase": "pendingDelete + actual drop",
+      "confidence": "HIGH"
+    },
+    "2026-07-04": {
+      "domain": "devtools.io",
+      "phase": "expiry date (watchlist)",
+      "confidence": "LOW -- may be renewed"
+    },
+    "2026-07-07": {
+      "domain": "toolchain.io",
+      "phase": "expiry date (watchlist)",
+      "confidence": "LOW -- may be renewed"
+    },
+    "2026-07-08": {
+      "domain": "stackreview.com",
+      "phase": "expiry date (watchlist)",
+      "confidence": "LOW -- NameBright investor registrar, likely renewed"
+    }
+  },
+
+  "cron_setup": {
+    "instructions": "Add the following lines to your crontab. Run 'crontab -e' to edit.",
+    "python_path": "/Users/mike/Desktop/domainhunter/.venv/bin/python",
+    "project_root": "/Users/mike/Desktop/domainhunter",
+    "log_dir": "/Users/mike/Desktop/domainhunter/logs",
+    "crontab_lines": [
+      {
+        "description": "Daily Hunter -- scans for expiring domains at 06:00 UTC daily",
+        "line": "0 6 * * * cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py >> logs/daily_hunter.log 2>&1",
+        "log_path": "/Users/mike/Desktop/domainhunter/logs/daily_hunter.log"
+      },
+      {
+        "description": "Pipeline Status -- generates status report at 06:30 UTC daily (after hunter completes)",
+        "line": "30 6 * * * cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/pipeline_status.py >> logs/pipeline_status.log 2>&1",
+        "log_path": "/Users/mike/Desktop/domainhunter/logs/pipeline_status.log"
+      },
+      {
+        "description": "WHOIS Monitor -- checks backorder+watchlist domain statuses every Sunday at 07:00 UTC",
+        "line": "0 7 * * 0 /Users/mike/Desktop/domainhunter/tools/whois_monitor.sh >> /Users/mike/Desktop/domainhunter/logs/whois_cron.log 2>&1",
+        "log_path": "/Users/mike/Desktop/domainhunter/logs/whois_cron.log"
+      }
+    ],
+    "setup_commands": [
+      "# 1. Ensure logs directory exists:",
+      "mkdir -p /Users/mike/Desktop/domainhunter/logs",
+      "",
+      "# 2. Ensure WHOIS monitor is executable:",
+      "chmod +x /Users/mike/Desktop/domainhunter/tools/whois_monitor.sh",
+      "",
+      "# 3. Verify python path:",
+      "/Users/mike/Desktop/domainhunter/.venv/bin/python --version",
+      "",
+      "# 4. Dry-run the hunter to verify it works:",
+      "cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py --dry-run",
+      "",
+      "# 5. Add to crontab:",
+      "crontab -e",
+      "# Then paste the three crontab lines above",
+      "",
+      "# 6. Verify crontab was saved:",
+      "crontab -l"
+    ]
+  },
+
+  "human_actions_pending": [
+    {
+      "priority": "CRITICAL",
+      "action": "Verify aidevtools.com backorders are LIVE on all platforms",
+      "details": "Domain has EXPIRED as of May 6. Confirm backorders on DropCatch, SnapNames, and Dynadot are active and will catch when it enters pendingDelete.",
+      "deadline": "ASAP -- domain is in auto-renew grace period NOW"
+    },
+    {
+      "priority": "CRITICAL",
+      "action": "Complete DropCatch ID verification",
+      "details": "Account is still 'created_pending_verification'. Call DropCatch support to expedite. Without verification, none of our DropCatch backorders will execute.",
+      "deadline": "Before May 22 (bestdevtools.com expiry)"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Create SnapNames account and place backorders",
+      "details": "Account not yet created. Need to place backorders for: taskplanner.com (via NameJet instead per strategy), aidevtools.com, bestdevtools.com, finetuneai.com.",
+      "deadline": "Before May 22"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Create NameJet account and place backorders",
+      "details": "Account not yet created. Need to place backorders for: taskplanner.com (proxy bid).",
+      "deadline": "Before May 22"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Create Dynadot backorder account and add $5 balance",
+      "details": "Account not yet created. Dynadot requires $5 upfront balance. Place backorders for all 4 pipeline domains.",
+      "deadline": "Before May 22"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Set up cron jobs",
+      "details": "Run 'crontab -e' and add the three crontab lines from the cron_setup section. Then verify with 'crontab -l'.",
+      "deadline": "Before May 10"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Consider codeguide.com for backorder",
+      "details": "codeguide.com expires Jun 7 (31 days). Currently tracked as offer target but if negotiations fail, switch to backorder strategy. InterNetX registrar.",
+      "deadline": "Before Jun 1"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Add sitegrader.com and imageeditor.net to future watchlist",
+      "details": "Both have clientRenewProhibited at GoDaddy. sitegrader.com expires Oct 8, imageeditor.net expires Sep 20. Add to watchlist for Sprint 12+.",
+      "deadline": "Sprint 12 planning"
+    },
+    {
+      "priority": "LOW",
+      "action": "Retry toolchain.io WHOIS check",
+      "details": "The .io WHOIS server timed out. DNS confirms domain is still active with Spaceship NS. Retry next week or use the whois_monitor.sh script.",
+      "deadline": "Next weekly WHOIS check"
+    }
+  ]
+}

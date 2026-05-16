@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Picture Editor Online - Free Image Resizer, Cropper &amp; Converter</title>
+<meta name="description" content="Free online picture editor — resize, crop, compress, convert and filter images instantly in your browser. No upload needed. Supports PNG, JPEG, WebP &amp; GIF.">
+<meta name="keywords" content="picture editor, image resizer online, photo editor free, image cropper, image compressor, format converter, online photo editor">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pictureeditor.net/">
+<meta property="og:title" content="Picture Editor Online - Free Image Resizer, Cropper &amp; Converter">
+<meta property="og:description" content="Edit pictures online for free. Resize, crop, compress, convert formats and apply filters — all in your browser, no upload required.">
+<meta property="og:image" content="https://pictureeditor.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Picture Editor Online - Free Image Resizer, Cropper &amp; Converter">
+<meta name="twitter:description" content="Edit pictures online for free. Resize, crop, compress, convert formats and apply filters — all in your browser.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Picture Editor Online","url":"https://pictureeditor.net","description":"Free online picture editor with resize, crop, compress, convert and filter tools.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"browserRequirements":"Requires a modern browser with Canvas API support"}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--sidebar-w:260px;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+input,select{font:inherit}
+/* HEADER */
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.header h1 svg{width:28px;height:28px}
+.header-actions{display:flex;align-items:center;gap:.75rem}
+.btn{display:inline-flex;align-items:center;gap:.375rem;padding:.5rem 1rem;border-radius:var(--radius);font-size:.875rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+/* AD ZONE - Header Leaderboard */
+.ad-header{text-align:center;padding:.5rem 0;background:#f1f5f9;min-height:0}
+.ad-header.active{min-height:90px}
+/* LAYOUT */
+.app-layout{display:flex;min-height:calc(100vh - 56px)}
+/* SIDEBAR */
+.sidebar{width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
+.tool-tabs{display:flex;flex-direction:column;padding:.5rem}
+.tool-tab{display:flex;align-items:center;gap:.625rem;padding:.75rem .875rem;border-radius:var(--radius);font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .15s;text-align:left}
+.tool-tab:hover{background:#f1f5f9;color:var(--text)}
+.tool-tab.active{background:var(--accent);color:#fff}
+.tool-tab svg{width:20px;height:20px;flex-shrink:0}
+.sidebar-divider{height:1px;background:var(--border);margin:.375rem .875rem}
+/* TOOL PANELS */
+.tool-panel{display:none;padding:1rem;flex-direction:column;gap:.875rem}
+.tool-panel.active{display:flex}
+.panel-title{font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary);margin-bottom:.25rem}
+.field{display:flex;flex-direction:column;gap:.25rem}
+.field label{font-size:.8125rem;font-weight:600;color:var(--text-secondary)}
+.field input[type="number"],.field input[type="text"],.field select{padding:.5rem .625rem;border:1.5px solid var(--border);border-radius:8px;font-size:.875rem;outline:none;transition:border .15s}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+.field-row{display:flex;gap:.5rem;align-items:end}
+.field-row .field{flex:1}
+.link-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1.5px solid var(--border);margin-bottom:.125rem;cursor:pointer;transition:all .15s;flex-shrink:0;align-self:end;margin-bottom:2px}
+.link-icon.linked{background:var(--accent);border-color:var(--accent);color:#fff}
+.link-icon svg{width:16px;height:16px}
+.preset-grid{display:grid;grid-template-columns:1fr 1fr;gap:.375rem}
+.preset-btn{padding:.5rem;border:1.5px solid var(--border);border-radius:8px;font-size:.75rem;font-weight:600;text-align:center;transition:all .15s}
+.preset-btn:hover,.preset-btn.active{border-color:var(--accent);color:var(--accent);background:#eef2ff}
+.slider-field{display:flex;flex-direction:column;gap:.375rem}
+.slider-field label{font-size:.8125rem;font-weight:600;color:var(--text-secondary);display:flex;justify-content:space-between}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.size-compare{display:flex;justify-content:space-between;padding:.625rem;background:#f1f5f9;border-radius:8px;font-size:.8125rem}
+.size-compare .reduced{color:var(--green);font-weight:700}
+.format-options{display:flex;flex-direction:column;gap:.375rem}
+.format-option{display:flex;align-items:center;gap:.5rem;padding:.5rem .625rem;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s}
+.format-option:hover,.format-option.active{border-color:var(--accent);background:#eef2ff}
+.format-option input{accent-color:var(--accent)}
+.filter-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.375rem}
+.filter-btn{padding:.5rem .25rem;border:1.5px solid var(--border);border-radius:8px;font-size:.6875rem;font-weight:600;text-align:center;transition:all .15s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--accent);color:var(--accent);background:#eef2ff}
+.apply-row{padding-top:.5rem}
+/* MAIN AREA */
+.main-area{flex:1;display:flex;flex-direction:column;min-width:0}
+.canvas-wrapper{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;overflow:hidden}
+.drop-zone{width:100%;max-width:800px;aspect-ratio:4/3;border:2.5px dashed var(--border);border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;cursor:pointer;transition:all .2s;background:var(--surface)}
+.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone svg{width:56px;height:56px;color:var(--text-secondary)}
+.drop-zone p{font-size:1rem;color:var(--text-secondary)}
+.drop-zone .sub{font-size:.8125rem;color:#94a3b8}
+.canvas-container{position:relative;display:none;max-width:100%;max-height:100%}
+.canvas-container canvas{max-width:100%;max-height:calc(100vh - 200px);display:block;border-radius:6px;box-shadow:var(--shadow)}
+/* CROP OVERLAY */
+.crop-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:none;cursor:crosshair}
+.crop-overlay.active{display:block}
+.crop-selection{position:absolute;border:2px solid #fff;box-shadow:0 0 0 9999px rgba(0,0,0,.45);cursor:move}
+.crop-handle{position:absolute;width:12px;height:12px;background:#fff;border:2px solid var(--accent);border-radius:2px}
+.crop-handle.tl{top:-6px;left:-6px;cursor:nw-resize}
+.crop-handle.tr{top:-6px;right:-6px;cursor:ne-resize}
+.crop-handle.bl{bottom:-6px;left:-6px;cursor:sw-resize}
+.crop-handle.br{bottom:-6px;right:-6px;cursor:se-resize}
+/* BOTTOM BAR */
+.bottom-bar{padding:.625rem 1.25rem;background:var(--surface);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:.8125rem;color:var(--text-secondary);flex-wrap:wrap;gap:.5rem}
+.file-info{display:flex;gap:1.25rem;flex-wrap:wrap}
+.file-info span{display:flex;align-items:center;gap:.25rem}
+/* AD ZONE - Below Tool */
+.ad-below{text-align:center;padding:.5rem 1rem;min-height:0}
+.ad-below.active{min-height:100px}
+/* RIGHT SIDEBAR AD - Desktop */
+.ad-sidebar{display:none;width:300px;flex-shrink:0;padding:1rem;align-self:flex-start;position:sticky;top:72px}
+@media(min-width:1280px){.ad-sidebar{display:block}}
+/* TOAST */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:#fff;padding:.75rem 1.25rem;border-radius:var(--radius);font-size:.875rem;font-weight:500;z-index:200;opacity:0;transition:all .3s ease}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+/* MOBILE */
+@media(max-width:768px){
+  .sidebar{position:fixed;left:0;top:56px;bottom:0;z-index:90;transform:translateX(-100%);transition:transform .25s ease;width:280px;box-shadow:2px 0 12px rgba(0,0,0,.1)}
+  .sidebar.open{transform:translateX(0)}
+  .menu-toggle{display:flex!important}
+  .canvas-wrapper{padding:.75rem}
+  .bottom-bar{padding:.5rem .75rem}
+  .ad-header.active{min-height:50px}
+}
+@media(min-width:769px){.menu-toggle{display:none!important}.backdrop{display:none!important}}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:80;display:none}
+.backdrop.show{display:block}
+.menu-toggle{align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px}
+.menu-toggle:hover{background:rgba(255,255,255,.1)}
+.menu-toggle svg{width:22px;height:22px}
+/* HIDDEN FILE INPUT */
+.hidden{display:none}
+/* UNDO/REDO */
+.history-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1.5px solid rgba(255,255,255,.2)}
+.history-btn:hover{background:rgba(255,255,255,.1)}
+.history-btn:disabled{opacity:.3;cursor:not-allowed}
+.history-btn svg{width:18px;height:18px}
+/* PROGRESS */
+.progress-bar{position:fixed;top:56px;left:0;right:0;height:3px;z-index:101;display:none}
+.progress-bar.active{display:block}
+.progress-bar-inner{height:100%;background:var(--accent);width:0;transition:width .3s}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <div style="display:flex;align-items:center;gap:.75rem">
+    <button class="menu-toggle" aria-label="Open menu" id="menuToggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <h1>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      Picture Editor
+    </h1>
+  </div>
+  <div class="header-actions">
+    <button class="history-btn" id="undoBtn" disabled aria-label="Undo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h13a4 4 0 0 1 0 8H7"/><path d="m6 7-3 3 3 3"/></svg></button>
+    <button class="history-btn" id="redoBtn" disabled aria-label="Redo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H8a4 4 0 0 0 0 8h9"/><path d="m18 7 3 3-3 3"/></svg></button>
+    <button class="btn btn-outline" id="resetBtn" style="display:none" aria-label="Reset image">Reset</button>
+    <button class="btn btn-success" id="downloadBtn" style="display:none" aria-label="Download edited image">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download
+    </button>
+  </div>
+</header>
+
+<!-- AD ZONE: Header Leaderboard -->
+<!-- AD ZONE --><div class="ad-header" id="adHeader" aria-hidden="true"></div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar-inner" id="progressInner"></div></div>
+
+<!-- MOBILE BACKDROP -->
+<div class="backdrop" id="backdrop"></div>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Editor tools">
+    <nav class="tool-tabs" role="tablist" aria-label="Image editing tools">
+      <button class="tool-tab active" role="tab" aria-selected="true" data-tool="resize" aria-controls="panel-resize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        Resize
+      </button>
+      <button class="tool-tab" role="tab" aria-selected="false" data-tool="crop" aria-controls="panel-crop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v4H2M18 22v-4h4"/><rect x="6" y="6" width="12" height="12"/></svg>
+        Crop
+      </button>
+      <button class="tool-tab" role="tab" aria-selected="false" data-tool="compress" aria-controls="panel-compress">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12H2M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+        Compress
+      </button>
+      <button class="tool-tab" role="tab" aria-selected="false" data-tool="convert" aria-controls="panel-convert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+        Convert
+      </button>
+      <div class="sidebar-divider"></div>
+      <button class="tool-tab" role="tab" aria-selected="false" data-tool="filters" aria-controls="panel-filters">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Filters
+      </button>
+    </nav>
+
+    <!-- RESIZE PANEL -->
+    <div class="tool-panel active" id="panel-resize" role="tabpanel">
+      <div class="panel-title">Resize Image</div>
+      <div class="field-row">
+        <div class="field">
+          <label for="resizeW">Width (px)</label>
+          <input type="number" id="resizeW" min="1" max="10000" placeholder="Width" aria-label="Resize width in pixels">
+        </div>
+        <button class="link-icon linked" id="linkAspect" aria-label="Lock aspect ratio" title="Lock aspect ratio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </button>
+        <div class="field">
+          <label for="resizeH">Height (px)</label>
+          <input type="number" id="resizeH" min="1" max="10000" placeholder="Height" aria-label="Resize height in pixels">
+        </div>
+      </div>
+      <div class="field">
+        <label for="resizePercent">Scale (%)</label>
+        <input type="number" id="resizePercent" min="1" max="1000" value="100" aria-label="Resize percentage">
+      </div>
+      <div class="apply-row">
+        <button class="btn btn-primary" style="width:100%" id="applyResize" aria-label="Apply resize">Apply Resize</button>
+      </div>
+    </div>
+
+    <!-- CROP PANEL -->
+    <div class="tool-panel" id="panel-crop" role="tabpanel">
+      <div class="panel-title">Crop Image</div>
+      <div class="preset-grid" id="cropPresets">
+        <button class="preset-btn" data-ratio="free">Free</button>
+        <button class="preset-btn" data-ratio="1:1">1:1</button>
+        <button class="preset-btn" data-ratio="16:9">16:9</button>
+        <button class="preset-btn" data-ratio="4:3">4:3</button>
+        <button class="preset-btn" data-ratio="9:16">9:16 Story</button>
+        <button class="preset-btn" data-ratio="1:1-circle">Profile Pic</button>
+      </div>
+      <div class="field-row" style="margin-top:.5rem">
+        <div class="field"><label>X</label><input type="number" id="cropX" min="0" aria-label="Crop X"></div>
+        <div class="field"><label>Y</label><input type="number" id="cropY" min="0" aria-label="Crop Y"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>W</label><input type="number" id="cropW" min="1" aria-label="Crop width"></div>
+        <div class="field"><label>H</label><input type="number" id="cropH" min="1" aria-label="Crop height"></div>
+      </div>
+      <div class="apply-row">
+        <button class="btn btn-primary" style="width:100%" id="applyCrop" aria-label="Apply crop">Apply Crop</button>
+      </div>
+    </div>
+
+    <!-- COMPRESS PANEL -->
+    <div class="tool-panel" id="panel-compress" role="tabpanel">
+      <div class="panel-title">Compress Image</div>
+      <div class="slider-field">
+        <label for="qualitySlider">Quality <span id="qualityVal">80%</span></label>
+        <input type="range" id="qualitySlider" min="10" max="100" value="80" aria-label="Compression quality">
+      </div>
+      <div class="size-compare" id="sizeCompare" style="display:none">
+        <span>Original: <strong id="origSize">-</strong></span>
+        <span>New: <strong id="newSize" class="reduced">-</strong></span>
+      </div>
+      <div class="field">
+        <label for="compressFormat">Output Format</label>
+        <select id="compressFormat" aria-label="Compression output format">
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/webp">WebP</option>
+          <option value="image/png">PNG</option>
+        </select>
+      </div>
+      <div class="apply-row">
+        <button class="btn btn-primary" style="width:100%" id="applyCompress" aria-label="Compress image">Compress</button>
+      </div>
+    </div>
+
+    <!-- CONVERT PANEL -->
+    <div class="tool-panel" id="panel-convert" role="tabpanel">
+      <div class="panel-title">Convert Format</div>
+      <div class="format-options" id="formatOptions">
+        <label class="format-option active"><input type="radio" name="convertFmt" value="image/png" checked> PNG</label>
+        <label class="format-option"><input type="radio" name="convertFmt" value="image/jpeg"> JPEG</label>
+        <label class="format-option"><input type="radio" name="convertFmt" value="image/webp"> WebP</label>
+      </div>
+      <div class="slider-field" id="convertQualityWrap" style="display:none;margin-top:.5rem">
+        <label for="convertQuality">Quality <span id="convertQualityVal">92%</span></label>
+        <input type="range" id="convertQuality" min="10" max="100" value="92" aria-label="Conversion quality">
+      </div>
+      <div class="apply-row">
+        <button class="btn btn-primary" style="width:100%" id="applyConvert" aria-label="Convert format">Convert &amp; Download</button>
+      </div>
+    </div>
+
+    <!-- FILTERS PANEL -->
+    <div class="tool-panel" id="panel-filters" role="tabpanel">
+      <div class="panel-title">Quick Filters</div>
+      <div class="filter-grid" id="filterGrid">
+        <button class="filter-btn" data-filter="none">None</button>
+        <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+        <button class="filter-btn" data-filter="sepia">Sepia</button>
+        <button class="filter-btn" data-filter="blur">Blur</button>
+        <button class="filter-btn" data-filter="invert">Invert</button>
+        <button class="filter-btn" data-filter="vintage">Vintage</button>
+      </div>
+      <div class="slider-field" style="margin-top:.5rem">
+        <label for="brightnessSlider">Brightness <span id="brightnessVal">100%</span></label>
+        <input type="range" id="brightnessSlider" min="0" max="200" value="100" aria-label="Brightness">
+      </div>
+      <div class="slider-field">
+        <label for="contrastSlider">Contrast <span id="contrastVal">100%</span></label>
+        <input type="range" id="contrastSlider" min="0" max="200" value="100" aria-label="Contrast">
+      </div>
+      <div class="slider-field">
+        <label for="saturationSlider">Saturation <span id="saturationVal">100%</span></label>
+        <input type="range" id="saturationSlider" min="0" max="200" value="100" aria-label="Saturation">
+      </div>
+      <div class="apply-row">
+        <button class="btn btn-primary" style="width:100%" id="applyFilters" aria-label="Apply filters">Apply Filters</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-area" role="main">
+    <section class="canvas-wrapper" id="canvasWrapper">
+      <div class="drop-zone" id="dropZone" role="button" tabindex="0" aria-label="Click or drag and drop an image file here">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <p><strong>Drop your image here</strong> or click to browse</p>
+        <p class="sub">Supports PNG, JPEG, WebP, GIF &mdash; up to 20 MB</p>
+      </div>
+      <div class="canvas-container" id="canvasContainer">
+        <canvas id="canvas" aria-label="Image preview canvas"></canvas>
+        <div class="crop-overlay" id="cropOverlay">
+          <div class="crop-selection" id="cropSelection">
+            <div class="crop-handle tl" data-handle="tl"></div>
+            <div class="crop-handle tr" data-handle="tr"></div>
+            <div class="crop-handle bl" data-handle="bl"></div>
+            <div class="crop-handle br" data-handle="br"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- AD ZONE: Below Tool -->
+    <!-- AD ZONE --><div class="ad-below" id="adBelow" aria-hidden="true"></div>
+    <footer class="bottom-bar" id="bottomBar" style="display:none" role="contentinfo">
+      <div class="file-info" id="fileInfo">
+        <span id="infoName" aria-label="File name">No file</span>
+        <span id="infoDims" aria-label="Image dimensions">0 x 0</span>
+        <span id="infoSize" aria-label="File size">0 KB</span>
+        <span id="infoType" aria-label="File type">-</span>
+      </div>
+      <span id="infoZoom" aria-label="Zoom level">100%</span>
+    </footer>
+  </main>
+
+  <!-- AD ZONE: Right Sidebar (Desktop) -->
+  <!-- AD ZONE --><aside class="ad-sidebar" id="adSidebar" aria-hidden="true"><div style="width:300px;min-height:250px;background:#f1f5f9;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:.75rem">AD ZONE 300x250</div></aside>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<!-- HIDDEN FILE INPUT -->
+<input type="file" class="hidden" id="fileInput" accept="image/png,image/jpeg,image/webp,image/gif" aria-label="Upload image file">
+
+<!-- SEO CONTENT -->
+<section style="max-width:900px;margin:2rem auto;padding:0 1.25rem;color:var(--text-secondary);font-size:.875rem;line-height:1.7" aria-label="About this tool">
+  <h2 style="color:var(--text);font-size:1.25rem;margin-bottom:.75rem">Free Online Picture Editor</h2>
+  <p>Welcome to <strong>Picture Editor</strong> &mdash; a fast, free online image editor that runs entirely in your browser. Resize images to exact pixel dimensions, crop with preset aspect ratios (16:9, 4:3, 1:1, or custom), compress photos to reduce file size, convert between PNG, JPEG and WebP formats, and apply quick filters like grayscale, sepia, brightness and contrast adjustments.</p>
+  <p style="margin-top:.5rem">Your images never leave your device &mdash; all processing happens locally using the HTML5 Canvas API. No uploads, no accounts, no watermarks. Works on desktop and mobile browsers.</p>
+</section>
+
+<!-- MORE TOOLS GRID -->
+<section style="max-width:900px;margin:0 auto 2rem;padding:0 1.25rem">
+  <h2 style="font-size:1.25rem;margin-bottom:1rem;text-align:center;color:var(--text)">More Image Tools</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+    <a href="/compress.html" style="text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .15s,box-shadow .15s">
+      <strong style="display:block;color:var(--accent);margin-bottom:4px">Image Compressor</strong>
+      <span style="font-size:.8rem;color:var(--text-secondary)">Reduce file sizes up to 90%. JPEG, PNG, WebP.</span>
+    </a>
+    <a href="/crop.html" style="text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .15s,box-shadow .15s">
+      <strong style="display:block;color:var(--accent);margin-bottom:4px">Image Cropper</strong>
+      <span style="font-size:.8rem;color:var(--text-secondary)">Crop with social media presets. Instagram, Twitter, Facebook.</span>
+    </a>
+    <a href="/convert.html" style="text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .15s,box-shadow .15s">
+      <strong style="display:block;color:var(--accent);margin-bottom:4px">Format Converter</strong>
+      <span style="font-size:.8rem;color:var(--text-secondary)">Convert PNG, JPG, WebP, BMP, GIF. Batch support.</span>
+    </a>
+    <a href="/remove-background.html" style="text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .15s,box-shadow .15s">
+      <strong style="display:block;color:var(--accent);margin-bottom:4px">Background Remover</strong>
+      <span style="font-size:.8rem;color:var(--text-secondary)">Remove or replace backgrounds. Download as transparent PNG.</span>
+    </a>
+  </div>
+</section>
+
+<!-- SITE FOOTER -->
+<div style="text-align:center;padding:24px 16px;border-top:1px solid var(--border);color:var(--text-secondary);font-size:.8rem">
+  <p>&copy; 2026 PictureEditor.net &mdash; Free online image tools</p>
+  <p style="margin-top:6px">
+    <a href="/" style="color:var(--accent);text-decoration:none">Editor</a> &middot;
+    <a href="/compress.html" style="color:var(--accent);text-decoration:none">Compressor</a> &middot;
+    <a href="/crop.html" style="color:var(--accent);text-decoration:none">Cropper</a> &middot;
+    <a href="/convert.html" style="color:var(--accent);text-decoration:none">Converter</a> &middot;
+    <a href="/remove-background.html" style="color:var(--accent);text-decoration:none">BG Remover</a>
+  </p>
+</div>
+
+<script>
+"use strict";
+(function() {
+  /* ===== CONFIG (FROZEN) ===== */
+  var CONFIG = Object.freeze({
+    MAX_FILE_SIZE: 20 * 1024 * 1024,
+    MAX_DIMENSION: 10000,
+    MIN_CROP: 10,
+    HISTORY_LIMIT: 30,
+    TOAST_DURATION: 2500,
+    SUPPORTED_TYPES: Object.freeze([
+      "image/png","image/jpeg","image/webp","image/gif"
+    ])
+  });
+
+  /* ===== STATE (module-scoped, not global) ===== */
+  var state = {
+    originalFile: null,
+    imageData: null,
+    history: [],
+    historyIndex: -1,
+    cropRatio: null,
+    cropDrag: null,
+    aspectLinked: true
+  };
+
+  /* ===== DOM REFS ===== */
+  var $ = function(id) {
+    var el = document.getElementById(id);
+    console.assert(el !== null, "Element not found: " + id);
+    return el;
+  };
+
+  var dom = {
+    fileInput: $("fileInput"),
+    dropZone: $("dropZone"),
+    canvasContainer: $("canvasContainer"),
+    canvas: $("canvas"),
+    cropOverlay: $("cropOverlay"),
+    cropSelection: $("cropSelection"),
+    bottomBar: $("bottomBar"),
+    downloadBtn: $("downloadBtn"),
+    resetBtn: $("resetBtn"),
+    undoBtn: $("undoBtn"),
+    redoBtn: $("redoBtn"),
+    sidebar: $("sidebar"),
+    backdrop: $("backdrop"),
+    toast: $("toast"),
+    progressBar: $("progressBar"),
+    progressInner: $("progressInner"),
+    menuToggle: $("menuToggle")
+  };
+
+  var ctx = dom.canvas.getContext("2d");
+  console.assert(ctx !== null, "Canvas context failed");
+
+  /* ===== UTILITY FUNCTIONS ===== */
+
+  function showToast(msg) {
+    console.assert(typeof msg === "string", "Toast msg must be string");
+    console.assert(msg.length > 0, "Toast msg must not be empty");
+    dom.toast.textContent = msg;
+    dom.toast.classList.add("show");
+    setTimeout(function() {
+      dom.toast.classList.remove("show");
+    }, CONFIG.TOAST_DURATION);
+  }
+
+  function showProgress(pct) {
+    console.assert(typeof pct === "number", "pct must be number");
+    console.assert(pct >= 0 && pct <= 100, "pct out of range");
+    dom.progressInner.style.width = pct + "%";
+    if (pct > 0 && pct < 100) {
+      dom.progressBar.classList.add("active");
+    } else {
+      dom.progressBar.classList.remove("active");
+    }
+  }
+
+  function formatBytes(bytes) {
+    console.assert(typeof bytes === "number", "bytes must be number");
+    console.assert(bytes >= 0, "bytes must be non-negative");
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  function clamp(val, min, max) {
+    console.assert(typeof val === "number", "clamp val must be number");
+    console.assert(min <= max, "clamp min must <= max");
+    return Math.max(min, Math.min(max, val));
+  }
+
+  function closeSidebar() {
+    console.assert(dom.sidebar !== null, "sidebar missing");
+    console.assert(dom.backdrop !== null, "backdrop missing");
+    dom.sidebar.classList.remove("open");
+    dom.backdrop.classList.remove("show");
+  }
+
+  /* ===== HISTORY ===== */
+
+  function pushHistory() {
+    console.assert(dom.canvas.width > 0, "Canvas must have width");
+    console.assert(dom.canvas.height > 0, "Canvas must have height");
+    if (state.historyIndex < state.history.length - 1) {
+      state.history = state.history.slice(0, state.historyIndex + 1);
+    }
+    var data = ctx.getImageData(0, 0, dom.canvas.width, dom.canvas.height);
+    state.history.push({
+      data: data,
+      w: dom.canvas.width,
+      h: dom.canvas.height
+    });
+    if (state.history.length > CONFIG.HISTORY_LIMIT) {
+      state.history.shift();
+    }
+    state.historyIndex = state.history.length - 1;
+    updateHistoryButtons();
+  }
+
+  function restoreHistory(index) {
+    console.assert(index >= 0, "History index >= 0");
+    console.assert(index < state.history.length, "History index in bounds");
+    var entry = state.history[index];
+    dom.canvas.width = entry.w;
+    dom.canvas.height = entry.h;
+    ctx.putImageData(entry.data, 0, 0);
+    state.historyIndex = index;
+    updateHistoryButtons();
+    updateFileInfo();
+  }
+
+  function updateHistoryButtons() {
+    console.assert(dom.undoBtn !== null, "undoBtn missing");
+    console.assert(dom.redoBtn !== null, "redoBtn missing");
+    dom.undoBtn.disabled = state.historyIndex <= 0;
+    dom.redoBtn.disabled = state.historyIndex >= state.history.length - 1;
+  }
+
+  /* ===== FILE INFO ===== */
+
+  function updateFileInfo() {
+    console.assert(dom.canvas !== null, "canvas missing");
+    console.assert(dom.bottomBar !== null, "bottomBar missing");
+    var name = state.originalFile ? state.originalFile.name : "Untitled";
+    $("infoName").textContent = name;
+    $("infoDims").textContent = dom.canvas.width + " x " + dom.canvas.height;
+    var raw = dom.canvas.width * dom.canvas.height * 4;
+    $("infoSize").textContent = formatBytes(raw);
+    var type = state.originalFile ? state.originalFile.type : "image/png";
+    $("infoType").textContent = type.split("/")[1].toUpperCase();
+    updateResizeFields();
+  }
+
+  function updateResizeFields() {
+    console.assert(dom.canvas !== null, "canvas missing");
+    console.assert($("resizeW") !== null, "resizeW missing");
+    $("resizeW").value = dom.canvas.width;
+    $("resizeH").value = dom.canvas.height;
+    $("resizePercent").value = 100;
+  }
+
+  /* ===== FILE LOADING ===== */
+
+  function loadFile(file) {
+    console.assert(file instanceof File, "Must be File object");
+    console.assert(file.size > 0, "File must not be empty");
+    if (file.size > CONFIG.MAX_FILE_SIZE) {
+      showToast("File too large. Max 20 MB.");
+      return;
+    }
+    if (CONFIG.SUPPORTED_TYPES.indexOf(file.type) === -1) {
+      showToast("Unsupported format. Use PNG, JPEG, WebP or GIF.");
+      return;
+    }
+    showProgress(30);
+    state.originalFile = file;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = new Image();
+      img.onload = function() {
+        showProgress(70);
+        renderImage(img);
+        showProgress(100);
+        setTimeout(function() { showProgress(0); }, 400);
+      };
+      img.onerror = function() {
+        showToast("Failed to decode image.");
+        showProgress(0);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function renderImage(img) {
+    console.assert(img.naturalWidth > 0, "Image must have width");
+    console.assert(img.naturalHeight > 0, "Image must have height");
+    dom.canvas.width = img.naturalWidth;
+    dom.canvas.height = img.naturalHeight;
+    ctx.clearRect(0, 0, dom.canvas.width, dom.canvas.height);
+    ctx.drawImage(img, 0, 0);
+    dom.dropZone.style.display = "none";
+    dom.canvasContainer.style.display = "block";
+    dom.bottomBar.style.display = "flex";
+    dom.downloadBtn.style.display = "inline-flex";
+    dom.resetBtn.style.display = "inline-flex";
+    state.history = [];
+    state.historyIndex = -1;
+    pushHistory();
+    updateFileInfo();
+    showToast("Image loaded successfully");
+  }
+
+  /* ===== RESIZE ===== */
+
+  function applyResize() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    var w = parseInt($("resizeW").value, 10);
+    var h = parseInt($("resizeH").value, 10);
+    if (isNaN(w) || isNaN(h) || w < 1 || h < 1) {
+      showToast("Enter valid dimensions");
+      return;
+    }
+    w = clamp(w, 1, CONFIG.MAX_DIMENSION);
+    h = clamp(h, 1, CONFIG.MAX_DIMENSION);
+    showProgress(30);
+    var imgData = ctx.getImageData(0, 0, dom.canvas.width, dom.canvas.height);
+    var tmpCanvas = document.createElement("canvas");
+    tmpCanvas.width = dom.canvas.width;
+    tmpCanvas.height = dom.canvas.height;
+    var tmpCtx = tmpCanvas.getContext("2d");
+    tmpCtx.putImageData(imgData, 0, 0);
+    dom.canvas.width = w;
+    dom.canvas.height = h;
+    ctx.drawImage(tmpCanvas, 0, 0, w, h);
+    showProgress(80);
+    pushHistory();
+    updateFileInfo();
+    showProgress(100);
+    setTimeout(function() { showProgress(0); }, 300);
+    showToast("Resized to " + w + " x " + h);
+  }
+
+  /* ===== CROP ===== */
+
+  function initCropOverlay() {
+    console.assert(dom.canvas !== null, "canvas missing");
+    console.assert(dom.cropOverlay !== null, "cropOverlay missing");
+    var rect = dom.canvas.getBoundingClientRect();
+    dom.cropOverlay.style.width = rect.width + "px";
+    dom.cropOverlay.style.height = rect.height + "px";
+    var inset = 0.15;
+    var sel = dom.cropSelection;
+    var selW = rect.width * (1 - 2 * inset);
+    var selH = rect.height * (1 - 2 * inset);
+    if (state.cropRatio && state.cropRatio !== "free") {
+      var parts = state.cropRatio.replace("-circle","").split(":");
+      var rw = parseInt(parts[0], 10);
+      var rh = parseInt(parts[1], 10);
+      var ratio = rw / rh;
+      if (selW / selH > ratio) {
+        selW = selH * ratio;
+      } else {
+        selH = selW / ratio;
+      }
+    }
+    sel.style.left = ((rect.width - selW) / 2) + "px";
+    sel.style.top = ((rect.height - selH) / 2) + "px";
+    sel.style.width = selW + "px";
+    sel.style.height = selH + "px";
+    dom.cropOverlay.classList.add("active");
+    updateCropInputs();
+  }
+
+  function updateCropInputs() {
+    console.assert(dom.canvas !== null, "canvas missing");
+    console.assert(dom.cropSelection !== null, "cropSelection missing");
+    var cRect = dom.canvas.getBoundingClientRect();
+    var sel = dom.cropSelection;
+    var scaleX = dom.canvas.width / cRect.width;
+    var scaleY = dom.canvas.height / cRect.height;
+    $("cropX").value = Math.round(parseFloat(sel.style.left) * scaleX);
+    $("cropY").value = Math.round(parseFloat(sel.style.top) * scaleY);
+    $("cropW").value = Math.round(parseFloat(sel.style.width) * scaleX);
+    $("cropH").value = Math.round(parseFloat(sel.style.height) * scaleY);
+  }
+
+  function applyCrop() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    var x = parseInt($("cropX").value, 10) || 0;
+    var y = parseInt($("cropY").value, 10) || 0;
+    var w = parseInt($("cropW").value, 10) || dom.canvas.width;
+    var h = parseInt($("cropH").value, 10) || dom.canvas.height;
+    x = clamp(x, 0, dom.canvas.width - CONFIG.MIN_CROP);
+    y = clamp(y, 0, dom.canvas.height - CONFIG.MIN_CROP);
+    w = clamp(w, CONFIG.MIN_CROP, dom.canvas.width - x);
+    h = clamp(h, CONFIG.MIN_CROP, dom.canvas.height - y);
+    showProgress(30);
+    var imgData = ctx.getImageData(x, y, w, h);
+    dom.canvas.width = w;
+    dom.canvas.height = h;
+    ctx.putImageData(imgData, 0, 0);
+    dom.cropOverlay.classList.remove("active");
+    showProgress(80);
+    pushHistory();
+    updateFileInfo();
+    showProgress(100);
+    setTimeout(function() { showProgress(0); }, 300);
+    showToast("Cropped to " + w + " x " + h);
+  }
+
+  /* ===== CROP DRAG HANDLERS ===== */
+
+  function startCropDrag(e) {
+    console.assert(e !== null, "Event required");
+    console.assert(dom.cropSelection !== null, "cropSelection missing");
+    e.preventDefault();
+    var sel = dom.cropSelection;
+    var target = e.target;
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var handle = target.dataset ? target.dataset.handle : null;
+    state.cropDrag = {
+      handle: handle || "move",
+      startX: clientX,
+      startY: clientY,
+      origLeft: parseFloat(sel.style.left),
+      origTop: parseFloat(sel.style.top),
+      origW: parseFloat(sel.style.width),
+      origH: parseFloat(sel.style.height)
+    };
+  }
+
+  function moveCropDrag(e) {
+    if (!state.cropDrag) return;
+    console.assert(dom.cropOverlay !== null, "cropOverlay missing");
+    console.assert(dom.cropSelection !== null, "cropSelection missing");
+    e.preventDefault();
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var dx = clientX - state.cropDrag.startX;
+    var dy = clientY - state.cropDrag.startY;
+    var d = state.cropDrag;
+    var sel = dom.cropSelection;
+    var maxW = parseFloat(dom.cropOverlay.style.width);
+    var maxH = parseFloat(dom.cropOverlay.style.height);
+    var newL, newT, newW, newH;
+    if (d.handle === "move") {
+      newL = clamp(d.origLeft + dx, 0, maxW - d.origW);
+      newT = clamp(d.origTop + dy, 0, maxH - d.origH);
+      sel.style.left = newL + "px";
+      sel.style.top = newT + "px";
+    } else {
+      newL = d.origLeft;
+      newT = d.origTop;
+      newW = d.origW;
+      newH = d.origH;
+      if (d.handle === "br" || d.handle === "tr") {
+        newW = clamp(d.origW + dx, CONFIG.MIN_CROP, maxW - d.origLeft);
+      }
+      if (d.handle === "bl" || d.handle === "tl") {
+        newL = clamp(d.origLeft + dx, 0, d.origLeft + d.origW - CONFIG.MIN_CROP);
+        newW = d.origW - (newL - d.origLeft);
+      }
+      if (d.handle === "br" || d.handle === "bl") {
+        newH = clamp(d.origH + dy, CONFIG.MIN_CROP, maxH - d.origTop);
+      }
+      if (d.handle === "tl" || d.handle === "tr") {
+        newT = clamp(d.origTop + dy, 0, d.origTop + d.origH - CONFIG.MIN_CROP);
+        newH = d.origH - (newT - d.origTop);
+      }
+      sel.style.left = newL + "px";
+      sel.style.top = newT + "px";
+      sel.style.width = newW + "px";
+      sel.style.height = newH + "px";
+    }
+    updateCropInputs();
+  }
+
+  function endCropDrag() {
+    console.assert(state !== null, "state must exist");
+    console.assert(typeof state.cropDrag !== "undefined", "cropDrag key missing");
+    state.cropDrag = null;
+  }
+
+  /* ===== COMPRESS ===== */
+
+  function applyCompress() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    var quality = parseInt($("qualitySlider").value, 10) / 100;
+    var format = $("compressFormat").value;
+    showProgress(40);
+    var dataURL = dom.canvas.toDataURL(format, quality);
+    var byteStr = atob(dataURL.split(",")[1]);
+    var newBytes = byteStr.length;
+    var origBytes = state.originalFile ? state.originalFile.size : dom.canvas.width * dom.canvas.height * 4;
+    $("origSize").textContent = formatBytes(origBytes);
+    $("newSize").textContent = formatBytes(newBytes);
+    $("sizeCompare").style.display = "flex";
+    showProgress(100);
+    setTimeout(function() { showProgress(0); }, 300);
+    var reduction = Math.round((1 - newBytes / origBytes) * 100);
+    var msg = reduction > 0
+      ? "Compressed! " + reduction + "% smaller"
+      : "Output is larger in this format/quality";
+    showToast(msg);
+    downloadDataURL(dataURL, format);
+  }
+
+  /* ===== CONVERT ===== */
+
+  function applyConvert() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    var fmt = document.querySelector('input[name="convertFmt"]:checked').value;
+    var quality = parseInt($("convertQuality").value, 10) / 100;
+    showProgress(50);
+    var dataURL = dom.canvas.toDataURL(fmt, quality);
+    showProgress(100);
+    setTimeout(function() { showProgress(0); }, 300);
+    downloadDataURL(dataURL, fmt);
+    showToast("Converted to " + fmt.split("/")[1].toUpperCase());
+  }
+
+  /* ===== FILTERS ===== */
+
+  function applyFilters() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    showProgress(20);
+    var brightness = parseInt($("brightnessSlider").value, 10);
+    var contrast = parseInt($("contrastSlider").value, 10);
+    var saturation = parseInt($("saturationSlider").value, 10);
+    var activeFilter = document.querySelector(".filter-btn.active");
+    var filterName = activeFilter ? activeFilter.dataset.filter : "none";
+    /* Restore from last history to stack properly */
+    if (state.historyIndex >= 0) {
+      restoreHistory(state.historyIndex);
+    }
+    var cssFilter = buildCSSFilter(filterName, brightness, contrast, saturation);
+    showProgress(50);
+    applyCanvasFilter(cssFilter);
+    showProgress(80);
+    pushHistory();
+    showProgress(100);
+    setTimeout(function() { showProgress(0); }, 300);
+    showToast("Filters applied");
+  }
+
+  function buildCSSFilter(name, brightness, contrast, saturation) {
+    console.assert(typeof name === "string", "filter name must be string");
+    console.assert(typeof brightness === "number", "brightness must be number");
+    var parts = [];
+    parts.push("brightness(" + (brightness / 100) + ")");
+    parts.push("contrast(" + (contrast / 100) + ")");
+    parts.push("saturate(" + (saturation / 100) + ")");
+    if (name === "grayscale") parts.push("grayscale(1)");
+    if (name === "sepia") parts.push("sepia(1)");
+    if (name === "blur") parts.push("blur(2px)");
+    if (name === "invert") parts.push("invert(1)");
+    if (name === "vintage") {
+      parts.push("sepia(0.4)");
+      parts.push("contrast(1.2)");
+    }
+    return parts.join(" ");
+  }
+
+  function applyCanvasFilter(cssFilter) {
+    console.assert(typeof cssFilter === "string", "filter must be string");
+    console.assert(dom.canvas.width > 0, "canvas must have width");
+    var w = dom.canvas.width;
+    var h = dom.canvas.height;
+    var tmpCanvas = document.createElement("canvas");
+    tmpCanvas.width = w;
+    tmpCanvas.height = h;
+    var tmpCtx = tmpCanvas.getContext("2d");
+    tmpCtx.filter = cssFilter;
+    tmpCtx.drawImage(dom.canvas, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(tmpCanvas, 0, 0);
+  }
+
+  /* ===== DOWNLOAD ===== */
+
+  function downloadDataURL(dataURL, mimeType) {
+    console.assert(typeof dataURL === "string", "dataURL must be string");
+    console.assert(dataURL.length > 0, "dataURL must not be empty");
+    var ext = "png";
+    if (mimeType.indexOf("jpeg") !== -1) ext = "jpg";
+    if (mimeType.indexOf("webp") !== -1) ext = "webp";
+    if (mimeType.indexOf("gif") !== -1) ext = "gif";
+    var baseName = state.originalFile
+      ? state.originalFile.name.replace(/\.[^.]+$/, "")
+      : "edited";
+    var a = document.createElement("a");
+    a.href = dataURL;
+    a.download = baseName + "-edited." + ext;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function downloadCurrent() {
+    console.assert(dom.canvas.width > 0, "Canvas must have content");
+    console.assert(dom.canvas.height > 0, "Canvas must have content");
+    var mimeType = state.originalFile ? state.originalFile.type : "image/png";
+    if (mimeType === "image/gif") mimeType = "image/png";
+    var dataURL = dom.canvas.toDataURL(mimeType, 0.92);
+    downloadDataURL(dataURL, mimeType);
+    showToast("Image downloaded");
+  }
+
+  /* ===== TOOL TAB SWITCHING ===== */
+
+  function switchTool(toolName) {
+    console.assert(typeof toolName === "string", "toolName must be string");
+    console.assert(toolName.length > 0, "toolName must not be empty");
+    var tabs = document.querySelectorAll(".tool-tab");
+    var panels = document.querySelectorAll(".tool-panel");
+    for (var i = 0; i < tabs.length && i < 100; i++) {
+      var isActive = tabs[i].dataset.tool === toolName;
+      tabs[i].classList.toggle("active", isActive);
+      tabs[i].setAttribute("aria-selected", isActive ? "true" : "false");
+    }
+    for (var j = 0; j < panels.length && j < 100; j++) {
+      var panelTool = panels[j].id.replace("panel-", "");
+      panels[j].classList.toggle("active", panelTool === toolName);
+    }
+    /* Show/hide crop overlay */
+    if (toolName === "crop" && dom.canvas.width > 0) {
+      initCropOverlay();
+    } else {
+      dom.cropOverlay.classList.remove("active");
+    }
+    closeSidebar();
+  }
+
+  /* ===== EVENT BINDING ===== */
+
+  function bindEvents() {
+    console.assert(dom.fileInput !== null, "fileInput missing");
+    console.assert(dom.dropZone !== null, "dropZone missing");
+
+    /* File input */
+    dom.fileInput.addEventListener("change", function(e) {
+      if (e.target.files && e.target.files[0]) {
+        loadFile(e.target.files[0]);
+      }
+    });
+
+    /* Drop zone click */
+    dom.dropZone.addEventListener("click", function() {
+      dom.fileInput.click();
+    });
+    dom.dropZone.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        dom.fileInput.click();
+      }
+    });
+
+    /* Drag & drop */
+    bindDragDrop();
+    /* Tool tabs */
+    bindToolTabs();
+    /* Resize */
+    bindResizeEvents();
+    /* Crop presets & drag */
+    bindCropEvents();
+    /* Compress */
+    bindCompressEvents();
+    /* Convert */
+    bindConvertEvents();
+    /* Filters */
+    bindFilterEvents();
+    /* Header actions */
+    bindHeaderActions();
+    /* Mobile menu */
+    bindMobileMenu();
+  }
+
+  function bindDragDrop() {
+    console.assert(document.body !== null, "body missing");
+    console.assert(dom.dropZone !== null, "dropZone missing");
+    var prevent = function(e) { e.preventDefault(); e.stopPropagation(); };
+    ["dragenter","dragover","dragleave","drop"].forEach(function(evt) {
+      document.body.addEventListener(evt, prevent);
+    });
+    document.body.addEventListener("dragover", function() {
+      dom.dropZone.classList.add("drag-over");
+    });
+    document.body.addEventListener("dragleave", function(e) {
+      if (!e.relatedTarget || e.relatedTarget === document.documentElement) {
+        dom.dropZone.classList.remove("drag-over");
+      }
+    });
+    document.body.addEventListener("drop", function(e) {
+      dom.dropZone.classList.remove("drag-over");
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+        loadFile(e.dataTransfer.files[0]);
+      }
+    });
+  }
+
+  function bindToolTabs() {
+    console.assert(document.querySelectorAll !== null, "querySelectorAll missing");
+    console.assert(typeof switchTool === "function", "switchTool missing");
+    document.querySelectorAll(".tool-tab").forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        switchTool(tab.dataset.tool);
+      });
+    });
+  }
+
+  function bindResizeEvents() {
+    console.assert($("applyResize") !== null, "applyResize missing");
+    console.assert($("linkAspect") !== null, "linkAspect missing");
+    $("applyResize").addEventListener("click", applyResize);
+
+    $("linkAspect").addEventListener("click", function() {
+      state.aspectLinked = !state.aspectLinked;
+      this.classList.toggle("linked", state.aspectLinked);
+    });
+
+    $("resizeW").addEventListener("input", function() {
+      if (!state.aspectLinked || !dom.canvas.width) return;
+      var ratio = dom.canvas.height / dom.canvas.width;
+      $("resizeH").value = Math.round(parseInt(this.value, 10) * ratio) || "";
+    });
+
+    $("resizeH").addEventListener("input", function() {
+      if (!state.aspectLinked || !dom.canvas.height) return;
+      var ratio = dom.canvas.width / dom.canvas.height;
+      $("resizeW").value = Math.round(parseInt(this.value, 10) * ratio) || "";
+    });
+
+    $("resizePercent").addEventListener("input", function() {
+      if (!dom.canvas.width) return;
+      var entry = state.history[0];
+      if (!entry) return;
+      var pct = parseInt(this.value, 10) / 100;
+      $("resizeW").value = Math.round(entry.w * pct);
+      $("resizeH").value = Math.round(entry.h * pct);
+    });
+  }
+
+  function bindCropEvents() {
+    console.assert($("cropPresets") !== null, "cropPresets missing");
+    console.assert($("applyCrop") !== null, "applyCrop missing");
+
+    $("cropPresets").addEventListener("click", function(e) {
+      var btn = e.target.closest(".preset-btn");
+      if (!btn) return;
+      document.querySelectorAll(".preset-btn").forEach(function(b) {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+      state.cropRatio = btn.dataset.ratio;
+      if (dom.canvas.width > 0) initCropOverlay();
+    });
+
+    $("applyCrop").addEventListener("click", applyCrop);
+
+    /* Crop drag on selection & handles */
+    dom.cropSelection.addEventListener("mousedown", startCropDrag);
+    dom.cropSelection.addEventListener("touchstart", startCropDrag);
+    document.addEventListener("mousemove", moveCropDrag);
+    document.addEventListener("touchmove", moveCropDrag);
+    document.addEventListener("mouseup", endCropDrag);
+    document.addEventListener("touchend", endCropDrag);
+  }
+
+  function bindCompressEvents() {
+    console.assert($("qualitySlider") !== null, "qualitySlider missing");
+    console.assert($("applyCompress") !== null, "applyCompress missing");
+    $("qualitySlider").addEventListener("input", function() {
+      $("qualityVal").textContent = this.value + "%";
+    });
+    $("applyCompress").addEventListener("click", applyCompress);
+  }
+
+  function bindConvertEvents() {
+    console.assert($("formatOptions") !== null, "formatOptions missing");
+    console.assert($("applyConvert") !== null, "applyConvert missing");
+
+    $("formatOptions").addEventListener("change", function(e) {
+      document.querySelectorAll(".format-option").forEach(function(opt) {
+        opt.classList.remove("active");
+      });
+      e.target.closest(".format-option").classList.add("active");
+      var needsQuality = e.target.value !== "image/png";
+      $("convertQualityWrap").style.display = needsQuality ? "flex" : "none";
+    });
+
+    $("convertQuality").addEventListener("input", function() {
+      $("convertQualityVal").textContent = this.value + "%";
+    });
+
+    $("applyConvert").addEventListener("click", applyConvert);
+  }
+
+  function bindFilterEvents() {
+    console.assert($("filterGrid") !== null, "filterGrid missing");
+    console.assert($("applyFilters") !== null, "applyFilters missing");
+
+    $("filterGrid").addEventListener("click", function(e) {
+      var btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(function(b) {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+    });
+
+    $("brightnessSlider").addEventListener("input", function() {
+      $("brightnessVal").textContent = this.value + "%";
+    });
+    $("contrastSlider").addEventListener("input", function() {
+      $("contrastVal").textContent = this.value + "%";
+    });
+    $("saturationSlider").addEventListener("input", function() {
+      $("saturationVal").textContent = this.value + "%";
+    });
+
+    $("applyFilters").addEventListener("click", applyFilters);
+  }
+
+  function bindHeaderActions() {
+    console.assert(dom.downloadBtn !== null, "downloadBtn missing");
+    console.assert(dom.resetBtn !== null, "resetBtn missing");
+
+    dom.downloadBtn.addEventListener("click", downloadCurrent);
+
+    dom.resetBtn.addEventListener("click", function() {
+      if (state.history.length > 0) {
+        restoreHistory(0);
+        showToast("Image reset to original");
+      }
+    });
+
+    dom.undoBtn.addEventListener("click", function() {
+      if (state.historyIndex > 0) {
+        restoreHistory(state.historyIndex - 1);
+      }
+    });
+
+    dom.redoBtn.addEventListener("click", function() {
+      if (state.historyIndex < state.history.length - 1) {
+        restoreHistory(state.historyIndex + 1);
+      }
+    });
+  }
+
+  function bindMobileMenu() {
+    console.assert(dom.menuToggle !== null, "menuToggle missing");
+    console.assert(dom.sidebar !== null, "sidebar missing");
+    dom.menuToggle.addEventListener("click", function() {
+      dom.sidebar.classList.toggle("open");
+      dom.backdrop.classList.toggle("show");
+    });
+    dom.backdrop.addEventListener("click", closeSidebar);
+  }
+
+  /* ===== KEYBOARD SHORTCUTS ===== */
+
+  function bindKeyboard() {
+    console.assert(document !== null, "document missing");
+    console.assert(typeof switchTool === "function", "switchTool missing");
+    document.addEventListener("keydown", function(e) {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
+      var ctrl = e.ctrlKey || e.metaKey;
+      if (ctrl && e.key === "z" && !e.shiftKey) {
+        e.preventDefault();
+        if (state.historyIndex > 0) restoreHistory(state.historyIndex - 1);
+      }
+      if (ctrl && (e.key === "y" || (e.key === "z" && e.shiftKey))) {
+        e.preventDefault();
+        if (state.historyIndex < state.history.length - 1) {
+          restoreHistory(state.historyIndex + 1);
+        }
+      }
+      if (ctrl && e.key === "s") {
+        e.preventDefault();
+        if (dom.canvas.width > 0) downloadCurrent();
+      }
+    });
+  }
+
+  /* ===== INIT ===== */
+
+  function init() {
+    console.assert(document.readyState !== "loading", "DOM not ready");
+    console.assert(typeof bindEvents === "function", "bindEvents missing");
+    bindEvents();
+    bindKeyboard();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+</body>
+</html>

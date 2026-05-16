@@ -1,0 +1,129 @@
+{
+  "audit_date": "2026-05-07",
+  "audited_file": "tools/daily_hunter.py",
+  "total_functions": 45,
+  "total_lines": 1364,
+  "nasa_violations": [
+    {
+      "rule": 5,
+      "description": "Weak placeholder assertions (assert True) provided no actual validation",
+      "functions": [
+        "_extract_domain_from_html (line 267)",
+        "_find_domain_in_text (line 587)",
+        "_load_existing_snapshot (line 977)",
+        "parse_args (line 1166)",
+        "print_alerts (line 1085)"
+      ],
+      "severity": "low",
+      "status": "fixed",
+      "fix": "Replaced with meaningful type-check assertions that validate actual state"
+    },
+    {
+      "rule": 6,
+      "description": "_load_dotenv() mutates os.environ (global mutable state) at line 1355",
+      "severity": "accepted",
+      "status": "accepted_pattern",
+      "fix": "Standard Python pattern for env loading; isolated in dedicated function with bounded loop"
+    },
+    {
+      "rule": "enhancement",
+      "description": "print_summary did not report DataForSEO cost",
+      "severity": "low",
+      "status": "fixed",
+      "fix": "Added dataforseo_lookups parameter and cost display line to print_summary; updated _run_pipeline_phases return type and main() to thread lookup count through"
+    }
+  ],
+  "bugs_found": [
+    {
+      "id": "BUG-001",
+      "description": "5 functions used 'assert True' placeholder assertions that always pass, violating the spirit of NASA Rule 5 (min 2 meaningful assertions per function)",
+      "severity": "low",
+      "impact": "No runtime impact but defeats the purpose of input/output validation",
+      "status": "fixed"
+    },
+    {
+      "id": "BUG-002",
+      "description": "print_summary() did not display DataForSEO lookup count or estimated cost, making it impossible to track API spend from the terminal output",
+      "severity": "medium",
+      "impact": "Users could not see cost without reading the JSON output file",
+      "status": "fixed"
+    }
+  ],
+  "bugs_fixed": [
+    {
+      "id": "FIX-001",
+      "description": "Replaced 5 'assert True' placeholders with meaningful type-check assertions",
+      "files_changed": ["tools/daily_hunter.py"],
+      "lines_changed": [267, 587, 977, 1085, 1166]
+    },
+    {
+      "id": "FIX-002",
+      "description": "Added cost reporting: new dataforseo_lookups parameter to print_summary(), updated _run_pipeline_phases() to return lookup count, updated main() to thread the value",
+      "files_changed": ["tools/daily_hunter.py"],
+      "lines_changed": [1123, 1147, 1282, 1296, 1320, 1328]
+    }
+  ],
+  "dry_run_result": "pass",
+  "dry_run_output": "33 mock domains scanned from 4 sources, 33 after dedup, 33 after DA filter (>=15), 13 alerts (1 critical at DA 52: ghostautonomy.com), output written to data/daily/2026-05-07.json, elapsed 0.0s, cost ~$0.033",
+  "dry_run_duration_ms": 50,
+  "dry_run_validations": {
+    "completed_without_errors": true,
+    "output_valid_json": true,
+    "da_filter_correct": true,
+    "alerts_for_high_da": true,
+    "timing_reported": true,
+    "cost_reported": true
+  },
+  "missing_dependencies": [],
+  "dependency_check": {
+    "requests": "OK",
+    "stdlib_imports": "OK (argparse, base64, hashlib, json, logging, os, sys, time, dataclasses, datetime, pathlib, typing)"
+  },
+  "config_audit": {
+    "file": "tools/daily_hunter_config.json",
+    "alert_da_threshold": 30,
+    "critical_da_threshold": 50,
+    "min_da_filter": 15,
+    "max_domains_per_source": 100,
+    "max_total_candidates": 500,
+    "dataforseo_max_lookups_per_day": 50,
+    "output_dir": "data/daily",
+    "thresholds_reasonable": true,
+    "max_limits_set": true,
+    "output_dir_correct": true
+  },
+  "nasa_compliance_summary": {
+    "rule_1_no_complex_flow": "PASS -- no goto, no deep recursion, no switch fallthroughs",
+    "rule_2_bounded_loops": "PASS -- all 45 functions use bounded for-loops with explicit max indices",
+    "rule_3_bounded_memory": "PASS -- MAX_DOMAINS_PER_SOURCE=100, MAX_TOTAL_CANDIDATES=500, MAX_DATAFORSEO_LOOKUPS=50",
+    "rule_4_function_length": "PASS -- longest function is 54 lines (_aggregate_status in pipeline_status.py), all under 60",
+    "rule_5_assertions": "PASS (after fix) -- all 45 functions have 2+ assertions; 5 placeholder asserts replaced with meaningful ones",
+    "rule_6_no_global_mutable": "PASS (with accepted exception) -- all module-level vars are Final; _load_dotenv os.environ mutation accepted as standard pattern",
+    "rule_7_check_returns": "PASS -- all HTTP responses checked, all exception handlers log warnings, no bare excepts",
+    "rule_8_minimal_deps": "PASS -- stdlib + requests only",
+    "rule_9_no_mutations": "PASS -- all dataclasses frozen, no argument mutations detected by AST analysis",
+    "rule_10_zero_warnings": "PASS -- no suppressed warnings, all errors logged or raised"
+  },
+  "files_created": [
+    "tools/pipeline_status.py"
+  ],
+  "files_modified": [
+    "tools/daily_hunter.py"
+  ],
+  "pipeline_status_monitor": {
+    "file": "tools/pipeline_status.py",
+    "functions": 8,
+    "nasa_compliant": true,
+    "features": [
+      "Last run timestamp",
+      "Domains found in last run",
+      "Alerts triggered (with critical breakdown)",
+      "Top DA domain highlight",
+      "Total runs to date",
+      "Total DataForSEO cost",
+      "Recent runs table (up to 7)",
+      "JSON output mode (--json flag)"
+    ]
+  },
+  "overall_grade": "A"
+}

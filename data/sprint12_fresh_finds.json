@@ -1,0 +1,482 @@
+{
+  "sprint": 12,
+  "agent": "FRESH HUNTER",
+  "scan_date": "2026-05-07",
+  "methodology": "Price-verified discovery via WHOIS availability check + keyword intent analysis",
+  "domains_checked": 262,
+  "domains_available": 33,
+  "note": "DataForSEO returned 'Payment Required' on all endpoints — search volume estimates below are based on known developer tool search patterns and competing site existence. All domains confirmed available via VeriSign WHOIS 'No match' response.",
+  "sprint10_lesson_applied": "Every domain listed is UNREGISTERED (fresh registration at ~$10.11 via Cloudflare). No aftermarket/auction/premium pricing confusion.",
+
+  "recommended_acquisitions": [
+    {
+      "domain": "cssformat.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "verified_url": "https://dash.cloudflare.com/domains/register",
+      "domain_age_years": 0,
+      "whois_status": "available",
+      "whois_confirmation": "No match for domain CSSFORMAT.COM (VeriSign, 2026-05-07)",
+      "niche": "developer_tools",
+      "search_intent": "css format, css formatter, format css, beautify css",
+      "estimated_monthly_searches": "1000-5000 (based on cssformatter.com being taken, W3Schools having a css formatter tool, and 8+ competing sites in this space)",
+      "competition_notes": "cssformatter.com is taken. cssformat.org and cssformat.net are ALSO available.",
+      "revenue_model": "Free online CSS formatter tool with ads, upsell to premium features",
+      "action": "REGISTER at Cloudflare — HIGH PRIORITY",
+      "tier": 1,
+      "rationale": "Exact match for high-intent developer search query. CSS formatting is a daily task for millions of developers. Multiple competing sites exist proving demand."
+    },
+    {
+      "domain": "regexcheck.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "verified_url": "https://dash.cloudflare.com/domains/register",
+      "domain_age_years": 0,
+      "whois_status": "available",
+      "whois_confirmation": "No match for domain REGEXCHECK.COM (VeriSign, 2026-05-07)",
+      "niche": "developer_tools",
+      "search_intent": "regex check, check regex, regex checker, regex tester",
+      "estimated_monthly_searches": "2000-8000 (regex101.com is one of the most popular dev tools; regexchecker.com is taken)",
+      "competition_notes": "regexchecker.com is taken. regexcheck.org and regexcheck.net are ALSO available. regex101.com dominates but is a different brand.",
+      "revenue_model": "Online regex testing/checking tool with ads",
+      "action": "REGISTER at Cloudflare — HIGH PRIORITY",
+      "tier": 1,
+      "rationale": "Exact match for extremely popular developer search query. Regex testing is used by millions daily. regex101.com has massive traffic proving enormous demand."
+    },
+    {
+      "domain": "yamlcheck.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "verified_url": "https://dash.cloudflare.com/domains/register",
+      "domain_age_years": 0,
+      "whois_status": "available",
+      "whois_confirmation": "No match for domain YAMLCHECK.COM (VeriSign, 2026-05-07)",
+      "niche": "developer_tools",
+      "search_intent": "yaml check, check yaml, yaml checker, yaml validator",
+      "estimated_monthly_searches": "1000-3000 (yamlchecker.com is taken and active at yamlchecker.com, yamllint.com is taken, yaml.cc exists)",
+      "competition_notes": "yamlchecker.com is taken. yamlcheck.org and yamlcheck.net are ALSO available.",
+      "revenue_model": "Online YAML validation/checking tool with ads",
+      "action": "REGISTER at Cloudflare — HIGH PRIORITY",
+      "tier": 1,
+      "rationale": "YAML is ubiquitous in DevOps (Kubernetes, Docker, CI/CD). Growing search demand as cloud-native adoption increases. Exact match domain."
+    },
+    {
+      "domain": "pythonformat.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "verified_url": "https://dash.cloudflare.com/domains/register",
+      "domain_age_years": 0,
+      "whois_status": "available",
+      "whois_confirmation": "No match for domain PYTHONFORMAT.COM (VeriSign, 2026-05-07)",
+      "niche": "developer_tools",
+      "search_intent": "python format, python formatter, format python code, python beautify",
+      "estimated_monthly_searches": "2000-5000 (Python is the #1 programming language; pythonformatter.com is taken; multiple formatter.org tools exist)",
+      "competition_notes": "pythonformatter.com is taken. pythonformat.org and pythonformat.net are ALSO available. Google's YAPF project proves demand.",
+      "revenue_model": "Online Python code formatter with ads, code quality tools",
+      "action": "REGISTER at Cloudflare — HIGH PRIORITY",
+      "tier": 1,
+      "rationale": "Python is the world's most popular programming language. Online formatters get consistent high traffic. Exact keyword match."
+    },
+    {
+      "domain": "rgbconvert.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "verified_url": "https://dash.cloudflare.com/domains/register",
+      "domain_age_years": 0,
+      "whois_status": "available",
+      "whois_confirmation": "No match for domain RGBCONVERT.COM (VeriSign, 2026-05-07)",
+      "niche": "developer_tools",
+      "search_intent": "rgb convert, rgb converter, rgb to hex, convert rgb",
+      "estimated_monthly_searches": "5000-15000 (rgbtohex.net and rapidtables.com/convert/color/ are highly trafficked; color conversion is universal)",
+      "competition_notes": "rgbtohex.net is a major player. W3Schools, rapidtables.com also compete. But rgbconvert.com is the exact keyword match.",
+      "revenue_model": "Color conversion tool with ads, design tool integrations",
+      "action": "REGISTER at Cloudflare — HIGH PRIORITY",
+      "tier": 1,
+      "rationale": "Color conversion is used by every web designer and developer. 'rgb to hex' is one of the most searched developer queries. Massive proven demand."
+    }
+  ],
+
+  "strong_opportunities": [
+    {
+      "domain": "regexvalidator.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "regex validator, validate regex",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "csslinter.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "css linter, css lint, lint css",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "yamlvalidate.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "yaml validate, validate yaml",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "javaformat.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "java format, java formatter, format java code",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "xmlparse.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "xml parse, parse xml, xml parser",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "yamlparse.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "yaml parse, parse yaml",
+      "tier": 2,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "cssformat.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "note": "Already in top 5 recommended — listed here for completeness",
+      "tier": 1,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "typescriptformat.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "typescript format, typescript formatter",
+      "tier": 2,
+      "action": "REGISTER at Cloudflare"
+    },
+    {
+      "domain": "validatoronline.com",
+      "verified_price": 10.11,
+      "price_source": "cloudflare_fresh_registration",
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "validator online, online validator",
+      "tier": 2,
+      "action": "REGISTER at Cloudflare"
+    }
+  ],
+
+  "additional_available_domains": [
+    {
+      "domain": "portioncheck.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "cooking_nutrition",
+      "search_intent": "portion check, portion size checker",
+      "tier": 3
+    },
+    {
+      "domain": "recipe-scaler.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "cooking_tools",
+      "search_intent": "recipe scaler, scale recipe",
+      "tier": 3
+    },
+    {
+      "domain": "metricflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "conversion_tools",
+      "search_intent": "metric converter",
+      "tier": 3
+    },
+    {
+      "domain": "keywordflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "seo_tools",
+      "search_intent": "keyword tool, keyword research",
+      "tier": 3
+    },
+    {
+      "domain": "interestflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 3
+    },
+    {
+      "domain": "savingsflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 3
+    },
+    {
+      "domain": "compoundflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 3
+    },
+    {
+      "domain": "dividendflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 3
+    },
+    {
+      "domain": "retirementflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 3
+    },
+    {
+      "domain": "decimalflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "math_tools",
+      "tier": 4
+    },
+    {
+      "domain": "xmlbeautify.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "tier": 3
+    },
+    {
+      "domain": "spellingflip.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "education_tools",
+      "tier": 4
+    },
+    {
+      "domain": "algebracheck.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "education_tools",
+      "tier": 4
+    },
+    {
+      "domain": "geometrycalc.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "education_tools",
+      "tier": 4
+    },
+    {
+      "domain": "checkeronline.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "generic_tools",
+      "tier": 4
+    },
+    {
+      "domain": "yamlvalidate.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "tier": 2,
+      "note": "Also listed in strong_opportunities"
+    },
+    {
+      "domain": "rustformat.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "rust format, rust formatter",
+      "tier": 3
+    },
+    {
+      "domain": "phpformat.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "php format, php formatter",
+      "tier": 3
+    },
+    {
+      "domain": "rubyformat.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "ruby format, ruby formatter",
+      "tier": 4
+    },
+    {
+      "domain": "kotlinformat.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "developer_tools",
+      "search_intent": "kotlin format, kotlin formatter",
+      "tier": 4
+    },
+    {
+      "domain": "flipexpense.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 4
+    },
+    {
+      "domain": "flipreceipt.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 4
+    },
+    {
+      "domain": "flipcompound.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 4
+    },
+    {
+      "domain": "flipretirement.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 4
+    },
+    {
+      "domain": "flipdividend.com",
+      "verified_price": 10.11,
+      "price_category": "fresh_registration",
+      "whois_status": "available",
+      "niche": "finance_tools",
+      "tier": 4
+    }
+  ],
+
+  "expiring_soon_watchlist": [
+    {
+      "domain": "recipescale.com",
+      "expiry_date": "2026-05-17",
+      "days_until_expiry": 10,
+      "registrar": "joker.com",
+      "created": "2019-05-17",
+      "domain_age_years": 7,
+      "wayback_history": "Has snapshots since 2013",
+      "action": "WATCH — if it drops, backorder or register immediately",
+      "note": "7-year-old domain in cooking niche. Exact match for 'recipe scale' search query. If owner doesn't renew by May 17, it enters grace period then eventually drops."
+    },
+    {
+      "domain": "convertnow.com",
+      "expiry_date": "2026-05-17",
+      "days_until_expiry": 10,
+      "registrar": "tucows.com",
+      "wayback_history": "Has snapshots since 2001 — 25+ year domain history",
+      "action": "WATCH — extremely valuable if it drops",
+      "note": "25-year-old domain. 'Convert now' is a high-intent search term. Would be incredibly valuable if it actually expires."
+    },
+    {
+      "domain": "netpay.com",
+      "expiry_date": "2026-05-15",
+      "days_until_expiry": 8,
+      "registrar": "GoDaddy",
+      "wayback_history": "Has snapshots since 2000 — 26+ year domain history",
+      "action": "WATCH — premium domain, unlikely to drop but worth monitoring",
+      "note": "Has clientRenewProhibited status which often indicates domain is parked/for-sale at a registrar. Likely will be renewed."
+    },
+    {
+      "domain": "interest-calculator.com",
+      "expiry_date": "2026-05-22",
+      "days_until_expiry": 15,
+      "action": "WATCH — exact match keyword domain for high-CPC finance niche"
+    }
+  ],
+
+  "dead_startup_domains_checked": {
+    "note": "All dead startup domains from 2025-2026 shutdowns are still registered by their owners or domain investors",
+    "checked": [
+      "humane.com (taken)", "noogata.com (taken)", "builder.ai (taken)",
+      "jasper.ai (taken)", "copy.ai (taken)", "tome.app (taken)",
+      "descript.com (taken)", "codeparrot.ai (taken)", "subtl.ai (taken)",
+      "locale.ai (taken)", "ask.com (taken)", "sora.com (taken)"
+    ],
+    "conclusion": "Dead startup domains are typically held by the defunct company's estate, investors, or domain squatters. None are available for fresh registration."
+  },
+
+  "strategy_summary": {
+    "total_domains_checked": 262,
+    "total_available_found": 33,
+    "availability_rate": "12.6%",
+    "top_5_cost": 50.55,
+    "top_5_description": "5 high-intent developer tool exact-match domains at $10.11 each",
+    "strategies_used": [
+      "Keyword domain WHOIS availability scanning (262 domains across 24 batches)",
+      "Dead startup domain checking (12 recently shut down companies)",
+      "Expiring domain monitoring (4 domains expiring within 15 days)",
+      "Competition analysis (checked .org/.net variants for top picks)",
+      "DataForSEO attempted (account has no credits — all endpoints returned Payment Required)"
+    ],
+    "key_insight": "Developer tool domains are the highest-value opportunity. Search queries like 'css formatter', 'regex checker', 'python formatter' have proven demand (multiple competing sites exist). These exact-match .com domains can be registered for $10.11 each at Cloudflare and built into simple tool sites that rank well for their target keywords."
+  }
+}

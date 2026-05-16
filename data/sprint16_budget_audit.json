@@ -1,0 +1,220 @@
+{
+  "sprint": 16,
+  "agent": "BUDGET AUDIT",
+  "scan_date": "2026-05-08",
+
+  "dataforseo": {
+    "funded": 50.00,
+    "spent": 26.22,
+    "balance": 23.78,
+    "balance_live_api": 23.7831,
+    "note": "Balance was $35.08 at Sprint 15. Consumed $11.30 since then. Total lifetime API usage: $26.22 of $50.00 deposited."
+  },
+
+  "deepseek": {
+    "funded_estimate": 20.00,
+    "spent": 1.13,
+    "balance": 18.87,
+    "balance_live_api": 18.87,
+    "note": "Barely used. $18.87 remaining of estimated $20 deposit. DeepSeek classification not yet integrated into daily pipeline."
+  },
+
+  "domains": {
+    "count": 3,
+    "total_cost": 34.18,
+    "list": [
+      {
+        "domain": "ingredientcalculator.com",
+        "cost": 10.46,
+        "registrar": "Cloudflare",
+        "expiry": "2027-05-07",
+        "current_etv": 0,
+        "status": "live_no_traffic"
+      },
+      {
+        "domain": "pictureeditor.net",
+        "cost": 11.86,
+        "registrar": "Cloudflare",
+        "expiry": "2027-05-07",
+        "current_etv": 0,
+        "status": "live_no_traffic"
+      },
+      {
+        "domain": "recipetool.net",
+        "cost": 11.86,
+        "registrar": "Cloudflare",
+        "expiry": "2027-05-07",
+        "current_etv": 0,
+        "status": "live_minimal_content"
+      }
+    ]
+  },
+
+  "platforms": {
+    "dropcatch": {
+      "account_created": true,
+      "verified": false,
+      "verification_status": "PENDING since 2026-05-07",
+      "cost": 0,
+      "backorders_placed": 0,
+      "note": "Account exists but ID verification still pending after 24+ hours. Cannot place backorders until verified."
+    },
+    "snapnames": {
+      "signed_up": false,
+      "cost": 0,
+      "backorders_placed": 0,
+      "note": "Account NOT created. Documented in detail across Sprints 9-15 but never actually completed by human."
+    },
+    "dynadot": {
+      "deposited": false,
+      "cost": 0,
+      "deposit_needed": 5.00,
+      "backorders_placed": 0,
+      "note": "Account NOT created. $5 deposit required before backorders can be placed."
+    },
+    "godaddy_auctions": {
+      "purchased": false,
+      "cost": 0,
+      "membership_cost": 4.99,
+      "backorders_placed": 0,
+      "note": "$4.99/yr membership NEVER purchased. Optional — only useful for GoDaddy-registered domains."
+    },
+    "namejet": {
+      "signed_up": false,
+      "cost": 0,
+      "note": "Skip — shares identical inventory with SnapNames. Signing up for both is redundant."
+    },
+    "total_platform_spend_to_date": 0,
+    "total_platform_spend_if_all_signed_up": 9.99
+  },
+
+  "budget_summary": {
+    "total_budget": 600.00,
+    "spent_breakdown": {
+      "domain_registrations": 34.18,
+      "dataforseo_api_consumed": 26.22,
+      "deepseek_api_consumed": 1.13,
+      "platform_signups": 0.00,
+      "total_consumed": 61.53
+    },
+    "cash_committed_breakdown": {
+      "domain_registrations": 34.18,
+      "dataforseo_deposit": 50.00,
+      "deepseek_deposit_estimate": 20.00,
+      "platform_signups": 0.00,
+      "total_cash_committed": 104.18,
+      "note": "Cash committed = money that has left the wallet. DataForSEO and DeepSeek have unspent balances that can still be used."
+    },
+    "recoverable_api_balances": {
+      "dataforseo": 23.78,
+      "deepseek": 18.87,
+      "total_recoverable": 42.65,
+      "note": "These balances are pre-paid and available for API calls. Not cash-recoverable but usable."
+    },
+    "total_spent": 61.53,
+    "budget_remaining": 538.47,
+    "budget_remaining_after_pending_signups": 528.48,
+    "note": "Budget remaining = $600 - $61.53 consumed. If Dynadot ($5) + GoDaddy ($4.99) signed up, remaining drops to $528.48."
+  },
+
+  "backorder_exposure": {
+    "globalgeopark_org": {
+      "max_bid": 400,
+      "etv_monthly": 626,
+      "drop_estimate": "~Jul 1, 2026",
+      "status": "autoRenewPeriod — ABANDONED",
+      "catch_price_range": "$24.99 (Dynadot) to $79 (SnapNames)",
+      "auction_risk": "If multiple bidders, price escalates. Max bid $400."
+    },
+    "imageeditor_net": {
+      "max_bid": 200,
+      "etv_monthly": 246,
+      "drop_estimate": "~Nov 2026",
+      "status": "clientRenewProhibited",
+      "catch_price_range": "$24.99 (Dynadot) to $79 (SnapNames)",
+      "auction_risk": "If multiple bidders, price escalates. Max bid $200."
+    },
+    "total_max_exposure": 600,
+    "best_case_cost": 49.98,
+    "worst_case_cost": 600,
+    "note": "Only pay if domain is caught. Best case: both caught at Dynadot standard rate ($24.99 each = $49.98). Worst case: both go to competitive auction at max bids ($400 + $200 = $600)."
+  },
+
+  "sprint16_planned_api_cost": {
+    "dataforseo_etv_scans": 10.00,
+    "deepseek_classification": 3.00,
+    "total": 13.00,
+    "dataforseo_balance_after": 13.78,
+    "deepseek_balance_after": 15.87,
+    "note": "Estimated. Actual cost depends on number of domains scanned. DataForSEO balance sufficient for ~2-3 more sprints of scanning."
+  },
+
+  "affordability_analysis": {
+    "can_afford_both_backorders_at_max": false,
+    "reason": "Max exposure ($600) > budget remaining ($538.47). Would need $61.53 more than available.",
+    "can_afford_both_at_catch_price": true,
+    "catch_price_cost": "~$49.98 to $158 (depending on platform)",
+    "can_afford_one_at_max_plus_one_at_catch": true,
+    "scenario_analysis": [
+      {
+        "scenario": "Both caught at Dynadot standard ($24.99 each)",
+        "cost": 49.98,
+        "remaining_after": 488.49,
+        "verdict": "EASILY AFFORDABLE"
+      },
+      {
+        "scenario": "Both caught at DropCatch no-competition ($59 each)",
+        "cost": 118.00,
+        "remaining_after": 420.47,
+        "verdict": "AFFORDABLE"
+      },
+      {
+        "scenario": "Both caught at SnapNames no-competition ($79 each)",
+        "cost": 158.00,
+        "remaining_after": 380.47,
+        "verdict": "AFFORDABLE"
+      },
+      {
+        "scenario": "globalgeopark.org goes to auction ($200) + imageeditor.net catch ($59)",
+        "cost": 259.00,
+        "remaining_after": 279.47,
+        "verdict": "AFFORDABLE"
+      },
+      {
+        "scenario": "globalgeopark.org at max bid ($400) + imageeditor.net at catch ($59)",
+        "cost": 459.00,
+        "remaining_after": 79.47,
+        "verdict": "TIGHT — leaves little for renewals/future"
+      },
+      {
+        "scenario": "Both at max bid ($400 + $200)",
+        "cost": 600.00,
+        "remaining_after": -61.53,
+        "verdict": "OVER BUDGET by $61.53"
+      }
+    ],
+    "recommendation": "Set globalgeopark.org max at $350 (not $400) and imageeditor.net max at $175 (not $200). Total max exposure $525 stays within $538.47 budget with $13.47 cushion for Sprint 16 API costs."
+  },
+
+  "total_backorders_placed": 0,
+  "backorder_blocker": "ZERO backorders placed across ALL 15 sprints. DropCatch verification pending. SnapNames/Dynadot accounts not created. GoDaddy Auctions membership not purchased. This is the #1 project risk.",
+
+  "financial_health": "GOOD",
+  "financial_health_detail": "91.7% of budget ($538.47) remains unspent. API balances healthy ($42.65 combined). However, financial health is misleadingly 'GOOD' because the project has not yet spent money on its primary objective (backorders). The real risk is execution, not money.",
+
+  "risk_flags": [
+    "ZERO backorders placed after 15 sprints — execution gap, not budget gap",
+    "Both backorders at max bid ($600) would exceed remaining budget ($538.47) by $61.53",
+    "globalgeopark.org is in grace period NOW — delay increases risk of loss to competitors",
+    "DataForSEO balance declining faster ($11.30 consumed since Sprint 15 report)",
+    "Platform signups ($9.99) still pending — trivial cost but critical blocker"
+  ],
+
+  "action_required": [
+    "IMMEDIATELY: Complete SnapNames signup ($0 upfront) and place backorders",
+    "IMMEDIATELY: Complete Dynadot signup + $5 deposit and place backorders",
+    "TODAY: Call DropCatch support (1-303-502-9098) to expedite verification",
+    "OPTIONAL: Purchase GoDaddy Auctions membership ($4.99)",
+    "BUDGET: Reduce max bids to $350 (globalgeopark) + $175 (imageeditor) = $525 total exposure to stay within budget"
+  ]
+}

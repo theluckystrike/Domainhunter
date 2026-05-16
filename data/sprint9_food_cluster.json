@@ -1,0 +1,587 @@
+{
+  "strategy": "food_portfolio_cluster",
+  "report_date": "2026-05-07",
+  "sprint": 9,
+  "agent": "FOOD_CLUSTER",
+
+  "owned_domains": [
+    {
+      "domain": "ingredientcalculator.com",
+      "pages_live": 6,
+      "monthly_search_volume": 333000,
+      "current_dr": 0,
+      "tools": ["cups-to-grams converter", "egg substitute calculator", "recipe converter", "baking ratio calculator", "serving size calculator"],
+      "cross_links_to": ["recipetool.net"]
+    },
+    {
+      "domain": "recipetool.net",
+      "pages_live": 3,
+      "monthly_search_volume": 746000,
+      "current_dr": 0,
+      "tools": ["calorie calculator", "meal planner", "nutrition analyzer"],
+      "cross_links_to": ["ingredientcalculator.com"]
+    }
+  ],
+
+  "target_domains": [
+    {
+      "domain": "sushifaq.com",
+      "da": 51,
+      "rd": 769,
+      "age_years": 26,
+      "priority": "HIGH",
+      "drops_in_days": 8,
+      "existing_max_bid": 250
+    },
+    {
+      "domain": "lagerhousedetroit.com",
+      "da": 53,
+      "rd": 89,
+      "priority": "MEDIUM",
+      "drops_in_days": 6
+    },
+    {
+      "domain": "bluedogcafe.com",
+      "da": 41,
+      "rd": 251,
+      "priority": "MEDIUM",
+      "drops_in_days": 8
+    },
+    {
+      "domain": "311restaurantpr.com",
+      "da": 38,
+      "rd": 288,
+      "priority": "LOW"
+    },
+    {
+      "domain": "nudelrestaurant.com",
+      "da": 36,
+      "rd": 205,
+      "priority": "LOW"
+    },
+    {
+      "domain": "guerrameats.com",
+      "da": 36,
+      "priority": "SKIP",
+      "notes": "Still appears active -- may NOT actually be dropping. Website functional as of May 2026."
+    },
+    {
+      "domain": "tanjoreharvardsq.com",
+      "da": 31,
+      "priority": "LOW"
+    },
+    {
+      "domain": "woodysseafood.com",
+      "da": 30,
+      "priority": "LOW"
+    },
+    {
+      "domain": "kitchenultimate.com",
+      "da": 21,
+      "rd": 197,
+      "priority": "LOW"
+    }
+  ],
+
+  "wayback_analysis": {
+    "sushifaq.com": {
+      "type": "food_education_site",
+      "description": "Comprehensive sushi FAQ and educational resource. 'The definitive guide to sushi, sashimi, and related Japanese cuisine.' Created by Warren Ransom, a classically trained chef. Covered sushi history, item profiles, nutrition, dining etiquette, how-to-make guides, sustainability, and a blog (Sushi Otaku).",
+      "content_type": "EDUCATIONAL_FAQ",
+      "content_recoverable": true,
+      "backlink_transferability": "HIGH",
+      "last_active": "2024+ (site still resolving to IIS placeholder as of recent check)",
+      "domain_age": "26 years (registered ~2000)",
+      "key_pages": ["sushi item profiles", "history of sushi", "how to make sushi at home", "sushi fun facts", "sushi terminology", "sushi dining experience"],
+      "assessment": "BEST IN CLASS. This is NOT a restaurant site -- it is a pure content/FAQ site about sushi. Backlinks come from food blogs, educational references, and recipe sites. 769 referring domains over 26 years of content authority. Links are HIGHLY transferable to cooking tools."
+    },
+    "lagerhousedetroit.com": {
+      "type": "local_music_venue_bar",
+      "description": "PJ's Lager House -- Detroit's premier live music venue and bar in historic Corktown. Opened 1914 as a bakery, became a speakeasy during Prohibition. Known for indie/punk/rock shows. NOT primarily a restaurant. Serves pub fare (corned beef, burgers, chicken strips).",
+      "content_type": "LOCAL_VENUE",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "Active venue -- uses thelagerhouse.com now",
+      "key_pages": ["events calendar", "menu", "about"],
+      "assessment": "POOR FIT. This is a local music venue, not a food site. DA 53 is attractive but 89 RD is low, and backlinks are from Detroit music press, local news (Metro Times, Deadline Detroit), Yelp, Songkick, Bandsintown. These are LOCAL + MUSIC links, not food/cooking links. Zero transferability to cooking tools. The business also still operates at thelagerhouse.com -- high risk the domain never actually drops or gets contested."
+    },
+    "bluedogcafe.com": {
+      "type": "local_restaurant",
+      "description": "Blue Dog Cafe -- Cajun/Creole restaurant in Lafayette, Louisiana. Founded 1999 by artist George Rodrigue (famous for Blue Dog paintings). Serves crawfish enchiladas, honey-glazed duck, po'boys, shrimp and grits. Art gallery + dining concept.",
+      "content_type": "LOCAL_RESTAURANT",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW-MEDIUM",
+      "last_active": "Appears CLOSED as of March 2026 per Yelp",
+      "key_pages": ["menu", "reservations", "about", "art gallery"],
+      "assessment": "MODERATE FIT. Restaurant site, not content site. 251 RD is decent. Backlinks from OpenTable, Yelp, RoadFood, food blogs (The Vintage Fork, The Yums), Wanderlog. Mix of local directory links and food blog links. The food blog links have SOME transferability to cooking content. The Cajun/Creole niche could support a recipe converter angle. Restaurant closing means domain more likely to actually drop."
+    },
+    "311restaurantpr.com": {
+      "type": "local_restaurant",
+      "description": "311 Trois Cent Onze -- French fine dining restaurant at 311 Fortaleza Street in Old San Juan, Puerto Rico. French/American cuisine with Puerto Rican touches. Upscale, intimate, 4.5-star Yelp rating.",
+      "content_type": "LOCAL_RESTAURANT",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "Still appears operational based on reservation system",
+      "assessment": "POOR FIT. Fine dining restaurant, not food content site. Backlinks are local PR tourism and dining directories. NOT transferable to cooking tools. Restaurant may still be operating -- domain may not drop."
+    },
+    "nudelrestaurant.com": {
+      "type": "local_restaurant",
+      "description": "Nudel Restaurant -- Intimate 29-seat farm-to-table restaurant in Lenox, MA (Berkshires). Now rebranded to 'Cello'. Experimental, seasonal menu featuring German-style egg pasta (spatzle). Chef Bjorn Somlo.",
+      "content_type": "LOCAL_RESTAURANT",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "Rebranded to Cello -- domain likely abandoned",
+      "assessment": "MODERATE DOMAIN NAME. The word 'nudel' (German for noodle) has keyword value for pasta/noodle recipes. But 205 RD are local Berkshires press and dining links. Low transferability. The rebranding to Cello means the domain is genuinely abandoned."
+    },
+    "guerrameats.com": {
+      "type": "local_butcher_shop",
+      "description": "Guerra Quality Meats -- Family butcher shop in San Francisco since 1954. Full-service butcher, catering, Italian deli, prepared foods. Located at 490 Taraval St.",
+      "content_type": "LOCAL_BUSINESS",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "STILL ACTIVE AND OPERATIONAL as of May 2026",
+      "assessment": "SKIP. Business is still operating. Website is still live. Domain is NOT dropping. Even if it were, links are 100% local SF directories and reviews -- zero transferability."
+    },
+    "tanjoreharvardsq.com": {
+      "type": "local_restaurant",
+      "description": "Tanjore Indian Restaurant in Harvard Square, Cambridge, MA. Regional Indian cuisine with lunch buffet. Tandoori, Southern Indian specialties, catering.",
+      "content_type": "LOCAL_RESTAURANT",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "Appears operational -- available on OpenTable",
+      "assessment": "POOR FIT. Local Indian restaurant. Backlinks from Foursquare, OpenTable, TripAdvisor, local Cambridge press. Zero transferability. Restaurant may still operate -- domain may not drop."
+    },
+    "woodysseafood.com": {
+      "type": "local_restaurant",
+      "description": "Woody's Seafood Saloon -- Island bar/restaurant in Cruz Bay, US Virgin Islands with second location in Charlotte, NC. Known for Shark Bites appetizer, World Famous Happy Hour.",
+      "content_type": "LOCAL_RESTAURANT",
+      "content_recoverable": false,
+      "backlink_transferability": "LOW",
+      "last_active": "Appears active in USVI and Charlotte",
+      "assessment": "POOR FIT. Local seafood bar/restaurant. Backlinks from Yelp, TripAdvisor, travel sites. Zero transferability to cooking tools. Business still operates."
+    },
+    "kitchenultimate.com": {
+      "type": "kitchen_equipment_blog",
+      "description": "Kitchen Ultimate -- Content site for kitchen equipment reviews and cooking advice. 'Kitchen life simplified.' Reviews of appliances, cookware, cooking techniques.",
+      "content_type": "CONTENT_BLOG",
+      "content_recoverable": true,
+      "backlink_transferability": "MEDIUM-HIGH",
+      "last_active": "Still resolving with content",
+      "assessment": "DECENT CONTENT DOMAIN. Kitchen equipment review/blog site. DA 21 is low but 197 RD from content/affiliate links are more transferable than restaurant links. The domain name 'kitchenultimate' has decent keyword relevance. However, DA 21 is below our threshold for meaningful DR boost via cross-linking."
+    }
+  },
+
+  "backlink_quality": {
+    "sushifaq.com": {
+      "total_rd": 769,
+      "food_blog_links": "HIGH -- Listed in top 10 sushi blogs by Feedspot. Referenced by foodyholic.com, makesushi.com (partner), sushilinks.com. Educational citations from food education sites.",
+      "food_community_links": "HIGH -- Facebook presence, active Sushi Otaku blog with comment community, Twitter @sushifaq",
+      "local_news": "MINIMAL -- Not a local business, so minimal local press.",
+      "directories": "MODERATE -- Some food directory listings.",
+      "spam": "LOW -- 26-year domain with organic content growth. No signs of PBN or link scheme activity.",
+      "link_types_breakdown": {
+        "food_blogs_and_recipes": "40-50% (est)",
+        "educational_references": "20-25% (est)",
+        "food_directories": "15-20% (est)",
+        "social_media": "5-10% (est)",
+        "other": "5-10% (est)"
+      },
+      "assessment": "EXCELLENT backlink quality. 769 RD over 26 years = organic growth, not spam. Links from food blogs, recipe sites, and educational references are DIRECTLY transferable to cooking tool domains. This is the highest-quality food domain in the batch by a wide margin.",
+      "transferability_score": 9,
+      "confidence": "medium-high"
+    },
+    "lagerhousedetroit.com": {
+      "total_rd": 89,
+      "food_blog_links": "ZERO -- Not a food content site.",
+      "local_news": "HIGH -- Deadline Detroit, Metro Times, michigan.org, Detroit local media.",
+      "music_venue_links": "HIGH -- Songkick, Bandsintown, IndieOnTheMove, RockInDetroit.",
+      "directories": "HIGH -- Yelp, TripAdvisor, Foursquare, SinglePlatform.",
+      "spam": "LOW",
+      "link_types_breakdown": {
+        "local_detroit_media": "30-40% (est)",
+        "music_venue_platforms": "25-35% (est)",
+        "directories_reviews": "20-25% (est)",
+        "other": "5-10% (est)"
+      },
+      "assessment": "WRONG NICHE. Despite DA 53, the 89 RD are almost entirely music venue and Detroit local links. Zero food blog or recipe links. These provide no SEO benefit when redirected to cooking tools. The topical mismatch would likely cause Google to discount these links entirely.",
+      "transferability_score": 1,
+      "confidence": "high"
+    },
+    "bluedogcafe.com": {
+      "total_rd": 251,
+      "food_blog_links": "LOW-MODERATE -- Some food blog coverage (The Vintage Fork, The Yums, RoadFood).",
+      "local_news": "MODERATE -- Lafayette, Louisiana local media.",
+      "art_links": "MODERATE -- George Rodrigue Blue Dog art references.",
+      "directories": "HIGH -- OpenTable, Yelp, Wanderlog, YellowPages, Nextdoor.",
+      "spam": "LOW",
+      "link_types_breakdown": {
+        "food_blogs_reviews": "15-20% (est)",
+        "local_media": "15-20% (est)",
+        "directories_platforms": "35-40% (est)",
+        "art_culture": "10-15% (est)",
+        "other": "10-15% (est)"
+      },
+      "assessment": "MIXED. 251 RD but mostly directory and local links. Only 15-20% are food blog links that would transfer well. The Cajun/Creole niche angle is interesting but most links reference the restaurant's art collection, not food content. Moderate transferability at best.",
+      "transferability_score": 3,
+      "confidence": "medium"
+    }
+  },
+
+  "cross_linking_model": {
+    "current_state": {
+      "ingredientcalculator_dr": 0,
+      "recipetool_dr": 0,
+      "cross_links_active": true,
+      "notes": "Two DR 0 domains linking to each other provides negligible SEO benefit. Both domains need INCOMING authority from higher-DR sites."
+    },
+
+    "scenario_a": {
+      "name": "sushifaq.com only",
+      "domains": ["sushifaq.com"],
+      "cost": 150,
+      "cost_breakdown": {
+        "catch_fee": 69,
+        "expected_auction_price": "69-150",
+        "hosting_annual": 50,
+        "total_year_1": "119-200"
+      },
+      "cross_linking_topology": {
+        "sushifaq.com_da51_769rd": {
+          "links_to": ["ingredientcalculator.com", "recipetool.net"],
+          "receives_links_from": ["ingredientcalculator.com", "recipetool.net"],
+          "anchor_strategy": "Contextual links: 'Calculate sushi rice ratios' -> ingredientcalculator.com, 'Plan your sushi dinner menu' -> recipetool.net"
+        }
+      },
+      "expected_dr_boost": {
+        "ingredientcalculator_com": "DR 0 -> DR 5-12 within 4-8 weeks",
+        "recipetool_net": "DR 0 -> DR 3-8 within 4-8 weeks",
+        "sushifaq_com": "DA 51 maintained or slight decline to DA 35-45 during transition"
+      },
+      "roi_analysis": {
+        "investment": "$150 (one-time) + $50/yr hosting",
+        "dr_boost_value": "DR 10+ on two domains = faster indexing, higher SERP positions, potential to rank for 333K+746K monthly SV keywords",
+        "traffic_potential": "Even 0.1% CTR on combined 1.08M SV = 1,080 monthly visits",
+        "revenue_at_15_rpm": "$16/month from ads alone",
+        "revenue_at_25_rpm": "$27/month from ads alone",
+        "break_even_months": "6-9 months at $25 RPM",
+        "verdict": "BEST VALUE. Single acquisition provides most of the cluster benefit."
+      },
+      "rating": "A+"
+    },
+
+    "scenario_b": {
+      "name": "sushifaq.com + bluedogcafe.com",
+      "domains": ["sushifaq.com", "bluedogcafe.com"],
+      "cost": 225,
+      "cost_breakdown": {
+        "sushifaq_catch": "69-150",
+        "bluedogcafe_catch": "69-75",
+        "hosting_annual": 100,
+        "total_year_1": "238-325"
+      },
+      "cross_linking_topology": {
+        "sushifaq.com_da51": {
+          "links_to": ["ingredientcalculator.com", "recipetool.net", "bluedogcafe.com"],
+          "receives_links_from": ["ingredientcalculator.com", "recipetool.net", "bluedogcafe.com"]
+        },
+        "bluedogcafe.com_da41": {
+          "links_to": ["ingredientcalculator.com", "recipetool.net", "sushifaq.com"],
+          "receives_links_from": ["ingredientcalculator.com", "recipetool.net", "sushifaq.com"]
+        }
+      },
+      "expected_dr_boost": {
+        "ingredientcalculator_com": "DR 0 -> DR 8-15 within 4-8 weeks",
+        "recipetool_net": "DR 0 -> DR 5-12 within 4-8 weeks",
+        "sushifaq_com": "DA 45-51 (boosted by bluedogcafe links)",
+        "bluedogcafe_com": "DA 38-43 (boosted by sushifaq links)"
+      },
+      "roi_analysis": {
+        "marginal_cost_over_a": "$75-125 more",
+        "marginal_dr_boost": "+3-5 DR points on tool domains",
+        "marginal_traffic": "Minimal -- bluedogcafe backlinks are mostly directories, not food content",
+        "verdict": "DIMINISHING RETURNS. The extra $75-125 for bluedogcafe adds only ~3 DR points. Most of bluedogcafe's 251 RD are directories that won't transfer much juice through a cross-link chain."
+      },
+      "rating": "B"
+    },
+
+    "scenario_c": {
+      "name": "sushifaq.com + lagerhousedetroit.com",
+      "domains": ["sushifaq.com", "lagerhousedetroit.com"],
+      "cost": 225,
+      "cross_linking_topology": "PROBLEMATIC -- lagerhousedetroit.com backlinks are 100% music venue / Detroit local. Cross-linking a Detroit music venue to sushi/cooking tools creates TOPICAL DISSONANCE that Google will likely discount or penalize.",
+      "expected_dr_boost": {
+        "ingredientcalculator_com": "DR 0 -> DR 5-12 (same as Scenario A -- lagerhouse links won't help)",
+        "recipetool_net": "DR 0 -> DR 3-8 (same as Scenario A)",
+        "notes": "Despite DA 53, the topical mismatch means lagerhouse links provide ZERO incremental benefit for cooking tool domains."
+      },
+      "roi_analysis": {
+        "verdict": "WORST OPTION. Paying $75+ extra for a domain whose backlinks have zero food-niche relevance. DA 53 is misleading -- only 89 RD and all from wrong niche."
+      },
+      "rating": "D"
+    },
+
+    "scenario_d": {
+      "name": "All 3 (sushifaq + lagerhouse + bluedog)",
+      "domains": ["sushifaq.com", "lagerhousedetroit.com", "bluedogcafe.com"],
+      "cost": 300,
+      "roi_analysis": {
+        "total_investment": "$300-400",
+        "incremental_benefit_over_a": "Maybe +3-5 DR points from bluedogcafe, +0 from lagerhouse",
+        "verdict": "WORST ROI. Spending $150+ extra for minimal incremental benefit. Lagerhouse adds nothing. Bluedogcafe adds minimal. Budget better spent on content for owned domains."
+      },
+      "rating": "D-"
+    },
+
+    "scenario_e_recommended": {
+      "name": "sushifaq.com + kitchenultimate.com (ALTERNATIVE)",
+      "domains": ["sushifaq.com", "kitchenultimate.com"],
+      "cost": "120-180",
+      "rationale": "kitchenultimate.com is a kitchen CONTENT site (not a restaurant). DA 21 with 197 RD from kitchen/cooking blogs. These links are MORE transferable to cooking tools than bluedogcafe's directory links, and kitchenultimate.com will cost less at auction (low DA).",
+      "cross_linking_topology": {
+        "sushifaq.com_da51": {
+          "links_to": ["ingredientcalculator.com", "recipetool.net", "kitchenultimate.com"],
+          "topic_relevance": "PERFECT -- sushi FAQ to cooking tools"
+        },
+        "kitchenultimate.com_da21": {
+          "links_to": ["ingredientcalculator.com", "recipetool.net", "sushifaq.com"],
+          "topic_relevance": "PERFECT -- kitchen equipment to cooking tools"
+        }
+      },
+      "expected_dr_boost": {
+        "ingredientcalculator_com": "DR 0 -> DR 8-14 within 4-8 weeks",
+        "recipetool_net": "DR 0 -> DR 5-10 within 4-8 weeks"
+      },
+      "roi_analysis": {
+        "verdict": "BEST CLUSTER OPTION if budget allows two domains. Topical relevance of both acquired domains is PERFECT for cooking tools. Cheaper than Scenario B with better link transferability."
+      },
+      "rating": "A"
+    }
+  },
+
+  "tool_opportunities": [
+    {
+      "domain": "sushifaq.com",
+      "tool_concept": "Sushi Rice Calculator + Sushi Guide Hub",
+      "tools_to_build": [
+        {
+          "name": "Sushi Rice Calculator",
+          "path": "/sushi-rice-calculator",
+          "description": "Calculate rice-to-water ratio, vinegar seasoning amounts, and servings for rolls/nigiri/parties",
+          "target_keywords": ["sushi rice ratio", "sushi rice calculator", "how much sushi rice per person", "sushi rice vinegar ratio", "sushi rice water ratio"],
+          "estimated_monthly_sv": 35000,
+          "competition": "low-medium",
+          "existing_competitor": "sushi-rice-calculator.netlify.app (minimal, no authority)"
+        },
+        {
+          "name": "Sushi Calorie Calculator",
+          "path": "/sushi-calories",
+          "description": "Calories per sushi roll type, build-your-own-platter calorie counter",
+          "target_keywords": ["sushi calories", "california roll calories", "how many calories in sushi", "sushi nutrition facts"],
+          "estimated_monthly_sv": 120000,
+          "competition": "medium"
+        },
+        {
+          "name": "Sushi Fish Guide",
+          "path": "/sushi-fish-guide",
+          "description": "Interactive guide to sushi fish types, seasons, sustainability ratings",
+          "target_keywords": ["types of sushi fish", "sushi grade fish", "sushi fish chart", "best fish for sushi"],
+          "estimated_monthly_sv": 45000,
+          "competition": "low-medium"
+        },
+        {
+          "name": "Sushi Ordering Guide",
+          "path": "/sushi-ordering-guide",
+          "description": "Interactive guide: what to order at a sushi restaurant based on experience level",
+          "target_keywords": ["what to order at sushi restaurant", "sushi for beginners", "sushi menu guide"],
+          "estimated_monthly_sv": 25000,
+          "competition": "low"
+        }
+      ],
+      "total_addressable_sv": 225000,
+      "cross_link_targets": ["ingredientcalculator.com/recipe-converter (from sushi rice calculator)", "recipetool.net/calorie-calculator (from sushi calorie page)"],
+      "monetization": {
+        "display_ads_rpm": "$15-25",
+        "affiliate_potential": "HIGH -- sushi kits, rice cookers, knives, bamboo mats on Amazon Associates",
+        "estimated_monthly_revenue_at_1000_visits": "$15-25 ads + $10-20 affiliate = $25-45/mo"
+      }
+    },
+    {
+      "domain": "ingredientcalculator.com",
+      "status": "OWNED - 6 pages live",
+      "expansion_tools": [
+        {
+          "name": "Sushi Ingredient Calculator",
+          "path": "/sushi-ingredients",
+          "description": "How much nori, rice, fish needed for X rolls",
+          "target_keywords": ["sushi ingredients list", "sushi ingredients calculator"],
+          "cross_link_from": "sushifaq.com/sushi-rice-calculator"
+        }
+      ]
+    },
+    {
+      "domain": "recipetool.net",
+      "status": "OWNED - 3 pages live",
+      "expansion_tools": [
+        {
+          "name": "Sushi Meal Planner",
+          "path": "/sushi-meal-planner",
+          "description": "Plan a sushi dinner party: guests, budget, fish quantities",
+          "target_keywords": ["sushi party planner", "sushi dinner party how much"],
+          "cross_link_from": "sushifaq.com"
+        }
+      ]
+    },
+    {
+      "domain": "kitchenultimate.com",
+      "tool_concept": "Kitchen Equipment Calculator Hub",
+      "tools_to_build": [
+        {
+          "name": "Kitchen Appliance Size Calculator",
+          "path": "/appliance-size-calculator",
+          "description": "What size oven/fridge/mixer for your kitchen dimensions",
+          "target_keywords": ["kitchen appliance size guide", "what size mixer do i need", "oven size calculator"],
+          "estimated_monthly_sv": 15000
+        },
+        {
+          "name": "Cookware Comparison Tool",
+          "path": "/cookware-comparison",
+          "description": "Compare pans, pots, Dutch ovens by material, size, price",
+          "target_keywords": ["best cookware comparison", "cast iron vs stainless steel", "cookware buying guide"],
+          "estimated_monthly_sv": 40000
+        }
+      ],
+      "cross_link_targets": ["ingredientcalculator.com (from cookware pages)", "recipetool.net (from meal prep equipment)"],
+      "monetization": {
+        "affiliate_potential": "VERY HIGH -- kitchen equipment has strong Amazon Associates revenue ($200+ average product price)"
+      }
+    },
+    {
+      "domain": "bluedogcafe.com",
+      "tool_concept": "Cajun/Creole Recipe Hub (if acquired)",
+      "tools_to_build": [
+        {
+          "name": "Cajun Spice Blend Calculator",
+          "path": "/cajun-spice-calculator",
+          "description": "Custom Cajun/Creole spice blend ratios by dish type",
+          "target_keywords": ["cajun seasoning recipe", "cajun spice blend", "creole seasoning ratio"],
+          "estimated_monthly_sv": 35000
+        },
+        {
+          "name": "Crawfish Boil Calculator",
+          "path": "/crawfish-boil-calculator",
+          "description": "How many pounds of crawfish per person, seasoning amounts",
+          "target_keywords": ["crawfish boil calculator", "how much crawfish per person", "crawfish boil recipe"],
+          "estimated_monthly_sv": 50000
+        }
+      ],
+      "assessment": "Decent tool potential but niche is narrower than sushifaq.com. Cajun/Creole is seasonal (Mardi Gras, crawfish season)."
+    },
+    {
+      "domain": "lagerhousedetroit.com",
+      "tool_concept": "NONE RECOMMENDED",
+      "assessment": "No viable food tool fits this domain. It is a music venue name. Any food content would be topically incongruent with existing backlinks. SKIP."
+    }
+  ],
+
+  "recommended_scenario": "A",
+  "recommended_scenario_with_budget": "E (sushifaq.com + kitchenultimate.com if budget allows)",
+
+  "recommendation_summary": {
+    "primary_acquisition": {
+      "domain": "sushifaq.com",
+      "max_bid": 250,
+      "priority": "URGENT -- drops in 8 days",
+      "rationale": [
+        "ONLY pure content/FAQ site in the batch (all others are restaurants)",
+        "769 referring domains -- highest RD in food group",
+        "26-year domain age -- exceptional trust signal",
+        "DA 51 -- highest transferable authority",
+        "Backlinks are 40-50% food blogs and educational references -- HIGHLY transferable",
+        "Perfect topical match for cooking tool cluster (sushi -> recipes -> ingredients -> tools)",
+        "Existing content structure (FAQ) is ideal for tool pages",
+        "Sushi niche has 225K+ monthly SV across calculator/guide keywords",
+        "Low competition for sushi-specific tools (only netlify hobby project exists)"
+      ]
+    },
+    "secondary_acquisition": {
+      "domain": "kitchenultimate.com",
+      "max_bid": 75,
+      "priority": "MEDIUM -- acquire only if sushifaq secured first",
+      "rationale": [
+        "Content blog with transferable cooking/kitchen links",
+        "197 RD from kitchen equipment niche -- topically aligned",
+        "Low DA (21) means cheap acquisition ($59-75)",
+        "Kitchen equipment affiliate revenue potential is highest in food niche",
+        "PERFECT topical bridge between cooking tools and recipe sites"
+      ]
+    },
+    "domains_to_skip": [
+      {
+        "domain": "lagerhousedetroit.com",
+        "reason": "Music venue, not food. DA 53 is misleading -- only 89 RD, all wrong niche. Business still operates at thelagerhouse.com."
+      },
+      {
+        "domain": "bluedogcafe.com",
+        "reason": "Restaurant with mostly directory links. Cajun niche is too narrow. $75+ for only +3 DR points of marginal benefit."
+      },
+      {
+        "domain": "311restaurantpr.com",
+        "reason": "Active French restaurant in Puerto Rico. Local/tourism links. Zero transferability."
+      },
+      {
+        "domain": "guerrameats.com",
+        "reason": "STILL ACTIVE. Business operating in SF. Domain not dropping."
+      },
+      {
+        "domain": "tanjoreharvardsq.com",
+        "reason": "Active Indian restaurant. Local Cambridge links. Zero transferability."
+      },
+      {
+        "domain": "woodysseafood.com",
+        "reason": "Active island bar/restaurant. Travel/tourism links. Zero transferability."
+      },
+      {
+        "domain": "nudelrestaurant.com",
+        "reason": "Closed restaurant (rebranded to Cello). Low DA 36. Only value is the word 'nudel' (noodle). Not worth the cost."
+      }
+    ]
+  },
+
+  "budget_allocation": {
+    "total_food_cluster_budget": 300,
+    "recommended_spend": {
+      "sushifaq_com_acquisition": {"min": 69, "max": 250, "expected": 120},
+      "kitchenultimate_com_acquisition": {"min": 59, "max": 75, "expected": 65},
+      "hosting_both_year_1": 100,
+      "content_creation": 50,
+      "total_expected": 335,
+      "total_if_sushifaq_only": 220
+    },
+    "priority_order": [
+      "1. sushifaq.com -- bid up to $250, ideal at $69-120",
+      "2. kitchenultimate.com -- bid up to $75, only if sushifaq is secured",
+      "3. SAVE remaining budget for content/tools on owned domains"
+    ],
+    "what_not_to_spend_on": "lagerhousedetroit.com, bluedogcafe.com, or any active restaurant domains"
+  },
+
+  "food_niche_economics": {
+    "display_ad_rpm": {
+      "adsense_start": "$5-10",
+      "mediavine_at_50k_sessions": "$15-25",
+      "raptive_at_100k_sessions": "$20-33",
+      "q4_holiday_boost": "+30-50%"
+    },
+    "affiliate_rpm": {
+      "amazon_associates_kitchen": "$5-15 per conversion, 3-8% rate on $50-300 products",
+      "sushi_kits_knives": "$2-10 per conversion",
+      "kitchen_equipment": "$5-25 per conversion"
+    },
+    "combined_rpm_estimate": "$15-30 blended across display + affiliate",
+    "break_even_analysis": {
+      "at_500_monthly_visits": "Revenue ~$7-15/mo, break-even in 15-30 months",
+      "at_2000_monthly_visits": "Revenue ~$30-60/mo, break-even in 4-7 months",
+      "at_5000_monthly_visits": "Revenue ~$75-150/mo, break-even in 1-3 months"
+    }
+  }
+}

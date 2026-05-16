@@ -1,0 +1,567 @@
+{
+  "generated": "2026-05-07",
+  "agent": "AGENT 5 - DEEP PROFILER",
+  "sprint": 5,
+  "dataforseo_status": "backlinks_denied_labs_active",
+  "api_notes": "Backlinks API returned 40204 (subscription not active). DataForSEO Labs API (domain_rank_overview, ranked_keywords, historical_rank_overview) is active and returns data.",
+  "whois_checks": {
+    "aidevtools.com": {
+      "status": "EXPIRED - IN GRACE PERIOD",
+      "registry_status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited",
+        "renew period",
+        "client hold"
+      ],
+      "expiry": "2026-05-06T17:04:29Z",
+      "days_expired": 1,
+      "registrar": "NameSilo, LLC",
+      "nameservers": [
+        "NS1.NS306.PARKLOGIC.COM",
+        "NS2.NS306.PARKLOGIC.COM"
+      ],
+      "creation": "2022-05-06T17:04:29Z",
+      "age_years": 4,
+      "critical_note": "CLIENT HOLD + RENEW PERIOD = domain is expired but still in auto-renew grace period (~30 days for NameSilo). ParkLogic nameservers indicate it was a parked/monetized domain. May drop around June 5-6 if not renewed.",
+      "action": "MONITOR DAILY - set backorder at NameSilo, Dynadot, SnapNames"
+    },
+    "seochecker.com": {
+      "status": "EXPIRING TODAY - LOCKED",
+      "registry_status": "ACTIVE",
+      "domain_statuses": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "expiry": "2026-05-08T17:41:57Z",
+      "days_until_expiry": 1,
+      "registrar": "GoDaddy.com, LLC",
+      "nameservers": [
+        "NS1.DIGITALOCEAN.COM",
+        "NS2.DIGITALOCEAN.COM",
+        "NS3.DIGITALOCEAN.COM"
+      ],
+      "creation": "2005-05-08T17:41:57Z",
+      "age_years": 21,
+      "critical_note": "clientRenewProhibited is VERY UNUSUAL - registrar has actively blocked renewal. Combined with clientDeleteProhibited suggests this may be in a dispute/legal hold, OR the owner explicitly locked it. DigitalOcean nameservers suggest an active project. 21-year-old domain - extremely valuable. However, clientRenewProhibited may mean owner INTENDS to let it drop.",
+      "action": "HIGH PRIORITY MONITOR - if it enters redemption, this is a premium catch. Place backorder immediately."
+    },
+    "bestdevtools.com": {
+      "status": "ACTIVE - EXPIRING SOON",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-05-22T13:55:23Z",
+      "days_until_expiry": 15,
+      "registrar": "1API GmbH",
+      "nameservers": [
+        "NS1.DNSIMPLE.COM",
+        "NS2.DNSIMPLE-EDGE.NET",
+        "NS3.DNSIMPLE.COM",
+        "NS4.DNSIMPLE-EDGE.ORG"
+      ],
+      "creation": "2014-05-22T13:55:23Z",
+      "age_years": 12,
+      "critical_note": "DNSimple nameservers suggest active use. 1API/Hexonet registrar. Only clientTransferProhibited (normal). If owner lets it lapse, 30-day grace + 30-day redemption."
+    },
+    "finetuneai.com": {
+      "status": "ACTIVE - EXPIRING SOON",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-05-26T20:42:41Z",
+      "days_until_expiry": 19,
+      "registrar": "NameCheap, Inc.",
+      "nameservers": [
+        "NS-1336.AWSDNS-39.ORG",
+        "NS-1771.AWSDNS-29.CO.UK",
+        "NS-230.AWSDNS-28.COM",
+        "NS-760.AWSDNS-31.NET"
+      ],
+      "creation": "2021-05-26T20:42:41Z",
+      "age_years": 5,
+      "critical_note": "AWS Route53 nameservers = likely active project hosted on AWS. Only 5 years old, registered 2021 during AI hype. May auto-renew."
+    },
+    "taskplanner.com": {
+      "status": "ACTIVE - EXPIRING SOON",
+      "domain_statuses": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "expiry": "2026-05-27T21:25:13Z",
+      "days_until_expiry": 20,
+      "registrar": "GoDaddy.com, LLC",
+      "nameservers": [
+        "NS19.DOMAINCONTROL.COM",
+        "NS20.DOMAINCONTROL.COM"
+      ],
+      "creation": "2004-05-27T21:25:13Z",
+      "age_years": 22,
+      "critical_note": "clientRenewProhibited again (like seochecker.com) at GoDaddy. DomainControl nameservers = GoDaddy parking. 22-year-old domain. clientRenewProhibited at GoDaddy often means the domain is in an auction or the owner set it to not renew. VERY HIGH VALUE target.",
+      "action": "IMMEDIATE - Check GoDaddy Auctions for this domain. Place backorder."
+    },
+    "builder.ai": {
+      "status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-06-04T09:01:14Z",
+      "days_until_expiry": 28,
+      "registrar": "101domain GRS Limited",
+      "nameservers": [
+        "ns-1509.awsdns-60.org",
+        "ns-1827.awsdns-36.co.uk",
+        "ns-165.awsdns-20.com",
+        "ns-706.awsdns-24.net"
+      ],
+      "creation": "2018-06-04T09:01:14Z",
+      "age_years": 8,
+      "critical_note": "AWS Route53 nameservers still active. Company is bankrupt but domain still resolving. 101domain registrar (premium TLD specialists). Bankruptcy administrator may renew or it may drop. Worth $50K+ given DR68 and brand traffic."
+    },
+    "aitoolkit.com": {
+      "status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "expiry": "2026-06-12T09:07:16Z",
+      "days_until_expiry": 36,
+      "registrar": "Easyspace Limited",
+      "nameservers": [
+        "NS1.NAMECITY.COM",
+        "NS2.NAMECITY.COM"
+      ],
+      "creation": "2000-06-12T09:07:16Z",
+      "age_years": 26,
+      "critical_note": "NameCity nameservers = likely parked/for sale. 26-year-old domain. Easyspace registrar (UK-based). Very high value AI domain."
+    },
+    "mortgagecalc.com": {
+      "status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-06-15T11:59:59Z",
+      "days_until_expiry": 39,
+      "registrar": "GoDaddy Corporate Domains, LLC",
+      "nameservers": [
+        "NS11.GCD-DNS.COM",
+        "NS12.GCD-DNS.COM"
+      ],
+      "creation": "1998-07-09T04:00:00Z",
+      "age_years": 28,
+      "critical_note": "GoDaddy CORPORATE Domains (enterprise division) = this is owned by a corporation. GCD-DNS nameservers confirm corporate management. 28-year-old premium finance domain. Extremely unlikely to drop - corporate domains are auto-renewed. Remove from drop-catching pipeline."
+    },
+    "loancompare.com": {
+      "status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-06-26T18:02:08Z",
+      "days_until_expiry": 50,
+      "registrar": "Moniker Online Services LLC",
+      "nameservers": [
+        "NS1.MONIKERDNS.NET",
+        "NS2.MONIKERDNS.NET",
+        "NS3.MONIKERDNS.NET",
+        "NS4.MONIKERDNS.NET"
+      ],
+      "creation": "2002-06-26T17:56:51Z",
+      "age_years": 24,
+      "critical_note": "Moniker registrar + Moniker DNS = domain broker/marketplace domain. Likely actively for sale on aftermarket. 24-year-old premium finance keyword. Could attempt direct purchase via Moniker."
+    },
+    "devtools.io": {
+      "status": "ACTIVE",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-07-04T14:30:58Z",
+      "days_until_expiry": 58,
+      "registrar": "NameCheap, Inc.",
+      "nameservers": [
+        "ns1.dyna-ns.net",
+        "ns2.dyna-ns.net"
+      ],
+      "creation": "2020-07-04T14:30:58Z",
+      "age_years": 6,
+      "critical_note": "Dyna-NS = Dynadot parking/forwarding. NameCheap registrar. Only 6 years old. Parked = owner may not be actively using it. Potential direct purchase candidate."
+    },
+    "devhub.io": {
+      "status": "ACTIVE - FOR SALE ON AFTERNIC",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-10-17T09:27:16Z",
+      "days_until_expiry": 163,
+      "registrar": "Dynadot Inc",
+      "nameservers": [
+        "ns1.afternic.com",
+        "ns2.afternic.com"
+      ],
+      "creation": "2016-10-17T09:27:16Z",
+      "age_years": 10,
+      "critical_note": "AFTERNIC NAMESERVERS = domain is actively listed for sale on Afternic/GoDaddy marketplace! This is our #1 acquisition target. Can negotiate via Afternic. 10-year-old domain."
+    },
+    "apitools.com": {
+      "status": "ACTIVE - PARKED ON DYNADOT",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "expiry": "2026-12-14T19:19:28Z",
+      "days_until_expiry": 221,
+      "registrar": "Dynadot Inc",
+      "nameservers": [
+        "NS1.DYNA-NS.NET",
+        "NS2.DYNA-NS.NET"
+      ],
+      "creation": "2020-12-14T19:19:28Z",
+      "age_years": 6,
+      "critical_note": "Dynadot registrar + Dyna-NS parking. Only 6 years old (registered 2020). Parked domain = owner not actively using. Potential direct purchase via Dynadot marketplace."
+    }
+  },
+  "our_domains": {
+    "ingredientcalculator.com": {
+      "status": "ACTIVE - PROPERLY CONFIGURED",
+      "registrar": "Cloudflare, Inc.",
+      "nameservers": [
+        "ARON.NS.CLOUDFLARE.COM",
+        "THADDEUS.NS.CLOUDFLARE.COM"
+      ],
+      "creation": "2026-05-06T23:16:14Z",
+      "expiry": "2027-05-06T23:16:14Z",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "ok": true
+    },
+    "pictureeditor.net": {
+      "status": "ACTIVE - PROPERLY CONFIGURED",
+      "registrar": "Cloudflare, Inc.",
+      "nameservers": [
+        "ARON.NS.CLOUDFLARE.COM",
+        "THADDEUS.NS.CLOUDFLARE.COM"
+      ],
+      "creation": "2026-05-06T23:17:06Z",
+      "expiry": "2027-05-06T23:17:06Z",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "ok": true
+    },
+    "recipetool.net": {
+      "status": "ACTIVE - PROPERLY CONFIGURED",
+      "registrar": "Cloudflare, Inc.",
+      "nameservers": [
+        "ARON.NS.CLOUDFLARE.COM",
+        "THADDEUS.NS.CLOUDFLARE.COM"
+      ],
+      "creation": "2026-05-06T23:17:39Z",
+      "expiry": "2027-05-06T23:17:39Z",
+      "domain_statuses": [
+        "clientTransferProhibited"
+      ],
+      "ok": true
+    }
+  },
+  "deep_profiles": {
+    "devhub.io": {
+      "rank_overview": null,
+      "organic_keywords": 0,
+      "etv": 0,
+      "estimated_paid_traffic_cost": 0,
+      "top_keywords": [],
+      "historical_trend": "No data in DataForSEO Labs (domain may have lost all organic rankings)",
+      "source": "labs_no_data",
+      "whois_insight": "Listed on Afternic marketplace for sale. 10-year-old domain. DR27 from prior analysis."
+    },
+    "apitools.com": {
+      "rank_overview": null,
+      "organic_keywords": 0,
+      "etv": 0,
+      "estimated_paid_traffic_cost": 0,
+      "top_keywords": [],
+      "historical_trend": "No data in DataForSEO Labs (domain parked, no organic content)",
+      "source": "labs_no_data",
+      "whois_insight": "Parked at Dynadot with dyna-ns. 6 years old. DR~42 from prior analysis with Red Hat backlinks."
+    },
+    "builder.ai": {
+      "rank_overview": {
+        "organic_keywords": 3482,
+        "etv": 23393,
+        "estimated_paid_traffic_cost": 254535,
+        "top_positions": {
+          "pos_1": 9,
+          "pos_2_3": 20,
+          "pos_4_10": 88,
+          "pos_11_20": 312
+        }
+      },
+      "top_keywords": [
+        {
+          "keyword": "builder.ai",
+          "volume": 14800,
+          "position": 1
+        },
+        {
+          "keyword": "builder ai",
+          "volume": 14800,
+          "position": 2
+        },
+        {
+          "keyword": "what is builder.ai",
+          "volume": 140,
+          "position": 2
+        },
+        {
+          "keyword": "builder.ai wiki",
+          "volume": 110,
+          "position": 2
+        },
+        {
+          "keyword": "builder ai company",
+          "volume": 110,
+          "position": 3
+        },
+        {
+          "keyword": "builder ai app builder",
+          "volume": 110,
+          "position": 1
+        },
+        {
+          "keyword": "builder ai investors",
+          "volume": 70,
+          "position": 1
+        },
+        {
+          "keyword": "builder.ai funding",
+          "volume": 40,
+          "position": 2
+        }
+      ],
+      "historical_trend": [
+        {
+          "month": "2025-11",
+          "keywords": 3745,
+          "etv": 22014,
+          "traffic_cost": 197523
+        },
+        {
+          "month": "2025-12",
+          "keywords": 3905,
+          "etv": 20751,
+          "traffic_cost": 198584
+        },
+        {
+          "month": "2026-01",
+          "keywords": 3787,
+          "etv": 18176,
+          "traffic_cost": 172264
+        },
+        {
+          "month": "2026-02",
+          "keywords": 3434,
+          "etv": 17759,
+          "traffic_cost": 152341
+        },
+        {
+          "month": "2026-03",
+          "keywords": 3730,
+          "etv": 20799,
+          "traffic_cost": 256418
+        },
+        {
+          "month": "2026-04",
+          "keywords": 3482,
+          "etv": 23393,
+          "traffic_cost": 254535
+        }
+      ],
+      "source": "labs",
+      "critical_note": "STILL RANKING FOR 3,482 KEYWORDS despite bankruptcy. Traffic value $254K/month. Brand queries dominate (14,800 searches/mo for 'builder.ai'). Domain expires Jun 4 - only 28 days away. If bankruptcy administrator fails to renew, this would be the single highest-value drop in our pipeline."
+    },
+    "fitocracy.com": {
+      "rank_overview": {
+        "organic_keywords": 16,
+        "etv": 207,
+        "estimated_paid_traffic_cost": 0.78,
+        "top_positions": {
+          "pos_1": 3,
+          "pos_2_3": 0,
+          "pos_4_10": 2,
+          "pos_11_20": 2
+        }
+      },
+      "top_keywords": [
+        {
+          "keyword": "fitocracy",
+          "volume": 590,
+          "position": 1
+        },
+        {
+          "keyword": "fitocracy app",
+          "volume": 50,
+          "position": 1
+        },
+        {
+          "keyword": "fitocracy macros",
+          "volume": 30,
+          "position": 1
+        },
+        {
+          "keyword": "dragon flags gif",
+          "volume": 30,
+          "position": 6
+        },
+        {
+          "keyword": "dragon flag exercise gif",
+          "volume": 40,
+          "position": 9
+        }
+      ],
+      "historical_trend": [
+        {
+          "month": "2025-11",
+          "keywords": 16,
+          "etv": 191
+        },
+        {
+          "month": "2025-12",
+          "keywords": 18,
+          "etv": 192
+        },
+        {
+          "month": "2026-01",
+          "keywords": 15,
+          "etv": 194
+        },
+        {
+          "month": "2026-02",
+          "keywords": 13,
+          "etv": 194
+        },
+        {
+          "month": "2026-03",
+          "keywords": 15,
+          "etv": 203
+        },
+        {
+          "month": "2026-04",
+          "keywords": 16,
+          "etv": 207
+        }
+      ],
+      "source": "labs",
+      "critical_note": "Fitocracy is barely ranking (16 keywords only). Traffic entirely brand-driven (590 searches/mo for 'fitocracy'). ETV only 207. The domain's value is in its DR38 backlink profile, NOT current traffic. Expires Sep 7 2026."
+    },
+    "canoo.com": {
+      "rank_overview": null,
+      "organic_keywords": 0,
+      "etv": 0,
+      "estimated_paid_traffic_cost": 0,
+      "top_keywords": [],
+      "historical_trend": "No data in DataForSEO Labs (possible index removal after Chapter 7)",
+      "source": "labs_no_data",
+      "whois_insight": "GoDaddy registrar, Cloudflare nameservers. Expires Sep 15, 2026. Chapter 7 bankruptcy - domain likely to be auctioned by trustee rather than dropped."
+    }
+  },
+  "critical_findings": [
+    {
+      "priority": "CRITICAL",
+      "domain": "aidevtools.com",
+      "finding": "DOMAIN IN GRACE PERIOD - 'client hold' + 'renew period' status confirmed. Expired May 6 (yesterday). NameSilo gives 30 days auto-renew grace. Expected drop date: ~June 5-6, 2026. ParkLogic nameservers = was monetized parking domain.",
+      "action": "Place backorder at NameSilo (registrar drop), SnapNames, DropCatch, and Dynadot immediately."
+    },
+    {
+      "priority": "CRITICAL",
+      "domain": "seochecker.com",
+      "finding": "clientRenewProhibited at GoDaddy - registrar has BLOCKED renewal. Domain expires May 8 (tomorrow). 21 years old. This status means owner requested non-renewal OR there's a legal/payment dispute. Will enter GoDaddy auto-renew grace (18 days) then auction.",
+      "action": "Monitor GoDaddy Auctions starting May 26. Set alerts on ExpiredDomains.net. Place backorder at multiple services."
+    },
+    {
+      "priority": "CRITICAL",
+      "domain": "taskplanner.com",
+      "finding": "clientRenewProhibited at GoDaddy (same pattern as seochecker.com). 22-year premium productivity domain. GoDaddy DomainControl parking NS = not actively used. Expires May 27.",
+      "action": "Check GoDaddy Auctions NOW - may already be listed. Place backorders. Budget up to $2,000 for auction."
+    },
+    {
+      "priority": "HIGH",
+      "domain": "builder.ai",
+      "finding": "BANKRUPT COMPANY STILL RANKING FOR 3,482 KEYWORDS. Traffic value $254K/month. Expires Jun 4 (28 days). 101domain registrar. AWS Route53 NS still active. If bankruptcy trustee fails to renew, this is the single most valuable domain in our pipeline.",
+      "action": "Cannot backorder .ai TLD easily. Monitor daily. Contact 101domain about transfer process. Research bankruptcy trustee contact."
+    },
+    {
+      "priority": "HIGH",
+      "domain": "devhub.io",
+      "finding": "CONFIRMED FOR SALE ON AFTERNIC. Afternic nameservers prove active marketplace listing. This is our #1 acquisition target (DR27, dev tools category).",
+      "action": "Search Afternic/GoDaddy for listing price. Prepare offer in $1,000-3,000 range. Could also try direct Dynadot negotiation."
+    },
+    {
+      "priority": "HIGH",
+      "domain": "mortgagecalc.com",
+      "finding": "GoDaddy CORPORATE Domains (enterprise division). 28-year-old domain managed by corporate entity. Will NOT drop - remove from pipeline.",
+      "action": "Remove from drop-catching pipeline. Only acquirable via direct corporate purchase ($$$)."
+    },
+    {
+      "priority": "MEDIUM",
+      "domain": "loancompare.com",
+      "finding": "Moniker registrar + Moniker DNS = actively brokered domain on aftermarket. 24 years old. Likely has asking price in $10K+ range.",
+      "action": "Check Moniker/HugeDomains for listing. Consider if ROI justifies premium purchase."
+    },
+    {
+      "priority": "MEDIUM",
+      "domain": "apitools.com",
+      "finding": "Parked at Dynadot. 6 years old. Not actively used. Owner may accept reasonable offer.",
+      "action": "Check Dynadot marketplace. Send inquiry offer in $500-1,500 range."
+    },
+    {
+      "priority": "INFO",
+      "domain": "our_domains",
+      "finding": "All 3 registered domains (ingredientcalculator.com, pictureeditor.net, recipetool.net) confirmed properly configured on Cloudflare. Same nameserver pair (aron/thaddeus), all expire May 2027. All registered May 6, 2026.",
+      "action": "No action needed. Domains are healthy."
+    }
+  ],
+  "acquisition_priority_ranking": [
+    {
+      "rank": 1,
+      "domain": "taskplanner.com",
+      "reason": "clientRenewProhibited + GoDaddy parking = likely dropping. 22yr premium. Expires May 27."
+    },
+    {
+      "rank": 2,
+      "domain": "aidevtools.com",
+      "reason": "Already in grace period. Will drop ~June 5. Low competition (4yr old)."
+    },
+    {
+      "rank": 3,
+      "domain": "seochecker.com",
+      "reason": "clientRenewProhibited. 21yr SEO keyword domain. Expires May 8."
+    },
+    {
+      "rank": 4,
+      "domain": "devhub.io",
+      "reason": "Confirmed for sale on Afternic. Immediate purchase possible."
+    },
+    {
+      "rank": 5,
+      "domain": "builder.ai",
+      "reason": "Highest value but lowest probability. Bankruptcy trustee will likely sell in $50K+ range."
+    },
+    {
+      "rank": 6,
+      "domain": "bestdevtools.com",
+      "reason": "Expiring May 22, active DNS. May auto-renew."
+    },
+    {
+      "rank": 7,
+      "domain": "apitools.com",
+      "reason": "Parked on Dynadot. Direct offer possible."
+    },
+    {
+      "rank": 8,
+      "domain": "finetuneai.com",
+      "reason": "AWS hosted = likely active project. May auto-renew."
+    }
+  ]
+}

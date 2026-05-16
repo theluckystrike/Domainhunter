@@ -1,0 +1,727 @@
+{
+  "sprint": 16,
+  "agent": "DIRECTORY + AWESOME-LIST SUBMISSIONS",
+  "generated": "2026-05-08",
+
+  "site_verification": {
+    "ingredientcalculator.com": {
+      "status": "LIVE",
+      "title": "Ingredient Calculator - Scale Recipes, Convert Units & Find Substitutions",
+      "description": "Free ingredient calculator to scale recipes to any serving size, convert cooking units (cups, grams, oz, mL), find ingredient substitutions, and estimate nutrition. Fast, accurate, no signup required.",
+      "schema_type": "WebApplication",
+      "category": "UtilitiesApplication",
+      "features": ["Recipe ingredient scaling", "Cooking unit conversion", "Ingredient substitutions", "Nutrition estimation"],
+      "pricing": "Free"
+    },
+    "pictureeditor.net": {
+      "status": "LIVE",
+      "title": "Picture Editor Online - Free Image Resizer, Cropper & Converter",
+      "description": "Free online picture editor — resize, crop, compress, convert and filter images instantly in your browser. No upload needed. Supports PNG, JPEG, WebP & GIF.",
+      "schema_type": "WebApplication",
+      "category": "MultimediaApplication",
+      "features": ["Resize", "Crop", "Compress", "Convert formats", "Apply filters"],
+      "pricing": "Free"
+    },
+    "recipetool.net": {
+      "status": "LIVE",
+      "title": "Recipe Nutrition Calculator - Free Calorie & Macro Counter",
+      "description": "Free recipe nutrition calculator. Enter your recipe ingredients to instantly calculate calories, protein, carbs, fat, fiber, and sodium per serving. No signup required.",
+      "schema_type": "WebApplication",
+      "category": "HealthApplication",
+      "features": ["Recipe nutrition calculation", "Calorie counting", "Macro tracking", "Per-serving breakdown"],
+      "pricing": "Free"
+    }
+  },
+
+  "github_pr_content": {
+    "summary": "5 repos targeted. All verified active with recent commits in 2026. Exact fork-edit-PR steps provided for each.",
+
+    "repo_1_awesome_food": {
+      "repo": "jzarca01/awesome-food",
+      "repo_url": "https://github.com/jzarca01/awesome-food",
+      "verified": {
+        "stars": 234,
+        "archived": false,
+        "default_branch": "master",
+        "last_push": "2026-03-17",
+        "open_issues": 6,
+        "accepts_prs": true
+      },
+      "domains": ["ingredientcalculator.com", "recipetool.net"],
+      "target_section": "Food-related projects",
+      "section_context": "Lists tools like is-vegan, Mealie, Tandoor Recipes, grocy, Nextcloud Cookbook, Recipya, Open Food Facts. All are GitHub-hosted projects. Mix of self-hosted recipe managers and web tools.",
+
+      "submission_1_ingredientcalculator": {
+        "markdown_line": "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online tool to calculate, scale, and convert recipe ingredient quantities. No signup required.",
+        "insert_after": "- [Veganify](https://github.com/frontendnetwork/veganify) - A web app to scan EAN barcodes and check if a product is vegan-friendly, with a database of over 3 million products.",
+        "pr_title": "Add Ingredient Calculator — free recipe ingredient scaling tool",
+        "pr_body": "Added [Ingredient Calculator](https://ingredientcalculator.com) to the Food-related projects section.\n\nIt's a free, browser-based tool for:\n- Scaling recipe ingredients up or down to any serving size\n- Converting between cooking measurement units (cups, grams, oz, mL, metric/imperial)\n- Finding ingredient substitutions\n- Estimating nutrition per serving\n\nNo signup or installation required. Fits well alongside the existing recipe managers and food-related tools in this list.",
+        "steps": [
+          "1. Fork https://github.com/jzarca01/awesome-food",
+          "2. Edit readme.md on your fork",
+          "3. In the 'Food-related projects' section, add the markdown line after the Veganify entry",
+          "4. Commit with message: 'Add Ingredient Calculator to food-related projects'",
+          "5. Open PR from your fork to jzarca01/awesome-food master branch",
+          "6. Use the PR title and body provided above"
+        ]
+      },
+
+      "submission_2_recipetool": {
+        "markdown_line": "- [Recipe Tool](https://recipetool.net) - Free online recipe nutrition calculator for counting calories, protein, carbs, fat, and sodium per serving.",
+        "insert_after": "- [Recipya](https://github.com/reaper47/recipya) - A clean, simple and powerful self-hosted recipe manager.",
+        "pr_title": "Add Recipe Tool — free recipe nutrition calculator",
+        "pr_body": "Added [Recipe Tool](https://recipetool.net) to the Food-related projects section.\n\nIt's a free, browser-based recipe nutrition calculator that:\n- Calculates calories, protein, carbs, fat, fiber, and sodium for any recipe\n- Provides per-serving nutrition breakdowns\n- Works instantly with no signup required\n\nComplementary to the recipe managers already listed — focused specifically on nutrition analysis.",
+        "steps": [
+          "1. Fork https://github.com/jzarca01/awesome-food (or use existing fork)",
+          "2. Edit readme.md on your fork",
+          "3. In the 'Food-related projects' section, add the markdown line after the Recipya entry",
+          "4. Commit with message: 'Add Recipe Tool to food-related projects'",
+          "5. Open PR from your fork to jzarca01/awesome-food master branch",
+          "6. Use the PR title and body provided above"
+        ]
+      },
+
+      "strategy_note": "Submit both entries in a SINGLE PR to avoid spamming. Combine both markdown lines and use a combined PR title: 'Add Ingredient Calculator and Recipe Tool — free cooking utilities'. This looks more natural and increases acceptance probability."
+    },
+
+    "repo_2_awesome_recipes": {
+      "repo": "bbbenji/awesome-recipes",
+      "repo_url": "https://github.com/bbbenji/awesome-recipes",
+      "verified": {
+        "stars": 61,
+        "archived": false,
+        "default_branch": "master",
+        "last_push": "2025-05-26",
+        "open_issues": 5,
+        "accepts_prs": true
+      },
+      "domains": ["recipetool.net", "ingredientcalculator.com"],
+      "target_section": "Tools",
+      "section_context": "Currently lists 17+ tools: Chowdown, Domingo Fermenter Software, Food-Recipe-CNN, foodprocessor, Grocy, is-vegan, Mealie, Mealient, MEWPlanner, meanrecipe, Nextcloud Cookbook, RasPiBrew, Recipe Hero, RecipeParser, Recipya, recipebook, Tandoor Recipes. All GitHub-linked. Has a 'Developer Resources' subsection too.",
+
+      "submission_combined_pr": {
+        "markdown_lines": [
+          "- [Ingredient Calculator](https://ingredientcalculator.com) - Free online ingredient calculator for scaling recipe quantities and converting cooking measurement units.",
+          "- [Recipe Tool](https://recipetool.net) - Free online recipe nutrition calculator for counting calories, protein, carbs, fat, and sodium per serving."
+        ],
+        "insert_after": "- [Tandoor Recipes](https://github.com/TandoorRecipes/recipes) - Application for managing recipes, planning meals, building shopping lists and much more.",
+        "pr_title": "Add Ingredient Calculator and Recipe Tool — free online cooking utilities",
+        "pr_body": "Added two free online cooking tools to the Tools section:\n\n**Ingredient Calculator** (https://ingredientcalculator.com)\n- Scale recipe ingredients up or down to any serving size\n- Convert between cooking units (cups, grams, oz, mL)\n- Find ingredient substitutions\n- No signup required\n\n**Recipe Tool** (https://recipetool.net)\n- Calculate nutrition facts for any recipe (calories, protein, carbs, fat, fiber, sodium)\n- Per-serving nutrition breakdowns\n- No signup required\n\nBoth are free browser-based tools that complement the existing recipe managers like Mealie, Grocy, and Tandoor Recipes — they focus on calculation rather than recipe storage.",
+        "steps": [
+          "1. Fork https://github.com/bbbenji/awesome-recipes",
+          "2. Edit README.md on your fork",
+          "3. In the 'Tools' section, add both markdown lines after the Tandoor Recipes entry (before '### Developer Resources')",
+          "4. Commit with message: 'Add Ingredient Calculator and Recipe Tool'",
+          "5. Open PR from your fork to bbbenji/awesome-recipes master branch",
+          "6. Use the PR title and body provided above"
+        ]
+      }
+    },
+
+    "repo_3_awesome_free_tools": {
+      "repo": "mathewlewallen/awesome-free-tools",
+      "repo_url": "https://github.com/mathewlewallen/awesome-free-tools",
+      "verified": {
+        "stars": 87,
+        "archived": false,
+        "default_branch": "main",
+        "last_push": "2026-03-29",
+        "open_issues": 33,
+        "accepts_prs": true,
+        "prs_welcome_badge": true
+      },
+      "domains": ["pictureeditor.net", "ingredientcalculator.com", "recipetool.net"],
+      "target_section": "Completely Free (Hosted, No Limits) table",
+      "format_note": "Uses reference-style markdown links. Table row format: [Tool Name] | `Category` | Description. Reference URL definition at bottom of file: [tool name]: https://url.com. Category must be from valid list in contributing.md.",
+
+      "submission_combined_pr": {
+        "table_rows": [
+          "[Ingredient Calculator] | `Utilities` | Free recipe ingredient calculator for scaling quantities and converting cooking units.",
+          "[Picture Editor] | `Design` | Free online image editor with cropping, resizing, format conversion, and filters.",
+          "[Recipe Tool] | `Utilities` | Free recipe nutrition calculator for calories, protein, carbs, fat, and sodium per serving."
+        ],
+        "reference_links": [
+          "[ingredient calculator]: https://ingredientcalculator.com",
+          "[picture editor]: https://pictureeditor.net",
+          "[recipe tool]: https://recipetool.net"
+        ],
+        "insert_table_rows_at": "Bottom of the 'Completely Free (Hosted, No Limits)' table, as specified in contributing.md",
+        "insert_reference_links_at": "Alphabetically in the reference links section at the bottom of README.md",
+        "pr_title": "Add Ingredient Calculator, Picture Editor, and Recipe Tool",
+        "pr_body": "Added three free tools to the Completely Free (Hosted, No Limits) section:\n\n| Tool | Category | What it does |\n|------|----------|--------------|\n| [Ingredient Calculator](https://ingredientcalculator.com) | `Utilities` | Scale recipe ingredients, convert cooking units (cups/grams/oz/mL), find substitutions |\n| [Picture Editor](https://pictureeditor.net) | `Design` | Browser-based image editor — crop, resize, compress, convert formats, apply filters |\n| [Recipe Tool](https://recipetool.net) | `Utilities` | Recipe nutrition calculator — calories, protein, carbs, fat, fiber, sodium per serving |\n\nAll three are:\n- Completely free, no limits\n- Browser-based, no installation\n- No signup or account required\n- Easy to integrate (can be linked/embedded in any app)\n\nFollows the formatting guide in contributing.md. Table rows added at the bottom, reference links added alphabetically.",
+        "steps": [
+          "1. Fork https://github.com/mathewlewallen/awesome-free-tools",
+          "2. Edit README.md on your fork",
+          "3. Add the 3 table rows at the bottom of the 'Completely Free (Hosted, No Limits)' table (before the horizontal rule separating sections)",
+          "4. Add the 3 reference link definitions in the reference links section at the bottom, alphabetically sorted",
+          "5. Commit with message: 'Add Ingredient Calculator, Picture Editor, Recipe Tool'",
+          "6. Open PR from your fork to mathewlewallen/awesome-free-tools main branch",
+          "7. Use the PR title and body provided above"
+        ],
+        "contributing_checklist": {
+          "not_already_listed": true,
+          "easy_to_integrate": true,
+          "completely_free": true,
+          "valid_categories": ["Utilities", "Design"],
+          "description_format": "No leading articles, no exclamation marks, no emojis",
+          "not_on_no_go_list": "Verified — none of our domains appear in no-go-list.md"
+        }
+      }
+    },
+
+    "repo_4_awesome_webdesign_tools": {
+      "repo": "nafasebra/awesome-webdesign-tools",
+      "repo_url": "https://github.com/nafasebra/awesome-webdesign-tools",
+      "verified": {
+        "stars": 130,
+        "archived": false,
+        "default_branch": "main",
+        "last_push": "2026-05-06",
+        "open_issues": 0,
+        "accepts_prs": true
+      },
+      "domains": ["pictureeditor.net"],
+      "target_section": "Utils",
+      "section_context": "Repo has sections: Icons, Colors, Designs, Shape makers, Fonts, Layouts, CSS loaders, Utils, Learning, Good for you, Components, AI. The Utils section is the best fit. No existing image editor entries found — this would be a unique addition.",
+
+      "submission": {
+        "markdown_line": "- [Picture Editor](https://pictureeditor.net/) - Free online image editor with cropping, resizing, format conversion, compression, and filters. No signup required.",
+        "insert_in": "Utils section, at the bottom of existing entries",
+        "pr_title": "Add Picture Editor — free online image editing tool",
+        "pr_body": "Added [Picture Editor](https://pictureeditor.net/) to the Utils section.\n\nIt's a free, browser-based image editor that supports:\n- Cropping and resizing\n- Image compression\n- Format conversion (PNG, JPEG, WebP, GIF)\n- Filters and color adjustments\n\nNo downloads, no signup required. Works entirely in the browser.\n\nComplements the existing design and utility tools in the list — currently there's no dedicated image editor listed.",
+        "steps": [
+          "1. Fork https://github.com/nafasebra/awesome-webdesign-tools",
+          "2. Edit README.md on your fork",
+          "3. In the 'Utils' section, add the markdown line at the bottom of existing entries",
+          "4. Commit with message: 'Add Picture Editor to Utils section'",
+          "5. Open PR from your fork to nafasebra/awesome-webdesign-tools main branch",
+          "6. Use the PR title and body provided above"
+        ]
+      }
+    },
+
+    "repo_5_awesome_free_tools_coffeeprism": {
+      "repo": "CoffeePrism/awesome-free-tools",
+      "repo_url": "https://github.com/CoffeePrism/awesome-free-tools",
+      "verified": {
+        "stars": 0,
+        "archived": false,
+        "default_branch": "main",
+        "last_push": "2026-04-11",
+        "open_issues": 1,
+        "accepts_prs": true,
+        "total_entries": 66
+      },
+      "domains": ["ingredientcalculator.com", "pictureeditor.net", "recipetool.net"],
+      "target_section": "New 'Cooking & Food' section OR under existing sections. Repo currently has: AI Tools, Developer Tools, SEO & Marketing Tools, Product Research, Directories. A new 'Utilities' or 'Cooking & Food' section would be most appropriate.",
+      "format": "Markdown bullet list: - [Name](URL) - Description",
+      "rationale": "Active repo (April 2026 push), explicit contributing invitation ('Found a great free tool? Open a PR'), focuses on free no-signup tools which perfectly matches our domains. CC0 license. Low stars but high relevance and easy acceptance.",
+
+      "submission_combined_pr": {
+        "new_section_markdown": "## Cooking & Nutrition Tools\n- [Ingredient Calculator](https://ingredientcalculator.com/) - Scale recipe ingredients and convert cooking units (cups, grams, oz, mL). No signup.\n- [Recipe Tool](https://recipetool.net/) - Calculate calories, protein, carbs, fat, and sodium for any recipe. No signup.\n\n## Image Editing\n- [Picture Editor](https://pictureeditor.net/) - Crop, resize, compress, convert, and filter images in your browser. No signup.",
+        "insert_before": "## SEO & Marketing Tools",
+        "pr_title": "Add cooking, nutrition, and image editing tools",
+        "pr_body": "Added three free tools in two new sections:\n\n**Cooking & Nutrition Tools:**\n- [Ingredient Calculator](https://ingredientcalculator.com/) — Scale recipe ingredients, convert cooking units\n- [Recipe Tool](https://recipetool.net/) — Calculate nutrition facts for any recipe\n\n**Image Editing:**\n- [Picture Editor](https://pictureeditor.net/) — Crop, resize, compress, convert, and filter images\n\nAll three are:\n- 100% free\n- Browser-based, no installation\n- No signup or account required\n\nFits the list criteria: free online tools that work in your browser with no BS.",
+        "steps": [
+          "1. Fork https://github.com/CoffeePrism/awesome-free-tools",
+          "2. Edit README.md on your fork",
+          "3. Add the new sections before '## SEO & Marketing Tools'",
+          "4. Update the Contents/TOC at the top to include the new sections",
+          "5. Commit with message: 'Add cooking, nutrition, and image editing tools'",
+          "6. Open PR from your fork to CoffeePrism/awesome-free-tools main branch",
+          "7. Use the PR title and body provided above"
+        ]
+      }
+    }
+  },
+
+  "directory_submissions": {
+    "summary": "5 high-authority directories with exact submission details for all 3 domains.",
+
+    "alternativeto": {
+      "platform": "AlternativeTo",
+      "url": "https://alternativeto.net",
+      "domain_rating": "DR 89",
+      "backlink_type": "dofollow",
+      "how_to_submit": "Sign up at alternativeto.net, click User icon > 'Suggest new application'. Fill in all fields. Submit for review.",
+
+      "submissions": {
+        "ingredientcalculator_com": {
+          "name": "Ingredient Calculator",
+          "url": "https://ingredientcalculator.com",
+          "platforms": ["Web"],
+          "license": "Free",
+          "description": "Free online ingredient calculator that scales recipe ingredients to any serving size, converts cooking measurement units (cups, grams, oz, mL, metric to imperial), finds ingredient substitutions, and estimates nutrition per serving. Works in the browser with no signup required.",
+          "tags": ["recipe calculator", "cooking converter", "ingredient scaler", "unit conversion", "nutrition calculator"],
+          "alternative_to": [
+            "MyKitchenCalculator — ingredientcalculator.com is a simpler, free browser-based alternative that needs no app download",
+            "Epicurious Recipe Calculator — ingredientcalculator.com is a dedicated standalone tool without the clutter of a recipe platform",
+            "Paprika Recipe Manager — ingredientcalculator.com offers quick ingredient scaling without managing a whole recipe library"
+          ]
+        },
+        "pictureeditor_net": {
+          "name": "Picture Editor Online",
+          "url": "https://pictureeditor.net",
+          "platforms": ["Web"],
+          "license": "Free",
+          "description": "Free online picture editor for resizing, cropping, compressing, converting, and filtering images directly in your browser. Supports PNG, JPEG, WebP, and GIF formats. No upload to external servers — all processing happens client-side. No signup required.",
+          "tags": ["image editor", "photo editor", "image resizer", "image cropper", "image converter"],
+          "alternative_to": [
+            "Pixlr — pictureeditor.net is a lighter, faster alternative with no ads or account requirements",
+            "Photopea — pictureeditor.net offers a simpler interface focused on common editing tasks without Photoshop complexity",
+            "Canva — pictureeditor.net is a straightforward image editor without the template/design platform overhead",
+            "iLoveIMG — pictureeditor.net combines resize, crop, compress, convert, and filter in one tool rather than separate pages"
+          ]
+        },
+        "recipetool_net": {
+          "name": "Recipe Tool",
+          "url": "https://recipetool.net",
+          "platforms": ["Web"],
+          "license": "Free",
+          "description": "Free recipe nutrition calculator that instantly calculates calories, protein, carbs, fat, fiber, and sodium for any recipe. Enter ingredients, set serving count, and get a complete nutrition breakdown per serving. Works in the browser with no signup required.",
+          "tags": ["nutrition calculator", "recipe nutrition", "calorie counter", "macro calculator", "meal planner"],
+          "alternative_to": [
+            "MyFitnessPal Recipe Analyzer — recipetool.net is a focused, free alternative without the subscription model or social features",
+            "Cronometer — recipetool.net offers quick per-recipe nutrition without tracking daily intake",
+            "Nutritionix — recipetool.net provides recipe-level analysis without needing an API key or developer account"
+          ]
+        }
+      }
+    },
+
+    "saashub": {
+      "platform": "SaaSHub",
+      "url": "https://www.saashub.com",
+      "submission_url": "https://www.saashub.com/services/submit",
+      "domain_rating": "DR 78",
+      "backlink_type": "dofollow",
+      "how_to_submit": "Visit submission URL. Enter product URL. Fill in name, description, category. Free listing is searchable and comparable. Moderated review.",
+
+      "submissions": {
+        "ingredientcalculator_com": {
+          "product_url": "https://ingredientcalculator.com",
+          "name": "Ingredient Calculator",
+          "category": "Food & Drink",
+          "subcategory": "Recipe Tools",
+          "description": "Free online ingredient calculator for scaling recipes to any serving size, converting cooking measurement units, finding ingredient substitutions, and estimating nutrition. Browser-based, no signup required.",
+          "pricing": "Free",
+          "features": "Recipe scaling, Unit conversion, Ingredient substitutions, Nutrition estimation"
+        },
+        "pictureeditor_net": {
+          "product_url": "https://pictureeditor.net",
+          "name": "Picture Editor Online",
+          "category": "Design",
+          "subcategory": "Image Editing",
+          "description": "Free online image editor for resizing, cropping, compressing, converting, and filtering images. Supports PNG, JPEG, WebP, and GIF. Client-side processing — no files uploaded to servers. No signup required.",
+          "pricing": "Free",
+          "features": "Image resize, Crop, Compress, Format conversion, Filters, Client-side processing"
+        },
+        "recipetool_net": {
+          "product_url": "https://recipetool.net",
+          "name": "Recipe Tool",
+          "category": "Food & Drink",
+          "subcategory": "Nutrition",
+          "description": "Free recipe nutrition calculator that computes calories, protein, carbs, fat, fiber, and sodium for any recipe. Enter ingredients, set servings, get instant nutrition breakdown. Browser-based, no signup required.",
+          "pricing": "Free",
+          "features": "Nutrition calculation, Calorie counting, Macro tracking, Per-serving breakdown"
+        }
+      }
+    },
+
+    "producthunt": {
+      "platform": "Product Hunt",
+      "url": "https://www.producthunt.com",
+      "submission_url": "https://www.producthunt.com/posts/new",
+      "domain_rating": "DR 91",
+      "backlink_type": "dofollow",
+      "how_to_submit": "Log in, click Submit > New Product. Enter URL, tagline (max 60 chars), description, upload 2+ gallery images. Select Free pricing. Schedule launch for Tuesday-Thursday. Submit at 12:01 AM PST. Engagement (comments, replies) matters more than raw upvotes.",
+      "launch_strategy": "Launch each domain on separate days, spaced 1-2 weeks apart. Prepare screenshots and animated GIFs in advance. Draft first comment before launch day.",
+
+      "submissions": {
+        "ingredientcalculator_com": {
+          "product_url": "https://ingredientcalculator.com",
+          "name": "Ingredient Calculator",
+          "tagline": "Scale recipes, convert units, find substitutions — free",
+          "tagline_chars": 55,
+          "description": "Ingredient Calculator is a free browser-based tool that makes cooking math effortless.\n\nScale any recipe up or down to the exact number of servings you need. Convert between cups, grams, ounces, milliliters, and more. Find ingredient substitutions when you're missing something. Get estimated nutrition per serving.\n\nNo signup, no downloads, no ads. Just type and calculate.",
+          "pricing": "Free",
+          "topics": ["Cooking", "Productivity", "Free", "Web App"],
+          "first_comment": "Hey everyone! I built Ingredient Calculator because I was tired of doing recipe math in my head every time I wanted to halve or double a recipe.\n\nThe core features:\n- Scale ingredients to any serving size (not just 2x or 0.5x — any number)\n- Convert between metric and imperial cooking units instantly\n- Find substitutions when you're out of an ingredient\n- See estimated nutrition per serving\n\nEverything runs in the browser. No data leaves your device. Would love to hear what features you'd want next!"
+        },
+        "pictureeditor_net": {
+          "product_url": "https://pictureeditor.net",
+          "name": "Picture Editor Online",
+          "tagline": "Resize, crop, compress & convert images — free in browser",
+          "tagline_chars": 56,
+          "description": "Picture Editor Online is a free image editing tool that runs entirely in your browser.\n\nResize images to exact pixel dimensions. Crop to any aspect ratio. Compress to reduce file size. Convert between PNG, JPEG, WebP, and GIF. Apply filters and color adjustments.\n\nAll processing happens client-side — your images never leave your device. No signup, no watermarks, no limits.",
+          "pricing": "Free",
+          "topics": ["Design Tools", "Image Editing", "Free", "Web App", "Privacy"],
+          "first_comment": "Hey Product Hunt! Picture Editor Online is a free image editor that actually respects your privacy — every edit happens in your browser. No files are uploaded to any server.\n\nWhat you can do:\n- Resize to exact dimensions or presets (social media sizes, etc.)\n- Crop with custom or standard aspect ratios\n- Compress images to reduce file size for web\n- Convert between PNG, JPEG, WebP, and GIF\n- Apply filters and adjust brightness, contrast, saturation\n\nI built this because I needed a quick image editor without the Canva/Photopea complexity. Would love your feedback!"
+        },
+        "recipetool_net": {
+          "product_url": "https://recipetool.net",
+          "name": "Recipe Tool",
+          "tagline": "Calculate nutrition for any recipe — calories, macros, free",
+          "tagline_chars": 56,
+          "description": "Recipe Tool is a free recipe nutrition calculator that gives you instant calorie and macro breakdowns for any recipe.\n\nEnter your ingredients, set the number of servings, and instantly see calories, protein, carbs, fat, fiber, and sodium — both total and per serving.\n\nNo signup, no app to download, no subscription. Just paste your ingredients and get the numbers.",
+          "pricing": "Free",
+          "topics": ["Health", "Cooking", "Nutrition", "Free", "Web App"],
+          "first_comment": "Hi everyone! I built Recipe Tool because existing nutrition calculators are either locked behind subscriptions (MyFitnessPal), overly complex (Cronometer), or require creating an account just to check one recipe.\n\nHow it works:\n1. Add your ingredients (with autocomplete for common foods)\n2. Set quantities and units\n3. Set number of servings\n4. Get instant nutrition breakdown: calories, protein, carbs, fat, fiber, sodium\n\nAll free, all in the browser. What recipes are you going to analyze first?"
+        }
+      }
+    },
+
+    "capterra": {
+      "platform": "Capterra",
+      "url": "https://www.capterra.com",
+      "submission_url": "https://www.capterra.com/vendors/sign-up",
+      "domain_rating": "DR 91",
+      "backlink_type": "dofollow",
+      "how_to_submit": "Sign up as vendor at capterra.com/vendors/sign-up. Create free product listing with description, screenshots, and pricing info. Free basic listing is searchable. Paid options available for premium placement.",
+
+      "submissions": {
+        "ingredientcalculator_com": {
+          "vendor_name": "Ingredient Calculator",
+          "product_url": "https://ingredientcalculator.com",
+          "category": "Recipe Management Software",
+          "alt_categories": ["Food Service Management Software", "Nutrition Analysis Software"],
+          "description": "Ingredient Calculator is a free online tool for scaling recipe ingredients, converting cooking measurement units, finding ingredient substitutions, and estimating nutrition per serving. Browser-based with no signup required.",
+          "pricing_model": "Free",
+          "deployment": "Cloud/SaaS/Web-Based",
+          "key_features": ["Recipe ingredient scaling", "Cooking unit conversion (cups, grams, oz, mL)", "Ingredient substitution finder", "Per-serving nutrition estimation"]
+        },
+        "pictureeditor_net": {
+          "vendor_name": "Picture Editor Online",
+          "product_url": "https://pictureeditor.net",
+          "category": "Photo Editing Software",
+          "alt_categories": ["Graphic Design Software", "Image Recognition Software"],
+          "description": "Picture Editor Online is a free browser-based image editor for resizing, cropping, compressing, converting formats, and applying filters. Supports PNG, JPEG, WebP, and GIF. All processing is client-side — no files uploaded to servers.",
+          "pricing_model": "Free",
+          "deployment": "Cloud/SaaS/Web-Based",
+          "key_features": ["Image resizing", "Cropping", "Compression", "Format conversion (PNG, JPEG, WebP, GIF)", "Filters and adjustments", "Client-side processing"]
+        },
+        "recipetool_net": {
+          "vendor_name": "Recipe Tool",
+          "product_url": "https://recipetool.net",
+          "category": "Nutrition Analysis Software",
+          "alt_categories": ["Recipe Management Software", "Diet Software"],
+          "description": "Recipe Tool is a free online recipe nutrition calculator. Enter recipe ingredients to instantly calculate calories, protein, carbs, fat, fiber, and sodium per serving. Browser-based with no signup required.",
+          "pricing_model": "Free",
+          "deployment": "Cloud/SaaS/Web-Based",
+          "key_features": ["Recipe nutrition analysis", "Calorie calculation", "Macronutrient tracking", "Per-serving breakdown", "Ingredient autocomplete"]
+        }
+      }
+    },
+
+    "sourceforge": {
+      "platform": "SourceForge",
+      "url": "https://sourceforge.net",
+      "submission_url": "https://sourceforge.net/create/",
+      "domain_rating": "DR 92",
+      "backlink_type": "dofollow",
+      "how_to_submit": "Create project at sourceforge.net/create/. Add project name, description, category. Upload screenshots. Set project URL. Free listing.",
+
+      "submissions": {
+        "ingredientcalculator_com": {
+          "project_name": "Ingredient Calculator",
+          "project_url": "https://ingredientcalculator.com",
+          "category": "Food and Beverage",
+          "subcategory": "Recipe Management",
+          "description_short": "Free online ingredient calculator for scaling recipes and converting cooking units.",
+          "description_full": "Ingredient Calculator is a free, browser-based tool for home cooks and professional chefs. Scale recipe ingredients to any serving size, convert between cooking measurement units (cups, grams, ounces, milliliters, metric, imperial), find ingredient substitutions when you're missing something, and estimate nutrition per serving.\n\nFeatures:\n- Recipe ingredient scaling (any multiplier, not just 2x/0.5x)\n- Cooking unit conversion (cups, tbsp, tsp, grams, oz, mL, liters)\n- Ingredient substitution finder\n- Per-serving nutrition estimation\n- Mobile-friendly responsive design\n- No signup, no ads, completely free",
+          "programming_language": "JavaScript",
+          "operating_system": "Web-based (any modern browser)",
+          "license": "Proprietary - Free to use"
+        },
+        "pictureeditor_net": {
+          "project_name": "Picture Editor Online",
+          "project_url": "https://pictureeditor.net",
+          "category": "Graphics",
+          "subcategory": "Editors",
+          "description_short": "Free online image editor — resize, crop, compress, convert, and filter images in your browser.",
+          "description_full": "Picture Editor Online is a free, privacy-first image editing tool that runs entirely in your browser. All image processing happens client-side — no files are ever uploaded to external servers.\n\nFeatures:\n- Image resizing to exact dimensions or presets\n- Cropping with custom or standard aspect ratios\n- Image compression for web optimization\n- Format conversion between PNG, JPEG, WebP, and GIF\n- Filters (grayscale, sepia, blur, sharpen, etc.)\n- Color adjustments (brightness, contrast, saturation)\n- Mobile-friendly responsive design\n- No signup, no watermarks, completely free",
+          "programming_language": "JavaScript",
+          "operating_system": "Web-based (any modern browser with Canvas API)",
+          "license": "Proprietary - Free to use"
+        },
+        "recipetool_net": {
+          "project_name": "Recipe Tool - Nutrition Calculator",
+          "project_url": "https://recipetool.net",
+          "category": "Food and Beverage",
+          "subcategory": "Nutrition",
+          "description_short": "Free recipe nutrition calculator — calories, protein, carbs, fat, fiber, sodium per serving.",
+          "description_full": "Recipe Tool is a free, browser-based recipe nutrition calculator for anyone who wants to know the nutritional content of their home-cooked meals.\n\nFeatures:\n- Calculate calories, protein, carbs, fat, fiber, and sodium for any recipe\n- Per-serving nutrition breakdowns\n- Ingredient autocomplete for common foods\n- Support for multiple measurement units\n- Visual nutrition breakdown charts\n- Mobile-friendly responsive design\n- No signup, completely free",
+          "programming_language": "JavaScript",
+          "operating_system": "Web-based (any modern browser)",
+          "license": "Proprietary - Free to use"
+        }
+      }
+    }
+  },
+
+  "submission_tracker": [
+    {
+      "platform": "GitHub PR",
+      "target": "jzarca01/awesome-food",
+      "domain": "ingredientcalculator.com + recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "pr_url": null,
+      "notes": "Combined PR for both domains. Repo confirmed active (pushed 2026-03-17, 234 stars). Fork, add 2 entries to 'Food-related projects', submit PR.",
+      "requires_human_action": "Fork repo, edit README, submit PR via GitHub web UI",
+      "estimated_acceptance": "HIGH — repo merged PR in March 2026, high acceptance rate",
+      "backlink_value": "GitHub (nofollow but referral traffic + indexing signal)"
+    },
+    {
+      "platform": "GitHub PR",
+      "target": "bbbenji/awesome-recipes",
+      "domain": "recipetool.net + ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "pr_url": null,
+      "notes": "Combined PR for both domains. Repo has dedicated Tools section with 17+ entries. Fork, add 2 entries after Tandoor Recipes, submit PR.",
+      "requires_human_action": "Fork repo, edit README, submit PR via GitHub web UI",
+      "estimated_acceptance": "HIGH — repo has active Tools section, 61 stars, accepts community PRs",
+      "backlink_value": "GitHub (nofollow but referral traffic + indexing signal)"
+    },
+    {
+      "platform": "GitHub PR",
+      "target": "mathewlewallen/awesome-free-tools",
+      "domain": "ALL 3 — pictureeditor.net + ingredientcalculator.com + recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "pr_url": null,
+      "notes": "Combined PR for all 3 domains. Uses table format with reference links. Categories: Design and Utilities. Must add table rows AND reference URLs. Check contributing.md checklist.",
+      "requires_human_action": "Fork repo, edit README (table rows + reference links), submit PR via GitHub web UI",
+      "estimated_acceptance": "HIGH — PRs Welcome badge, 33 open issues, 87 stars, merged PR March 2026",
+      "backlink_value": "GitHub (nofollow but referral traffic + indexing signal)"
+    },
+    {
+      "platform": "GitHub PR",
+      "target": "nafasebra/awesome-webdesign-tools",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "pr_url": null,
+      "notes": "Single domain PR. Add to Utils section. Repo has explicit contribution guidelines in README. 130 stars, pushed May 6 2026.",
+      "requires_human_action": "Fork repo, edit README, submit PR via GitHub web UI",
+      "estimated_acceptance": "HIGH — very active (pushed 2 days ago), 130 stars, explicit PR instructions",
+      "backlink_value": "GitHub (nofollow but referral traffic + indexing signal)"
+    },
+    {
+      "platform": "GitHub PR",
+      "target": "CoffeePrism/awesome-free-tools",
+      "domain": "ALL 3 — ingredientcalculator.com + pictureeditor.net + recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "pr_url": null,
+      "notes": "Combined PR for all 3 domains. Propose 2 new sections: 'Cooking & Nutrition Tools' and 'Image Editing'. 66 entries, pushed April 2026. Low stars but explicit 'Open a PR' invitation.",
+      "requires_human_action": "Fork repo, edit README (add new sections + update TOC), submit PR via GitHub web UI",
+      "estimated_acceptance": "MEDIUM — low stars (0) but active, explicit PR invitation, CC0 license",
+      "backlink_value": "GitHub (nofollow but referral traffic + indexing signal)"
+    },
+    {
+      "platform": "AlternativeTo",
+      "target": "alternativeto.net",
+      "domain": "ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://alternativeto.net (User icon > Suggest new application)",
+      "notes": "Submit as alternative to MyKitchenCalculator, Epicurious Recipe Calculator, Paprika Recipe Manager. DR 89 dofollow.",
+      "requires_human_action": "Create account, fill submission form, wait for moderation",
+      "estimated_acceptance": "HIGH — AlternativeTo accepts most legitimate tools",
+      "backlink_value": "DR 89 dofollow"
+    },
+    {
+      "platform": "AlternativeTo",
+      "target": "alternativeto.net",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://alternativeto.net (User icon > Suggest new application)",
+      "notes": "Submit as alternative to Pixlr, Photopea, Canva, iLoveIMG. DR 89 dofollow.",
+      "requires_human_action": "Create account, fill submission form, wait for moderation",
+      "estimated_acceptance": "HIGH — AlternativeTo accepts most legitimate tools",
+      "backlink_value": "DR 89 dofollow"
+    },
+    {
+      "platform": "AlternativeTo",
+      "target": "alternativeto.net",
+      "domain": "recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://alternativeto.net (User icon > Suggest new application)",
+      "notes": "Submit as alternative to MyFitnessPal Recipe Analyzer, Cronometer, Nutritionix. DR 89 dofollow.",
+      "requires_human_action": "Create account, fill submission form, wait for moderation",
+      "estimated_acceptance": "HIGH — AlternativeTo accepts most legitimate tools",
+      "backlink_value": "DR 89 dofollow"
+    },
+    {
+      "platform": "SaaSHub",
+      "target": "saashub.com",
+      "domain": "ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.saashub.com/services/submit",
+      "notes": "Category: Food & Drink > Recipe Tools. DR 78 dofollow. Moderated.",
+      "requires_human_action": "Visit submission URL, enter product URL, fill details, submit",
+      "estimated_acceptance": "HIGH — SaaSHub accepts most legitimate free tools",
+      "backlink_value": "DR 78 dofollow"
+    },
+    {
+      "platform": "SaaSHub",
+      "target": "saashub.com",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.saashub.com/services/submit",
+      "notes": "Category: Design > Image Editing. DR 78 dofollow. Moderated.",
+      "requires_human_action": "Visit submission URL, enter product URL, fill details, submit",
+      "estimated_acceptance": "HIGH — SaaSHub accepts most legitimate free tools",
+      "backlink_value": "DR 78 dofollow"
+    },
+    {
+      "platform": "SaaSHub",
+      "target": "saashub.com",
+      "domain": "recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.saashub.com/services/submit",
+      "notes": "Category: Food & Drink > Nutrition. DR 78 dofollow. Moderated.",
+      "requires_human_action": "Visit submission URL, enter product URL, fill details, submit",
+      "estimated_acceptance": "HIGH — SaaSHub accepts most legitimate free tools",
+      "backlink_value": "DR 78 dofollow"
+    },
+    {
+      "platform": "Product Hunt",
+      "target": "producthunt.com",
+      "domain": "ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.producthunt.com/posts/new",
+      "notes": "Tagline: 'Scale recipes, convert units, find substitutions — free' (55 chars). Launch Tue-Thu. First comment drafted. DR 91 dofollow.",
+      "requires_human_action": "Create account, prepare 2+ screenshots/GIFs, schedule launch, post first comment, engage with voters",
+      "estimated_acceptance": "HIGH — Product Hunt accepts all launches",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "Product Hunt",
+      "target": "producthunt.com",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.producthunt.com/posts/new",
+      "notes": "Tagline: 'Resize, crop, compress & convert images — free in browser' (56 chars). Launch on different day than ingredientcalculator.com. DR 91 dofollow.",
+      "requires_human_action": "Create account, prepare 2+ screenshots/GIFs, schedule launch, post first comment, engage with voters",
+      "estimated_acceptance": "HIGH — Product Hunt accepts all launches",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "Product Hunt",
+      "target": "producthunt.com",
+      "domain": "recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.producthunt.com/posts/new",
+      "notes": "Tagline: 'Calculate nutrition for any recipe — calories, macros, free' (56 chars). Launch on different day. DR 91 dofollow.",
+      "requires_human_action": "Create account, prepare 2+ screenshots/GIFs, schedule launch, post first comment, engage with voters",
+      "estimated_acceptance": "HIGH — Product Hunt accepts all launches",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "Capterra",
+      "target": "capterra.com",
+      "domain": "ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.capterra.com/vendors/sign-up",
+      "notes": "Category: Recipe Management Software. DR 91 dofollow. Free basic listing.",
+      "requires_human_action": "Sign up as vendor, create product listing, add screenshots and description",
+      "estimated_acceptance": "MEDIUM — Capterra has higher editorial standards but accepts free tools",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "Capterra",
+      "target": "capterra.com",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.capterra.com/vendors/sign-up",
+      "notes": "Category: Photo Editing Software. DR 91 dofollow. Free basic listing.",
+      "requires_human_action": "Sign up as vendor, create product listing, add screenshots and description",
+      "estimated_acceptance": "MEDIUM — Capterra has higher editorial standards but accepts free tools",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "Capterra",
+      "target": "capterra.com",
+      "domain": "recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://www.capterra.com/vendors/sign-up",
+      "notes": "Category: Nutrition Analysis Software. DR 91 dofollow. Free basic listing.",
+      "requires_human_action": "Sign up as vendor, create product listing, add screenshots and description",
+      "estimated_acceptance": "MEDIUM — Capterra has higher editorial standards but accepts free tools",
+      "backlink_value": "DR 91 dofollow"
+    },
+    {
+      "platform": "SourceForge",
+      "target": "sourceforge.net",
+      "domain": "ingredientcalculator.com",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://sourceforge.net/create/",
+      "notes": "Category: Food and Beverage > Recipe Management. DR 92 dofollow. Free project creation.",
+      "requires_human_action": "Create account, create project, add description and screenshots, set project URL",
+      "estimated_acceptance": "HIGH — SourceForge accepts all legitimate projects",
+      "backlink_value": "DR 92 dofollow"
+    },
+    {
+      "platform": "SourceForge",
+      "target": "sourceforge.net",
+      "domain": "pictureeditor.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://sourceforge.net/create/",
+      "notes": "Category: Graphics > Editors. DR 92 dofollow. Free project creation.",
+      "requires_human_action": "Create account, create project, add description and screenshots, set project URL",
+      "estimated_acceptance": "HIGH — SourceForge accepts all legitimate projects",
+      "backlink_value": "DR 92 dofollow"
+    },
+    {
+      "platform": "SourceForge",
+      "target": "sourceforge.net",
+      "domain": "recipetool.net",
+      "status": "READY_TO_SUBMIT",
+      "submission_url": "https://sourceforge.net/create/",
+      "notes": "Category: Food and Beverage > Nutrition. DR 92 dofollow. Free project creation.",
+      "requires_human_action": "Create account, create project, add description and screenshots, set project URL",
+      "estimated_acceptance": "HIGH — SourceForge accepts all legitimate projects",
+      "backlink_value": "DR 92 dofollow"
+    }
+  ],
+
+  "summary_stats": {
+    "total_submissions_prepared": 20,
+    "github_prs": 5,
+    "github_pr_domain_placements": 9,
+    "directory_platforms": 5,
+    "directory_domain_placements": 15,
+    "all_status": "READY_TO_SUBMIT",
+    "requires_human_action": "ALL — GitHub PRs require fork+edit+PR via web UI; directories require account creation + form submission",
+
+    "backlink_value_breakdown": {
+      "DR_90_plus": {
+        "count": 9,
+        "platforms": "Product Hunt (DR 91 x3), Capterra (DR 91 x3), SourceForge (DR 92 x3)",
+        "link_type": "dofollow"
+      },
+      "DR_70_89": {
+        "count": 6,
+        "platforms": "AlternativeTo (DR 89 x3), SaaSHub (DR 78 x3)",
+        "link_type": "dofollow"
+      },
+      "github_nofollow": {
+        "count": 9,
+        "platforms": "5 awesome-list repos (9 total domain placements)",
+        "link_type": "nofollow but provides referral traffic, discovery, and Google indexing signals"
+      }
+    },
+
+    "estimated_total_backlinks": "15-21 dofollow backlinks + 5-9 GitHub nofollow placements",
+
+    "priority_execution_order": [
+      "1. SourceForge (DR 92) — all 3 domains — easiest submission, self-service project creation",
+      "2. Product Hunt (DR 91) — all 3 domains — schedule launches on separate Tue/Wed/Thu",
+      "3. Capterra (DR 91) — all 3 domains — vendor signup, free basic listing",
+      "4. AlternativeTo (DR 89) — all 3 domains — suggest application, add alternatives",
+      "5. SaaSHub (DR 78) — all 3 domains — straightforward URL submission",
+      "6. GitHub PR: mathewlewallen/awesome-free-tools — all 3 domains in single PR",
+      "7. GitHub PR: jzarca01/awesome-food — ingredientcalculator.com + recipetool.net in single PR",
+      "8. GitHub PR: bbbenji/awesome-recipes — recipetool.net + ingredientcalculator.com in single PR",
+      "9. GitHub PR: nafasebra/awesome-webdesign-tools — pictureeditor.net only",
+      "10. GitHub PR: CoffeePrism/awesome-free-tools — all 3 domains in single PR"
+    ]
+  }
+}

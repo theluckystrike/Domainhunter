@@ -1,0 +1,2786 @@
+[
+  {
+    "domain": "northvolt.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0873 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-f92315b3767c",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0589 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "northvolt.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "northvolt.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 9,
+                      "pos_2_3": 6,
+                      "pos_4_10": 10,
+                      "pos_11_20": 11,
+                      "pos_21_30": 19,
+                      "pos_31_40": 15,
+                      "pos_41_50": 8,
+                      "pos_51_60": 3,
+                      "pos_61_70": 7,
+                      "pos_71_80": 0,
+                      "pos_81_90": 2,
+                      "pos_91_100": 3,
+                      "etv": 1716.1044306289405,
+                      "count": 93,
+                      "estimated_paid_traffic_cost": 277.72244580462575,
+                      "is_new": 36,
+                      "is_up": 28,
+                      "is_down": 18,
+                      "is_lost": 162,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "katerra.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1177 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-f5bc0d9c39bf",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0871 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "katerra.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "katerra.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 1,
+                      "pos_21_30": 1,
+                      "pos_31_40": 3,
+                      "pos_41_50": 2,
+                      "pos_51_60": 5,
+                      "pos_61_70": 8,
+                      "pos_71_80": 5,
+                      "pos_81_90": 5,
+                      "pos_91_100": 1,
+                      "etv": 5.495999973267317,
+                      "count": 31,
+                      "estimated_paid_traffic_cost": 6.621089918538928,
+                      "is_new": 24,
+                      "is_up": 6,
+                      "is_down": 1,
+                      "is_lost": 6,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "getir.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1099 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-dc930a6e1a96",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0587 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "getir.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "getir.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 9,
+                      "pos_2_3": 10,
+                      "pos_4_10": 101,
+                      "pos_11_20": 237,
+                      "pos_21_30": 199,
+                      "pos_31_40": 138,
+                      "pos_41_50": 86,
+                      "pos_51_60": 48,
+                      "pos_61_70": 42,
+                      "pos_71_80": 36,
+                      "pos_81_90": 31,
+                      "pos_91_100": 11,
+                      "etv": 3931.1667593866587,
+                      "count": 948,
+                      "estimated_paid_traffic_cost": 10018.769543834147,
+                      "is_new": 450,
+                      "is_up": 279,
+                      "is_down": 185,
+                      "is_lost": 1223,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "quibi.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0696 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-3cca66ae1e01",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0571 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "quibi.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "quibi.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 1,
+                      "pos_21_30": 3,
+                      "pos_31_40": 2,
+                      "pos_41_50": 2,
+                      "pos_51_60": 2,
+                      "pos_61_70": 4,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 28.92999980598688,
+                      "count": 14,
+                      "estimated_paid_traffic_cost": 99.0989990234375,
+                      "is_new": 7,
+                      "is_up": 5,
+                      "is_down": 2,
+                      "is_lost": 2,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "theranos.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1080 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-417922fa5521",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0497 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "theranos.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "theranos.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "canoo.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0625 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-c9a115d80e5d",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0515 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "canoo.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "canoo.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "veev.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1345 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-58c234f30ee3",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0597 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "veev.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "veev.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 10,
+                      "pos_2_3": 8,
+                      "pos_4_10": 5,
+                      "pos_11_20": 3,
+                      "pos_21_30": 1,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 1306.9549896270037,
+                      "count": 27,
+                      "estimated_paid_traffic_cost": 4529.90929427743,
+                      "is_new": 27,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 4,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "infarm.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1389 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-e752bd7c2502",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0605 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "infarm.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "infarm.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 1,
+                      "etv": 0.08399999886751175,
+                      "count": 1,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 1,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "builderai.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1156 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-c16d8f07b1b6",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0493 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "builderai.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "builderai.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "dunzo.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0770 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-2f94cb5f36ef",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0661 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "dunzo.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "dunzo.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 1,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 2,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0.7590000182390213,
+                      "count": 3,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 2,
+                      "is_up": 1,
+                      "is_down": 0,
+                      "is_lost": 47,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "jokr.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1299 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-59c3869e2378",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0627 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "jokr.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "jokr.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 1,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 179.36000061035156,
+                      "count": 1,
+                      "estimated_paid_traffic_cost": 1682.3968505859375,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 5,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "essential.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0887 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-2baf73dbe749",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0681 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "essential.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "essential.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 1,
+                      "pos_2_3": 4,
+                      "pos_4_10": 15,
+                      "pos_11_20": 4,
+                      "pos_21_30": 2,
+                      "pos_31_40": 1,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 811.3720005303621,
+                      "count": 27,
+                      "estimated_paid_traffic_cost": 1425.8787293434143,
+                      "is_new": 11,
+                      "is_up": 11,
+                      "is_down": 5,
+                      "is_lost": 13,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "goodglammgroup.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0942 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-035cda0f3acd",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0589 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "goodglammgroup.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "goodglammgroup.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "fulcrum-bioenergy.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1988 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-ce5adf0e111e",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0647 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "fulcrum-bioenergy.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "fulcrum-bioenergy.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "frubana.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0682 sec.",
+      "cost": 0.01,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-0a2a5012f2eb",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0525 sec.",
+          "cost": 0.01,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "frubana.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "frubana.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": null,
+              "items_count": 0,
+              "items": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "itsflip.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0939 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-76e4e6f0a687",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0745 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "itsflip.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "itsflip.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 22,
+                      "pos_2_3": 14,
+                      "pos_4_10": 40,
+                      "pos_11_20": 54,
+                      "pos_21_30": 27,
+                      "pos_31_40": 17,
+                      "pos_41_50": 11,
+                      "pos_51_60": 12,
+                      "pos_61_70": 7,
+                      "pos_71_80": 0,
+                      "pos_81_90": 3,
+                      "pos_91_100": 0,
+                      "etv": 3179.436975490302,
+                      "count": 207,
+                      "estimated_paid_traffic_cost": 8166.258283030707,
+                      "is_new": 42,
+                      "is_up": 81,
+                      "is_down": 60,
+                      "is_lost": 104,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "ambri.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0880 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-7e762613c2f5",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0707 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "ambri.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "ambri.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 6,
+                      "pos_2_3": 2,
+                      "pos_4_10": 4,
+                      "pos_11_20": 5,
+                      "pos_21_30": 2,
+                      "pos_31_40": 1,
+                      "pos_41_50": 1,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 2,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 536.4280056990683,
+                      "count": 23,
+                      "estimated_paid_traffic_cost": 327.1588599681854,
+                      "is_new": 6,
+                      "is_up": 4,
+                      "is_down": 7,
+                      "is_lost": 38,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "efishery.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0881 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-452e9cf26dc0",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0747 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "efishery.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "efishery.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 2,
+                      "pos_11_20": 6,
+                      "pos_21_30": 12,
+                      "pos_31_40": 20,
+                      "pos_41_50": 14,
+                      "pos_51_60": 16,
+                      "pos_61_70": 14,
+                      "pos_71_80": 13,
+                      "pos_81_90": 9,
+                      "pos_91_100": 2,
+                      "etv": 99.52800163254142,
+                      "count": 108,
+                      "estimated_paid_traffic_cost": 17.455410225549713,
+                      "is_new": 53,
+                      "is_up": 26,
+                      "is_down": 26,
+                      "is_lost": 41,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "lyndra.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0772 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-8208f0050a4b",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0664 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "lyndra.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "lyndra.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 3,
+                      "pos_4_10": 1,
+                      "pos_11_20": 1,
+                      "pos_21_30": 1,
+                      "pos_31_40": 0,
+                      "pos_41_50": 1,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 99.27700234949589,
+                      "count": 7,
+                      "estimated_paid_traffic_cost": 1.5839999914169312,
+                      "is_new": 4,
+                      "is_up": 0,
+                      "is_down": 2,
+                      "is_lost": 20,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "solidfi.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1835 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-a058010849b8",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0741 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "solidfi.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "solidfi.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 1,
+                      "pos_11_20": 1,
+                      "pos_21_30": 1,
+                      "pos_31_40": 1,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 2.206999961286783,
+                      "count": 4,
+                      "estimated_paid_traffic_cost": 30.810990869998932,
+                      "is_new": 2,
+                      "is_up": 2,
+                      "is_down": 0,
+                      "is_lost": 61,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "rappi.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0808 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-34d39d0ee3d3",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0686 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "rappi.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "rappi.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 34,
+                      "pos_2_3": 46,
+                      "pos_4_10": 81,
+                      "pos_11_20": 104,
+                      "pos_21_30": 97,
+                      "pos_31_40": 72,
+                      "pos_41_50": 57,
+                      "pos_51_60": 46,
+                      "pos_61_70": 23,
+                      "pos_71_80": 25,
+                      "pos_81_90": 15,
+                      "pos_91_100": 8,
+                      "etv": 5404.659339522943,
+                      "count": 608,
+                      "estimated_paid_traffic_cost": 9314.999211145798,
+                      "is_new": 284,
+                      "is_up": 178,
+                      "is_down": 109,
+                      "is_lost": 520,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "plastiq.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0749 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-ddb549c6e172",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0627 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "plastiq.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "plastiq.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 68,
+                      "pos_2_3": 121,
+                      "pos_4_10": 449,
+                      "pos_11_20": 475,
+                      "pos_21_30": 463,
+                      "pos_31_40": 379,
+                      "pos_41_50": 318,
+                      "pos_51_60": 267,
+                      "pos_61_70": 221,
+                      "pos_71_80": 196,
+                      "pos_81_90": 149,
+                      "pos_91_100": 73,
+                      "etv": 23769.243986602873,
+                      "count": 3179,
+                      "estimated_paid_traffic_cost": 559436.7309252535,
+                      "is_new": 1326,
+                      "is_up": 1022,
+                      "is_down": 662,
+                      "is_lost": 4824,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 2,
+                      "pos_2_3": 2,
+                      "pos_4_10": 1,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 16.77400040626526,
+                      "count": 5,
+                      "estimated_paid_traffic_cost": 250.84622812271118,
+                      "is_new": 4,
+                      "is_up": 0,
+                      "is_down": 1,
+                      "is_lost": 2,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "codeparrot.ai",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0890 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-32ff053ec44a",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0648 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "codeparrot.ai",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "codeparrot.ai",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 1,
+                      "pos_2_3": 11,
+                      "pos_4_10": 207,
+                      "pos_11_20": 334,
+                      "pos_21_30": 257,
+                      "pos_31_40": 189,
+                      "pos_41_50": 88,
+                      "pos_51_60": 57,
+                      "pos_61_70": 29,
+                      "pos_71_80": 22,
+                      "pos_81_90": 12,
+                      "pos_91_100": 6,
+                      "etv": 5351.938527619466,
+                      "count": 1213,
+                      "estimated_paid_traffic_cost": 17810.244348694105,
+                      "is_new": 274,
+                      "is_up": 482,
+                      "is_down": 383,
+                      "is_lost": 2585,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "sendy.co",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0771 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-f015eb7270d5",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0657 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "sendy.co",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "sendy.co",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 11,
+                      "pos_2_3": 4,
+                      "pos_4_10": 26,
+                      "pos_11_20": 72,
+                      "pos_21_30": 78,
+                      "pos_31_40": 51,
+                      "pos_41_50": 49,
+                      "pos_51_60": 40,
+                      "pos_61_70": 22,
+                      "pos_71_80": 25,
+                      "pos_81_90": 15,
+                      "pos_91_100": 17,
+                      "etv": 3179.4622493200004,
+                      "count": 410,
+                      "estimated_paid_traffic_cost": 17707.014443218708,
+                      "is_new": 186,
+                      "is_up": 122,
+                      "is_down": 78,
+                      "is_lost": 722,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "lumio.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0793 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-1559e20bc21c",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0590 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "lumio.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "lumio.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 14,
+                      "pos_2_3": 8,
+                      "pos_4_10": 15,
+                      "pos_11_20": 12,
+                      "pos_21_30": 14,
+                      "pos_31_40": 15,
+                      "pos_41_50": 11,
+                      "pos_51_60": 8,
+                      "pos_61_70": 12,
+                      "pos_71_80": 14,
+                      "pos_81_90": 10,
+                      "pos_91_100": 8,
+                      "etv": 9191.245988570154,
+                      "count": 141,
+                      "estimated_paid_traffic_cost": 16592.033045090735,
+                      "is_new": 69,
+                      "is_up": 33,
+                      "is_down": 24,
+                      "is_lost": 64,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "newcap.org",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0942 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-96b94edfb050",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0796 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "newcap.org",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "newcap.org",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 21,
+                      "pos_2_3": 39,
+                      "pos_4_10": 176,
+                      "pos_11_20": 184,
+                      "pos_21_30": 116,
+                      "pos_31_40": 96,
+                      "pos_41_50": 93,
+                      "pos_51_60": 78,
+                      "pos_61_70": 72,
+                      "pos_71_80": 51,
+                      "pos_81_90": 25,
+                      "pos_91_100": 22,
+                      "etv": 5462.539024557918,
+                      "count": 973,
+                      "estimated_paid_traffic_cost": 18078.034058868187,
+                      "is_new": 404,
+                      "is_up": 320,
+                      "is_down": 192,
+                      "is_lost": 536,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "ammonoosuc.org",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1105 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081126-1508-0388-0000-f092c8ed8229",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0763 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "ammonoosuc.org",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "ammonoosuc.org",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 20,
+                      "pos_2_3": 7,
+                      "pos_4_10": 30,
+                      "pos_11_20": 56,
+                      "pos_21_30": 40,
+                      "pos_31_40": 35,
+                      "pos_41_50": 18,
+                      "pos_51_60": 25,
+                      "pos_61_70": 18,
+                      "pos_71_80": 8,
+                      "pos_81_90": 5,
+                      "pos_91_100": 2,
+                      "etv": 2678.2820279505104,
+                      "count": 264,
+                      "estimated_paid_traffic_cost": 1625.10211423086,
+                      "is_new": 93,
+                      "is_up": 97,
+                      "is_down": 50,
+                      "is_lost": 241,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "affordableeducation.org",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0949 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081127-1508-0388-0000-a4af020a30c4",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0797 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "affordableeducation.org",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "affordableeducation.org",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 10,
+                      "pos_4_10": 20,
+                      "pos_11_20": 10,
+                      "pos_21_30": 21,
+                      "pos_31_40": 28,
+                      "pos_41_50": 21,
+                      "pos_51_60": 25,
+                      "pos_61_70": 18,
+                      "pos_71_80": 8,
+                      "pos_81_90": 8,
+                      "pos_91_100": 2,
+                      "etv": 1028.968936599791,
+                      "count": 171,
+                      "estimated_paid_traffic_cost": 11739.52065692097,
+                      "is_new": 66,
+                      "is_up": 78,
+                      "is_down": 19,
+                      "is_lost": 42,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "internetfreedom.org",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1211 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081127-1508-0388-0000-0f36ef19e9ba",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0683 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "internetfreedom.org",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "internetfreedom.org",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 0,
+                      "pos_2_3": 3,
+                      "pos_4_10": 6,
+                      "pos_11_20": 4,
+                      "pos_21_30": 1,
+                      "pos_31_40": 5,
+                      "pos_41_50": 1,
+                      "pos_51_60": 2,
+                      "pos_61_70": 1,
+                      "pos_71_80": 1,
+                      "pos_81_90": 3,
+                      "pos_91_100": 1,
+                      "etv": 1118.4570215214044,
+                      "count": 28,
+                      "estimated_paid_traffic_cost": 10622.817821741104,
+                      "is_new": 12,
+                      "is_up": 11,
+                      "is_down": 4,
+                      "is_lost": 27,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "domain": "sitecheck.com",
+    "response": {
+      "version": "0.1.20260430",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.1048 sec.",
+      "cost": 0.0101,
+      "tasks_count": 1,
+      "tasks_error": 0,
+      "tasks": [
+        {
+          "id": "05081127-1508-0388-0000-aa58a71decf0",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0826 sec.",
+          "cost": 0.0101,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "domain_rank_overview",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "domain_rank_overview",
+            "se_type": "google",
+            "target": "sitecheck.com",
+            "language_code": "en",
+            "location_code": 2840
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "target": "sitecheck.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 1,
+              "items_count": 1,
+              "items": [
+                {
+                  "se_type": "google",
+                  "location_code": 2840,
+                  "language_code": "en",
+                  "metrics": {
+                    "organic": {
+                      "pos_1": 1,
+                      "pos_2_3": 1,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 1,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 4399.404195196927,
+                      "count": 3,
+                      "estimated_paid_traffic_cost": 17868.11328125,
+                      "is_new": 0,
+                      "is_up": 1,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    },
+                    "paid": {
+                      "pos_1": 0,
+                      "pos_2_3": 0,
+                      "pos_4_10": 0,
+                      "pos_11_20": 0,
+                      "pos_21_30": 0,
+                      "pos_31_40": 0,
+                      "pos_41_50": 0,
+                      "pos_51_60": 0,
+                      "pos_61_70": 0,
+                      "pos_71_80": 0,
+                      "pos_81_90": 0,
+                      "pos_91_100": 0,
+                      "etv": 0,
+                      "count": 0,
+                      "estimated_paid_traffic_cost": 0,
+                      "is_new": 0,
+                      "is_up": 0,
+                      "is_down": 0,
+                      "is_lost": 0,
+                      "clickstream_etv": null,
+                      "clickstream_gender_distribution": null,
+                      "clickstream_age_distribution": null
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

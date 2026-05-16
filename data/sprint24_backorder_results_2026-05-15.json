@@ -1,0 +1,134 @@
+{
+  "sprint": "24",
+  "task": "place_backorders",
+  "executed_at": "2026-05-15T13:41:44.552791+00:00",
+  "balance_before": {
+    "GetAccountBalanceResponse": {
+      "ResponseCode": 0,
+      "Status": "success",
+      "BalanceList": [
+        {
+          "Currency": "USD",
+          "Amount": "25.00"
+        }
+      ]
+    }
+  },
+  "balance_after": {
+    "GetAccountBalanceResponse": {
+      "ResponseCode": 0,
+      "Status": "success",
+      "BalanceList": [
+        {
+          "Currency": "USD",
+          "Amount": "25.00"
+        }
+      ]
+    }
+  },
+  "backorder_list": {
+    "BackorderRequestListResponse": {
+      "ResponseCode": "-1",
+      "Status": "error",
+      "Error": "no backorder request found in your account during provided time period"
+    }
+  },
+  "summary": {
+    "total_domains": 7,
+    "success_count": 0,
+    "fail_count": 7
+  },
+  "results": [
+    {
+      "domain": "ghostautonomy.com",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : ghostautonomy.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : ghostautonomy.com"
+        }
+      },
+      "timestamp": "2026-05-15T13:40:41.948627+00:00"
+    },
+    {
+      "domain": "sunnyray.org",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : sunnyray.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : sunnyray.org"
+        }
+      },
+      "timestamp": "2026-05-15T13:40:49.842733+00:00"
+    },
+    {
+      "domain": "globalgeopark.org",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : globalgeopark.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : globalgeopark.org"
+        }
+      },
+      "timestamp": "2026-05-15T13:40:58.129809+00:00"
+    },
+    {
+      "domain": "guerrameats.com",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : guerrameats.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : guerrameats.com"
+        }
+      },
+      "timestamp": "2026-05-15T13:41:05.827600+00:00"
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : goodglammgroup.com",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : goodglammgroup.com"
+        }
+      },
+      "timestamp": "2026-05-15T13:41:13.542320+00:00"
+    },
+    {
+      "domain": "sendy.co",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : sendy.co",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : sendy.co"
+        }
+      },
+      "timestamp": "2026-05-15T13:41:21.275193+00:00"
+    },
+    {
+      "domain": "readingfoundation.org",
+      "status": "failed",
+      "error": "could not find backorder fot this domain : readingfoundation.org",
+      "raw_response": {
+        "AddBackorderRequestResponse": {
+          "ResponseCode": "-1",
+          "Status": "error",
+          "Error": "could not find backorder fot this domain : readingfoundation.org"
+        }
+      },
+      "timestamp": "2026-05-15T13:41:29.090658+00:00"
+    }
+  ]
+}

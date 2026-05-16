@@ -1,0 +1,445 @@
+{
+  "report_date": "2026-05-06",
+  "agent": "RADIOGRAPH",
+  "sprint": 3,
+  "analysis_type": "Deep Backlink Quality Analysis",
+  "methodology": "Web search cross-referencing, GitHub code search, WHOIS/DNS verification, site: searches on major publications, Wayback analysis",
+  "data_limitations": [
+    "No paid SEO tool access -- DR/TF/CF values are estimates",
+    "Free tools (OpenLinkProfiler, Ahrefs Free, Majestic) blocked by JS rendering requirements",
+    "Backlink counts are estimates from web search, not comprehensive crawl data"
+  ],
+  "domains": [
+    {
+      "domain": "builder.ai",
+      "niche": "AI/No-Code Development",
+      "status": "bankrupt_insolvency",
+      "dns_resolving": false,
+      "ssl_status": "broken",
+      "registrar": "101domain.com",
+      "created": "2018-06-04",
+      "expires": "2026-06-04",
+      "days_until_expiry": 29,
+      "dr_estimate": "70-80",
+      "tf_estimate": "35-45",
+      "cf_estimate": "40-50",
+      "referring_domains_estimate": "5000-15000",
+      "tier1_backlinks": [
+        {"source": "en.wikipedia.org", "type": "dedicated_article", "dr": 95},
+        {"source": "techcrunch.com", "type": "editorial_coverage", "articles": 3, "dr": 93},
+        {"source": "bloomberg.com", "type": "editorial_coverage", "articles": 6, "dr": 95},
+        {"source": "theregister.com", "type": "editorial_coverage", "articles": 1, "dr": 85},
+        {"source": "ft.com", "type": "editorial_coverage", "articles": 1, "dr": 93},
+        {"source": "wsj.com", "type": "editorial_coverage", "articles": 1, "dr": 95},
+        {"source": "news.ycombinator.com", "type": "community_discussion", "dr": 90}
+      ],
+      "tier2_backlinks": [
+        {"source": "medium.com", "type": "editorial", "articles": 10},
+        {"source": "inc42.com", "type": "editorial", "articles": 3},
+        {"source": "dev.to", "type": "community", "articles": 2},
+        {"source": "restofworld.org", "type": "editorial", "articles": 2},
+        {"source": "devops.com", "type": "editorial", "articles": 1},
+        {"source": "beam.ai", "type": "editorial", "articles": 1},
+        {"source": "codekeeper.co", "type": "editorial", "articles": 2},
+        {"source": "mobileworldlive.com", "type": "editorial", "articles": 1},
+        {"source": "tracxn.com", "type": "company_profile", "articles": 1},
+        {"source": "crunchbase.com", "type": "company_profile", "articles": 1}
+      ],
+      "spam_percentage": 2,
+      "quality_score": 92,
+      "red_flags": [
+        "fraud_scandal_association",
+        "insolvency_asset_lockup",
+        "negative_brand_sentiment",
+        "ssl_broken",
+        "criminal_investigation"
+      ],
+      "verdict": "BUY_CONDITIONAL",
+      "acquisition_risk": "HIGH",
+      "estimated_value": "$5000-$25000+"
+    },
+    {
+      "domain": "devhub.io",
+      "niche": "Developer Tools Directory",
+      "status": "for_sale_afternic",
+      "dns_resolving": true,
+      "registrar": "Dynadot",
+      "created": "2016-10-17",
+      "expires": "2026-10-17",
+      "days_until_expiry": 164,
+      "dr_estimate": "40-55",
+      "tf_estimate": "20-30",
+      "cf_estimate": "25-35",
+      "referring_domains_estimate": "500-2000",
+      "tier1_backlinks": [
+        {"source": "ethereum.org", "type": "resource_listing", "dr": 90},
+        {"source": "github.com", "type": "organization_profile", "dr": 95}
+      ],
+      "tier2_backlinks": [
+        {"source": "github.com (READMEs)", "type": "resource_mentions", "count": 30},
+        {"source": "developer bookmark collections", "type": "curated_lists", "count": 5},
+        {"source": "arduino library docs", "type": "documentation", "count": 1}
+      ],
+      "spam_percentage": 5,
+      "quality_score": 62,
+      "red_flags": [
+        "afternic_premium_pricing",
+        "brand_confusion_with_devhubapp"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$2000-$10000"
+    },
+    {
+      "domain": "reali.com",
+      "niche": "Real Estate/Fintech",
+      "status": "defunct_held_by_liquidator",
+      "dns_resolving": true,
+      "registrar": "Amazon Registrar",
+      "created": "2002-09-22",
+      "expires": "2026-09-22",
+      "days_until_expiry": 139,
+      "dr_estimate": "50-65",
+      "tf_estimate": "25-35",
+      "cf_estimate": "30-40",
+      "referring_domains_estimate": "1000-5000",
+      "tier1_backlinks": [
+        {"source": "techcrunch.com", "type": "editorial_coverage", "articles": 1, "dr": 93}
+      ],
+      "tier2_backlinks": [
+        {"source": "housingwire.com", "type": "editorial", "articles": 1},
+        {"source": "therealdeal.com", "type": "editorial", "articles": 1},
+        {"source": "commercialobserver.com", "type": "editorial", "articles": 1},
+        {"source": "finance.yahoo.com", "type": "editorial", "articles": 1},
+        {"source": "prnewswire.com", "type": "press_release", "articles": 1},
+        {"source": "calcalistech.com", "type": "editorial", "articles": 1}
+      ],
+      "spam_percentage": 3,
+      "quality_score": 55,
+      "red_flags": [
+        "held_by_liquidator",
+        "still_resolving"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$3000-$15000"
+    },
+    {
+      "domain": "apitools.com",
+      "niche": "API Developer Tools",
+      "status": "parked",
+      "dns_resolving": true,
+      "registrar": "Dynadot",
+      "created": "2020-12-14",
+      "expires": "2026-12-14",
+      "days_until_expiry": 222,
+      "dr_estimate": "35-50",
+      "tf_estimate": "18-25",
+      "cf_estimate": "22-30",
+      "referring_domains_estimate": "300-1000",
+      "tier1_backlinks": [
+        {"source": "redhat.com/docs", "type": "documentation", "dr": 92},
+        {"source": "infoq.com", "type": "editorial_coverage", "dr": 80}
+      ],
+      "tier2_backlinks": [
+        {"source": "thenextweb.com", "type": "editorial", "articles": 1},
+        {"source": "prweb.com", "type": "press_release", "articles": 1},
+        {"source": "apievangelist.com", "type": "editorial", "articles": 1},
+        {"source": "konghq.com", "type": "resource_listing", "articles": 1},
+        {"source": "slideshare.net", "type": "presentation", "articles": 1},
+        {"source": "drupal.org", "type": "module_reference", "articles": 1},
+        {"source": "github.com", "type": "org_repos", "count": 14}
+      ],
+      "spam_percentage": 5,
+      "quality_score": 52,
+      "red_flags": [
+        "domain_drop_reset_2020",
+        "parked_monetized",
+        "10yr_backlink_decay"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$500-$3000"
+    },
+    {
+      "domain": "sparkpeople.com",
+      "niche": "Health/Fitness",
+      "status": "defunct_still_resolving",
+      "dns_resolving": true,
+      "registrar": "GoDaddy",
+      "created": "1999-11-03",
+      "expires": "2026-11-03",
+      "days_until_expiry": 181,
+      "dr_estimate": "35-50",
+      "tf_estimate": "20-30",
+      "cf_estimate": "25-35",
+      "referring_domains_estimate": "500-3000",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [
+        {"source": "health/fitness community sites", "type": "community_links", "count": "unknown"}
+      ],
+      "spam_percentage": "unknown",
+      "quality_score": 40,
+      "red_flags": [
+        "still_resolving",
+        "unknown_backlink_profile"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$2000-$8000"
+    },
+    {
+      "domain": "fitocracy.com",
+      "niche": "Health/Fitness",
+      "status": "offline_since_aug_2024",
+      "dns_resolving": true,
+      "registrar": "GoDaddy",
+      "created": "2007-09-07",
+      "expires": "2026-09-07",
+      "days_until_expiry": 124,
+      "dr_estimate": "30-45",
+      "tf_estimate": "15-25",
+      "cf_estimate": "20-30",
+      "referring_domains_estimate": "200-1500",
+      "tier1_backlinks": [
+        {"source": "en.wikipedia.org", "type": "wikipedia_article", "dr": 95}
+      ],
+      "tier2_backlinks": [
+        {"source": "fitness blogs", "type": "niche_coverage", "count": "multiple"},
+        {"source": "app review sites", "type": "product_reviews", "count": "multiple"},
+        {"source": "tech media", "type": "startup_coverage", "count": "multiple"}
+      ],
+      "spam_percentage": 5,
+      "quality_score": 35,
+      "red_flags": [
+        "still_resolving_on_godaddy",
+        "may_be_auto_renewed"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$1000-$5000"
+    },
+    {
+      "domain": "noogata.com",
+      "niche": "AI/Enterprise Analytics",
+      "status": "defunct_2025",
+      "dns_resolving": true,
+      "registrar": "GoDaddy",
+      "created": "2019-04-28",
+      "expires": "2027-04-28",
+      "days_until_expiry": 357,
+      "dr_estimate": "25-40",
+      "tf_estimate": "12-20",
+      "cf_estimate": "15-25",
+      "referring_domains_estimate": "100-500",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [
+        {"source": "tech/enterprise media", "type": "startup_coverage", "count": "unknown"}
+      ],
+      "spam_percentage": "unknown",
+      "quality_score": 30,
+      "red_flags": [
+        "still_resolving",
+        "expires_2027"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$500-$3000"
+    },
+    {
+      "domain": "codeparrot.ai",
+      "niche": "AI Dev Tools",
+      "status": "defunct_yc_startup_2025",
+      "dns_resolving": true,
+      "registrar": "GoDaddy",
+      "created": "2022-12-26",
+      "expires": "2026-12-26",
+      "days_until_expiry": 234,
+      "dr_estimate": "15-30",
+      "tf_estimate": "8-15",
+      "cf_estimate": "10-18",
+      "referring_domains_estimate": "50-300",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [
+        {"source": "YC/HN ecosystem", "type": "startup_coverage", "count": "unknown"},
+        {"source": "github.com", "type": "repos", "count": "unknown"}
+      ],
+      "spam_percentage": "unknown",
+      "quality_score": 25,
+      "red_flags": [
+        "still_resolving",
+        "short_domain_history"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$200-$1500"
+    },
+    {
+      "domain": "locale.ai",
+      "niche": "AI/Geospatial",
+      "status": "defunct_2025",
+      "dns_resolving": true,
+      "registrar": "Namecheap",
+      "created": "2019-01-29",
+      "expires": "2027-01-29",
+      "days_until_expiry": 268,
+      "dr_estimate": "15-25",
+      "tf_estimate": "8-15",
+      "cf_estimate": "10-18",
+      "referring_domains_estimate": "50-200",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [],
+      "spam_percentage": "unknown",
+      "quality_score": 20,
+      "red_flags": [
+        "narrow_niche",
+        "still_resolving"
+      ],
+      "verdict": "SKIP",
+      "estimated_value": "$200-$1000"
+    },
+    {
+      "domain": "prompttools.com",
+      "niche": "AI/Prompt Engineering",
+      "status": "ssl_expired",
+      "dns_resolving": true,
+      "registrar": "PublicDomainRegistry",
+      "created": "2000-07-18",
+      "expires": "2026-07-18",
+      "days_until_expiry": 73,
+      "dr_estimate": "15-30",
+      "tf_estimate": "8-15",
+      "cf_estimate": "10-18",
+      "referring_domains_estimate": "30-150",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [
+        {"source": "learnprompting.org", "type": "documentation_mention", "count": 1}
+      ],
+      "spam_percentage": "unknown",
+      "quality_score": 18,
+      "red_flags": [
+        "trademark_conflict_with_hegel_ai",
+        "ssl_expired",
+        "brand_confusion_with_prompttools_dev"
+      ],
+      "verdict": "SKIP",
+      "estimated_value": "$500-$2000"
+    },
+    {
+      "domain": "codeguide.com",
+      "niche": "Developer Guides",
+      "status": "dns_not_resolving",
+      "dns_resolving": false,
+      "registrar": "InterNetX",
+      "created": "2001-06-07",
+      "expires": "2026-06-07",
+      "days_until_expiry": 32,
+      "dr_estimate": "15-25",
+      "tf_estimate": "10-15",
+      "cf_estimate": "12-18",
+      "referring_domains_estimate": "50-200",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [],
+      "spam_percentage": "unknown",
+      "quality_score": 15,
+      "red_flags": [
+        "dns_not_resolving",
+        "brand_confusion_with_codeguide_co_and_dev"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$500-$3000"
+    },
+    {
+      "domain": "bestdevtools.com",
+      "niche": "Developer Tools",
+      "status": "dns_not_resolving",
+      "dns_resolving": false,
+      "registrar": "1API",
+      "created": "2014-05-22",
+      "expires": "2026-05-22",
+      "days_until_expiry": 16,
+      "dr_estimate": "10-20",
+      "tf_estimate": "5-12",
+      "cf_estimate": "8-15",
+      "referring_domains_estimate": "20-100",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [],
+      "spam_percentage": "unknown",
+      "quality_score": 10,
+      "red_flags": [
+        "dns_not_resolving",
+        "no_confirmed_backlinks"
+      ],
+      "verdict": "WATCH",
+      "estimated_value": "$10-$50"
+    },
+    {
+      "domain": "aidevtools.com",
+      "niche": "AI Developer Tools",
+      "status": "expires_today",
+      "dns_resolving": true,
+      "registrar": "NameSilo",
+      "created": "2022-05-06",
+      "expires": "2026-05-06",
+      "days_until_expiry": 0,
+      "dr_estimate": "0-5",
+      "tf_estimate": "0-3",
+      "cf_estimate": "0-5",
+      "referring_domains_estimate": "0-5",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [],
+      "spam_percentage": 0,
+      "quality_score": 5,
+      "keyword_value_score": 85,
+      "red_flags": [
+        "no_backlink_history",
+        "never_had_active_website"
+      ],
+      "verdict": "BUY_KEYWORD",
+      "estimated_value": "$10-$15"
+    },
+    {
+      "domain": "launchable.io",
+      "niche": "Startup Tools",
+      "status": "parked_park_io",
+      "dns_resolving": true,
+      "registrar": "Humbly LLC",
+      "created": "2021-04-10",
+      "expires": "2027-04-10",
+      "days_until_expiry": 339,
+      "dr_estimate": "5-15",
+      "tf_estimate": "3-8",
+      "cf_estimate": "5-10",
+      "referring_domains_estimate": "10-50",
+      "tier1_backlinks": [],
+      "tier2_backlinks": [
+        {"source": "news.ycombinator.com", "type": "community", "count": 1}
+      ],
+      "spam_percentage": 0,
+      "quality_score": 3,
+      "red_flags": [
+        "thin_profile",
+        "5yr_decay",
+        "parked_premium_pricing"
+      ],
+      "verdict": "SKIP",
+      "estimated_value": "$200-$1000"
+    }
+  ],
+  "timing_alerts": [
+    {"domain": "aidevtools.com", "expires": "2026-05-06", "urgency": "CRITICAL", "action": "backorder_now"},
+    {"domain": "bestdevtools.com", "expires": "2026-05-22", "urgency": "HIGH", "action": "monitor_drop"},
+    {"domain": "builder.ai", "expires": "2026-06-04", "urgency": "HIGH", "action": "contact_insolvency_administrator"},
+    {"domain": "codeguide.com", "expires": "2026-06-07", "urgency": "HIGH", "action": "monitor_drop"},
+    {"domain": "prompttools.com", "expires": "2026-07-18", "urgency": "MEDIUM", "action": "monitor"},
+    {"domain": "fitocracy.com", "expires": "2026-09-07", "urgency": "MEDIUM", "action": "monitor_godaddy"},
+    {"domain": "reali.com", "expires": "2026-09-22", "urgency": "MEDIUM", "action": "monitor"},
+    {"domain": "devhub.io", "expires": "2026-10-17", "urgency": "LOW", "action": "request_afternic_pricing"},
+    {"domain": "sparkpeople.com", "expires": "2026-11-03", "urgency": "LOW", "action": "monitor_godaddy"},
+    {"domain": "apitools.com", "expires": "2026-12-14", "urgency": "LOW", "action": "contact_owner"},
+    {"domain": "codeparrot.ai", "expires": "2026-12-26", "urgency": "LOW", "action": "monitor_godaddy"}
+  ],
+  "niche_summary": {
+    "ai_dev_tools": {"domains_found": 7, "quality": "HIGH", "top_domain": "builder.ai"},
+    "finance": {"domains_found": 2, "quality": "MEDIUM", "top_domain": "reali.com"},
+    "health_fitness": {"domains_found": 2, "quality": "MEDIUM", "top_domain": "sparkpeople.com"},
+    "cooking_food": {"domains_found": 1, "quality": "LOW", "top_domain": "food52.com (still operating)"},
+    "real_estate": {"domains_found": 1, "quality": "MEDIUM", "top_domain": "reali.com"},
+    "education": {"domains_found": 0, "quality": "NONE", "top_domain": null},
+    "photography": {"domains_found": 0, "quality": "NONE", "top_domain": null},
+    "marketing_seo": {"domains_found": 0, "quality": "NONE", "top_domain": null}
+  }
+}

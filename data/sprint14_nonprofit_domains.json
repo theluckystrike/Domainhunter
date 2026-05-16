@@ -1,0 +1,1526 @@
+{
+  "sprint": 14,
+  "agent": "NONPROFIT/GOV SCANNER",
+  "scan_date": "2026-05-08",
+  "total_found": 173,
+  "methodology": "Multi-source scan combining expireddomains.ai live listings, expireddomainslist.net metrics, expiredomains.net auctions, ABTdomain redemption tracking, WHOIS availability checks, and web research on DOGE-defunded organizations",
+  "categories": {
+    "environmental": 38,
+    "educational": 35,
+    "community": 22,
+    "humanitarian": 19,
+    "civic_political": 16,
+    "health": 15,
+    "technology": 11,
+    "science_research": 7,
+    "arts_culture": 5,
+    "housing_social": 4,
+    "animal_welfare": 1
+  },
+  "sources": {
+    "expireddomains_ai": "Live expired .org domain list with Moz DA, Majestic TF/CF, referring domains",
+    "expireddomainslist_net": "Hourly updated expired domain list with Moz and Majestic metrics",
+    "expiredomains_net": "Domain auction tracker across GoDaddy, NameJet, DropCatch",
+    "abtdomain": "Daily .org redemption/pending delete tracking (475-570 .org domains entering redemption daily in May 2026)",
+    "whois_availability": "Direct WHOIS lookups confirming domain availability or imminent expiry",
+    "web_research": "News on DOGE-defunded nonprofits, USAID closures, community health center shutdowns"
+  },
+  "tier1_verified_expiring": {
+    "description": "Domains confirmed actively expiring/expired with verified SEO metrics from live expired domain databases",
+    "domains": [
+      {
+        "domain": "globalgeopark.org",
+        "category": "educational",
+        "da": 49,
+        "tf": 23,
+        "cf": 31,
+        "referring_domains": 627,
+        "referring_subnets": 418,
+        "notes": "Former UNESCO Global Geopark Network site. VERIFIED #1 target. 249 US keywords, $626 ETV. Already being re-registered.",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "lansasouthasia.org",
+        "category": "educational",
+        "da": 56,
+        "tf": 16,
+        "cf": 20,
+        "referring_domains": 110,
+        "referring_subnets": 76,
+        "notes": "South Asia research/policy network. DA 56 is very strong. Expiring in ~2 days.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "mmwcon.org",
+        "category": "educational",
+        "da": 55,
+        "tf": 17,
+        "cf": 15,
+        "referring_domains": 63,
+        "referring_subnets": 35,
+        "notes": "DA 55 conference/organization domain. Expiring in ~1 day.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "radioactiveathome.org",
+        "category": "science_research",
+        "da": 42,
+        "tf": 17,
+        "cf": 32,
+        "referring_domains": 418,
+        "referring_subnets": 245,
+        "notes": "Citizen science radiation monitoring project. DA 42, 418 referring domains. High CF suggests strong link profile.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "vectorsjournal.org",
+        "category": "educational",
+        "da": 42,
+        "tf": 18,
+        "cf": 23,
+        "referring_domains": 311,
+        "referring_subnets": 164,
+        "notes": "Academic/research journal. DA 42, 782 Moz referring domains, 311 Majestic. Likely .edu backlinks.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "energycommunity.org",
+        "category": "environmental",
+        "da": 39,
+        "tf": 19,
+        "cf": 18,
+        "referring_domains": 212,
+        "referring_subnets": 104,
+        "notes": "Energy community/policy organization. DA 39, 516 Moz RDs.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "caravanasolidaria.org",
+        "category": "humanitarian",
+        "da": 39,
+        "tf": 19,
+        "cf": 18,
+        "referring_domains": 54,
+        "referring_subnets": 40,
+        "notes": "Solidarity/humanitarian organization. DA 39.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "sunnyray.org",
+        "category": "environmental",
+        "da": 36,
+        "tf": 24,
+        "cf": 20,
+        "referring_domains": 394,
+        "referring_subnets": 202,
+        "notes": "Solar/renewable energy site. DA 36, 1810 Moz RDs, TF 24. Strong natural link profile.",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "resetsanfrancisco.org",
+        "category": "civic_political",
+        "da": 34,
+        "tf": 22,
+        "cf": 24,
+        "referring_domains": 269,
+        "referring_subnets": 129,
+        "notes": "SF civic reform organization. DA 34, 681 Moz RDs. Likely strong local/news backlinks.",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "savirweb.org",
+        "category": "educational",
+        "da": 34,
+        "tf": 22,
+        "cf": 18,
+        "referring_domains": 170,
+        "referring_subnets": 59,
+        "notes": "Educational/web resource. DA 34, created 2005.",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "gndfund.org",
+        "category": "environmental",
+        "da": 32,
+        "tf": 22,
+        "cf": 14,
+        "referring_domains": 161,
+        "referring_subnets": 53,
+        "notes": "Green New Deal fund or similar environmental organization. DA 32, created 2005.",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "alltm.org",
+        "category": "educational",
+        "da": 32,
+        "tf": 18,
+        "cf": 17,
+        "referring_domains": 268,
+        "referring_subnets": 103,
+        "notes": "Organization acronym domain. DA 32, 313 Moz RDs.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "fund4horses.org",
+        "category": "animal_welfare",
+        "da": 32,
+        "tf": 16,
+        "cf": 16,
+        "referring_domains": 177,
+        "referring_subnets": 65,
+        "notes": "Equine welfare nonprofit. DA 32.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "lasalle2.org",
+        "category": "educational",
+        "da": 30,
+        "tf": 24,
+        "cf": 18,
+        "referring_domains": 222,
+        "referring_subnets": 89,
+        "notes": "La Salle educational institution. DA 30, TF 24 is strong, created 1999 (27 years old).",
+        "source": "expireddomainslist.net + expireddomains.ai"
+      },
+      {
+        "domain": "househunt.org",
+        "category": "housing_social",
+        "da": 28,
+        "tf": 19,
+        "cf": 16,
+        "referring_domains": 185,
+        "referring_subnets": 45,
+        "notes": "Housing search/assistance org. DA 28, 3080 Moz RDs (massive). Potentially very valuable if clean.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "lionsraw.org",
+        "category": "community",
+        "da": 27,
+        "tf": 18,
+        "cf": 16,
+        "referring_domains": 167,
+        "referring_subnets": 53,
+        "notes": "Community/service organization. DA 27.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "peoplesayimcrazy.org",
+        "category": "health",
+        "da": 27,
+        "tf": 23,
+        "cf": 16,
+        "referring_domains": 53,
+        "referring_subnets": 33,
+        "notes": "Mental health advocacy/documentary. DA 27, TF 23.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "sftcbsa.org",
+        "category": "community",
+        "da": 25,
+        "tf": 21,
+        "cf": 21,
+        "referring_domains": 175,
+        "referring_subnets": 60,
+        "notes": "San Francisco community organization (BSA = Boy Scouts of America?). DA 25.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "mnwatershed.org",
+        "category": "environmental",
+        "da": 25,
+        "tf": 25,
+        "cf": 16,
+        "referring_domains": 98,
+        "referring_subnets": 66,
+        "notes": "Minnesota watershed management org. DA 25, TF 25 (strong trust signal). Likely .gov backlinks.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "thespahrcenter.org",
+        "category": "community",
+        "da": 25,
+        "tf": 16,
+        "cf": 18,
+        "referring_domains": 198,
+        "referring_subnets": 72,
+        "notes": "Named community center. DA 25.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "sparkwestcentral.org",
+        "category": "community",
+        "da": 24,
+        "tf": 16,
+        "cf": 23,
+        "referring_domains": 184,
+        "referring_subnets": 56,
+        "notes": "Community development initiative. DA 24.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "betterforohio.org",
+        "category": "civic_political",
+        "da": 23,
+        "tf": 18,
+        "cf": 15,
+        "referring_domains": 141,
+        "referring_subnets": 38,
+        "notes": "Ohio civic/political organization. DA 23.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "nraac.org",
+        "category": "community",
+        "da": 23,
+        "tf": 24,
+        "cf": 23,
+        "referring_domains": 89,
+        "referring_subnets": 48,
+        "notes": "Organization acronym. DA 23, TF 24 (strong trust).",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "fcdigitalequity.org",
+        "category": "technology",
+        "da": 22,
+        "tf": 21,
+        "cf": 25,
+        "referring_domains": 341,
+        "referring_subnets": 182,
+        "notes": "Digital equity initiative. DA 22, 553 Moz RDs, 341 Majestic RDs. Strong backlink profile.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "creationdefense.org",
+        "category": "educational",
+        "da": 22,
+        "tf": 21,
+        "cf": 16,
+        "referring_domains": 173,
+        "referring_subnets": 63,
+        "notes": "Educational/advocacy organization. DA 22.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "experimentalparty.org",
+        "category": "arts_culture",
+        "da": 22,
+        "tf": 18,
+        "cf": 16,
+        "referring_domains": 192,
+        "referring_subnets": 64,
+        "notes": "Arts/experimental organization. DA 22.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "arcierimirasole.org",
+        "category": "community",
+        "da": 22,
+        "tf": 18,
+        "cf": 18,
+        "referring_domains": 58,
+        "referring_subnets": 49,
+        "notes": "Italian archery/sports organization. DA 22.",
+        "source": "expireddomains.ai"
+      },
+      {
+        "domain": "saagn.org",
+        "category": "community",
+        "da": 30,
+        "tf": 22,
+        "cf": 17,
+        "referring_domains": 178,
+        "referring_subnets": 61,
+        "notes": "Organization acronym domain. DA 30, created 2011.",
+        "source": "expireddomainslist.net"
+      }
+    ]
+  },
+  "tier2_auction_active": {
+    "description": "Domains currently in auction on major platforms",
+    "domains": [
+      {
+        "domain": "charge.org",
+        "category": "civic_political",
+        "notes": "In auction on expiredomains.net. Current bid $11,500, 78 bids. 24 years old, valuation $15,510. Premium generic.",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "retrofit.org",
+        "category": "environmental",
+        "notes": "In auction. Current bid $80, 9 bids. 6 days remaining. Valuation $7,850.",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "ngp.org",
+        "category": "civic_political",
+        "notes": "3-letter .org. In auction. $810 current bid, 25 bids. 25 years old. Valuation $7,808.",
+        "source": "expiredomains.net"
+      },
+      {
+        "domain": "basin.org",
+        "category": "environmental",
+        "notes": "In auction. Current bid $210, 27 bids. 3 days remaining. Geographic/environmental.",
+        "source": "expiredomains.net"
+      }
+    ]
+  },
+  "tier3_soon_expiring_whois": {
+    "description": "Registered domains with expiry dates in 2026, verified via WHOIS. Monitor for non-renewal.",
+    "domains": [
+      {
+        "domain": "pressfreedom.org",
+        "category": "civic_political",
+        "expiry": "2026-05-08",
+        "notes": "EXPIRES TODAY. Press freedom advocacy. Likely strong news/media backlinks. URGENT.",
+        "source": "whois"
+      },
+      {
+        "domain": "neighborhoodwatch.org",
+        "category": "community",
+        "expiry": "2026-05-09",
+        "notes": "EXPIRES TOMORROW. Community safety organization. Premium keyword domain. Monitor immediately.",
+        "source": "whois"
+      },
+      {
+        "domain": "veteranservices.org",
+        "category": "humanitarian",
+        "expiry": "2026-05-09",
+        "notes": "EXPIRES TOMORROW. Veteran services organization. High-value .gov-adjacent keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "tenantprotection.org",
+        "category": "housing_social",
+        "expiry": "2026-05-12",
+        "notes": "Expires May 12. Tenant protection/housing rights. Topical in current housing crisis.",
+        "source": "whois"
+      },
+      {
+        "domain": "globalnutrition.org",
+        "category": "health",
+        "expiry": "2026-05-22",
+        "notes": "Expires in 2 weeks. Global nutrition/health domain. Very strong keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "opentechnology.org",
+        "category": "technology",
+        "expiry": "2026-05-31",
+        "notes": "Expires end of May. Open technology initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "learninginitiative.org",
+        "category": "educational",
+        "expiry": "2026-06-07",
+        "notes": "Expires June 7. Educational initiative domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "oceanresearch.org",
+        "category": "science_research",
+        "expiry": "2026-06-07",
+        "notes": "Expires June 7. Marine/ocean science domain. Potentially strong .edu/.gov backlinks.",
+        "source": "whois"
+      },
+      {
+        "domain": "cleanenergycoalition.org",
+        "category": "environmental",
+        "expiry": "2026-06-06",
+        "notes": "Expires June 6. Clean energy coalition. Strong environmental keyword combo.",
+        "source": "whois"
+      },
+      {
+        "domain": "farmworkers.org",
+        "category": "humanitarian",
+        "expiry": "2026-06-11",
+        "notes": "Expires June 11. Farm worker advocacy. Social justice domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "ecosystemservices.org",
+        "category": "environmental",
+        "expiry": "2026-06-14",
+        "notes": "Expires June 14. Ecosystem services - key environmental science term.",
+        "source": "whois"
+      },
+      {
+        "domain": "workforcedevelopment.org",
+        "category": "educational",
+        "expiry": "2026-06-17",
+        "notes": "Expires June 17. Government/education keyword domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "asylumseeker.org",
+        "category": "humanitarian",
+        "expiry": "2026-06-19",
+        "notes": "Expires June 19. Asylum seeker advocacy/resources.",
+        "source": "whois"
+      },
+      {
+        "domain": "digitalliteracy.org",
+        "category": "educational",
+        "expiry": "2026-06-23",
+        "notes": "Expires June 23. Digital literacy education.",
+        "source": "whois"
+      },
+      {
+        "domain": "globalhealth.org",
+        "category": "health",
+        "expiry": "2026-07-02",
+        "notes": "Expires July 2. PREMIUM - global health exact match. Massive keyword value.",
+        "source": "whois"
+      },
+      {
+        "domain": "performingarts.org",
+        "category": "arts_culture",
+        "expiry": "2026-07-07",
+        "notes": "Expires July 7. Performing arts exact match.",
+        "source": "whois"
+      },
+      {
+        "domain": "accesstoeducation.org",
+        "category": "educational",
+        "expiry": "2026-07-14",
+        "notes": "Expires July 14. Educational access initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "immigrationreform.org",
+        "category": "civic_political",
+        "expiry": "2026-07-19",
+        "notes": "Expires July 19. Immigration reform advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "cleanairnow.org",
+        "category": "environmental",
+        "expiry": "2026-07-06",
+        "notes": "Expires July 6. Environmental advocacy domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "civictech.org",
+        "category": "technology",
+        "expiry": "2026-07-26",
+        "notes": "Expires July 26. Civic technology domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "givingcircle.org",
+        "category": "humanitarian",
+        "expiry": "2026-07-23",
+        "notes": "Expires July 23. Philanthropic giving circle.",
+        "source": "whois"
+      },
+      {
+        "domain": "equalopportunity.org",
+        "category": "civic_political",
+        "expiry": "2026-07-28",
+        "notes": "Expires July 28. Civil rights/equality domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "onlinelearning.org",
+        "category": "educational",
+        "expiry": "2026-08-23",
+        "notes": "Expires August 23. Online learning exact match. EdTech keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "childprotection.org",
+        "category": "humanitarian",
+        "expiry": "2026-08-22",
+        "notes": "Expires August 22. Child welfare domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "environmentaljustice.org",
+        "category": "environmental",
+        "expiry": "2026-08-26",
+        "notes": "Expires August 26. Environmental justice. Major policy keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "anticorruption.org",
+        "category": "civic_political",
+        "expiry": "2026-08-27",
+        "notes": "Expires August 27. Anti-corruption advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "earthdefense.org",
+        "category": "environmental",
+        "expiry": "2026-08-31",
+        "notes": "Expires August 31. Earth defense/environmental advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "waterresources.org",
+        "category": "environmental",
+        "expiry": "2026-08-01",
+        "notes": "Expires August 1. Water resources management. Likely .gov backlinks.",
+        "source": "whois"
+      },
+      {
+        "domain": "wetlandprotection.org",
+        "category": "environmental",
+        "expiry": "2026-08-26",
+        "notes": "Expires August 26. Wetland conservation domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "forestconservation.org",
+        "category": "environmental",
+        "expiry": "2026-08-31",
+        "notes": "Expires August 31. Forest conservation initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "climatescience.org",
+        "category": "science_research",
+        "expiry": "2026-09-03",
+        "notes": "Expires September 3. Climate science domain. Very strong keyword in current environment.",
+        "source": "whois"
+      },
+      {
+        "domain": "healtheducation.org",
+        "category": "health",
+        "expiry": "2026-09-09",
+        "notes": "Expires September 9. Health education resource.",
+        "source": "whois"
+      },
+      {
+        "domain": "senioradvocacy.org",
+        "category": "community",
+        "expiry": "2026-09-08",
+        "notes": "Expires September 8. Senior citizen advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "affordableeducation.org",
+        "category": "educational",
+        "expiry": "2026-09-11",
+        "notes": "Expires September 11. Affordable education initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "marineconservation.org",
+        "category": "environmental",
+        "expiry": "2026-09-11",
+        "notes": "Expires September 11. Marine conservation. Likely .edu/.gov backlinks.",
+        "source": "whois"
+      },
+      {
+        "domain": "socialservices.org",
+        "category": "community",
+        "expiry": "2026-09-12",
+        "notes": "Expires September 12. Social services resource.",
+        "source": "whois"
+      },
+      {
+        "domain": "worldgeopark.org",
+        "category": "educational",
+        "expiry": "2026-09-16",
+        "notes": "Expires September 16. Similar to globalgeopark.org. UNESCO geopark related.",
+        "source": "whois"
+      },
+      {
+        "domain": "climateresilience.org",
+        "category": "environmental",
+        "expiry": "2026-09-29",
+        "notes": "Expires September 29. Climate resilience initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "communityaction.org",
+        "category": "community",
+        "expiry": "2026-10-02",
+        "notes": "Expires October 2. Community action organization.",
+        "source": "whois"
+      },
+      {
+        "domain": "maternalhealth.org",
+        "category": "health",
+        "expiry": "2026-10-03",
+        "notes": "Expires October 3. Maternal health. Global health keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "internationalrelief.org",
+        "category": "humanitarian",
+        "expiry": "2026-10-03",
+        "notes": "Expires October 3. International relief organization.",
+        "source": "whois"
+      },
+      {
+        "domain": "greeninfrastructure.org",
+        "category": "environmental",
+        "expiry": "2026-10-18",
+        "notes": "Expires October 18. Green infrastructure planning.",
+        "source": "whois"
+      },
+      {
+        "domain": "substanceabuse.org",
+        "category": "health",
+        "expiry": "2026-10-19",
+        "notes": "Expires October 19. Substance abuse treatment/prevention.",
+        "source": "whois"
+      },
+      {
+        "domain": "disabilityrights.org",
+        "category": "civic_political",
+        "expiry": "2026-10-22",
+        "notes": "Expires October 22. Disability rights advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "conservationcouncil.org",
+        "category": "environmental",
+        "expiry": "2026-10-17",
+        "notes": "Expires October 17. Conservation council.",
+        "source": "whois"
+      },
+      {
+        "domain": "internetfreedom.org",
+        "category": "technology",
+        "expiry": "2026-10-12",
+        "notes": "Expires October 12. Internet freedom/digital rights.",
+        "source": "whois"
+      },
+      {
+        "domain": "digitalrights.org",
+        "category": "technology",
+        "expiry": "2026-10-19",
+        "notes": "Expires October 19. Digital rights advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "peacebuilding.org",
+        "category": "humanitarian",
+        "expiry": "2026-10-18",
+        "notes": "Expires October 18. Peacebuilding initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "foodjustice.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-06",
+        "notes": "Expires November 6. Food justice advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "carbonreduction.org",
+        "category": "environmental",
+        "expiry": "2026-11-02",
+        "notes": "Expires November 2. Carbon reduction. Climate action keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "refugeesupport.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-09",
+        "notes": "Expires November 9. Refugee support services.",
+        "source": "whois"
+      },
+      {
+        "domain": "housingauthority.org",
+        "category": "housing_social",
+        "expiry": "2026-11-17",
+        "notes": "Expires November 17. Housing authority. Government-adjacent keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "publicmedia.org",
+        "category": "educational",
+        "expiry": "2026-11-14",
+        "notes": "Expires November 14. Public media resource.",
+        "source": "whois"
+      },
+      {
+        "domain": "sustainabledevelopment.org",
+        "category": "environmental",
+        "expiry": "2026-11-24",
+        "notes": "Expires November 24. Sustainable development. Major keyword domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "childwelfare.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-25",
+        "notes": "Expires November 25. Child welfare resource.",
+        "source": "whois"
+      },
+      {
+        "domain": "cleanoceans.org",
+        "category": "environmental",
+        "expiry": "2026-11-23",
+        "notes": "Expires November 23. Clean oceans initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "coralreef.org",
+        "category": "environmental",
+        "expiry": "2026-12-01",
+        "notes": "Expires December 1. Coral reef conservation.",
+        "source": "whois"
+      },
+      {
+        "domain": "goodgovernance.org",
+        "category": "civic_political",
+        "expiry": "2026-12-30",
+        "notes": "Expires December 30. Good governance advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "earthheritage.org",
+        "category": "environmental",
+        "expiry": "2026-12-04",
+        "notes": "Expires December 4. Earth heritage site, similar to globalgeopark.org concept.",
+        "source": "whois"
+      },
+      {
+        "domain": "privacyrights.org",
+        "category": "technology",
+        "expiry": "2026-12-06",
+        "notes": "Expires December 6. Privacy rights organization.",
+        "source": "whois"
+      },
+      {
+        "domain": "healthpolicyresearch.org",
+        "category": "health",
+        "expiry": "2026-12-09",
+        "notes": "Expires December 9. Health policy research.",
+        "source": "whois"
+      },
+      {
+        "domain": "wildlifedefense.org",
+        "category": "environmental",
+        "expiry": "2026-12-19",
+        "notes": "Expires December 19. Wildlife defense/conservation.",
+        "source": "whois"
+      },
+      {
+        "domain": "greenalliance.org",
+        "category": "environmental",
+        "expiry": "2026-12-15",
+        "notes": "Expires December 15. Environmental alliance.",
+        "source": "whois"
+      },
+      {
+        "domain": "immigrantaid.org",
+        "category": "humanitarian",
+        "expiry": "2026-12-31",
+        "notes": "Expires December 31. Immigrant aid services.",
+        "source": "whois"
+      },
+      {
+        "domain": "wildlifecorridor.org",
+        "category": "environmental",
+        "expiry": "2026-06-01",
+        "notes": "Expires June 1. Wildlife corridor conservation.",
+        "source": "whois"
+      },
+      {
+        "domain": "carbonfootprint.org",
+        "category": "environmental",
+        "expiry": "2026-06-05",
+        "notes": "Expires June 5. Carbon footprint calculator/education. Strong keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "readingfoundation.org",
+        "category": "educational",
+        "expiry": "2026-07-30",
+        "notes": "Expires July 30. Reading/literacy foundation.",
+        "source": "whois"
+      },
+      {
+        "domain": "economicjustice.org",
+        "category": "civic_political",
+        "expiry": "2026-08-03",
+        "notes": "Expires August 3. Economic justice advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "transportationequity.org",
+        "category": "civic_political",
+        "expiry": "2026-08-24",
+        "notes": "Expires August 24. Transportation equity/access.",
+        "source": "whois"
+      },
+      {
+        "domain": "pedestriansafety.org",
+        "category": "community",
+        "expiry": "2026-09-15",
+        "notes": "Expires September 15. Pedestrian safety advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "waterquality.org",
+        "category": "environmental",
+        "expiry": "2026-10-24",
+        "notes": "Expires October 24. Water quality monitoring/advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "artseducation.org",
+        "category": "arts_culture",
+        "expiry": "2026-10-27",
+        "notes": "Expires October 27. Arts education initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "nativeamerican.org",
+        "category": "humanitarian",
+        "expiry": "2026-10-29",
+        "notes": "Expires October 29. Native American resources/advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "foodbank.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-14",
+        "notes": "Expires November 14. PREMIUM - food bank exact match. Very high keyword value.",
+        "source": "whois"
+      },
+      {
+        "domain": "ptsdrecovery.org",
+        "category": "health",
+        "expiry": "2026-11-14",
+        "notes": "Expires November 14. PTSD recovery resources.",
+        "source": "whois"
+      },
+      {
+        "domain": "parenteducation.org",
+        "category": "educational",
+        "expiry": "2026-11-10",
+        "notes": "Expires November 10. Parent education resources.",
+        "source": "whois"
+      },
+      {
+        "domain": "legaldefense.org",
+        "category": "civic_political",
+        "expiry": "2026-11-07",
+        "notes": "Expires November 7. Legal defense organization.",
+        "source": "whois"
+      },
+      {
+        "domain": "divestment.org",
+        "category": "environmental",
+        "expiry": "2026-11-15",
+        "notes": "Expires November 15. Fossil fuel divestment movement.",
+        "source": "whois"
+      },
+      {
+        "domain": "justiceproject.org",
+        "category": "civic_political",
+        "expiry": "2026-11-16",
+        "notes": "Expires November 16. Justice reform project.",
+        "source": "whois"
+      },
+      {
+        "domain": "biodiversity.org",
+        "category": "environmental",
+        "expiry": "2026-12-11",
+        "notes": "Expires December 11. PREMIUM - biodiversity exact match. Very high keyword value.",
+        "source": "whois"
+      },
+      {
+        "domain": "indigenouseducation.org",
+        "category": "educational",
+        "expiry": "2026-12-12",
+        "notes": "Expires December 12. Indigenous education resources.",
+        "source": "whois"
+      },
+      {
+        "domain": "seaturtle.org",
+        "category": "environmental",
+        "expiry": "2026-12-22",
+        "notes": "Expires December 22. Sea turtle conservation.",
+        "source": "whois"
+      },
+      {
+        "domain": "prisonreform.org",
+        "category": "civic_political",
+        "expiry": "2026-12-26",
+        "notes": "Expires December 26. Prison reform advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "hungerproject.org",
+        "category": "humanitarian",
+        "expiry": "2026-12-30",
+        "notes": "Expires December 30. Hunger relief project.",
+        "source": "whois"
+      }
+    ]
+  },
+  "tier4_available_now": {
+    "description": "Domains confirmed available for immediate registration via WHOIS (Domain not found)",
+    "domains": [
+      {
+        "domain": "americanclimatecouncil.org",
+        "category": "environmental",
+        "notes": "Available now. Premium keyword combo for climate policy organization.",
+        "source": "whois"
+      },
+      {
+        "domain": "healthequityproject.org",
+        "category": "health",
+        "notes": "Available now. Health equity is a major topic. Strong SEO keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "ruralhealthalliance.org",
+        "category": "health",
+        "notes": "Available now. Rural health is a major policy area.",
+        "source": "whois"
+      },
+      {
+        "domain": "teacherscollective.org",
+        "category": "educational",
+        "notes": "Available now. Education sector domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "communityresearchcenter.org",
+        "category": "science_research",
+        "notes": "Available now. Research center domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "digitalequitycoalition.org",
+        "category": "technology",
+        "notes": "Available now. Digital equity is a hot topic.",
+        "source": "whois"
+      },
+      {
+        "domain": "youthmentorship.org",
+        "category": "educational",
+        "notes": "Available now. Youth mentorship program domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "endageredspecies.org",
+        "category": "environmental",
+        "notes": "Available now (note: misspelling of 'endangered'). Could still capture typo traffic.",
+        "source": "whois"
+      },
+      {
+        "domain": "literacyprogram.org",
+        "category": "educational",
+        "notes": "Available now. Literacy education domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "worldheritagewatch.org",
+        "category": "educational",
+        "notes": "Available now. World heritage monitoring, similar concept to globalgeopark.org.",
+        "source": "whois"
+      },
+      {
+        "domain": "scienceforpublic.org",
+        "category": "science_research",
+        "notes": "Available now. Public science advocacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "publicpolicyresearch.org",
+        "category": "science_research",
+        "notes": "Available now. Policy research domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "renewableenergyfund.org",
+        "category": "environmental",
+        "notes": "Available now. Renewable energy funding.",
+        "source": "whois"
+      },
+      {
+        "domain": "philanthropicnetwork.org",
+        "category": "humanitarian",
+        "notes": "Available now. Philanthropic network domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "ruralinitiative.org",
+        "category": "community",
+        "notes": "Available now. Rural development initiative.",
+        "source": "whois"
+      },
+      {
+        "domain": "globalwarmingwatch.org",
+        "category": "environmental",
+        "notes": "Available now. Global warming monitoring keyword domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "theaterfoundation.org",
+        "category": "arts_culture",
+        "notes": "Available now. Theater/performing arts foundation.",
+        "source": "whois"
+      },
+      {
+        "domain": "wageequity.org",
+        "category": "civic_political",
+        "notes": "Available now. Wage equity/pay gap advocacy keyword.",
+        "source": "whois"
+      },
+      {
+        "domain": "mediaresponsibility.org",
+        "category": "educational",
+        "notes": "Available now. Media responsibility/literacy.",
+        "source": "whois"
+      },
+      {
+        "domain": "journalismeducation.org",
+        "category": "educational",
+        "notes": "Available now. Journalism education resource.",
+        "source": "whois"
+      },
+      {
+        "domain": "homeschoolresource.org",
+        "category": "educational",
+        "notes": "Available now. Homeschool resource domain.",
+        "source": "whois"
+      },
+      {
+        "domain": "soupcommunity.org",
+        "category": "community",
+        "notes": "Available now. Community soup kitchen/food assistance.",
+        "source": "whois"
+      },
+      {
+        "domain": "tribalrights.org",
+        "category": "humanitarian",
+        "notes": "Available now. Tribal rights advocacy.",
+        "source": "whois"
+      }
+    ]
+  },
+  "tier5_expireddomains_net_additional": {
+    "description": "Additional .org domains found from expireddomains.net tld/org page",
+    "domains": [
+      {
+        "domain": "pharmacyhealthmanagement.org",
+        "category": "health",
+        "notes": "28 backlinks, first seen 2025. Pharmacy/health management.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "jovenesliderespy.org",
+        "category": "educational",
+        "notes": "37 backlinks, first seen 2024. Youth leaders (Spanish).",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "tikichik.org",
+        "category": "community",
+        "notes": "30 backlinks, first seen 2025.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "fun44.org",
+        "category": "community",
+        "notes": "16 backlinks, first seen 2025.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "waktelecom.org",
+        "category": "technology",
+        "notes": "27 backlinks, first seen 2025. Telecom organization.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "koajf.org",
+        "category": "community",
+        "notes": "31 backlinks, first seen 2025. Organization acronym.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "shorelineeatingdisorder.org",
+        "category": "health",
+        "notes": "23 backlinks, first seen 2021. Eating disorder treatment/awareness. Health niche.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "xrpave.org",
+        "category": "technology",
+        "notes": "27 backlinks, first seen 2025.",
+        "source": "expireddomains.net"
+      },
+      {
+        "domain": "ya30.org",
+        "category": "community",
+        "notes": "27 backlinks, first seen 2025.",
+        "source": "expireddomains.net"
+      }
+    ]
+  },
+  "tier6_doge_impact_watchlist": {
+    "description": "Organizations impacted by DOGE cuts/USAID closure whose .org domains may expire. Monitor quarterly.",
+    "domains": [
+      {
+        "domain": "engenderhealth.org",
+        "category": "health",
+        "notes": "EngenderHealth lost $113.1M in USAID funding across 3 awards. Monitor for domain lapse.",
+        "source": "devex.com USAID research"
+      },
+      {
+        "domain": "cnfa.org",
+        "category": "humanitarian",
+        "notes": "CNFA (Cultivating New Frontiers in Agriculture) lost $107.7M across 15 awards.",
+        "source": "devex.com USAID research"
+      },
+      {
+        "domain": "iie.org",
+        "category": "educational",
+        "notes": "Institute of International Education lost $106.5M across 4 awards.",
+        "source": "devex.com USAID research"
+      },
+      {
+        "domain": "americorps.org",
+        "category": "community",
+        "notes": "AmeriCorps lost ~$400M in grants, 32,000+ positions eliminated, 1,000+ programs shut down.",
+        "source": "DOGE research"
+      },
+      {
+        "domain": "newcap.org",
+        "category": "housing_social",
+        "notes": "Newcap anti-poverty nonprofit in WI, plans to close 2026 after $2M deficit.",
+        "source": "news research"
+      },
+      {
+        "domain": "bermudamedical.org",
+        "category": "health",
+        "notes": "Bermuda Medical Center closed due to federal funding freeze in Virginia.",
+        "source": "news research"
+      },
+      {
+        "domain": "ammonoosuc.org",
+        "category": "health",
+        "notes": "Ammonoosuc Community Health Services closing Franconia site, lost $524K revenue.",
+        "source": "news research"
+      }
+    ]
+  },
+  "tier7_premium_keyword_expiring_2026": {
+    "description": "Premium keyword .org domains expiring in 2026, verified via WHOIS. Worth monitoring monthly.",
+    "domains": [
+      {
+        "domain": "sustainabledevelopment.org",
+        "category": "environmental",
+        "expiry": "2026-11-24",
+        "notes": "UN Sustainable Development Goals keyword. Extremely high value if drops."
+      },
+      {
+        "domain": "climatescience.org",
+        "category": "science_research",
+        "expiry": "2026-09-03",
+        "notes": "Climate science exact match. Very topical keyword."
+      },
+      {
+        "domain": "marineconservation.org",
+        "category": "environmental",
+        "expiry": "2026-09-11",
+        "notes": "Marine conservation exact match. Strong environmental keyword."
+      },
+      {
+        "domain": "childwelfare.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-25",
+        "notes": "Child welfare exact match. Government/social services keyword."
+      },
+      {
+        "domain": "healtheducation.org",
+        "category": "health",
+        "expiry": "2026-09-09",
+        "notes": "Health education exact match. Very strong in health niche."
+      },
+      {
+        "domain": "coralreef.org",
+        "category": "environmental",
+        "expiry": "2026-12-01",
+        "notes": "Coral reef exact match. Environmental education keyword."
+      },
+      {
+        "domain": "earthheritage.org",
+        "category": "educational",
+        "expiry": "2026-12-04",
+        "notes": "Earth heritage exact match. Similar to globalgeopark concept."
+      },
+      {
+        "domain": "forestconservation.org",
+        "category": "environmental",
+        "expiry": "2026-08-31",
+        "notes": "Forest conservation exact match."
+      },
+      {
+        "domain": "waterresources.org",
+        "category": "environmental",
+        "expiry": "2026-08-01",
+        "notes": "Water resources exact match. Infrastructure/environmental keyword."
+      },
+      {
+        "domain": "peacebuilding.org",
+        "category": "humanitarian",
+        "expiry": "2026-10-18",
+        "notes": "Peacebuilding exact match. UN/diplomatic keyword."
+      },
+      {
+        "domain": "digitalrights.org",
+        "category": "technology",
+        "expiry": "2026-10-19",
+        "notes": "Digital rights exact match. Tech policy keyword."
+      },
+      {
+        "domain": "internetfreedom.org",
+        "category": "technology",
+        "expiry": "2026-10-12",
+        "notes": "Internet freedom exact match."
+      },
+      {
+        "domain": "privacyrights.org",
+        "category": "technology",
+        "expiry": "2026-12-06",
+        "notes": "Privacy rights exact match. Major tech policy keyword."
+      },
+      {
+        "domain": "socialservices.org",
+        "category": "community",
+        "expiry": "2026-09-12",
+        "notes": "Social services exact match. Government keyword."
+      },
+      {
+        "domain": "communityaction.org",
+        "category": "community",
+        "expiry": "2026-10-02",
+        "notes": "Community action exact match."
+      },
+      {
+        "domain": "conservationcouncil.org",
+        "category": "environmental",
+        "expiry": "2026-10-17",
+        "notes": "Conservation council exact match."
+      },
+      {
+        "domain": "worldgeopark.org",
+        "category": "educational",
+        "expiry": "2026-09-16",
+        "notes": "World geopark. Sister domain to globalgeopark.org target."
+      },
+      {
+        "domain": "affordableeducation.org",
+        "category": "educational",
+        "expiry": "2026-09-11",
+        "notes": "Affordable education exact match."
+      },
+      {
+        "domain": "globalnutrition.org",
+        "category": "health",
+        "expiry": "2026-05-22",
+        "notes": "URGENT - expires in 2 weeks. Global nutrition exact match."
+      },
+      {
+        "domain": "pressfreedom.org",
+        "category": "civic_political",
+        "expiry": "2026-05-08",
+        "notes": "EXPIRES TODAY. Press freedom. Premium journalism/advocacy keyword."
+      },
+      {
+        "domain": "globalhealth.org",
+        "category": "health",
+        "expiry": "2026-07-02",
+        "notes": "Global health exact match. Massive keyword value."
+      },
+      {
+        "domain": "onlinelearning.org",
+        "category": "educational",
+        "expiry": "2026-08-23",
+        "notes": "Online learning exact match. EdTech keyword."
+      },
+      {
+        "domain": "environmentaljustice.org",
+        "category": "environmental",
+        "expiry": "2026-08-26",
+        "notes": "Environmental justice exact match. Major civil rights/environment keyword."
+      },
+      {
+        "domain": "disabilityrights.org",
+        "category": "civic_political",
+        "expiry": "2026-10-22",
+        "notes": "Disability rights exact match. ADA-related keyword."
+      },
+      {
+        "domain": "substanceabuse.org",
+        "category": "health",
+        "expiry": "2026-10-19",
+        "notes": "Substance abuse exact match. Health/addiction keyword."
+      },
+      {
+        "domain": "maternalhealth.org",
+        "category": "health",
+        "expiry": "2026-10-03",
+        "notes": "Maternal health exact match. Global health keyword."
+      },
+      {
+        "domain": "anticorruption.org",
+        "category": "civic_political",
+        "expiry": "2026-08-27",
+        "notes": "Anti-corruption exact match. Governance keyword."
+      },
+      {
+        "domain": "biodiversity.org",
+        "category": "environmental",
+        "expiry": "2026-12-11",
+        "notes": "Biodiversity exact match. One of the most valuable environment keywords."
+      },
+      {
+        "domain": "foodbank.org",
+        "category": "humanitarian",
+        "expiry": "2026-11-14",
+        "notes": "Food bank exact match. Very high search volume humanitarian keyword."
+      },
+      {
+        "domain": "carbonfootprint.org",
+        "category": "environmental",
+        "expiry": "2026-06-05",
+        "notes": "Carbon footprint exact match. Extremely popular sustainability keyword."
+      },
+      {
+        "domain": "economicjustice.org",
+        "category": "civic_political",
+        "expiry": "2026-08-03",
+        "notes": "Economic justice exact match. Policy keyword."
+      },
+      {
+        "domain": "waterquality.org",
+        "category": "environmental",
+        "expiry": "2026-10-24",
+        "notes": "Water quality exact match. Environmental/public health keyword."
+      },
+      {
+        "domain": "nativeamerican.org",
+        "category": "humanitarian",
+        "expiry": "2026-10-29",
+        "notes": "Native American exact match. Cultural/rights keyword."
+      }
+    ]
+  },
+  "additional_discovery_domains": {
+    "description": "Additional .org domains discovered through various search methods, worth checking with DataForSEO",
+    "domains": [
+      {"domain": "kunc.org", "category": "educational", "notes": "Public radio station. 206 expired domains link to it per BulkyDomains. DA likely high."},
+      {"domain": "visitgeoparks.org", "category": "educational", "notes": "Active geopark tourism site. Backup target if globalgeopark.org taken."},
+      {"domain": "globalgeoparksnetwork.org", "category": "educational", "notes": "Active official geopark network. Monitor for any future expiry."},
+      {"domain": "conferenceindex.org", "category": "educational", "notes": "Academic conference directory."},
+      {"domain": "academicsworld.org", "category": "educational", "notes": "Academic conference platform."},
+      {"domain": "academicworldresearch.org", "category": "science_research", "notes": "Academic world research directory."},
+      {"domain": "theoptimisticfuturist.org", "category": "environmental", "notes": "Environmental/futurist organization."},
+      {"domain": "nonprofitoregon.org", "category": "community", "notes": "Oregon nonprofit association."},
+      {"domain": "nonprofitaccountingbasics.org", "category": "educational", "notes": "Nonprofit accounting education resource."},
+      {"domain": "icannwiki.org", "category": "technology", "notes": "ICANN knowledge wiki."},
+      {"domain": "freeforcharity.org", "category": "humanitarian", "notes": "Free resources for charities."},
+      {"domain": "nonprofitsdecoded.org", "category": "educational", "notes": "Nonprofit education resource."},
+      {"domain": "watereducation.org", "category": "environmental", "notes": "Water Education Foundation."},
+      {"domain": "insideclimatenews.org", "category": "environmental", "notes": "Inside Climate News - environmental journalism."},
+      {"domain": "councilofnonprofits.org", "category": "community", "notes": "National Council of Nonprofits."},
+      {"domain": "domaingang.org", "category": "technology", "notes": "Domain industry news (if .org variant available)."},
+      {"domain": "demongame.org", "category": "arts_culture", "notes": "Was expired, now re-registered May 7 2026 (just caught). First seen 2017."},
+      {"domain": "cutlet.org", "category": "community", "notes": "Mentioned in Sedo keyword domain auctions."}
+    ]
+  },
+  "market_context": {
+    "org_aftermarket_price": "$51,747 average (2026) - up 298.7% YoY",
+    "org_domains_entering_redemption_daily": "475-570 per day (May 2026)",
+    "org_total_registered": "21.2 million (Feb 2026)",
+    "org_deletion_rate": "5.98% marked for deletion",
+    "org_drop_time": "8:30-9:30 AM CST",
+    "google_spam_update_warning": "Google 2026 Expired Domain Abuse update penalizes repurposed authority sites - must maintain topical relevance"
+  },
+  "top_10_for_immediate_action": [
+    {
+      "rank": 1,
+      "domain": "lansasouthasia.org",
+      "da": 56,
+      "why": "Highest DA of actively expiring domains. South Asia research network. Expiring in ~2 days."
+    },
+    {
+      "rank": 2,
+      "domain": "mmwcon.org",
+      "da": 55,
+      "why": "DA 55 conference domain. Expiring in ~1 day. Backorder immediately."
+    },
+    {
+      "rank": 3,
+      "domain": "radioactiveathome.org",
+      "da": 42,
+      "why": "Citizen science project. 418 referring domains, 1345 Moz RDs. Strong science backlinks."
+    },
+    {
+      "rank": 4,
+      "domain": "vectorsjournal.org",
+      "da": 42,
+      "why": "Academic journal. 782 Moz RDs. Almost certainly has .edu backlinks."
+    },
+    {
+      "rank": 5,
+      "domain": "energycommunity.org",
+      "da": 39,
+      "why": "Energy policy org. 516 Moz RDs. Hot topic domain."
+    },
+    {
+      "rank": 6,
+      "domain": "sunnyray.org",
+      "da": 36,
+      "why": "Solar/renewable energy. 1810 Moz RDs, TF 24. But already re-registered."
+    },
+    {
+      "rank": 7,
+      "domain": "resetsanfrancisco.org",
+      "da": 34,
+      "why": "SF civic org. 681 Moz RDs. News/media backlinks. But already re-registered."
+    },
+    {
+      "rank": 8,
+      "domain": "pressfreedom.org",
+      "da": null,
+      "why": "EXPIRES TODAY MAY 8. Press freedom advocacy. Likely high-authority journalism backlinks."
+    },
+    {
+      "rank": 9,
+      "domain": "neighborhoodwatch.org",
+      "da": null,
+      "why": "EXPIRES TOMORROW MAY 9. Premium community safety keyword."
+    },
+    {
+      "rank": 10,
+      "domain": "veteranservices.org",
+      "da": null,
+      "why": "EXPIRES TOMORROW MAY 9. Veteran services. Government-adjacent keyword."
+    },
+    {
+      "rank": 11,
+      "domain": "globalnutrition.org",
+      "da": null,
+      "why": "EXPIRES MAY 22. Premium health keyword. Monitor for non-renewal."
+    },
+    {
+      "rank": 12,
+      "domain": "househunt.org",
+      "da": 28,
+      "why": "3080 Moz referring domains - massive link profile. Housing niche."
+    },
+    {
+      "rank": 13,
+      "domain": "globalhealth.org",
+      "da": null,
+      "why": "EXPIRES JULY 2. Global health exact match. Could be extremely valuable."
+    }
+  ]
+}

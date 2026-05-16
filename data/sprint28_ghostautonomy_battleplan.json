@@ -1,0 +1,419 @@
+{
+  "domain": "ghostautonomy.com",
+  "created": "2026-05-16",
+  "updated": "2026-05-16",
+  "confidence": 0.92,
+  "status": "ACTIVE_MONITORING",
+
+  "domain_intel": {
+    "registrar": "Wild West Domains (GoDaddy reseller)",
+    "epp_status": "clientRenewProhibited",
+    "expires": "2026-06-07",
+    "trademark_serial": "97448858",
+    "trademark_status": "ABANDONED (never registered)",
+    "company": "Ghost Autonomy Inc.",
+    "company_status": "Dissolved April 3, 2024",
+    "ip_acquirer": "Applied Intuition (patents only, not brand/domain)",
+    "udrp_risk": "LOW",
+    "competition_risk": "LOW (zero trace in investor circles or domain forums)",
+    "domain_authority": 52,
+    "funding_raised": "$220M",
+    "notable_backlinks": "TechCrunch, major tech press",
+    "registrar_confirmed_godaddy_pipeline": true,
+    "note": "Wild West Domains is GoDaddy-owned. All expired domains from 29 GoDaddy-family registrars feed into GoDaddy Auctions via identical timeline."
+  },
+
+  "valuation": {
+    "conservative": "$5,000",
+    "moderate": "$15,000",
+    "aggressive": "$50,000",
+    "basis": "DA 52, $220M funded AI/autonomous driving startup, TechCrunch backlinks, 14-char brandable compound, AI sector premium"
+  },
+
+  "godaddy_expired_domain_timeline": {
+    "source": "GoDaddy Help Article 42743 + NamePros community verification",
+    "note": "All dates calculated from expiry date 2026-06-07. GoDaddy timelines can shift +/- 2 days. Monitor daily.",
+    "day_0": {"date": "2026-06-07", "day_of_week": "Sunday", "event": "Domain EXPIRES"},
+    "days_1_to_18": {"date_range": "2026-06-08 to 2026-06-25", "event": "Auto-renewal window. GoDaddy holds domain. Registrant can renew for free."},
+    "day_19": {"date": "2026-06-26", "event": "Last day registrant can renew for free"},
+    "day_25": {"date": "2026-07-02", "event": "Last redemption with $80 fee"},
+    "day_26": {"date": "2026-07-03", "day_of_week": "Friday", "event": "EXPIRED AUCTION STARTS on GoDaddy Auctions (10-day auction, $25 starting bid)"},
+    "day_35": {"date": "2026-07-12", "day_of_week": "Sunday", "event": "Expired auction ENDS"},
+    "day_36_to_40": {
+      "event": "CLOSEOUT (5-day reverse auction, Buy Now pricing)",
+      "schedule": {
+        "day_1": {"date": "2026-07-13", "day_of_week": "Monday", "price": "$50 + renewal"},
+        "day_2": {"date": "2026-07-14", "day_of_week": "Tuesday", "price": "$40 + renewal"},
+        "day_3": {"date": "2026-07-15", "day_of_week": "Wednesday", "price": "$30 + renewal"},
+        "day_4": {"date": "2026-07-16", "day_of_week": "Thursday", "price": "$11 + renewal"},
+        "day_5": {"date": "2026-07-17", "day_of_week": "Friday", "price": "$5 + renewal"}
+      },
+      "renewal_fee_estimate": "$10.99-$22.99 (.com renewal)",
+      "total_cost_range": "$15.99-$72.99"
+    },
+    "day_41": {"date": "2026-07-18", "day_of_week": "Saturday", "event": "All auctions END. No buyer = domain returned to registry."},
+    "day_42": {"date": "2026-07-19", "event": "Domain released back to registry pool"},
+    "days_43_to_66": {"date_range": "2026-07-20 to 2026-08-12", "event": "Registry redemption grace period (~25 days)"},
+    "days_67_to_71": {"date_range": "2026-08-13 to 2026-08-17", "event": "pendingDelete status (5 days). Domain visible in RDAP/WHOIS as pendingDelete."},
+    "day_72": {"date": "2026-08-18", "day_of_week": "Tuesday", "event": "DOMAIN DROPS. Available for registration/dropcatch."},
+    "warning": "Registry-level dates (pendingDelete, drop) are estimates. Actual dates can vary by +/- 5 days. Monitor RDAP daily from Aug 1."
+  },
+
+  "phase_1_auction": {
+    "name": "GoDaddy Expired Domain Auction",
+    "window_start": "2026-07-03",
+    "window_end": "2026-07-12",
+    "duration_days": 10,
+    "trigger": "Domain listed on auctions.godaddy.com at $25 starting bid",
+    "strategy": {
+      "zero_bidders_by_day_8": {
+        "action": "Place $25 bid on day 8-9 (Jul 10-11). Sniping late avoids triggering price watchers.",
+        "rationale": "14-char branded compound domain. Not a generic keyword. Bot interest is near-zero."
+      },
+      "1_to_3_bidders": {
+        "action": "Use proxy bidding. Set max at $200. Let GoDaddy auto-bid on your behalf.",
+        "rationale": "$200 max is 1-4% of conservative valuation. Discipline matters."
+      },
+      "5_plus_bidders_or_price_above_200": {
+        "action": "WALK AWAY. Do not bid. Wait for Phase 2 or Phase 3.",
+        "rationale": "5+ bidders signals awareness. Closeout or drop will be cheaper."
+      },
+      "hugdomains_bot_assessment": {
+        "risk": "LOW",
+        "rationale": "HugeDomains bots target generic 1-2 word .coms. 'ghostautonomy' is a 14-char branded compound with no generic search volume. Bots skip these."
+      },
+      "auction_snipe_timing": {
+        "optimal_bid_time": "Last 60 seconds of auction",
+        "note": "GoDaddy extends auction by 5 min on last-minute bids. Use proxy bidding to auto-snipe. Do NOT reveal max bid early."
+      }
+    },
+    "cost_range": "$25-$200",
+    "success_probability": "40-60%",
+    "monitoring": {
+      "tool": "sprint27_godaddy_check.py --check-inventory",
+      "frequency": "Daily starting 2026-07-01",
+      "manual_check": "auctions.godaddy.com search for 'ghostautonomy'",
+      "alert_method": "daemon_scheduler.py GoDaddy inventory scan"
+    },
+    "requirements": {
+      "godaddy_account": "Must have GoDaddy Auctions membership ($4.99/yr or included with domain)",
+      "payment_method": "Credit card on file. Payment due within 48 hours of winning.",
+      "transfer_time": "Winner assigned as registrant within 15 days of payment"
+    }
+  },
+
+  "phase_2_closeout": {
+    "name": "GoDaddy Final Closeout (Reverse Auction)",
+    "window_start": "2026-07-13",
+    "window_end": "2026-07-17",
+    "duration_days": 5,
+    "trigger": "Expired auction ended with zero bids. Domain enters closeout with declining Buy Now prices.",
+    "pricing_schedule": [
+      {"day": 1, "date": "2026-07-13", "price": "$50 + renewal (~$11-$23)", "total_est": "$61-$73", "action": "WAIT unless you fear competition"},
+      {"day": 2, "date": "2026-07-14", "price": "$40 + renewal", "total_est": "$51-$63", "action": "WAIT"},
+      {"day": 3, "date": "2026-07-15", "price": "$30 + renewal", "total_est": "$41-$53", "action": "BUY if nervous about competition"},
+      {"day": 4, "date": "2026-07-16", "price": "$11 + renewal", "total_est": "$22-$34", "action": "BUY — sweet spot (best value vs risk)"},
+      {"day": 5, "date": "2026-07-17", "price": "$5 + renewal", "total_est": "$16-$28", "action": "BUY immediately if still available (cheapest possible)"}
+    ],
+    "strategy": {
+      "recommended": "Buy on Day 4 ($11 + renewal). This is the optimal value-vs-risk point. Day 5 saves $6 but risks someone else buying on Day 4.",
+      "aggressive": "Buy on Day 1 ($50 + renewal) if you see any other domain hunters monitoring it.",
+      "patient": "Wait for Day 5 ($5 + renewal). For a branded domain with zero generic appeal, the risk of someone else buying is very low.",
+      "note": "Closeout is Buy Now — first buyer wins. No bidding war. Speed matters on the day you decide to buy."
+    },
+    "cost_range": "$16-$73",
+    "success_probability": "70-80% (most branded expired domains go unsold at auction and reach closeout)",
+    "monitoring": {
+      "frequency": "Every 4 hours during closeout window (Jul 13-17)",
+      "url": "auctions.godaddy.com/trpSearchResults.aspx?type=closeout",
+      "automation": "sprint27_godaddy_check.py with closeout flag"
+    }
+  },
+
+  "phase_3_pendingdelete": {
+    "name": "Registry Drop (pendingDelete → DropCatch)",
+    "window_start_est": "2026-08-13",
+    "window_end_est": "2026-08-18",
+    "trigger": "Domain enters pendingDelete status at Verisign (.com registry). 5-day countdown to drop.",
+    "detection": {
+      "method": "RDAP query to rdap.verisign.com",
+      "check_field": "statusCode contains 'pendingDelete'",
+      "automation": "daemon_scheduler.py detects pendingDelete → fires alerts + auto-backorder",
+      "frequency": "Daily RDAP checks from 2026-08-01"
+    },
+    "backorder_services": {
+      "dropcatch": {
+        "url": "dropcatch.com",
+        "cost": "$59 (only charged on success)",
+        "catch_rate": "60-80% (industry leader for .com drops)",
+        "action": "Place backorder IMMEDIATELY when pendingDelete detected",
+        "auction_risk": "If multiple backorders exist, domain goes to DropCatch auction (can get expensive)",
+        "discount_club": "$10/domain if you have DropCatch Discount Club membership"
+      },
+      "dynadot": {
+        "url": "dynadot.com/market/backorder",
+        "cost": "$10.99 (only charged on success)",
+        "catch_rate": "1-5% (weaker catch infrastructure for .com)",
+        "action": "Place backorder as cheap insurance. Low cost, low odds.",
+        "api_backorder": true
+      },
+      "snapnames": {
+        "url": "snapnames.com",
+        "cost": "$69+ (auction-based)",
+        "catch_rate": "20-40%",
+        "action": "Place backorder if account is set up. Good secondary option.",
+        "note": "SnapNames domains often go to auction even with single backorder"
+      },
+      "namesilo": {
+        "url": "namesilo.com/market/domain-backorders",
+        "cost": "$14.95 (only charged on success)",
+        "catch_rate": "5-15%",
+        "action": "Place backorder as additional insurance"
+      }
+    },
+    "strategy": {
+      "recommended": "Place backorders on DropCatch + Dynadot + NameSilo = $0 upfront, max $84.94 if all three catch (impossible — only one wins at registry level)",
+      "if_dropcatch_auction": "Set max bid at $200. Walk away above that.",
+      "note": "DropCatch auction bids start at $59 and can escalate. For a DA 52 domain, auction could reach $500-$2,000 if multiple catchers are interested."
+    },
+    "cost_range": "$10.99-$200+ (auction escalation possible)",
+    "success_probability": "Depends on competition. If we're the only backorder: ~80%. If 5+ backorders: ~30% (and price rises).",
+    "monitoring": {
+      "pre_drop": "Daily RDAP checks from Aug 1",
+      "drop_day": "Check DropCatch/Dynadot/SnapNames results within 1 hour of expected drop time",
+      "drop_time_note": "Verisign .com drops typically happen between 2:00-2:30 PM EDT"
+    }
+  },
+
+  "decision_tree": {
+    "scenario_1_win_auction_cheap": {
+      "condition": "Win GoDaddy Expired Auction at $25-$100",
+      "probability": "25-35%",
+      "action": "BEST OUTCOME. Pay within 48 hours. Domain assigned to your GoDaddy account within 15 days.",
+      "total_cost": "$25-$100",
+      "next_step": "Execute post_catch_plan immediately"
+    },
+    "scenario_2_win_auction_at_limit": {
+      "condition": "Win GoDaddy Expired Auction at $100-$200",
+      "probability": "10-15%",
+      "action": "GOOD OUTCOME. Still well below valuation. Pay and proceed.",
+      "total_cost": "$100-$200",
+      "next_step": "Execute post_catch_plan immediately"
+    },
+    "scenario_3_win_closeout": {
+      "condition": "Buy at closeout for $16-$73 (price + renewal)",
+      "probability": "50-60% (conditional on Phase 1 failing)",
+      "action": "GREAT OUTCOME. Cheapest acquisition path. Buy Now = instant.",
+      "total_cost": "$16-$73",
+      "next_step": "Execute post_catch_plan immediately"
+    },
+    "scenario_4_catch_at_drop_solo": {
+      "condition": "Catch via DropCatch/Dynadot at pendingDelete, no competing backorders",
+      "probability": "30-40% (conditional on Phases 1+2 failing)",
+      "action": "GOOD OUTCOME. Pay backorder fee. Domain transferred within 24-48 hours.",
+      "total_cost": "$10.99-$59",
+      "next_step": "Execute post_catch_plan immediately"
+    },
+    "scenario_5_catch_at_drop_auction": {
+      "condition": "Multiple catchers. DropCatch auction starts.",
+      "probability": "15-25% (conditional on Phases 1+2 failing)",
+      "action": "Bid up to $200 max in DropCatch auction. Walk away above $200.",
+      "total_cost": "$59-$200",
+      "next_step": "Execute post_catch_plan if won"
+    },
+    "scenario_6_lose_all_phases": {
+      "condition": "Outbid at all 3 phases or domain renewed by original registrant",
+      "probability": "5-15%",
+      "action": "Accept loss. $0 spent (all services are success-based or Buy Now). Refocus on Tier S domains.",
+      "total_cost": "$0",
+      "next_step": "Archive this plan. Monitor domain for future opportunity."
+    }
+  },
+
+  "risk_analysis": {
+    "risk_1_registrant_renews": {
+      "probability": "5-10%",
+      "detail": "Ghost Autonomy is dissolved. clientRenewProhibited is set. But a former executive, IP acquirer (Applied Intuition), or auto-renewal system could theoretically renew.",
+      "mitigation": "clientRenewProhibited EPP status means registrant explicitly disabled renewal. Renewal is extremely unlikely.",
+      "phase_impact": "Kills all 3 phases. Domain stays registered."
+    },
+    "risk_2_applied_intuition_claims": {
+      "probability": "2-5%",
+      "detail": "Applied Intuition acquired patents. They MIGHT realize the domain has value and attempt to renew or acquire.",
+      "mitigation": "They acquired patents only (confirmed). Trademark is ABANDONED. No brand rights. Even if they wanted the domain, they'd need to register it fresh or buy at auction like everyone else.",
+      "phase_impact": "Could appear as competing bidder in Phase 1 or 3. Would not trigger UDRP (no trademark rights)."
+    },
+    "risk_3_domain_investor_competition": {
+      "probability": "10-20%",
+      "detail": "A domain investor spots DA 52 + TechCrunch backlinks and bids.",
+      "mitigation": "14-char branded compound is unattractive to most investors. No generic keyword value. DA 52 requires SEO knowledge to spot. Zero forum mentions.",
+      "phase_impact": "Price escalation in Phase 1 or Phase 3 auction."
+    },
+    "risk_4_hugdomains_or_bot": {
+      "probability": "5-10%",
+      "detail": "HugeDomains or similar bulk buyer bot auto-bids.",
+      "mitigation": "Bots target generics (1-2 word, high CPC). 'ghostautonomy' has zero CPC, zero search volume. Bot risk is minimal.",
+      "phase_impact": "Nuisance bid in Phase 1. Unlikely to persist to Phase 2/3."
+    },
+    "risk_5_udrp_post_acquisition": {
+      "probability": "1-3%",
+      "detail": "Someone files UDRP after we acquire the domain.",
+      "mitigation": "Trademark serial 97448858 is ABANDONED. Company is dissolved. No living trademark = no UDRP standing. This is the safest possible trademark profile.",
+      "phase_impact": "Post-acquisition only. Extremely unlikely. Would fail on merits."
+    },
+    "overall_risk_rating": "LOW"
+  },
+
+  "post_catch_plan": {
+    "immediate_0_to_1_hour": [
+      "Verify domain is in your registrar account and you have full control",
+      "Transfer DNS to Cloudflare (free plan) — add domain, update nameservers",
+      "Verify DA/backlinks still intact via Ahrefs or Moz (DA can drop during expiry gap)",
+      "Set domain to auto-renew ON with 10-year max renewal",
+      "Enable registrar lock (clientTransferProhibited)",
+      "Enable WHOIS privacy"
+    ],
+    "first_24_hours": [
+      "Deploy topically-aligned landing page (autonomous AI / self-driving tech content)",
+      "Set up Google Search Console and verify ownership",
+      "Submit sitemap.xml to GSC",
+      "Check Wayback Machine for best historical content to reference",
+      "List on Afternic at $15,000 BIN (GoDaddy-integrated, high traffic)",
+      "List on Dan.com at $12,000 BIN (lower commission, installment payments)",
+      "Set up parking page with Sedo or ParkingCrew as backup monetization"
+    ],
+    "first_week": [
+      "Build 3-5 content pages: AI autonomous driving, ghost autonomy concept, self-driving technology",
+      "Publish 1,500+ word pillar article targeting 'autonomous driving technology'",
+      "Monitor GSC for organic impressions/clicks (DA 52 should index within days)",
+      "Check if any existing backlinks are still live (TechCrunch etc)",
+      "Reach out to 2-3 AI/autonomous vehicle companies as potential buyers",
+      "Set up email forwarding (info@ghostautonomy.com, hello@ghostautonomy.com)"
+    ],
+    "first_month": [
+      "Monitor organic traffic recovery trajectory",
+      "Build 2-3 additional backlinks to maintain authority",
+      "Respond to all buyer inquiries within 24 hours",
+      "If no buyer interest, consider developing as full AI content hub",
+      "Track DA/DR weekly — expiry gap typically causes 10-20% DA loss, recovers within 2-3 months"
+    ],
+    "monetization_strategy": {
+      "primary": "FLIP at $5,000-$15,000 to AI/autonomous vehicle company or domain investor",
+      "secondary": "DEVELOP as AI content hub with display ads ($500-$2,000/mo potential with DA 52)",
+      "fallback": "HOLD for 12-24 months. AI sector is booming. Domain value only goes up.",
+      "pricing_logic": {
+        "list_at": "$15,000 (Afternic) / $12,000 (Dan.com)",
+        "accept_at": "$5,000+ (25x-200x acquisition cost)",
+        "decline_below": "$3,000 (hold instead — DA 52 is worth more as developed site)"
+      }
+    }
+  },
+
+  "budget_allocation": {
+    "total_project_budget": "$565.02",
+    "phase_1_reserve": "$200",
+    "phase_2_reserve": "$73",
+    "phase_3_reserve": "$200",
+    "total_reserved_for_ghostautonomy": "$473",
+    "remaining_for_other_domains": "$92.02",
+    "note": "Only ONE phase will cost money — the first to succeed. Phases are sequential, not parallel. Actual spend will be $5-$200, not $473.",
+    "worst_case_spend": "$200 (Phase 1 max bid or Phase 3 DropCatch auction max)",
+    "best_case_spend": "$5 (Phase 2 closeout Day 5) + renewal (~$11-$23) = $16-$28"
+  },
+
+  "calendar": [
+    {"date": "2026-05-16", "action": "Battle plan created and filed", "phase": "PREP", "status": "DONE"},
+    {"date": "2026-06-01", "action": "ACCOUNT PREP: Verify GoDaddy Auctions membership active. Verify DropCatch account. Verify Dynadot account. Payment methods current on all 3.", "phase": "PREP"},
+    {"date": "2026-06-01", "action": "Place DropCatch backorder ($0 upfront, $59 on success). Place Dynadot backorder ($0 upfront, $10.99 on success).", "phase": "PREP"},
+    {"date": "2026-06-07", "action": "DOMAIN EXPIRES. Start daily RDAP checks via daemon_scheduler.py. Verify expiry status.", "phase": "MONITOR"},
+    {"date": "2026-06-20", "action": "Set up GoDaddy Auctions alert for 'ghostautonomy.com'. Bookmark auction search URL.", "phase": "MONITOR"},
+    {"date": "2026-06-26", "action": "Last day registrant can renew for free. If domain status changes to 'ok' in RDAP, plan is DEAD (registrant renewed).", "phase": "MONITOR"},
+    {"date": "2026-07-01", "action": "Begin daily GoDaddy inventory scans via sprint27_godaddy_check.py --check-inventory", "phase": "PHASE_1"},
+    {"date": "2026-07-02", "action": "Last redemption day ($80 fee). After this, domain enters auction pipeline.", "phase": "PHASE_1"},
+    {"date": "2026-07-03", "action": "AUCTION EXPECTED TO START. Check auctions.godaddy.com every 6 hours. Domain listed at $25.", "phase": "PHASE_1"},
+    {"date": "2026-07-03", "action": "IF LISTED: Observe for first 7 days. Do NOT bid early.", "phase": "PHASE_1"},
+    {"date": "2026-07-10", "action": "AUCTION DAY 8: If zero bidders, place $25 bid. If 1-3 bidders, set proxy max at $200.", "phase": "PHASE_1"},
+    {"date": "2026-07-11", "action": "AUCTION DAY 9: Monitor bid activity. Adjust proxy if needed (never exceed $200).", "phase": "PHASE_1"},
+    {"date": "2026-07-12", "action": "AUCTION ENDS. If won: pay within 48 hours. If lost or no auction: prepare for Phase 2.", "phase": "PHASE_1"},
+    {"date": "2026-07-13", "action": "CLOSEOUT DAY 1: Domain listed at $50+renewal Buy Now. WAIT unless you see competition signs.", "phase": "PHASE_2"},
+    {"date": "2026-07-14", "action": "CLOSEOUT DAY 2: Price drops to $40+renewal. Check every 4 hours. WAIT.", "phase": "PHASE_2"},
+    {"date": "2026-07-15", "action": "CLOSEOUT DAY 3: Price drops to $30+renewal. BUY if nervous about competition.", "phase": "PHASE_2"},
+    {"date": "2026-07-16", "action": "CLOSEOUT DAY 4: Price drops to $11+renewal. RECOMMENDED BUY DAY (best value vs risk).", "phase": "PHASE_2"},
+    {"date": "2026-07-17", "action": "CLOSEOUT DAY 5: Price drops to $5+renewal. BUY IMMEDIATELY if still available (cheapest).", "phase": "PHASE_2"},
+    {"date": "2026-07-18", "action": "All auctions END. If unsold, domain released to registry. Confirm DropCatch+Dynadot backorders are active.", "phase": "PHASE_2"},
+    {"date": "2026-07-19", "action": "Domain returned to registry. Begin Phase 3 monitoring.", "phase": "PHASE_3"},
+    {"date": "2026-08-01", "action": "Begin daily RDAP checks for pendingDelete status", "phase": "PHASE_3"},
+    {"date": "2026-08-10", "action": "RDAP checks every 12 hours. pendingDelete expected within 3-8 days.", "phase": "PHASE_3"},
+    {"date": "2026-08-13", "action": "PENDING DELETE EXPECTED (~Day 67). RDAP should show pendingDelete. Confirm all backorders are active.", "phase": "PHASE_3"},
+    {"date": "2026-08-18", "action": "DOMAIN DROP EXPECTED (~Day 72). Check DropCatch/Dynadot/SnapNames for catch results. Verisign drops around 2:00-2:30 PM EDT.", "phase": "PHASE_3"},
+    {"date": "2026-08-19", "action": "If caught: execute post_catch_plan. If DropCatch auction: bid up to $200 max.", "phase": "PHASE_3"},
+    {"date": "2026-08-25", "action": "FINAL DEADLINE. If domain not acquired by now, archive plan and move on.", "phase": "CLOSE"}
+  ],
+
+  "automation_hooks": {
+    "rdap_monitor": {
+      "script": "daemon_scheduler.py",
+      "check": "RDAP query for ghostautonomy.com",
+      "triggers": [
+        {"status_change": "pendingDelete", "action": "ALERT + verify backorders on DropCatch/Dynadot"},
+        {"status_change": "ok (renewed)", "action": "ALERT + archive plan (registrant renewed)"},
+        {"status_change": "redemptionPeriod", "action": "LOG only (expected transition)"}
+      ]
+    },
+    "godaddy_inventory": {
+      "script": "sprint27_godaddy_check.py --check-inventory",
+      "frequency": "Daily from July 1",
+      "trigger": "ghostautonomy.com appears in GoDaddy Auctions inventory"
+    },
+    "dropcatch_backorder": {
+      "service": "DropCatch",
+      "domain": "ghostautonomy.com",
+      "status": "TO_BE_PLACED",
+      "place_by": "2026-06-01"
+    },
+    "dynadot_backorder": {
+      "service": "Dynadot",
+      "domain": "ghostautonomy.com",
+      "status": "TO_BE_PLACED",
+      "place_by": "2026-06-01"
+    }
+  },
+
+  "competitor_watchlist": {
+    "applied_intuition": {
+      "company": "Applied Intuition Inc.",
+      "relationship": "Acquired Ghost Autonomy patents",
+      "threat_level": "LOW",
+      "monitoring": "Watch for any Applied Intuition domain activity or UDRP filings",
+      "note": "Patent acquisition does not confer trademark or domain rights"
+    },
+    "former_executives": {
+      "threat_level": "VERY_LOW",
+      "note": "Company dissolved April 2024. 13+ months cold. Executives have moved on."
+    },
+    "domain_investors": {
+      "threat_level": "LOW-MEDIUM",
+      "monitoring": "Check NamePros, DNForum for any mentions of ghostautonomy.com",
+      "note": "No mentions found as of 2026-05-16. Branded compounds rarely attract investor attention."
+    }
+  },
+
+  "abort_conditions": [
+    "Domain status changes to 'ok' in RDAP (registrant renewed) → ABORT ALL PHASES",
+    "UDRP filed by any party → ABORT and monitor outcome",
+    "GoDaddy Auction price exceeds $200 → ABORT Phase 1, proceed to Phase 2",
+    "Closeout bought by someone else → ABORT Phase 2, proceed to Phase 3",
+    "DropCatch auction exceeds $200 → ABORT Phase 3",
+    "DA drops below 20 during expiry gap → REASSESS valuation before bidding",
+    "Budget drops below $100 total project funds → ABORT and prioritize other acquisitions"
+  ],
+
+  "success_metrics": {
+    "acquisition_cost_target": "Under $100",
+    "acquisition_cost_max": "$200",
+    "roi_at_flip_5k": "25x-200x (depending on acquisition cost)",
+    "roi_at_flip_15k": "75x-600x",
+    "time_to_flip_estimate": "30-180 days",
+    "da_recovery_timeline": "60-90 days post-acquisition for full DA restoration"
+  }
+}

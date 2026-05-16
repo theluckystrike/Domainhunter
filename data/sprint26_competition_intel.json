@@ -1,0 +1,321 @@
+{
+  "generated_at": "2026-05-15T00:00:00+00:00",
+  "pipeline": "sprint26_competition_intel",
+  "agent": "agent7_competition_intelligence",
+  "methodology": {
+    "sources_checked": [
+      "ExpiredDomains.net (site: search for each domain)",
+      "DomCop.com (site: search for each domain)",
+      "NamePros.com forums (targeted searches)",
+      "DNForum.com forums (targeted searches)",
+      "DropCatch/SnapNames (backorder status searches)",
+      "GoDaddy Auctions (auction listing searches)",
+      "General domain investor blog/news searches",
+      "Domain Name Wire",
+      "DN Journal"
+    ],
+    "search_count": 35,
+    "limitation": "ExpiredDomains.net and DomCop require login to view individual domain listings; Google does not index their per-domain pages. Absence from search results does NOT mean absence from their databases — it means no PUBLIC discussion or indexing."
+  },
+  "godaddy_clawback_risk": {
+    "severity": "HIGH",
+    "description": "Active lawsuit (Crisby Studio AB / Prime Loyalty LLC vs GoDaddy) over auction clawbacks of calor.com and butane.com. GoDaddy clawed back domains ~2 months after auction sale, claiming they were 'auctioned in error'. Court in March 2026 allowed discovery into other clawback instances. All 6 of our GoDaddy-registered domains (olive.com, infarm.com, veev.com, ghostautonomy.com, fiskerinc.com, northvolt.com) face this risk if the original registrant or bankruptcy trustee objects during or after the auction.",
+    "source": "https://domainnamewire.com/2026/03/25/court-allows-discovery-into-other-godaddy-auction-clawbacks-in-ongoing-lawsuit/",
+    "mitigation": "Do not invest heavily in development/marketing until 90+ days post-acquisition. Budget for potential clawback loss."
+  },
+  "domains": [
+    {
+      "domain": "olive.com",
+      "priority": 1,
+      "competition_level": "HIGH",
+      "confidence": 0.85,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing found. However, a one-word .com with DA/DR metrics will ABSOLUTELY appear in ExpiredDomains.net database once it enters GoDaddy's expired auction cycle. Every domain pro running keyword alerts for single-word .coms will be notified."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages. Will appear in DomCop's database when it enters expiry cycle."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "No current forum discussion found. But olive.com is a PREMIUM one-word .com — domain investors don't need forum tips to notice this. It will be spotted instantly by automated monitoring systems."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "Cannot verify without platform login. Backorder activity is private until auction starts."
+      },
+      "assessment": "Competition level rated HIGH despite no current public discussion. Rationale: one-word .com domains are the MOST monitored category in domain investing. Every serious domain investor runs automated alerts for single-word .com drops. When olive.com enters GoDaddy's expired auction, expect 50-200+ bidders. The $902M Olive AI shutdown was widely covered by Healthcare Dive, Axios, TechCrunch — domain pros track startup death lists. This domain will NOT fly under any radar.",
+      "expected_auction_price": "$5,000-$50,000+",
+      "strategy": "Set maximum bid. Accept that competition will be fierce. One-word .com is worth $10K+ in any scenario."
+    },
+    {
+      "domain": "infarm.com",
+      "priority": 2,
+      "competition_level": "MEDIUM",
+      "confidence": 0.75,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing. Two-syllable brandable .com will appear in databases when entering expiry cycle."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "No forum discussion found. Infarm bankruptcy covered by Sifted, TechCrunch, FoodBev, but not in domain investor circles specifically."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "Cannot verify without platform login."
+      },
+      "assessment": "MEDIUM competition. 'infarm' is a brandable compound word (.com, 6 chars) but not a dictionary word. It has niche appeal (indoor farming, ag-tech) rather than universal appeal. Automated keyword monitors for 'farm' domains will flag it. The Infarm bankruptcy ($500M raised) was covered but less mainstream than Fisker/Northvolt. Competition will come from ag-tech startups and SEO-focused buyers, not the broad domain investor community.",
+      "expected_auction_price": "$500-$5,000",
+      "strategy": "Moderate bid. Competition likely but manageable for a niche brandable."
+    },
+    {
+      "domain": "veev.com",
+      "priority": 3,
+      "competition_level": "MEDIUM",
+      "confidence": 0.70,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "No domain investor discussion. Veev shutdown covered by TechCrunch, The Real Deal, CB Insights, Builder Online. Note: Veeva Systems (VEEV) is a separate $40B public company — name confusion may attract additional bidders."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "Cannot verify without platform login."
+      },
+      "assessment": "MEDIUM competition. 4-letter .com is valuable by default (4L.com market). 'Veev' is phonetic and brandable. However, the VEEV/Veeva confusion factor could attract speculative bidders hoping to sell to Veeva Systems. The 282 RD is modest. Competition from 4L.com collectors and proptech buyers.",
+      "expected_auction_price": "$1,000-$10,000",
+      "strategy": "Bid aggressively. 4-letter .com with clean pronunciation has inherent value regardless of backlinks."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "priority": 4,
+      "competition_level": "LOW",
+      "confidence": 0.90,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "ZERO forum discussion found anywhere. No domain investor has publicly discussed this domain. Ghost Autonomy's shutdown was covered in venture capital news but not in domain investor circles."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "No public evidence of backorder interest."
+      },
+      "assessment": "LOW competition — our BEST information advantage domain. Rationale: 'ghostautonomy.com' is a 2-word branded domain, not a generic or dictionary term. Domain investors primarily hunt single-word .coms, 4L.coms, and keyword-rich names. A branded compound like 'ghostautonomy' has no SEO keyword value and no obvious resale market. The only buyers would be: (1) someone wanting to rebuild in the autonomous driving space with this specific brand, or (2) backlink-focused SEO buyers targeting the 547 RD. The Jun 7 expiry is imminent. Competition assessment: likely 0-3 other backorders.",
+      "expected_auction_price": "$12-$100",
+      "strategy": "PRIORITY CATCH. Low competition + high backlink value (547 RD from $220M funded company) = best ROI opportunity. Place backorders on DropCatch + SnapNames + NameJet immediately.",
+      "drop_date": "~2026-06-07",
+      "urgency": "CRITICAL — 23 days"
+    },
+    {
+      "domain": "fiskerinc.com",
+      "priority": 5,
+      "competition_level": "MEDIUM-HIGH",
+      "confidence": 0.75,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": true,
+        "notes": "NamePros has a 2009 thread about 'Fisker Dealer .com' and 'Fisker Dealers .com' domains — shows the Fisker brand has been on domainer radar for over a decade. fiske.ai was also listed on NamePros. Fisker bankruptcy was MASSIVELY covered: TechCrunch, SEC filings, CNN, WSJ. Domain pros who track bankruptcy domain opportunities will have this on their radar."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "fiskerinc.com still resolves to Fisker Ocean page per search results. Bankruptcy trustee (Verita Global) managing assets. Domain may be sold as part of bankruptcy estate rather than dropped."
+      },
+      "assessment": "MEDIUM-HIGH competition. The Fisker brand is well-known in automotive circles. The bankruptcy was front-page news. However, 'fiskerinc.com' (not 'fisker.com') limits appeal — it's a corporate suffix domain. The 2,826 RD is strong but the domain name itself is company-specific. Key risk: bankruptcy trustee may sell domain as an asset rather than let it expire, meaning it may never reach public auction. Competition from: automotive domain speculators, potential Fisker brand buyers, SEO link builders.",
+      "expected_auction_price": "$100-$2,000 (if it drops; may be sold privately by trustee)",
+      "strategy": "Monitor but do not over-invest. High chance domain is sold by bankruptcy trustee rather than dropped.",
+      "risk": "Bankruptcy trustee may sell domain privately. GoDaddy clawback risk if trustee objects post-auction."
+    },
+    {
+      "domain": "northvolt.com",
+      "priority": 6,
+      "competition_level": "MEDIUM-HIGH",
+      "confidence": 0.70,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not found in Google-indexed pages."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": true,
+        "notes": "Northvolt bankruptcy was a MAJOR global story: $13B raised, largest Swedish industrial bankruptcy ever. Covered by TechCrunch, Euronews, Reuters, FT. WHOIS shows registry expiry 2027-01-24. Lyten acquired Northvolt's remaining assets in Aug 2025 including manufacturing sites and ALL IP."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "Domain still active (northvolt.com). Critical finding: Lyten acquired Northvolt's IP and assets — the domain may have been included in the acquisition."
+      },
+      "assessment": "MEDIUM-HIGH competition but ACQUISITION RISK. Lyten purchased Northvolt's remaining assets including 'all of its IP' in August 2025. Domain names are typically considered IP assets. There is a significant probability that northvolt.com transferred to Lyten as part of the acquisition and will NOT drop. If it does somehow drop, the Northvolt brand recognition ($13B raised) means heavy competition from brand speculators, battery/EV industry buyers, and domain investors.",
+      "expected_auction_price": "N/A — domain likely acquired by Lyten and will not drop",
+      "strategy": "DEPRIORITIZE. High probability domain was included in Lyten's asset acquisition. Monitor WHOIS for registrant changes but do not place backorders yet.",
+      "risk": "Domain likely transferred to Lyten with other IP assets. Even if it drops, massive global brand recognition = fierce competition."
+    },
+    {
+      "domain": "guerrameats.com",
+      "priority": 7,
+      "competition_level": "NONE",
+      "confidence": 0.95,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not checked (low priority domain)."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "Zero mentions anywhere. Small local business domain with no investor interest."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "No evidence of any interest."
+      },
+      "assessment": "ZERO competition. guerrameats.com is a small local business branded domain. No domain investor tracks local meat company domains. The ETV of $11,376 is based on existing traffic but the domain name itself has zero speculative value. Only competition would be the Guerra family wanting it back or a local competitor.",
+      "expected_auction_price": "$12 (registration fee, if it drops clean)",
+      "strategy": "Easy catch. Place a single backorder on DropCatch. Likely to be the only bidder.",
+      "drop_date": "~2026-06-26"
+    },
+    {
+      "domain": "sunnyray.org",
+      "priority": 8,
+      "competition_level": "LOW",
+      "confidence": 0.90,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not checked (low priority domain)."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "No domain investor discussion. Search confirmed domain shows expired message."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "Domain confirmed expired. Entering grace/redemption/pending delete cycle."
+      },
+      "assessment": "LOW competition. sunnyray.org is a .org domain (less investor interest than .com). The name 'sunnyray' is pleasant but not commercially critical. ETV $2,842 suggests some organic traffic. SEO-focused buyers may notice the backlinks but .org domains get 5-10x less auction attention than equivalent .coms. May attract 1-3 backorders from SEO buyers.",
+      "expected_auction_price": "$12-$50",
+      "strategy": "Easy catch. Place backorder. Low risk, decent backlink value.",
+      "drop_date": "~2026-06-30"
+    },
+    {
+      "domain": "globalgeopark.org",
+      "priority": 9,
+      "competition_level": "NONE",
+      "confidence": 0.95,
+      "expireddomains_net": {
+        "indexed": false,
+        "notes": "No Google-indexed listing."
+      },
+      "domcop": {
+        "indexed": false,
+        "notes": "Not checked (low priority domain)."
+      },
+      "forum_discussion": {
+        "namepros": false,
+        "dnforum": false,
+        "other": false,
+        "notes": "Zero mentions anywhere. Niche geographic/scientific domain."
+      },
+      "backorder_activity": {
+        "detected": false,
+        "notes": "No evidence of any interest."
+      },
+      "assessment": "ZERO competition. Niche .org domain about geoparks. Domain investors do not track this category. ETV $626 is minimal. The only possible competitor would be a geopark organization wanting the domain.",
+      "expected_auction_price": "$12 (registration fee)",
+      "strategy": "Easy catch. Register at drop or place single backorder.",
+      "drop_date": "~2026-07-01"
+    }
+  ],
+  "summary": {
+    "total_domains": 9,
+    "competition_distribution": {
+      "HIGH": 1,
+      "MEDIUM_HIGH": 2,
+      "MEDIUM": 2,
+      "LOW": 2,
+      "NONE": 2
+    },
+    "key_findings": [
+      "NONE of our 9 domains appear in Google-indexed ExpiredDomains.net or DomCop pages — they have not yet entered the public expiry cycle",
+      "ZERO forum discussion found for ANY of our domains on NamePros or DNForum — no domain investor has publicly flagged these",
+      "ghostautonomy.com (our prize domain) has ZERO trace in domain investor circles — maximum information advantage",
+      "olive.com will face fierce competition regardless of current silence — one-word .coms are the most monitored category",
+      "northvolt.com likely acquired by Lyten (bought all Northvolt IP in Aug 2025) — may never drop",
+      "fiskerinc.com managed by bankruptcy trustee (Verita Global) — may be sold privately, not dropped",
+      "GoDaddy clawback lawsuit (calor.com/butane.com) is an active risk for all 6 GoDaddy-registered domains",
+      "guerrameats.com and globalgeopark.org are uncontested — near-certain catches at registration fee",
+      "Our timing advantage: domains are still in clientRenewProhibited status, NOT yet in GoDaddy's expired auction cycle. Once they enter auction, visibility explodes."
+    ],
+    "information_advantage_score": {
+      "ghostautonomy.com": "STRONG — 23 days to drop, zero competition detected, best ROI target",
+      "guerrameats.com": "STRONG — zero competition, guaranteed catch",
+      "globalgeopark.org": "STRONG — zero competition, guaranteed catch",
+      "sunnyray.org": "MODERATE — low competition expected, good odds",
+      "infarm.com": "MODERATE — niche appeal limits competition pool",
+      "veev.com": "WEAK — 4L.com collectors will notice regardless",
+      "olive.com": "NONE — one-word .com, every pro will see it",
+      "fiskerinc.com": "WEAK — high-profile bankruptcy, trustee may sell privately",
+      "northvolt.com": "NONE — likely already acquired by Lyten, may not drop"
+    },
+    "recommended_priority_reorder": [
+      "1. ghostautonomy.com — LOW competition + HIGH value + IMMINENT drop = #1 priority",
+      "2. guerrameats.com — ZERO competition + decent ETV = guaranteed catch",
+      "3. sunnyray.org — LOW competition + good ETV = likely catch",
+      "4. globalgeopark.org — ZERO competition + low ETV = easy catch",
+      "5. infarm.com — MEDIUM competition + good brand = worth fighting for",
+      "6. veev.com — MEDIUM competition + 4L.com value = worth bidding",
+      "7. olive.com — HIGH competition + extreme value = bid but expect to pay",
+      "8. fiskerinc.com — may not drop (trustee sale) + clawback risk",
+      "9. northvolt.com — likely already acquired by Lyten — MONITOR ONLY"
+    ]
+  }
+}

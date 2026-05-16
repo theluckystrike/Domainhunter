@@ -1,0 +1,1352 @@
+{
+  "generated_at": "2026-05-15T13:49:07Z",
+  "endpoint_used": "serp/google/organic/live/regular",
+  "total_cost_usd": 0.3925,
+  "domain_count": 10,
+  "editorial_domain_list": [
+    "arstechnica.com",
+    "bbc.com",
+    "bloomberg.com",
+    "businessinsider.com",
+    "cnbc.com",
+    "crunchbase.com",
+    "engadget.com",
+    "forbes.com",
+    "mashable.com",
+    "nytimes.com",
+    "reuters.com",
+    "techcrunch.com",
+    "thenextweb.com",
+    "theverge.com",
+    "venturebeat.com",
+    "wired.com",
+    "wsj.com",
+    "zdnet.com"
+  ],
+  "note": "Backlinks API returned 40204 (not subscribed). Used SERP API fallback.",
+  "methodology": "3 SERP queries per target: (1) editorial group A site: OR query, (2) editorial group B site: OR query, (3) broad '\"domain\" -site:domain' depth=100. Results cross-referenced against 18 editorial domains.",
+  "results": [
+    {
+      "domain": "humane.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 72,
+      "editorial_domains_found": [
+        "arstechnica.com",
+        "crunchbase.com",
+        "nytimes.com"
+      ],
+      "editorial_count": 3,
+      "editorial_details": [
+        {
+          "domain": "arstechnica.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Report: Humane AI Pin did $7 million in sales, wants to sell ...",
+              "url": "https://arstechnica.com/civis/threads/report-humane-ai-pin-did-7-million-in-sales-wants-to-sell-for-1-billion.1501130/page-2",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Humane - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/humane",
+              "position": 1
+            },
+            {
+              "title": "Financial Details - Humane",
+              "url": "https://www.crunchbase.com/organization/humane/financial_details",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "nytimes.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "A major minor poet - The New York ...",
+              "url": "https://www.nytimes.com/1972/09/17/archives/jerome-the-biography-of-a-poem-by-randall-jarrell-with-woodcuts-and.html",
+              "position": 1
+            },
+            {
+              "title": "THE MARRIED LIFE OF A GENIUS; Charting the Stormy ...",
+              "url": "https://www.nytimes.com/1945/07/01/archives/the-married-life-of-a-genius-charting-the-stormy-wedded-years-of.html",
+              "position": 2
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "wickenburghumane.com",
+          "mentions": 4,
+          "sample_title": "Foster Orientation"
+        },
+        {
+          "domain": "www.hamiltonhumane.com",
+          "mentions": 3,
+          "sample_title": "Welcome to The Humane Society for Hamilton County"
+        },
+        {
+          "domain": "www.couleehumane.com",
+          "mentions": 3,
+          "sample_title": "Coulee Region Humane Society"
+        },
+        {
+          "domain": "www.fremonthumane.com",
+          "mentions": 3,
+          "sample_title": "Shop Our Shelter Store"
+        },
+        {
+          "domain": "www.montgomeryhumane.com",
+          "mentions": 3,
+          "sample_title": "Montgomery Humane Society: Home"
+        },
+        {
+          "domain": "www.dfwhumane.com",
+          "mentions": 3,
+          "sample_title": "Contact"
+        },
+        {
+          "domain": "www.pawneehumane.com",
+          "mentions": 3,
+          "sample_title": "News"
+        },
+        {
+          "domain": "www.17track.net",
+          "mentions": 3,
+          "sample_title": "Suivi de Commandes et Colis Humane"
+        },
+        {
+          "domain": "henryhumane.com",
+          "mentions": 3,
+          "sample_title": "Henry County Humane Society \u2013 Savings lives, one paw at a ..."
+        },
+        {
+          "domain": "www.nytimes.com",
+          "mentions": 2,
+          "sample_title": "A major minor poet - The New York ..."
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "arrival.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 92,
+      "editorial_domains_found": [
+        "bloomberg.com",
+        "crunchbase.com",
+        "forbes.com"
+      ],
+      "editorial_count": 3,
+      "editorial_details": [
+        {
+          "domain": "bloomberg.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "47K:GR - Arrival SA Stock Price Quote",
+              "url": "https://www.bloomberg.com/quote/47K:GR",
+              "position": 1
+            },
+            {
+              "title": "ARVLW: Arrival SA Stock Price Quote",
+              "url": "https://www.bloomberg.com/quote/ARVLW:US",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 4,
+          "samples": [
+            {
+              "title": "Arrival - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/arrival-f90c",
+              "position": 1
+            },
+            {
+              "title": "Arrival - Tech Details",
+              "url": "https://www.crunchbase.com/organization/arrival-f90c/tech_details",
+              "position": 2
+            },
+            {
+              "title": "Financial Details - Arrival",
+              "url": "https://www.crunchbase.com/organization/arrival-f90c/financial_details",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "forbes.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Murray Schofield",
+              "url": "https://www.forbes.com/profile/murray-schofield/",
+              "position": 3
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 4,
+          "sample_title": "Arrival - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "www.facebook.com",
+          "mentions": 3,
+          "sample_title": "Has anyone mistakenly purchased arrival card from a third ..."
+        },
+        {
+          "domain": "www.youtube.com",
+          "mentions": 3,
+          "sample_title": "ARRIVAL | An Origin Story (Official Trailer)"
+        },
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 2,
+          "sample_title": "47K:GR - Arrival SA Stock Price Quote"
+        },
+        {
+          "domain": "arrival.com.au",
+          "mentions": 2,
+          "sample_title": "ARRIVAL \u2013 Travel Off-Piste"
+        },
+        {
+          "domain": "www.onarrival.com",
+          "mentions": 2,
+          "sample_title": "OnArrival"
+        },
+        {
+          "domain": "eternalarrival.com",
+          "mentions": 2,
+          "sample_title": "Destinations Visited"
+        },
+        {
+          "domain": "www.reddit.com",
+          "mentions": 2,
+          "sample_title": "Arrival partner integration platform released @ developer. ..."
+        },
+        {
+          "domain": "liveinarrival.com",
+          "mentions": 2,
+          "sample_title": "Community - Live In Arrival"
+        },
+        {
+          "domain": "www.globalarrival.com",
+          "mentions": 2,
+          "sample_title": "Blog - Global Arrival"
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "irl.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 75,
+      "editorial_domains_found": [
+        "bloomberg.com",
+        "cnbc.com",
+        "crunchbase.com",
+        "mashable.com",
+        "techcrunch.com"
+      ],
+      "editorial_count": 5,
+      "editorial_details": [
+        {
+          "domain": "bloomberg.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Susan Gabbie, Minera Irl Ltd: Profile and Biography",
+              "url": "https://www.bloomberg.com/profile/person/22394454",
+              "position": 4
+            },
+            {
+              "title": "Courtney Charles Chamberlain Deceased, Minera Irl Ltd",
+              "url": "https://www.bloomberg.com/profile/person/1393643",
+              "position": 5
+            }
+          ]
+        },
+        {
+          "domain": "cnbc.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "MRLLY: Minera IRL Ltd - Stock Price, Quote and News",
+              "url": "https://www.cnbc.com/quotes/MRLLY",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "IRL - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/irl-app",
+              "position": 1
+            },
+            {
+              "title": "Financial Details - IRL",
+              "url": "https://www.crunchbase.com/organization/irl-app/financial_details",
+              "position": 4
+            },
+            {
+              "title": "EPT Ireland - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/ept-ireland",
+              "position": 5
+            }
+          ]
+        },
+        {
+          "domain": "mashable.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "IRL, a social app valued at $1 billion, shuts down after ...",
+              "url": "https://mashable.com/article/irl-shuts-down-20-million-users-bots",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "techcrunch.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Now with over 10M monthly users, IRL turns its events ...",
+              "url": "https://techcrunch.com/2021/02/01/now-with-over-10m-monthly-users-irl-turns-its-events-website-into-a-social-network/",
+              "position": 1
+            },
+            {
+              "title": "Calendar influencers? Event social network IRL raises $8M",
+              "url": "https://techcrunch.com/2019/06/13/irl-calendar/",
+              "position": 2
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 3,
+          "sample_title": "IRL - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "engageirl.com",
+          "mentions": 3,
+          "sample_title": "EngageIRL | Find Activities, Clubs & Events for Youth in ..."
+        },
+        {
+          "domain": "minera-irl.com",
+          "mentions": 3,
+          "sample_title": "Contact Information"
+        },
+        {
+          "domain": "www.earlirl.com",
+          "mentions": 3,
+          "sample_title": "Contact \u2014 EARL IRL"
+        },
+        {
+          "domain": "www.adultingirl.com",
+          "mentions": 3,
+          "sample_title": "Kick It With Us"
+        },
+        {
+          "domain": "clips.twitch.tv",
+          "mentions": 3,
+          "sample_title": "IRL COM GARGALHADA NO BAR \ud83c\udf7b - !leon !insta !set !pixgg ! ..."
+        },
+        {
+          "domain": "techcrunch.com",
+          "mentions": 2,
+          "sample_title": "Now with over 10M monthly users, IRL turns its events ..."
+        },
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 2,
+          "sample_title": "Susan Gabbie, Minera Irl Ltd: Profile and Biography"
+        },
+        {
+          "domain": "www.ic3.gov",
+          "mentions": 2,
+          "sample_title": "In Real Life (IRL) Com: Violent Subset of The Community ..."
+        },
+        {
+          "domain": "www.onlinesafetyirl.com",
+          "mentions": 2,
+          "sample_title": "Online Safety IRL's Impact"
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "olive.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 92,
+      "editorial_domains_found": [
+        "bbc.com",
+        "bloomberg.com",
+        "businessinsider.com",
+        "cnbc.com",
+        "crunchbase.com",
+        "nytimes.com",
+        "wsj.com"
+      ],
+      "editorial_count": 7,
+      "editorial_details": [
+        {
+          "domain": "bbc.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Ruanda aposta em tecnologia para superar passado e ...",
+              "url": "https://www.bbc.com/portuguese/noticias/2013/10/131019_ruanda_tecnologia_pai",
+              "position": 16
+            },
+            {
+              "title": "Gatos gostam de ser levados para passear ou isso \u00e9 ...",
+              "url": "https://www.bbc.com/portuguese/articles/cm298jlvr78o",
+              "position": 17
+            }
+          ]
+        },
+        {
+          "domain": "bloomberg.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Olive.com, PayLink Direct Agree to Go Public in Blank- ...",
+              "url": "https://www.bloomberg.com/news/articles/2021-07-21/olive-com-paylink-direct-agree-to-go-public-in-blank-check-deal",
+              "position": 1
+            },
+            {
+              "title": "Repair Ventures LLC - Company Profile and News",
+              "url": "https://www.bloomberg.com/profile/company/1905128D:US",
+              "position": 2
+            },
+            {
+              "title": "Fuzhou Dashijie Natural Food Co Ltd - Company Profile and News",
+              "url": "https://www.bloomberg.com/profile/company/AAKLFZ:CH",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "domain": "businessinsider.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Is Car Repair Insurance Worth It in 2025?",
+              "url": "https://www.businessinsider.com/personal-finance/auto-insurance/auto-repair-insurance",
+              "position": 9
+            }
+          ]
+        },
+        {
+          "domain": "cnbc.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Stocks making the biggest moves midday: Blackstone, DiDi ...",
+              "url": "https://www.cnbc.com/2021/07/22/stocks-making-the-biggest-moves-midday-blackstone-didi-netgear-and-more.html",
+              "position": 5
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 14,
+          "samples": [
+            {
+              "title": "Olive.com - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/olive-com",
+              "position": 1
+            },
+            {
+              "title": "Olive - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/olive-d216",
+              "position": 2
+            },
+            {
+              "title": "Peter Dupre - Chief Technology Officer @ Olive.com",
+              "url": "https://www.crunchbase.com/person/peter-dupre",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "nytimes.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Readers' Picks: Barcelona",
+              "url": "https://www.nytimes.com/2008/10/19/travel/19readers.html",
+              "position": 6
+            },
+            {
+              "title": "On One Paris Street, Shopkeepers Specialize in Only ...",
+              "url": "https://www.nytimes.com/2015/08/26/t-magazine/paris-shops-rue-des-martyrs.html",
+              "position": 7
+            },
+            {
+              "title": "Ugandans Tell of Drive 10 Miles Into Tanzania",
+              "url": "https://www.nytimes.com/1971/08/26/archives/ugandans-tell-of-drive-10-miles-into-tanzania.html",
+              "position": 8
+            }
+          ]
+        },
+        {
+          "domain": "wsj.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "PE Daily: Infrastructure Debt Funds Blossom | JMI Backs ...",
+              "url": "https://www.wsj.com/articles/pe-daily-infrastructure-debt-funds-blossom-jmi-backs-opensesame-tpg-sets-a-7-billion-cap-on-climate-fund-11626959719",
+              "position": 3
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 14,
+          "sample_title": "Olive.com - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "www.facebook.com",
+          "mentions": 4,
+          "sample_title": "olive | Chicago IL"
+        },
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 3,
+          "sample_title": "Olive.com, PayLink Direct Agree to Go Public in Blank- ..."
+        },
+        {
+          "domain": "www.nytimes.com",
+          "mentions": 3,
+          "sample_title": "Readers' Picks: Barcelona"
+        },
+        {
+          "domain": "www.bbc.com",
+          "mentions": 2,
+          "sample_title": "Ruanda aposta em tecnologia para superar passado e ..."
+        },
+        {
+          "domain": "rocketreach.co",
+          "mentions": 2,
+          "sample_title": "olive.com Information"
+        },
+        {
+          "domain": "www.glassdoor.com",
+          "mentions": 2,
+          "sample_title": "olive.com Marketing Reviews"
+        },
+        {
+          "domain": "oholive.com",
+          "mentions": 2,
+          "sample_title": "Products"
+        },
+        {
+          "domain": "livelyolive.com",
+          "mentions": 2,
+          "sample_title": "Lively Olive Tasting Bar"
+        },
+        {
+          "domain": "www.elevatedolive.com",
+          "mentions": 2,
+          "sample_title": "Elevated Olive: Specialty Olive Oil - Steamboat Springs"
+        }
+      ],
+      "cost": 0.043
+    },
+    {
+      "domain": "boweryfarming.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 85,
+      "editorial_domains_found": [
+        "crunchbase.com",
+        "nytimes.com",
+        "wsj.com"
+      ],
+      "editorial_count": 3,
+      "editorial_details": [
+        {
+          "domain": "crunchbase.com",
+          "articles": 4,
+          "samples": [
+            {
+              "title": "Bowery Farming - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/bowery-farming-inc",
+              "position": 1
+            },
+            {
+              "title": "Bowery Farming - News & Analysis",
+              "url": "https://www.crunchbase.com/organization/bowery-farming-inc/news_and_analysis",
+              "position": 2
+            },
+            {
+              "title": "Bowery Farming - Profiles & Contacts",
+              "url": "https://www.crunchbase.com/organization/bowery-farming-inc/profiles_and_contacts",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "nytimes.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "The Vertical Farmer Selects",
+              "url": "https://www.nytimes.com/2021/01/19/dining/bowery-farming-mustard-frills.html",
+              "position": 2
+            },
+            {
+              "title": "A New Lettuce With Crunch",
+              "url": "https://www.nytimes.com/2020/09/14/dining/crispy-leaf-lettuce.html",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "wsj.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Indoor Farming Company Bowery Raises $7.5 Million Seed Round",
+              "url": "https://www.wsj.com/articles/funding-snapshot-indoor-farming-company-bowery-raises-7-5-million-seed-round-1487868391",
+              "position": 1
+            },
+            {
+              "title": "VC Daily: Crypto Backers Hope to Turn Page",
+              "url": "https://www.wsj.com/articles/vc-daily-crypto-backers-hope-to-turn-page-is-vc-too-late-to-pot-deals-11544705616",
+              "position": 4
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.facebook.com",
+          "mentions": 7,
+          "sample_title": "Bowery Farming | New York NY"
+        },
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 4,
+          "sample_title": "Bowery Farming - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "www.wsj.com",
+          "mentions": 2,
+          "sample_title": "Indoor Farming Company Bowery Raises $7.5 Million Seed Round"
+        },
+        {
+          "domain": "www.nytimes.com",
+          "mentions": 2,
+          "sample_title": "The Vertical Farmer Selects"
+        },
+        {
+          "domain": "lehighvalleystyle.com",
+          "mentions": 2,
+          "sample_title": "Bowery Farming Takes the Place of Non-Arable Industrial ..."
+        },
+        {
+          "domain": "podcasts.apple.com",
+          "mentions": 2,
+          "sample_title": "The Future of Agriculture w/ Bowery Farming"
+        },
+        {
+          "domain": "www.linkedin.com",
+          "mentions": 2,
+          "sample_title": "Vision | Bowery Farming"
+        },
+        {
+          "domain": "www.prnewswire.com",
+          "mentions": 2,
+          "sample_title": "Bowery Farming Secures $300 Million in Series C Funding ..."
+        },
+        {
+          "domain": "www.verticalfarmdaily.com",
+          "mentions": 2,
+          "sample_title": "Bowery Farming hires Matt Williams as Chief Sales Officer"
+        },
+        {
+          "domain": "startup.jobs",
+          "mentions": 2,
+          "sample_title": "VP of Marketing at Bowery Farming"
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 69,
+      "editorial_domains_found": [
+        "crunchbase.com",
+        "forbes.com",
+        "techcrunch.com"
+      ],
+      "editorial_count": 3,
+      "editorial_details": [
+        {
+          "domain": "crunchbase.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Ghost Autonomy - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/ghost-autonomy",
+              "position": 1
+            },
+            {
+              "title": "News & Analysis - Ghost Autonomy",
+              "url": "https://www.crunchbase.com/organization/ghost-autonomy/news_and_analysis",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "forbes.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "John Hayes | Founder and CEO - Ghost Autonomy",
+              "url": "https://councils.forbes.com/profile/John-Hayes-Founder-CEO-Ghost-Autonomy/1bcba2af-6f49-4421-9258-8e1258ac1bdd",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "techcrunch.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "OpenAI-backed Ghost Autonomy shuts down",
+              "url": "https://techcrunch.com/2024/04/03/openai-backed-ghost-autonomy-shuts-down/",
+              "position": 1
+            },
+            {
+              "title": "Ghost, now OpenAI-backed, claims LLMs will overcome ...",
+              "url": "https://techcrunch.com/2023/11/09/ghost-now-openai-backed-claims-llms-will-overcome-self-driving-setbacks-but-experts-are-skeptical/",
+              "position": 5
+            },
+            {
+              "title": "ghost",
+              "url": "https://techcrunch.com/tag/ghost/",
+              "position": 6
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.reddit.com",
+          "mentions": 7,
+          "sample_title": "Ghost Autonomy is gone : r/SelfDrivingCars"
+        },
+        {
+          "domain": "www.forbes.com",
+          "mentions": 6,
+          "sample_title": "John Hayes - Forbes Technology Council"
+        },
+        {
+          "domain": "x.com",
+          "mentions": 6,
+          "sample_title": "Ghost Autonomy (@GhostAutonomy) / Posts / X"
+        },
+        {
+          "domain": "www.levels.fyi",
+          "mentions": 6,
+          "sample_title": "Ghost Autonomy Careers"
+        },
+        {
+          "domain": "www.linkedin.com",
+          "mentions": 4,
+          "sample_title": "Ghost Autonomy"
+        },
+        {
+          "domain": "techcrunch.com",
+          "mentions": 3,
+          "sample_title": "OpenAI-backed Ghost Autonomy shuts down"
+        },
+        {
+          "domain": "www.youtube.com",
+          "mentions": 3,
+          "sample_title": "Ghost Autonomy"
+        },
+        {
+          "domain": "www.researchgate.net",
+          "mentions": 3,
+          "sample_title": "(PDF) seL4 Microkernel for Virtualization Use-Cases"
+        },
+        {
+          "domain": "www.techmeme.com",
+          "mentions": 3,
+          "sample_title": "Zhu Xingming, the founder of Chinese robot maker ..."
+        },
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 2,
+          "sample_title": "Ghost Autonomy - Crunchbase Company Profile & Funding"
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "convoy.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 87,
+      "editorial_domains_found": [
+        "bloomberg.com",
+        "businessinsider.com",
+        "crunchbase.com",
+        "forbes.com",
+        "nytimes.com",
+        "techcrunch.com",
+        "wsj.com"
+      ],
+      "editorial_count": 7,
+      "editorial_details": [
+        {
+          "domain": "bloomberg.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Convoy Corp - Company Profile and News",
+              "url": "https://www.bloomberg.com/profile/company/0573312D:US",
+              "position": 1
+            },
+            {
+              "title": "John C Morrow, Convoy Inc: Profile and Biography",
+              "url": "https://www.bloomberg.com/profiles/people/4452211-john-c-morrow",
+              "position": 3
+            },
+            {
+              "title": "Maggie Brady, Convoy Inc: Profile and Biography",
+              "url": "https://www.bloomberg.com/profile/person/22969845",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "domain": "businessinsider.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "The 25 hottest startups that launched in 2015",
+              "url": "https://www.businessinsider.com/best-startups-that-launched-in-2015-2015-5",
+              "position": 8
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 11,
+          "samples": [
+            {
+              "title": "Convoy - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/convoy-3",
+              "position": 1
+            },
+            {
+              "title": "Convoy - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/convoy-global-holdings",
+              "position": 2
+            },
+            {
+              "title": "Convoy - News & Analysis",
+              "url": "https://www.crunchbase.com/organization/convoy-3/news_and_analysis",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "forbes.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Dorothy Li | Chief Technology Officer - Convoy",
+              "url": "https://councils.forbes.com/profile/Dorothy-Li-Chief-Technology-Officer-Convoy/b8ef584d-5e3c-473d-a764-c5627b92a1da",
+              "position": 5
+            }
+          ]
+        },
+        {
+          "domain": "nytimes.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "ARABS TRAP CONVOY AT LATRUN, KILL 4; AMERICAN IS ...",
+              "url": "https://www.nytimes.com/1948/09/23/archives/arabs-trap-convoy-at-latrun-kill-4-american-is-victim-un-flag-on-is.html",
+              "position": 13
+            }
+          ]
+        },
+        {
+          "domain": "techcrunch.com",
+          "articles": 7,
+          "samples": [
+            {
+              "title": "TikTok and Bootstrapping and Convoy.com",
+              "url": "https://techcrunch.com/podcast/tiktok-and-bootstrapping-and-convoy-com/",
+              "position": 2
+            },
+            {
+              "title": "Chain Reaction Archives | Page 5 of 7",
+              "url": "https://techcrunch.com/podcasts/chain-reaction/page/5/",
+              "position": 7
+            },
+            {
+              "title": "2022 | Page 166 of 415",
+              "url": "https://techcrunch.com/2022/page/166/",
+              "position": 8
+            }
+          ]
+        },
+        {
+          "domain": "wsj.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Startups aceleram busca pelo 'Uber dos caminh\u00f5es'",
+              "url": "https://www.wsj.com/article/SB12663077622984143452604581319910580772454.html",
+              "position": 12
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 11,
+          "sample_title": "Convoy - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "techcrunch.com",
+          "mentions": 7,
+          "sample_title": "TikTok and Bootstrapping and Convoy.com"
+        },
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 3,
+          "sample_title": "Convoy Corp - Company Profile and News"
+        },
+        {
+          "domain": "www.facebook.com",
+          "mentions": 3,
+          "sample_title": "Convoy Platform (@convoyplatform)"
+        },
+        {
+          "domain": "weareconvoy.com",
+          "mentions": 3,
+          "sample_title": "Charlottesville Web Design - Convoy"
+        },
+        {
+          "domain": "villageofconvoy.com",
+          "mentions": 3,
+          "sample_title": "About Convoy"
+        },
+        {
+          "domain": "www.ridewithconvoy.com",
+          "mentions": 2,
+          "sample_title": "CONVOY e-Trailer & Smart Trailer: Electric Bike Trailers"
+        },
+        {
+          "domain": "www.mcleodsoftware.com",
+          "mentions": 2,
+          "sample_title": "Convoy Platform a DAT Product"
+        },
+        {
+          "domain": "www.freightwaves.com",
+          "mentions": 2,
+          "sample_title": "Convoy cancels all shipments, load board is empty, ..."
+        },
+        {
+          "domain": "x.com",
+          "mentions": 2,
+          "sample_title": "Convoy (@convoyteam) / Posts / X"
+        }
+      ],
+      "cost": 0.0505
+    },
+    {
+      "domain": "stenn.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 82,
+      "editorial_domains_found": [
+        "bloomberg.com",
+        "cnbc.com",
+        "crunchbase.com",
+        "techcrunch.com",
+        "wsj.com",
+        "zdnet.com"
+      ],
+      "editorial_count": 6,
+      "editorial_details": [
+        {
+          "domain": "bloomberg.com",
+          "articles": 21,
+          "samples": [
+            {
+              "title": "Bulk of Stenn's $1 Billion Debts Remain Outstanding Amid ...",
+              "url": "https://www.bloomberg.com/news/articles/2026-01-08/bulk-of-stenn-s-1-billion-debts-remain-outstanding-amid-probe",
+              "position": 1
+            },
+            {
+              "title": "How Fintech Stenn Went from Trade Darling to Insolvency in ...",
+              "url": "https://www.bloomberg.com/news/articles/2025-01-09/how-fintech-stenn-went-from-trade-darling-to-insolvency-in-days",
+              "position": 2
+            },
+            {
+              "title": "Wall Street Missed Warning Signs Ahead of $1 Billion Fintech ...",
+              "url": "https://www.bloomberg.com/news/features/2025-04-23/stenn-collapse-how-citigroup-bnp-paribas-missed-fintech-s-warning-signs",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "cnbc.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Businesses and the trade war",
+              "url": "https://www.cnbc.com/video/2019/08/30/businesses-and-the-trade-war.html",
+              "position": 27
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 6,
+          "samples": [
+            {
+              "title": "Stenn - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/stenn",
+              "position": 1
+            },
+            {
+              "title": "Stenn - Financial Details",
+              "url": "https://www.crunchbase.com/organization/stenn/company_financials",
+              "position": 2
+            },
+            {
+              "title": "News & Analysis - Stenn",
+              "url": "https://www.crunchbase.com/organization/stenn/news_and_analysis",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "techcrunch.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Stenn banks $50M on a $900M valuation for a ... - TechCrunch",
+              "url": "https://techcrunch.com/2022/04/11/stenn-banks-50m-on-a-900m-valuation-for-a-platform-to-finance-smbs-that-trade-internationally/",
+              "position": 7
+            },
+            {
+              "title": "Lili | TechCrunch",
+              "url": "https://techcrunch.com/tag/lili/",
+              "position": 26
+            },
+            {
+              "title": "alipay | TechCrunch",
+              "url": "https://techcrunch.com/tag/alipay/",
+              "position": 28
+            }
+          ]
+        },
+        {
+          "domain": "wsj.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "How Investors Make Money When Companies Take Longer to ...",
+              "url": "https://www.wsj.com/articles/how-investors-make-money-when-companies-take-longer-to-pay-their-bills-1532516277",
+              "position": 21
+            }
+          ]
+        },
+        {
+          "domain": "zdnet.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Stenn\u304c\u30c7\u30b8\u30bf\u30eb\u8cbf\u6613\u91d1\u878d\u30b5\u30fc\u30d3\u30b9\u62e1\u5927\u306e\u305f\u3081\u306e2\u5104\u30c9\u30eb\u306e\u65b0\u898f ...",
+              "url": "https://japan.zdnet.com/release/30441796/",
+              "position": 7
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 21,
+          "sample_title": "Bulk of Stenn's $1 Billion Debts Remain Outstanding Amid ..."
+        },
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 6,
+          "sample_title": "Stenn - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "lei.bloomberg.com",
+          "mentions": 4,
+          "sample_title": "STENN ASSETS USA INC. - LEI: 25490059MA1IJQAB8S16"
+        },
+        {
+          "domain": "www.youtube.com",
+          "mentions": 4,
+          "sample_title": "Stenn"
+        },
+        {
+          "domain": "www.fintechfutures.com",
+          "mentions": 4,
+          "sample_title": "Stenn Opens Atlanta Office"
+        },
+        {
+          "domain": "techcrunch.com",
+          "mentions": 3,
+          "sample_title": "Stenn banks $50M on a $900M valuation for a ... - TechCrunch"
+        },
+        {
+          "domain": "www.facebook.com",
+          "mentions": 3,
+          "sample_title": "Stenn | London"
+        },
+        {
+          "domain": "www.prnewswire.com",
+          "mentions": 3,
+          "sample_title": "Stenn Closes $200m Securitisation With Natixis, Further ..."
+        },
+        {
+          "domain": "www.sfnet.com",
+          "mentions": 3,
+          "sample_title": "Stenn Launches International Trade Financing for ..."
+        },
+        {
+          "domain": "builtin.com",
+          "mentions": 3,
+          "sample_title": "Stenn Technologies - Senior Product Manager"
+        }
+      ],
+      "cost": 0.0505
+    },
+    {
+      "domain": "veev.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 79,
+      "editorial_domains_found": [
+        "bloomberg.com",
+        "crunchbase.com"
+      ],
+      "editorial_count": 2,
+      "editorial_details": [
+        {
+          "domain": "bloomberg.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Michael Jovanis, Veev Group Inc: Profile and Biography",
+              "url": "https://www.bloomberg.com/profile/person/17640319",
+              "position": 1
+            },
+            {
+              "title": "Laura Moran, Veev Group Inc: Profile and Biography",
+              "url": "https://www.bloomberg.com/profile/person/22203822",
+              "position": 2
+            },
+            {
+              "title": "Kilian Weiss, Veev Group Inc: Profile and Biography",
+              "url": "https://www.bloomberg.com/profile/person/17596854",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "domain": "crunchbase.com",
+          "articles": 3,
+          "samples": [
+            {
+              "title": "Veev - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/veev-6ddd",
+              "position": 1
+            },
+            {
+              "title": "Veev - Financial Details",
+              "url": "https://www.crunchbase.com/organization/veev-6ddd/company_financials",
+              "position": 2
+            },
+            {
+              "title": "Dragonfly Investments Group",
+              "url": "https://www.crunchbase.com/organization/dragonfly-investments-group",
+              "position": 3
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.instagram.com",
+          "mentions": 6,
+          "sample_title": "Veev, By Lennar (@veevbylennar)"
+        },
+        {
+          "domain": "www.linkedin.com",
+          "mentions": 5,
+          "sample_title": "Veev, By Lennar"
+        },
+        {
+          "domain": "www.bloomberg.com",
+          "mentions": 3,
+          "sample_title": "Michael Jovanis, Veev Group Inc: Profile and Biography"
+        },
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 3,
+          "sample_title": "Veev - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "web.sjchamber.com",
+          "mentions": 3,
+          "sample_title": "Veev - San Jose Silicon Valley Chamber of Commerce"
+        },
+        {
+          "domain": "buildsteel.org",
+          "mentions": 2,
+          "sample_title": "Wall to Wall, LLC"
+        },
+        {
+          "domain": "www.facebook.com",
+          "mentions": 2,
+          "sample_title": "Veev By Lennar | Hayward CA"
+        },
+        {
+          "domain": "artsandculture.google.com",
+          "mentions": 2,
+          "sample_title": "Veev Com"
+        },
+        {
+          "domain": "www.prnewswire.com",
+          "mentions": 2,
+          "sample_title": "Veev Builds the Next Wave of Exceptional Living ..."
+        },
+        {
+          "domain": "www.reddit.com",
+          "mentions": 2,
+          "sample_title": "u/Gullible_Bicycle3952"
+        }
+      ],
+      "cost": 0.0355
+    },
+    {
+      "domain": "infarm.com",
+      "endpoint": "serp/google/organic/live (editorial + broad)",
+      "total_external_domains_found": 90,
+      "editorial_domains_found": [
+        "crunchbase.com",
+        "techcrunch.com"
+      ],
+      "editorial_count": 2,
+      "editorial_details": [
+        {
+          "domain": "crunchbase.com",
+          "articles": 2,
+          "samples": [
+            {
+              "title": "Infarm - Crunchbase Company Profile & Funding",
+              "url": "https://www.crunchbase.com/organization/infarm",
+              "position": 1
+            },
+            {
+              "title": "Infarm - Financial Details",
+              "url": "https://www.crunchbase.com/organization/infarm/company_financials",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "domain": "techcrunch.com",
+          "articles": 1,
+          "samples": [
+            {
+              "title": "Atlantic Labs spins-out FoodLabs, a \u20ac100M food tech fund ...",
+              "url": "https://techcrunch.com/2021/10/11/atlantic-labs-spins-out-foodlabs-a-e100m-foodtech-fund-addressing-climate-and-health/",
+              "position": 1
+            }
+          ]
+        }
+      ],
+      "top10_external_domains": [
+        {
+          "domain": "www.youtube.com",
+          "mentions": 7,
+          "sample_title": "infarm"
+        },
+        {
+          "domain": "www.crunchbase.com",
+          "mentions": 2,
+          "sample_title": "Infarm - Crunchbase Company Profile & Funding"
+        },
+        {
+          "domain": "wellfound.com",
+          "mentions": 2,
+          "sample_title": "Infarm Careers - Insights and Opportunities"
+        },
+        {
+          "domain": "www.zoominfo.com",
+          "mentions": 2,
+          "sample_title": "Infarm - Overview, News & Similar companies"
+        },
+        {
+          "domain": "www.prnewswire.com",
+          "mentions": 2,
+          "sample_title": "Infarm Heralds the Next Generation of Cloud-enabled ..."
+        },
+        {
+          "domain": "leadiq.com",
+          "mentions": 2,
+          "sample_title": "INFARM Company Overview, Contact Details & Competitors"
+        },
+        {
+          "domain": "www.verticalfarmdaily.com",
+          "mentions": 2,
+          "sample_title": "Infarm receives B Corp certification"
+        },
+        {
+          "domain": "techcrunch.com",
+          "mentions": 1,
+          "sample_title": "Atlantic Labs spins-out FoodLabs, a \u20ac100M food tech fund ..."
+        },
+        {
+          "domain": "uk.linkedin.com",
+          "mentions": 1,
+          "sample_title": "INFARM"
+        },
+        {
+          "domain": "www.f6s.com",
+          "mentions": 1,
+          "sample_title": "Infarm (infarm.com)"
+        }
+      ],
+      "cost": 0.0355
+    }
+  ]
+}

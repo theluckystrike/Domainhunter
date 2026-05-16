@@ -1,0 +1,381 @@
+{
+  "generated_at": "2026-05-15T16:00:00Z",
+  "research_type": "registrar_expiration_behavior",
+  "description": "How each registrar in our pipeline handles domain expiration, internal auctions, and public drops",
+  "sources": [
+    "https://www.godaddy.com/help/timeline-for-godaddy-auctions-expired-domains-42743",
+    "https://www.godaddy.com/help/standard-domain-expiration-timeline-609",
+    "https://domainnamewire.com/2026/03/17/29-registrars-that-send-expired-domains-to-godaddy/",
+    "https://domainnamewire.com/2025/08/05/squarespace-and-wix-start-sending-expired-domains-to-godaddy-auctions/",
+    "https://domainnamewire.com/2025/08/06/which-expired-domain-companies-send-their-domains-to-namejet-and-snapnames/",
+    "https://domainnamewire.com/2023/03/28/markmonitor-launches-expired-domain-service/",
+    "https://developers.cloudflare.com/registrar/faq/",
+    "https://www.spaceship.com/knowledgebase/domain-life-cycle/",
+    "https://tucowsdomains.com/help/renewals-and-redemptions/my-domain-has-expired/",
+    "https://www.namecheap.com/support/knowledgebase/article.aspx/9916/2207/tlds-grace-periods/",
+    "https://www.name.com/support/articles/227849228-how-the-pending-delete-period-works",
+    "https://support.squarespace.com/hc/en-us/articles/218910907-Reactivating-an-expired-Squarespace-domain"
+  ],
+  "icann_standard_flow": {
+    "description": "Standard ICANN domain expiration lifecycle for gTLDs (.com, .net, .org)",
+    "phases": [
+      {
+        "phase": "grace_period",
+        "typical_days": "0-30",
+        "description": "Domain can be renewed at standard price. Some registrars keep DNS resolving."
+      },
+      {
+        "phase": "redemption_grace_period",
+        "typical_days": "30-60",
+        "description": "Domain deleted from registrar database. Registry holds it. Restorable with redemption fee ($80-150+)."
+      },
+      {
+        "phase": "pending_delete",
+        "typical_days": "5",
+        "description": "Irreversible. Domain scheduled for deletion. Cannot be recovered by anyone."
+      },
+      {
+        "phase": "drop",
+        "typical_days": "day ~70-80 post-expiry",
+        "description": "Domain deleted from registry. Available for registration. Drop-catch services compete."
+      }
+    ]
+  },
+  "registrars": {
+    "godaddy": {
+      "full_name": "GoDaddy.com, LLC / Wild West Domains, LLC",
+      "our_domains": ["olive.com", "infarm.com", "veev.com", "fiskerinc.com", "northvolt.com", "ghostautonomy.com", "goodglammgroup.com", "readingfoundation.org"],
+      "internal_auction": true,
+      "auction_platform": "GoDaddy Auctions (Expired Domain Auctions)",
+      "expiration_flow": {
+        "day_0": "Expiration. Auto-renew attempted.",
+        "day_1_to_17": "Domain still in account, manually renewable at standard price.",
+        "day_5": "Domain parked. Website/email stops working.",
+        "day_18": "Domain no longer active in account. Redemption fee required.",
+        "day_26_to_36": "Listed on GoDaddy Auctions Expired Domain Auction (10 days). Owner can still renew unless active bid exists.",
+        "day_37_to_42": "GoDaddy Auctions Final Closeout (5 days, reverse auction with decreasing price).",
+        "day_42": "If no buyer, domain relinquished to registry.",
+        "day_42_to_72": "Registry Redemption Grace Period (30 days).",
+        "day_72_to_77": "Registry pendingDelete (5 days). Irreversible.",
+        "day_77": "Domain drops. Available for public registration/drop-catch."
+      },
+      "total_days_expiry_to_drop": "~77 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Catchable ONLY if domain passes through both GoDaddy Auction AND Closeout with zero bids. Valuable .com domains like olive.com will almost certainly sell in GoDaddy's internal auction and NEVER reach pendingDelete. GoDaddy is the world's largest registrar and their auction platform has massive buyer exposure.",
+      "practical_assessment": "For premium 1-word .com domains (olive.com, veev.com): almost zero chance of reaching public drop. GoDaddy's internal auction will capture them. For lesser domains (fiskerinc.com, ghostautonomy.com, goodglammgroup.com): moderate chance of passing through auction unsold, reaching pendingDelete, and becoming catchable.",
+      "key_risk": "GoDaddy has been reported to hold desirable domains past day 76, possibly renewing them for subsidiary/partner acquisition. Premium domains may never truly drop.",
+      "sends_to_godaddy_auctions": true
+    },
+    "namecheap": {
+      "full_name": "NameCheap, Inc.",
+      "our_domains": ["humane.com", "stenn.com"],
+      "internal_auction": true,
+      "auction_platform": "Namecheap Market (own marketplace)",
+      "expiration_flow": {
+        "day_0": "Expiration.",
+        "day_0_to_30": "Grace period. Renewable at standard price, no extra fee.",
+        "day_30_to_37": "Listed on Namecheap Market auction (approx 1 week). Original owner can still renew during auction.",
+        "day_37_to_42": "Closeout period (24-hour extensions at $5 minimum if no bids).",
+        "day_42_to_72": "Redemption Grace Period (30 days, ~$88.88 redemption fee).",
+        "day_72_to_77": "Registry pendingDelete (5 days). Irreversible.",
+        "day_77": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~77 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "If domain passes through Namecheap Market auction unsold, it enters standard ICANN flow and eventually reaches pendingDelete. Namecheap does NOT send to GoDaddy Auctions or NameJet/SnapNames — they use their own platform exclusively.",
+      "practical_assessment": "humane.com is registered through 2032. Not relevant for years. stenn.com would go through Namecheap Market first, then pendingDelete if unsold.",
+      "key_risk": "Namecheap's marketplace has growing traffic. Premium domains likely sell there.",
+      "sends_to_godaddy_auctions": false
+    },
+    "cloudflare": {
+      "full_name": "Cloudflare, Inc.",
+      "our_domains": ["easyknock.com"],
+      "internal_auction": false,
+      "auction_platform": null,
+      "expiration_flow": {
+        "day_0": "Expiration.",
+        "day_0_to_30": "Grace period. Domain continues to resolve normally.",
+        "day_30": "Domain suspended, resolves to suspension page.",
+        "day_31_to_40": "Suspension period continues. Renewable with possible restore fee.",
+        "day_41_to_70": "Redemption period.",
+        "day_71_to_75": "Registry pendingDelete (5 days).",
+        "day_75": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~75 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Cloudflare is NOT in the list of 29 registrars sending to GoDaddy Auctions. Cloudflare does NOT run internal auctions. Domains follow standard ICANN flow and go directly to registry pendingDelete. This is the BEST scenario for drop-catching — no internal auction intermediary.",
+      "practical_assessment": "easyknock.com at Cloudflare is highly catchable via Dynadot/DropCatch if it expires and is not renewed. No internal auction barrier. Standard ICANN flow.",
+      "key_risk": "Cloudflare is a relatively new registrar and may change policies. But currently, cleanest path to public drop.",
+      "sends_to_godaddy_auctions": false
+    },
+    "spaceship": {
+      "full_name": "Spaceship, Inc.",
+      "our_domains": ["boweryfarming.com"],
+      "internal_auction": false,
+      "auction_platform": null,
+      "expiration_flow": {
+        "day_0": "Expiration. Renewal notifications sent per ICANN ERRP.",
+        "day_0_to_7": "Grace period. Domain still resolves.",
+        "day_7_to_30": "Grace period continues. Domain parked.",
+        "day_30_to_72": "Redemption period (42 days). Additional redemption fee applies.",
+        "day_72_to_77": "Registry pendingDelete (5 days).",
+        "day_77": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~77 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Spaceship is NOT in the list of 29 registrars sending to GoDaddy Auctions. Spaceship (Namecheap sister company) does not appear to run a public internal auction. Domains follow standard ICANN flow to pendingDelete.",
+      "practical_assessment": "boweryfarming.com was already re-registered at Spaceship. If it were to expire again, it would follow standard ICANN flow. Very catchable.",
+      "key_risk": "Spaceship is relatively new. Policies may evolve. Being a Namecheap sister, could eventually adopt auction model.",
+      "sends_to_godaddy_auctions": false
+    },
+    "safenames": {
+      "full_name": "SafeNames Ltd.",
+      "our_domains": ["convoy.com"],
+      "internal_auction": false,
+      "auction_platform": null,
+      "expiration_flow": {
+        "day_0": "Expiration. Renewal notifications sent monthly starting 2 months before.",
+        "day_0_to_30": "Grace period. SafeNames sends invoice assuming client wants renewal.",
+        "day_30_to_60": "Redemption Grace Period.",
+        "day_60_to_65": "Registry pendingDelete (5 days).",
+        "day_65_to_77": "Domain drops (timing varies)."
+      },
+      "total_days_expiry_to_drop": "~65-77 days",
+      "dynadot_catchable": "MAYBE",
+      "dynadot_catchable_notes": "SafeNames is a corporate/brand-protection registrar. They are NOT in the list of registrars sending to GoDaddy Auctions or NameJet/SnapNames. They do not appear to run public auctions. However, as a corporate registrar, their clients typically auto-renew everything. Domains at SafeNames rarely expire by accident — these are managed corporate portfolios.",
+      "practical_assessment": "convoy.com at SafeNames is technically catchable if it expires and enters pendingDelete. However, SafeNames clients are corporate brand managers who rarely let valuable domains expire. The registrar also proactively invoices for renewals. Low probability of reaching drop.",
+      "key_risk": "SafeNames may proactively renew on behalf of client and add to invoice. Corporate registrars have strong anti-lapse procedures.",
+      "sends_to_godaddy_auctions": false
+    },
+    "markmonitor": {
+      "full_name": "MarkMonitor Inc.",
+      "our_domains": ["irl.com"],
+      "internal_auction": false,
+      "auction_platform": "Owns NameJet + SnapNames via parent Newfold Digital",
+      "expiration_flow": {
+        "description": "MarkMonitor is a corporate brand-protection registrar serving Fortune 500 companies. Parent company Newfold Digital owns NameJet and SnapNames. Domains at MarkMonitor have extraordinary protection levels.",
+        "epp_statuses_typical": [
+          "clientDeleteProhibited",
+          "clientTransferProhibited",
+          "clientUpdateProhibited",
+          "serverDeleteProhibited",
+          "serverTransferProhibited",
+          "serverUpdateProhibited"
+        ],
+        "notes": "irl.com has 6 EPP lock statuses including SERVER-level prohibitions. This means even the registrar cannot delete or transfer without explicit registry action. These are the strongest possible protections."
+      },
+      "total_days_expiry_to_drop": "UNLIKELY_TO_EVER_DROP",
+      "dynadot_catchable": "NO",
+      "dynadot_catchable_notes": "MarkMonitor domains are the LEAST likely to ever reach public drop. Reasons: (1) Corporate clients with auto-renewal and dedicated account managers. (2) Parent Newfold Digital owns NameJet/SnapNames and can route any valuable expiring domain through their own platforms before public drop. (3) DomainDefend service gives brand owners front-of-line access. (4) Registry-level locks (serverDeleteProhibited) add extra protection layers. (5) MarkMonitor is NOT in the list of registrars sending to GoDaddy Auctions — they control their own destiny.",
+      "practical_assessment": "irl.com at MarkMonitor with 6 EPP locks is essentially uncatchable through drop-catching. This domain will never reach pendingDelete through normal expiration. Even if the owning company goes bankrupt, MarkMonitor/Newfold would likely acquire it internally via NameJet/SnapNames before any public drop.",
+      "key_risk": "MarkMonitor is the gold standard of domain protection. Direct negotiation or purchase via aftermarket is the only realistic path.",
+      "sends_to_godaddy_auctions": false
+    },
+    "tucows": {
+      "full_name": "Tucows Domains Inc.",
+      "our_domains": ["sunnyray.org", "globalgeopark.org"],
+      "internal_auction": true,
+      "auction_platform": "GoDaddy Auctions (partnership since 2016, confirmed in 29-registrar list)",
+      "expiration_flow": {
+        "day_0": "Expiration.",
+        "day_0_to_40": "Grace period (40 days for most TLDs). Renewable at standard price.",
+        "day_40": "Domain deleted from Tucows database. Sent to GoDaddy Auctions for expired domain auction.",
+        "day_40_to_50": "GoDaddy Auctions listing (10 days).",
+        "day_50_to_55": "GoDaddy Closeout (5 days) if no bids.",
+        "day_55_to_70": "Registry Redemption Grace Period (30 days from deletion).",
+        "day_70_to_75": "Registry pendingDelete (5 days).",
+        "day_75": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~70-75 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Tucows sends expired domains to GoDaddy Auctions. If domain passes through GoDaddy Auction + Closeout unsold, it enters standard ICANN pendingDelete flow. .org domains at Tucows are catchable after the GoDaddy auction gauntlet. sunnyray.org and globalgeopark.org are niche non-profits — lower auction demand means higher chance of reaching public drop.",
+      "practical_assessment": "sunnyray.org and globalgeopark.org are low-value niche .org domains. High probability of passing through GoDaddy Auctions unsold and reaching pendingDelete. Very catchable.",
+      "key_risk": "Tucows earns significant revenue from expired domain sales ($5.9M/quarter). They maximize extraction before allowing drops.",
+      "sends_to_godaddy_auctions": true
+    },
+    "squarespace": {
+      "full_name": "Squarespace Domains II LLC",
+      "our_domains": ["guerrameats.com"],
+      "internal_auction": true,
+      "auction_platform": "GoDaddy Auctions (partnership since August 2025)",
+      "expiration_flow": {
+        "day_0": "Expiration.",
+        "day_0_to_30": "Grace period. Renewable at standard price.",
+        "day_30": "Sent to GoDaddy Auctions.",
+        "day_30_to_40": "GoDaddy Auctions listing (10 days).",
+        "day_40_to_45": "GoDaddy Closeout (5 days) if no bids.",
+        "day_45_to_70": "Registry Redemption Grace Period.",
+        "day_70_to_75": "Registry pendingDelete (5 days).",
+        "day_75": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~75 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Since August 2025, Squarespace sends expired domains to GoDaddy Auctions. Before that, domains went directly to pendingDelete. Now there is a GoDaddy auction intermediary, but if domain passes through unsold, standard ICANN drop follows.",
+      "practical_assessment": "guerrameats.com is a niche brand domain. Low auction demand expected. High probability of reaching pendingDelete and being catchable.",
+      "key_risk": "Squarespace acquired Google Domains (8M+ .com domains) in 2023. Their expired stream through GoDaddy is significant.",
+      "sends_to_godaddy_auctions": true
+    },
+    "name_com": {
+      "full_name": "Name.com, Inc.",
+      "our_domains": ["arrival.com"],
+      "internal_auction": true,
+      "auction_platform": "GoDaddy Auctions (confirmed in 29-registrar list, partnership since ~2018)",
+      "expiration_flow": {
+        "day_0": "Expiration.",
+        "day_0_to_45": "Grace period (Name.com uses 45-day grace). Renewable at standard price.",
+        "day_45": "Sent to GoDaddy Auctions.",
+        "day_45_to_55": "GoDaddy Auctions listing (10 days).",
+        "day_55_to_60": "GoDaddy Closeout (5 days) if no bids.",
+        "day_60_to_75": "Registry Redemption Grace Period.",
+        "day_75_to_80": "Registry pendingDelete (5 days).",
+        "day_80": "Domain drops."
+      },
+      "total_days_expiry_to_drop": "~80 days",
+      "dynadot_catchable": "YES",
+      "dynadot_catchable_notes": "Name.com sends expired domains to GoDaddy Auctions. arrival.com is a premium 1-word .com that would almost certainly sell in GoDaddy's auction. However, if by some miracle it passed through unsold, it would reach pendingDelete and be catchable.",
+      "practical_assessment": "arrival.com is a premium generic 1-word .com. Near-zero chance of passing through GoDaddy Auctions unsold. Someone will bid. Only realistic path is the GoDaddy Auction itself or direct negotiation.",
+      "key_risk": "Name.com historically sent to NameJet, then switched to GoDaddy Auctions. Policies can change. arrival.com with clientTransferProhibited lock is actively managed.",
+      "sends_to_godaddy_auctions": true
+    }
+  },
+  "summary": {
+    "catchability_matrix": [
+      {
+        "registrar": "Cloudflare, Inc.",
+        "catchable_rating": "YES",
+        "has_internal_auction": false,
+        "sends_to_godaddy": false,
+        "domains": ["easyknock.com"],
+        "verdict": "BEST CASE - No internal auction, standard ICANN drop. Directly catchable via Dynadot/DropCatch."
+      },
+      {
+        "registrar": "Spaceship, Inc.",
+        "catchable_rating": "YES",
+        "has_internal_auction": false,
+        "sends_to_godaddy": false,
+        "domains": ["boweryfarming.com"],
+        "verdict": "GOOD - No internal auction detected. Standard ICANN flow. Catchable."
+      },
+      {
+        "registrar": "SafeNames Ltd.",
+        "catchable_rating": "MAYBE",
+        "has_internal_auction": false,
+        "sends_to_godaddy": false,
+        "domains": ["convoy.com"],
+        "verdict": "TECHNICALLY CATCHABLE but corporate registrar rarely lets domains lapse. No auction barrier but strong anti-lapse procedures."
+      },
+      {
+        "registrar": "NameCheap, Inc.",
+        "catchable_rating": "YES",
+        "has_internal_auction": true,
+        "sends_to_godaddy": false,
+        "domains": ["humane.com", "stenn.com"],
+        "verdict": "CATCHABLE after Namecheap Market auction. Own platform, not GoDaddy. If unsold, standard ICANN drop."
+      },
+      {
+        "registrar": "GoDaddy.com, LLC",
+        "catchable_rating": "YES",
+        "has_internal_auction": true,
+        "sends_to_godaddy": true,
+        "domains": ["olive.com", "infarm.com", "veev.com", "fiskerinc.com", "northvolt.com", "ghostautonomy.com", "goodglammgroup.com", "readingfoundation.org"],
+        "verdict": "CATCHABLE ONLY if passes through GoDaddy Auction + Closeout unsold. Premium domains (olive, veev) will almost certainly sell internally. Niche domains (fiskerinc, ghostautonomy, goodglammgroup) have better odds."
+      },
+      {
+        "registrar": "Tucows Domains Inc.",
+        "catchable_rating": "YES",
+        "has_internal_auction": true,
+        "sends_to_godaddy": true,
+        "domains": ["sunnyray.org", "globalgeopark.org"],
+        "verdict": "CATCHABLE - Goes through GoDaddy Auctions first, but niche .org domains likely pass through unsold. Good drop-catch candidates."
+      },
+      {
+        "registrar": "Squarespace Domains II LLC",
+        "catchable_rating": "YES",
+        "has_internal_auction": true,
+        "sends_to_godaddy": true,
+        "domains": ["guerrameats.com"],
+        "verdict": "CATCHABLE - Goes through GoDaddy Auctions but niche brand domain likely passes through unsold."
+      },
+      {
+        "registrar": "Name.com, Inc.",
+        "catchable_rating": "YES",
+        "has_internal_auction": true,
+        "sends_to_godaddy": true,
+        "domains": ["arrival.com"],
+        "verdict": "TECHNICALLY catchable but arrival.com as a premium 1-word .com will sell at GoDaddy Auction. Near-zero chance of reaching public drop."
+      },
+      {
+        "registrar": "MarkMonitor Inc.",
+        "catchable_rating": "NO",
+        "has_internal_auction": false,
+        "sends_to_godaddy": false,
+        "domains": ["irl.com"],
+        "verdict": "UNCATCHABLE - Corporate brand-protection registrar. 6 EPP locks including server-level. Parent owns NameJet/SnapNames. Domain will never reach public drop."
+      }
+    ],
+    "domains_by_catchability": {
+      "high_catchability": {
+        "description": "No internal auction OR niche domains likely to pass through auction unsold",
+        "domains": [
+          {"domain": "easyknock.com", "registrar": "Cloudflare", "reason": "No internal auction. Standard ICANN drop."},
+          {"domain": "boweryfarming.com", "registrar": "Spaceship", "reason": "No internal auction detected. Standard ICANN drop."},
+          {"domain": "sunnyray.org", "registrar": "Tucows", "reason": "Niche .org, low auction demand. Likely passes through GoDaddy Auctions unsold."},
+          {"domain": "globalgeopark.org", "registrar": "Tucows", "reason": "Niche .org, low auction demand. Likely passes through GoDaddy Auctions unsold."},
+          {"domain": "guerrameats.com", "registrar": "Squarespace", "reason": "Niche brand domain, low auction demand. Likely passes through GoDaddy Auctions unsold."},
+          {"domain": "stenn.com", "registrar": "Namecheap", "reason": "Passes through Namecheap Market first but if unsold, standard drop."}
+        ]
+      },
+      "medium_catchability": {
+        "description": "Internal auction exists and may capture the domain, but not guaranteed",
+        "domains": [
+          {"domain": "fiskerinc.com", "registrar": "GoDaddy", "reason": "Bankrupt company brand. Some domainer interest but may pass through."},
+          {"domain": "ghostautonomy.com", "registrar": "GoDaddy", "reason": "Long company name, limited appeal. May pass through auction."},
+          {"domain": "goodglammgroup.com", "registrar": "GoDaddy", "reason": "Long company name. May pass through auction."},
+          {"domain": "readingfoundation.org", "registrar": "GoDaddy", "reason": "Nonprofit .org at GoDaddy. Moderate auction interest."},
+          {"domain": "northvolt.com", "registrar": "GoDaddy", "reason": "Notable brand but long domain. Moderate auction interest."},
+          {"domain": "infarm.com", "registrar": "GoDaddy", "reason": "Short brandable. Will attract some auction bids but may not reach high price."},
+          {"domain": "convoy.com", "registrar": "SafeNames", "reason": "No auction barrier but corporate registrar rarely lets domains lapse."}
+        ]
+      },
+      "low_catchability": {
+        "description": "Premium domains that will almost certainly sell at internal auction, or locked at brand-protection registrar",
+        "domains": [
+          {"domain": "olive.com", "registrar": "GoDaddy", "reason": "Premium 1-word .com. Will sell at GoDaddy Auction for $10K+."},
+          {"domain": "veev.com", "registrar": "GoDaddy", "reason": "Premium 4-letter .com. High auction demand."},
+          {"domain": "arrival.com", "registrar": "Name.com", "reason": "Premium 1-word .com at registrar that sends to GoDaddy Auctions. Will sell."},
+          {"domain": "humane.com", "registrar": "Namecheap", "reason": "Registered through 2032. Not expiring for 6 years."},
+          {"domain": "irl.com", "registrar": "MarkMonitor", "reason": "6 EPP locks, corporate registrar, parent owns NameJet/SnapNames. UNCATCHABLE."}
+        ]
+      }
+    },
+    "strategy_recommendations": {
+      "best_drop_catch_targets": [
+        "easyknock.com (Cloudflare - cleanest path to drop, no auction barrier)",
+        "boweryfarming.com (Spaceship - no auction barrier, standard ICANN flow)",
+        "sunnyray.org (Tucows/GoDaddy Auctions - niche .org will likely pass through)",
+        "globalgeopark.org (Tucows/GoDaddy Auctions - niche .org will likely pass through)",
+        "guerrameats.com (Squarespace/GoDaddy Auctions - niche brand will likely pass through)"
+      ],
+      "godaddy_auction_targets": [
+        "infarm.com - Monitor GoDaddy Auctions for listing, bid there",
+        "fiskerinc.com - Monitor GoDaddy Auctions closeout for bargain",
+        "northvolt.com - Monitor GoDaddy Auctions, notable brand may attract bids",
+        "arrival.com - Monitor GoDaddy Auctions, will be competitive"
+      ],
+      "negotiation_only": [
+        "olive.com - Too premium for drop-catch. GoDaddy Auction or direct offer.",
+        "veev.com - Too premium for drop-catch. GoDaddy Auction or direct offer.",
+        "irl.com - MarkMonitor locked. Direct negotiation only path.",
+        "humane.com - Registered through 2032. No expiry path.",
+        "convoy.com - SafeNames corporate registrar. Direct outreach recommended."
+      ]
+    },
+    "registrar_count": 9,
+    "domains_with_drop_path": 13,
+    "domains_without_drop_path": 5,
+    "registrars_with_no_auction_barrier": ["Cloudflare, Inc.", "Spaceship, Inc.", "SafeNames Ltd."],
+    "registrars_sending_to_godaddy_auctions": ["GoDaddy.com, LLC", "Wild West Domains, LLC", "Tucows Domains Inc.", "Squarespace Domains II LLC", "Name.com, Inc."],
+    "registrars_with_own_auction": ["NameCheap, Inc."],
+    "registrars_with_extreme_protection": ["MarkMonitor Inc."]
+  }
+}

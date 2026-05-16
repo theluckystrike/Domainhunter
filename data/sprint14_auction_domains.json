@@ -1,0 +1,2560 @@
+{
+  "sprint": 14,
+  "agent": "AUCTION DOMAINS",
+  "scan_date": "2026-05-08",
+  "platforms_scanned": 7,
+  "platforms_detail": {
+    "godaddy_auctions": {
+      "status": "FULLY ACCESSIBLE",
+      "domains_found": 183,
+      "notes": "892K+ expiring auctions, 254K closeout domains. Extracted top deals <$100 with high valuations."
+    },
+    "namejet": {
+      "status": "PARTIALLY ACCESSIBLE",
+      "domains_found": 4,
+      "notes": "16,423 domains in auction (per May 4 stats). Site requires login for full listings. Got recent sales from DomainGang reports."
+    },
+    "dropcatch": {
+      "status": "LIMITED ACCESS",
+      "domains_found": 5,
+      "notes": "Main site client-side rendered. DropCatch.ai accessible with EU ccTLD auctions. May 5 results: $80,762 total sales."
+    },
+    "dynadot": {
+      "status": "BLOCKED - 403",
+      "domains_found": 0,
+      "notes": "Marketplace returns 403. Auctions last 7-11 days, require $5 minimum account spending."
+    },
+    "sedo": {
+      "status": "JS-ONLY RENDERING",
+      "domains_found": 0,
+      "notes": "Expiring domains page requires JavaScript. 2000+ domains added daily. Auctions start at $79."
+    },
+    "park_io": {
+      "status": "FULLY ACCESSIBLE",
+      "domains_found": 33,
+      "notes": "23 live auctions + 10 expiring domains extracted. Backorders cost $99/domain."
+    },
+    "abtdomain": {
+      "status": "SEARCH RESULTS ONLY",
+      "domains_found": 0,
+      "notes": "3,800-4,200 aged domains entering auction daily in May 2026. Site blocked direct access (403)."
+    }
+  },
+  "total_domains": 419,
+  "domains": [
+    {
+      "domain": "hammonton.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "votechain.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "hynek.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "thehealthnews.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "metalogo.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "itennessee.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "pine.tv",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "promint.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "isiri.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "redirekt.com",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "nezuko.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "heavenculture.com",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "wdtech.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "accidentinvestigation.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "hopeh.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "cultivations.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "barrass.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "headachecenters.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "egizmos.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "ourpages.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "finance4.com",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "chinamagnet.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "learningjournal.com",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "chrishome.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "baitek.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "jerusalemonline.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "bibull.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "wrightchoice.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "asmit.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "reitcapital.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "parkinson.io",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "nrglobal.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "moinet.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "chapter7bankruptcy.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "acbeauty.com",
+      "platform": "godaddy",
+      "price": 6,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "sentryit.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "truckcoin.com",
+      "platform": "godaddy",
+      "price": 11,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "cannagro.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "askpaul.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "bnh.io",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "inlegno.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "catamaranboats.com",
+      "platform": "godaddy",
+      "price": 10,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "buycannabisoil.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "business-group.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "lazars.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "do-gooder.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "pollservice.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "artsnack.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "comiccoin.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "enel.net",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "coachingcenter.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "7dog.com",
+      "platform": "godaddy",
+      "price": 36,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "avgeek.com",
+      "platform": "godaddy",
+      "price": 36,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "solelyon.com",
+      "platform": "godaddy",
+      "price": 33,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "saperp.com",
+      "platform": "godaddy",
+      "price": 48,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "showrunners.com",
+      "platform": "godaddy",
+      "price": 26,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "exclusiveadventures.com",
+      "platform": "godaddy",
+      "price": 33,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "potonline.com",
+      "platform": "godaddy",
+      "price": 41,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "globalthreat.com",
+      "platform": "godaddy",
+      "price": 49,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "virtualearn.com",
+      "platform": "godaddy",
+      "price": 34,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "sballiance.com",
+      "platform": "godaddy",
+      "price": 25,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "satisgroup.com",
+      "platform": "godaddy",
+      "price": 25,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "saintchristopher.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "firstcart.com",
+      "platform": "godaddy",
+      "price": 50,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "ghoststore.com",
+      "platform": "godaddy",
+      "price": 27,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "virusdata.com",
+      "platform": "godaddy",
+      "price": 21,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "arcay.com",
+      "platform": "godaddy",
+      "price": 30,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "enjoyfitness.com",
+      "platform": "godaddy",
+      "price": 26,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "parabel.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "innovationnow.com",
+      "platform": "godaddy",
+      "price": 38,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "ulyfe.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "jkpro.com",
+      "platform": "godaddy",
+      "price": 21,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "vapeboss.com",
+      "platform": "godaddy",
+      "price": 26,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "888788.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "joecarter.com",
+      "platform": "godaddy",
+      "price": 27,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "unitedemirates.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "actionboy.com",
+      "platform": "godaddy",
+      "price": 36,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "bymore.com",
+      "platform": "godaddy",
+      "price": 37,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "antilife.com",
+      "platform": "godaddy",
+      "price": 43,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "giftwin.com",
+      "platform": "godaddy",
+      "price": 43,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "mortgagevip.com",
+      "platform": "godaddy",
+      "price": 35,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "geopeak.com",
+      "platform": "godaddy",
+      "price": 37,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "reputationagency.com",
+      "platform": "godaddy",
+      "price": 27,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "doretta.com",
+      "platform": "godaddy",
+      "price": 20,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "ganjaworld.com",
+      "platform": "godaddy",
+      "price": 32,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "metrogym.com",
+      "platform": "godaddy",
+      "price": 50,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "drted.com",
+      "platform": "godaddy",
+      "price": 41,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "renoz.com",
+      "platform": "godaddy",
+      "price": 26,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "utilitysafety.com",
+      "platform": "godaddy",
+      "price": 37,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "imprinter.com",
+      "platform": "godaddy",
+      "price": 29,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "zeetec.com",
+      "platform": "godaddy",
+      "price": 32,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "insuretracking.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "eduhack.com",
+      "platform": "godaddy",
+      "price": 36,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "wmass.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "silvercrypto.com",
+      "platform": "godaddy",
+      "price": 41,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "showie.com",
+      "platform": "godaddy",
+      "price": 36,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "juicecafe.com",
+      "platform": "godaddy",
+      "price": 21,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "iparealty.com",
+      "platform": "godaddy",
+      "price": 16,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "fanlift.com",
+      "platform": "godaddy",
+      "price": 27,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "buddyworld.com",
+      "platform": "godaddy",
+      "price": 21,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "lifebetter.com",
+      "platform": "godaddy",
+      "price": 58,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "kaori.com",
+      "platform": "godaddy",
+      "price": 70,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "lowestmortgage.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "jyqf.com",
+      "platform": "godaddy",
+      "price": 98,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "bchp.com",
+      "platform": "godaddy",
+      "price": 63,
+      "end_date": "2026-05-16"
+    },
+    {
+      "domain": "cryptoconference.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "geocall.com",
+      "platform": "godaddy",
+      "price": 100,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "gethug.com",
+      "platform": "godaddy",
+      "price": 71,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "60999.com",
+      "platform": "godaddy",
+      "price": 100,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "icigar.com",
+      "platform": "godaddy",
+      "price": 54,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "nicelook.com",
+      "platform": "godaddy",
+      "price": 65,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "hfs.io",
+      "platform": "godaddy",
+      "price": 60,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "synergyvision.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "paymortgage.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "globalmeeting.com",
+      "platform": "godaddy",
+      "price": 64,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "freegigs.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "diamondnews.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "ozmosis.com",
+      "platform": "godaddy",
+      "price": 52,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "casecase.com",
+      "platform": "godaddy",
+      "price": 75,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "cryptostandard.com",
+      "platform": "godaddy",
+      "price": 81,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "firelion.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "originalpower.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "bitcoincareers.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "carsworth.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "groundreport.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "bookpost.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "streamitnow.com",
+      "platform": "godaddy",
+      "price": 93,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "blockchaintimes.com",
+      "platform": "godaddy",
+      "price": 51,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "thepeoplegroup.com",
+      "platform": "godaddy",
+      "price": 60,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "ilovetrees.com",
+      "platform": "godaddy",
+      "price": 55,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "yviva.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "gmcltd.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "alexhansen.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "silkdog.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "bradleystreet.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "mpdesigns.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "wikimenu.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "niu888.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "clubtelecom.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "premiumvoip.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-14"
+    },
+    {
+      "domain": "starsandbars.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "livethebest.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "kacpa.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "infinitevacations.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "mindtimeshare.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "artisticheritage.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "rgevents.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "badwan.com",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-13"
+    },
+    {
+      "domain": "www2.io",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "kaim.io",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cankaya.io",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "chronicled.io",
+      "platform": "godaddy-closeout",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "thefriendzone.io",
+      "platform": "godaddy-closeout",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cdek.io",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "edencorp.io",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "genghis.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "steadyltd.io",
+      "platform": "godaddy-closeout",
+      "price": 40,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "dlpc.co",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "bloods.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "intels.co",
+      "platform": "godaddy-closeout",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "w3p.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "thelifecoach.co",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "ablecommerce.co",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "primaries.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "getprepared.co",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "seaoflove.co",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "messo.co",
+      "platform": "godaddy-closeout",
+      "price": 40,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "tilan.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "weddingminister.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "torfx.co",
+      "platform": "godaddy-closeout",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "hemslojd.co",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "autoaccidenthelpline.co",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "animeu.co",
+      "platform": "godaddy-closeout",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "travelmuse.co",
+      "platform": "godaddy-closeout",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "quickgo.co",
+      "platform": "godaddy-closeout",
+      "price": 40,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "casino889.co",
+      "platform": "godaddy-closeout",
+      "price": 50,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "maskt.co",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "caraccidenthelpline.co",
+      "platform": "godaddy-closeout",
+      "price": 11,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "strategicalternatives.io",
+      "platform": "godaddy-closeout",
+      "price": 1,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "safcapital.io",
+      "platform": "godaddy-closeout",
+      "price": 1,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "ldbd.com",
+      "platform": "park.io",
+      "price": 1105,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "bagsoutletshop.com",
+      "platform": "park.io",
+      "price": 1010,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "down.ly",
+      "platform": "park.io",
+      "price": 102,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "extra.ly",
+      "platform": "park.io",
+      "price": 99,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "bupp.com",
+      "platform": "park.io",
+      "price": 2275,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "feature.ly",
+      "platform": "park.io",
+      "price": 102,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "sorturl.com",
+      "platform": "park.io",
+      "price": 99,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "luckyloot.com",
+      "platform": "park.io",
+      "price": 787,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "2290.com",
+      "platform": "park.io",
+      "price": 3100,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "fuse.ly",
+      "platform": "park.io",
+      "price": 102,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "verdel.com",
+      "platform": "park.io",
+      "price": 305,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "vsfish.com",
+      "platform": "park.io",
+      "price": 356,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "altagents.com",
+      "platform": "park.io",
+      "price": 2000,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "whyyou.com",
+      "platform": "park.io",
+      "price": 710,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "epzw.com",
+      "platform": "park.io",
+      "price": 510,
+      "end_date": "2026-05-15"
+    },
+    {
+      "domain": "pbsn.com",
+      "platform": "park.io",
+      "price": 1041,
+      "end_date": "2026-05-18"
+    },
+    {
+      "domain": "promize.com",
+      "platform": "park.io",
+      "price": 2025,
+      "end_date": "2026-05-19"
+    },
+    {
+      "domain": "wealthverse.com",
+      "platform": "park.io",
+      "price": 338,
+      "end_date": "2026-05-23"
+    },
+    {
+      "domain": "open.pro",
+      "platform": "park.io",
+      "price": 2100,
+      "end_date": "2026-05-24"
+    },
+    {
+      "domain": "advisy.com",
+      "platform": "park.io",
+      "price": 1525,
+      "end_date": "2026-05-24"
+    },
+    {
+      "domain": "x8u.com",
+      "platform": "park.io",
+      "price": 610,
+      "end_date": "2026-05-27"
+    },
+    {
+      "domain": "myfs.com",
+      "platform": "park.io",
+      "price": 353,
+      "end_date": "2026-05-28"
+    },
+    {
+      "domain": "kofi.com",
+      "platform": "park.io",
+      "price": 1575,
+      "end_date": "2026-06-04"
+    },
+    {
+      "domain": "arbr.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "augment.ly",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "auroramortgagecompany.com",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "binaryoptions.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "flowers.ly",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "airlinetickets.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "appleid.us",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "3dgames.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "metadata.co",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "passport.to",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "familiasandalucia.es",
+      "platform": "dropcatch",
+      "price": 50,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "airtexproducts.es",
+      "platform": "dropcatch",
+      "price": 50,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "rat.pt",
+      "platform": "dropcatch",
+      "price": 50,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "proyectoatlantida.eu",
+      "platform": "dropcatch",
+      "price": 50,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "hotel-waldheimat.at",
+      "platform": "dropcatch",
+      "price": 50,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "mspinsider.co",
+      "platform": "godaddy",
+      "price": 5,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "caravantransport.co",
+      "platform": "godaddy",
+      "price": 1,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "birdytell.co",
+      "platform": "godaddy",
+      "price": 30,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "ketosis.com",
+      "platform": "namejet",
+      "price": 17600,
+      "end_date": "2026-05-05"
+    },
+    {
+      "domain": "sportsbrief.com",
+      "platform": "namejet",
+      "price": 41000,
+      "end_date": "2026-04-06"
+    },
+    {
+      "domain": "cortisone-info.com",
+      "platform": "namejet",
+      "price": 4805,
+      "end_date": "2026-03-19"
+    },
+    {
+      "domain": "same.net",
+      "platform": "namejet",
+      "price": 4200,
+      "end_date": "2026-03-18"
+    },
+    {
+      "domain": "jaqit.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "98007.com",
+      "platform": "godaddy",
+      "price": 41.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "tql.io",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "38533.com",
+      "platform": "godaddy",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "epeat.com",
+      "platform": "godaddy",
+      "price": 32.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "apiid.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "gsgex.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "wld.io",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "cryss.com",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "ilays.com",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "akcea.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "myteq.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "ixcon.com",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "cp720.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "2be.io",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "tyle.org",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "viiiv.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "signh.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "dere.net",
+      "platform": "godaddy",
+      "price": 31.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "mypvc.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-11"
+    },
+    {
+      "domain": "eazer.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "joyas.org",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "aicai.org",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-12"
+    },
+    {
+      "domain": "launchable.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "mysolutions.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "sought.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "powerblock.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "solarworld.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "yearly.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "marketshare.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "snippets.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "seos.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "medianetwork.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "coinpredictor.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "taiwanese.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "accident.ly",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "take.ly",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "atlas.ly",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "hubster.co",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "teslabot.co",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "globalexpansion.co",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "fkj.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "eoq.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "584.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "zvk.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "css4.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "dkr.io",
+      "platform": "park.io-expiring",
+      "price": 99,
+      "end_date": ""
+    },
+    {
+      "domain": "gslc-bsa.org",
+      "platform": "domcop",
+      "price": 40,
+      "end_date": ""
+    },
+    {
+      "domain": "nwtaichi.com",
+      "platform": "domcop",
+      "price": 5,
+      "end_date": ""
+    },
+    {
+      "domain": "deltacardiffvfc.com",
+      "platform": "domcop",
+      "price": 30,
+      "end_date": ""
+    },
+    {
+      "domain": "baxfamily.com",
+      "platform": "domcop",
+      "price": 30,
+      "end_date": ""
+    },
+    {
+      "domain": "madisonartcenter.org",
+      "platform": "domcop",
+      "price": 1,
+      "end_date": ""
+    },
+    {
+      "domain": "acme-atlanta.com",
+      "platform": "domcop",
+      "price": 11,
+      "end_date": ""
+    },
+    {
+      "domain": "pacific-scale.com",
+      "platform": "domcop",
+      "price": 40,
+      "end_date": ""
+    },
+    {
+      "domain": "confraternitasanbiagio.com",
+      "platform": "domcop",
+      "price": 11,
+      "end_date": ""
+    },
+    {
+      "domain": "chatterie-saint-evroult.com",
+      "platform": "domcop",
+      "price": 1,
+      "end_date": ""
+    },
+    {
+      "domain": "nabutechnology.co",
+      "platform": "domcop",
+      "price": 39,
+      "end_date": ""
+    },
+    {
+      "domain": "shepgate.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "amacwa.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "oracleresorts.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "naoar.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "tecovyr.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "q598.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "polishlink.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "shrimpvietnam.com",
+      "platform": "godaddy-closeout",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "interfaceinternationalinc.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "intlpolitics.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cheershoe.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "ipradco.com",
+      "platform": "godaddy-closeout",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cornerstoneportal.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "thefederalistparty.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "atnewheights.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "murthyblog.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "seniorfish.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "errordynamics.com",
+      "platform": "godaddy-closeout",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "lrisales.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "thelastoak.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "grissette.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "votejill.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "exclusivegambling.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "antiochfire.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "halalnational.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "radiusgh.com",
+      "platform": "godaddy-closeout",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "asennukset.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "reiprojects.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "nadastragroup.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "kuwaitexchange.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "peakcalgary.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "youcanmeet.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "oraclehotels.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "oracleresort.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "sewpv.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "kinnco.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "derwent.net",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "supremechallenge.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "entrepreneurialexperience.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "411visa.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "respondoc.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "bunsyou.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "churchcopyright.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "wadmans.com",
+      "platform": "godaddy-closeout",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "mortgagesandinsurance.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "overnightevents.com",
+      "platform": "godaddy-closeout",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "absoluteva.com",
+      "platform": "godaddy-closeout",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "keralapoll.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "timetodegree.com",
+      "platform": "godaddy-closeout",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "atdhetv.com",
+      "platform": "godaddy-closeout",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cityfax.com",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "inxsart.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "poplicus.com",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "pewterware.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "scilogic.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "davidsampson.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "code-forward.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cashscrew.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "breastc.com",
+      "platform": "godaddy",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "rummygames.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "eztrans.com",
+      "platform": "godaddy",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "llibre.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "amwine.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "consciouscontact.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "codeps.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "marijuanahelp.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "goldenpsychics.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "blazingmarket.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "typeface.org",
+      "platform": "godaddy",
+      "price": 15.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "kengross.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "forriders.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "shopforpaint.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "webuyyou.com",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "vlancer.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "disastermaster.com",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "callingcards.net",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "crmmatrix.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "bizlicensing.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "electricbiketour.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "bentzel.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "marijuanapipe.com",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "thewrangler.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "cornerstonepainting.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "repasar.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "cheapticketsflight.com",
+      "platform": "godaddy",
+      "price": 16.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "gaybeast.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "funflips.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "mobipcs.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "redwoodpharma.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "johnwells.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "imminentthreat.com",
+      "platform": "godaddy",
+      "price": 6.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "eartheat.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "proact4.me",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "docis.info",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "rational-rambles.com",
+      "platform": "godaddy",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "sobsuan.com",
+      "platform": "godaddy",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "johnnyrapidcams.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "xbthu.com",
+      "platform": "godaddy",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "cticb.org",
+      "platform": "godaddy",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "balashiha-sweet-snus.com",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "mos-dszn.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "tastytransitions.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "mhsec.com",
+      "platform": "godaddy",
+      "price": 46.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "babybiteplanner.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "mydreamcarexperience.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "selfmadecomedy.net",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "diplom-help-6.org",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "altynsaqa.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-07"
+    },
+    {
+      "domain": "auctionier.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "eilathotels.net",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-08"
+    },
+    {
+      "domain": "sclerosafe.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "cnntrump.com",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-09"
+    },
+    {
+      "domain": "hygienicbutterflyvalves.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "ricardosemler.co",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "kidsignment.co",
+      "platform": "godaddy",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "camperserv.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "gandhithemusical.co",
+      "platform": "godaddy",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "speedcoin.co",
+      "platform": "godaddy",
+      "price": 40.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "supertasty.co",
+      "platform": "godaddy",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "colesexpress.co",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "kidslivesafe.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "thetwistedfamily.co",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "inspiredwritingandlit.co",
+      "platform": "godaddy",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "skootus.co",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "nextraq.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "emazingrace.co",
+      "platform": "godaddy",
+      "price": 5.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "access-media.co",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "staircovers.co",
+      "platform": "godaddy",
+      "price": 30.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "wibawa.co",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "conergia.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "bluetowndonmatias.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "mindyourmacros.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "agilent-re.co",
+      "platform": "godaddy",
+      "price": 50.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "altidf.io",
+      "platform": "godaddy",
+      "price": 1.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "72hourkits.co",
+      "platform": "godaddy",
+      "price": 11.0,
+      "end_date": "2026-05-06"
+    },
+    {
+      "domain": "blindboxai.com",
+      "platform": "namecheap",
+      "price": 299,
+      "end_date": "2026-05-10"
+    },
+    {
+      "domain": "getchatgptai.com",
+      "platform": "namecheap",
+      "price": 299,
+      "end_date": "2026-05-10"
+    }
+  ]
+}

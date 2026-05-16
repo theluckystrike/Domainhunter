@@ -1,0 +1,558 @@
+{
+  "check_date": "2026-05-08",
+  "agent": "DROPCATCH AVAILABILITY CHECK",
+  "sprint": 16,
+  "already_expired_status": [
+    {
+      "domain": "guerrameats.com",
+      "original_expiry": "2026-04-07",
+      "days_since_expiry": 31,
+      "current_status": "RENEWED_BUT_ON_HOLD",
+      "registry_expiry": "2027-04-07",
+      "registrar_expiry": "2026-04-07",
+      "registrar": "Squarespace Domains II LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientHold",
+        "clientTransferProhibited"
+      ],
+      "nameservers": [
+        "ns-cloud-b1.googledomains.com",
+        "ns-cloud-b2.googledomains.com",
+        "ns-cloud-b3.googledomains.com",
+        "ns-cloud-b4.googledomains.com"
+      ],
+      "dns_resolves": false,
+      "http_status": "000 (connection refused / no server)",
+      "analysis": "Registry auto-renewed to 2027 but registrar still shows 2026-04-07 expiry. Domain has clientHold (DNS suspended) \u2014 the site is DOWN. Google Cloud nameservers still pointed. The registrant in AZ has NOT paid for renewal. Squarespace auto-renewed at registry level but placed clientHold because payment was not received. This domain is in the auto-renew grace period and WILL be deleted if payment is not made within ~45 days of expiry (by ~2026-05-22). HIGH probability of dropping.",
+      "estimated_grace_end": "2026-05-22",
+      "estimated_redemption_end": "2026-06-21",
+      "estimated_pending_delete": "2026-06-26",
+      "drop_probability": "HIGH (75%+)",
+      "backorder_action": "PLACE BACKORDER NOW",
+      "creation_date": "2005-04-07",
+      "domain_age_years": 21
+    },
+    {
+      "domain": "sunnyray.org",
+      "original_expiry": "2026-04-11",
+      "days_since_expiry": 27,
+      "current_status": "AUTO_RENEW_GRACE_PERIOD",
+      "registry_expiry": "2027-04-11",
+      "registrar_expiry": "2026-04-11",
+      "registrar": "Tucows Domains Inc. (reseller: Telekom Srbija)",
+      "status_flags_registry": [
+        "autoRenewPeriod"
+      ],
+      "status_flags_registrar": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "52.223.13.41",
+      "http_status": "200 OK",
+      "analysis": "Explicitly shows autoRenewPeriod status at registry level. Nameservers are renewyourname.net (Tucows parking). The domain is currently parked, NOT serving original content. Registrant is in Serbia. The auto-renew grace period for .org is 45 days from expiry date. Grace period ends ~2026-05-26 (18 days from now). If registrant does not pay, domain enters redemption.",
+      "estimated_grace_end": "2026-05-26",
+      "estimated_redemption_end": "2026-06-25",
+      "estimated_pending_delete": "2026-06-30",
+      "drop_probability": "HIGH (70%+) \u2014 parked on Tucows parking NS, Serbian registrant via reseller",
+      "backorder_action": "PLACE BACKORDER NOW",
+      "creation_date": "2005-04-11",
+      "domain_age_years": 21
+    },
+    {
+      "domain": "eatatmurphs.com",
+      "original_expiry": "2026-04-08",
+      "days_since_expiry": 30,
+      "current_status": "RENEWED",
+      "registry_expiry": "2027-04-08",
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns69.domaincontrol.com",
+        "ns70.domaincontrol.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "13.248.213.45",
+      "http_status": "200 OK",
+      "analysis": "Domain has been RENEWED. Registry expiry pushed to 2027-04-08. Updated on 2026-04-20 (12 days after expiry) suggesting GoDaddy auto-renewed and registrant confirmed payment. All standard GoDaddy client locks are set. DNS resolves and site returns 200 OK. This domain is NOT dropping.",
+      "drop_probability": "VERY LOW (<5%)",
+      "backorder_action": "NO ACTION \u2014 domain was renewed",
+      "creation_date": "2017-04-08",
+      "domain_age_years": 9
+    },
+    {
+      "domain": "woodysseafood.com",
+      "original_expiry": "2026-04-07",
+      "days_since_expiry": 31,
+      "current_status": "RENEWED",
+      "registry_expiry": "2027-04-08",
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns25.domaincontrol.com",
+        "ns26.domaincontrol.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "76.223.67.189",
+      "http_status": "200 OK",
+      "analysis": "Domain has been RENEWED with registry expiry pushed to 2027-04-08. Updated today (2026-05-08). However, NOTE the clientRenewProhibited flag \u2014 GoDaddy has blocked further renewals. This could mean the domain is in a dispute, legal hold, or the owner requested no further renewals. Combined with all 4 client locks, this is worth monitoring for the NEXT expiry cycle (April 2027). DNS resolves, site returns 200.",
+      "drop_probability": "VERY LOW for this cycle \u2014 but clientRenewProhibited means it WILL expire in April 2027",
+      "backorder_action": "ADD TO LONG-TERM WATCH LIST for April 2027 drop",
+      "creation_date": "1997-04-07",
+      "domain_age_years": 29
+    }
+  ],
+  "imminent_drops": [
+    {
+      "domain": "jokr.com",
+      "expiry": "2026-06-15",
+      "days_until_expiry": 38,
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "mia.ns.cloudflare.com",
+        "sean.ns.cloudflare.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "185.230.63.171",
+      "http_status": "301 redirect",
+      "last_updated": "2025-06-27",
+      "creation_date": "2003-06-15",
+      "domain_age_years": 23,
+      "analysis": "CRITICAL: clientRenewProhibited is set \u2014 domain CANNOT be renewed. All 4 client locks present. GoDaddy registrar. Last updated over 10 months ago (2025-06-27). Cloudflare nameservers still active. This is a 4-letter .com from a dead startup (JOKR grocery delivery, raised ~$430M). With clientRenewProhibited, it WILL expire on 2026-06-15. GoDaddy will then run an 18-day internal auction, followed by grace period, then drop.",
+      "estimated_godaddy_auction": "2026-06-15 to 2026-07-03",
+      "estimated_drop_date": "2026-08-01 to 2026-08-10",
+      "drop_probability": "VERY HIGH (90%+) \u2014 clientRenewProhibited, dead startup, no updates in 10 months",
+      "backorder_action": "PLACE BACKORDERS ON ALL PLATFORMS NOW",
+      "value_notes": "4-letter .com, 23 years old, $430M funded dead startup. This is a WHALE. Expect HEAVY competition at drop catch. DropCatch auction could reach $5K-$50K+.",
+      "urgency": "CRITICAL \u2014 38 days to expiry"
+    },
+    {
+      "domain": "globalhealth.org",
+      "expiry": "2026-07-02",
+      "days_until_expiry": 55,
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns37.domaincontrol.com",
+        "ns38.domaincontrol.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "151.101.194.159",
+      "http_status": "301 redirect",
+      "last_updated": "2025-08-16",
+      "creation_date": "1997-07-03",
+      "domain_age_years": 29,
+      "analysis": "clientRenewProhibited + all 4 locks. 29-year-old .org premium generic domain. Last updated 9 months ago. GoDaddy DomainControl nameservers. DNS points to Fastly IP (151.101.194.159). This is an INCREDIBLY valuable generic domain. With clientRenewProhibited it WILL expire. However, domains this valuable are often caught by insiders or go through GoDaddy's premium expired auction at extremely high prices.",
+      "estimated_godaddy_auction": "2026-07-02 to 2026-07-20",
+      "estimated_drop_date": "2026-08-15 to 2026-08-25",
+      "drop_probability": "VERY HIGH (90%+) \u2014 clientRenewProhibited, no recent updates",
+      "backorder_action": "PLACE BACKORDERS ON ALL PLATFORMS \u2014 but expect EXTREME competition",
+      "value_notes": "Premium generic .org, 29 years old, 'globalhealth' is a massive keyword. Expect DropCatch auction to reach $10K-$100K+. May be out of budget but worth having backorder in case competition is surprisingly low.",
+      "urgency": "HIGH \u2014 55 days to expiry"
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "expiry": "2026-07-06",
+      "days_until_expiry": 59,
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns43.domaincontrol.com",
+        "ns44.domaincontrol.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "15.197.148.33",
+      "http_status": "200 OK",
+      "last_updated": "2024-07-07",
+      "creation_date": "2021-07-06",
+      "domain_age_years": 5,
+      "analysis": "clientRenewProhibited + all 4 locks. Dead Indian beauty startup (Good Glamm Group, raised $250M+). Last WHOIS update was 2 YEARS ago (2024-07-07) \u2014 strong abandonment signal. DomainControl nameservers. Site still returns 200 but company is defunct.",
+      "estimated_godaddy_auction": "2026-07-06 to 2026-07-24",
+      "estimated_drop_date": "2026-08-20 to 2026-08-30",
+      "drop_probability": "VERY HIGH (90%+)",
+      "backorder_action": "PLACE BACKORDERS \u2014 good value, less competition than generics",
+      "value_notes": "Branded domain, less competition expected than generic domains. Reasonable catch opportunity.",
+      "urgency": "MEDIUM-HIGH \u2014 59 days to expiry"
+    },
+    {
+      "domain": "sendy.co",
+      "expiry": "2026-07-16",
+      "days_until_expiry": 69,
+      "registrar": "Wild West Domains, Inc. (GoDaddy subsidiary)",
+      "status_flags": [
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited",
+        "clientDeleteProhibited"
+      ],
+      "nameservers": [
+        "ns-156.awsdns-19.com",
+        "ns-615.awsdns-12.net",
+        "ns-1857.awsdns-40.co.uk",
+        "ns-1163.awsdns-17.org"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "45.33.92.230",
+      "http_status": "301 redirect",
+      "last_updated": "2025-10-07",
+      "creation_date": "2012-07-17",
+      "domain_age_years": 14,
+      "analysis": "clientRenewProhibited + all 4 locks via Wild West Domains (GoDaddy subsidiary). AWS nameservers still active. Sendy was a popular self-hosted email marketing tool. 5-letter .co domain. .co drops work differently \u2014 .co registry (Neustar/GoDaddy Registry) has its own drop process. Last updated 7 months ago.",
+      "estimated_drop_date": "2026-09-01 to 2026-09-15 (after .co grace + redemption)",
+      "drop_probability": "VERY HIGH (85%+)",
+      "backorder_action": "PLACE BACKORDERS \u2014 verify platform .co support",
+      "value_notes": "5-letter .co, popular brand name in email marketing space, 14 years old. Moderate competition expected.",
+      "urgency": "MEDIUM \u2014 69 days to expiry"
+    },
+    {
+      "domain": "readingfoundation.org",
+      "expiry": "2026-07-30",
+      "days_until_expiry": 83,
+      "registrar": "GoDaddy.com, LLC",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": [
+        "ns11.eapps.com",
+        "ns12.eapps.com",
+        "ns13.eapps.com",
+        "ns14.eapps.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "68.169.62.173",
+      "http_status": "301 redirect",
+      "last_updated": "2024-07-18",
+      "creation_date": "1998-07-31",
+      "domain_age_years": 28,
+      "analysis": "clientRenewProhibited + all 4 locks. 28-year-old .org domain. Last WHOIS update 2 years ago (2024-07-18). eApps hosting nameservers still active. The Reading Foundation appears to be a nonprofit that may have folded. 'readingfoundation' is a strong keyword in education space.",
+      "estimated_godaddy_auction": "2026-07-30 to 2026-08-17",
+      "estimated_drop_date": "2026-09-15 to 2026-09-25",
+      "drop_probability": "VERY HIGH (90%+)",
+      "backorder_action": "PLACE BACKORDERS ON ALL PLATFORMS",
+      "value_notes": "28-year-old .org, education keyword, nonprofit domain with potential backlink profile. Moderate competition expected.",
+      "urgency": "MEDIUM \u2014 83 days to expiry"
+    }
+  ],
+  "active_pipeline_status": [
+    {
+      "domain": "globalgeopark.org",
+      "current_status": "AUTO_RENEW_GRACE_PERIOD",
+      "registry_expiry": "2027-04-11",
+      "registrar_expiry": "2026-04-11",
+      "status_flags_registry": [
+        "autoRenewPeriod"
+      ],
+      "status_flags_registrar": [
+        "ok"
+      ],
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "analysis": "STILL in autoRenewPeriod as of today. Grace period ends ~2026-05-26 (18 days). Parked on Tucows parking NS. If not paid by ~May 26, enters redemption. This is our highest-priority backorder target from Sprint 15.",
+      "estimated_grace_end": "2026-05-26",
+      "estimated_drop_date": "2026-07-01 to 2026-07-06",
+      "drop_probability": "HIGH (70%+)",
+      "backorder_action": "BACKORDERS SHOULD ALREADY BE PLACED per Sprint 15",
+      "etv": 626,
+      "max_bid": 400,
+      "urgency": "CRITICAL \u2014 18 days until grace period ends"
+    },
+    {
+      "domain": "imageeditor.net",
+      "current_status": "ACTIVE_BUT_LOCKED",
+      "registry_expiry": "2026-09-20",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "analysis": "Still showing clientRenewProhibited with all 4 locks. Expiry 2026-09-20 (135 days). No status change since Sprint 15.",
+      "drop_probability": "HIGH (85%+)",
+      "backorder_action": "BACKORDERS SHOULD ALREADY BE PLACED per Sprint 15",
+      "etv": 246,
+      "max_bid": 200,
+      "urgency": "LOW \u2014 135 days to expiry"
+    }
+  ],
+  "available_now": [],
+  "available_now_note": "None of the tracked domains are currently available for direct registration. All are either renewed or still within their registration period. The closest to availability are guerrameats.com (clientHold, grace ending ~May 22) and sunnyray.org (autoRenewPeriod, grace ending ~May 26).",
+  "action_items": [
+    {
+      "priority": 1,
+      "action": "VERIFY globalgeopark.org backorders are placed",
+      "domain": "globalgeopark.org",
+      "deadline": "2026-05-26 (grace period end)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront (pay only if caught)",
+      "notes": "CRITICAL: Only 18 days until auto-renew grace period ends. If we don't have backorders placed by now, we're losing our window. Backorders should have been placed in Sprint 15."
+    },
+    {
+      "priority": 2,
+      "action": "PLACE BACKORDER for guerrameats.com",
+      "domain": "guerrameats.com",
+      "deadline": "IMMEDIATELY \u2014 grace period ends ~May 22",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront",
+      "notes": "21-year-old .com domain on clientHold (DNS suspended, site is DOWN). Squarespace registrar. High probability of dropping. Only 14 days until estimated grace period end."
+    },
+    {
+      "priority": 3,
+      "action": "PLACE BACKORDER for sunnyray.org",
+      "domain": "sunnyray.org",
+      "deadline": "Within 2 weeks \u2014 grace period ends ~May 26",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront",
+      "notes": "21-year-old .org, explicitly in autoRenewPeriod, parked on Tucows parking NS. Serbian registrant unlikely to pay."
+    },
+    {
+      "priority": 4,
+      "action": "PLACE BACKORDER for jokr.com",
+      "domain": "jokr.com",
+      "deadline": "Before 2026-06-15 (38 days)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot",
+        "GoDaddy Auctions (monitor)"
+      ],
+      "cost": "$0 upfront; expect $5K-$50K+ at auction",
+      "notes": "WHALE: 4-letter .com, 23yo, dead $430M startup. clientRenewProhibited = WILL expire. Place backorders but realistic budget assessment needed \u2014 this will likely go for major money at DropCatch auction. Place a backorder just to have a seat at the table."
+    },
+    {
+      "priority": 5,
+      "action": "PLACE BACKORDER for globalhealth.org",
+      "domain": "globalhealth.org",
+      "deadline": "Before 2026-07-02 (55 days)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront; expect $10K-$100K+ at auction",
+      "notes": "WHALE: Premium generic 29yo .org. clientRenewProhibited. Will attract massive competition. Backorder is free but winning auction may be out of budget."
+    },
+    {
+      "priority": 6,
+      "action": "PLACE BACKORDER for goodglammgroup.com",
+      "domain": "goodglammgroup.com",
+      "deadline": "Before 2026-07-06 (59 days)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront; expect $100-$500 at auction",
+      "notes": "Dead Indian beauty startup, branded domain. Less competition expected than generics. WITHIN BUDGET. Good catch opportunity."
+    },
+    {
+      "priority": 7,
+      "action": "PLACE BACKORDER for sendy.co",
+      "domain": "sendy.co",
+      "deadline": "Before 2026-07-16 (69 days)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront; expect $500-$5K at auction",
+      "notes": "Popular email marketing tool brand. 5-letter .co. Verify .co backorder support on each platform."
+    },
+    {
+      "priority": 8,
+      "action": "PLACE BACKORDER for readingfoundation.org",
+      "domain": "readingfoundation.org",
+      "deadline": "Before 2026-07-30 (83 days)",
+      "platforms": [
+        "DropCatch",
+        "SnapNames",
+        "Dynadot"
+      ],
+      "cost": "$0 upfront; expect $200-$2K at auction",
+      "notes": "28-year-old .org, education keyword, nonprofit domain. clientRenewProhibited."
+    },
+    {
+      "priority": 9,
+      "action": "ADD woodysseafood.com to April 2027 watch list",
+      "domain": "woodysseafood.com",
+      "deadline": "N/A (long-term monitor)",
+      "platforms": [],
+      "cost": "$0",
+      "notes": "29-year-old .com, renewed but has clientRenewProhibited \u2014 will expire April 2027. Domain age makes it valuable. Add to long-term tracking."
+    },
+    {
+      "priority": 10,
+      "action": "REMOVE eatatmurphs.com from pipeline",
+      "domain": "eatatmurphs.com",
+      "deadline": "N/A",
+      "platforms": [],
+      "cost": "$0",
+      "notes": "Domain was fully renewed to 2027. Active site. No longer a target."
+    }
+  ],
+  "platform_status_summary": {
+    "dropcatch_note": "Cannot query DropCatch API directly. Backorders are placed manually via dropcatch.com. Cost: $59/backorder (refunded if not caught). Supports .com, .net, .org, .co.",
+    "namejet_snapnames_note": "NameJet and SnapNames merged under the same parent. Backorder on one covers both. Cost: $79/backorder. Supports .com, .net, .org.",
+    "dynadot_note": "Cheapest option at ~$25/backorder. Lower catch rate than DropCatch. Supports .com, .net, .org, .co.",
+    "godaddy_auctions_note": "GoDaddy routes many of its own expiring domains through GoDaddy Auctions FIRST before they hit the general drop pool. Since jokr.com, globalhealth.org, goodglammgroup.com, readingfoundation.org, and sendy.co (.co via Wild West) are ALL on GoDaddy, monitor GoDaddy Auctions starting 1-2 weeks before each expiry."
+  },
+  "budget_analysis": {
+    "budget_remaining": 565,
+    "realistic_targets_within_budget": [
+      {
+        "domain": "globalgeopark.org",
+        "max_bid": 400,
+        "expected_cost": "59-400"
+      },
+      {
+        "domain": "guerrameats.com",
+        "max_bid": 200,
+        "expected_cost": "25-200"
+      },
+      {
+        "domain": "sunnyray.org",
+        "max_bid": 150,
+        "expected_cost": "25-150"
+      },
+      {
+        "domain": "goodglammgroup.com",
+        "max_bid": 300,
+        "expected_cost": "25-300"
+      },
+      {
+        "domain": "readingfoundation.org",
+        "max_bid": 200,
+        "expected_cost": "25-200"
+      }
+    ],
+    "likely_out_of_budget": [
+      {
+        "domain": "jokr.com",
+        "expected_auction_price": "5000-50000+",
+        "reason": "4-letter .com from $430M startup"
+      },
+      {
+        "domain": "globalhealth.org",
+        "expected_auction_price": "10000-100000+",
+        "reason": "Premium generic 29yo .org"
+      },
+      {
+        "domain": "sendy.co",
+        "expected_auction_price": "500-5000",
+        "reason": "Popular brand name .co"
+      }
+    ],
+    "strategy": "Place free backorders on ALL domains (total cost: $0 upfront). For domains within budget, bid up to max. For whales (jokr.com, globalhealth.org), place backorders to have a seat at the table but don't expect to win unless competition is surprisingly low. Focus budget on globalgeopark.org (highest ETV) and goodglammgroup.com (most likely to win at reasonable price)."
+  },
+  "critical_dates": [
+    {
+      "date": "2026-05-22",
+      "event": "guerrameats.com estimated grace period end",
+      "action": "Verify backorder placed"
+    },
+    {
+      "date": "2026-05-26",
+      "event": "globalgeopark.org + sunnyray.org grace period end",
+      "action": "Verify backorders placed"
+    },
+    {
+      "date": "2026-06-15",
+      "event": "jokr.com expiry",
+      "action": "Monitor GoDaddy Auctions"
+    },
+    {
+      "date": "2026-06-21",
+      "event": "guerrameats.com estimated redemption end",
+      "action": "Approaching drop"
+    },
+    {
+      "date": "2026-06-25",
+      "event": "sunnyray.org estimated redemption end",
+      "action": "Approaching drop"
+    },
+    {
+      "date": "2026-07-01",
+      "event": "globalgeopark.org estimated redemption end",
+      "action": "Approaching drop"
+    },
+    {
+      "date": "2026-07-02",
+      "event": "globalhealth.org expiry",
+      "action": "Monitor GoDaddy Auctions"
+    },
+    {
+      "date": "2026-07-06",
+      "event": "goodglammgroup.com expiry",
+      "action": "Monitor GoDaddy Auctions"
+    },
+    {
+      "date": "2026-07-16",
+      "event": "sendy.co expiry",
+      "action": "Monitor GoDaddy Auctions"
+    },
+    {
+      "date": "2026-07-30",
+      "event": "readingfoundation.org expiry",
+      "action": "Monitor GoDaddy Auctions"
+    },
+    {
+      "date": "2026-09-20",
+      "event": "imageeditor.net expiry",
+      "action": "Monitor GoDaddy Auctions"
+    }
+  ],
+  "key_findings": [
+    "GUERRAMEATS.COM is on clientHold with DNS suspended \u2014 HIGHEST immediate drop probability. Grace period ending in ~14 days.",
+    "SUNNYRAY.ORG explicitly in autoRenewPeriod with parking nameservers \u2014 owner has abandoned the site.",
+    "EATATMURPHS.COM and WOODYSSEAFOOD.COM were RENEWED \u2014 eatatmurphs is fully active, woodysseafood has clientRenewProhibited for NEXT cycle.",
+    "ALL 5 high-value upcoming domains (jokr, globalhealth, goodglammgroup, sendy, readingfoundation) show clientRenewProhibited \u2014 they WILL expire on schedule.",
+    "JOKR.COM and GLOBALHEALTH.ORG are whale-tier domains that will attract massive competition \u2014 place free backorders but expect to be outbid.",
+    "GOODGLAMMGROUP.COM is the best value opportunity \u2014 branded domain from dead startup, less competition, within budget.",
+    "ALL GoDaddy domains will likely go through GoDaddy's internal expired auction BEFORE hitting the general drop pool."
+  ]
+}

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REVENANT — Domain Acquisition Command Center</title>
+<style>
+:root{--bg:#0a0e17;--surface:#111827;--card:#1e293b;--border:#334155;--text:#e2e8f0;--dim:#94a3b8;--accent:#38bdf8;--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--purple:#a78bfa;--pink:#f472b6;--cyan:#06b6d4;--emerald:#10b981;--orange:#fb923c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:13px;line-height:1.5}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);border-bottom:2px solid var(--accent);padding:24px 32px;position:sticky;top:0;z-index:100}
+.header h1{font-size:22px;color:var(--accent);letter-spacing:2px}
+.header .subtitle{color:var(--dim);font-size:12px;margin-top:4px}
+.header .meta{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.header .meta span{background:var(--card);padding:4px 12px;border-radius:4px;font-size:11px;border:1px solid var(--border)}
+.tabs{display:flex;gap:2px;padding:8px 32px;background:var(--surface);border-bottom:1px solid var(--border);flex-wrap:wrap;position:sticky;top:95px;z-index:99}
+.tab{padding:8px 16px;cursor:pointer;border:1px solid transparent;border-radius:4px 4px 0 0;color:var(--dim);font-size:12px;transition:all .2s;white-space:nowrap}
+.tab:hover{color:var(--text);background:var(--card)}
+.tab.active{color:var(--accent);border-color:var(--accent);background:var(--card)}
+.tab.tab-pending{position:relative}
+.tab.tab-pending::after{content:'7';position:absolute;top:2px;right:2px;background:var(--red);color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;font-weight:bold}
+.content{padding:24px 32px;max-width:1600px;margin:0 auto}
+.panel{display:none}
+.panel.active{display:block}
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.grid-5{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card h3{color:var(--accent);font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card .value{font-size:28px;font-weight:bold;color:var(--text)}
+.card .label{font-size:11px;color:var(--dim);margin-top:4px}
+.card .sub{font-size:11px;color:var(--dim)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:bold;text-transform:uppercase}
+.badge-red{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.badge-green{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.badge-amber{background:rgba(245,158,11,.15);color:var(--amber);border:1px solid rgba(245,158,11,.3)}
+.badge-purple{background:rgba(167,139,250,.15);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+.badge-cyan{background:rgba(6,182,212,.15);color:var(--cyan);border:1px solid rgba(6,182,212,.3)}
+.badge-pink{background:rgba(244,114,182,.15);color:var(--pink);border:1px solid rgba(244,114,182,.3)}
+.badge-orange{background:rgba(251,146,60,.15);color:var(--orange);border:1px solid rgba(251,146,60,.3)}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th{text-align:left;padding:8px 12px;background:var(--surface);color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--accent)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:top}
+tr:hover td{background:rgba(56,189,248,.03)}
+.section{margin-bottom:32px}
+.section h2{color:var(--accent);font-size:16px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.progress-bar{height:6px;background:var(--surface);border-radius:3px;overflow:hidden;margin-top:8px}
+.progress-fill{height:100%;border-radius:3px;transition:width .3s}
+.alert{padding:12px 16px;border-radius:6px;margin-bottom:8px;font-size:12px;border-left:3px solid}
+.alert-critical{background:rgba(239,68,68,.08);border-color:var(--red);color:var(--red)}
+.alert-warning{background:rgba(245,158,11,.08);border-color:var(--amber);color:var(--amber)}
+.alert-info{background:rgba(56,189,248,.08);border-color:var(--accent);color:var(--accent)}
+.alert-success{background:rgba(34,197,94,.08);border-color:var(--green);color:var(--green)}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.timeline-item .sprint-label{color:var(--accent);font-size:11px;font-weight:bold;text-transform:uppercase}
+.timeline-item .finding{margin-top:4px;font-size:12px}
+.funnel{display:flex;flex-direction:column;gap:4px;max-width:700px}
+.funnel-step{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--card);border:1px solid var(--border);border-radius:4px}
+.funnel-step .count{min-width:90px;font-size:18px;font-weight:bold;color:var(--accent)}
+.funnel-step .desc{font-size:12px;color:var(--dim)}
+.spotlight{background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(56,189,248,.08));border:1px solid var(--purple);border-radius:8px;padding:20px;margin-bottom:16px}
+.spotlight h3{color:var(--purple);font-size:16px;margin-bottom:12px}
+.deepseek-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(16,185,129,.08));border:1px solid var(--cyan);border-radius:8px;padding:20px}
+.goldmine-box{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(239,68,68,.08));border:1px solid var(--amber);border-radius:8px;padding:20px}
+.cost-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
+.cost-item{text-align:center;padding:12px;border-radius:8px}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin:1px}
+.tag-tech{background:rgba(56,189,248,.15);color:var(--accent)}
+.tag-cooking{background:rgba(245,158,11,.15);color:var(--amber)}
+.tag-fitness{background:rgba(34,197,94,.15);color:var(--green)}
+.tag-finance{background:rgba(167,139,250,.15);color:var(--purple)}
+.tag-health{background:rgba(244,114,182,.15);color:var(--pink)}
+.tag-auto{background:rgba(251,146,60,.15);color:var(--orange)}
+.lessons{display:grid;gap:8px}
+.lesson{padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:6px;display:flex;gap:12px}
+.lesson .sprint-num{color:var(--accent);font-weight:bold;min-width:30px}
+.lesson .impact{color:var(--green);font-size:11px;margin-top:4px}
+.countdown{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:bold}
+.countdown-critical{background:rgba(239,68,68,.2);color:var(--red)}
+.countdown-warn{background:rgba(245,158,11,.2);color:var(--amber)}
+.countdown-ok{background:rgba(34,197,94,.2);color:var(--green)}
+.pending-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden}
+.pending-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.pending-card.tier-critical::before{background:var(--red)}
+.pending-card.tier-high::before{background:var(--amber)}
+.pending-card.tier-medium::before{background:var(--accent)}
+.pending-card .domain-name{font-size:18px;font-weight:bold;color:var(--text);margin-bottom:8px}
+.pending-card .domain-stats{display:flex;gap:24px;flex-wrap:wrap;margin:12px 0}
+.pending-card .stat{text-align:center}
+.pending-card .stat .num{font-size:20px;font-weight:bold}
+.pending-card .stat .lbl{font-size:10px;color:var(--dim);text-transform:uppercase}
+.pending-card .backorder-status{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.pending-card .platform{padding:4px 12px;border-radius:4px;font-size:11px;border:1px solid var(--border)}
+.pending-card .platform.ready{border-color:var(--green);color:var(--green)}
+.pending-card .platform.blocked{border-color:var(--red);color:var(--red)}
+.pending-card .platform.pending{border-color:var(--amber);color:var(--amber)}
+.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:12px 0}
+.status-item{background:var(--surface);padding:8px 12px;border-radius:6px;text-align:center;font-size:11px}
+.status-item .icon{font-size:20px;margin-bottom:4px}
+@media(max-width:768px){.content{padding:16px}.header{padding:16px}.tabs{padding:8px 16px}.grid-4,.grid-5{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>REVENANT COMMAND CENTER</h1>
+  <div class="subtitle">Project REVENANT — Autonomous Domain Acquisition Pipeline | Sprint 19 Complete</div>
+  <div class="meta">
+    <span>Updated: 2026-05-15</span>
+    <span>Sprints: 19</span>
+    <span>LOC: 26,823 (79 files)</span>
+    <span>Tests: 156 passing</span>
+    <span>Domains Scanned: 2,986,539+</span>
+    <span>Budget: $533.48 / $600</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview')">Overview</div>
+  <div class="tab tab-pending" onclick="showTab('pending')">Pending Drops</div>
+  <div class="tab" onclick="showTab('targets')">Active Targets</div>
+  <div class="tab" onclick="showTab('sprints')">Sprint History</div>
+  <div class="tab" onclick="showTab('scan700k')">700K Scan</div>
+  <div class="tab" onclick="showTab('ghost')">ghostautonomy.com</div>
+  <div class="tab" onclick="showTab('whales')">Whale Tracker</div>
+  <div class="tab" onclick="showTab('startups')">Dead Startups</div>
+  <div class="tab" onclick="showTab('pipeline')">Architecture</div>
+  <div class="tab" onclick="showTab('platforms')">Platforms</div>
+  <div class="tab" onclick="showTab('financials')">Financials</div>
+  <div class="tab" onclick="showTab('lessons')">Lessons</div>
+  <div class="tab" onclick="showTab('actions')">Action Items</div>
+</div>
+
+<div class="content">
+
+<!-- ========== OVERVIEW ========== -->
+<div id="overview" class="panel active">
+  <div class="section">
+    <div class="grid grid-5">
+      <div class="card"><h3>Sprints</h3><div class="value" style="color:var(--accent)">19</div><div class="sub">17 full + 2 mini</div></div>
+      <div class="card"><h3>Scanned</h3><div class="value" style="color:var(--cyan)">2.99M</div><div class="sub">+700K DropCatch CSV</div></div>
+      <div class="card"><h3>Codebase</h3><div class="value" style="color:var(--purple)">26.8K</div><div class="sub">79 Python files</div></div>
+      <div class="card"><h3>Tests</h3><div class="value" style="color:var(--green)">156</div><div class="sub">Passing (16 need fix)</div></div>
+      <div class="card"><h3>Budget Left</h3><div class="value" style="color:var(--emerald)">$533</div><div class="sub">88.9% of $600</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Critical Alerts</h2>
+    <div class="alert alert-critical">7 domains pending drop — Jun-Jul 2026. None listed on DropCatch/GoDaddy yet. Dynadot API blocked (settings redirect). Need pre-pendingDelete backorders.</div>
+    <div class="alert alert-critical">SOONEST DROP: guerrameats.com ($11,376/mo ETV) — clientHold + DNS DEAD, grace ends ~Jun 26. 42 DAYS.</div>
+    <div class="alert alert-warning">GoDaddy killed backorder service Oct 2025. Only auctions for GoDaddy-registered domains. Our targets are at other registrars.</div>
+    <div class="alert alert-warning">Dynadot API key NOT obtained — settings page keeps redirecting. Manual key entry needed.</div>
+    <div class="alert alert-info">Sprint 19: RDAP/WHOIS drop monitor built (659 LOC), DropCatch CSV scanner (224 LOC), Dynadot backorder tool (224 LOC), alert formatter (143 LOC). 3,109 LOC shipped.</div>
+    <div class="alert alert-success">700K DropCatch CSV scanned — 500 domains scored, top score 46. Top finds: aibothub.io, dataiot.io, rapidui.io.</div>
+  </div>
+
+  <div class="section">
+    <h2>Pipeline Funnel (2.99M &rarr; 18 Monitored)</h2>
+    <div class="funnel">
+      <div class="funnel-step"><span class="count">2,986,539</span><span class="desc">Domains scanned from 6 sources (GoDaddy, ExpiredDomains, DomCop, Catchdoms, DropCatch CSV, Tech shutdowns)</span></div>
+      <div class="funnel-step"><span class="count">37,000+</span><span class="desc">Passed DA/DR filter (DA &ge; 15)</span></div>
+      <div class="funnel-step"><span class="count">558</span><span class="desc">ETV verified via DataForSEO ($0.01/lookup)</span></div>
+      <div class="funnel-step"><span class="count">62</span><span class="desc">Whale candidates (ETV &ge; $1K/mo)</span></div>
+      <div class="funnel-step"><span class="count">18</span><span class="desc">Under active monitoring (4 tiers via RDAP/WHOIS cron)</span></div>
+      <div class="funnel-step"><span class="count">7</span><span class="desc">Critical + High priority — backorder targets</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Platform Status</h2>
+    <div class="grid grid-4">
+      <div class="card" style="border-color:var(--amber)">
+        <h3>DropCatch</h3>
+        <div><span class="badge badge-amber">ACTIVE — NO BACKORDERS</span></div>
+        <div class="sub" style="margin-top:8px">Account: michaellikesfreedom. $59/backorder. Domains not in pendingDelete yet.</div>
+      </div>
+      <div class="card" style="border-color:var(--amber)">
+        <h3>Dynadot</h3>
+        <div><span class="badge badge-amber">ACCOUNT ACTIVE — API BLOCKED</span></div>
+        <div class="sub" style="margin-top:8px">Account: theluckystrike. $10.99/backorder. API settings page redirects to account settings.</div>
+      </div>
+      <div class="card" style="border-color:var(--green)">
+        <h3>GoDaddy Auctions</h3>
+        <div><span class="badge badge-green">MEMBERSHIP ACTIVE</span></div>
+        <div class="sub" style="margin-top:8px">$4.99/yr (conf# 4082361684). Backorders killed Oct 2025. Auctions only.</div>
+      </div>
+      <div class="card" style="border-color:var(--red)">
+        <h3>SnapNames</h3>
+        <div><span class="badge badge-red">NO ACCOUNT</span></div>
+        <div class="sub" style="margin-top:8px">$79/backorder. Shares inventory with NameJet. Need to create.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PENDING DROPS ========== -->
+<div id="pending" class="panel">
+  <div class="section">
+    <h2>Pending Domain Drops — Backorder Queue</h2>
+    <div class="alert alert-critical">No backorders placed yet. Domains not in pendingDelete — will appear on DropCatch ~5 days before deletion. Dynadot accepts pre-pendingDelete backorders at $10.99 but API key is blocked.</div>
+  </div>
+
+  <div class="section">
+    <h2>Critical Tier</h2>
+
+    <div class="pending-card tier-critical">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">guerrameats.com</div>
+        <div><span class="badge badge-red">#1 CRITICAL</span> <span class="countdown countdown-critical">~42 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$11,376</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--red)">clientHold</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">~Jun 26</div><div class="lbl">Grace Ends</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$200</div><div class="lbl">Max Bid</div></div>
+        <div class="stat"><div class="num">DNS DEAD</div><div class="lbl">HTTP Status</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">clientHold + DNS completely dead. Highest ETV in pipeline. Confirmed dropping. ROI at $59 catch = <strong style="color:var(--green)">2,314x annual</strong>.</div>
+      <div class="backorder-status">
+        <div class="platform blocked">DropCatch: NOT IN PENDINGDELETE</div>
+        <div class="platform blocked">Dynadot: API KEY MISSING</div>
+        <div class="platform blocked">SnapNames: NO ACCOUNT</div>
+        <div class="platform blocked">GoDaddy: NOT LISTED</div>
+      </div>
+    </div>
+
+    <div class="pending-card tier-critical">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">sunnyray.org</div>
+        <div><span class="badge badge-red">#2 CRITICAL</span> <span class="countdown countdown-critical">~46 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$2,842</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">autoRenew</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">~Jun 30</div><div class="lbl">Grace Ends</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$100</div><div class="lbl">Max Bid</div></div>
+        <div class="stat"><div class="num">DNS Timeout</div><div class="lbl">HTTP Status</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">autoRenewPeriod + DNS timeout = abandoned. Health/wellness niche. Strong organic traffic.</div>
+      <div class="backorder-status">
+        <div class="platform blocked">DropCatch: NOT IN PENDINGDELETE</div>
+        <div class="platform blocked">Dynadot: API KEY MISSING</div>
+        <div class="platform blocked">SnapNames: NO ACCOUNT</div>
+      </div>
+    </div>
+
+    <div class="pending-card tier-critical">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">globalgeopark.org</div>
+        <div><span class="badge badge-red">#3 CRITICAL</span> <span class="countdown countdown-critical">~47 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$626</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">autoRenew</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">~Jul 1</div><div class="lbl">Grace Ends</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$400</div><div class="lbl">Max Bid</div></div>
+        <div class="stat"><div class="num">ABANDONED</div><div class="lbl">HTTP Status</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">UNESCO Global Geoparks Network domain. 249 keywords. autoRenewPeriod confirmed abandoned. Higher max bid due to backlink quality.</div>
+      <div class="backorder-status">
+        <div class="platform blocked">DropCatch: NOT IN PENDINGDELETE</div>
+        <div class="platform blocked">Dynadot: API KEY MISSING</div>
+        <div class="platform blocked">SnapNames: NO ACCOUNT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>High Tier</h2>
+
+    <div class="pending-card tier-high">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">ghostautonomy.com</div>
+        <div><span class="badge badge-amber">#4 HIGH</span> <span class="countdown countdown-warn">~66 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$1,428</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--red)">clientRenew<br>Prohibited</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">~Jul 20</div><div class="lbl">Est. Drop</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$75</div><div class="lbl">Max Bid</div></div>
+        <div class="stat"><div class="num" style="color:var(--purple)">DA 52</div><div class="lbl">Authority</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">$220M OpenAI-backed autonomous driving startup. Patents sold to Applied Intuition. Company dissolved Apr 2024. 403 Forbidden. <strong style="color:var(--purple)">THE 100x PLAY.</strong></div>
+      <div class="backorder-status">
+        <div class="platform blocked">DropCatch: NOT IN PENDINGDELETE</div>
+        <div class="platform blocked">Dynadot: API KEY MISSING</div>
+        <div class="platform blocked">GoDaddy: NOT LISTED</div>
+      </div>
+    </div>
+
+    <div class="pending-card tier-high">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">goodglammgroup.com</div>
+        <div><span class="badge badge-amber">#5 HIGH</span> <span class="countdown countdown-warn">~52 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--dim)">~$0</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--red)">clientRenew<br>Prohibited</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">Jul 6</div><div class="lbl">Expiry</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$100</div><div class="lbl">Max Bid</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">Indian beauty unicorn. clientRenewProhibited. Brand domain potential.</div>
+    </div>
+
+    <div class="pending-card tier-high">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">sendy.co</div>
+        <div><span class="badge badge-amber">#6 HIGH</span> <span class="countdown countdown-warn">~62 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$3,179</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--red)">clientRenew<br>Prohibited</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">Jul 16</div><div class="lbl">Expiry</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$150</div><div class="lbl">Max Bid</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">Email marketing tool (self-hosted Mailchimp alternative). clientRenewProhibited. Strong tech niche.</div>
+    </div>
+
+    <div class="pending-card tier-high">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+        <div class="domain-name">readingfoundation.org</div>
+        <div><span class="badge badge-amber">#7 HIGH</span> <span class="countdown countdown-ok">~76 DAYS</span></div>
+      </div>
+      <div class="domain-stats">
+        <div class="stat"><div class="num" style="color:var(--green)">$7,207</div><div class="lbl">ETV/mo</div></div>
+        <div class="stat"><div class="num" style="color:var(--red)">clientRenew<br>Prohibited</div><div class="lbl">EPP Status</div></div>
+        <div class="stat"><div class="num">Jul 30</div><div class="lbl">Expiry</div></div>
+        <div class="stat"><div class="num" style="color:var(--amber)">$200</div><div class="lbl">Max Bid</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--dim);margin:8px 0">Education nonprofit. Strong .edu backlinks. clientRenewProhibited. Second-highest ETV in pipeline.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Drop Timeline</h2>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;overflow-x:auto">
+      <div style="display:flex;gap:0;min-width:800px;position:relative;height:200px">
+        <!-- Timeline bar -->
+        <div style="position:absolute;top:90px;left:0;right:0;height:2px;background:var(--border)"></div>
+        <!-- May 15 marker (today) -->
+        <div style="position:absolute;left:0;top:60px;font-size:10px;color:var(--green)">TODAY<br>May 15</div>
+        <div style="position:absolute;left:0;top:88px;width:4px;height:6px;background:var(--green);border-radius:2px"></div>
+        <!-- Jun 26 - guerrameats -->
+        <div style="position:absolute;left:28%;top:20px;text-align:center;font-size:10px;width:100px;margin-left:-50px">
+          <div style="color:var(--red);font-weight:bold">guerrameats.com</div>
+          <div style="color:var(--dim)">~Jun 26</div>
+          <div style="color:var(--green);font-size:9px">$11,376/mo</div>
+        </div>
+        <div style="position:absolute;left:28%;top:86px;width:8px;height:10px;background:var(--red);border-radius:50%"></div>
+        <!-- Jun 30 - sunnyray -->
+        <div style="position:absolute;left:32%;top:110px;text-align:center;font-size:10px;width:100px;margin-left:-50px">
+          <div style="color:var(--red);font-weight:bold">sunnyray.org</div>
+          <div style="color:var(--dim)">~Jun 30</div>
+          <div style="color:var(--green);font-size:9px">$2,842/mo</div>
+        </div>
+        <div style="position:absolute;left:32%;top:86px;width:8px;height:10px;background:var(--red);border-radius:50%"></div>
+        <!-- Jul 1 - globalgeopark -->
+        <div style="position:absolute;left:33%;top:20px;text-align:center;font-size:10px;width:110px;margin-left:-55px">
+          <div style="color:var(--red);font-weight:bold">globalgeopark.org</div>
+          <div style="color:var(--dim)">~Jul 1</div>
+          <div style="color:var(--green);font-size:9px">$626/mo</div>
+        </div>
+        <div style="position:absolute;left:33%;top:86px;width:8px;height:10px;background:var(--red);border-radius:50%"></div>
+        <!-- Jul 6 - goodglamm -->
+        <div style="position:absolute;left:38%;top:150px;text-align:center;font-size:10px;width:120px;margin-left:-60px">
+          <div style="color:var(--amber)">goodglammgroup.com</div>
+          <div style="color:var(--dim)">Jul 6</div>
+        </div>
+        <div style="position:absolute;left:38%;top:86px;width:8px;height:10px;background:var(--amber);border-radius:50%"></div>
+        <!-- Jul 16 - sendy -->
+        <div style="position:absolute;left:48%;top:110px;text-align:center;font-size:10px;width:80px;margin-left:-40px">
+          <div style="color:var(--amber)">sendy.co</div>
+          <div style="color:var(--dim)">Jul 16</div>
+          <div style="color:var(--green);font-size:9px">$3,179/mo</div>
+        </div>
+        <div style="position:absolute;left:48%;top:86px;width:8px;height:10px;background:var(--amber);border-radius:50%"></div>
+        <!-- Jul 20 - ghost -->
+        <div style="position:absolute;left:52%;top:20px;text-align:center;font-size:10px;width:120px;margin-left:-60px">
+          <div style="color:var(--purple);font-weight:bold">ghostautonomy.com</div>
+          <div style="color:var(--dim)">~Jul 20</div>
+          <div style="color:var(--green);font-size:9px">$1,428/mo | DA 52</div>
+        </div>
+        <div style="position:absolute;left:52%;top:86px;width:8px;height:10px;background:var(--purple);border-radius:50%"></div>
+        <!-- Jul 30 - reading -->
+        <div style="position:absolute;left:60%;top:150px;text-align:center;font-size:10px;width:130px;margin-left:-65px">
+          <div style="color:var(--amber)">readingfoundation.org</div>
+          <div style="color:var(--dim)">Jul 30</div>
+          <div style="color:var(--green);font-size:9px">$7,207/mo</div>
+        </div>
+        <div style="position:absolute;left:60%;top:86px;width:8px;height:10px;background:var(--amber);border-radius:50%"></div>
+        <!-- End markers -->
+        <div style="position:absolute;right:0;top:60px;font-size:10px;color:var(--dim)">Aug 30</div>
+      </div>
+    </div>
+    <div class="alert alert-info" style="margin-top:12px">Domains enter <strong>pendingDelete</strong> 5 days before final deletion. That's when DropCatch backorders become available. Dynadot accepts pre-pendingDelete backorders at $10.99.</div>
+  </div>
+
+  <div class="section">
+    <h2>Combined Value</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>Critical Tier ETV</h3><div class="value" style="color:var(--green)">$14,844/mo</div><div class="sub">guerrameats + sunnyray + globalgeopark</div></div>
+      <div class="card"><h3>High Tier ETV</h3><div class="value" style="color:var(--accent)">$11,814/mo</div><div class="sub">ghost + sendy + reading + goodglamm</div></div>
+      <div class="card"><h3>Total Pipeline ETV</h3><div class="value" style="color:var(--purple)">$26,658/mo</div><div class="sub">$319,896/yr potential at $59-200/catch</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ACTIVE TARGETS ========== -->
+<div id="targets" class="panel">
+  <div class="section">
+    <h2>All 18 Monitored Domains — 4 Tiers</h2>
+    <table>
+      <tr><th>Domain</th><th>Tier</th><th>ETV/mo</th><th>Status</th><th>Drop Est.</th><th>Max Bid</th><th>Notes</th></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td><strong>guerrameats.com</strong></td><td><span class="badge badge-red">CRITICAL</span></td><td style="color:var(--green)">$11,376</td><td>clientHold + DNS DEAD</td><td>~Jun 26</td><td>$200</td><td>Highest ETV — #1 priority</td></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td><strong>sunnyray.org</strong></td><td><span class="badge badge-red">CRITICAL</span></td><td style="color:var(--green)">$2,842</td><td>autoRenewPeriod</td><td>~Jun 30</td><td>$100</td><td>Health niche, DNS timeout</td></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td><strong>globalgeopark.org</strong></td><td><span class="badge badge-red">CRITICAL</span></td><td style="color:var(--green)">$626</td><td>autoRenewPeriod</td><td>~Jul 1</td><td>$400</td><td>UNESCO domain, 249 KW</td></tr>
+      <tr style="background:rgba(245,158,11,.05)"><td><strong>ghostautonomy.com</strong></td><td><span class="badge badge-amber">HIGH</span></td><td style="color:var(--green)">$1,428</td><td>clientRenewProhibited</td><td>~Jul 20</td><td>$75</td><td>$220M OpenAI, DA 52</td></tr>
+      <tr style="background:rgba(245,158,11,.05)"><td><strong>goodglammgroup.com</strong></td><td><span class="badge badge-amber">HIGH</span></td><td>~$0</td><td>clientRenewProhibited</td><td>Jul 6</td><td>$100</td><td>Indian beauty unicorn</td></tr>
+      <tr style="background:rgba(245,158,11,.05)"><td><strong>sendy.co</strong></td><td><span class="badge badge-amber">HIGH</span></td><td style="color:var(--green)">$3,179</td><td>clientRenewProhibited</td><td>Jul 16</td><td>$150</td><td>Email marketing tool</td></tr>
+      <tr style="background:rgba(245,158,11,.05)"><td><strong>readingfoundation.org</strong></td><td><span class="badge badge-amber">HIGH</span></td><td style="color:var(--green)">$7,207</td><td>clientRenewProhibited</td><td>Jul 30</td><td>$200</td><td>Education, .edu backlinks</td></tr>
+      <tr><td>bestdevtools.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>DNS DEAD</td><td>May 22</td><td>$59</td><td>Dev tools niche</td></tr>
+      <tr><td>taskplanner.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>clientRenewProhibited</td><td>May 27</td><td>$59</td><td>Productivity niche</td></tr>
+      <tr><td>fileconverter.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>clientRenewProhibited</td><td>Jun 20</td><td>$59</td><td>Tool niche</td></tr>
+      <tr><td>cookingtool.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>clientRenewProhibited</td><td>Jul 17</td><td>$59</td><td>Cooking niche</td></tr>
+      <tr><td>codehelper.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>clientRenewProhibited</td><td>Jul 17</td><td>$59</td><td>Dev niche</td></tr>
+      <tr><td>codeanalyzer.com</td><td><span class="badge badge-cyan">MEDIUM</span></td><td>$0</td><td>clientRenewProhibited</td><td>Jul 20</td><td>$59</td><td>Dev niche</td></tr>
+      <tr><td>imageeditor.net</td><td><span class="badge badge-cyan">MEDIUM</span></td><td style="color:var(--green)">$246</td><td>clientRenewProhibited</td><td>Nov 2026</td><td>$200</td><td>55 keywords</td></tr>
+      <tr><td>codeparrot.ai</td><td><span class="badge badge-cyan">MEDIUM</span></td><td style="color:var(--green)">$5,106</td><td>—</td><td>Dec 2026</td><td>$79</td><td>1,028 keywords. Dead AI startup</td></tr>
+      <tr style="color:var(--dim)"><td>canoo.com</td><td><span class="badge badge-purple">LOW</span></td><td>$0</td><td>Chapter 7</td><td>Sep 15</td><td>$0</td><td>Monitor only</td></tr>
+      <tr style="color:var(--dim)"><td>quibi.com</td><td><span class="badge badge-purple">LOW</span></td><td>$0</td><td>GoDaddy parking</td><td>Sep 2027</td><td>$0</td><td>$1.75B startup, monitor only</td></tr>
+      <tr style="color:var(--dim)"><td>recroom.com</td><td><span class="badge badge-purple">LOW</span></td><td>$0</td><td>Shutting down</td><td>Nov 2029</td><td>$0</td><td>NOT dropping</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Eliminated Targets (Saved from Bad Buys)</h2>
+    <table>
+      <tr><th>Domain</th><th>Reason</th><th>Sprint</th><th>Savings</th></tr>
+      <tr><td>olive.com</td><td>ENTITY MISIDENTIFICATION — is Repair Ventures, not Olive AI ($4B)</td><td>15</td><td style="color:var(--green)">$500K+</td></tr>
+      <tr><td>All 37 whale domains</td><td>67.5% still active businesses — billing disputes only</td><td>16</td><td style="color:var(--green)">$500+</td></tr>
+      <tr><td>devhub.io</td><td>ethereum.org backlink DOES NOT EXIST. Zero traffic.</td><td>9</td><td style="color:var(--green)">$970</td></tr>
+      <tr><td>decoder.com, gamepicker.com</td><td>$0 ETV despite high DA/DR and strong names</td><td>14</td><td style="color:var(--green)">$700+</td></tr>
+      <tr><td>GoDaddy fake closeouts</td><td>4 marketplaces with conflated prices ($5 vs $1,540+)</td><td>12</td><td style="color:var(--green)">$3,605</td></tr>
+      <tr><td>aidevtools.com, codeguide.com</td><td>RENEWED during grace period</td><td>12-13</td><td style="color:var(--green)">$100</td></tr>
+      <tr><td>15 famous startups</td><td>Northvolt, Theranos, Quibi — ALL $0 ETV</td><td>16</td><td style="color:var(--green)">$5K+</td></tr>
+      <tr><td>FoodFanatic.com</td><td>DR 55 / 23K backlinks but NOT dropping — expires Oct 2026, GoDaddy locked</td><td>19</td><td style="color:var(--green)">$59</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== SPRINT HISTORY ========== -->
+<div id="sprints" class="panel">
+  <div class="section">
+    <h2>Sprint Timeline — 19 Sprints</h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="sprint-label">Sprint 1-2 (Foundation)</div><div class="finding">Built initial scanner. Harvested 2.3M GoDaddy domains from 3 feeds. Discovered DA/DR metrics unreliable without ETV verification.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 3 (RADIOGRAPH)</div><div class="finding">Domain classifier + appraiser. DataForSEO chosen ($0.01/lookup). Tool matrix: DataForSEO, Moz, Ahrefs, Majestic evaluated.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 4-5 (Verification Engine)</div><div class="finding">Bulk ETV scanning. 44 domains verified, most $0. Whale keywords: builder.ai ($23.4K/mo).</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 6 (Deployment)</div><div class="finding">recipetool.net deployed. Backorder strategy formalized. Expiry calendar built.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 7-8 (Dead Startups + Global)</div><div class="finding">Dead startup tracking: 42 US + 78 international candidates. Crunchbase reaper scan. Territory-based scanning.</div></div>
+      <div class="timeline-item" style="border-color:var(--amber)"><div class="sprint-label" style="color:var(--amber)">Sprint 9 (devhub.io Lesson)</div><div class="finding"><strong>CRITICAL:</strong> devhub.io ($500 offer) debunked — ethereum.org backlink DOES NOT EXIST. <span class="badge badge-green">SAVED $970</span>. 5-point verification protocol born.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 10 (Automation)</div><div class="finding">daily_hunter.py (2,998 LOC). 5 data sources. 3 domains registered ($34.18). DropCatch account created.</div></div>
+      <div class="timeline-item" style="border-color:var(--red)"><div class="sprint-label" style="color:var(--red)">Sprint 12 (GoDaddy Price Trap)</div><div class="finding"><strong>$3,605 SAVED:</strong> GoDaddy has 4 marketplaces with conflated prices. Price verification gate added.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 13 (Backorder Strategy)</div><div class="finding">NameJet = SnapNames (same inventory since 2020). GoDaddy killed backorders Oct 2025. 3-platform strategy: DropCatch + SnapNames + Dynadot.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 14 (ETV Reality)</div><div class="finding">Crown jewels debunked: decoder.com, gamepicker.com = $0 ETV. Bid reductions $1,325&rarr;$837. <span class="badge badge-green">SAVED $488</span>.</div></div>
+      <div class="timeline-item" style="border-color:var(--red)"><div class="sprint-label" style="color:var(--red)">Sprint 15 (olive.com Trap)</div><div class="finding"><strong>ENTITY MISIDENTIFICATION:</strong> olive.com is Repair Ventures (car warranty), NOT Olive AI ($4B). <span class="badge badge-green">SAVED $500K+</span></div></div>
+      <div class="timeline-item" style="border-color:var(--red)"><div class="sprint-label" style="color:var(--red)">Sprint 16 (clientRenewProhibited BUSTED)</div><div class="finding"><strong>PARADIGM SHIFT:</strong> HTTP verified 40 "dropping" whales. 27/40 (67.5%) still active websites — billing disputes only. HTTP verification now MANDATORY.</div></div>
+      <div class="timeline-item"><div class="sprint-label">Sprint 17-18 (Refinement)</div><div class="finding">SnapNames ETV scan. codeparrot.ai: $5,106/mo, 1028 KW. guerrameats.com confirmed #1 target. Final verification pass.</div></div>
+      <div class="timeline-item" style="border-color:var(--green)"><div class="sprint-label" style="color:var(--green)">Sprint 19 (Production Pipeline)</div><div class="finding"><strong>3,109 LOC shipped:</strong> RDAP/WHOIS drop monitor (659 LOC), DropCatch CSV scanner (224 LOC), Dynadot backorder tool (224 LOC), alert formatter (143 LOC), dropcatch opener (182 LOC). 700K DropCatch CSV scanned. GoDaddy Auctions membership purchased ($4.99). Monitored domains JSON (18 targets, 4 tiers). 38 new tests.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 700K SCAN ========== -->
+<div id="scan700k" class="panel">
+  <div class="section">
+    <h2>DropCatch 700K CSV Scan Results</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>Total Scanned</h3><div class="value" style="color:var(--cyan)">699,900</div><div class="sub">From DropCatch daily CSV export</div></div>
+      <div class="card"><h3>Passed Scoring</h3><div class="value" style="color:var(--amber)">500</div><div class="sub">Min score threshold: 15</div></div>
+      <div class="card"><h3>Top Score</h3><div class="value" style="color:var(--green)">46</div><div class="sub">aibothub.io (ai+bot+hub)</div></div>
+      <div class="card"><h3>Agent Scans</h3><div class="value" style="color:var(--purple)">15</div><div class="sub">Parallel niche agents</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Top Scored Domains</h2>
+    <table>
+      <tr><th>#</th><th>Domain</th><th>Score</th><th>Length</th><th>TLD</th><th>Keywords</th><th>Structure</th><th>Matched</th></tr>
+      <tr><td>1</td><td><strong>aibothub.io</strong></td><td style="color:var(--green)">46</td><td>5</td><td>8</td><td>15</td><td>18</td><td>ai, bot, hub</td></tr>
+      <tr><td>2</td><td><strong>dataiot.io</strong></td><td style="color:var(--green)">44</td><td>8</td><td>8</td><td>10</td><td>18</td><td>ai, data</td></tr>
+      <tr><td>3</td><td><strong>rapidui.io</strong></td><td style="color:var(--green)">44</td><td>8</td><td>8</td><td>10</td><td>18</td><td>rapid, api</td></tr>
+      <tr><td>4</td><td><strong>devhub.ai</strong></td><td style="color:var(--green)">43</td><td>8</td><td>10</td><td>10</td><td>18</td><td>dev, hub</td></tr>
+      <tr><td>5</td><td><strong>codeai.io</strong></td><td style="color:var(--green)">41</td><td>8</td><td>8</td><td>10</td><td>18</td><td>code, ai</td></tr>
+      <tr><td>6</td><td><strong>autobot.ai</strong></td><td style="color:var(--green)">41</td><td>8</td><td>10</td><td>10</td><td>18</td><td>auto, bot</td></tr>
+      <tr><td>7</td><td><strong>flowbot.io</strong></td><td style="color:var(--green)">41</td><td>8</td><td>8</td><td>10</td><td>18</td><td>flow, bot</td></tr>
+      <tr><td>8</td><td><strong>corehub.ai</strong></td><td style="color:var(--green)">41</td><td>8</td><td>10</td><td>10</td><td>18</td><td>core, hub</td></tr>
+      <tr><td>9</td><td><strong>dashapi.io</strong></td><td style="color:var(--green)">41</td><td>8</td><td>8</td><td>10</td><td>18</td><td>dash, api</td></tr>
+      <tr><td>10</td><td><strong>syncbot.ai</strong></td><td style="color:var(--green)">41</td><td>8</td><td>10</td><td>10</td><td>18</td><td>sync, bot</td></tr>
+    </table>
+    <div class="sub" style="margin-top:8px">Full results: data/dropcatch_scan_2026-05-14.json (500 domains)</div>
+  </div>
+
+  <div class="section">
+    <h2>Key Finding: No Premium Single-Word .com Domains</h2>
+    <div class="alert alert-info">Checked all 699,900 domains against /usr/share/dict/words — found 101 real English word .com matches but all obscure/archaic (akund, almuce, papess). Zero premium single-word .com domains drop in a typical DropCatch daily CSV.</div>
+  </div>
+
+  <div class="section">
+    <h2>Scanner Gaps Identified (Expert Review: 6/10)</h2>
+    <div class="grid grid-2">
+      <div class="card" style="border-color:var(--red)">
+        <h3 style="color:var(--red)">Missing Dimensions</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:4px 0;color:var(--red)">No ETV data — scoring is vibes-based, not traffic-based</li>
+          <li style="margin:4px 0;color:var(--red)">No backlink data — can't assess domain authority</li>
+          <li style="margin:4px 0;color:var(--red)">No trademark/UDRP screening — dangerous alt-TLDs</li>
+          <li style="margin:4px 0;color:var(--red)">No NameBio auction price comps</li>
+          <li style="margin:4px 0;color:var(--red)">No post-acquisition monetization pipeline</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:var(--green)">
+        <h3 style="color:var(--green)">Working Dimensions (4/7)</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:4px 0;color:var(--green)">Length scoring (3-14 chars)</li>
+          <li style="margin:4px 0;color:var(--green)">TLD scoring (.ai, .io, .com, etc.)</li>
+          <li style="margin:4px 0;color:var(--green)">Keyword matching (48 goldmine keywords)</li>
+          <li style="margin:4px 0;color:var(--green)">Structure analysis (hyphens, numbers, compound)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GHOST AUTONOMY ========== -->
+<div id="ghost" class="panel">
+  <div class="section">
+    <div class="spotlight">
+      <h3 style="font-size:20px">ghostautonomy.com — The 100x Play</h3>
+      <div class="grid grid-5" style="margin-top:16px">
+        <div class="card"><h3>Funding</h3><div class="value" style="color:var(--purple)">$220M</div><div class="sub">OpenAI Startup Fund</div></div>
+        <div class="card"><h3>DA</h3><div class="value" style="color:var(--accent)">52</div><div class="sub">Verified authority</div></div>
+        <div class="card"><h3>ETV/mo</h3><div class="value" style="color:var(--green)">$1,428</div><div class="sub">438 KW, 28 top-10</div></div>
+        <div class="card"><h3>Max Bid</h3><div class="value" style="color:var(--amber)">$75</div><div class="sub">Backorder: $59-79</div></div>
+        <div class="card"><h3>Drop</h3><div class="value" style="color:var(--red)">~Jul 20</div><div class="sub">66 days out</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Intelligence</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Company Profile</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Company</td><td>Ghost Autonomy</td></tr>
+          <tr><td style="color:var(--dim)">Sector</td><td>Autonomous Driving / AI</td></tr>
+          <tr><td style="color:var(--dim)">Funding</td><td>$220M (OpenAI Startup Fund)</td></tr>
+          <tr><td style="color:var(--dim)">Shutdown</td><td>April 2024</td></tr>
+          <tr><td style="color:var(--dim)">Patents</td><td>Sold to Applied Intuition</td></tr>
+          <tr><td style="color:var(--dim)">HTTP</td><td>403 Forbidden</td></tr>
+          <tr><td style="color:var(--dim)">Press</td><td>TechCrunch, OpenAI blog, YC news</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>WHOIS</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Registrar</td><td>Wild West Domains (GoDaddy)</td></tr>
+          <tr><td style="color:var(--dim)">Expiry</td><td style="color:var(--red)">2026-06-07</td></tr>
+          <tr><td style="color:var(--dim)">Status</td><td><span class="badge badge-red">clientRenewProhibited</span></td></tr>
+          <tr><td style="color:var(--dim)">Nameservers</td><td>Cloudflare</td></tr>
+          <tr><td style="color:var(--dim)">Drop Est.</td><td>~Jul 20, 2026</td></tr>
+          <tr><td style="color:var(--dim)">Probability</td><td><span class="badge badge-green">VERY HIGH</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Risk Assessment</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="color:var(--green)">Bull Case</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:6px 0;color:var(--green)">$220M backing = massive press/tech backlinks</li>
+          <li style="margin:6px 0;color:var(--green)">DA 52 = high authority for any content site</li>
+          <li style="margin:6px 0;color:var(--green)">Company dissolved, patents sold = no renewal</li>
+          <li style="margin:6px 0;color:var(--green)">AI/autonomy = trending keyword space</li>
+          <li style="margin:6px 0;color:var(--green)">$59-79 catch vs $10K+ market value</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--amber)">Risk Factors</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:6px 0;color:var(--amber)">GoDaddy may capture internally for auction</li>
+          <li style="margin:6px 0;color:var(--amber)">Sprint 16 lesson: 67.5% renewProhibited still active</li>
+          <li style="margin:6px 0;color:var(--amber)">Competition from other backorder bidders</li>
+          <li style="margin:6px 0;color:var(--amber)">Applied Intuition could claim in wind-down</li>
+          <li style="margin:6px 0;color:var(--dim)">403 ≠ truly dead (could be intentional block)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== WHALES ========== -->
+<div id="whales" class="panel">
+  <div class="section">
+    <h2>Whale Domain Tracker (ETV &ge; $1K/mo)</h2>
+    <div class="alert alert-warning">Sprint 16 CRITICAL FINDING: 67.5% of clientRenewProhibited domains still serve active websites. HTTP verification mandatory.</div>
+    <table>
+      <tr><th>Domain</th><th>DR</th><th>ETV/mo</th><th>Expiry</th><th>Status</th><th>Feasibility</th></tr>
+      <tr><td><strong>builder.ai</strong></td><td>68</td><td style="color:var(--green)">$23,400</td><td style="color:var(--red)">Jun 4</td><td><span class="badge badge-amber">Insolvency</span></td><td style="color:var(--red)">Low</td></tr>
+      <tr><td><strong>guerrameats.com</strong></td><td>—</td><td style="color:var(--green)">$11,376</td><td>Jun 26</td><td><span class="badge badge-red">clientHold</span></td><td style="color:var(--green)">HIGH</td></tr>
+      <tr><td><strong>readingfoundation.org</strong></td><td>—</td><td style="color:var(--green)">$7,207</td><td>Jul 30</td><td><span class="badge badge-red">clientRenewProhibited</span></td><td style="color:var(--green)">HIGH</td></tr>
+      <tr><td><strong>codeparrot.ai</strong></td><td>—</td><td style="color:var(--green)">$5,106</td><td>Dec 2026</td><td>—</td><td style="color:var(--amber)">MEDIUM</td></tr>
+      <tr><td><strong>sendy.co</strong></td><td>—</td><td style="color:var(--green)">$3,179</td><td>Jul 16</td><td><span class="badge badge-red">clientRenewProhibited</span></td><td style="color:var(--green)">HIGH</td></tr>
+      <tr><td><strong>sunnyray.org</strong></td><td>—</td><td style="color:var(--green)">$2,842</td><td>Jun 30</td><td><span class="badge badge-amber">autoRenewPeriod</span></td><td style="color:var(--green)">HIGH</td></tr>
+      <tr><td><strong>ghostautonomy.com</strong></td><td>52</td><td style="color:var(--green)">$1,428</td><td>Jul 20</td><td><span class="badge badge-red">clientRenewProhibited</span></td><td style="color:var(--green)">HIGH</td></tr>
+      <tr><td>canoo.com</td><td>55</td><td>—</td><td>Sep 15</td><td><span class="badge badge-red">Chapter 7</span></td><td style="color:var(--red)">Low</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== DEAD STARTUPS ========== -->
+<div id="startups" class="panel">
+  <div class="section">
+    <h2>Dead Startup Tracker — 136 Companies</h2>
+    <div class="grid grid-3">
+      <div class="card"><h3>US Startups</h3><div class="value">58</div></div>
+      <div class="card"><h3>International</h3><div class="value">78</div></div>
+      <div class="card"><h3>Drop Signals</h3><div class="value" style="color:var(--red)">24</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>Top Dead Startup Domains</h2>
+    <table>
+      <tr><th>Domain</th><th>Funding</th><th>Backer</th><th>Shutdown</th><th>DR</th><th>Expiry</th><th>Status</th></tr>
+      <tr style="background:rgba(167,139,250,.05)"><td><strong>ghostautonomy.com</strong></td><td>$220M</td><td>OpenAI Fund</td><td>Apr 2024</td><td>52</td><td style="color:var(--red)">Jun 7</td><td><span class="badge badge-red">clientRenewProhibited</span></td></tr>
+      <tr><td><strong>builder.ai</strong></td><td>$445M</td><td>Microsoft</td><td>May 2025</td><td>68</td><td style="color:var(--red)">Jun 4</td><td><span class="badge badge-amber">Insolvency</span></td></tr>
+      <tr><td>recroom.com</td><td>$3.5B</td><td>Sequoia</td><td>Jun 2026</td><td>55</td><td>Nov 2029</td><td><span class="badge badge-amber">Shutting down</span></td></tr>
+      <tr><td>canoo.com</td><td>$1B+</td><td>Public</td><td>2025</td><td>55</td><td>Sep 15</td><td><span class="badge badge-red">Chapter 7</span></td></tr>
+      <tr><td>quibi.com</td><td>$1.75B</td><td>Hollywood</td><td>2020</td><td>70</td><td>Sep 2027</td><td><span class="badge badge-amber">GoDaddy parking</span></td></tr>
+      <tr><td>katerra.com</td><td>$2B+</td><td>SoftBank</td><td>2021</td><td>55</td><td>Mar 2027</td><td><span class="badge badge-red">No HTTP</span></td></tr>
+      <tr><td>goodglammgroup.com</td><td>—</td><td>—</td><td>2025</td><td>35</td><td style="color:var(--red)">Jul 6</td><td><span class="badge badge-red">405</span></td></tr>
+      <tr><td>fast.co</td><td>$124M</td><td>—</td><td>Apr 2022</td><td>50</td><td>Sep 2026</td><td><span class="badge badge-red">No HTTP</span></td></tr>
+    </table>
+    <div class="alert alert-success" style="margin-top:12px"><strong>VALIDATION:</strong> cubyn.com ($150M raised, French logistics) caught by DropCatch March 2025. Dead startup pipeline strategy WORKS.</div>
+  </div>
+</div>
+
+<!-- ========== ARCHITECTURE ========== -->
+<div id="pipeline" class="panel">
+  <div class="section">
+    <h2>Codebase Overview — 26,823 LOC / 79 Files</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Core Pipeline</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:4px 0">daily_hunter.py — 2,998 LOC</li>
+          <li style="margin:4px 0">sprint_orchestrator.py — 1,356 LOC</li>
+          <li style="margin:4px 0">scan_v2.py — 1,002 LOC</li>
+          <li style="margin:4px 0">sprint_planner.py — 708 LOC</li>
+          <li style="margin:4px 0">dashboard.py — 701 LOC</li>
+          <li style="margin:4px 0">drop_monitor.py — 659 LOC</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Agents (6)</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:4px 0">spectre.py — 623 LOC</li>
+          <li style="margin:4px 0">oracle.py — 591 LOC</li>
+          <li style="margin:4px 0">archivist.py — 564 LOC</li>
+          <li style="margin:4px 0">radiograph.py — 505 LOC</li>
+          <li style="margin:4px 0">scout.py, sentinel.py</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Clients (13)</h3>
+        <ul style="font-size:12px;list-style:none">
+          <li style="margin:4px 0">RDAP, WHOIS, Dynadot</li>
+          <li style="margin:4px 0">DataForSEO, DeepSeek</li>
+          <li style="margin:4px 0">Moz, Wayback, WhoisFreaks</li>
+          <li style="margin:4px 0">GitHub, Reddit, Google CSE</li>
+          <li style="margin:4px 0">Catchdoms, Anthropic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Directory Structure</h2>
+    <div class="card" style="font-family:monospace;font-size:12px;white-space:pre;overflow-x:auto">domainhunter/
+  agents/       6 AI agents (Scout, Sentinel, Oracle, Spectre, Archivist, Radiograph)
+  clients/      13 API clients (RDAP, Dynadot, DeepSeek, Moz, DataForSEO, Wayback, WHOIS...)
+  config/       Settings + constants (RDAP servers, EPP signals, registrar grace periods)
+  data/         153 data files (scans, results, trackers, screenshots)
+  models/       Domain lifecycle: Candidate &rarr; Scored &rarr; Vetted &rarr; Verified &rarr; Verdict
+  scripts/      Operational tools (drop monitor, CSV scanner, backorder, cron)
+  tools/        Pipeline tools (daily hunter, ETV scanner, gate pipeline, scorer)
+  tests/        156 passing tests
+  notifications/ Slack, email, desktop alert formatters + sender
+  storage/      SQLite database layer</div>
+  </div>
+
+  <div class="section">
+    <h2>5-Gate Verification Pipeline</h2>
+    <div class="card">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <span class="badge badge-cyan" style="font-size:12px;padding:6px 12px">Gate 1: Classification</span>
+        <span style="color:var(--dim)">&rarr;</span>
+        <span class="badge badge-green" style="font-size:12px;padding:6px 12px">Gate 2: ETV Verification</span>
+        <span style="color:var(--dim)">&rarr;</span>
+        <span class="badge badge-amber" style="font-size:12px;padding:6px 12px">Gate 3: SERP Analysis</span>
+        <span style="color:var(--dim)">&rarr;</span>
+        <span class="badge badge-purple" style="font-size:12px;padding:6px 12px">Gate 4: Keywords</span>
+        <span style="color:var(--dim)">&rarr;</span>
+        <span class="badge badge-pink" style="font-size:12px;padding:6px 12px">Gate 5: DNS/HTTP</span>
+        <span style="color:var(--dim)">&rarr;</span>
+        <span class="badge badge-green" style="font-size:12px;padding:6px 12px">BUY / INVESTIGATE / SKIP</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Sprint 19 Additions (+3,109 LOC)</h2>
+    <table>
+      <tr><th>File</th><th>LOC</th><th>Purpose</th></tr>
+      <tr><td>scripts/drop_monitor.py</td><td>659</td><td>RDAP/WHOIS monitor for 18 domains (cron, 4 tiers, 6h interval for critical)</td></tr>
+      <tr><td>scripts/dropcatch_csv_scanner.py</td><td>224</td><td>Stream-score 700K+ domains from DropCatch CSV (48 keywords, bounded memory)</td></tr>
+      <tr><td>scripts/dynadot_place_backorders.py</td><td>224</td><td>Batch backorder via Dynadot REST API (dry-run, async, rate-limited)</td></tr>
+      <tr><td>scripts/dropcatch_opener.py</td><td>182</td><td>Open DropCatch pages in Chrome via AppleScript</td></tr>
+      <tr><td>scripts/alert_formatter.py</td><td>143</td><td>Slack/email/desktop notification formatters</td></tr>
+      <tr><td>clients/dynadot_client.py</td><td>~300</td><td>Dynadot REST API client with auth, backorder, rate limiting</td></tr>
+      <tr><td>clients/rdap_client.py</td><td>~200</td><td>RDAP protocol client with registrar-specific servers</td></tr>
+      <tr><td>scripts/monitored_domains.json</td><td>30</td><td>18 target domains, 4 tiers, max bids, notes</td></tr>
+      <tr><td>tests/</td><td>~400</td><td>38 new tests (RDAP, Dynadot, drop monitor, alert formatter)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========== PLATFORMS ========== -->
+<div id="platforms" class="panel">
+  <div class="section">
+    <h2>Platform Strategy — Updated May 15, 2026</h2>
+    <div class="alert alert-critical">GoDaddy backorder service KILLED Oct 2025. Credits not available since Aug 2024. Auctions only for GoDaddy-registered domains.</div>
+  </div>
+
+  <div class="section">
+    <div class="grid grid-2">
+      <div class="card" style="border-color:var(--green)">
+        <h3 style="color:var(--green)">DropCatch — PRIMARY</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Cost</td><td>$59/backorder</td></tr>
+          <tr><td style="color:var(--dim)">Account</td><td><span class="badge badge-green">ACTIVE</span> (michaellikesfreedom)</td></tr>
+          <tr><td style="color:var(--dim)">When</td><td>PendingDelete window (5 days before deletion)</td></tr>
+          <tr><td style="color:var(--dim)">Backorders</td><td>0 placed — domains not in pendingDelete yet</td></tr>
+          <tr><td style="color:var(--dim)">Notes</td><td>Largest catching network. Auctions if multiple bidders.</td></tr>
+        </table>
+      </div>
+      <div class="card" style="border-color:var(--amber)">
+        <h3 style="color:var(--amber)">Dynadot — BUDGET</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Cost</td><td>$10.99/backorder</td></tr>
+          <tr><td style="color:var(--dim)">Account</td><td><span class="badge badge-amber">ACTIVE — API BLOCKED</span> (theluckystrike)</td></tr>
+          <tr><td style="color:var(--dim)">When</td><td>Pre-pendingDelete (anytime before drop)</td></tr>
+          <tr><td style="color:var(--dim)">API Key</td><td><span class="badge badge-red">NOT OBTAINED</span> — settings page redirect bug</td></tr>
+          <tr><td style="color:var(--dim)">Notes</td><td>Cheapest option. Accepts early backorders. DAX auction if contested.</td></tr>
+        </table>
+      </div>
+      <div class="card" style="border-color:var(--green)">
+        <h3 style="color:var(--green)">GoDaddy Auctions — INTERNAL</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Cost</td><td>$4.99/yr membership + bid</td></tr>
+          <tr><td style="color:var(--dim)">Account</td><td><span class="badge badge-green">MEMBERSHIP ACTIVE</span> (conf# 4082361684)</td></tr>
+          <tr><td style="color:var(--dim)">When</td><td>GoDaddy-registered domains only (internal auctions)</td></tr>
+          <tr><td style="color:var(--dim)">Backorders</td><td><span class="badge badge-red">KILLED OCT 2025</span></td></tr>
+          <tr><td style="color:var(--dim)">Notes</td><td>Only useful for GoDaddy-registered domains entering auction.</td></tr>
+        </table>
+      </div>
+      <div class="card" style="border-color:var(--red)">
+        <h3 style="color:var(--red)">SnapNames — THIRD</h3>
+        <table>
+          <tr><td style="color:var(--dim)">Cost</td><td>$79/backorder</td></tr>
+          <tr><td style="color:var(--dim)">Account</td><td><span class="badge badge-red">NOT CREATED</span></td></tr>
+          <tr><td style="color:var(--dim)">When</td><td>PendingDelete window</td></tr>
+          <tr><td style="color:var(--dim)">Notes</td><td>Shares inventory with NameJet (since 2020). Never bid on both.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== FINANCIALS ========== -->
+<div id="financials" class="panel">
+  <div class="section">
+    <h2>Budget Overview</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>Total Budget</h3><div class="value">$600</div></div>
+      <div class="card"><h3>Spent</h3><div class="value" style="color:var(--amber)">$66.52</div><div class="sub">11.1% of budget</div></div>
+      <div class="card"><h3>Remaining</h3><div class="value" style="color:var(--green)">$533.48</div><div class="sub">88.9% remaining</div></div>
+      <div class="card"><h3>Savings</h3><div class="value" style="color:var(--emerald)">$505K+</div><div class="sub">Prevented bad acquisitions</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Spending Breakdown</h2>
+    <table>
+      <tr><th>Category</th><th>Amount</th><th>Details</th></tr>
+      <tr><td>Domain Registrations</td><td>$34.18</td><td>3 domains at Cloudflare ($10-12 each)</td></tr>
+      <tr><td>DataForSEO API</td><td>$27.35</td><td>558 ETV lookups + bulk scans</td></tr>
+      <tr><td>GoDaddy Auctions</td><td>$4.99</td><td>Annual membership (conf# 4082361684)</td></tr>
+      <tr><td><strong>Total Spent</strong></td><td><strong>$66.52</strong></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Projected Backorder Costs</h2>
+    <table>
+      <tr><th>Scenario</th><th>Domains</th><th>Platform</th><th>Cost</th></tr>
+      <tr><td>Minimum — Dynadot only (7 critical+high)</td><td>7</td><td>Dynadot</td><td style="color:var(--green)">$76.93</td></tr>
+      <tr><td>Optimal — DropCatch + Dynadot (7 domains, 2 platforms)</td><td>14</td><td>Both</td><td style="color:var(--amber)">$489.93</td></tr>
+      <tr><td>Maximum — All 3 platforms (7 domains)</td><td>21</td><td>All 3</td><td style="color:var(--red)">$1,042.93</td></tr>
+      <tr style="background:rgba(34,197,94,.05)"><td><strong>Recommended: Dynadot (7) + DropCatch (3 critical)</strong></td><td>10</td><td>Hybrid</td><td style="color:var(--green)"><strong>$253.93</strong></td></tr>
+    </table>
+    <div class="alert alert-info" style="margin-top:12px">Budget remaining: $533.48. Recommended approach leaves $279.55 for additional backorders and DataForSEO top-up.</div>
+  </div>
+
+  <div class="section">
+    <h2>ROI Scenarios</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Best Case (guerrameats.com)</h3>
+        <div class="value" style="color:var(--green)">2,314x</div>
+        <div class="sub">$11,376/mo ETV at $59 catch = $136K/yr</div>
+      </div>
+      <div class="card">
+        <h3>Combined Critical Tier</h3>
+        <div class="value" style="color:var(--accent)">$178K/yr</div>
+        <div class="sub">$14,844/mo from 3 targets at ~$254 total</div>
+      </div>
+      <div class="card">
+        <h3>All 7 Targets</h3>
+        <div class="value" style="color:var(--purple)">$320K/yr</div>
+        <div class="sub">$26,658/mo at $254-$490 total spend</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LESSONS ========== -->
+<div id="lessons" class="panel">
+  <div class="section">
+    <h2>Hard-Won Lessons — 19 Sprints</h2>
+    <div class="lessons">
+      <div class="lesson" style="border-left:3px solid var(--red)"><div class="sprint-num">S16</div><div><div class="text"><strong>clientRenewProhibited &ne; Dropping</strong> — 67.5% still serve active websites. Flag = GoDaddy locked account (billing), NOT abandonment. HTTP verification mandatory.</div><div class="impact">PREVENTED: $500+ in bad backorders. Changed entire methodology.</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--red)"><div class="sprint-num">S15</div><div><div class="text"><strong>Entity Misidentification Kills</strong> — olive.com is Repair Ventures LLC, NOT Olive AI ($4B). Domain names can belong to completely different entities.</div><div class="impact">PREVENTED: $500,000+ acquisition on wrong entity</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--red)"><div class="sprint-num">S12</div><div><div class="text"><strong>GoDaddy Has 4 Marketplaces</strong> — Closeout ($5-12) vs Aftermarket ($1,540+) vs Auction vs Buy-It-Now. Search mixes all 4. ALWAYS verify at checkout.</div><div class="impact">SAVED: $3,605</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--red)"><div class="sprint-num">S9</div><div><div class="text"><strong>Verify Every Claim</strong> — devhub.io ethereum.org backlink DOES NOT EXIST. $500 offer based on false premise. 5-point verification protocol created.</div><div class="impact">SAVED: $970</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--amber)"><div class="sprint-num">S19</div><div><div class="text"><strong>GoDaddy Killed Backorders</strong> — Service retired Oct 2025, credits unavailable since Aug 2024. Auctions only for GoDaddy-registered domains. Our targets are at other registrars.</div><div class="impact">REDIRECTED: Must use DropCatch + Dynadot for catching</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--amber)"><div class="sprint-num">S19</div><div><div class="text"><strong>Domains Not on Platforms Until pendingDelete</strong> — All 7 targets searched on DropCatch and GoDaddy Auctions: NONE listed. Must wait for pendingDelete (5 days before deletion) or use Dynadot pre-drop backorders.</div><div class="impact">STRATEGY: Dynadot for early coverage, DropCatch for pendingDelete window</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--amber)"><div class="sprint-num">S13</div><div><div class="text"><strong>NameJet = SnapNames</strong> — Identical inventory since 2020. Never bid on both (bidding against yourself).</div><div class="impact">PREVENTED: Self-competing bids</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--green)"><div class="sprint-num">S14</div><div><div class="text"><strong>ETV Is King</strong> — Crown jewels (decoder.com, gamepicker.com) had $0 ETV despite high DA/DR. Never bid without ETV verification.</div><div class="impact">SAVED: $1,188</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--green)"><div class="sprint-num">S13</div><div><div class="text"><strong>Dead Startup Strategy VALIDATED</strong> — cubyn.com ($150M, French logistics) caught by DropCatch March 2025. Pipeline works.</div><div class="impact">VALIDATES: 136-startup tracking pipeline</div></div></div>
+      <div class="lesson" style="border-left:3px solid var(--amber)"><div class="sprint-num">S19</div><div><div class="text"><strong>FoodFanatic.com False Discovery</strong> — food-fanatic.com (with dash) on DropCatch CSV &ne; FoodFanatic.com (DR 55, 23K backlinks). The real domain expires Oct 2026 on GoDaddy with clientRenewProhibited. NOT dropping.</div><div class="impact">PREVENTED: $59 wasted backorder on wrong domain</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ACTION ITEMS ========== -->
+<div id="actions" class="panel">
+  <div class="section">
+    <h2>Action Items — Priority Queue</h2>
+
+    <h3 style="color:var(--red);margin:16px 0 8px">IMMEDIATE (This Week)</h3>
+    <table>
+      <tr><th>#</th><th>Action</th><th>Platform</th><th>Cost</th><th>Status</th></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td>1</td><td><strong>Get Dynadot API key manually</strong> — paste into .env</td><td>Dynadot</td><td>Free</td><td><span class="badge badge-red">BLOCKED</span> — settings redirect</td></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td>2</td><td><strong>Place Dynadot backorders</strong> on 7 critical+high domains</td><td>Dynadot</td><td>$76.93</td><td>Blocked on API key</td></tr>
+      <tr style="background:rgba(239,68,68,.05)"><td>3</td><td><strong>Create SnapNames account</strong></td><td>SnapNames</td><td>Free</td><td><span class="badge badge-red">NOT STARTED</span></td></tr>
+      <tr><td>4</td><td>Run dry-run: <code>python scripts/dynadot_place_backorders.py --tier critical --dry-run</code></td><td>CLI</td><td>Free</td><td>Blocked on API key</td></tr>
+    </table>
+
+    <h3 style="color:var(--amber);margin:16px 0 8px">BEFORE FIRST DROP (~Jun 26)</h3>
+    <table>
+      <tr><th>#</th><th>Action</th><th>Cost</th><th>Impact</th></tr>
+      <tr><td>5</td><td>Place DropCatch backorders when domains enter pendingDelete</td><td>$177-$413</td><td>Primary catch platform</td></tr>
+      <tr><td>6</td><td>Install cron jobs for drop_monitor.py (6h interval for critical)</td><td>Free</td><td>Automated status alerts</td></tr>
+      <tr><td>7</td><td>Set calendar reminders for each drop date</td><td>Free</td><td>Don't miss pendingDelete window</td></tr>
+    </table>
+
+    <h3 style="color:var(--accent);margin:16px 0 8px">SPRINT 20 (Pipeline Improvements)</h3>
+    <table>
+      <tr><th>#</th><th>Action</th><th>Cost</th><th>Impact</th></tr>
+      <tr><td>8</td><td>Add trademark/UDRP screening to scanner</td><td>Free</td><td>Avoid dangerous alt-TLD recommendations</td></tr>
+      <tr><td>9</td><td>Integrate backlink validation (Moz/DataForSEO)</td><td>~$5</td><td>Real authority scoring instead of vibes</td></tr>
+      <tr><td>10</td><td>Add NameBio auction price comps</td><td>Free</td><td>Market price validation</td></tr>
+      <tr><td>11</td><td>Build post-acquisition monetization pipeline</td><td>Free</td><td>Content site builder for caught domains</td></tr>
+      <tr><td>12</td><td>Re-key DeepSeek API for batch classification</td><td>$5-10</td><td>50x cost reduction on domain scoring</td></tr>
+      <tr><td>13</td><td>Add ETV data to CSV scanner scoring</td><td>~$5</td><td>Fix #1 gap: vibes &rarr; data-based scoring</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Environment Status</h2>
+    <div class="grid grid-4">
+      <div class="card"><h3>DATAFORSEO_LOGIN</h3><div><span class="badge badge-green">SET</span></div></div>
+      <div class="card"><h3>DATAFORSEO_PASSWORD</h3><div><span class="badge badge-green">SET</span></div></div>
+      <div class="card"><h3>DEEPSEEK_API_KEY</h3><div><span class="badge badge-amber">SET (EXPIRED?)</span></div></div>
+      <div class="card"><h3>CLOUDFLARE_DNS_TOKEN</h3><div><span class="badge badge-green">SET</span></div></div>
+      <div class="card"><h3>DYNADOT_API_KEY</h3><div><span class="badge badge-red">MISSING</span></div></div>
+      <div class="card"><h3>MOZ_API_KEY</h3><div><span class="badge badge-red">MISSING</span></div></div>
+      <div class="card"><h3>SLACK_WEBHOOK</h3><div><span class="badge badge-red">MISSING</span></div></div>
+      <div class="card"><h3>Cron Jobs</h3><div><span class="badge badge-red">0/3 INSTALLED</span></div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<div style="text-align:center;padding:24px;color:var(--dim);font-size:11px;border-top:1px solid var(--border)">
+  Project REVENANT | 26,823 LOC | 79 files | 156 tests | 19 Sprints | 2,986,539 Domains Scanned | NASA P10<br>
+  Updated 2026-05-15 | 18 domains monitored | 7 pending drops | $533.48 budget remaining
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,document.querySelector('.tabs').offsetTop-95);
+}
+// Calculate days remaining dynamically
+document.querySelectorAll('.countdown').forEach(el=>{
+  const text=el.textContent;
+  const match=text.match(/~(\d+)/);
+  if(match){
+    const days=parseInt(match[1]);
+    if(days<=30)el.className='countdown countdown-critical';
+    else if(days<=60)el.className='countdown countdown-warn';
+    else el.className='countdown countdown-ok';
+  }
+});
+</script>
+</body>
+</html>

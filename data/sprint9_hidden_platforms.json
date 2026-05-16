@@ -1,0 +1,400 @@
+{
+  "sprint": 9,
+  "agent": "AGENT 5 - Hidden Platforms Scout",
+  "generated": "2026-05-07",
+  "platforms_searched": 6,
+  "total_domains_found_directly": 0,
+  "reason_no_direct_domains": "All 6 platforms require JavaScript rendering and/or authenticated sessions to display actual domain listings. Web search and fetch attempts returned login walls, JS-only apps, or blurred domain names.",
+  "platform_intelligence": {
+    "expireddomains_net": {
+      "url": "https://www.expireddomains.net/",
+      "access_method": "Free account required for full access; deleted domains page exists at /deleted-domains/ but requires login to see listings",
+      "database_size": "677 TLDs supported, thousands of domains updated daily",
+      "key_pages": {
+        "deleted_domains": "https://www.expireddomains.net/deleted-domains/",
+        "expired_domains": "https://www.expireddomains.net/expired-domains/",
+        "domain_lists": "https://www.expireddomains.net/domain-lists/",
+        "godaddy_closeouts": "https://www.expireddomains.net/godaddy-closeout-domains/",
+        "godaddy_auctions_with_bids": "https://www.expireddomains.net/godaddy-domain-auctions-with-bids/",
+        "sedo_expired": "https://www.expireddomains.net/sedo-expired-domains/",
+        "sedo_auction": "https://www.expireddomains.net/sedo-auction-domains/"
+      },
+      "metrics_available": ["Backlinks (Majestic BL)", "Domain Pop", "Archive.org Birth Date", "Age"],
+      "signup_url": "https://www.expireddomains.net/",
+      "signup_cost": "Free",
+      "notes": "THE largest expired domain database. Free registration unlocks all filters including keyword search, DA sort, backlink filtering. Essential first signup.",
+      "priority": "CRITICAL - sign up immediately"
+    },
+    "sedo": {
+      "url": "https://sedo.com/",
+      "expiring_domains_url": "https://expiringdomains.sedo.com/",
+      "access_method": "JavaScript-only app; requires account for bidding. Expiring domains page is a SPA that doesn't render without JS.",
+      "database_size": "2,000+ domains available daily in expiring auctions",
+      "pricing": "Auctions start from $79; platform focuses on premium acquisitions ($500-$50K+)",
+      "signup_url": "https://sedo.com/us/",
+      "signup_cost": "Free to browse, bidding requires account",
+      "notes": "NOT ideal for budget domain hunting ($5-$50). Better for premium acquisitions. Auction duration: 7 days. Also tracked by ExpiredDomains.net under Sedo sections.",
+      "priority": "LOW for budget hunting, MEDIUM for premium finds"
+    },
+    "catchdoms": {
+      "url": "https://catchdoms.com/",
+      "access_method": "Free signup shows 10 domains with blurred names. Pro plan ($TBD/mo) unlocks 370K+ domains, CSV export, API, MCP server.",
+      "database_size": "181,758 domains in database (as of page load); tracks 55,000+ daily from 12 platforms",
+      "platforms_tracked": ["GoDaddy", "Dynadot", "DropCatch", "Catched", "Gname", "SnapNames", "BloomUp", "Park.io", "SEO.Domains", "NameShift"],
+      "quality_score_system": {
+        "range": "0-100",
+        "factors": ["DA", "TF", "CF", "Referring Domains", "Dofollow %", "Wayback Age"],
+        "recommendation": "Filter score 50+ to skip spam; below 30 is almost always low quality"
+      },
+      "metrics_per_domain": ["DA", "TF", "CF", "Referring Domains", "Dofollow %", "Wayback Age", "Archive Snapshots", "Detected Language", "TTF Topic Category", "Quality Score 0-100"],
+      "apify_actor": "https://apify.com/catchdoms/expired-domains-api",
+      "apify_notes": "Official CatchDoms actor on Apify (joined Mar 2026, 25 users, 84% success rate). Connects to official API, not scraping.",
+      "signup_url": "https://catchdoms.com/",
+      "signup_cost": "Free (blurred names) / Pro for full access",
+      "notes": "Best aggregator. Quality score system is excellent for filtering. Has MCP server for AI-assisted workflows. Apify actor provides programmatic access.",
+      "priority": "HIGH - sign up for free tier, evaluate Pro"
+    },
+    "flippa": {
+      "url": "https://flippa.com/",
+      "domains_page": "https://flippa.com/domains",
+      "access_method": "JavaScript SPA; domain listings require JS rendering. Listing fees start at $29 + 10% success fee.",
+      "avg_sale_price": "$15,000 (mid-market premium domains)",
+      "pricing_notes": "Average domain sale ~$15K. GoDaddy Auctions better for sub-$500 domains.",
+      "signup_url": "https://flippa.com/",
+      "signup_cost": "Free to browse, listing requires payment",
+      "notes": "NOT ideal for expired domain hunting. Better for buying established websites/businesses with revenue. Domains listed here are premium-priced.",
+      "priority": "LOW for expired domain hunting"
+    },
+    "moonsy": {
+      "url": "https://moonsy.com/",
+      "expired_page": "https://moonsy.com/expired_domains/",
+      "access_method": "Was free, NOW requires paid subscription. Page timed out on fetch attempt.",
+      "metrics_available": ["Moz DA", "Moz PA", "Majestic TF", "Majestic CF"],
+      "signup_url": "https://moonsy.com/",
+      "signup_cost": "Paid subscription required (was formerly free)",
+      "notes": "UI resembles ExpiredDomains.net. Formerly popular with PBN builders. Now paywalled. BlackHatWorld users report it became non-free. Consider alternatives like ExpiredDomains.net (free) or CatchDoms.",
+      "priority": "LOW - paywalled, better free alternatives exist"
+    },
+    "dynadot": {
+      "url": "https://www.dynadot.com/",
+      "marketplace_url": "https://www.dynadot.com/market",
+      "expired_auction_url": "https://www.dynadot.com/market/auction",
+      "closeout_url": "https://www.dynadot.com/market/expired-closeout",
+      "registry_expired_url": "https://www.dynadot.com/market/registry-expired-auction",
+      "access_method": "Account required + $5 minimum spending before bidding on expired auctions. Closeout page returned 403.",
+      "auction_details": {
+        "duration": "7-11 days",
+        "late_bid_extension": "5 minutes if bid in last 5 min",
+        "payment_window": "48 hours after winning",
+        "deposit_required": "10% for bids $2,000+",
+        "closeout_pricing": "Fixed price, decreasing daily for 5 days (domains that got no auction bids)"
+      },
+      "features": ["Filter by TLD", "Filter by backlinks", "Filter by age", "Bulk check", "Export results", "Watchlist"],
+      "signup_url": "https://www.dynadot.com/",
+      "signup_cost": "Free signup + $5 minimum spend to bid",
+      "notes": "Less competition than GoDaddy. Closeouts are the sweet spot - fixed price, first-come for domains that didn't sell. Also tracked by CatchDoms. Worth signing up for the closeout deals.",
+      "priority": "MEDIUM-HIGH - less competition, good closeout deals"
+    }
+  },
+  "domains_from_web_search": {
+    "note": "No specific domain names with verified metrics could be extracted from web searches. All platforms obscure listings behind login walls or JS rendering. However, the following domain-adjacent data was found:",
+    "namepros_caught_domains_2026": {
+      "description": "NamePros publishes daily lists of domains caught from pending delete via Catch.club Early Access",
+      "sample_domains_mentioned_in_snippets": [
+        {"domain": "98k6.live", "source": "NamePros 2026-03-09", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "afisher.info", "source": "NamePros 2026-03-09", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "anamon.studio", "source": "NamePros 2026-03-09", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "arbitrade.ai", "source": "NamePros 2026-03-09", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "basic.business", "source": "NamePros 2026-03-09", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "arch.bet", "source": "NamePros 2026-03-26", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "arec.ai", "source": "NamePros 2026-03-26", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "badaboom.ai", "source": "NamePros 2026-03-26", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "bijoux.ai", "source": "NamePros 2026-03-26", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "1agent.ai", "source": "NamePros 2026-01-07", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "alter.energy", "source": "NamePros 2026-01-07", "price": "$10", "notes": "Caught 1 day before drop"},
+        {"domain": "cloudvip.ai", "source": "NamePros 2026-01-07", "price": "$10", "notes": "Caught 1 day before drop"}
+      ],
+      "daily_volume": "30-68 domains caught per day",
+      "threads_found": [
+        "https://www.namepros.com/threads/1-word-dictionary-caught-domains-for-2026-03-27.1382032/",
+        "https://www.namepros.com/threads/1-word-dictionary-caught-domains-for-2026-03-26.1381925/",
+        "https://www.namepros.com/threads/1-word-dictionary-caught-domains-for-2026-03-10.1380266/",
+        "https://www.namepros.com/threads/2026-03-31-list-of-early-caught-domains-28.1382572/"
+      ],
+      "notes": "These are 1-word dictionary domains, mostly .ai/.info/.bet TLDs. DA/backlink metrics not included in snippets - need NamePros account to view full threads."
+    },
+    "abtdomain_pending_delete_may_2026": {
+      "description": "ABTdomain tracks aged domains (20+ years) entering pending delete daily",
+      "may_2026_volumes": {
+        "may_04": 1008,
+        "may_05": 1023,
+        "may_07": 1547,
+        "may_08": 1089
+      },
+      "url_pattern": "https://abtdomain.com/expired-domains/deletion/2026-05/on-2026-05-DD",
+      "notes": "403 on direct fetch. 1000+ aged domains per day entering pending delete. These are high-value targets due to 20+ year age. Requires direct browser access to view domain names."
+    },
+    "catchdoms_visible_metrics_blurred_names": {
+      "description": "CatchDoms /new page shows metrics but blurs domain names without signup",
+      "total_domains_found": 20957,
+      "sample_entries": [
+        {"tld": ".com", "backlinks": 8600, "referring_domains": 295, "da": 26, "price": "$591", "score": 51, "platform": "SEO.Domains"},
+        {"tld": ".org", "backlinks": 40900, "referring_domains": 588, "da": 17, "price": "$53", "score": 0, "platform": "SEO.Domains"},
+        {"tld": ".com", "backlinks": 711, "referring_domains": 68, "da": 22, "price": "$7", "score": 0, "platform": "SEO.Domains"},
+        {"tld": ".com", "backlinks": 13500, "referring_domains": 1000, "da": 21, "price": "$3", "score": 0, "platform": "SEO.Domains"}
+      ],
+      "notes": "Domain names blurred. The $3 .com with 13.5K backlinks and 1K RDs could be excellent if clean. Free signup needed to reveal names."
+    }
+  },
+  "new_tools_discovered": [
+    {
+      "name": "UpSnatch",
+      "url": "https://upsnatch.com/",
+      "launched": "Early 2025",
+      "type": "AI-powered expired domain finder",
+      "key_feature": "Magic Search - AI identifies related concepts, synonyms, multilingual equivalents across 100+ languages",
+      "sources": ["GoDaddy", "Namecheap", "Dynadot"],
+      "scoring": "Smart Domain Rating (age/traffic/backlinks) + Spam Quality Score",
+      "pricing": "From $25/mo, no free plan",
+      "verdict": "Interesting AI angle but paid-only. Worth trying if budget allows."
+    },
+    {
+      "name": "DomRaider (relaunched)",
+      "url": "https://www.domraider.com/",
+      "launched": "Relaunched 2025",
+      "type": "Curated expired domain marketplace",
+      "key_feature": "140K+ domains across 150 countries, all pre-vetted for TF/CF/backlink quality/index status",
+      "pricing": "Fixed buy-now pricing (no auction pressure)",
+      "accepts_crypto": true,
+      "verdict": "Quality-focused. Good for high-confidence purchases. Check for niche-specific domains."
+    },
+    {
+      "name": "ExpiredDomains.com (not .net)",
+      "url": "https://expireddomains.com/",
+      "type": "Free expired domain search with DA/PA metrics",
+      "key_feature": "1M+ expired domains, no signup required, DA/PA/backlink metrics included",
+      "pricing": "Free",
+      "verdict": "Good free alternative. Different from ExpiredDomains.net. Worth checking alongside .net version."
+    },
+    {
+      "name": "ExpiredDomains.ai",
+      "url": "https://expireddomains.ai/",
+      "type": "Free hourly-updated expired domain list",
+      "key_feature": "Hourly updates, DA/TF filtering, free access",
+      "last_updated": "Apr 21, 2026",
+      "pricing": "Free",
+      "verdict": "Free and hourly-updated. Good supplement to ExpiredDomains.net."
+    },
+    {
+      "name": "Domain Ronin",
+      "url": "https://www.domainronin.com/",
+      "type": "Desktop expired domain crawler",
+      "key_feature": "Crawls web for expired domains, 250K pages/5min, built-in SpamZilla spam checker",
+      "metrics": ["Moz DA", "Moz PA", "Majestic TF", "Majestic CF", "PR", "Backlinks"],
+      "platforms": ["Windows", "Mac", "Unix"],
+      "pricing": "Paid software",
+      "verdict": "For power users who want to crawl their own niche-specific expired domains."
+    },
+    {
+      "name": "SpamZilla",
+      "url": "https://www.spamzilla.io/",
+      "type": "Expired domain finder with spam detection",
+      "key_feature": "350K+ domains daily, 80+ filters, proprietary spam score 1-100, Wayback Machine integration",
+      "pricing": "$37/mo (free tier: 25 domain checks/mo)",
+      "verdict": "Best spam detection. Free tier useful for spot-checking domains found elsewhere."
+    },
+    {
+      "name": "Karma.Domains",
+      "url": "https://karma.domains/",
+      "type": "Multi-platform expired domain aggregator",
+      "key_feature": "50+ filters, aggregates from GoDaddy/DropCatch/NameJet/Sedo/Dynadot/Namesilo, Wayback Machine history analysis",
+      "pricing": "Free to browse",
+      "verdict": "Excellent free aggregator. Hourly updates for GoDaddy auctions. 50+ filters including DA/TF/category."
+    },
+    {
+      "name": "ABTdomain",
+      "url": "https://abtdomain.com/",
+      "type": "Aged domain tracker",
+      "key_feature": "Tracks 20+ year old domains entering pending delete daily. 1000+ aged domains per day in May 2026.",
+      "pricing": "Unknown (403 on direct access)",
+      "verdict": "Niche but valuable for finding truly aged domains with established authority."
+    },
+    {
+      "name": "CatchDoms Apify Actor",
+      "url": "https://apify.com/catchdoms/expired-domains-api",
+      "type": "API/scraper for expired domain data",
+      "key_feature": "Official CatchDoms API on Apify platform. 12 platforms, SEO metrics, quality scores.",
+      "pricing": "Apify pricing (free tier available)",
+      "verdict": "PROGRAMMATIC ACCESS to CatchDoms data. Could integrate into daily_hunter.py pipeline."
+    },
+    {
+      "name": "SEO.Domains",
+      "url": "https://seo.domains/",
+      "type": "Manually curated expired domain marketplace",
+      "key_feature": "Hand-picked domains based on SEO metrics, niche relevance, clean history. 153 countries.",
+      "pricing": "Buy-now pricing",
+      "verdict": "Quality over quantity. Good for finding pre-vetted niche domains."
+    }
+  ],
+  "free_authority_apis": [
+    {
+      "name": "OpenPageRank API (by DomCop)",
+      "url": "https://www.domcop.com/openpagerank/",
+      "api_endpoint": "https://openpagerank.com/api/v1.0/getPageRank",
+      "documentation": "https://www.domcop.com/openpagerank/documentation",
+      "signup": "https://www.domcop.com/openpagerank/auth/signup",
+      "rate_limit": "10,000 calls/hour",
+      "data_source": "Common Crawl + Common Search (open source)",
+      "last_updated": "Mar 28, 2026",
+      "cost": "Free forever",
+      "top_10m_download": true,
+      "metrics_returned": ["page_rank_integer", "page_rank_decimal", "rank"],
+      "attribution_required": "Only if displaying on public website",
+      "verdict": "BEST free option. 10K calls/hour is generous. Integrate into daily_hunter.py immediately."
+    },
+    {
+      "name": "OpenRank.io",
+      "url": "https://openrank.io/",
+      "rate_limit": "10,000 requests/24h, 50 domains per request = 500,000 domains/day",
+      "cost": "Free",
+      "metrics_returned": ["domain authority score"],
+      "verdict": "Good for bulk DA checks. 500K domains/day capacity is massive."
+    },
+    {
+      "name": "Moz Link Explorer (Free Tier)",
+      "url": "https://moz.com/link-explorer",
+      "rate_limit": "10 queries/month (free account)",
+      "cost": "Free (limited)",
+      "metrics_returned": ["DA", "PA", "Spam Score", "Linking Domains"],
+      "verdict": "Too limited for bulk use. Good for spot-checking top candidates only."
+    },
+    {
+      "name": "Ahrefs Free Backlink Checker",
+      "url": "https://ahrefs.com/backlink-checker",
+      "rate_limit": "Limited (top 100 backlinks shown)",
+      "cost": "Free (limited)",
+      "metrics_returned": ["Top 100 backlinks", "Referring domains", "Anchor texts"],
+      "verdict": "Useful for quick backlink profile check on candidates. Not for bulk use."
+    },
+    {
+      "name": "SEO Review Tools Backlink Checker",
+      "url": "https://www.seoreviewtools.com/valuable-backlinks-checker/",
+      "cost": "Free",
+      "metrics_returned": ["Valuable backlinks analysis"],
+      "verdict": "Free web-based tool. Good for manual spot checks."
+    },
+    {
+      "name": "OpenLinkProfiler",
+      "url": "https://openlinkprofiler.org/",
+      "cost": "Free, no signup required",
+      "metrics_returned": ["Backlinks", "Referring domains", "Link influence score"],
+      "verdict": "Free, no signup. Already used in Sprint 8. Good for quick checks."
+    },
+    {
+      "name": "SE Ranking API",
+      "url": "https://seranking.com/",
+      "rate_limit": "50 searches/month free, $49.99/mo for 25K",
+      "cost": "Freemium",
+      "metrics_returned": ["Backlinks", "New/lost links", "Anchor text"],
+      "verdict": "Good mid-tier option if we need more API calls than free tools provide."
+    }
+  ],
+  "actionable_recommendations": [
+    {
+      "priority": 1,
+      "action": "Sign up for ExpiredDomains.net (FREE)",
+      "url": "https://www.expireddomains.net/",
+      "reason": "Largest free expired domain database. Unlocks keyword search, DA filtering, 677 TLDs. Essential foundation.",
+      "estimated_time": "2 minutes"
+    },
+    {
+      "priority": 2,
+      "action": "Sign up for CatchDoms free tier",
+      "url": "https://catchdoms.com/",
+      "reason": "Best aggregator. Quality score system filters spam. Free tier reveals 10 domain names. Evaluating Pro unlock.",
+      "estimated_time": "2 minutes"
+    },
+    {
+      "priority": 3,
+      "action": "Get OpenPageRank API key",
+      "url": "https://www.domcop.com/openpagerank/auth/signup",
+      "reason": "Free 10K calls/hour. Can be integrated into daily_hunter.py for automatic DA checking on all discovered domains.",
+      "estimated_time": "1 minute"
+    },
+    {
+      "priority": 4,
+      "action": "Sign up for Dynadot (deposit $5)",
+      "url": "https://www.dynadot.com/",
+      "reason": "Less competition than GoDaddy. Closeout domains at declining prices. $5 deposit required to bid.",
+      "estimated_time": "5 minutes"
+    },
+    {
+      "priority": 5,
+      "action": "Integrate CatchDoms Apify Actor into pipeline",
+      "url": "https://apify.com/catchdoms/expired-domains-api",
+      "reason": "Programmatic access to 55K+ daily domains from 12 platforms. Could automate our daily scanning.",
+      "estimated_time": "30 minutes development"
+    },
+    {
+      "priority": 6,
+      "action": "Set up OpenRank.io bulk checking",
+      "url": "https://openrank.io/",
+      "reason": "500K domains/day capacity for free. Use alongside OpenPageRank for cross-validation.",
+      "estimated_time": "15 minutes"
+    },
+    {
+      "priority": 7,
+      "action": "Check Karma.Domains daily for GoDaddy closeouts",
+      "url": "https://karma.domains/en/domain-list/godaddy-auctions/",
+      "reason": "Free aggregator with 50+ filters, hourly updates. Filter by our target niches.",
+      "estimated_time": "10 minutes daily"
+    },
+    {
+      "priority": 8,
+      "action": "Try SpamZilla free tier (25 checks/mo)",
+      "url": "https://www.spamzilla.io/",
+      "reason": "Best spam detection. Use free tier to validate top candidates found from other sources.",
+      "estimated_time": "5 minutes"
+    }
+  ],
+  "niche_search_results": {
+    "food_cooking_recipe": {
+      "platforms_checked": ["ExpiredDomains.net (.recipes TLD page)", "DomCop Health category", "NamePros forums"],
+      "specific_domains_found": 0,
+      "recommended_search": "On ExpiredDomains.net after signup: filter deleted domains by keywords 'recipe,cook,food,kitchen,meal,bake' + sort by backlinks DESC",
+      "tld_options": [".recipes (Dynadot)", ".cooking (Dynadot)", ".kitchen"],
+      "notes": "Food niche expired domains exist but require platform access to surface. ExpiredDomains.net keyword search is the fastest path."
+    },
+    "health_fitness_nutrition": {
+      "platforms_checked": ["DomCop Health category page", "BlackHatWorld forums", "NamePros"],
+      "specific_domains_found": 0,
+      "recommended_search": "DomCop Health niche filter includes: Fitness, Nutrition, Weight Loss, Mental Health, Beauty. Also search ExpiredDomains.net for 'health,fitness,nutrition,wellness,diet'",
+      "notes": "DomCop has dedicated Health niche page with sub-categories. Requires DomCop subscription for full access."
+    },
+    "developer_tools_tech": {
+      "platforms_checked": ["NamePros .ai caught domains", "Web search"],
+      "domains_in_niche_from_namepros": ["1agent.ai", "cloudvip.ai", "arbitrade.ai", "arec.ai"],
+      "notes": "Many .ai domains in NamePros caught lists. These may have been already caught. Search ExpiredDomains.net for 'dev,code,api,tool,app' after signup."
+    },
+    "finance_insurance": {
+      "platforms_checked": ["Web search"],
+      "specific_domains_found": 0,
+      "notes": "Highest CPM niche ($30-60) but no specific expired domains surfaced in web search. Finance domains tend to be premium-priced. Try ExpiredDomains.net + DomCop with finance/insurance filters."
+    },
+    "image_video_tools": {
+      "platforms_checked": ["Web search"],
+      "specific_domains_found": 0,
+      "recommended_search": "Search ExpiredDomains.net for 'photo,image,picture,video,edit,editor,filter' after signup. Portfolio synergy with pictureeditor.net.",
+      "notes": "Niche-specific search needed. These domains would be highly valuable for portfolio synergy."
+    }
+  },
+  "key_insights": {
+    "market_state_2026": "Expired domains still provide SEO boost in 2026 BUT relevance matters more than raw DA. Random strong backlinks won't help if niche doesn't match. Clean history + niche alignment = success.",
+    "best_free_path": "ExpiredDomains.net (signup) -> OpenPageRank API (bulk DA check) -> OpenLinkProfiler (backlink verify) -> SpamZilla free (spam check top 25/mo)",
+    "best_paid_path": "CatchDoms Pro (aggregated data) -> SpamZilla ($37/mo, 1850 domains/mo) -> DomCop (90+ metrics)",
+    "automation_opportunity": "CatchDoms Apify Actor + OpenPageRank API + OpenRank.io = fully automated pipeline scanning 55K+ domains/day with free authority checks",
+    "abtdomain_goldmine": "1000-1500 aged (20+yr) domains enter pending delete DAILY. These are high-priority targets with established authority. Need browser access to view lists.",
+    "godaddy_closeout_roi": "Sprint 7 noted 400% median ROI on TF 15+ closeouts ($5-11). DomCop and ExpiredDomains.net both track GoDaddy closeouts with metrics.",
+    "catchdoms_mcp_server": "CatchDoms Pro includes MCP server for AI-assisted workflows. Could integrate directly with Claude Code for domain evaluation."
+  }
+}

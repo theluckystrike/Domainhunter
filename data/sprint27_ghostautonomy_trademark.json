@@ -1,0 +1,82 @@
+{
+  "domain": "ghostautonomy.com",
+  "analysis_date": "2026-05-16",
+  "trademark_status": "CLEAR",
+  "serial_number": "97448858",
+  "current_status": "ABANDONED — Abandonment Notice issued March 26, 2024 by USPTO",
+  "trademark_timeline": {
+    "filed": "2022-06-08",
+    "filed_by": "Ghost Locomotion Inc. (original company name, later Ghost Autonomy Inc.)",
+    "non_final_action": "2023-03-30",
+    "response_to_office_action": "2023-06-30",
+    "final_action": "2023-09-12",
+    "extension_requested": "2023-12-12",
+    "abandonment_notice": "2024-03-26",
+    "notes": "Company never responded to Final Action after one extension. Trademark was NEVER registered — it died as an APPLICATION. No Statement of Use was ever filed."
+  },
+  "company_status": "DISSOLVED — Ghost Autonomy Inc. (fka Ghost Locomotion Inc.) ceased worldwide operations April 3, 2024. Founded 2017, raised ~$220M from Founders Fund (Keith Rabois), Khosla Ventures (Vinod Khosla), Sutter Hill Ventures (Mike Speiser), Coatue, OpenAI ($5M). ~100 employees across Mountain View, Dallas, Sydney.",
+  "ip_successor": "Applied Intuition Inc. acquired PATENT PORTFOLIO ONLY in October 2024. Press releases explicitly state 'patent portfolio' — no mention of trademarks, brand assets, or domain names. Applied Intuition has 15 own trademarks (SIMIAN, SPECTRAL, HAIL, etc.) — none related to 'ghost' or 'autonomy'.",
+  "domain_whois": {
+    "registrar": "Wild West Domains, LLC (GoDaddy reseller)",
+    "created": "2022-06-07",
+    "expiry": "2026-06-07",
+    "registrant": "Domains By Proxy, LLC (privacy service, GoDaddy)",
+    "nameservers": ["COBY.NS.CLOUDFLARE.COM", "MELODY.NS.CLOUDFLARE.COM"],
+    "status_flags": [
+      "clientDeleteProhibited",
+      "clientRenewProhibited",
+      "clientTransferProhibited",
+      "clientUpdateProhibited"
+    ],
+    "current_state": "Returns HTTP 403 (Cloudflare block). Domain is effectively parked/inactive. clientRenewProhibited flag suggests domain may be set to NOT auto-renew.",
+    "days_until_expiry": 22,
+    "notes": "clientRenewProhibited is notable — this EPP status means the registrar has been instructed to prevent renewal. Combined with the company dissolution, this strongly suggests the domain will be allowed to expire on June 7, 2026."
+  },
+  "udrp_risk": "LOW",
+  "udrp_analysis": {
+    "risk_level": "LOW",
+    "factors_reducing_risk": [
+      "Trademark was NEVER REGISTERED — only an abandoned application. UDRP requires complainant to prove 'rights in a trademark.' An abandoned application that never reached registration provides extremely weak standing.",
+      "Ghost Autonomy Inc. is dissolved — no legal entity exists to file a UDRP complaint.",
+      "Applied Intuition acquired only patents, NOT trademarks or brand rights. They have no standing to file UDRP on 'ghost autonomy' brand.",
+      "No UDRP case found in WIPO or NAF databases for ghostautonomy.com.",
+      "Domain is being allowed to expire (clientRenewProhibited flag) — the entity controlling it is actively abandoning it.",
+      "The 3-year Delaware wind-down period expires April 2027, but the entity would need to show continuing trademark rights, which don't exist.",
+      "No new trademark filings for 'ghost autonomy' found from any entity (searched 2024-2026)."
+    ],
+    "factors_increasing_risk": [
+      "$220M in investor capital means sophisticated investors (Founders Fund, Khosla) COULD theoretically assert common-law trademark rights during the 3-year wind-down period, but this is highly unlikely for a domain they are actively allowing to expire.",
+      "Ghost L.L.C. (unrelated company, owns 27 'GHOST' trademarks) could theoretically challenge, but 'Ghost Autonomy' is a distinct two-word mark in a different industry (autonomous driving vs. their goods/services)."
+    ],
+    "overall_assessment": "UDRP requires three elements: (1) identical/confusingly similar to a trademark, (2) no legitimate interest, (3) bad faith. Element 1 fails because the trademark was NEVER registered and the application was abandoned. There is no living entity with trademark rights to 'ghost autonomy'. The UDRP risk is LOW."
+  },
+  "other_ghost_locomotion_trademarks": {
+    "note": "Ghost Locomotion Inc. filed multiple trademark applications in May-June 2022 (serials 97435766, 97436245, 97438483, 97438697, 97438863). The known one — KINETICFLOW (97435766) — shows status 'NEW APPLICATION - NOT ASSIGNED TO EXAMINER' as of June 2022. Given the company dissolved in April 2024 and the main 97448858 was abandoned in March 2024, it is near-certain all other applications were also abandoned.",
+    "serial_numbers_to_verify": ["97435766", "97436245", "97438483", "97438697", "97438863"]
+  },
+  "confidence": 0.92,
+  "confidence_breakdown": {
+    "trademark_abandoned": 1.0,
+    "company_dissolved": 0.95,
+    "no_ip_successor_for_brand": 0.95,
+    "no_new_trademark_filings": 0.90,
+    "domain_will_drop": 0.85,
+    "low_udrp_risk": 0.90,
+    "notes": "Confidence slightly below 1.0 because: (1) Cannot 100% confirm formal Delaware dissolution filing vs. just operational shutdown, (2) Cannot rule out that an unknown entity purchased brand rights in a private asset sale during wind-down, (3) clientRenewProhibited doesn't 100% guarantee non-renewal — registrar could change. But all evidence strongly points to CLEAR."
+  },
+  "reasoning": "The trademark serial 97448858 for 'GHOST AUTONOMY' was ABANDONED per USPTO TSDR records — abandonment notice issued March 26, 2024. The mark was NEVER registered; it died as an application after Ghost Locomotion Inc. failed to respond to a Final Action. The company (Ghost Autonomy Inc., fka Ghost Locomotion Inc.) ceased all worldwide operations on April 3, 2024 after raising ~$220M. Applied Intuition acquired only the PATENT PORTFOLIO in October 2024 — explicitly described as 'patent portfolio' in all press releases, with no mention of trademarks, brand, or domain. Applied Intuition has not filed any ghost-related trademarks. No other entity has filed a 'ghost autonomy' trademark (searched 2024-2026). The domain ghostautonomy.com expires June 7, 2026 (22 days from analysis) and has clientRenewProhibited status, indicating it will likely be allowed to expire. The domain currently returns HTTP 403 (inactive/blocked). UDRP risk is LOW because: no registered trademark exists, the company is dissolved, and the domain is being actively abandoned by its current holder.",
+  "recommendation": "PROCEED",
+  "acquisition_strategy": {
+    "primary": "Wait for domain to drop after June 7, 2026 expiry. Place backorder on multiple services (SnapNames, NameJet, GoDaddy Closeout, Dynadot). Domain has clientRenewProhibited — high probability of drop.",
+    "backup": "If domain enters GoDaddy auction (expired domains often go to GoDaddy Auctions first), bid within budget. Previous Ghost Autonomy funding/press coverage means domain name has inherent value even without the trademark.",
+    "risk_mitigation": "Do NOT use the domain in autonomous driving / self-driving vehicle context to avoid any common-law trademark arguments. Using it for a completely different purpose (e.g., cybersecurity, gaming, creative agency) eliminates even the theoretical UDRP risk.",
+    "timeline": "Domain expires June 7, 2026. GoDaddy typically holds expired domains for 25-42 days before releasing. Expected drop window: July 2-19, 2026."
+  },
+  "data_sources": {
+    "uspto_tsdr": "https://tsdr.uspto.gov/ — Document viewer for sn97448858 shows ABANDONMENT-Notice dated Mar. 26, 2024 as most recent document",
+    "applied_intuition_pr": "https://www.prnewswire.com/news-releases/applied-intuition-expands-ip-portfolio-through-ghost-autonomy-deal-302282617.html",
+    "techcrunch_shutdown": "https://techcrunch.com/2024/04/03/openai-backed-ghost-autonomy-shuts-down/",
+    "whois": "whois ghostautonomy.com — Registry Expiry Date: 2026-06-07T00:53:13Z",
+    "justia_owner": "https://trademarks.justia.com/owners/ghost-locomotion-inc-5208685/"
+  }
+}

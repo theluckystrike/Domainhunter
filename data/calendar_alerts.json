@@ -1,0 +1,395 @@
+{
+  "generated": "2026-05-07",
+  "timezone": "America/Los_Angeles",
+  "events": [
+    {
+      "date": "2026-05-07",
+      "domain": "ingredientcalculator.com",
+      "event": "registered",
+      "action": "completed",
+      "priority": "done"
+    },
+    {
+      "date": "2026-05-07",
+      "domain": "pictureeditor.net",
+      "event": "registered",
+      "action": "completed",
+      "priority": "done"
+    },
+    {
+      "date": "2026-05-07",
+      "domain": "recipetool.net",
+      "event": "registered",
+      "action": "completed",
+      "priority": "done"
+    },
+    {
+      "date": "2026-05-07",
+      "domain": "devhub.io",
+      "event": "offer_submitted",
+      "action": "submit_afternic_offer_500",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-05-07",
+      "domain": "aidevtools.com",
+      "event": "backorder_placed",
+      "action": "place_dropcatch_snapnames",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-05-08",
+      "domain": "seochecker.com",
+      "event": "expires",
+      "action": "skip",
+      "priority": "skip",
+      "reason": "redirects to SEOptimer"
+    },
+    {
+      "date": "2026-05-11",
+      "domain": "aidevtools.com",
+      "event": "namesilo_auction_likely",
+      "action": "monitor_namesilo_auctions",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-14",
+      "domain": "apitools.com",
+      "event": "follow_up_due",
+      "action": "send_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-14",
+      "domain": "sitegrader.com",
+      "event": "follow_up_due",
+      "action": "send_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-14",
+      "domain": "imageeditor.com",
+      "event": "follow_up_due",
+      "action": "send_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-14",
+      "domain": "codetools.com",
+      "event": "follow_up_due",
+      "action": "send_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-14",
+      "domain": "prompttools.com",
+      "event": "follow_up_due",
+      "action": "send_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-15",
+      "domain": "devhub.io",
+      "event": "offer_response_check",
+      "action": "check_afternic_dashboard",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-22",
+      "domain": "bestdevtools.com",
+      "event": "expires",
+      "action": "backorder_should_be_active",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-24",
+      "domain": "devhub.io",
+      "event": "follow_up_deadline",
+      "action": "final_follow_up_if_no_response",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-26",
+      "domain": "finetuneai.com",
+      "event": "expires",
+      "action": "backorder_should_be_active",
+      "priority": "high"
+    },
+    {
+      "date": "2026-05-27",
+      "domain": "taskplanner.com",
+      "event": "expires",
+      "action": "high_confidence_drop_backorder_active",
+      "priority": "critical",
+      "notes": "clientRenewProhibited flag set"
+    },
+    {
+      "date": "2026-06-04",
+      "domain": "builder.ai",
+      "event": "potential_drop",
+      "action": "monitor_only",
+      "priority": "monitor",
+      "notes": "DR 68 — over budget"
+    },
+    {
+      "date": "2026-06-09",
+      "domain": "bestdevtools.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_registrar_auction",
+      "priority": "high"
+    },
+    {
+      "date": "2026-06-12",
+      "domain": "aitoolkit.com",
+      "event": "expires",
+      "action": "evaluate",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-06-13",
+      "domain": "finetuneai.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_registrar_auction",
+      "priority": "high"
+    },
+    {
+      "date": "2026-06-14",
+      "domain": "taskplanner.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_high_drop_probability",
+      "priority": "high"
+    },
+    {
+      "date": "2026-06-15",
+      "domain": "mortgagecalc.com",
+      "event": "expires",
+      "action": "skip",
+      "priority": "skip",
+      "reason": "GoDaddy Corporate / Bankrate owned"
+    },
+    {
+      "date": "2026-06-17",
+      "domain": "aidevtools.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-06-26",
+      "domain": "loancompare.com",
+      "event": "expires",
+      "action": "evaluate",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-07-03",
+      "domain": "bestdevtools.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-07-04",
+      "domain": "devtools.io",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-07",
+      "domain": "toolchain.io",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-08",
+      "domain": "stackreview.com",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-08",
+      "domain": "finetuneai.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-07-09",
+      "domain": "taskplanner.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-07-15",
+      "domain": "saasmetrics.com",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-17",
+      "domain": "codehelper.com",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-18",
+      "domain": "prompttools.com",
+      "event": "expires",
+      "action": "backorder_if_offer_rejected",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-20",
+      "domain": "codeanalyzer.com",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-07-31",
+      "domain": "codingtools.com",
+      "event": "expires",
+      "action": "evaluate_and_backorder",
+      "priority": "high"
+    },
+    {
+      "date": "2026-08-15",
+      "domain": "devtools.io",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-18",
+      "domain": "toolchain.io",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-19",
+      "domain": "stackreview.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-26",
+      "domain": "saasmetrics.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-28",
+      "domain": "codehelper.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-29",
+      "domain": "prompttools.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-08-31",
+      "domain": "codeanalyzer.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-09-05",
+      "domain": "devtools.io",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-08",
+      "domain": "toolchain.io",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-09",
+      "domain": "stackreview.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-11",
+      "domain": "codingtools.com",
+      "event": "grace_period_ends_est",
+      "action": "monitor_auction_drop",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-09-16",
+      "domain": "saasmetrics.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-18",
+      "domain": "codehelper.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-19",
+      "domain": "prompttools.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-09-21",
+      "domain": "codeanalyzer.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-10-01",
+      "domain": "codingtools.com",
+      "event": "pending_delete_est",
+      "action": "dropcatch_snapnames_catch",
+      "priority": "critical"
+    },
+    {
+      "date": "2026-10-15",
+      "domain": null,
+      "event": "q4_portfolio_review",
+      "action": "assess_all_acquisitions_plan_monetization",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-11-01",
+      "domain": null,
+      "event": "portfolio_audit",
+      "action": "renewal_decisions",
+      "priority": "monitor"
+    },
+    {
+      "date": "2026-12-01",
+      "domain": null,
+      "event": "annual_strategy_review",
+      "action": "plan_2027_acquisitions",
+      "priority": "monitor"
+    }
+  ]
+}

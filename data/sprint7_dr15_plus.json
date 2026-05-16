@@ -1,0 +1,25 @@
+{
+  "sprint": 7,
+  "report_date": "2026-05-07",
+  "filter": "VERIFIED DR/DA 15-20",
+  "total_domains": 0,
+  "domains": [],
+  "explanation": "ZERO domains have a VERIFIED DR/DA in the 15-20 range. Same reason as DR 20+ -- no free tool provided exact DA/DR numbers for any domain in this batch except fitocracy.com (DA 3), mortgagecalc.com (DR 6), and seochecker.com (DR 1.3). All other values remain estimates.",
+  "candidates_by_traffic_signal": [
+    {
+      "domain": "locale.ai",
+      "organic_keywords": 19,
+      "organic_etv": 37.69,
+      "reasoning": "Moderate traffic signals consistent with DR 15-25 range. 2 US top-10 positions.",
+      "verdict": "UNVERIFIED -- plausibly DR 15-25"
+    },
+    {
+      "domain": "fitocracy.com",
+      "moz_da": 3,
+      "organic_keywords": 19,
+      "organic_etv": 289.15,
+      "reasoning": "Moz DA 3 verified, but still has 19 ranking keywords and ~$289 ETV. The Moz DA may undercount authority from the Wikipedia backlink.",
+      "verdict": "VERIFIED DA 3 (Moz) -- below threshold"
+    }
+  ]
+}

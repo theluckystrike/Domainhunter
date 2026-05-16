@@ -1,0 +1,107 @@
+{
+  "report_date": "2026-05-07",
+  "sprint": 6,
+  "project": "REVENANT",
+  "whale_candidates": [
+    {
+      "domain": "nanowrimo.org",
+      "whois_status": "active",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2030-11-03",
+      "creation_date": "2001-11-03",
+      "name_servers": ["ns23.domaincontrol.com", "ns24.domaincontrol.com"],
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "estimated_dr": 70,
+      "estimated_referring_domains": 3000,
+      "estimated_value": "$15,000-50,000",
+      "acquisition_feasibility": "low",
+      "organization_status": "defunct — NaNoWriMo nonprofit shut down April 2025 after AI/youth program scandals",
+      "current_site_content": "Appears to host unrelated sports content (possible domain hijack or sale to new owner)",
+      "notes": "Domain registered until 2030 (5+ years remaining). Despite organization being defunct, domain was renewed long-term. clientRenewProhibited likely set by GoDaddy as standard lock, NOT indicating drop since expiry is 2030. The domain may have been acquired by a new entity or is being held speculatively. NOT a viable drop candidate. Would require purchase negotiation at $15K+ minimum — far above our $600 budget.",
+      "action": "REMOVE FROM WATCHLIST — not dropping, over budget"
+    },
+    {
+      "domain": "builder.ai",
+      "whois_status": "active",
+      "registrar": "101domain GRS Limited",
+      "expiry_date": "2026-06-04",
+      "creation_date": "2018-06-04",
+      "name_servers": [
+        "ns-1509.awsdns-60.org",
+        "ns-1827.awsdns-36.co.uk",
+        "ns-165.awsdns-20.com",
+        "ns-706.awsdns-24.net"
+      ],
+      "status_codes": ["clientTransferProhibited"],
+      "estimated_dr": 68,
+      "estimated_referring_domains": 2600,
+      "estimated_value": "$50,000-200,000",
+      "acquisition_feasibility": "low",
+      "organization_status": "bankrupt — Builder.ai entered insolvency proceedings May 2025 after $450M+ raised, fraud allegations",
+      "current_site_content": "AWS nameservers still active, domain expires June 4, 2026",
+      "notes": "Company raised $450M+, entered insolvency May 2025. CEO buying assets for $4M through bankruptcy proceedings. Domain likely included in asset purchase. .ai TLD is premium ($50+/yr renewal). Even if it drops, auction would likely exceed $10,000+ given DR 68 and brand recognition. Expiry June 4 is only 28 days away — if new owner doesn't renew, could enter grace period. HOWEVER: bankruptcy asset purchaser almost certainly acquired the domain. Still monitoring but probability of availability is very low.",
+      "action": "MONITOR ONLY — check WHOIS again June 1-5 for renewal status"
+    },
+    {
+      "domain": "canoo.com",
+      "whois_status": "active",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-15",
+      "creation_date": "1999-08-23",
+      "name_servers": ["mallory.ns.cloudflare.com", "sid.ns.cloudflare.com"],
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "estimated_dr": 55,
+      "estimated_referring_domains": 1500,
+      "estimated_value": "$20,000-75,000",
+      "acquisition_feasibility": "low",
+      "organization_status": "bankrupt — Canoo filed Chapter 7 January 2025, ceased all operations",
+      "current_site_content": "Cloudflare nameservers still active — site may still be live or parked behind Cloudflare",
+      "notes": "Filed Chapter 7 (liquidation) January 2025. CEO buying 'substantially all' assets for $4M — domain almost certainly included. Domain registered since 1999 (27 years old), expires Sep 15, 2026. clientRenewProhibited at GoDaddy with full lock suite. This COULD indicate the domain will drop if bankruptcy trustee doesn't renew. However, 5-letter .com domains from 1999 are incredibly valuable. If it drops, DropCatch auction would likely exceed $5,000-10,000 minimum. WAY over our budget. Created 1999 — premium vintage domain.",
+      "action": "MONITOR ONLY — check WHOIS monthly, alert if enters redemption/pendingDelete"
+    },
+    {
+      "domain": "fitocracy.com",
+      "whois_status": "active",
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-07",
+      "creation_date": "2007-09-07",
+      "name_servers": [
+        "ns-126.awsdns-15.com",
+        "ns-1429.awsdns-50.org",
+        "ns-1859.awsdns-40.co.uk",
+        "ns-690.awsdns-22.net"
+      ],
+      "status_codes": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "estimated_dr": 37,
+      "estimated_referring_domains": 850,
+      "estimated_value": "$2,000-8,000",
+      "acquisition_feasibility": "medium",
+      "organization_status": "defunct — fitness social network, shut down operations years ago",
+      "current_site_content": "AWS Route53 nameservers still configured, likely dead/parked",
+      "notes": "Fitocracy was a fitness gamification social network that shut down. Domain registered at GoDaddy since 2007 (19 years). Has clientRenewProhibited — strong signal it will drop in September 2026. AWS nameservers still pointed but service is long dead. DR 37 with 850 referring domains is solid value. Expiry Sep 7, 2026 — about 4 months away. If it drops and goes to DropCatch auction, could potentially be acquired for $200-500 range given niche brand name (not generic keyword). THIS IS OUR MOST VIABLE WHALE. Within striking distance of budget if auction is light.",
+      "action": "ACTIVE MONITOR — place backorder on DropCatch/SnapNames by August 1, 2026. Set calendar alert for Aug 15."
+    }
+  ],
+  "summary": {
+    "viable_whales": 1,
+    "monitor_only": 2,
+    "eliminated": 1,
+    "best_opportunity": "fitocracy.com — clientRenewProhibited at GoDaddy, expires Sep 7 2026, DR 37, defunct service. Potential $200-500 at auction if competition is light.",
+    "next_check_date": "2026-06-01"
+  }
+}

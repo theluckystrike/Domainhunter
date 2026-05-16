@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Cropper Online - Crop Photos Free with Aspect Ratio Presets</title>
+<meta name="description" content="Free online image cropper. Crop photos to exact dimensions with preset aspect ratios for Instagram, Twitter, Facebook, LinkedIn, and more. Drag-to-crop with real-time preview. No upload needed.">
+<meta name="keywords" content="image cropper, crop image online, crop photo, crop for Instagram, crop for Twitter, aspect ratio crop, photo cropper free">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/crop.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pictureeditor.net/crop.html">
+<meta property="og:title" content="Image Cropper Online - Free Photo Cropper">
+<meta property="og:description" content="Crop images with preset aspect ratios for social media. Free, private, no upload.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Cropper Online - Free">
+<meta name="twitter:description" content="Crop photos for Instagram, Twitter, Facebook and more. Free online cropper.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Image Cropper Online","url":"https://pictureeditor.net/crop.html","description":"Free online image cropper with social media preset aspect ratios.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:960px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px}
+.subtitle{color:var(--text-secondary);margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.hidden{display:none!important}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.preset{padding:6px 12px;border:1.5px solid var(--border);border-radius:20px;font-size:.8rem;font-weight:600;transition:.15s;background:var(--surface)}
+.preset:hover{border-color:var(--accent);color:var(--accent)}
+.preset.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.crop-container{position:relative;display:inline-block;max-width:100%;margin:0 auto}
+.crop-wrapper{text-align:center;overflow:hidden;max-height:70vh}
+.crop-container img{max-width:100%;max-height:60vh;display:block;user-select:none;-webkit-user-drag:none}
+.crop-overlay{position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair}
+.crop-selection{position:absolute;border:2px solid #fff;box-shadow:0 0 0 9999px rgba(0,0,0,.5);cursor:move}
+.crop-handle{position:absolute;width:12px;height:12px;background:#fff;border:2px solid var(--accent);border-radius:2px;z-index:2}
+.crop-handle.tl{top:-6px;left:-6px;cursor:nw-resize}
+.crop-handle.tr{top:-6px;right:-6px;cursor:ne-resize}
+.crop-handle.bl{bottom:-6px;left:-6px;cursor:sw-resize}
+.crop-handle.br{bottom:-6px;right:-6px;cursor:se-resize}
+.crop-info{font-size:.8rem;color:var(--text-secondary);margin-top:8px;text-align:center}
+.actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.375rem;padding:.625rem 1.25rem;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+footer{text-align:center;padding:32px 16px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:48px}
+footer a{color:var(--accent);text-decoration:none}
+.faq h3{font-size:1rem;margin:20px 0 6px}
+.faq p{color:var(--text-secondary);font-size:.9rem;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1><a href="/">Picture Editor</a></h1>
+  <nav>
+    <a href="/">Editor</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</div>
+<main class="container">
+  <h2>Image Cropper</h2>
+  <p class="subtitle">Crop images to exact dimensions with preset aspect ratios for social media. All processing is done in your browser.</p>
+
+  <div class="card">
+    <div class="drop-zone" id="drop-zone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 17v2a1 1 0 001 1h14a1 1 0 001-1v-2"/></svg>
+      <p>Drop image here or click to upload</p>
+      <p class="sub">Supports JPEG, PNG, WebP, GIF, BMP</p>
+      <input type="file" id="file-input" accept="image/*" style="display:none">
+    </div>
+
+    <div class="hidden" id="editor">
+      <div class="presets">
+        <button class="preset active" data-ratio="free">Free</button>
+        <button class="preset" data-ratio="1:1">1:1 Square</button>
+        <button class="preset" data-ratio="4:5">4:5 Instagram</button>
+        <button class="preset" data-ratio="9:16">9:16 Story/Reel</button>
+        <button class="preset" data-ratio="16:9">16:9 Landscape</button>
+        <button class="preset" data-ratio="3:2">3:2 Photo</button>
+        <button class="preset" data-ratio="2:3">2:3 Pinterest</button>
+        <button class="preset" data-ratio="1.91:1">1.91:1 Facebook/Twitter</button>
+        <button class="preset" data-ratio="4:3">4:3 Standard</button>
+      </div>
+      <div class="crop-wrapper">
+        <div class="crop-container" id="crop-container">
+          <img id="crop-img" alt="Image to crop">
+          <div class="crop-overlay" id="crop-overlay">
+            <div class="crop-selection" id="crop-selection">
+              <div class="crop-handle tl" data-handle="tl"></div>
+              <div class="crop-handle tr" data-handle="tr"></div>
+              <div class="crop-handle bl" data-handle="bl"></div>
+              <div class="crop-handle br" data-handle="br"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="crop-info" id="crop-info">Selection: 0 x 0 px</div>
+      <div class="actions">
+        <button class="btn btn-success" id="crop-btn">Crop & Download</button>
+        <button class="btn btn-outline" id="reset-btn">Upload New Image</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h3>What aspect ratios are best for social media?</h3>
+    <p>Instagram posts: 1:1 (square) or 4:5 (portrait). Stories/Reels: 9:16. Twitter/Facebook link previews: 1.91:1. YouTube thumbnails: 16:9. Pinterest: 2:3. LinkedIn: 1.91:1 or 1:1.</p>
+    <h3>Does cropping reduce image quality?</h3>
+    <p>Cropping removes pixels from the edges but does not recompress the remaining image data. The cropped area retains its original quality. For best results, start with the highest resolution image available.</p>
+    <h3>Can I crop to a custom size?</h3>
+    <p>Yes. Select "Free" mode and drag any corner or edge to create a custom crop region. You can also drag the selection area to reposition it.</p>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2026 <a href="/">PictureEditor.net</a> — Free online image tools</p>
+  <p style="margin-top:8px">
+    <a href="/">Editor</a> &middot;
+    <a href="/compress.html">Compressor</a> &middot;
+    <a href="/crop.html">Cropper</a> &middot;
+    <a href="/convert.html">Converter</a> &middot;
+    <a href="/remove-background.html">BG Remover</a>
+  </p>
+</footer>
+<script>
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const editor = document.getElementById('editor');
+const cropImg = document.getElementById('crop-img');
+const overlay = document.getElementById('crop-overlay');
+const selection = document.getElementById('crop-selection');
+const cropInfo = document.getElementById('crop-info');
+const cropBtn = document.getElementById('crop-btn');
+const resetBtn = document.getElementById('reset-btn');
+const container = document.getElementById('crop-container');
+
+let originalImage = null;
+let aspectRatio = null; // null = free
+let isDragging = false;
+let dragMode = null; // 'move' or handle name
+let startX, startY, startRect;
+let selRect = { x: 0, y: 0, w: 0, h: 0 };
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files.length) loadImage(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files.length) loadImage(fileInput.files[0]); });
+
+function loadImage(file) {
+  if (!file.type.startsWith('image/')) { alert('Please select an image file.'); return; }
+  originalImage = new Image();
+  originalImage.onload = () => {
+    cropImg.src = originalImage.src;
+    dropZone.classList.add('hidden');
+    editor.classList.remove('hidden');
+    setTimeout(initCrop, 100);
+  };
+  originalImage.src = URL.createObjectURL(file);
+}
+
+function initCrop() {
+  const imgRect = cropImg.getBoundingClientRect();
+  const w = imgRect.width * 0.8;
+  const h = imgRect.height * 0.8;
+  selRect = { x: (imgRect.width - w) / 2, y: (imgRect.height - h) / 2, w, h };
+  if (aspectRatio) applyAspectRatio();
+  updateSelection();
+}
+
+function applyAspectRatio() {
+  if (!aspectRatio) return;
+  const imgRect = cropImg.getBoundingClientRect();
+  let w = selRect.w;
+  let h = w / aspectRatio;
+  if (h > imgRect.height * 0.9) { h = imgRect.height * 0.9; w = h * aspectRatio; }
+  if (w > imgRect.width * 0.9) { w = imgRect.width * 0.9; h = w / aspectRatio; }
+  selRect.w = w;
+  selRect.h = h;
+  selRect.x = (imgRect.width - w) / 2;
+  selRect.y = (imgRect.height - h) / 2;
+}
+
+function updateSelection() {
+  const imgRect = cropImg.getBoundingClientRect();
+  selRect.x = Math.max(0, Math.min(selRect.x, imgRect.width - selRect.w));
+  selRect.y = Math.max(0, Math.min(selRect.y, imgRect.height - selRect.h));
+  selRect.w = Math.min(selRect.w, imgRect.width - selRect.x);
+  selRect.h = Math.min(selRect.h, imgRect.height - selRect.y);
+  selection.style.left = selRect.x + 'px';
+  selection.style.top = selRect.y + 'px';
+  selection.style.width = selRect.w + 'px';
+  selection.style.height = selRect.h + 'px';
+  // Show actual pixel dimensions
+  const scaleX = originalImage.naturalWidth / imgRect.width;
+  const scaleY = originalImage.naturalHeight / imgRect.height;
+  const pw = Math.round(selRect.w * scaleX);
+  const ph = Math.round(selRect.h * scaleY);
+  cropInfo.textContent = `Selection: ${pw} x ${ph} px`;
+}
+
+// Preset buttons
+document.querySelectorAll('.preset').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const r = btn.dataset.ratio;
+    if (r === 'free') { aspectRatio = null; }
+    else {
+      const parts = r.split(':');
+      aspectRatio = parseFloat(parts[0]) / parseFloat(parts[1]);
+    }
+    if (originalImage) { applyAspectRatio(); updateSelection(); }
+  });
+});
+
+// Drag handling
+overlay.addEventListener('mousedown', onPointerDown);
+overlay.addEventListener('touchstart', onPointerDown, { passive: false });
+document.addEventListener('mousemove', onPointerMove);
+document.addEventListener('touchmove', onPointerMove, { passive: false });
+document.addEventListener('mouseup', onPointerUp);
+document.addEventListener('touchend', onPointerUp);
+
+function getPos(e) {
+  const t = e.touches ? e.touches[0] : e;
+  const rect = overlay.getBoundingClientRect();
+  return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+}
+
+function onPointerDown(e) {
+  e.preventDefault();
+  const pos = getPos(e);
+  const handle = e.target.dataset && e.target.dataset.handle;
+  if (handle) { dragMode = handle; }
+  else if (pos.x >= selRect.x && pos.x <= selRect.x + selRect.w && pos.y >= selRect.y && pos.y <= selRect.y + selRect.h) {
+    dragMode = 'move';
+  } else {
+    dragMode = 'new';
+    selRect.x = pos.x;
+    selRect.y = pos.y;
+    selRect.w = 0;
+    selRect.h = 0;
+  }
+  isDragging = true;
+  startX = pos.x;
+  startY = pos.y;
+  startRect = { ...selRect };
+}
+
+function onPointerMove(e) {
+  if (!isDragging) return;
+  e.preventDefault();
+  const pos = getPos(e);
+  const dx = pos.x - startX;
+  const dy = pos.y - startY;
+  const imgRect = cropImg.getBoundingClientRect();
+  if (dragMode === 'move') {
+    selRect.x = Math.max(0, Math.min(startRect.x + dx, imgRect.width - selRect.w));
+    selRect.y = Math.max(0, Math.min(startRect.y + dy, imgRect.height - selRect.h));
+  } else if (dragMode === 'new') {
+    selRect.w = Math.abs(dx);
+    selRect.h = aspectRatio ? Math.abs(dx) / aspectRatio : Math.abs(dy);
+    if (dx < 0) selRect.x = startX - selRect.w;
+    if (!aspectRatio && dy < 0) selRect.y = startY - selRect.h;
+  } else {
+    // Handle resize
+    let newX = startRect.x, newY = startRect.y, newW = startRect.w, newH = startRect.h;
+    if (dragMode.includes('r')) { newW = startRect.w + dx; }
+    if (dragMode.includes('l')) { newX = startRect.x + dx; newW = startRect.w - dx; }
+    if (dragMode.includes('b')) { newH = startRect.h + dy; }
+    if (dragMode.includes('t')) { newY = startRect.y + dy; newH = startRect.h - dy; }
+    if (newW < 20) { newW = 20; if (dragMode.includes('l')) newX = startRect.x + startRect.w - 20; }
+    if (newH < 20) { newH = 20; if (dragMode.includes('t')) newY = startRect.y + startRect.h - 20; }
+    if (aspectRatio) { newH = newW / aspectRatio; if (dragMode.includes('t')) newY = startRect.y + startRect.h - newH; }
+    selRect = { x: newX, y: newY, w: newW, h: newH };
+  }
+  updateSelection();
+}
+
+function onPointerUp() { isDragging = false; dragMode = null; }
+
+cropBtn.addEventListener('click', () => {
+  if (!originalImage) return;
+  const imgRect = cropImg.getBoundingClientRect();
+  const scaleX = originalImage.naturalWidth / imgRect.width;
+  const scaleY = originalImage.naturalHeight / imgRect.height;
+  const sx = Math.round(selRect.x * scaleX);
+  const sy = Math.round(selRect.y * scaleY);
+  const sw = Math.round(selRect.w * scaleX);
+  const sh = Math.round(selRect.h * scaleY);
+  const canvas = document.createElement('canvas');
+  canvas.width = sw;
+  canvas.height = sh;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(originalImage, sx, sy, sw, sh, 0, 0, sw, sh);
+  canvas.toBlob(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'cropped-image.png';
+    a.click();
+  }, 'image/png');
+});
+
+resetBtn.addEventListener('click', () => {
+  originalImage = null;
+  editor.classList.add('hidden');
+  dropZone.classList.remove('hidden');
+  fileInput.value = '';
+});
+</script>
+</body>
+</html>

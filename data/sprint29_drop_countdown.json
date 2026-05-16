@@ -1,0 +1,88 @@
+{
+  "updated": "2026-05-16",
+  "source": "Live RDAP checks 2026-05-16T08:00Z",
+  "countdown": [
+    {
+      "domain": "cytheris.com",
+      "expiry": "2026-06-04",
+      "days_until_expiry": 19,
+      "est_pending_delete": "~2026-07-19",
+      "days_until_drop": 64,
+      "tier": "A",
+      "status": "NEW TARGET",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": ["client delete prohibited", "client renew prohibited", "client transfer prohibited", "client update prohibited"],
+      "catch_platforms": ["Dynadot", "DropCatch"],
+      "notes": "clientRenewProhibited on GoDaddy. Will enter GoDaddy Auctions ~30 days post-expiry, then pendingDelete ~45 days after that."
+    },
+    {
+      "domain": "bside.com",
+      "expiry": "2026-06-23",
+      "days_until_expiry": 38,
+      "est_pending_delete": "~2026-08-07",
+      "days_until_drop": 83,
+      "tier": "WATCH",
+      "status": "WATCH (MAYBE -> needs confirmation)",
+      "registrar": "GoDaddy.com, LLC",
+      "current_epp": ["client delete prohibited", "client renew prohibited", "client transfer prohibited", "client update prohibited"],
+      "notes": "clientRenewProhibited on GoDaddy. Premium 5-letter .com. Will likely sell at GoDaddy Auctions for $1K-$10K+. May be out of budget."
+    },
+    {
+      "domain": "guerrameats.com",
+      "expiry": "2027-04-07 (registry shows future but domain suspended)",
+      "effective_expiry": "2026-04-07",
+      "est_pending_delete": "~2026-06-21",
+      "est_drop": "~2026-06-26",
+      "days_until_drop": 41,
+      "tier": "S",
+      "status": "FIRST BLOOD CANDIDATE",
+      "registrar": "Squarespace Domains II LLC",
+      "current_epp": ["client delete prohibited", "client hold", "client transfer prohibited"],
+      "catch_platforms": ["DropCatch", "Dynadot", "GoDaddy Auctions"],
+      "notes": "clientHold + DNS DEAD. Squarespace registrar. ETV $11,376. Earliest possible drop in the pipeline."
+    },
+    {
+      "domain": "sunnyray.org",
+      "expiry": "2027-04-11 (registry shows future, autoRenewPeriod)",
+      "effective_expiry": "2026-04-11",
+      "est_pending_delete": "~2026-06-25",
+      "est_drop": "~2026-06-30",
+      "days_until_drop": 45,
+      "tier": "S",
+      "status": "FIRST BLOOD CANDIDATE",
+      "registrar": "Tucows Domains Inc.",
+      "current_epp": ["auto renew period"],
+      "catch_platforms": ["Dynadot", "DropCatch"],
+      "notes": "autoRenewPeriod. Tucows registrar = no internal auction. Crystal healing niche = zero domainer competition. 90% catch confidence."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "expiry": "2027-04-11 (registry shows future, autoRenewPeriod)",
+      "effective_expiry": "2026-04-11",
+      "est_pending_delete": "~2026-06-26",
+      "est_drop": "~2026-07-01",
+      "days_until_drop": 46,
+      "tier": "S",
+      "status": "FIRST BLOOD CANDIDATE",
+      "registrar": "Tucows Domains Inc.",
+      "current_epp": ["auto renew period"],
+      "catch_platforms": ["Dynadot", "DropCatch"],
+      "notes": "autoRenewPeriod. Tucows registrar = no internal auction. DA 49, 627 RD. UNESCO geopark niche. 95% catch confidence."
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "expiry": "2026-06-07",
+      "days_until_expiry": 22,
+      "est_godaddy_auction": "~2026-07-03",
+      "est_pending_delete": "~2026-08-17",
+      "est_drop": "~2026-08-22",
+      "days_until_drop": 98,
+      "tier": "A",
+      "status": "BATTLE PLAN READY",
+      "registrar": "Wild West Domains, LLC",
+      "current_epp": ["client delete prohibited", "client renew prohibited", "client transfer prohibited", "client update prohibited"],
+      "catch_platforms": ["DropCatch", "GoDaddy Auctions", "Dynadot"],
+      "notes": "$220M funded. TM ABANDONED. DA 52. Wild West = GoDaddy pipeline. 40-60% chance survives auction."
+    }
+  ]
+}

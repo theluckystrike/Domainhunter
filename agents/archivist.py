@@ -372,6 +372,35 @@ async def _fetch_titles(
     return titles
 
 
+async def _lookup_whois(
+    domain: str,
+    whois_client: WhoisLookupClient | None,
+    log: Any,
+) -> int:
+    """Look up WHOIS ownership change count for a domain.
+
+    Args:
+        domain: Domain name to query.
+        whois_client: WHOIS client or None (returns 0).
+        log: Bound structlog logger.
+
+    Returns:
+        Number of ownership changes detected.
+    """
+    assert isinstance(domain, str) and len(domain) >= 4, "invalid domain"
+    assert isinstance(whois_client, (WhoisLookupClient, type(None))), "bad whois_client"
+
+    if whois_client is None:
+        return 0
+    try:
+        changes = await whois_client.get_ownership_changes(domain)
+        assert isinstance(changes, int), "changes must be int"
+        return changes
+    except Exception as exc:
+        log.warning("whois_failed", domain=domain, error=str(exc))
+        return 0
+
+
 async def _analyze_single(
     dv: VettedDomain, settings: Settings, mock: bool,
     wb_client: WaybackClient | None,
@@ -414,12 +443,7 @@ async def _analyze_single(
     lang_change = _detect_language_change(titles)
     max_gap = _detect_content_gaps(snapshots)
 
-    owner_changes = 0
-    if whois_client is not None:
-        try:
-            owner_changes = await whois_client.get_ownership_changes(domain)
-        except Exception as exc:
-            log.warning("whois_failed", domain=domain, error=str(exc))
+    owner_changes = await _lookup_whois(domain, whois_client, log)
 
     killed, red_flags = _check_red_flags(
         age, consistency, lang_change, max_gap, owner_changes, settings,

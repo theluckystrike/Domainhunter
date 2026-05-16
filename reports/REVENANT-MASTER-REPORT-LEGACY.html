@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project REVENANT // Master Domain Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+::selection{background:#c8ff00;color:#060708}
+body{font-family:'DM Mono','SF Mono',monospace;background:#060708;color:#c2bdb4;min-height:100vh;line-height:1.6;font-size:13px}
+.container{max-width:1240px;margin:0 auto;padding:0 24px 80px}
+a{color:#c8ff00;text-decoration:none}a:hover{text-decoration:underline}
+
+/* Header */
+.hdr{padding:48px 0 36px;border-bottom:1px solid #1a1c22;position:relative;overflow:hidden}
+.hdr::after{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,#c8ff0012,transparent 70%);pointer-events:none}
+.tag{font-size:10px;letter-spacing:3px;color:#c8ff00;text-transform:uppercase;font-weight:500;margin-bottom:8px}
+h1{font-family:'Fraunces',Georgia,serif;font-size:clamp(28px,4.5vw,42px);font-weight:300;color:#eae6df;line-height:1.15}
+h1 em{font-style:italic;color:#c8ff00;font-weight:500}
+.sub{margin-top:10px;font-size:11px;color:#6b6660}
+h2{font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:300;color:#eae6df;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid #1a1c22}
+h3{font-size:10px;font-weight:500;color:#c8ff00;letter-spacing:1.5px;text-transform:uppercase;margin:20px 0 8px}
+
+/* Grid stats */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin:20px 0}
+.si{background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;padding:14px}
+.si-l{font-size:9px;color:#6b6660;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.si-v{font-family:'Fraunces',Georgia,serif;font-size:26px;font-weight:700;color:#c8ff00;line-height:1}
+.si-v.sm{font-size:17px}.si-v.grn{color:#00cc88}.si-v.red{color:#ff4444}.si-v.pur{color:#cc44ff}.si-v.yel{color:#ffaa00}
+
+/* Cards */
+.cd{background:#0c0d10;border:1px solid #1a1c22;border-radius:8px;margin-bottom:16px;overflow:hidden;transition:border-color .2s}
+.cd:hover{border-color:#2a2c32}
+.cd-h{padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cd-h:hover{background:#111318}
+.cd-b{padding:0 22px 20px;display:none}
+.cd-b.open{display:block}
+.rk{font-family:'Fraunces',Georgia,serif;font-size:30px;font-weight:700;color:#c8ff0025;margin-right:14px;min-width:38px}
+.dn{font-family:'Fraunces',Georgia,serif;font-size:21px;font-weight:500;color:#eae6df}
+.dn .tl{color:#c8ff00}
+.mt{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+
+/* Badges */
+.b{display:inline-block;font-size:9px;padding:3px 8px;border-radius:3px;font-weight:500;letter-spacing:.5px}
+.b-buy{background:#00cc8820;color:#00cc88;border:1px solid #00cc8830}
+.b-exp{background:#ff880020;color:#ff8800;border:1px solid #ff880030}
+.b-avl{background:#cc44ff20;color:#cc44ff;border:1px solid #cc44ff30}
+.b-auc{background:#85B7EB20;color:#85B7EB;border:1px solid #85B7EB30}
+.b-new{background:#c8ff0015;color:#c8ff00;border:1px solid #c8ff0025}
+.b-drp{background:#ff444420;color:#ff4444;border:1px solid #ff444430}
+.b-nch{background:#ffffff10;color:#999;border:1px solid #ffffff15}
+.b-sc{background:#c8ff0015;color:#c8ff00;border:1px solid #c8ff0025;font-size:12px;padding:4px 12px;font-weight:700}
+.b-t1{background:#c8ff0018;color:#c8ff00;border:1px solid #c8ff0028;font-size:8px;letter-spacing:1px}
+.b-t2{background:#ffaa0018;color:#ffaa00;border:1px solid #ffaa0028;font-size:8px;letter-spacing:1px}
+.b-t3{background:#85B7EB18;color:#85B7EB;border:1px solid #85B7EB28;font-size:8px;letter-spacing:1px}
+.b-ta{background:#cc44ff18;color:#cc44ff;border:1px solid #cc44ff28;font-size:8px;letter-spacing:1px}
+
+/* Score ring */
+.sr{position:relative;width:56px;height:56px;flex-shrink:0}
+.sr svg{transform:rotate(-90deg)}
+.sr circle{fill:none;stroke-width:4}
+.sr .bg{stroke:#1a1c22}
+.sr .fg{stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.sr .vl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',Georgia,serif;font-size:16px;font-weight:700}
+.sr .vl.grn{color:#00cc88}.sr .vl.yel{color:#ffaa00}.sr .vl.acc{color:#c8ff00}
+
+/* Detail grid */
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.di{background:#0a0b0d;border:1px solid #151720;border-radius:4px;padding:10px 12px}
+.di-l{font-size:9px;color:#6b6660;letter-spacing:1px;text-transform:uppercase}
+.di-v{font-size:12px;color:#eae6df;margin-top:2px}
+
+/* Verdict */
+.vd{background:#0a0b0d;border:1px solid #1a1c22;border-radius:6px;padding:14px;margin:12px 0}
+.vd-t{font-size:10px;color:#c8ff00;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;font-weight:500}
+.vd-v{font-size:12px;color:#eae6df;line-height:1.5}
+
+/* Tables */
+.tb{width:100%;border-collapse:collapse;font-size:11px;margin:16px 0}
+.tb th{text-align:left;padding:8px 10px;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#6b6660;border-bottom:2px solid #1a1c22;position:sticky;top:0;background:#060708;z-index:1}
+.tb td{padding:8px 10px;border-bottom:1px solid #0f1015}
+.tb tr:hover td{background:#0c0d1060}
+.tb .dc{color:#eae6df;font-weight:500}
+.tb .sc{color:#c8ff00;font-weight:700}
+.tb .rd{color:#ff4444}.tb .gn{color:#00cc88}.tb .yl{color:#ffaa00}
+
+/* Risk meter */
+.rm{display:flex;align-items:center;gap:8px;margin:4px 0}
+.rm-b{flex:1;height:6px;background:#1a1c22;border-radius:3px;overflow:hidden}
+.rm-f{height:100%;border-radius:3px}
+.fg{background:#00cc88}.fy{background:#ffaa00}.fr{background:#ff4444}.fa{background:#c8ff00}.fp{background:#cc44ff}
+
+/* Playbook */
+.pl{display:flex;gap:12px;padding:12px 16px;background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;margin-bottom:8px;align-items:center}
+.pl-p{font-size:10px;font-weight:700;letter-spacing:1px;min-width:70px}
+.pl-p.cr{color:#ff4444}.pl-p.hi{color:#ffaa00}.pl-p.md{color:#85B7EB}
+.pl-a{font-size:12px;color:#c2bdb4;flex:1}
+.pl-d{color:#c8ff00;font-weight:500}
+.pl-c{font-size:11px;color:#6b6660;white-space:nowrap}
+
+/* Timeline */
+.tl{position:relative;padding-left:20px;margin:12px 0}
+.tl::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:#1a1c22}
+.ti{position:relative;margin-bottom:10px;padding-left:16px}
+.ti::before{content:'';position:absolute;left:-17px;top:6px;width:8px;height:8px;border-radius:50%;background:#c8ff00;border:2px solid #060708}
+.ti.cr::before{background:#ff4444;box-shadow:0 0 8px #ff444460}
+.ti.act::before{background:#00cc88;box-shadow:0 0 8px #00cc8860}
+.ti-d{font-size:10px;color:#6b6660}
+.ti-t{font-size:12px;color:#c2bdb4}
+
+/* Arrow */
+.aw{color:#6b6660;transition:transform .2s;font-size:14px}
+.aw.open{transform:rotate(180deg)}
+
+/* Sprint compare */
+.spc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.spc-c{background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;padding:14px}
+.spc-c.s1{border-top:3px solid #555}
+.spc-c.s2{border-top:3px solid #ffaa00}
+.spc-c.s3{border-top:3px solid #c8ff00}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:10;background:#060708ee;backdrop-filter:blur(8px);border-bottom:1px solid #1a1c22;padding:10px 0;margin-bottom:8px}
+.nav-inner{display:flex;gap:8px;flex-wrap:wrap;max-width:1240px;margin:0 auto;padding:0 24px}
+.nav-link{font-size:10px;padding:4px 10px;border:1px solid #1a1c22;border-radius:3px;color:#6b6660;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.nav-link:hover{border-color:#c8ff00;color:#c8ff00}
+
+/* Responsive */
+@media(max-width:800px){.spc{grid-template-columns:1fr}.cd-h{flex-direction:column;align-items:flex-start}.dg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav"><div class="nav-inner">
+<a class="nav-link" href="#overview">Overview</a>
+<a class="nav-link" href="#top20">Top 20</a>
+<a class="nav-link" href="#auctions">Auction Steals</a>
+<a class="nav-link" href="#available">Available Now</a>
+<a class="nav-link" href="#backlinks">Backlink Analysis</a>
+<a class="nav-link" href="#aidevtools">aidevtools.com</a>
+<a class="nav-link" href="#tools">Tool Matrix</a>
+<a class="nav-link" href="#watchlist">Watchlist</a>
+<a class="nav-link" href="#pipeline">Pipeline</a>
+<a class="nav-link" href="#playbook">Playbook</a>
+</div></div>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="hdr">
+<div class="tag">Project REVENANT // Master Report</div>
+<h1>Domain Intelligence <em>Comprehensive Report</em></h1>
+<div class="sub">3 Sprints | 287 Domains Analyzed | 12+ Niches | 44-Domain Automated Watchlist | 36 Pipeline Files | 131 Tests | AUTOM8 LLC | 2026-05-07</div>
+</div>
+
+<!-- OVERVIEW -->
+<h2 id="overview">Project Overview</h2>
+<p style="font-size:12px;margin-bottom:16px">Project REVENANT is a 5-agent autonomous pipeline for hunting, analyzing, and scoring expired domains for acquisition. Across 3 sprints, the system evolved from niche-first tech domain hunting to a backlinks-first all-niche strategy, increasing candidate volume 6x and uncovering immediately actionable opportunities invisible to keyword-only search.</p>
+
+<div class="spc">
+<div class="spc-c s1">
+<h3>Sprint 1 — Discovery</h3>
+<p style="font-size:12px;margin:8px 0">10 domains | 1 niche (dev tools)</p>
+<p style="font-size:12px">Score: <strong style="color:#999">7.2</strong></p>
+<p style="font-size:11px;color:#6b6660;margin-top:4px">Found initial candidates via ExpiredDomains.net, Wayback CDX, GitHub API, WHOIS. All premium .com tech domains registered.</p>
+</div>
+<div class="spc-c s2">
+<h3>Sprint 2 — Verification</h3>
+<p style="font-size:12px;margin:8px 0">47 domains | 1 niche | 22 WHOIS verified</p>
+<p style="font-size:12px">Score: <strong style="color:#ffaa00">8.6</strong> <span style="color:#c8ff00;font-size:11px">+1.4</span></p>
+<p style="font-size:11px;color:#6b6660;margin-top:4px">Added real SEO signals, dropped 6 domains (active businesses), built 22-domain watchlist monitor. Discovered builder.ai bankruptcy.</p>
+</div>
+<div class="spc-c s3">
+<h3>Sprint 3 — Backlinks Pivot</h3>
+<p style="font-size:12px;margin:8px 0">287 domains | 12+ niches | DeepSeek integrated</p>
+<p style="font-size:12px">Score: <strong style="color:#c8ff00">9.1</strong> <span style="color:#c8ff00;font-size:11px">+0.5</span></p>
+<p style="font-size:11px;color:#6b6660;margin-top:4px">Pivoted to backlinks-first. Found 3 available domains, 7 auction steals at &lt;1% value, 98 bankrupt startup domains. Built RADIOGRAPH agent + DeepSeek client.</p>
+</div>
+</div>
+
+<div class="sg">
+<div class="si"><div class="si-l">Quality Score</div><div class="si-v">9.1</div></div>
+<div class="si"><div class="si-l">Total Analyzed</div><div class="si-v">287</div></div>
+<div class="si"><div class="si-l">Available NOW</div><div class="si-v grn">3</div></div>
+<div class="si"><div class="si-l">Expired (Grace)</div><div class="si-v red">2</div></div>
+<div class="si"><div class="si-l">Auction Steals</div><div class="si-v pur">7</div></div>
+<div class="si"><div class="si-l">Expiring &lt;90 Days</div><div class="si-v yel">9</div></div>
+<div class="si"><div class="si-l">Watchlist Monitored</div><div class="si-v">44</div></div>
+<div class="si"><div class="si-l">Pipeline Tests</div><div class="si-v grn">131</div></div>
+</div>
+
+<!-- TOP 20 -->
+<h2 id="top20">Top 20 — Final Rankings (All Niches)</h2>
+
+<!-- 1 builder.ai -->
+<div class="cd" style="border-left:4px solid #c8ff00" id="c1">
+<div class="cd-h" onclick="tg(1)">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="rk">01</div>
+<div><div class="dn">builder<span class="tl">.ai</span></div>
+<div class="mt"><span class="b b-drp">BANKRUPT — EXPIRING JUN 4</span><span class="b b-nch">AI / No-Code</span><span class="b b-t1">TIER 1</span><span class="b b-sc">92</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="sr"><svg width="56" height="56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="151" stroke-dashoffset="12" stroke="#c8ff00"/></svg><div class="vl acc">92</div></div>
+<span class="aw" id="a1">&#9660;</span>
+</div></div>
+<div class="cd-b" id="b1">
+<p style="font-size:12px;margin-bottom:12px"><strong>$1.5 BILLION</strong> no-code AI platform. Raised $445M from SoftBank. Filed bankruptcy May 2025. Domain expires <strong>June 4, 2026 (28 days)</strong>. Backlink profile worth $100K+ to build organically. Wikipedia article, TechCrunch x3, Bloomberg x6, WSJ, FT, The Register.</p>
+<div class="dg">
+<div class="di"><div class="di-l">Backlink Score</div><div class="di-v">92/100 — EXCEPTIONAL</div></div>
+<div class="di"><div class="di-l">Tier 1 Backlinks</div><div class="di-v">Wikipedia, TechCrunch, Bloomberg, WSJ, FT</div></div>
+<div class="di"><div class="di-l">Est. DA</div><div class="di-v">40-70</div></div>
+<div class="di"><div class="di-l">Registrar</div><div class="di-v">101domain GRS / AWS DNS</div></div>
+<div class="di"><div class="di-l">Expiry</div><div class="di-v">2026-06-04 (28 days)</div></div>
+<div class="di"><div class="di-l">Price Estimate</div><div class="di-v">$5K-$50K (bankruptcy auction)</div></div>
+</div>
+<h3>Risk Assessment</h3>
+<div class="rm"><span style="font-size:11px;min-width:80px">Competition</span><div class="rm-b"><div class="rm-f fr" style="width:80%"></div></div><span style="font-size:11px">8/10</span></div>
+<div class="rm"><span style="font-size:11px;min-width:80px">Trademark</span><div class="rm-b"><div class="rm-f fy" style="width:50%"></div></div><span style="font-size:11px">5/10</span></div>
+<div class="rm"><span style="font-size:11px;min-width:80px">Brand Taint</span><div class="rm-b"><div class="rm-f fy" style="width:60%"></div></div><span style="font-size:11px">6/10 (fraud scandal)</span></div>
+<div class="rm"><span style="font-size:11px;min-width:80px">Asset Lock</span><div class="rm-b"><div class="rm-f fr" style="width:70%"></div></div><span style="font-size:11px">7/10 (insolvency admin)</span></div>
+<div class="vd"><div class="vd-t">Master Verdict</div><div class="vd-v">WATCH CLOSELY. Generational backlink opportunity. Monitor bankruptcy proceedings. If domain is released separately from company assets, bid aggressively. The Wikipedia + Bloomberg/WSJ links alone are worth $50K+. Risk: insolvency administrator may lock domain as company asset; brand taint from fraud scandal may linger.</div></div>
+</div></div>
+
+<!-- 2 seochecker.com -->
+<div class="cd" style="border-left:4px solid #ff4444" id="c2">
+<div class="cd-h" onclick="tg(2)">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="rk">02</div>
+<div><div class="dn">seochecker<span class="tl">.com</span></div>
+<div class="mt"><span class="b b-drp">EXPIRED MAY 8</span><span class="b b-nch">SEO / Marketing</span><span class="b b-new">SPRINT 3</span><span class="b b-sc">80</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="sr"><svg width="56" height="56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="151" stroke-dashoffset="30" stroke="#c8ff00"/></svg><div class="vl acc">80</div></div>
+<span class="aw" id="a2">&#9660;</span>
+</div></div>
+<div class="cd-b" id="b2">
+<p style="font-size:12px;margin-bottom:12px"><strong>21-year .com expired yesterday.</strong> Was running on DigitalOcean (real infrastructure, not parking). GoDaddy with <code>clientRenewProhibited</code> = owner opted out. "SEO checker" is exact-match tool keyword. Wayback since 2007.</p>
+<div class="dg">
+<div class="di"><div class="di-l">Age</div><div class="di-v">21 years (since 2005)</div></div>
+<div class="di"><div class="di-l">Status</div><div class="di-v">EXPIRED + clientRenewProhibited</div></div>
+<div class="di"><div class="di-l">Infrastructure</div><div class="di-v">DigitalOcean (was live tool)</div></div>
+<div class="di"><div class="di-l">Tool Idea</div><div class="di-v">Website SEO Grader (a la HubSpot)</div></div>
+<div class="di"><div class="di-l">Revenue</div><div class="di-v">$2K-$10K/mo (freemium SaaS)</div></div>
+<div class="di"><div class="di-l">Price</div><div class="di-v">Backorder $50-$300</div></div>
+</div>
+<div class="vd"><div class="vd-t">Master Verdict</div><div class="vd-v">BACKORDER IMMEDIATELY. clientRenewProhibited confirms owner won't renew. 21yr exact-match .com + real infrastructure history. Build SEO grading tool. Estimated $2K-$10K/mo via freemium model. Place backorders on DropCatch, SnapNames, NameJet TODAY.</div></div>
+</div></div>
+
+<!-- 3 mortgagecalc.com -->
+<div class="cd" style="border-left:4px solid #c8ff00" id="c3">
+<div class="cd-h" onclick="tg(3)">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="rk">03</div>
+<div><div class="dn">mortgagecalc<span class="tl">.com</span></div>
+<div class="mt"><span class="b b-exp">EXPIRING JUN 15</span><span class="b b-nch">Finance</span><span class="b b-new">SPRINT 3</span><span class="b b-sc">83</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="sr"><svg width="56" height="56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="151" stroke-dashoffset="26" stroke="#c8ff00"/></svg><div class="vl acc">83</div></div>
+<span class="aw" id="a3">&#9660;</span>
+</div></div>
+<div class="cd-b" id="b3">
+<p style="font-size:12px;margin-bottom:12px"><strong>28-year premium finance .com</strong> (created 1998). Wayback shows active mortgage calculator since 1999. "Mortgage calc" is a direct-navigation keyword with $10-30 CPC. <strong>Highest ROI potential in the entire portfolio.</strong></p>
+<div class="dg">
+<div class="di"><div class="di-l">Age</div><div class="di-v">28 years (since 1998!)</div></div>
+<div class="di"><div class="di-l">Wayback</div><div class="di-v">Active calc since 1999, 27yr archive</div></div>
+<div class="di"><div class="di-l">CPC</div><div class="di-v">$10-$30 per click</div></div>
+<div class="di"><div class="di-l">Tool</div><div class="di-v">Mortgage Calculator + Rate Comparison</div></div>
+<div class="di"><div class="di-l">Revenue</div><div class="di-v">$5K-$20K/mo (lead gen $20-50/lead)</div></div>
+<div class="di"><div class="di-l">Days Left</div><div class="di-v">39 days</div></div>
+</div>
+<div class="vd"><div class="vd-t">Master Verdict</div><div class="vd-v">HIGHEST ROI CANDIDATE. 28yr .com with mortgage keyword in the $10-30 CPC niche, verified active calculator since 1999. Build mortgage calc + rate comparison tool. Revenue via lead gen ($20-50/qualified lead). Set daily WHOIS alert. If this drops at reg fee, it's the best acquisition across all 3 sprints.</div></div>
+</div></div>
+
+<!-- 4 devhub.io -->
+<div class="cd" style="border-left:4px solid #c8ff00" id="c4">
+<div class="cd-h" onclick="tg(4)">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="rk">04</div>
+<div><div class="dn">devhub<span class="tl">.io</span></div>
+<div class="mt"><span class="b b-buy">FOR SALE (Afternic)</span><span class="b b-nch">Dev Tools</span><span class="b b-sc">62</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="sr"><svg width="56" height="56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="151" stroke-dashoffset="57" stroke="#00cc88"/></svg><div class="vl grn">62</div></div>
+<span class="aw" id="a4">&#9660;</span>
+</div></div>
+<div class="cd-b" id="b4">
+<div class="dg">
+<div class="di"><div class="di-l">Backlinks</div><div class="di-v">7/10 — ethereum.org (DR 90+)</div></div>
+<div class="di"><div class="di-l">Archive</div><div class="di-v">25,900+ URLs in Wayback</div></div>
+<div class="di"><div class="di-l">Content Recovery</div><div class="di-v">9/10 — Dev tools directory, 1.4M projects</div></div>
+<div class="di"><div class="di-l">Price</div><div class="di-v">$2K-$15K (Afternic)</div></div>
+</div>
+<div class="vd"><div class="vd-t">Master Verdict</div><div class="vd-v">BEST DEV TOOLS CANDIDATE. Strongest SEO equity in the dev niche: ethereum.org backlink, 25.9K archived pages, proven dev tools directory. On Afternic — can negotiate and buy now. Rebuild as AI dev tools directory. Budget up to $10K.</div></div>
+</div></div>
+
+<!-- 5 aidevtools.com -->
+<div class="cd" style="border-left:4px solid #ff8800" id="c5">
+<div class="cd-h" onclick="tg(5)">
+<div style="display:flex;align-items:center;gap:12px;flex:1">
+<div class="rk">05</div>
+<div><div class="dn">aidevtools<span class="tl">.com</span></div>
+<div class="mt"><span class="b b-drp">EXPIRED MAY 6</span><span class="b b-nch">AI Dev Tools</span><span class="b b-sc">81</span></div></div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="sr"><svg width="56" height="56"><circle class="bg" cx="28" cy="28" r="24"/><circle class="fg" cx="28" cy="28" r="24" stroke-dasharray="151" stroke-dashoffset="29" stroke="#ffaa00"/></svg><div class="vl yel">81</div></div>
+<span class="aw" id="a5">&#9660;</span>
+</div></div>
+<div class="cd-b" id="b5">
+<p style="font-size:12px;margin-bottom:12px">Exact-match .com for the AI dev tools niche. <strong>Expired May 6.</strong> NameSilo grace period. Was parked on ParkLogic for 4 years. Zero backlinks (clean slate). Zero trademark risk. NameSilo auction starts ~May 11.</p>
+<div class="dg">
+<div class="di"><div class="di-l">Status</div><div class="di-v">renew period + clientHold</div></div>
+<div class="di"><div class="di-l">Auction</div><div class="di-v">NameSilo ~May 11</div></div>
+<div class="di"><div class="di-l">Public Drop</div><div class="di-v">~July 14 (if auction fails)</div></div>
+<div class="di"><div class="di-l">Comparable</div><div class="di-v">AiTools.com sold $238K (Jul 2025)</div></div>
+</div>
+<div class="vd"><div class="vd-t">Master Verdict</div><div class="vd-v">ACT NOW. Place backorders ($300 across 3 platforms). Monitor NameSilo auction starting ~May 11. Bid up to $5K. Perfect keyword match. Value is 100% brand — zero SEO equity to inherit but also zero cleanup needed.</div></div>
+</div></div>
+
+<!-- 6-20 Table -->
+<h3>Positions 6-20</h3>
+<div style="overflow-x:auto">
+<table class="tb">
+<thead><tr><th>#</th><th>Domain</th><th>Score</th><th>Niche</th><th>Status</th><th>Tool Idea</th><th>Price</th><th>Sprint</th></tr></thead>
+<tbody>
+<tr><td>6</td><td class="dc">taskplanner.com</td><td class="sc">78</td><td>Productivity</td><td style="color:#ff8800">EXPIRING May 27 (20d) — clientRenewProhibited</td><td>Task Planner + AI Calendar</td><td>Free-$200</td><td>S3</td></tr>
+<tr><td>7</td><td class="dc">thehealthnews.com</td><td class="sc">78</td><td>Health</td><td style="color:#cc44ff">AUCTION — $11 bid / $8K value</td><td>Health Calculators Hub</td><td>$11-$50</td><td>S3</td></tr>
+<tr><td>8</td><td class="dc">lowestmortgage.com</td><td class="sc">77</td><td>Finance</td><td style="color:#cc44ff">AUCTION — $93 bid / $7.9K value</td><td>Mortgage Rate Comparison</td><td>$93-$200</td><td>S3</td></tr>
+<tr><td>9</td><td class="dc">lifebetter.com</td><td class="sc">76</td><td>Wellness</td><td style="color:#cc44ff">AUCTION — $53 bid / $9.6K value</td><td>Wellness Tracker</td><td>$53-$150</td><td>S3</td></tr>
+<tr><td>10</td><td class="dc">bestdevtools.com</td><td class="sc">75</td><td>Dev Tools</td><td style="color:#ff8800">EXPIRING May 22 (15d)</td><td>Dev Tool Comparison</td><td>Free-$200</td><td>S2</td></tr>
+<tr><td>11</td><td class="dc">loancompare.com</td><td class="sc">73</td><td>Finance</td><td style="color:#ff8800">EXPIRING Jun 26 (50d)</td><td>Loan Comparison Calculator</td><td>Free-$200</td><td>S3</td></tr>
+<tr><td>12</td><td class="dc">ingredientcalculator.com</td><td class="sc">72</td><td>Cooking</td><td class="gn" style="font-weight:700">AVAILABLE NOW</td><td>Recipe Ingredient Scaler</td><td>~$10</td><td>S3</td></tr>
+<tr><td>13</td><td class="dc">pictureeditor.net</td><td class="sc">70</td><td>Photography</td><td class="gn" style="font-weight:700">AVAILABLE NOW</td><td>Online Image Editor</td><td>~$10</td><td>S3</td></tr>
+<tr><td>14</td><td class="dc">recipetool.net</td><td class="sc">68</td><td>Cooking</td><td class="gn" style="font-weight:700">AVAILABLE NOW</td><td>Recipe Converter + Nutrition</td><td>~$10</td><td>S3</td></tr>
+<tr><td>15</td><td class="dc">finetuneai.com</td><td class="sc">67</td><td>AI/ML</td><td style="color:#ff8800">EXPIRING May 26 (19d)</td><td>LLM Fine-Tuning Guide</td><td>Free</td><td>S3</td></tr>
+<tr><td>16</td><td class="dc">prompttools.com</td><td class="sc">65</td><td>AI/LLM</td><td style="color:#ff8800">EXPIRING Jul 18 (72d)</td><td>Prompt Library + Tester</td><td>Free-$500</td><td>S2</td></tr>
+<tr><td>17</td><td class="dc">workoutlogger.com</td><td class="sc">65</td><td>Fitness</td><td style="color:#ff4444">REDEMPTION (dropping)</td><td>Workout Tracker App</td><td>Backorder $50</td><td>S3</td></tr>
+<tr><td>18</td><td class="dc">apitools.com</td><td class="sc">52</td><td>Dev Tools</td><td>FOR SALE (Dynadot)</td><td>API Testing Tool</td><td>$500-$5K</td><td>S1</td></tr>
+<tr><td>19</td><td class="dc">aitoolkit.com</td><td class="sc">48</td><td>AI</td><td style="color:#ff8800">EXPIRING Jun 12 (36d)</td><td>AI Tool Comparison</td><td>Free</td><td>S2</td></tr>
+<tr><td>20</td><td class="dc">sitegrader.com</td><td class="sc">77</td><td>SEO</td><td>Watch</td><td>Website Grading Tool</td><td>$200-$1K</td><td>S3</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- AUCTION STEALS -->
+<h2 id="auctions">Auction Steals (&lt;1% of Estimated Value)</h2>
+<p style="font-size:12px;margin-bottom:12px">Sprint 3 uncovered 7 GoDaddy auction domains bidding at extreme discounts to their estimated values. These are aged .com domains with real registration history being auctioned at pennies on the dollar.</p>
+<div style="overflow-x:auto">
+<table class="tb">
+<thead><tr><th>Domain</th><th>Current Bid</th><th>Est. Value</th><th>Undervalued</th><th>Age</th><th>Niche</th><th>Tool Potential</th></tr></thead>
+<tbody>
+<tr><td class="dc">votechain.com</td><td class="sc">$1</td><td>$8,612</td><td class="gn" style="font-weight:700">8,612x</td><td>—</td><td>Blockchain</td><td>Governance Voting Tool</td></tr>
+<tr><td class="dc">hynek.com</td><td class="sc">$1</td><td>$8,606</td><td class="gn" style="font-weight:700">8,606x</td><td>28yr</td><td>Personal</td><td>Dev Blog / Portfolio</td></tr>
+<tr><td class="dc">thehealthnews.com</td><td class="sc">$11</td><td>$8,007</td><td class="gn" style="font-weight:700">728x</td><td>22yr</td><td>Health</td><td>Health Calculators</td></tr>
+<tr><td class="dc">metalogo.com</td><td class="sc">$11</td><td>$7,857</td><td class="gn" style="font-weight:700">714x</td><td>—</td><td>Design</td><td>Logo Generator</td></tr>
+<tr><td class="dc">lifebetter.com</td><td class="sc">$53</td><td>$9,648</td><td class="gn" style="font-weight:700">182x</td><td>21yr</td><td>Wellness</td><td>Wellness Tracker</td></tr>
+<tr><td class="dc">lowestmortgage.com</td><td class="sc">$93</td><td>$7,889</td><td class="gn" style="font-weight:700">85x</td><td>28yr</td><td>Finance</td><td>Mortgage Comparison</td></tr>
+<tr><td class="dc">freetail.com</td><td class="sc">$103</td><td>$9,190</td><td class="gn" style="font-weight:700">89x</td><td>—</td><td>General</td><td>Free Tools Hub</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- AVAILABLE NOW -->
+<h2 id="available">Available Now — Register Today</h2>
+<div class="sg">
+<div class="si" style="border-left:3px solid #cc44ff"><div class="si-l">ingredientcalculator.com</div><div class="si-v sm" style="color:#cc44ff">~$10</div><p style="font-size:10px;color:#6b6660;margin-top:4px">Recipe Ingredient Scaler | 14K monthly searches | Cooking niche</p></div>
+<div class="si" style="border-left:3px solid #cc44ff"><div class="si-l">pictureeditor.net</div><div class="si-v sm" style="color:#cc44ff">~$10</div><p style="font-size:10px;color:#6b6660;margin-top:4px">Online Image Editor | 110K monthly searches | Photography niche</p></div>
+<div class="si" style="border-left:3px solid #cc44ff"><div class="si-l">recipetool.net</div><div class="si-v sm" style="color:#cc44ff">~$10</div><p style="font-size:10px;color:#6b6660;margin-top:4px">Recipe Converter + Nutrition Calc | Cooking niche</p></div>
+</div>
+<p style="font-size:12px;color:#ffaa00;font-weight:500;margin-top:8px">Total cost to register all 3: ~$30. No backlink equity but strong keyword matches.</p>
+
+<!-- BACKLINK ANALYSIS -->
+<h2 id="backlinks">Backlink Quality Analysis</h2>
+<div style="overflow-x:auto">
+<table class="tb">
+<thead><tr><th>#</th><th>Domain</th><th>BL Score</th><th>Tier 1 Links</th><th>Profile</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>1</td><td class="dc">builder.ai</td><td class="sc">92/100</td><td>Wikipedia, TechCrunch x3, Bloomberg x6, WSJ, FT, HN</td><td class="gn">Exceptional</td><td>BUY (conditional)</td></tr>
+<tr><td>2</td><td class="dc">devhub.io</td><td class="sc">62/100</td><td>ethereum.org (DR 90+), GitHub org</td><td class="gn">Clean</td><td>BUY</td></tr>
+<tr><td>3</td><td class="dc">apitools.com</td><td class="sc">52/100</td><td>Red Hat docs, InfoQ, Kong</td><td class="yl">Mixed (domain drop reset)</td><td>WATCH</td></tr>
+<tr><td>4</td><td class="dc">aidevtools.com</td><td class="sc">2/100</td><td>None (clean slate)</td><td class="gn">Clean (no links at all)</td><td>BUY (keyword value)</td></tr>
+<tr><td>5</td><td class="dc">seochecker.com</td><td>—</td><td>Estimated from DigitalOcean infra</td><td class="yl">Unknown (verify)</td><td>BACKORDER</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- AIDEVTOOLS DEEP DIVE -->
+<h2 id="aidevtools">aidevtools.com — Deep Intelligence Brief</h2>
+<div class="cd" style="border-left:4px solid #ff8800">
+<div style="padding:18px 22px">
+<div class="dg">
+<div class="di"><div class="di-l">Registry Status</div><div class="di-v">renew period + clientHold</div></div>
+<div class="di"><div class="di-l">Expired</div><div class="di-v">2026-05-06T17:04:29Z</div></div>
+<div class="di"><div class="di-l">Registrar</div><div class="di-v">NameSilo, LLC</div></div>
+<div class="di"><div class="di-l">Privacy</div><div class="di-v">PrivacyGuardian.org</div></div>
+<div class="di"><div class="di-l">Nameservers</div><div class="di-v">ParkLogic (parking — never real site)</div></div>
+<div class="di"><div class="di-l">Trademark Risk</div><div class="di-v">2/10 — Descriptive phrase, no USPTO registration</div></div>
+<div class="di"><div class="di-l">Backlinks</div><div class="di-v">0 (4yr parking only)</div></div>
+<div class="di"><div class="di-l">Competition</div><div class="di-v">5/10 — No active targeting yet</div></div>
+</div>
+<h3>Acquisition Timeline</h3>
+<div class="tl" style="max-width:600px">
+<div class="ti act"><div class="ti-d">May 6 — EXPIRED</div><div class="ti-t">Grace period began. clientHold applied.</div></div>
+<div class="ti"><div class="ti-d">~May 11</div><div class="ti-t">NameSilo auction begins</div></div>
+<div class="ti"><div class="ti-d">~June 5</div><div class="ti-t">Auction ends</div></div>
+<div class="ti"><div class="ti-d">~June 5 – July 5</div><div class="ti-t">Redemption Period ($159 to renew)</div></div>
+<div class="ti"><div class="ti-d">~July 14</div><div class="ti-t">Public drop (if auction fails)</div></div>
+</div>
+<h3>Comparable Sales</h3>
+<div style="font-size:12px"><p>AiTools.com — <strong>$238,000</strong> (Jul 2025) | AiToolHunt.com — <strong>$12,694</strong> (Feb 2026) | AiTools.io — <strong>$2,938</strong> (Mar 2025)</p></div>
+<h3>Strategy</h3>
+<div style="font-size:12px"><p><strong>Primary:</strong> NameSilo auction (~May 11). Budget: up to $5,000.</p>
+<p><strong>Insurance:</strong> Backorders on SnapNames + NameJet + DropCatch (~$300).</p>
+<p><strong>Total max: $6,800</strong></p></div>
+</div></div>
+
+<!-- TOOL MATRIX -->
+<h2 id="tools">Tool Opportunity Matrix</h2>
+<p style="font-size:12px;margin-bottom:12px">38 domains classified with specific tool ideas. Top 10 by revenue potential:</p>
+<div style="overflow-x:auto">
+<table class="tb">
+<thead><tr><th>Domain</th><th>Niche</th><th>Tool Idea</th><th>Build</th><th>Revenue Model</th><th>Monthly Rev</th><th>Score</th></tr></thead>
+<tbody>
+<tr><td class="dc">mortgagecalc.com</td><td>Finance</td><td>Mortgage Calculator + Rate Comparison</td><td>16h</td><td>Lead gen ($20-50/lead)</td><td class="sc">$5K-$20K</td><td>83</td></tr>
+<tr><td class="dc">seochecker.com</td><td>SEO</td><td>Website SEO Grader</td><td>16h</td><td>Freemium SaaS</td><td class="sc">$2K-$10K</td><td>80</td></tr>
+<tr><td class="dc">lowestmortgage.com</td><td>Finance</td><td>Mortgage Rate Comparison</td><td>12h</td><td>Lead gen</td><td class="sc">$2K-$10K</td><td>77</td></tr>
+<tr><td class="dc">loancompare.com</td><td>Finance</td><td>Loan Comparison Calculator</td><td>12h</td><td>Lead gen + affiliate</td><td class="sc">$2K-$8K</td><td>73</td></tr>
+<tr><td class="dc">fitocracy.com</td><td>Fitness</td><td>Workout Tracker + Macro Calc</td><td>24h</td><td>Freemium + ads</td><td class="sc">$2K-$8K</td><td>85</td></tr>
+<tr><td class="dc">pictureeditor.net</td><td>Photography</td><td>Browser Image Editor</td><td>20h</td><td>Ads + premium tier</td><td class="sc">$1K-$5K</td><td>70</td></tr>
+<tr><td class="dc">taskplanner.com</td><td>Productivity</td><td>Task Planner + AI Calendar</td><td>16h</td><td>Freemium SaaS</td><td class="sc">$1K-$5K</td><td>78</td></tr>
+<tr><td class="dc">sitegrader.com</td><td>SEO</td><td>Website Grading Tool (B2B)</td><td>16h</td><td>Lead gen</td><td class="sc">$1K-$5K</td><td>77</td></tr>
+<tr><td class="dc">ingredientcalculator.com</td><td>Cooking</td><td>Recipe Ingredient Scaler</td><td>8h</td><td>Ads + affiliate</td><td>$500-$2K</td><td>72</td></tr>
+<tr><td class="dc">devhub.io</td><td>Dev Tools</td><td>AI Dev Tools Directory</td><td>24h</td><td>Ads + affiliate</td><td>$1K-$5K</td><td>62</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- WATCHLIST -->
+<h2 id="watchlist">Automated Watchlist (44 Domains)</h2>
+<p style="font-size:12px;margin-bottom:12px"><code>watchlist_monitor.py</code> — runs daily via cron, WHOIS checks all 44 domains, SQLite history, Slack alerts for CRITICAL/HIGH changes. 131 tests passing.</p>
+
+<div class="tl" style="max-width:700px">
+<div class="ti cr"><div class="ti-d">May 6 — EXPIRED</div><div class="ti-t"><strong>aidevtools.com</strong> — Grace period. NameSilo auction ~May 11.</div></div>
+<div class="ti cr"><div class="ti-d">May 8 — EXPIRED</div><div class="ti-t"><strong>seochecker.com</strong> — 21yr .com. clientRenewProhibited. BACKORDER NOW.</div></div>
+<div class="ti"><div class="ti-d">May 22 — 15 days</div><div class="ti-t"><strong>bestdevtools.com</strong> — 12yr .com.</div></div>
+<div class="ti"><div class="ti-d">May 26 — 19 days</div><div class="ti-t"><strong>finetuneai.com</strong> — AI fine-tuning keyword.</div></div>
+<div class="ti"><div class="ti-d">May 27 — 20 days</div><div class="ti-t"><strong>taskplanner.com</strong> — 22yr .com. clientRenewProhibited = likely drops.</div></div>
+<div class="ti cr"><div class="ti-d">Jun 4 — 28 days</div><div class="ti-t"><strong>builder.ai</strong> — $1.5B startup. BANKRUPTCY. Monitor proceedings.</div></div>
+<div class="ti"><div class="ti-d">Jun 12 — 36 days</div><div class="ti-t"><strong>aitoolkit.com</strong> — 26yr .com.</div></div>
+<div class="ti"><div class="ti-d">Jun 15 — 39 days</div><div class="ti-t"><strong>mortgagecalc.com</strong> — 28yr premium .com. HIGHEST ROI.</div></div>
+<div class="ti"><div class="ti-d">Jun 26 — 50 days</div><div class="ti-t"><strong>loancompare.com</strong> — 24yr finance .com.</div></div>
+<div class="ti"><div class="ti-d">Jul 4 — 58 days</div><div class="ti-t"><strong>devtools.io</strong> — Premium keyword .io.</div></div>
+<div class="ti"><div class="ti-d">Jul 18 — 72 days</div><div class="ti-t"><strong>prompttools.com</strong> — 26yr .com. AI gold keyword.</div></div>
+<div class="ti"><div class="ti-d">Oct 17 — 163 days</div><div class="ti-t"><strong>devhub.io</strong> — #1 dev tools candidate. On Afternic.</div></div>
+<div class="ti"><div class="ti-d">Dec 2026+</div><div class="ti-t">apitools.com, codeparrot.ai, codebench.com + 30 more monitored</div></div>
+</div>
+
+<!-- PIPELINE -->
+<h2 id="pipeline">Pipeline Status</h2>
+<div class="sg">
+<div class="si"><div class="si-l">Python Files</div><div class="si-v">36</div></div>
+<div class="si"><div class="si-l">Lines of Code</div><div class="si-v sm">~12,000</div></div>
+<div class="si"><div class="si-l">Tests</div><div class="si-v grn">131</div></div>
+<div class="si"><div class="si-l">Agents</div><div class="si-v">7</div></div>
+<div class="si"><div class="si-l">API Clients</div><div class="si-v">11</div></div>
+<div class="si"><div class="si-l">Data Models</div><div class="si-v">5</div></div>
+</div>
+
+<h3>Architecture</h3>
+<div style="font-size:12px;margin:12px 0;padding:16px;background:#0c0d10;border:1px solid #1a1c22;border-radius:6px;font-family:'DM Mono',monospace;white-space:pre;overflow-x:auto;line-height:1.8">SCOUT (10K raw) ──▶ SENTINEL (200-500→20-60) ──▶ ARCHIVIST (→5-15)
+       │                      │                          │
+       ▼                      ▼                          ▼
+  ExpiredDomains.net     DA/Spam/Backlink           Wayback CDX
+  CatchDoms API         Kill & Flag Rules           WHOIS History
+  Google CSE                                        Content Check
+       │                                                 │
+       ▼                                                 ▼
+   SPECTRE (→1-5) ──────────────────────▶ ORACLE (Buy/Pass)
+       │                                        │
+  GitHub/Reddit/LLM                     Claude Opus Verdicts
+  DeepSeek Classifier                   Non-linear Scoring
+  RADIOGRAPH Backlinks                  Budget Tier Assignment</div>
+
+<h3>Sprint 3 Additions</h3>
+<div style="font-size:12px">
+<p><code>clients/deepseek.py</code> — DeepSeek API client ($0.27/M tokens, batch classification of 50 domains/request)</p>
+<p><code>agents/radiograph.py</code> — Backlink quality analysis (tier1/tier2/tier3/spam scoring, red flag detection)</p>
+<p><code>config/constants.py</code> — Added TOOL_NICHES (11 niches), SPRINT3_WEIGHTS, TIER1_AUTHORITY_DOMAINS</p>
+<p><code>watchlist_monitor.py</code> — Expanded 22→44 domains, SQLite + Slack alerts</p>
+</div>
+
+<!-- ELIMINATED -->
+<h2>Eliminated Domains (across all sprints)</h2>
+<div style="overflow-x:auto">
+<table class="tb">
+<thead><tr><th>Domain</th><th>Reason</th><th>Sprint</th></tr></thead>
+<tbody>
+<tr style="opacity:.5"><td>techstack.com</td><td>Active business — Revenue Diagnostic Platform, 142+ partners, Cloudflare, expires Dec 2027</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>codebench.com</td><td>Owned by HID Global/Assa Abloy. CSC Corporate registrar. Government security product</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>stackreview.com</td><td>HugeDomains listing $2-5K. Zero SEO history</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>codecompare.com</td><td>HugeDomains listing $2-5K. Zero SEO history</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>devaide.com</td><td>BrandBucket premium. Brand new (2024), zero SEO</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>codeguide.com</td><td>RENEWED to 2027-04-23. Was HIGH priority, now LOW</td><td>S3</td></tr>
+<tr style="opacity:.5"><td>launchable.io</td><td>Only ~30 archived URLs. Auto-renewed via Park.io ($5K+ likely)</td><td>S2</td></tr>
+<tr style="opacity:.5"><td>imageresizer.com</td><td>Renewed to 2030. Active site on Cloudflare</td><td>S3</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- PLAYBOOK -->
+<h2 id="playbook">Execution Playbook</h2>
+
+<h3>Immediate (Today)</h3>
+<div>
+<div class="pl"><div class="pl-p cr">CRITICAL</div><div class="pl-a">Register <span class="pl-d">ingredientcalculator.com</span>, <span class="pl-d">pictureeditor.net</span>, <span class="pl-d">recipetool.net</span></div><div class="pl-c">~$30</div></div>
+<div class="pl"><div class="pl-p cr">CRITICAL</div><div class="pl-a">Backorder <span class="pl-d">seochecker.com</span> on DropCatch + SnapNames + NameJet</div><div class="pl-c">$100-$300</div></div>
+<div class="pl"><div class="pl-p cr">CRITICAL</div><div class="pl-a">Bid on <span class="pl-d">thehealthnews.com</span> (currently $11)</div><div class="pl-c">$11-$50</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Bid on <span class="pl-d">lowestmortgage.com</span> ($93) + <span class="pl-d">lifebetter.com</span> ($53)</div><div class="pl-c">$146-$350</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Backorder <span class="pl-d">aidevtools.com</span> on 3 platforms</div><div class="pl-c">$300</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Set up cron: <code>0 8 * * * cd ~/Desktop/domainhunter && python3 watchlist_monitor.py</code></div><div class="pl-c">$0</div></div>
+</div>
+
+<h3>This Week</h3>
+<div>
+<div class="pl"><div class="pl-p cr">CRITICAL</div><div class="pl-a">Monitor <span class="pl-d">aidevtools.com</span> NameSilo auction (~May 11)</div><div class="pl-c">up to $5K</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Get Ahrefs 7-day trial ($7) — exact DA/DR for top 10</div><div class="pl-c">$7</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Daily WHOIS: <span class="pl-d">bestdevtools.com</span> (May 22), <span class="pl-d">taskplanner.com</span> (May 27)</div><div class="pl-c">$0</div></div>
+<div class="pl"><div class="pl-p md">MEDIUM</div><div class="pl-a">Inquire <span class="pl-d">devhub.io</span> pricing on Afternic</div><div class="pl-c">$0</div></div>
+</div>
+
+<h3>This Month</h3>
+<div>
+<div class="pl"><div class="pl-p cr">CRITICAL</div><div class="pl-a">Monitor <span class="pl-d">builder.ai</span> bankruptcy — domain drops Jun 4</div><div class="pl-c">$0-$50K</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Watch <span class="pl-d">mortgagecalc.com</span> — 28yr premium .com drops Jun 15</div><div class="pl-c">Free-$500</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Watch <span class="pl-d">loancompare.com</span> — 24yr finance .com drops Jun 26</div><div class="pl-c">Free-$200</div></div>
+<div class="pl"><div class="pl-p hi">HIGH</div><div class="pl-a">Negotiate <span class="pl-d">devhub.io</span> purchase if price &lt; $10K</div><div class="pl-c">$2K-$10K</div></div>
+<div class="pl"><div class="pl-p md">MEDIUM</div><div class="pl-a">Build first tool on an acquired domain — prove the revenue model</div><div class="pl-c">$0 (time)</div></div>
+</div>
+
+<!-- BUDGET -->
+<h2>Budget Summary</h2>
+<div class="sg">
+<div class="si"><div class="si-l">Today (regs + bids + backorders)</div><div class="si-v sm">$587-$1,030</div></div>
+<div class="si"><div class="si-l">This Week (auctions)</div><div class="si-v sm">$7-$5K</div></div>
+<div class="si"><div class="si-l">This Month (acquisitions)</div><div class="si-v sm">$2K-$60K</div></div>
+<div class="si"><div class="si-l">Realistic Top 5</div><div class="si-v sm">$3K-$20K</div></div>
+</div>
+
+<div style="background:#0c0d10;border:1px solid #1a1c22;border-left:3px solid #00cc88;border-radius:6px;padding:16px;margin-top:20px">
+<h3 style="color:#00cc88;margin-top:0">Recommended Priority Acquisitions</h3>
+<div style="font-size:12px;margin-top:8px">
+<p><strong>1. seochecker.com</strong> — Backorder $50-$300 (21yr .com, SEO tool, expired + clientRenewProhibited)</p>
+<p><strong>2. mortgagecalc.com</strong> — Watch for drop Jun 15 (28yr .com, $5K-$20K/mo revenue)</p>
+<p><strong>3. devhub.io</strong> — Negotiate on Afternic up to $10K (best backlink profile, 25.9K pages)</p>
+<p><strong>4. aidevtools.com</strong> — Auction up to $5K (exact-match .com for niche)</p>
+<p><strong>5. Register 3 available domains</strong> — $30 total (ingredientcalculator.com, pictureeditor.net, recipetool.net)</p>
+<p style="margin-top:10px;color:#c8ff00;font-weight:500"><strong>Realistic total for all 5: $3,000 – $16,000</strong></p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div style="padding:48px 0;margin-top:48px;border-top:1px solid #1a1c22;text-align:center">
+<div class="tag">Project REVENANT // Master Report Complete</div>
+<p style="font-size:11px;color:#6b6660;margin-top:8px">3 Sprints | 287 domains | 12+ niches | 44 monitored | 36 pipeline files | 131 tests | 11 API clients | 7 agents</p>
+<p style="font-size:11px;color:#6b6660;margin-top:4px">Score: 7.2 &rarr; 8.6 &rarr; <strong style="color:#c8ff00">9.1</strong> | AUTOM8 LLC | 2026-05-07</p>
+</div>
+
+</div>
+
+<script>
+function tg(n){var b=document.getElementById('b'+n),a=document.getElementById('a'+n);if(b&&a){b.classList.toggle('open');a.classList.toggle('open')}}
+document.addEventListener('DOMContentLoaded',function(){[1,2,3].forEach(function(n){tg(n)})});
+</script>
+</body>
+</html>

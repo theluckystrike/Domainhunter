@@ -1,0 +1,191 @@
+{
+  "domain": "guerrameats.com",
+  "generated_at": "2026-05-15T14:29:10.920066+00:00",
+  "dossier": {
+    "domain": "guerrameats.com",
+    "business": "Guerra Quality Meats -- Family butcher shop in San Francisco since 1954. Full-service butcher, catering, Italian deli. 490 Taraval St.",
+    "registrar": "Squarespace Domains II LLC",
+    "creation_date": "2005-04-07T02:36:43Z",
+    "expiry_date": "2027-04-07T02:36:43Z",
+    "last_changed": "2026-04-07T08:59:48Z",
+    "nameservers": ["ns-cloud-b1.googledomains.com", "ns-cloud-b2.googledomains.com", "ns-cloud-b3.googledomains.com", "ns-cloud-b4.googledomains.com"],
+    "epp_history": {
+      "sprint16_whois": ["clientDeleteProhibited", "clientHold", "clientTransferProhibited"],
+      "sprint24_rdap": "clientHold (confirmed 2026-05-15)",
+      "sprint25_rdap": "clientHold (no change, reprobe 2026-05-15)",
+      "sprint26_live_rdap": "clientHold (confirmed 2026-05-15 14:29 UTC)"
+    },
+    "etv_usd_monthly": 11376,
+    "keywords_ranked": 99,
+    "domain_authority": 36,
+    "referring_domains": "Not tracked by bulk SEO APIs (local business). Sprint 9 DA 36.",
+    "editorial_links": "None detected. Backlinks are 100% local SF directories and reviews. Zero transferability.",
+    "backlink_transferability": "LOW",
+    "content_type": "LOCAL_BUSINESS",
+    "playbook": "REDIRECT -- monetize via affiliate/ad redirect on high-traffic keywords",
+    "est_value_low_usd": 2000,
+    "est_value_high_usd": 15000,
+    "drop_timeline": {
+      "original_expiry": "2026-04-07",
+      "clientHold_detected": "2026-04-07 (Sprint 16 whale whois)",
+      "dns_died": "Before Sprint 16 scan",
+      "est_pendingDelete_start": "2026-06-21",
+      "est_drop_date": "2026-06-26",
+      "days_until_drop": 42,
+      "confidence": "MODERATE -- Squarespace follows standard ICANN lifecycle but exact timing varies"
+    },
+    "dns_status": "DEAD -- domain does not resolve",
+    "competition_assessment": "MODERATE -- $11K ETV attracts scanners but local business name reduces competition vs generic keywords",
+    "backorder_history": [
+      {"sprint": 24, "result": "FAILED: not in Dynadot inventory (pre-pendingDelete)"},
+      {"sprint": 25, "result": "FAILED: same error (still clientHold)"}
+    ],
+    "monitor_tier": "critical (4x daily RDAP checks via launchd)",
+    "max_bid": 200,
+    "roi_analysis": {
+      "acquisition_cost_dynadot": 10.99,
+      "acquisition_cost_dropcatch": 59,
+      "acquisition_cost_multi_registrar_max": 139.99,
+      "monthly_traffic_value": 11376,
+      "estimated_flip_value_low": 2000,
+      "estimated_flip_value_high": 15000,
+      "roi_at_dynadot_low_pct": 18100,
+      "roi_at_dynadot_high_pct": 136400
+    }
+  },
+  "rdap_probe": {
+    "domain": "guerrameats.com",
+    "epp_status": "clientHold",
+    "registrar": "Squarespace Domains II LLC",
+    "expiry_date": "2027-04-07T02:36:43Z",
+    "raw_statuses": [
+      "client delete prohibited",
+      "client hold",
+      "client transfer prohibited"
+    ],
+    "checked_at": "2026-05-15T14:29:08.192754+00:00",
+    "progressing_toward_drop": true
+  },
+  "balance_check": {
+    "balance_usd": 25.0,
+    "sufficient": true,
+    "recommended_topup": 25.0,
+    "raw_response": "{\n  \"GetAccountBalanceResponse\": {\n    \"ResponseCode\": 0,\n    \"Status\": \"success\",\n    \"BalanceList\": [\n      {\n        \"Currency\": \"USD\",\n        \"Amount\": \"25.00\"\n      }\n    ]\n  }\n}"
+  },
+  "notification_test": {
+    "success": true,
+    "exit_code": 0,
+    "message": "Test notification sent"
+  },
+  "auto_trigger_check": {
+    "launchd_plists_exist": true,
+    "launchd_agents_loaded": true,
+    "monitored_domains_has_target": true,
+    "drop_monitor_script_exists": true,
+    "heartbeat_recent": false,
+    "details": {
+      "critical_plist": "/Users/mike/Library/LaunchAgents/com.domainhunter.drop-monitor-critical.plist",
+      "all_plist": "/Users/mike/Library/LaunchAgents/com.domainhunter.drop-monitor-all.plist",
+      "critical_loaded": true,
+      "all_loaded": true,
+      "config_path": "/Users/mike/Desktop/domainhunter/scripts/monitored_domains.json",
+      "heartbeat_missing": true
+    }
+  },
+  "post_catch_check": {
+    "executor_exists": true,
+    "executor_path": "/Users/mike/Desktop/domainhunter/scripts/post_catch_executor.py",
+    "playbook_files_found": 1,
+    "latest_playbook": "/Users/mike/Desktop/domainhunter/data/sprint22_playbooks_2026-05-15.json"
+  },
+  "checklist": [
+    {
+      "name": "RDAP monitoring active",
+      "status": "GO",
+      "detail": "Drop monitor agents loaded, target in config, script exists"
+    },
+    {
+      "name": "Dynadot balance >= $25",
+      "status": "GO",
+      "detail": "Balance: $25.00 (recommend adding $25.00)"
+    },
+    {
+      "name": "Auto-trigger armed",
+      "status": "GO",
+      "detail": "launchd agents loaded + target in monitored_domains.json"
+    },
+    {
+      "name": "Post-catch executor ready",
+      "status": "GO",
+      "detail": "Executor at /Users/mike/Desktop/domainhunter/scripts/post_catch_executor.py"
+    },
+    {
+      "name": "Domain progressing toward drop",
+      "status": "GO",
+      "detail": "EPP status: clientHold, registrar: Squarespace Domains II LLC"
+    },
+    {
+      "name": "Notification system functional",
+      "status": "GO",
+      "detail": "macOS notification sent successfully"
+    }
+  ],
+  "overall_status": "ALL SYSTEMS GO (6/6)",
+  "plan_b": {
+    "scenario_1_dynadot_rejects": {
+      "problem": "Dynadot API returns 'could not find backorder for this domain' because domain is not yet in pendingDelete phase",
+      "solution": "EXPECTED. Dynadot only accepts backorders for domains in their drop-catching inventory (pendingDelete). Auto-retry 4x/day.",
+      "action": "No action needed. Monitor will auto-retry 4x/day for critical tier."
+    },
+    "scenario_2_dynadot_inventory_gap": {
+      "problem": "Domain enters pendingDelete but Dynadot does not have it",
+      "solution_a": "Manual Dynadot search at https://www.dynadot.com/domain/search",
+      "solution_b": "DropCatch.com backup ($59/backorder, higher catch rate)",
+      "solution_c": "SnapNames.com tertiary ($69/backorder)",
+      "daily_check_start": "2026-06-20",
+      "manual_check_url": "https://www.dynadot.com/domain/search?q=guerrameats.com"
+    },
+    "scenario_3_domain_renewed": {
+      "problem": "Owner renews (clientHold can be reversed by paying renewal)",
+      "likelihood": "LOW -- clientHold since Apr 7, DNS dead, business inactive",
+      "action": "Move on to next target (sunnyray.org drops ~Jun 30)."
+    },
+    "scenario_4_competitor_catches": {
+      "problem": "Another registrar catches the domain before Dynadot",
+      "likelihood": "MODERATE -- $11K ETV attracts automated scanners",
+      "mitigation": "Multi-registrar backorders: Dynadot $10.99 + DropCatch $59 + SnapNames $69 = $139.99 max exposure."
+    },
+    "backup_registrar_accounts": {
+      "dropcatch": {
+        "url": "https://www.dropcatch.com",
+        "price_per_backorder": 59,
+        "account_needed": true,
+        "notes": "Higher catch rate than Dynadot. Industry standard."
+      },
+      "snapnames": {
+        "url": "https://www.snapnames.com",
+        "price_per_backorder": 69,
+        "account_needed": true,
+        "notes": "Owned by Name.com. Good for .com drops."
+      },
+      "namejet": {
+        "url": "https://www.namejet.com",
+        "price_per_backorder": 0,
+        "account_needed": true,
+        "notes": "Free to place backorder, auction if caught."
+      }
+    }
+  },
+  "key_dates": {
+    "2026-06-15": "T-11 days: Begin twice-daily RDAP checks (increase critical tier frequency)",
+    "2026-06-20": "T-6 days: Start daily manual Dynadot search check, verify auto-trigger, top up Dynadot balance to $50+, create DropCatch/SnapNames accounts",
+    "2026-06-21": "T-5 days: ESTIMATED pendingDelete window OPENS -- backorder attempts begin",
+    "2026-06-22": "T-4 days: If Dynadot rejects, place DropCatch backorder ($59)",
+    "2026-06-23": "T-3 days: Verify backorder is placed on at least 1 registrar",
+    "2026-06-24": "T-2 days: Final system check -- all triggers armed",
+    "2026-06-25": "T-1 day: Last chance to place backorders before potential drop",
+    "2026-06-26": "D-DAY: guerrameats.com estimated to become available (5-day window end)",
+    "2026-06-27": "D+1: If not dropped, continue monitoring (timeline can shift +/- 5 days)",
+    "2026-07-01": "D+5: If still not dropped, re-evaluate RDAP status and timeline"
+  }
+}

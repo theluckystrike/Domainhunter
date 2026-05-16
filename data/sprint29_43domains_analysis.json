@@ -1,0 +1,810 @@
+{
+  "analysis_date": "2026-05-16",
+  "total_available": 43,
+  "methodology": {
+    "scoring_dimensions": [
+      "Length (shorter = better, 4-5 premium, 6-8 good, 9-12 average, 13+ long)",
+      "Hyphens (-20 per hyphen, major resale killer)",
+      "Suffix baggage (-20 for inc/corp/ltd/llc, -15 for group, -8 for systems/software)",
+      "Numbers (slight penalty unless meaningful like D2C, 5G)",
+      "Brandability (pronounceability, memorability, creative spelling)",
+      "Niche keywords (pharma, bio, med, ai, security, cloud, etc.)",
+      "Sector value (biotech/healthtech/fintech premium)",
+      "Geographic limiters (korea, espana, brl reduce global appeal)",
+      "Funding context (high funding adds recognition value)"
+    ],
+    "flip_estimate_basis": "Realistic aftermarket .com resale values for expired startup domains, based on NameBio comparable sales. Most expired startup .coms sell for $50-$500 unless they have exceptional qualities (short, dictionary, hot keyword)."
+  },
+  "categories": {
+    "buy_now": [
+      {
+        "domain": "viryd.com",
+        "company": "Viryd Technologies",
+        "name_length": 5,
+        "name_score": 51,
+        "flip_estimate": "$2000-$10000",
+        "niche": "cleantech",
+        "funding": "$9.8M",
+        "reasons": [
+          "Very short 5-char name",
+          "5-char invented word, clean and pronounceable",
+          "Clean, pronounceable name",
+          "Hot sector: cleantech (+3)"
+        ],
+        "negatives": []
+      },
+      {
+        "domain": "encoate.com",
+        "company": "EnCoate",
+        "name_length": 7,
+        "name_score": 35,
+        "flip_estimate": "$2000-$10000",
+        "niche": "biotech",
+        "funding": "$5.1M",
+        "reasons": [
+          "Good length (7 chars)",
+          "Sounds like 'encode/coat' - brandable portmanteau",
+          "Clean, pronounceable name",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": []
+      },
+      {
+        "domain": "kolorific.com",
+        "company": "Kolorific",
+        "name_length": 9,
+        "name_score": 26,
+        "flip_estimate": "$500-$3000",
+        "niche": "hardware",
+        "funding": "$7.0M",
+        "reasons": [
+          "Average length (9 chars)",
+          "Creative spelling of 'colorific' - fun, memorable",
+          "Clean, pronounceable name",
+          "Hot sector: hardware (+1)"
+        ],
+        "negatives": []
+      }
+    ],
+    "buy_later": [
+      {
+        "domain": "d2cgames.com",
+        "company": "D2C Games",
+        "name_length": 8,
+        "name_score": 24,
+        "flip_estimate": "$200-$1000",
+        "niche": "gaming",
+        "funding": "$7.5M",
+        "reasons": [
+          "Good length (8 chars)",
+          "Meaningful number/acronym pattern",
+          "Contains 'games' keyword (+5)",
+          "Hot sector: gaming (+2)"
+        ],
+        "negatives": [
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "femtapharma.com",
+        "company": "Femta Pharmaceuticals",
+        "name_length": 11,
+        "name_score": 19,
+        "flip_estimate": "$200-$1000",
+        "niche": "biotech",
+        "funding": "$23.5M",
+        "reasons": [
+          "Contains 'pharma' keyword (+10)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": []
+      },
+      {
+        "domain": "vaccsys.com",
+        "company": "Vaccsys",
+        "name_length": 7,
+        "name_score": 19,
+        "flip_estimate": "$200-$1000",
+        "niche": "biotech",
+        "funding": "$9.0M",
+        "reasons": [
+          "Good length (7 chars)",
+          "Sounds like vaccine + systems, but awkward",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "mthreex.com",
+        "company": "M3X Media",
+        "name_length": 7,
+        "name_score": 17,
+        "flip_estimate": "$200-$1000",
+        "niche": "gaming",
+        "funding": "$10.5M",
+        "reasons": [
+          "Good length (7 chars)",
+          "Obscure acronym (M3X)",
+          "Hot sector: gaming (+2)"
+        ],
+        "negatives": [
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "orasimedical.com",
+        "company": "Orasi Medical, Inc.",
+        "name_length": 12,
+        "name_score": 16,
+        "flip_estimate": "$200-$1000",
+        "niche": "healthtech",
+        "funding": "$5.3M",
+        "reasons": [
+          "Contains 'med' keyword (+8)",
+          "Hot sector: healthtech (+5)"
+        ],
+        "negatives": []
+      },
+      {
+        "domain": "quikcycle.com",
+        "company": "QuikCycle",
+        "name_length": 9,
+        "name_score": 15,
+        "flip_estimate": "$200-$1000",
+        "niche": "saas",
+        "funding": "$17.8M",
+        "reasons": [
+          "Average length (9 chars)",
+          "Two real words combined: quick + cycle",
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "nbo-tv.com",
+        "company": "NBO TV",
+        "name_length": 6,
+        "name_score": 12,
+        "flip_estimate": "$100-$500",
+        "niche": "media",
+        "funding": "$18.0M",
+        "reasons": [
+          "Short 6-char name",
+          "Contains 'tv' keyword (+5)",
+          "Hot sector: media (+2)"
+        ],
+        "negatives": [
+          "1 hyphen(s) (-20 penalty)"
+        ]
+      },
+      {
+        "domain": "tenchotech.com",
+        "company": "Tencho Technology",
+        "name_length": 10,
+        "name_score": 10,
+        "flip_estimate": "$100-$500",
+        "niche": "saas",
+        "funding": "$14.7M",
+        "reasons": [
+          "Average length (10 chars)",
+          "Clean, pronounceable name",
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "'tech' suffix slightly generic"
+        ]
+      },
+      {
+        "domain": "springleaftx.com",
+        "company": "Springleaf Therapeutics",
+        "name_length": 12,
+        "name_score": 9,
+        "flip_estimate": "$100-$500",
+        "niche": "biotech",
+        "funding": "$23.3M",
+        "reasons": [
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": []
+      },
+      {
+        "domain": "neovistainc.com",
+        "company": "NeoVista",
+        "name_length": 11,
+        "name_score": 8,
+        "flip_estimate": "$100-$500",
+        "niche": "healthtech",
+        "funding": "$130.0M",
+        "reasons": [
+          "Contains 'ai' keyword (+15)",
+          "Hot sector: healthtech (+5)",
+          "Very high funding ($130M) adds brand recognition"
+        ],
+        "negatives": [
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "wi-chi.com",
+        "company": "Wi-Chi",
+        "name_length": 6,
+        "name_score": 6,
+        "flip_estimate": "$100-$500",
+        "niche": "hardware",
+        "funding": "$7.0M",
+        "reasons": [
+          "Short 6-char name",
+          "Hot sector: hardware (+1)"
+        ],
+        "negatives": [
+          "1 hyphen(s) (-20 penalty)"
+        ]
+      }
+    ],
+    "skip": [
+      {
+        "domain": "g10korea.com",
+        "company": "G10 Entertainment",
+        "name_length": 8,
+        "name_score": 0,
+        "flip_estimate": "$50-$200",
+        "niche": "gaming",
+        "funding": "$38.0M",
+        "reasons": [
+          "Good length (8 chars)",
+          "Hot sector: gaming (+2)"
+        ],
+        "negatives": [
+          "Contains numbers (slight penalty)",
+          "Consonant clusters make it hard to pronounce",
+          "Geographic/language indicator 'korea' limits global appeal"
+        ]
+      },
+      {
+        "domain": "sirs-lab.com",
+        "company": "SIRS-Lab",
+        "name_length": 8,
+        "name_score": 0,
+        "flip_estimate": "$50-$200",
+        "niche": "biotech",
+        "funding": "$13.2M",
+        "reasons": [
+          "Good length (8 chars)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "1 hyphen(s) (-20 penalty)"
+        ]
+      },
+      {
+        "domain": "nozomiphotonics.com",
+        "company": "Nozomi Photonics",
+        "name_length": 15,
+        "name_score": 0,
+        "flip_estimate": "$50-$200",
+        "niche": "hardware + software",
+        "funding": "$8.0M",
+        "reasons": [
+          "Contains 'photonics' keyword (+5)"
+        ],
+        "negatives": [
+          "Long name (15 chars)"
+        ]
+      },
+      {
+        "domain": "orieltherapeutics.com",
+        "company": "Oriel Therapeutics",
+        "name_length": 17,
+        "name_score": -2,
+        "flip_estimate": "$50-$200",
+        "niche": "biotech",
+        "funding": "$26.5M",
+        "reasons": [
+          "Contains 'therapeutics' keyword (+7)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "Very long name (17 chars)"
+        ]
+      },
+      {
+        "domain": "viacorinc.com",
+        "company": "Viacor",
+        "name_length": 9,
+        "name_score": -2,
+        "flip_estimate": "$50-$200",
+        "niche": "healthtech",
+        "funding": "$19.0M",
+        "reasons": [
+          "Average length (9 chars)",
+          "Clean, pronounceable name",
+          "Hot sector: healthtech (+5)"
+        ],
+        "negatives": [
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "tgrxinc.com",
+        "company": "TransGenRx",
+        "name_length": 7,
+        "name_score": -3,
+        "flip_estimate": "$50-$200",
+        "niche": "biotech",
+        "funding": "$6.9M",
+        "reasons": [
+          "Good length (7 chars)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "'inc' suffix reduces resale value significantly",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "officialvirtualdj.com",
+        "company": "Official Limited Virtual",
+        "name_length": 17,
+        "name_score": -5,
+        "flip_estimate": "$50-$200",
+        "niche": "music",
+        "funding": "$170.6M",
+        "reasons": [
+          "Contains 'virtual' keyword (+5)",
+          "Very high funding ($171M) adds brand recognition"
+        ],
+        "negatives": [
+          "Very long name (17 chars)"
+        ]
+      },
+      {
+        "domain": "infrastructsecurity.com",
+        "company": "Infrastruct Security",
+        "name_length": 19,
+        "name_score": -5,
+        "flip_estimate": "$50-$200",
+        "niche": "security",
+        "funding": "$6.8M",
+        "reasons": [
+          "Contains 'security' keyword (+7)",
+          "Hot sector: security (+3)"
+        ],
+        "negatives": [
+          "Very long name (19 chars)"
+        ]
+      },
+      {
+        "domain": "paxstreamline.com",
+        "company": "PAX Streamline",
+        "name_length": 13,
+        "name_score": -5,
+        "flip_estimate": "$50-$200",
+        "niche": "cleantech",
+        "funding": "$6.0M",
+        "reasons": [
+          "Hot sector: cleantech (+3)"
+        ],
+        "negatives": [
+          "Long name (13 chars)",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "zero9group.com",
+        "company": "Zero9",
+        "name_length": 10,
+        "name_score": -6,
+        "flip_estimate": "$20-$100",
+        "niche": "microblogging",
+        "funding": "$44.2M",
+        "reasons": [
+          "Average length (10 chars)",
+          "Clean, pronounceable name"
+        ],
+        "negatives": [
+          "Contains numbers (slight penalty)",
+          "'group' suffix reduces resale value"
+        ]
+      },
+      {
+        "domain": "alamakespana.com",
+        "company": "Alamak Espana Trade",
+        "name_length": 12,
+        "name_score": -7,
+        "flip_estimate": "$20-$100",
+        "niche": "other",
+        "funding": "$6.0M",
+        "reasons": [],
+        "negatives": [
+          "Geographic/language indicator 'espana' limits global appeal"
+        ]
+      },
+      {
+        "domain": "cooptionstech.com",
+        "company": "Cooptions Technologies",
+        "name_length": 13,
+        "name_score": -8,
+        "flip_estimate": "$20-$100",
+        "niche": "saas",
+        "funding": "$10.0M",
+        "reasons": [
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Long name (13 chars)",
+          "'tech' suffix slightly generic"
+        ]
+      },
+      {
+        "domain": "illumesoftware.com",
+        "company": "Illume Software",
+        "name_length": 14,
+        "name_score": -8,
+        "flip_estimate": "$20-$100",
+        "niche": "saas",
+        "funding": "$6.8M",
+        "reasons": [
+          "Contains 'software' keyword (+3)",
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Long name (14 chars)",
+          "'software' suffix is dated/generic"
+        ]
+      },
+      {
+        "domain": "midamericaconsulting.com",
+        "company": "Mid-America consulting Group",
+        "name_length": 20,
+        "name_score": -8,
+        "flip_estimate": "$20-$100",
+        "niche": "biotech",
+        "funding": "$6.4M",
+        "reasons": [
+          "Contains 'consulting' keyword (+2)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "Very long name (20 chars)"
+        ]
+      },
+      {
+        "domain": "multiwavephotonics.com",
+        "company": "Multiwave Photonics",
+        "name_length": 18,
+        "name_score": -10,
+        "flip_estimate": "$20-$100",
+        "niche": "hardware + software",
+        "funding": "$7.7M",
+        "reasons": [
+          "Contains 'photonics' keyword (+5)"
+        ],
+        "negatives": [
+          "Very long name (18 chars)"
+        ]
+      },
+      {
+        "domain": "c8-inc.com",
+        "company": "C8 MediSensors",
+        "name_length": 6,
+        "name_score": -12,
+        "flip_estimate": "$20-$100",
+        "niche": "biotech",
+        "funding": "$64.0M",
+        "reasons": [
+          "Short 6-char name",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "1 hyphen(s) (-20 penalty)",
+          "Contains numbers (slight penalty)",
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "trinitybiosystems.com",
+        "company": "Trinity Biosystems",
+        "name_length": 17,
+        "name_score": -12,
+        "flip_estimate": "$20-$100",
+        "niche": "biotech",
+        "funding": "$28.5M",
+        "reasons": [
+          "Contains 'bio' keyword (+8)",
+          "Hot sector: biotech (+5)"
+        ],
+        "negatives": [
+          "Very long name (17 chars)",
+          "'systems' suffix is generic",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "aquestsystems.com",
+        "company": "Aquest Systems",
+        "name_length": 13,
+        "name_score": -14,
+        "flip_estimate": "$20-$100",
+        "niche": "hardware",
+        "funding": "$20.0M",
+        "reasons": [
+          "Hot sector: hardware (+1)"
+        ],
+        "negatives": [
+          "Long name (13 chars)",
+          "'systems' suffix is generic",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "dynapumpinc.com",
+        "company": "DynaPump",
+        "name_length": 11,
+        "name_score": -14,
+        "flip_estimate": "$20-$100",
+        "niche": "other",
+        "funding": "$6.0M",
+        "reasons": [
+          "Contains 'pump' keyword (+3)"
+        ],
+        "negatives": [
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "nethra-imaging.com",
+        "company": "Nethra Imaging",
+        "name_length": 14,
+        "name_score": -19,
+        "flip_estimate": "$20-$100",
+        "niche": "hardware",
+        "funding": "$14.0M",
+        "reasons": [
+          "Contains 'imaging' keyword (+5)",
+          "Hot sector: hardware (+1)"
+        ],
+        "negatives": [
+          "Long name (14 chars)",
+          "1 hyphen(s) (-20 penalty)"
+        ]
+      },
+      {
+        "domain": "brightview-sys.com",
+        "company": "BrightView Systems",
+        "name_length": 14,
+        "name_score": -20,
+        "flip_estimate": "$20-$100",
+        "niche": "cleantech",
+        "funding": "$6.0M",
+        "reasons": [
+          "Contains 'tv' keyword (+5)",
+          "Hot sector: cleantech (+3)"
+        ],
+        "negatives": [
+          "Long name (14 chars)",
+          "1 hyphen(s) (-20 penalty)",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "transparencysoftware.com",
+        "company": "Transparency Software",
+        "name_length": 20,
+        "name_score": -21,
+        "flip_estimate": "$20-$100",
+        "niche": "saas",
+        "funding": "$12.1M",
+        "reasons": [
+          "Contains 'software' keyword (+3)",
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Very long name (20 chars)",
+          "'software' suffix is dated/generic",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "chronicityinc.com",
+        "company": "Chronicity",
+        "name_length": 13,
+        "name_score": -24,
+        "flip_estimate": "$20-$100",
+        "niche": "services",
+        "funding": "$21.6M",
+        "reasons": [],
+        "negatives": [
+          "Long name (13 chars)",
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "target-brl.com",
+        "company": "TARGET BRAZIL",
+        "name_length": 10,
+        "name_score": -25,
+        "flip_estimate": "$20-$100",
+        "niche": "ecommerce",
+        "funding": "$6.0M",
+        "reasons": [
+          "Average length (10 chars)"
+        ],
+        "negatives": [
+          "1 hyphen(s) (-20 penalty)",
+          "Consonant clusters make it hard to pronounce",
+          "Geographic/language indicator 'brl' limits global appeal"
+        ]
+      },
+      {
+        "domain": "oslo-software.com",
+        "company": "Oslo Software",
+        "name_length": 13,
+        "name_score": -28,
+        "flip_estimate": "$20-$100",
+        "niche": "saas",
+        "funding": "$5.5M",
+        "reasons": [
+          "Contains 'software' keyword (+3)",
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Long name (13 chars)",
+          "1 hyphen(s) (-20 penalty)",
+          "'software' suffix is dated/generic"
+        ]
+      },
+      {
+        "domain": "cloudcityukltd.com",
+        "company": "Cloudcity",
+        "name_length": 14,
+        "name_score": -30,
+        "flip_estimate": "$20-$100",
+        "niche": "curated web",
+        "funding": "$5.9M",
+        "reasons": [
+          "Contains 'cloud' keyword (+8)"
+        ],
+        "negatives": [
+          "Long name (14 chars)",
+          "'ltd' suffix reduces resale value significantly",
+          "Consonant clusters make it hard to pronounce",
+          "Geographic/language indicator 'uk' limits global appeal"
+        ]
+      },
+      {
+        "domain": "powerefficiencycorp.com",
+        "company": "Power Efficiency",
+        "name_length": 19,
+        "name_score": -32,
+        "flip_estimate": "$20-$100",
+        "niche": "cleantech",
+        "funding": "$5.3M",
+        "reasons": [
+          "Contains 'efficiency' keyword (+3)",
+          "Hot sector: cleantech (+3)"
+        ],
+        "negatives": [
+          "Very long name (19 chars)",
+          "'corp' suffix reduces resale value significantly",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      },
+      {
+        "domain": "communicado-inc.com",
+        "company": "Communicado",
+        "name_length": 15,
+        "name_score": -43,
+        "flip_estimate": "$20-$100",
+        "niche": "saas",
+        "funding": "$15.6M",
+        "reasons": [
+          "Hot sector: saas (+2)"
+        ],
+        "negatives": [
+          "Long name (15 chars)",
+          "1 hyphen(s) (-20 penalty)",
+          "'inc' suffix reduces resale value significantly"
+        ]
+      },
+      {
+        "domain": "futuretec-ltd.com",
+        "company": "Futuretec",
+        "name_length": 13,
+        "name_score": -43,
+        "flip_estimate": "$20-$100",
+        "niche": "fintech",
+        "funding": "$8.1M",
+        "reasons": [
+          "Hot sector: fintech (+5)"
+        ],
+        "negatives": [
+          "Long name (13 chars)",
+          "1 hyphen(s) (-20 penalty)",
+          "'ltd' suffix reduces resale value significantly",
+          "Consonant clusters make it hard to pronounce"
+        ]
+      }
+    ]
+  },
+  "hidden_gems_analysis": {
+    "shortest_domains": [
+      {
+        "domain": "viryd.com",
+        "length": 5,
+        "note": "BEST in list. 5-char .com, pronounceable, cleantech. Even without exact dictionary match, 5-char .coms regularly sell for $1K-$5K+. Strong buy."
+      },
+      {
+        "domain": "c8-inc.com",
+        "length": 6,
+        "note": "Hyphen + 'inc' kills it. The root 'C8' is valuable but this exact domain is not."
+      },
+      {
+        "domain": "nbo-tv.com",
+        "length": 6,
+        "note": "Short but hyphenated. 'TV' keyword is decent but hyphen kills resale."
+      },
+      {
+        "domain": "wi-chi.com",
+        "length": 6,
+        "note": "Short but hyphenated. Would be interesting without the hyphen."
+      }
+    ],
+    "dictionary_words": "None of the 43 domains contain standalone common English dictionary words. 'encoate' and 'kolorific' are creative near-words. 'quikcycle' combines two real words with altered spelling.",
+    "hot_niche_domains": [
+      {
+        "domain": "femtapharma.com",
+        "keyword": "pharma",
+        "note": "Pharma keyword is valuable in domain flipping. Short-ish name."
+      },
+      {
+        "domain": "trinitybiosystems.com",
+        "keyword": "bio",
+        "note": "Bio keyword but very long name (17 chars) and 'systems' suffix."
+      },
+      {
+        "domain": "orieltherapeutics.com",
+        "keyword": "therapeutics",
+        "note": "Pharma/biotech keyword but 17 chars is too long for premium flip."
+      },
+      {
+        "domain": "orasimedical.com",
+        "keyword": "medical",
+        "note": "Medical keyword. 12 chars, decent."
+      },
+      {
+        "domain": "infrastructsecurity.com",
+        "keyword": "security",
+        "note": "Security keyword but 19 chars kills it."
+      }
+    ],
+    "six_char_or_shorter": [
+      "viryd.com (5 chars - BUY NOW)",
+      "c8-inc.com (6 chars - hyphen+inc kills it)",
+      "nbo-tv.com (6 chars - hyphen kills it)",
+      "wi-chi.com (6 chars - hyphen kills it)"
+    ],
+    "conclusion": "viryd.com is the clear hidden gem - only 5-char .com in the entire list. encoate.com (7 chars, brandable portmanteau) and kolorific.com (9 chars, creative spelling) are secondary gems. The rest are mostly long compound names with limited flip potential."
+  },
+  "summary": {
+    "buy_now_count": 3,
+    "buy_later_count": 11,
+    "skip_count": 29,
+    "total_buy_now_cost": "$32.97",
+    "total_buy_now_estimated_value": "$4500-$23000",
+    "total_portfolio_estimated_value": "$7050-$35300",
+    "average_roi_buy_now": "417.0x",
+    "key_insight": "Only 1 domain (viryd.com) has genuine premium flip potential ($2K-$10K). Most are long compound names burdened by hyphens, 'inc'/'corp'/'ltd' suffixes, or geographic limiters. Honest assessment: 4-6 domains are worth the $10.99 investment, the rest have very thin margins after renewal costs."
+  },
+  "honest_reality_check": {
+    "warning": "Most expired startup .com domains do NOT sell quickly or for high prices. The aftermarket is saturated. Typical holding time before sale: 1-3 years. Annual renewal cost: ~$10/year. Factor in opportunity cost of capital.",
+    "true_gems_in_this_list": 1,
+    "decent_buys": 5,
+    "marginal_buys": 12,
+    "not_worth_it": 25,
+    "best_strategy": "Register viryd.com ($10.99) immediately if not already claimed by Agent 1. Consider encoate.com and kolorific.com as secondary picks. Skip everything with hyphens, 'inc', 'corp', 'ltd', or 13+ character names."
+  }
+}

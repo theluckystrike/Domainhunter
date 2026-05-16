@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.domainhunter.daemon</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/opt/python@3.14/bin/python3.14</string>
+        <string>/Users/mike/domainhunter/scripts/daemon_scheduler.py</string>
+        <string>foreground</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/mike/domainhunter</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/mike/domainhunter/logs/daemon_launchd.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/mike/domainhunter/logs/daemon_launchd_err.log</string>
+</dict>
+</plist>

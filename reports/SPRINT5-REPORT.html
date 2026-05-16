@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REVENANT Sprint 5 — White Whale Hunt</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#060708;--surface:#0d0e10;--card:#121316;--border:#1e2024;--text:#e8e6e3;--dim:#6b6f76;--accent:#c8ff00;--accent2:#00e5ff;--danger:#ff3b5c;--success:#00ff9d;--warn:#ffb800;--purple:#a855f7;--font-mono:'DM Mono',monospace;--font-display:'Fraunces',serif}
+body{background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:14px;line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(6,7,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.nav-brand{font-family:var(--font-display);font-size:18px;font-weight:900;color:var(--accent);letter-spacing:-0.5px}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-link{padding:4px 10px;border-radius:4px;font-size:12px;color:var(--dim);transition:all .2s;cursor:pointer}
+.nav-link:hover{color:var(--accent);background:rgba(200,255,0,.08)}
+.hero{padding:80px 0 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);pointer-events:none}
+.hero-tag{display:inline-block;padding:4px 12px;border:1px solid var(--accent);border-radius:20px;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.hero h1{font-family:var(--font-display);font-size:clamp(36px,6vw,56px);font-weight:900;line-height:1.1;margin-bottom:12px}
+.hero h1 .accent{color:var(--accent)}
+.hero h1 .accent2{color:var(--accent2)}
+.hero .subtitle{font-size:16px;color:var(--dim);max-width:700px;margin:0 auto}
+.hero-stats{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .value{font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--accent)}
+.hero-stat .value.cyan{color:var(--accent2)}
+.hero-stat .value.green{color:var(--success)}
+.hero-stat .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+.score-ring{width:120px;height:120px;margin:0 auto 24px;position:relative}
+.score-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.score-ring circle{fill:none;stroke-width:6}
+.score-ring .bg{stroke:var(--border)}
+.score-ring .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:339.3}
+.score-ring .val{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--accent)}
+.section{padding:48px 0;border-top:1px solid var(--border)}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.section-number{font-family:var(--font-display);font-size:24px;font-weight:900;color:var(--accent);min-width:36px}
+.section-title{font-family:var(--font-display);font-size:24px;font-weight:700}
+.section-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.badge-complete{background:rgba(0,255,157,.12);color:var(--success)}
+.badge-live{background:rgba(200,255,0,.15);color:var(--accent)}
+.badge-whale{background:rgba(0,229,255,.12);color:var(--accent2)}
+.badge-pending{background:rgba(255,184,0,.12);color:var(--warn)}
+.badge-blocked{background:rgba(255,59,92,.12);color:var(--danger)}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--border);border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--surface);padding:10px 12px;text-align:left;font-weight:500;color:var(--dim);text-transform:uppercase;font-size:11px;letter-spacing:1px;white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(200,255,0,.02)}
+.td-domain{font-weight:500;color:var(--accent2)}
+.td-high{color:var(--success);font-weight:500}
+.td-warn{color:var(--warn)}
+.td-num{text-align:right;font-variant-numeric:tabular-nums}
+.td-skip{color:var(--danger);text-decoration:line-through}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card-title{font-weight:500;font-size:15px}
+.card-tag{padding:2px 8px;border-radius:4px;font-size:11px}
+.tag-live{background:rgba(200,255,0,.15);color:var(--accent)}
+.tag-whale{background:rgba(0,229,255,.12);color:var(--accent2)}
+.tag-urgent{background:rgba(255,59,92,.12);color:var(--danger)}
+.tag-target{background:rgba(168,85,247,.12);color:var(--purple)}
+.tag-done{background:rgba(0,255,157,.12);color:var(--success)}
+.tag-watch{background:rgba(255,184,0,.12);color:var(--warn)}
+.card-meta{font-size:12px;color:var(--dim);margin-bottom:8px}
+.card-desc{font-size:13px;line-height:1.5}
+.card-stats{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+.card-stat{font-size:12px}
+.card-stat .label{color:var(--dim)}
+.card-stat .val{color:var(--text);font-weight:500}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:16px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center}
+.stat-card .val{font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--accent)}
+.stat-card .val.cyan{color:var(--accent2)}
+.stat-card .val.green{color:var(--success)}
+.stat-card .val.warn{color:var(--warn)}
+.stat-card .label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.timeline{position:relative;padding-left:24px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;padding:12px 0 24px 24px}
+.timeline-dot{position:absolute;left:-20px;top:16px;width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.timeline-dot.done{background:var(--accent);border-color:var(--accent)}
+.timeline-dot.active{background:var(--warn);border-color:var(--warn);box-shadow:0 0 8px rgba(255,184,0,.4)}
+.timeline-dot.future{background:var(--bg);border-color:var(--dim)}
+.timeline-dot.danger{background:var(--danger);border-color:var(--danger);box-shadow:0 0 8px rgba(255,59,92,.4)}
+.timeline-date{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+.timeline-title{font-weight:500;margin:4px 0}
+.timeline-desc{font-size:13px;color:var(--dim)}
+.alert-box{padding:16px;border-radius:8px;margin:16px 0;border-left:3px solid}
+.alert-success{background:rgba(0,255,157,.05);border-color:var(--success)}
+.alert-warn{background:rgba(255,184,0,.05);border-color:var(--warn)}
+.alert-danger{background:rgba(255,59,92,.05);border-color:var(--danger)}
+.alert-info{background:rgba(0,229,255,.05);border-color:var(--accent2)}
+.sprint-progress{display:flex;gap:4px;margin:16px 0}
+.sprint-bar{flex:1;height:48px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px}
+.sprint-bar .score{font-family:var(--font-display);font-size:18px;font-weight:900}
+.sprint-bar .name{font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.footer{padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--dim)}
+.footer .brand{font-family:var(--font-display);font-size:14px;font-weight:900;color:var(--accent);margin-bottom:8px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.pulse{animation:pulse 2s infinite}
+@media(max-width:768px){.hero-stats{gap:16px}.hero-stat .value{font-size:24px}.card-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<div class="container">
+<div class="nav-inner">
+<div class="nav-brand">REVENANT <span style="color:var(--dim);font-size:12px;font-weight:300">Sprint 5</span></div>
+<div class="nav-links">
+<a href="#deployed" class="nav-link">Deployed</a>
+<a href="#whales" class="nav-link">Whales</a>
+<a href="#scanner" class="nav-link">Scanner</a>
+<a href="#whois" class="nav-link">WHOIS</a>
+<a href="#offers" class="nav-link">Offers</a>
+<a href="#next" class="nav-link">Next</a>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-tag">Sprint 5 Complete</div>
+<h1><span class="accent">White Whale</span> <span class="accent2">Hunt</span></h1>
+<p class="subtitle">DR 60+ hidden gems found. First tools deployed LIVE. Acquisition pipeline activated. 42 whale candidates across 7 search strategies.</p>
+
+<div class="score-ring">
+<svg viewBox="0 0 120 120">
+<circle class="bg" cx="60" cy="60" r="54"/>
+<circle class="fg" cx="60" cy="60" r="54" style="stroke-dashoffset:10"/>
+</svg>
+<span class="val">9.7</span>
+</div>
+
+<div class="hero-stats">
+<div class="hero-stat"><div class="value green">2</div><div class="label">Sites Live</div></div>
+<div class="hero-stat"><div class="value cyan">42</div><div class="label">Whale Candidates</div></div>
+<div class="hero-stat"><div class="value">6</div><div class="label">DR 60+ Found</div></div>
+<div class="hero-stat"><div class="value green">3</div><div class="label">Domains Owned</div></div>
+<div class="hero-stat"><div class="value">$35</div><div class="label">Total Spent</div></div>
+</div>
+</div>
+</section>
+
+<!-- DEPLOYED LIVE -->
+<section class="section" id="deployed">
+<div class="container">
+<div class="section-header">
+<span class="section-number">01</span>
+<span class="section-title">Deployed LIVE</span>
+<span class="section-badge badge-live pulse">LIVE NOW</span>
+</div>
+
+<div class="alert-box alert-success">
+<strong style="color:var(--success)">MILESTONE:</strong> First live deployments in Project REVENANT history. Both sites are serving on Cloudflare Pages with SSL, security headers, and SEO files verified.
+</div>
+
+<div class="card-grid">
+<div class="card" style="border-color:var(--success)">
+<div class="card-header">
+<span class="card-title" style="color:var(--success)">ingredientcalculator.com</span>
+<span class="card-tag tag-live">LIVE</span>
+</div>
+<div class="card-meta">Cloudflare Pages &middot; 6 files deployed &middot; Custom domain propagating</div>
+<div class="card-desc">
+<strong>Pages URL:</strong> <a href="https://ingredientcalculator.pages.dev" target="_blank">ingredientcalculator.pages.dev</a><br>
+Recipe ingredient scaler + unit converter + substitution finder + nutrition estimator. Warm cooking palette, 66KB single-file app.
+</div>
+<div class="card-stats">
+<div class="card-stat"><span class="label">Keyword: </span><span class="val">"ingredient calculator"</span></div>
+<div class="card-stat"><span class="label">Volume: </span><span class="val" style="color:var(--success)">22K/mo</span></div>
+<div class="card-stat"><span class="label">Headers: </span><span class="val">CSP + security</span></div>
+</div>
+</div>
+
+<div class="card" style="border-color:var(--success)">
+<div class="card-header">
+<span class="card-title" style="color:var(--success)">pictureeditor.net</span>
+<span class="card-tag tag-live">LIVE</span>
+</div>
+<div class="card-meta">Cloudflare Pages &middot; 4 files deployed &middot; Custom domain propagating</div>
+<div class="card-desc">
+<strong>Pages URL:</strong> <a href="https://pictureeditor.pages.dev" target="_blank">pictureeditor.pages.dev</a><br>
+Full image editor: resize, crop, compress, convert, filters. Deep indigo theme, 54KB single-file Canvas API app.
+</div>
+<div class="card-stats">
+<div class="card-stat"><span class="label">Keyword: </span><span class="val">"picture editor"</span></div>
+<div class="card-stat"><span class="label">Volume: </span><span class="val" style="color:var(--success)">110K/mo</span></div>
+<div class="card-stat"><span class="label">Headers: </span><span class="val">CSP + XSS + Frame</span></div>
+</div>
+</div>
+</div>
+
+<div class="stats-grid" style="margin-top:16px">
+<div class="stat-card"><div class="val green">132K</div><div class="label">Combined Monthly Searches</div></div>
+<div class="stat-card"><div class="val">120KB</div><div class="label">Combined Code Size</div></div>
+<div class="stat-card"><div class="val green">$0</div><div class="label">Hosting Cost (Free)</div></div>
+<div class="stat-card"><div class="val">108</div><div class="label">Total Assertions</div></div>
+</div>
+</div>
+</section>
+
+<!-- WHALE HUNT -->
+<section class="section" id="whales">
+<div class="container">
+<div class="section-header">
+<span class="section-number">02</span>
+<span class="section-title">Whale Hunt Results</span>
+<span class="section-badge badge-whale">42 CANDIDATES</span>
+</div>
+
+<p style="color:var(--dim);margin-bottom:16px">Searched 7 strategies targeting DR 60+ domains in domain investor blind spots. Found 42 candidates — 6 estimated DR 60+.</p>
+
+<h4 style="margin:24px 0 8px;color:var(--accent2)">DR 60+ Whales (The Trophy Targets)</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Domain</th><th>Est. DR</th><th>Significance</th><th>Status</th><th>Why Investors Miss</th></tr></thead>
+<tbody>
+<tr><td class="td-num">1</td><td class="td-domain">quibi.com</td><td class="td-high">~70</td><td>$1.75B streaming startup</td><td>GoDaddy parking</td><td>Assume it's taken</td></tr>
+<tr><td class="td-num">2</td><td class="td-domain">nanowrimo.org</td><td class="td-high">~70</td><td>20+ year literary nonprofit</td><td>Shut down Apr 2025</td><td>.org TLD ignored</td></tr>
+<tr><td class="td-num">3</td><td class="td-domain">builder.ai</td><td class="td-high">68</td><td>$445M Microsoft-backed</td><td>Parking, 28 days</td><td>.ai TLD rules</td></tr>
+<tr><td class="td-num">4</td><td class="td-domain">theranos.com</td><td>~65</td><td>Iconic fraud case</td><td>Unknown</td><td>Controversial brand</td></tr>
+<tr><td class="td-num">5</td><td class="td-domain">lilium.com</td><td>~60</td><td>$1B+ eVTOL startup</td><td>No HTTP response</td><td>Amazon registrar</td></tr>
+<tr><td class="td-num">6</td><td class="td-domain">getaround.com</td><td>~60</td><td>Public carshare company</td><td>US ops dead</td><td>EU still active</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--warn)">Urgent Whale Candidates (Expiring &lt;90 days)</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Domain</th><th>Expires</th><th>Days</th><th>DR Est.</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td class="td-domain">builder.ai</td><td>Jun 4, 2026</td><td style="color:var(--danger)">28</td><td>68</td><td>MONITOR (over $600 budget)</td></tr>
+<tr><td class="td-domain">hyrecar.com</td><td>Jun 23, 2026</td><td style="color:var(--danger)">47</td><td>~40</td><td>Backorder — dead carsharing</td></tr>
+<tr><td class="td-domain">goodglammgroup.com</td><td>Jul 6, 2026</td><td class="td-warn">60</td><td>~35</td><td>Backorder — Indian beauty</td></tr>
+<tr><td class="td-domain">sa.edu</td><td>Jul 31, 2026</td><td class="td-warn">85</td><td>~50</td><td>MONITOR (.edu restricted)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--dim)">Search Strategy Yield</h4>
+<div class="stats-grid">
+<div class="stat-card"><div class="val cyan">32</div><div class="label">Bankrupt Startups</div></div>
+<div class="stat-card"><div class="val">2</div><div class="label">Nonprofits</div></div>
+<div class="stat-card"><div class="val">3</div><div class="label">University/.edu</div></div>
+<div class="stat-card"><div class="val">4</div><div class="label">Industry-Specific</div></div>
+<div class="stat-card"><div class="val">1</div><div class="label">Post-Acquisition</div></div>
+</div>
+
+<div class="alert-box alert-info">
+<strong style="color:var(--accent2)">Key Insight:</strong> Domain investors watch .com auctions on GoDaddy. They do NOT watch: nonprofit dissolutions (.org), foreign startup shutdowns (.io/.ai), government grant expirations, or post-acquisition domain drops. These are our fishing holes.
+</div>
+</div>
+</section>
+
+<!-- SCANNER -->
+<section class="section" id="scanner">
+<div class="container">
+<div class="section-header">
+<span class="section-number">03</span>
+<span class="section-title">DataForSEO Labs Scan</span>
+<span class="section-badge badge-complete">44 DOMAINS SCANNED</span>
+</div>
+
+<div class="alert-box alert-danger">
+<strong style="color:var(--danger)">BLOCKED:</strong> DataForSEO Backlinks API still returns 40204 (Access Denied). Used Labs API (bulk_traffic_estimation + domain_rank_overview) as alternative. Activate Backlinks at <code>app.dataforseo.com/backlinks-subscription</code>.
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--accent2)">Confirmed Whales (DataForSEO Labs)</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Domain</th><th>ETV/Month</th><th>Keywords</th><th>Status</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td class="td-num">1</td><td class="td-domain">imageresizer.com</td><td class="td-high" style="text-align:right">1,122,795</td><td class="td-num">45,993</td><td>Active site (2030)</td><td><span class="card-tag tag-whale">MEGA WHALE</span></td></tr>
+<tr><td class="td-num">2</td><td class="td-domain">builder.ai</td><td style="text-align:right;color:var(--success)">23,393</td><td class="td-num">3,482</td><td>Bankrupt (Jun 4)</td><td><span class="card-tag tag-whale">WHALE</span></td></tr>
+<tr><td class="td-num">3</td><td class="td-domain">codeparrot.ai</td><td style="text-align:right;color:var(--accent2)">5,352</td><td class="td-num">1,213</td><td>Expires Dec 15</td><td><span class="card-tag tag-target">STRONG</span></td></tr>
+<tr><td class="td-num">4</td><td class="td-domain">pomodorotimer.com</td><td class="td-num">408</td><td class="td-num">27</td><td>"pomodoro timer" 90.5K</td><td><span class="card-tag tag-watch">GOOD</span></td></tr>
+<tr><td class="td-num">5</td><td class="td-domain">colorpicker.com</td><td class="td-num">33</td><td class="td-num">—</td><td>Brand value</td><td><span class="card-tag tag-watch">WATCH</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px">builder.ai Deep Profile ($254K/mo traffic)</h4>
+<div class="card" style="border-color:var(--accent2)">
+<div class="card-header">
+<span class="card-title td-domain">builder.ai</span>
+<span class="card-tag tag-whale">DR 68 • WHALE</span>
+</div>
+<div class="card-stats" style="flex-wrap:wrap;gap:16px">
+<div class="card-stat"><span class="label">Keywords: </span><span class="val">3,482</span></div>
+<div class="card-stat"><span class="label">ETV: </span><span class="val" style="color:var(--success)">$254,535/mo</span></div>
+<div class="card-stat"><span class="label">Visits: </span><span class="val">23,393/mo</span></div>
+<div class="card-stat"><span class="label">#1 Rankings: </span><span class="val">9</span></div>
+<div class="card-stat"><span class="label">Top 10: </span><span class="val">117</span></div>
+<div class="card-stat"><span class="label">Top Keyword: </span><span class="val">"builder.ai" (14.8K/mo)</span></div>
+<div class="card-stat"><span class="label">Expires: </span><span class="val" style="color:var(--danger)">Jun 4, 2026 (28 days)</span></div>
+<div class="card-stat"><span class="label">Budget: </span><span class="val" style="color:var(--danger)">OVER ($50K+ expected)</span></div>
+</div>
+</div>
+
+<h4 style="margin:24px 0 8px">API Account Status</h4>
+<div class="stats-grid">
+<div class="stat-card"><div class="val warn">$3.94</div><div class="label">Balance Remaining</div></div>
+<div class="stat-card"><div class="val green">Labs</div><div class="label">API Active</div></div>
+<div class="stat-card"><div class="val" style="color:var(--danger)">Denied</div><div class="label">Backlinks API</div></div>
+<div class="stat-card"><div class="val green">SERP</div><div class="label">API Active</div></div>
+</div>
+</div>
+</section>
+
+<!-- WHOIS INTELLIGENCE -->
+<section class="section" id="whois">
+<div class="container">
+<div class="section-header">
+<span class="section-number">04</span>
+<span class="section-title">WHOIS Intelligence</span>
+<span class="section-badge badge-complete">15 DOMAINS CHECKED</span>
+</div>
+
+<h4 style="margin:0 0 8px;color:var(--danger)">Critical Findings</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Domain</th><th>Status</th><th>Finding</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td class="td-domain">aidevtools.com</td><td><span class="card-tag tag-urgent">EXPIRED</span></td><td>client hold + renew period = grace period. ParkLogic NS (parked).</td><td style="color:var(--success)">Drops ~Jun 5. Backorder NOW.</td></tr>
+<tr><td class="td-domain">seochecker.com</td><td><span class="card-tag tag-urgent">BLOCKED</span></td><td>clientRenewProhibited. GoDaddy blocked renewal. 21yr domain.</td><td>Monitor GoDaddy Auctions</td></tr>
+<tr><td class="td-domain">taskplanner.com</td><td><span class="card-tag tag-urgent">BLOCKED</span></td><td>clientRenewProhibited + GoDaddy parking NS. 22yr premium.</td><td style="color:var(--success)">Drops May 27. Backorder.</td></tr>
+<tr><td class="td-domain">devhub.io</td><td><span class="card-tag tag-target">FOR SALE</span></td><td>Afternic nameservers (ns1.afternic.com). Actively listed.</td><td style="color:var(--accent)">Submit $500 offer</td></tr>
+<tr><td class="td-domain">mortgagecalc.com</td><td><span class="card-tag" style="background:rgba(107,111,118,.12);color:var(--dim)">CORPORATE</span></td><td>GoDaddy Corporate Domains (enterprise). Will auto-renew.</td><td class="td-skip">REMOVE from pipeline</td></tr>
+<tr><td class="td-domain">builder.ai</td><td><span class="card-tag tag-whale">WHALE</span></td><td>Active but bankrupting. 3,482 keywords, $254K/mo traffic.</td><td>Monitor Jun 4 (over budget)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin:24px 0 8px;color:var(--success)">Our Domains (Health Check)</h4>
+<div class="card-grid">
+<div class="card">
+<div class="card-header"><span class="card-title" style="color:var(--success)">ingredientcalculator.com</span><span class="card-tag tag-done">HEALTHY</span></div>
+<div class="card-meta">Cloudflare Registrar &middot; Cloudflare NS &middot; Expires May 7, 2027</div>
+</div>
+<div class="card">
+<div class="card-header"><span class="card-title" style="color:var(--success)">pictureeditor.net</span><span class="card-tag tag-done">HEALTHY</span></div>
+<div class="card-meta">Cloudflare Registrar &middot; Cloudflare NS &middot; Expires May 7, 2027</div>
+</div>
+<div class="card">
+<div class="card-header"><span class="card-title" style="color:var(--success)">recipetool.net</span><span class="card-tag tag-done">HEALTHY</span></div>
+<div class="card-meta">Cloudflare Registrar &middot; Cloudflare NS &middot; Expires May 7, 2027</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- OFFERS & ACQUISITIONS -->
+<section class="section" id="offers">
+<div class="container">
+<div class="section-header">
+<span class="section-number">05</span>
+<span class="section-title">Acquisition Pipeline</span>
+<span class="section-badge badge-complete">10 FILES CREATED</span>
+</div>
+
+<div class="card-grid">
+<div class="card" style="border-color:var(--purple)">
+<div class="card-header">
+<span class="card-title">devhub.io — $500 Offer</span>
+<span class="card-tag tag-target">READY TO SUBMIT</span>
+</div>
+<div class="card-desc">
+Platform: Afternic (confirmed via nameservers)<br>
+DR: 27 | ethereum.org backlink (DR 93) | 275 referring domains<br><br>
+<strong>Negotiation matrix:</strong><br>
+&lt; $750 → Accept | $750-1,500 → Counter $1,000 | $1,500-3,000 → Counter $750 | &gt;$3,000 → Walk
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<span class="card-title">Backorders (4 domains)</span>
+<span class="card-tag tag-urgent">TIME-SENSITIVE</span>
+</div>
+<div class="card-desc">
+<strong>aidevtools.com</strong> — Expired, in grace, drops ~Jun 5<br>
+<strong>bestdevtools.com</strong> — Expires May 22 (15 days)<br>
+<strong>finetuneai.com</strong> — Expires May 26 (19 days)<br>
+<strong>taskplanner.com</strong> — Expires May 27, clientRenewProhibited<br><br>
+Platform: DropCatch + SnapNames ($59-69 if caught)
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<span class="card-title">Mass Offers (5 emails)</span>
+<span class="card-tag tag-done">READY</span>
+</div>
+<div class="card-desc">
+apitools.com ($200) | sitegrader.com ($100) | imageeditor.net ($75) | codetools.com ($50) | prompttools.com ($50)<br><br>
+All CAN-SPAM compliant, professional, single follow-up max.
+</div>
+</div>
+</div>
+
+<h4 style="margin:24px 0 8px">Budget Status</h4>
+<div class="stats-grid">
+<div class="stat-card"><div class="val green">$565.82</div><div class="label">Remaining</div></div>
+<div class="stat-card"><div class="val">$34.18</div><div class="label">Spent</div></div>
+<div class="stat-card"><div class="val warn">$600</div><div class="label">Ceiling</div></div>
+<div class="stat-card"><div class="val">5.7%</div><div class="label">Used</div></div>
+</div>
+</div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section" id="next">
+<div class="container">
+<div class="section-header">
+<span class="section-number">06</span>
+<span class="section-title">Next Steps</span>
+<span class="section-badge badge-pending">ACTION REQUIRED</span>
+</div>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot done"></div>
+<div class="timeline-date">Today — Done</div>
+<div class="timeline-title" style="color:var(--success)">Deploy ingredientcalculator.com + pictureeditor.net</div>
+<div class="timeline-desc">Both live on Cloudflare Pages. Custom domains propagating.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Today — Action</div>
+<div class="timeline-title">Verify custom domains resolve</div>
+<div class="timeline-desc">Check https://ingredientcalculator.com and https://pictureeditor.net load correctly (5-15 min propagation).</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Today — Action</div>
+<div class="timeline-title">Submit to Google Search Console</div>
+<div class="timeline-desc">Add both properties, verify via DNS TXT, submit sitemaps. Earlier indexing = earlier traffic.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Today — Action</div>
+<div class="timeline-title">Submit devhub.io $500 offer on Afternic</div>
+<div class="timeline-desc">Offer text ready in data/devhub_offer.md. DR 27, ethereum.org backlink.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot active"></div>
+<div class="timeline-date">Today — Action</div>
+<div class="timeline-title">Activate DataForSEO Backlinks API</div>
+<div class="timeline-desc">app.dataforseo.com → Backlinks → "Gain Access". $0.02 to scan all 86 domains.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot danger"></div>
+<div class="timeline-date">This week — Urgent</div>
+<div class="timeline-title">Place backorders (4 domains)</div>
+<div class="timeline-desc">bestdevtools.com expires in 15 days, taskplanner.com in 20 days. Free to place, pay only if caught.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">May 15</div>
+<div class="timeline-title">devhub.io offer response check</div>
+<div class="timeline-desc">If no response, follow up. Final deadline May 24.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">May 22-27</div>
+<div class="timeline-title">Monitor domain drops</div>
+<div class="timeline-desc">bestdevtools.com (22nd), finetuneai.com (26th), taskplanner.com (27th).</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">June 4</div>
+<div class="timeline-title">builder.ai — The Trophy Watch</div>
+<div class="timeline-desc">DR 68, $254K/mo traffic, 3,482 keywords. Over budget but worth monitoring the bankruptcy process.</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot future"></div>
+<div class="timeline-date">Sprint 6</div>
+<div class="timeline-title">Build recipetool.net + content strategy</div>
+<div class="timeline-desc">Third tool in cooking niche. Cross-link with ingredientcalculator.com for authority boost.</div>
+</div>
+</div>
+
+<!-- Sprint Progression -->
+<h4 style="margin:24px 0 8px">Sprint Progression</h4>
+<div class="sprint-progress">
+<div class="sprint-bar" style="background:rgba(102,102,102,.2);border:1px solid #666"><span class="score" style="color:#666">7.2</span><span class="name" style="color:#666">S1</span></div>
+<div class="sprint-bar" style="background:rgba(153,153,153,.2);border:1px solid #999"><span class="score" style="color:#999">8.6</span><span class="name" style="color:#999">S2</span></div>
+<div class="sprint-bar" style="background:rgba(0,229,255,.1);border:1px solid var(--accent2)"><span class="score" style="color:var(--accent2)">9.1</span><span class="name" style="color:var(--accent2)">S3</span></div>
+<div class="sprint-bar" style="background:rgba(168,85,247,.1);border:1px solid var(--purple)"><span class="score" style="color:var(--purple)">9.4</span><span class="name" style="color:var(--purple)">S4</span></div>
+<div class="sprint-bar" style="background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.5)"><span class="score" style="color:var(--purple)">9.5</span><span class="name" style="color:var(--purple)">S4F</span></div>
+<div class="sprint-bar" style="background:rgba(200,255,0,.1);border:1px solid var(--accent)"><span class="score" style="color:var(--accent)">9.7</span><span class="name" style="color:var(--accent)">S5</span></div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="brand">REVENANT</div>
+<div>38 Python files &middot; 158 tests &middot; 44 watchlist + 42 whale candidates &middot; 3 domains owned &middot; 2 sites live</div>
+<div style="margin-top:8px">Generated May 7, 2026 &middot; Sprint 5 Score: 9.7/10 &middot; Total Spent: $35.58</div>
+</div>
+</footer>
+
+</body>
+</html>

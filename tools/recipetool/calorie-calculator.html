@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calorie Calculator - TDEE & BMR Calculator | RecipeTool.net</title>
+<meta name="description" content="Free calorie calculator using the Mifflin-St Jeor equation. Calculate your BMR, TDEE, and get personalized macro recommendations for weight loss, maintenance, or muscle gain.">
+<link rel="canonical" href="https://recipetool.net/calorie-calculator.html">
+<meta property="og:title" content="Calorie Calculator - TDEE & BMR Calculator">
+<meta property="og:description" content="Calculate your daily calorie needs based on age, weight, height, and activity level. Get macro split recommendations.">
+<meta property="og:url" content="https://recipetool.net/calorie-calculator.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calorie Calculator - TDEE & BMR Calculator">
+<meta name="twitter:description" content="Calculate your daily calorie needs. BMR, TDEE, and macro recommendations.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calorie Calculator",
+  "description": "Calculate BMR, TDEE, and get personalized macro recommendations using the Mifflin-St Jeor equation.",
+  "url": "https://recipetool.net/calorie-calculator.html",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:800px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.form-group{margin-bottom:.75rem}
+.form-group label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.3rem;color:var(--text-light)}
+.form-group input,.form-group select{width:100%;padding:.5rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.radio-group{display:flex;gap:1rem;margin-top:.3rem}
+.radio-group label{display:flex;align-items:center;gap:.3rem;font-size:.85rem;cursor:pointer;font-weight:400}
+.radio-group input{width:auto}
+.btn{background:var(--primary);color:white;border:none;padding:.65rem 1.5rem;border-radius:6px;cursor:pointer;font-size:.95rem;font-weight:600;width:100%;transition:background .2s;margin-top:.5rem}
+.btn:hover{background:var(--primary-dark)}
+.results{display:none}
+.result-highlight{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:10px;padding:1.25rem;text-align:center;margin-bottom:1rem}
+.result-highlight .big-num{font-size:2.5rem;font-weight:800}
+.result-highlight .sub{font-size:.9rem;opacity:.9;margin-top:.25rem}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-bottom:1rem}
+.metric-card{background:var(--warm);border-radius:8px;padding:.75rem;text-align:center}
+.metric-card .val{font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
+.metric-card .lbl{font-size:.75rem;color:var(--text-light);margin-top:.2rem}
+.macros-section h3{font-size:.95rem;color:var(--primary-dark);margin-bottom:.5rem}
+.macro-plan{background:var(--warm);border-radius:8px;padding:.75rem;margin-bottom:.5rem}
+.macro-plan .plan-name{font-weight:600;font-size:.85rem;margin-bottom:.3rem}
+.macro-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:.3rem}
+.macro-bar .protein-bar{background:#4caf50}
+.macro-bar .carbs-bar{background:#2196f3}
+.macro-bar .fat-bar{background:#ff9800}
+.macro-details{display:flex;gap:1rem;font-size:.75rem;color:var(--text-light)}
+.macro-details span{display:flex;align-items:center;gap:.2rem}
+.macro-details .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.weight-projection{margin-top:1rem}
+.weight-projection h3{font-size:.95rem;color:var(--primary-dark);margin-bottom:.5rem}
+.projection-table{width:100%;font-size:.8rem;border-collapse:collapse}
+.projection-table th,.projection-table td{padding:.4rem .5rem;text-align:left;border-bottom:1px solid var(--border)}
+.projection-table th{font-weight:600;color:var(--text-light)}
+.info-box{background:var(--warm);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--text-light);margin-top:.75rem;line-height:1.5}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:600px){
+.form-row{grid-template-columns:1fr}
+.metrics-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Calorie Calculator</h1>
+<p>Calculate your daily calorie needs & macros</p>
+</header>
+<nav>
+<a href="/">Nutrition Calculator</a>
+<a href="/meal-planner.html">Meal Planner</a>
+<a href="/calorie-calculator.html" class="active">Calorie Calculator</a>
+</nav>
+<main>
+<div class="card">
+<h2>Your Details</h2>
+<div class="form-group">
+<label>Gender</label>
+<div class="radio-group">
+<label><input type="radio" name="gender" value="male" checked> Male</label>
+<label><input type="radio" name="gender" value="female"> Female</label>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="age">Age</label>
+<input type="number" id="age" placeholder="25" min="15" max="100" value="30">
+</div>
+<div class="form-group">
+<label for="weight">Weight</label>
+<div style="display:flex;gap:.5rem">
+<input type="number" id="weight" placeholder="70" min="30" max="300" step="0.1" value="70">
+<select id="weight-unit" style="width:auto;min-width:60px"><option value="kg">kg</option><option value="lbs">lbs</option></select>
+</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="height">Height</label>
+<div style="display:flex;gap:.5rem">
+<input type="number" id="height" placeholder="170" min="100" max="250" step="0.1" value="170">
+<select id="height-unit" style="width:auto;min-width:60px"><option value="cm">cm</option><option value="in">in</option></select>
+</div>
+</div>
+<div class="form-group">
+<label for="activity">Activity Level</label>
+<select id="activity">
+<option value="1.2">Sedentary (office job)</option>
+<option value="1.375">Light (1-3 days/week)</option>
+<option value="1.55" selected>Moderate (3-5 days/week)</option>
+<option value="1.725">Active (6-7 days/week)</option>
+<option value="1.9">Very Active (athlete)</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="goal">Goal</label>
+<select id="goal">
+<option value="-500">Lose weight (-500 cal/day, ~1 lb/week)</option>
+<option value="-250">Slow cut (-250 cal/day, ~0.5 lb/week)</option>
+<option value="0" selected>Maintain weight</option>
+<option value="250">Lean bulk (+250 cal/day)</option>
+<option value="500">Bulk (+500 cal/day)</option>
+</select>
+</div>
+<button class="btn" onclick="calculate()">Calculate</button>
+</div>
+
+<div class="results" id="results">
+<div class="result-highlight">
+<div class="big-num" id="tdee-result">0</div>
+<div class="sub">Daily Calories (TDEE with goal)</div>
+</div>
+<div class="metrics-grid">
+<div class="metric-card"><div class="val" id="bmr-val">0</div><div class="lbl">BMR (base)</div></div>
+<div class="metric-card"><div class="val" id="tdee-val">0</div><div class="lbl">TDEE (maintenance)</div></div>
+<div class="metric-card"><div class="val" id="goal-val">0</div><div class="lbl">Goal Calories</div></div>
+<div class="metric-card"><div class="val" id="bmi-val">0</div><div class="lbl">BMI</div></div>
+</div>
+<div class="card macros-section">
+<h3>Recommended Macro Splits</h3>
+<div id="macro-plans"></div>
+</div>
+<div class="card weight-projection">
+<h3>Weight Projection (next 12 weeks)</h3>
+<table class="projection-table">
+<thead><tr><th>Week</th><th>Projected Weight</th><th>Change</th></tr></thead>
+<tbody id="projection-body"></tbody>
+</table>
+</div>
+<div class="info-box">
+<strong>About this calculator:</strong> Uses the Mifflin-St Jeor equation, considered the most accurate BMR formula for most people. BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) +/- gender factor. TDEE is BMR multiplied by your activity level. Results are estimates; individual metabolism varies. Consult a healthcare provider for personalized advice.
+</div>
+</div>
+</main>
+<footer>
+<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+</footer>
+<script>
+function calculate(){
+let gender=document.querySelector('input[name="gender"]:checked').value;
+let age=parseInt(document.getElementById('age').value)||30;
+let weight=parseFloat(document.getElementById('weight').value)||70;
+let weightUnit=document.getElementById('weight-unit').value;
+let height=parseFloat(document.getElementById('height').value)||170;
+let heightUnit=document.getElementById('height-unit').value;
+let activity=parseFloat(document.getElementById('activity').value);
+let goalAdj=parseInt(document.getElementById('goal').value);
+
+// Convert to metric
+let weightKg=weightUnit==='lbs'?weight*0.453592:weight;
+let heightCm=heightUnit==='in'?height*2.54:height;
+
+// Mifflin-St Jeor
+let bmr;
+if(gender==='male'){
+bmr=(10*weightKg)+(6.25*heightCm)-(5*age)+5;
+}else{
+bmr=(10*weightKg)+(6.25*heightCm)-(5*age)-161;
+}
+
+let tdee=Math.round(bmr*activity);
+let goalCal=tdee+goalAdj;
+let bmi=(weightKg/((heightCm/100)**2)).toFixed(1);
+
+document.getElementById('bmr-val').textContent=Math.round(bmr);
+document.getElementById('tdee-val').textContent=tdee;
+document.getElementById('tdee-result').textContent=goalCal;
+document.getElementById('goal-val').textContent=goalCal;
+document.getElementById('bmi-val').textContent=bmi;
+
+// Macro plans
+const plans=[
+{name:'Balanced',protein:30,carbs:40,fat:30},
+{name:'High Protein',protein:40,carbs:35,fat:25},
+{name:'Low Carb',protein:35,carbs:25,fat:40},
+{name:'Keto',protein:25,carbs:5,fat:70}
+];
+
+let macroHTML='';
+plans.forEach(p=>{
+let pGrams=Math.round((goalCal*p.protein/100)/4);
+let cGrams=Math.round((goalCal*p.carbs/100)/4);
+let fGrams=Math.round((goalCal*p.fat/100)/9);
+macroHTML+=`<div class="macro-plan">
+<div class="plan-name">${p.name}</div>
+<div class="macro-bar">
+<div class="protein-bar" style="width:${p.protein}%"></div>
+<div class="carbs-bar" style="width:${p.carbs}%"></div>
+<div class="fat-bar" style="width:${p.fat}%"></div>
+</div>
+<div class="macro-details">
+<span><span class="dot" style="background:#4caf50"></span> Protein: ${pGrams}g (${p.protein}%)</span>
+<span><span class="dot" style="background:#2196f3"></span> Carbs: ${cGrams}g (${p.carbs}%)</span>
+<span><span class="dot" style="background:#ff9800"></span> Fat: ${fGrams}g (${p.fat}%)</span>
+</div>
+</div>`;
+});
+document.getElementById('macro-plans').innerHTML=macroHTML;
+
+// Weight projections
+let projHTML='';
+let currentWeight=weightKg;
+let weeklyChange=goalAdj*7/7700;// 7700 cal per kg
+for(let w=1;w<=12;w++){
+currentWeight+=weeklyChange;
+let displayWeight=weightUnit==='lbs'?(currentWeight/0.453592).toFixed(1)+' lbs':currentWeight.toFixed(1)+' kg';
+let change=weeklyChange*w;
+let displayChange=weightUnit==='lbs'?((change/0.453592)>=0?'+':'')+( change/0.453592).toFixed(1)+' lbs':(change>=0?'+':'')+change.toFixed(1)+' kg';
+if(w<=4||w===8||w===12){
+projHTML+=`<tr><td>Week ${w}</td><td>${displayWeight}</td><td>${displayChange}</td></tr>`;
+}
+}
+document.getElementById('projection-body').innerHTML=projHTML;
+
+document.getElementById('results').style.display='block';
+document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

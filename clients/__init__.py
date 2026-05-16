@@ -15,6 +15,12 @@ from __future__ import annotations
 from clients.anthropic_client import AnthropicClient, AnthropicClientError
 from clients.catchdoms import CatchDomsClient, CatchDomsError
 from clients.dataforseo import DataForSEOClient, DataForSEOError
+from clients.deepseek import (
+    DeepSeekClient,
+    DeepSeekError,
+    DeepSeekRateLimitError,
+    DeepSeekTimeoutError,
+)
 from clients.github_search import GitHubSearchClient, GitHubSearchError
 from clients.google_cse import (
     GoogleCSEClient,
@@ -31,6 +37,7 @@ __all__: list[str] = [
     "WhoisFreaksClient",
     "CatchDomsClient",
     "DataForSEOClient",
+    "DeepSeekClient",
     "GoogleCSEClient",
     "MozApifyClient",
     "WaybackClient",
@@ -41,6 +48,9 @@ __all__: list[str] = [
     "WhoisFreaksError",
     "CatchDomsError",
     "DataForSEOError",
+    "DeepSeekError",
+    "DeepSeekRateLimitError",
+    "DeepSeekTimeoutError",
     "GoogleCSEError",
     "GoogleCSEQuotaExhausted",
     "MozApifyError",

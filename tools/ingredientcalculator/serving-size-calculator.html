@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serving Size Calculator - Scale Recipes for Any Number of Guests</title>
+<meta name="description" content="Free serving size calculator. Scale any recipe from any number of servings to any other. Party planning mode for 25, 50, 100+ guests. Calculate exact ingredient amounts.">
+<meta name="keywords" content="serving size calculator, recipe scaler, party planning calculator, scale recipe servings, how much food for party, recipe multiplier">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/serving-size-calculator">
+<meta property="og:title" content="Serving Size Calculator - Scale Recipes for Any Group Size">
+<meta property="og:description" content="Scale recipes from any serving to any other. Party planning mode for large events.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/serving-size-calculator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Serving Size Calculator">
+<meta name="twitter:description" content="Scale recipes for any number of guests. Perfect for party planning.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Serving Size Calculator",
+  "url": "https://ingredientcalculator.com/serving-size-calculator.html",
+  "description": "Scale recipes for any number of servings. Includes party planning mode for large events.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669; --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7; --clr-info-bg: #F0F9FF;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.card h3 { font-size: 1.1rem; margin-bottom: 16px; }
+.scaler-row { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 12px; align-items: end; margin-bottom: 20px; }
+@media(max-width:640px){ .scaler-row { grid-template-columns: 1fr 1fr; } .scaler-arrow { display: none; } }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.scaler-arrow { font-size: 1.5rem; color: var(--clr-accent); font-weight: 700; align-self: end; padding-bottom: 8px; }
+.multiplier-badge { display: inline-block; padding: 4px 12px; background: var(--clr-accent-bg); border: 1px solid var(--clr-accent); border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: var(--clr-accent-hover); margin-bottom: 16px; }
+.ingredients-section { margin-top: 16px; }
+.ingredient-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--clr-border); }
+.ingredient-row:last-child { border-bottom: none; }
+.ingredient-row .remove-btn { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--clr-border); background: var(--clr-surface); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--clr-text-muted); transition: var(--transition); }
+.ingredient-row .remove-btn:hover { background: #FEE2E2; color: #DC2626; border-color: #DC2626; }
+.ingredient-row input { flex: 1; padding: 8px 10px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 0.9rem; }
+.ingredient-row input:focus { outline: none; border-color: var(--clr-border-focus); }
+.ingredient-row .scaled { font-weight: 700; color: var(--clr-accent-hover); min-width: 80px; text-align: right; }
+.add-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--clr-surface); border: 1.5px dashed var(--clr-border); border-radius: var(--radius-sm); cursor: pointer; color: var(--clr-text-muted); font-size: 0.85rem; transition: var(--transition); margin-top: 12px; }
+.add-btn:hover { border-color: var(--clr-accent); color: var(--clr-accent); }
+.quick-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.preset-btn { padding: 6px 14px; border: 1.5px solid var(--clr-border); border-radius: 20px; font-size: 0.85rem; font-weight: 500; cursor: pointer; background: var(--clr-surface); transition: var(--transition); }
+.preset-btn:hover { border-color: var(--clr-accent); color: var(--clr-accent); }
+.party-card { background: var(--clr-info-bg); border: 1px solid #BAE6FD; border-radius: var(--radius); padding: 20px; }
+.party-card h3 { color: #0369A1; }
+.party-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+.party-item { background: var(--clr-surface); border-radius: var(--radius-sm); padding: 12px; text-align: center; }
+.party-item .dish { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+.party-item .amount { font-size: 1.1rem; font-weight: 700; color: var(--clr-info); }
+.party-item .note { font-size: 0.75rem; color: var(--clr-text-muted); }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/recipe-converter.html">Unit Converter</a>
+      <a href="/egg-substitute.html">Egg Substitutes</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h2>Serving Size Calculator</h2>
+  <p class="subtitle">Scale any recipe from one serving size to another. Enter your ingredients and adjust for any number of guests.</p>
+
+  <div class="card">
+    <h3>Scale Your Recipe</h3>
+    <div class="scaler-row">
+      <div class="field">
+        <label for="from-servings">Recipe Makes</label>
+        <input type="number" id="from-servings" value="4" min="1" step="1">
+      </div>
+      <div class="scaler-arrow">&rarr;</div>
+      <div class="field">
+        <label for="to-servings">You Need</label>
+        <input type="number" id="to-servings" value="8" min="1" step="1">
+      </div>
+      <div class="field">
+        <label>&nbsp;</label>
+        <span class="multiplier-badge" id="multiplier">2x</span>
+      </div>
+    </div>
+    <div class="quick-presets">
+      <button class="preset-btn" data-val="2">2 servings</button>
+      <button class="preset-btn" data-val="4">4 servings</button>
+      <button class="preset-btn" data-val="6">6 servings</button>
+      <button class="preset-btn" data-val="8">8 servings</button>
+      <button class="preset-btn" data-val="12">12 servings</button>
+      <button class="preset-btn" data-val="25">25 (party)</button>
+      <button class="preset-btn" data-val="50">50 (event)</button>
+      <button class="preset-btn" data-val="100">100 (large event)</button>
+    </div>
+    <div class="ingredients-section" id="ingredients-section">
+      <div class="ingredient-row" data-idx="0">
+        <button class="remove-btn" onclick="removeIngredient(0)">&times;</button>
+        <input type="number" class="qty" value="2" min="0" step="0.25" placeholder="Qty" style="max-width:80px;" oninput="recalc()">
+        <input type="text" class="unit" value="cups" placeholder="Unit" style="max-width:80px;" >
+        <input type="text" class="name" value="flour" placeholder="Ingredient name" >
+        <span class="scaled">4 cups</span>
+      </div>
+      <div class="ingredient-row" data-idx="1">
+        <button class="remove-btn" onclick="removeIngredient(1)">&times;</button>
+        <input type="number" class="qty" value="1" min="0" step="0.25" placeholder="Qty" style="max-width:80px;" oninput="recalc()">
+        <input type="text" class="unit" value="cup" placeholder="Unit" style="max-width:80px;">
+        <input type="text" class="name" value="sugar" placeholder="Ingredient name">
+        <span class="scaled">2 cups</span>
+      </div>
+      <div class="ingredient-row" data-idx="2">
+        <button class="remove-btn" onclick="removeIngredient(2)">&times;</button>
+        <input type="number" class="qty" value="3" min="0" step="0.25" placeholder="Qty" style="max-width:80px;" oninput="recalc()">
+        <input type="text" class="unit" value="" placeholder="Unit" style="max-width:80px;">
+        <input type="text" class="name" value="eggs" placeholder="Ingredient name">
+        <span class="scaled">6</span>
+      </div>
+    </div>
+    <button class="add-btn" onclick="addIngredient()">+ Add Ingredient</button>
+  </div>
+
+  <div class="card party-card">
+    <h3>Party Planning Guide</h3>
+    <p style="font-size:0.9rem;color:#0369A1;margin-bottom:8px;">How much food per person for common dishes at events:</p>
+    <div class="field" style="max-width:200px;margin-bottom:12px;">
+      <label for="party-guests">Number of Guests</label>
+      <input type="number" id="party-guests" value="50" min="1" step="1">
+    </div>
+    <div class="party-grid" id="party-grid"></div>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a> &middot;
+      <a href="/recipe-converter.html">Unit Converter</a> &middot;
+      <a href="/egg-substitute.html">Egg Substitutes</a> &middot;
+      <a href="/baking-ratios.html">Baking Ratios</a> &middot;
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </p>
+  </div>
+</footer>
+<script>
+const fromInput = document.getElementById('from-servings');
+const toInput = document.getElementById('to-servings');
+const multiplierEl = document.getElementById('multiplier');
+const section = document.getElementById('ingredients-section');
+const partyGuests = document.getElementById('party-guests');
+const partyGrid = document.getElementById('party-grid');
+
+const partyData = [
+  { dish: 'Main protein (meat/fish)', perPerson: '170g (6oz)', unit: 'kg', perPersonG: 170, note: 'Boneless. Add 30% for bone-in.' },
+  { dish: 'Rice or pasta (dry)', perPerson: '75g', unit: 'kg', perPersonG: 75, note: 'Uncooked weight' },
+  { dish: 'Salad greens', perPerson: '50g', unit: 'kg', perPersonG: 50, note: 'About 1.5 cups per person' },
+  { dish: 'Bread/rolls', perPerson: '2 pieces', unit: 'pieces', perPersonG: 2, note: '1.5 for dinner, 2 for buffet' },
+  { dish: 'Cake/dessert', perPerson: '100g slice', unit: 'kg', perPersonG: 100, note: '1 slice per person' },
+  { dish: 'Appetizers (mixed)', perPerson: '6 pieces', unit: 'pieces', perPersonG: 6, note: '8-10 if no main course' },
+  { dish: 'Soup', perPerson: '250mL', unit: 'L', perPersonG: 250, note: 'About 1 cup per person' },
+  { dish: 'Vegetables (side)', perPerson: '125g', unit: 'kg', perPersonG: 125, note: 'Cooked weight' }
+];
+
+function recalc() {
+  const from = parseFloat(fromInput.value) || 1;
+  const to = parseFloat(toInput.value) || 1;
+  const mult = to / from;
+  multiplierEl.textContent = (Math.round(mult * 100) / 100) + 'x';
+  section.querySelectorAll('.ingredient-row').forEach(row => {
+    const qty = parseFloat(row.querySelector('.qty').value) || 0;
+    const unit = row.querySelector('.unit').value;
+    const scaled = Math.round(qty * mult * 100) / 100;
+    const display = scaled % 1 === 0 ? scaled : scaled.toFixed(2);
+    row.querySelector('.scaled').textContent = display + (unit ? ' ' + unit : '');
+  });
+}
+
+function addIngredient() {
+  const idx = section.querySelectorAll('.ingredient-row').length;
+  const row = document.createElement('div');
+  row.className = 'ingredient-row';
+  row.dataset.idx = idx;
+  row.innerHTML = `
+    <button class="remove-btn" onclick="removeIngredient(${idx})">&times;</button>
+    <input type="number" class="qty" value="" min="0" step="0.25" placeholder="Qty" style="max-width:80px;" oninput="recalc()">
+    <input type="text" class="unit" value="" placeholder="Unit" style="max-width:80px;">
+    <input type="text" class="name" value="" placeholder="Ingredient name">
+    <span class="scaled">—</span>
+  `;
+  section.appendChild(row);
+}
+
+function removeIngredient(idx) {
+  const rows = section.querySelectorAll('.ingredient-row');
+  if (rows.length <= 1) return;
+  rows.forEach(r => { if (parseInt(r.dataset.idx) === idx) r.remove(); });
+  recalc();
+}
+
+function renderParty() {
+  const guests = parseInt(partyGuests.value) || 50;
+  partyGrid.innerHTML = partyData.map(item => {
+    const total = item.perPersonG * guests;
+    let display;
+    if (item.unit === 'kg') display = (total / 1000).toFixed(1) + ' kg (' + Math.round(total / 453.6) + ' lb)';
+    else if (item.unit === 'L') display = (total / 1000).toFixed(1) + ' L';
+    else display = total + ' ' + item.unit;
+    return `<div class="party-item"><div class="dish">${item.dish}</div><div class="amount">${display}</div><div class="note">${item.perPerson}/person - ${item.note}</div></div>`;
+  }).join('');
+}
+
+document.querySelectorAll('.preset-btn').forEach(btn => {
+  btn.addEventListener('click', () => { toInput.value = btn.dataset.val; recalc(); });
+});
+
+fromInput.addEventListener('input', recalc);
+toInput.addEventListener('input', recalc);
+partyGuests.addEventListener('input', renderParty);
+
+recalc();
+renderParty();
+</script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+{
+  "generated_at": "2026-05-15T14:00:43.302901+00:00",
+  "probe_type": "sprint25_rdap_reprobe",
+  "source_file": "/Users/mike/Desktop/domainhunter/data/backorder_queue.json",
+  "endpoint": "https://rdap.org/domain",
+  "total_queried": 19,
+  "summary": {
+    "total_probed": 19,
+    "phase_changed_count": 6,
+    "phase_changed_domains": [
+      "sendy.co",
+      "olive.com",
+      "veev.com",
+      "infarm.com",
+      "fiskerinc.com",
+      "northvolt.com"
+    ],
+    "pending_delete_domains": [],
+    "redemption_period_domains": [],
+    "error_count": 0,
+    "error_domains": []
+  },
+  "results": [
+    {
+      "domain": "ghostautonomy.com",
+      "old_epp_status": "clientRenewProhibited",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": false,
+      "registrar": "Wild West Domains, LLC",
+      "expiry_date": "2026-06-07T00:53:13Z",
+      "creation_date": "2022-06-07T00:53:13Z",
+      "last_changed": "2024-11-27T13:14:56Z",
+      "error": null
+    },
+    {
+      "domain": "sunnyray.org",
+      "old_epp_status": "autoRenewPeriod",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "auto renew period"
+      ],
+      "new_phase": "autoRenewPeriod",
+      "phase_changed": false,
+      "registrar": "Tucows Domains Inc.",
+      "expiry_date": "2027-04-11T09:19:44.317Z",
+      "creation_date": "2005-04-11T09:19:44.317Z",
+      "last_changed": "2026-04-15T02:35:09.769Z",
+      "error": null
+    },
+    {
+      "domain": "globalgeopark.org",
+      "old_epp_status": "autoRenewPeriod",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "auto renew period"
+      ],
+      "new_phase": "autoRenewPeriod",
+      "phase_changed": false,
+      "registrar": "Tucows Domains Inc.",
+      "expiry_date": "2027-04-11T02:12:38.271Z",
+      "creation_date": "2007-04-11T02:12:38.271Z",
+      "last_changed": "2026-04-15T05:59:07.598Z",
+      "error": null
+    },
+    {
+      "domain": "guerrameats.com",
+      "old_epp_status": "clientHold",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client hold",
+        "client transfer prohibited"
+      ],
+      "new_phase": "clientHold",
+      "phase_changed": false,
+      "registrar": "Squarespace Domains II LLC",
+      "expiry_date": "2027-04-07T02:36:43Z",
+      "creation_date": "2005-04-07T02:36:43Z",
+      "last_changed": "2026-04-07T08:59:48Z",
+      "error": null
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "old_epp_status": "clientRenewProhibited",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": false,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-07-06T18:20:52Z",
+      "creation_date": "2021-07-06T18:20:52Z",
+      "last_changed": "2024-07-07T11:26:40Z",
+      "error": null
+    },
+    {
+      "domain": "sendy.co",
+      "old_epp_status": "clientRenewProhibited",
+      "http_status": 404,
+      "new_epp_statuses": [],
+      "new_phase": "not_found_possible_drop",
+      "phase_changed": true,
+      "registrar": "unknown",
+      "expiry_date": "",
+      "creation_date": "",
+      "last_changed": "",
+      "error": null
+    },
+    {
+      "domain": "readingfoundation.org",
+      "old_epp_status": "clientRenewProhibited",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": false,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-07-30T04:00:00Z",
+      "creation_date": "1998-07-31T04:00:00.867Z",
+      "last_changed": "2024-07-18T18:54:52.759Z",
+      "error": null
+    },
+    {
+      "domain": "humane.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2032-09-19T04:00:00Z",
+      "creation_date": "1995-09-20T04:00:00Z",
+      "last_changed": "2025-08-11T16:34:48Z",
+      "error": null
+    },
+    {
+      "domain": "arrival.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "Name.com, Inc.",
+      "expiry_date": "2026-12-03T19:44:47Z",
+      "creation_date": "1998-06-08T04:00:00Z",
+      "last_changed": "2025-10-28T07:02:13Z",
+      "error": null
+    },
+    {
+      "domain": "irl.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client transfer prohibited",
+        "client update prohibited",
+        "server delete prohibited",
+        "server transfer prohibited",
+        "server update prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "MarkMonitor Inc.",
+      "expiry_date": "2027-05-11T04:00:00Z",
+      "creation_date": "1991-05-10T04:00:00Z",
+      "last_changed": "2024-10-03T23:29:27Z",
+      "error": null
+    },
+    {
+      "domain": "olive.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": true,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-11-21T05:00:00Z",
+      "creation_date": "1996-11-22T05:00:00Z",
+      "last_changed": "2024-04-26T18:10:11Z",
+      "error": null
+    },
+    {
+      "domain": "boweryfarming.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "Spaceship, Inc.",
+      "expiry_date": "2027-08-02T18:27:26Z",
+      "creation_date": "2025-08-02T18:27:26Z",
+      "last_changed": "2025-12-18T16:59:03Z",
+      "error": null
+    },
+    {
+      "domain": "convoy.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client transfer prohibited",
+        "client update prohibited",
+        "server delete prohibited",
+        "server transfer prohibited",
+        "server update prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "SafeNames Ltd.",
+      "expiry_date": "2028-10-31T10:36:20Z",
+      "creation_date": "2000-10-31T11:36:20Z",
+      "last_changed": "2021-07-16T08:10:32Z",
+      "error": null
+    },
+    {
+      "domain": "stenn.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2027-04-27T03:50:29Z",
+      "creation_date": "2003-04-27T03:50:29Z",
+      "last_changed": "2026-04-23T07:39:57Z",
+      "error": null
+    },
+    {
+      "domain": "veev.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": true,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-07-02T03:59:59Z",
+      "creation_date": "1999-03-12T05:00:00Z",
+      "last_changed": "2022-10-29T08:24:42Z",
+      "error": null
+    },
+    {
+      "domain": "infarm.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": true,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-02-18T05:00:00Z",
+      "creation_date": "1999-02-18T05:00:00Z",
+      "last_changed": "2026-04-29T12:23:50Z",
+      "error": null
+    },
+    {
+      "domain": "fiskerinc.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": true,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2026-09-21T23:52:51Z",
+      "creation_date": "2016-09-21T23:52:51Z",
+      "last_changed": "2025-09-22T12:45:24Z",
+      "error": null
+    },
+    {
+      "domain": "northvolt.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "new_phase": "clientRenewProhibited",
+      "phase_changed": true,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2027-01-24T20:34:12Z",
+      "creation_date": "2017-01-24T20:34:12Z",
+      "last_changed": "2026-01-23T08:24:54Z",
+      "error": null
+    },
+    {
+      "domain": "easyknock.com",
+      "old_epp_status": "dry_run",
+      "http_status": 200,
+      "new_epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "new_phase": "unknown",
+      "phase_changed": false,
+      "registrar": "Cloudflare, Inc.",
+      "expiry_date": "2028-01-12T19:07:55Z",
+      "creation_date": "2016-01-12T19:07:55Z",
+      "last_changed": "2024-12-04T22:27:33Z",
+      "error": null
+    }
+  ]
+}

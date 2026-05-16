@@ -1,0 +1,179 @@
+{
+  "checkpoint": "sprint26_ingredientcalculator_30day",
+  "generated_at": "2026-05-15T14:25:00Z",
+  "agent": "Sprint 26, Agent 9",
+  "domain": "ingredientcalculator.com",
+  "acquisition_date": "2026-05-07",
+  "days_since_acquisition": 8,
+  "acquisition_cost_usd": 10.46,
+  "registrar": "Cloudflare, Inc.",
+  "expiry_date": "2027-05-06",
+
+  "site_health": {
+    "https_status": 200,
+    "http_redirect": "301 -> https (correct)",
+    "ssl_issuer": "Google Trust Services (WE1)",
+    "ssl_valid_from": "2026-05-07",
+    "ssl_valid_until": "2026-08-05",
+    "dns_a_records": ["104.21.21.107", "172.67.197.245"],
+    "dns_nameservers": ["aron.ns.cloudflare.com", "thaddeus.ns.cloudflare.com"],
+    "dns_mx_records": "none",
+    "cdn": "Cloudflare Pages",
+    "epp_status": "clientTransferProhibited",
+    "homepage_size_bytes": 66402,
+    "robots_txt": "Allow: / with sitemap reference",
+    "sitemap_xml": "6 URLs listed (homepage + 5 subpages)",
+    "csp_header": "present and configured",
+    "security_headers": "all 5 present (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, CSP, Permissions-Policy)",
+    "cache_control": "public, max-age=86400, s-maxage=604800"
+  },
+
+  "content_status": {
+    "homepage": {
+      "status": 200,
+      "title": "Ingredient Calculator - Scale Recipes, Convert Units & Find Substitutions",
+      "sections": [
+        "Recipe Ingredient Scaler",
+        "Cooking Unit Converter",
+        "Ingredient Substitutions",
+        "Nutrition Estimator",
+        "Why Use an Ingredient Calculator?",
+        "Common Cooking Conversions"
+      ],
+      "structured_data": "WebApplication schema present",
+      "og_tags": "present",
+      "twitter_cards": "present",
+      "canonical": "https://ingredientcalculator.com/"
+    },
+    "subpages": {
+      "cups-to-grams.html": {"live_status": 404, "local_file_exists": true},
+      "egg-substitute.html": {"live_status": 404, "local_file_exists": true},
+      "recipe-converter.html": {"live_status": 404, "local_file_exists": true},
+      "baking-ratios.html": {"live_status": 404, "local_file_exists": true},
+      "serving-size-calculator.html": {"live_status": 404, "local_file_exists": true}
+    },
+    "subpage_issue": "CRITICAL: 5 subpages exist locally in tools/ingredientcalculator/ but return 404 on the live site. deploy_status.json shows only 6 files deployed. The local sitemap.xml references all 6 URLs but only the homepage resolves. These subpages need to be redeployed via wrangler."
+  },
+
+  "google_indexing": {
+    "site_search_results": 1,
+    "indexed_pages": ["https://ingredientcalculator.com/"],
+    "indexed_subpages": 0,
+    "assessment": "Homepage is indexed by Google. Only 1 page indexed after 8 days -- this is normal for a brand-new domain. The 5 broken subpages (404) are likely being dropped from the index crawl queue since they 404."
+  },
+
+  "serp_visibility": {
+    "appears_for_target_keywords": false,
+    "target_keywords_searched": "ingredient calculator recipe scaler cooking unit converter",
+    "competitors_ranking": [
+      "inchcalculator.com",
+      "mykitchencalculator.com",
+      "free-online-calculator-use.com",
+      "goodcalculators.com",
+      "recipecard.io",
+      "kitchenscaler.com",
+      "webstaurantstore.com",
+      "gigacalculator.com"
+    ],
+    "assessment": "Not ranking for any target keywords yet. Competitors have years of authority. Expected -- too early at 8 days."
+  },
+
+  "backlinks": {
+    "external_mentions_found": 0,
+    "directory_listings": 0,
+    "assessment": "No external backlinks or mentions detected. No directory submissions visible yet. This is expected at 8 days."
+  },
+
+  "authority_transfer": {
+    "domain_age_days": 8,
+    "domain_was_fresh_registration": true,
+    "previous_authority": "none (new registration, not an expired domain pickup)",
+    "authority_transfer_status": "N/A -- this was a fresh registration, not an expired domain acquisition. There is no prior authority to transfer.",
+    "assessment": "Sprint 22 post-mortem mentioned 1-3 months for authority transfer, but that applies to expired domain pickups. ingredientcalculator.com was a fresh $10.46 registration. Authority must be built from zero."
+  },
+
+  "issues_found": [
+    {
+      "severity": "CRITICAL",
+      "issue": "5 subpages return 404",
+      "details": "cups-to-grams.html, egg-substitute.html, recipe-converter.html, baking-ratios.html, serving-size-calculator.html all exist locally but were not included in the Cloudflare Pages deployment. deploy_status.json shows only 6 files deployed. The sitemap references these URLs, so Googlebot is hitting 404s on 5/6 URLs in the sitemap.",
+      "fix": "Redeploy the full tools/ingredientcalculator/ directory via: wrangler pages deploy tools/ingredientcalculator --project-name=ingredientcalculator",
+      "impact": "83% of content pages are invisible. Google is seeing soft 404s from the sitemap, which hurts crawl budget and trust signals."
+    },
+    {
+      "severity": "MEDIUM",
+      "issue": "Sitemap lastmod is stale",
+      "details": "All sitemap URLs show lastmod 2026-05-07 (deployment date). The live sitemap.xml on Cloudflare only lists the homepage. The local sitemap references all 6 pages but the deployed version may differ.",
+      "fix": "After redeploying subpages, verify the live sitemap matches the local one with all 6 URLs."
+    },
+    {
+      "severity": "LOW",
+      "issue": "No _redirects rules for subpage clean URLs",
+      "details": "_redirects only maps /calculator, /recipe-scaler, /unit-converter, /substitutions to index.html. No clean-URL redirects for the actual subpages (e.g., /cups-to-grams -> /cups-to-grams.html).",
+      "fix": "Add redirect rules for clean URLs: /cups-to-grams /cups-to-grams.html 200, etc. Cloudflare Pages may auto-serve .html files without extension, but verify after deploy."
+    }
+  ],
+
+  "financial_summary": {
+    "total_invested": 10.46,
+    "hosting_cost": 0.00,
+    "monthly_cost": 0.00,
+    "revenue_to_date": 0.00,
+    "roi_to_date": "-100%",
+    "notes": "Cloudflare Pages free tier. Domain cost only. No monetization set up yet (no AdSense, no affiliate links)."
+  },
+
+  "assessment": {
+    "site_live": true,
+    "serving_content": "partially -- homepage only, 5 subpages broken",
+    "google_indexing": "homepage indexed, subpages not (they 404)",
+    "authority_building": "not started -- fresh domain, no backlinks, no directory submissions",
+    "competitive_landscape": "highly competitive niche with established players (inchcalculator.com, mykitchencalculator.com, kitchenscaler.com, goodcalculators.com)",
+    "time_to_revenue": "6-12 months minimum if content is fixed and SEO work begins",
+    "notes": "The domain has a strong exact-match keyword name (ingredientcalculator.com) which gives it inherent SEO value for long-tail queries. However, it was a fresh registration with zero prior authority, competing against well-established sites. The critical issue is that 83% of the content never made it to production."
+  },
+
+  "recommendation": {
+    "verdict": "CONTINUE -- but FIX the deployment first",
+    "priority_actions": [
+      {
+        "priority": 1,
+        "action": "Redeploy all files to Cloudflare Pages",
+        "command": "cd /Users/mike/Desktop/domainhunter && wrangler pages deploy tools/ingredientcalculator --project-name=ingredientcalculator",
+        "effort": "2 minutes",
+        "impact": "Unlocks 5 additional content pages for Google indexing"
+      },
+      {
+        "priority": 2,
+        "action": "Submit sitemap to Google Search Console",
+        "details": "Verify ownership via Cloudflare DNS TXT record, submit sitemap.xml",
+        "effort": "10 minutes",
+        "impact": "Accelerates crawling and indexing of all 6 pages"
+      },
+      {
+        "priority": 3,
+        "action": "Add more content pages targeting long-tail keywords",
+        "details": "Create pages for: butter substitute, flour types, cooking temp converter, metric to imperial baking, etc.",
+        "effort": "2-4 hours",
+        "impact": "More indexed pages = more keyword surface area"
+      },
+      {
+        "priority": 4,
+        "action": "Submit to cooking/recipe directories and Web 2.0 profiles",
+        "details": "ProductHunt, alternativeto.net, cooking forums, Reddit r/cooking",
+        "effort": "1-2 hours",
+        "impact": "Initial backlink seed for domain authority"
+      },
+      {
+        "priority": 5,
+        "action": "Set up Google AdSense once traffic reaches 100+ daily visits",
+        "details": "The CSP already allows pagead2.googlesyndication.com",
+        "effort": "30 minutes when ready",
+        "impact": "First revenue stream"
+      }
+    ],
+    "reasoning": "At $10.46 total cost with zero monthly overhead (Cloudflare Pages free tier), the downside is negligible. The domain name itself has intrinsic keyword value. The immediate ROI blocker is the broken deployment -- 83% of content is 404ing. Fix that first, then this becomes a valid long-term content play. Don't expect meaningful traffic for 3-6 months minimum."
+  },
+
+  "next_checkpoint": "Sprint 30 (30 days from now) -- check indexing of all 6+ pages, first SERP appearances, any organic traffic in GSC"
+}

@@ -1,0 +1,325 @@
+{
+  "batch": 4,
+  "sprint": 2,
+  "scan_date": "2026-05-06",
+  "scan_time_utc": "13:56",
+  "total_domains_checked": 22,
+  "summary": {
+    "REGISTERED": 21,
+    "EXPIRING_SOON": 1,
+    "AVAILABLE": 0,
+    "PENDING_DELETE": 0,
+    "REDEMPTION_PERIOD": 0,
+    "AUCTION": 0
+  },
+  "critical_alert": {
+    "domain": "aidevtools.com",
+    "message": "EXPIRES TODAY 2026-05-06. Status shows 'renew period' + 'client hold'. ParkLogic parking NS. Was updated today at 09:06 UTC. If NOT renewed, enters grace period then pendingDelete. MONITOR HOURLY.",
+    "action_required": "immediate"
+  },
+  "domains": {
+    "aidevtools.com": {
+      "status": "EXPIRING_SOON",
+      "registrar": "NameSilo, LLC",
+      "registration_date": "2022-05-06",
+      "expiry": "2026-05-06",
+      "nameservers": ["ns1.ns306.parklogic.com", "ns2.ns306.parklogic.com"],
+      "status_codes": ["clientTransferProhibited", "renew period", "client hold"],
+      "days_until_expiry": 0,
+      "notes": "CRITICAL: Expires TODAY. Updated today at 09:06 UTC. 'client hold' + 'renew period' = registrar has placed it on hold after expiry, domain is in auto-renew grace period. ParkLogic NS = was being monetized via parking. PrivacyGuardian WHOIS privacy. If owner does not renew within ~30 day grace period, moves to redemptionPeriod then pendingDelete. High acquisition potential."
+    },
+    "techstack.com": {
+      "status": "REGISTERED",
+      "registrar": "GoDaddy.com, LLC",
+      "registration_date": "2009-12-29",
+      "expiry": "2027-12-02",
+      "nameservers": ["brett.ns.cloudflare.com", "ulla.ns.cloudflare.com"],
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "days_until_expiry": 575,
+      "notes": "Fully locked domain on Cloudflare. All 4 client prohibit flags = premium/brokered domain or active owner. Long expiry. Not acquirable soon."
+    },
+    "launchable.io": {
+      "status": "REGISTERED",
+      "registrar": "Humbly LLC",
+      "registration_date": "2021-04-10",
+      "expiry": "2027-04-10",
+      "nameservers": ["a.dns.park.io", "b.dns.park.io"],
+      "status_codes": ["autoRenewPeriod"],
+      "days_until_expiry": 339,
+      "notes": "autoRenewPeriod status = just auto-renewed on 2026-04-24. Park.io nameservers = domain parking/aftermarket service. privacy.cc WHOIS privacy. Was parked but renewed, owner intends to keep or sell. Could be available via Park.io marketplace."
+    },
+    "apitools.com": {
+      "status": "REGISTERED",
+      "registrar": "Dynadot Inc",
+      "registration_date": "2020-12-14",
+      "expiry": "2026-12-14",
+      "nameservers": ["ns1.dyna-ns.net", "ns2.dyna-ns.net"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 222,
+      "notes": "Dynadot default NS = likely parked or for-sale at Dynadot marketplace. Registered since 2020."
+    },
+    "devhub.io": {
+      "status": "REGISTERED",
+      "registrar": "Dynadot Inc",
+      "registration_date": "2016-10-17",
+      "expiry": "2026-10-17",
+      "nameservers": ["ns1.afternic.com", "ns2.afternic.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 164,
+      "notes": "Afternic nameservers = actively listed for sale on Afternic/GoDaddy aftermarket. Dynadot privacy. Since 2016. Purchasable via Afternic."
+    },
+    "codetools.com": {
+      "status": "REGISTERED",
+      "registrar": "Porkbun LLC",
+      "registration_date": "1999-10-21",
+      "expiry": "2026-10-21",
+      "nameservers": ["ns.dundas.com", "ns2.dundas.com"],
+      "status_codes": ["clientDeleteProhibited", "clientTransferProhibited"],
+      "days_until_expiry": 168,
+      "notes": "Old domain (since 1999). Dundas NS suggest active use or custom setup. Porkbun registrar. Delete-prohibited = owner protective."
+    },
+    "codeguide.com": {
+      "status": "REGISTERED",
+      "registrar": "InterNetX GmbH",
+      "registration_date": "2001-06-07",
+      "expiry": "2026-06-07",
+      "nameservers": ["nsa1.schlundtech.de", "nsb1.schlundtech.de", "nsc1.schlundtech.de", "nsd1.schlundtech.de"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 32,
+      "notes": "Expires in 32 days. German registrar InterNetX/Schlundtech. 4 NS = likely active use. Old domain since 2001. Watch for non-renewal."
+    },
+    "devtools.io": {
+      "status": "REGISTERED",
+      "registrar": "NameCheap, Inc.",
+      "registration_date": "2020-07-04",
+      "expiry": "2026-07-04",
+      "nameservers": ["unknown_from_registry"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 59,
+      "notes": "Expires in 59 days. Namecheap with Withheld for Privacy (Iceland). Registered since 2020. Within 90-day watch window."
+    },
+    "prompttools.com": {
+      "status": "REGISTERED",
+      "registrar": "PDR Ltd. d/b/a PublicDomainRegistry.com",
+      "registration_date": "2000-07-18",
+      "expiry": "2026-07-18",
+      "nameservers": ["ns51.domaincontrol.com", "ns52.domaincontrol.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 73,
+      "notes": "Expires in 73 days. DomainControl NS = GoDaddy default parking. Very old domain (2000). Within 90-day watch window."
+    },
+    "codebench.com": {
+      "status": "REGISTERED",
+      "registrar": "CSC Corporate Domains, Inc.",
+      "registration_date": "2001-12-16",
+      "expiry": "2026-12-16",
+      "nameservers": ["dns1.cscdns.net", "dns2.cscdns.net"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 224,
+      "notes": "CSC Corporate Domains = typically enterprise/corporate registrar. Likely owned by a corporation. Old domain since 2001. Not easily acquirable."
+    },
+    "aitoolkit.com": {
+      "status": "REGISTERED",
+      "registrar": "Easyspace Limited",
+      "registration_date": "2000-06-12",
+      "expiry": "2026-06-12",
+      "nameservers": ["ns1.namecity.com", "ns2.namecity.com"],
+      "status_codes": ["clientTransferProhibited", "clientUpdateProhibited"],
+      "days_until_expiry": 37,
+      "notes": "Expires in 37 days. NameCity NS = parking/monetization service. Very old domain (2000). UK-based registrar Easyspace. Within 90-day watch window. WATCH CLOSELY."
+    },
+    "toolchain.io": {
+      "status": "REGISTERED",
+      "registrar": "Sav.com, LLC",
+      "registration_date": "2018-07-07",
+      "expiry": "2026-07-07",
+      "nameservers": ["unknown_from_registry"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 62,
+      "notes": "Expires in 62 days. Sav.com registrar. Updated yesterday 2026-05-05 which suggests active management. Within 90-day watch window."
+    },
+    "stackreview.com": {
+      "status": "REGISTERED",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "registration_date": "2013-07-08",
+      "expiry": "2026-07-08",
+      "nameservers": ["nsg1.namebrightdns.com", "nsg2.namebrightdns.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 63,
+      "notes": "Expires in 63 days. NameBright default NS = likely parked/for-sale. Since 2013. Within 90-day watch window."
+    },
+    "codehelper.com": {
+      "status": "REGISTERED",
+      "registrar": "GoDaddy.com, LLC",
+      "registration_date": "2002-07-17",
+      "expiry": "2026-07-17",
+      "nameservers": ["ns3.afternic.com", "ns4.afternic.com"],
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "days_until_expiry": 72,
+      "notes": "Afternic NS = actively listed for sale. All 4 client prohibit flags. GoDaddy registrar. Within 90-day watch window. Could be purchased via Afternic marketplace."
+    },
+    "codingtools.com": {
+      "status": "REGISTERED",
+      "registrar": "eNom, LLC",
+      "registration_date": "2004-07-31",
+      "expiry": "2026-07-31",
+      "nameservers": ["ns1.powweb.com", "ns2.powweb.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 86,
+      "notes": "Expires in 86 days. PowWeb NS = web hosting provider. Likely has (or had) an active website. Within 90-day watch window."
+    },
+    "codecompare.com": {
+      "status": "REGISTERED",
+      "registrar": "TurnCommerce, Inc. DBA NameBright.com",
+      "registration_date": "2011-08-27",
+      "expiry": "2026-08-27",
+      "nameservers": ["nsg1.namebrightdns.com", "nsg2.namebrightdns.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 113,
+      "notes": "NameBright default NS = likely parked/for-sale. Since 2011."
+    },
+    "devaide.com": {
+      "status": "REGISTERED",
+      "registrar": "NameSilo, LLC",
+      "registration_date": "2024-09-08",
+      "expiry": "2026-09-08",
+      "nameservers": ["ns1.brandbucket.com", "ns2.brandbucket.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 125,
+      "notes": "BrandBucket NS = premium brandable domain marketplace. Listed for sale on BrandBucket. Recently registered (2024). Purchase price likely $1K-$10K+ via BrandBucket."
+    },
+    "devaide.io": {
+      "status": "REGISTERED",
+      "registrar": "Tucows Domains Inc.",
+      "registration_date": "2023-11-07",
+      "expiry": "2026-11-07",
+      "nameservers": ["unknown_from_registry"],
+      "status_codes": ["clientTransferProhibited", "clientUpdateProhibited"],
+      "days_until_expiry": 185,
+      "notes": "Tucows registrar with Data Protected privacy (Canada). Since 2023. Could be active project or holding."
+    },
+    "llmtools.com": {
+      "status": "REGISTERED",
+      "registrar": "Amazon Registrar, Inc.",
+      "registration_date": "2023-02-10",
+      "expiry": "2027-02-10",
+      "nameservers": ["ns-1364.awsdns-42.org", "ns-1926.awsdns-48.co.uk", "ns-534.awsdns-02.net", "ns-73.awsdns-09.com"],
+      "status_codes": ["ok"],
+      "days_until_expiry": 280,
+      "notes": "Amazon Registrar + AWS Route53 DNS = likely active AWS-hosted project. Status 'ok' = no extra locks, but active use. Long expiry."
+    },
+    "aitool.com": {
+      "status": "REGISTERED",
+      "registrar": "Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)",
+      "registration_date": "2004-04-10",
+      "expiry": "2030-04-10",
+      "nameservers": ["launch1.spaceship.net", "launch2.spaceship.net"],
+      "status_codes": ["ok"],
+      "days_until_expiry": 1434,
+      "notes": "Registered until 2030. Chinese registrar Alibaba/HiChina. Spaceship NS = Namecheap's Spaceship platform. Old domain since 2004. Not acquirable."
+    },
+    "aicoder.com": {
+      "status": "REGISTERED",
+      "registrar": "Cloudflare, Inc.",
+      "registration_date": "2014-07-07",
+      "expiry": "2028-07-07",
+      "nameservers": ["love.ns.cloudflare.com", "trace.ns.cloudflare.com"],
+      "status_codes": ["clientTransferProhibited"],
+      "days_until_expiry": 793,
+      "notes": "Cloudflare registrar + Cloudflare DNS = active Cloudflare-managed site. Paid through 2028. Not acquirable soon."
+    },
+    "devstack.com": {
+      "status": "REGISTERED",
+      "registrar": "GoDaddy.com, LLC",
+      "registration_date": "2006-02-25",
+      "expiry": "2028-02-25",
+      "nameservers": ["ns1.dan.com", "ns2.dan.com"],
+      "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "days_until_expiry": 660,
+      "notes": "Dan.com NS = actively listed for sale on Dan.com marketplace. All 4 client prohibit flags. GoDaddy registrar. Can be purchased via Dan.com. Expect premium pricing ($5K-$50K+)."
+    }
+  },
+  "watchlist_90_day": [
+    {
+      "domain": "aidevtools.com",
+      "days": 0,
+      "priority": "CRITICAL",
+      "action": "Monitor hourly. Expired today. In grace period. Could drop in 30-75 days if not renewed."
+    },
+    {
+      "domain": "codeguide.com",
+      "days": 32,
+      "priority": "HIGH",
+      "action": "Monitor weekly. German registrar, old domain. Check for renewal activity."
+    },
+    {
+      "domain": "aitoolkit.com",
+      "days": 37,
+      "priority": "HIGH",
+      "action": "Monitor weekly. Parking NS suggests speculative hold. May not renew."
+    },
+    {
+      "domain": "devtools.io",
+      "days": 59,
+      "priority": "MEDIUM",
+      "action": "Monitor bi-weekly."
+    },
+    {
+      "domain": "toolchain.io",
+      "days": 62,
+      "priority": "MEDIUM",
+      "action": "Monitor bi-weekly. Recent update suggests active owner."
+    },
+    {
+      "domain": "stackreview.com",
+      "days": 63,
+      "priority": "MEDIUM",
+      "action": "Monitor bi-weekly. NameBright parking NS."
+    },
+    {
+      "domain": "codehelper.com",
+      "days": 72,
+      "priority": "LOW",
+      "action": "Afternic listing = owner wants to sell. Check Afternic for price."
+    },
+    {
+      "domain": "prompttools.com",
+      "days": 73,
+      "priority": "MEDIUM",
+      "action": "Monitor bi-weekly. GoDaddy parking NS on very old domain."
+    },
+    {
+      "domain": "codingtools.com",
+      "days": 86,
+      "priority": "LOW",
+      "action": "PowWeb hosting NS suggests site may be active."
+    }
+  ],
+  "for_sale_marketplace": [
+    {
+      "domain": "devhub.io",
+      "marketplace": "Afternic",
+      "notes": "Afternic NS. Check afternic.com for listing price."
+    },
+    {
+      "domain": "codehelper.com",
+      "marketplace": "Afternic",
+      "notes": "Afternic NS. Check afternic.com for listing price."
+    },
+    {
+      "domain": "devstack.com",
+      "marketplace": "Dan.com",
+      "notes": "Dan.com NS. Check dan.com for listing price. Expect premium."
+    },
+    {
+      "domain": "devaide.com",
+      "marketplace": "BrandBucket",
+      "notes": "BrandBucket NS. Premium brandable domain. Check brandbucket.com."
+    },
+    {
+      "domain": "launchable.io",
+      "marketplace": "Park.io",
+      "notes": "Park.io NS. May be available via park.io marketplace."
+    }
+  ]
+}

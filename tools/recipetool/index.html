@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Nutrition Calculator - Free Calorie & Macro Counter</title>
+<meta name="description" content="Free recipe nutrition calculator. Enter your recipe ingredients to instantly calculate calories, protein, carbs, fat, fiber, and sodium per serving. No signup required.">
+<link rel="canonical" href="https://recipetool.net/">
+<meta property="og:title" content="Recipe Nutrition Calculator - Free Calorie & Macro Counter">
+<meta property="og:description" content="Calculate nutrition facts for any recipe. Get calories, protein, carbs, fat, fiber, and sodium per serving instantly.">
+<meta property="og:url" content="https://recipetool.net/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Nutrition Calculator - Free Calorie & Macro Counter">
+<meta name="twitter:description" content="Calculate nutrition facts for any recipe. Get calories, protein, carbs, fat, fiber, and sodium per serving instantly.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recipe Nutrition Calculator",
+  "description": "Free recipe nutrition calculator that calculates calories, protein, carbs, fat, fiber, and sodium for any recipe.",
+  "url": "https://recipetool.net/",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Organization", "name": "RecipeTool.net"}
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.recipe-header{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.recipe-header input{flex:1;min-width:150px;padding:.5rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.recipe-header input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.servings-group{display:flex;align-items:center;gap:.5rem}
+.servings-group label{font-size:.85rem;color:var(--text-light);white-space:nowrap}
+.servings-group input{width:60px}
+.ingredient-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;margin-bottom:.5rem;align-items:center}
+.ingredient-row input,.ingredient-row select{padding:.45rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem}
+.ingredient-row input:focus,.ingredient-row select:focus{outline:none;border-color:var(--primary)}
+.ingredient-row .remove-btn{background:none;border:none;color:#c62828;cursor:pointer;font-size:1.2rem;padding:.25rem .5rem;border-radius:4px}
+.ingredient-row .remove-btn:hover{background:#ffebee}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
+.results{display:none}
+.nutrition-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-top:.75rem}
+.nutrition-item{text-align:center;padding:.75rem;background:var(--warm);border-radius:8px}
+.nutrition-item .value{font-size:1.4rem;font-weight:700;color:var(--primary-dark)}
+.nutrition-item .label{font-size:.75rem;color:var(--text-light);margin-top:.2rem}
+.per-serving{background:var(--warm-dark);border-radius:8px;padding:.75rem;margin-top:.75rem}
+.per-serving h3{font-size:.9rem;margin-bottom:.5rem;color:var(--primary-dark)}
+.per-serving-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.per-serving-grid span{font-size:.8rem;text-align:center}
+.per-serving-grid .val{font-weight:700}
+#nutrition-canvas{display:none}
+.suggestions{position:absolute;background:white;border:1px solid var(--border);border-radius:6px;max-height:150px;overflow-y:auto;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.12);width:100%}
+.suggestions div{padding:.4rem .6rem;cursor:pointer;font-size:.85rem}
+.suggestions div:hover{background:var(--warm)}
+.ingredient-wrapper{position:relative}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:600px){
+.ingredient-row{grid-template-columns:1fr 1fr;gap:.4rem}
+.ingredient-row .remove-btn{grid-column:span 2;justify-self:end}
+.nutrition-grid{grid-template-columns:repeat(2,1fr)}
+.per-serving-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Recipe Nutrition Calculator</h1>
+<p>Calculate calories & macros for any recipe</p>
+</header>
+<nav>
+<a href="/" class="active">Nutrition Calculator</a>
+<a href="/meal-planner.html">Meal Planner</a>
+<a href="/calorie-calculator.html">Calorie Calculator</a>
+</nav>
+<main>
+<div class="card">
+<h2>Your Recipe</h2>
+<div class="recipe-header">
+<input type="text" id="recipe-name" placeholder="Recipe name (e.g., Chicken Stir Fry)">
+<div class="servings-group">
+<label for="servings">Servings:</label>
+<input type="number" id="servings" value="4" min="1" max="100">
+</div>
+</div>
+<div id="ingredients-list">
+<div class="ingredient-row">
+<div class="ingredient-wrapper"><input type="text" class="ing-name" placeholder="Ingredient" autocomplete="off"></div>
+<input type="number" class="ing-amount" placeholder="Amount" min="0" step="any">
+<select class="ing-unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select>
+<button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button>
+</div>
+</div>
+<div class="btn-group">
+<button class="btn btn-outline" onclick="addRow()">+ Add Ingredient</button>
+<button class="btn" onclick="calculate()">Calculate Nutrition</button>
+<button class="btn btn-outline" onclick="exportLabel()">Export Label</button>
+</div>
+</div>
+<div class="card results" id="results">
+<h2>Nutrition Facts — <span id="result-name">Your Recipe</span></h2>
+<p style="font-size:.85rem;color:var(--text-light)">Total recipe nutrition:</p>
+<div class="nutrition-grid">
+<div class="nutrition-item"><div class="value" id="total-cal">0</div><div class="label">Calories</div></div>
+<div class="nutrition-item"><div class="value" id="total-protein">0g</div><div class="label">Protein</div></div>
+<div class="nutrition-item"><div class="value" id="total-carbs">0g</div><div class="label">Carbs</div></div>
+<div class="nutrition-item"><div class="value" id="total-fat">0g</div><div class="label">Fat</div></div>
+<div class="nutrition-item"><div class="value" id="total-fiber">0g</div><div class="label">Fiber</div></div>
+<div class="nutrition-item"><div class="value" id="total-sodium">0mg</div><div class="label">Sodium</div></div>
+</div>
+<div class="per-serving" id="per-serving">
+<h3>Per Serving (<span id="serving-count">4</span> servings)</h3>
+<div class="per-serving-grid">
+<span><span class="val" id="ps-cal">0</span><br>Calories</span>
+<span><span class="val" id="ps-protein">0g</span><br>Protein</span>
+<span><span class="val" id="ps-carbs">0g</span><br>Carbs</span>
+<span><span class="val" id="ps-fat">0g</span><br>Fat</span>
+<span><span class="val" id="ps-fiber">0g</span><br>Fiber</span>
+<span><span class="val" id="ps-sodium">0mg</span><br>Sodium</span>
+</div>
+</div>
+</div>
+<canvas id="nutrition-canvas" width="400" height="600"></canvas>
+<div class="card">
+<h2>How to Use This Calculator</h2>
+<p style="font-size:.9rem;color:var(--text-light);margin-bottom:.5rem">Enter each ingredient in your recipe with its amount and unit. Our built-in database covers 100+ common cooking ingredients with accurate USDA-sourced nutrition data per 100g. The calculator instantly computes total and per-serving nutrition including calories, protein, carbohydrates, fat, fiber, and sodium.</p>
+<p style="font-size:.9rem;color:var(--text-light)">Start typing an ingredient name and select from the autocomplete suggestions. You can export the nutrition label as an image to share or save.</p>
+</div>
+</main>
+<footer>
+<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+</footer>
+<script>
+const DB={
+"chicken breast":{cal:165,protein:31,carbs:0,fat:3.6,fiber:0,sodium:74},
+"chicken thigh":{cal:209,protein:26,carbs:0,fat:10.9,fiber:0,sodium:84},
+"ground beef 80/20":{cal:254,protein:17.2,carbs:0,fat:20,fiber:0,sodium:75},
+"ground beef 90/10":{cal:176,protein:20,carbs:0,fat:10,fiber:0,sodium:66},
+"ground turkey":{cal:149,protein:19.7,carbs:0,fat:7.2,fiber:0,sodium:72},
+"salmon":{cal:208,protein:20,carbs:0,fat:13.4,fiber:0,sodium:59},
+"shrimp":{cal:99,protein:24,carbs:0.2,fat:0.3,fiber:0,sodium:111},
+"tuna canned":{cal:116,protein:25.5,carbs:0,fat:0.8,fiber:0,sodium:338},
+"tilapia":{cal:96,protein:20.1,carbs:0,fat:1.7,fiber:0,sodium:52},
+"cod":{cal:82,protein:18,carbs:0,fat:0.7,fiber:0,sodium:54},
+"pork loin":{cal:143,protein:26.1,carbs:0,fat:3.5,fiber:0,sodium:48},
+"bacon":{cal:541,protein:37,carbs:1.4,fat:42,fiber:0,sodium:1717},
+"tofu firm":{cal:144,protein:17.3,carbs:2.8,fat:8.7,fiber:0.9,sodium:14},
+"egg":{cal:155,protein:13,carbs:1.1,fat:11,fiber:0,sodium:124},
+"egg white":{cal:52,protein:11,carbs:0.7,fat:0.2,fiber:0,sodium:166},
+"white rice cooked":{cal:130,protein:2.7,carbs:28.2,fat:0.3,fiber:0.4,sodium:1},
+"brown rice cooked":{cal:123,protein:2.7,carbs:25.6,fat:1,fiber:1.6,sodium:4},
+"quinoa cooked":{cal:120,protein:4.4,carbs:21.3,fat:1.9,fiber:2.8,sodium:7},
+"pasta cooked":{cal:131,protein:5,carbs:25.4,fat:1.1,fiber:1.8,sodium:1},
+"bread white":{cal:265,protein:9.4,carbs:49,fat:3.2,fiber:2.7,sodium:491},
+"bread whole wheat":{cal:247,protein:13,carbs:41,fat:3.4,fiber:7,sodium:400},
+"oats":{cal:389,protein:16.9,carbs:66.3,fat:6.9,fiber:10.6,sodium:2},
+"flour all purpose":{cal:364,protein:10.3,carbs:76.3,fat:1,fiber:2.7,sodium:2},
+"flour whole wheat":{cal:340,protein:13.2,carbs:72,fat:2.5,fiber:10.7,sodium:2},
+"tortilla flour":{cal:312,protein:8.2,carbs:52,fat:8.4,fiber:2.2,sodium:520},
+"potato":{cal:77,protein:2,carbs:17.5,fat:0.1,fiber:2.2,sodium:6},
+"sweet potato":{cal:86,protein:1.6,carbs:20.1,fat:0.1,fiber:3,sodium:55},
+"broccoli":{cal:34,protein:2.8,carbs:7,fat:0.4,fiber:2.6,sodium:33},
+"spinach":{cal:23,protein:2.9,carbs:3.6,fat:0.4,fiber:2.2,sodium:79},
+"kale":{cal:49,protein:4.3,carbs:9,fat:0.9,fiber:3.6,sodium:38},
+"carrot":{cal:41,protein:0.9,carbs:9.6,fat:0.2,fiber:2.8,sodium:69},
+"onion":{cal:40,protein:1.1,carbs:9.3,fat:0.1,fiber:1.7,sodium:4},
+"garlic":{cal:149,protein:6.4,carbs:33,fat:0.5,fiber:2.1,sodium:17},
+"tomato":{cal:18,protein:0.9,carbs:3.9,fat:0.2,fiber:1.2,sodium:5},
+"bell pepper":{cal:31,protein:1,carbs:6,fat:0.3,fiber:2.1,sodium:4},
+"mushroom":{cal:22,protein:3.1,carbs:3.3,fat:0.3,fiber:1,sodium:5},
+"zucchini":{cal:17,protein:1.2,carbs:3.1,fat:0.3,fiber:1,sodium:8},
+"cucumber":{cal:15,protein:0.7,carbs:3.6,fat:0.1,fiber:0.5,sodium:2},
+"lettuce":{cal:15,protein:1.4,carbs:2.9,fat:0.2,fiber:1.3,sodium:28},
+"corn":{cal:86,protein:3.3,carbs:19,fat:1.4,fiber:2.7,sodium:15},
+"green beans":{cal:31,protein:1.8,carbs:7,fat:0.1,fiber:3.4,sodium:6},
+"peas":{cal:81,protein:5.4,carbs:14.5,fat:0.4,fiber:5.7,sodium:5},
+"avocado":{cal:160,protein:2,carbs:8.5,fat:14.7,fiber:6.7,sodium:7},
+"banana":{cal:89,protein:1.1,carbs:22.8,fat:0.3,fiber:2.6,sodium:1},
+"apple":{cal:52,protein:0.3,carbs:13.8,fat:0.2,fiber:2.4,sodium:1},
+"blueberries":{cal:57,protein:0.7,carbs:14.5,fat:0.3,fiber:2.4,sodium:1},
+"strawberries":{cal:32,protein:0.7,carbs:7.7,fat:0.3,fiber:2,sodium:1},
+"lemon":{cal:29,protein:1.1,carbs:9.3,fat:0.3,fiber:2.8,sodium:2},
+"orange":{cal:47,protein:0.9,carbs:11.8,fat:0.1,fiber:2.4,sodium:0},
+"milk whole":{cal:61,protein:3.2,carbs:4.8,fat:3.3,fiber:0,sodium:43},
+"milk 2%":{cal:50,protein:3.3,carbs:4.8,fat:2,fiber:0,sodium:47},
+"milk skim":{cal:34,protein:3.4,carbs:5,fat:0.1,fiber:0,sodium:42},
+"almond milk":{cal:17,protein:0.6,carbs:0.6,fat:1.1,fiber:0.2,sodium:67},
+"greek yogurt":{cal:59,protein:10,carbs:3.6,fat:0.7,fiber:0,sodium:36},
+"yogurt plain":{cal:63,protein:5.3,carbs:4.7,fat:3.3,fiber:0,sodium:46},
+"cheddar cheese":{cal:403,protein:25,carbs:1.3,fat:33.1,fiber:0,sodium:621},
+"mozzarella":{cal:280,protein:28,carbs:3.1,fat:17.1,fiber:0,sodium:627},
+"parmesan":{cal:431,protein:38.5,carbs:4.1,fat:29,fiber:0,sodium:1529},
+"cream cheese":{cal:342,protein:5.9,carbs:5.5,fat:34,fiber:0,sodium:321},
+"butter":{cal:717,protein:0.9,carbs:0.1,fat:81.1,fiber:0,sodium:11},
+"olive oil":{cal:884,protein:0,carbs:0,fat:100,fiber:0,sodium:2},
+"coconut oil":{cal:862,protein:0,carbs:0,fat:100,fiber:0,sodium:0},
+"vegetable oil":{cal:884,protein:0,carbs:0,fat:100,fiber:0,sodium:0},
+"sugar":{cal:387,protein:0,carbs:100,fat:0,fiber:0,sodium:1},
+"brown sugar":{cal:380,protein:0.1,carbs:98.1,fat:0,fiber:0,sodium:28},
+"honey":{cal:304,protein:0.3,carbs:82.4,fat:0,fiber:0.2,sodium:4},
+"maple syrup":{cal:260,protein:0,carbs:67,fat:0.1,fiber:0,sodium:12},
+"peanut butter":{cal:588,protein:25,carbs:20,fat:50,fiber:6,sodium:459},
+"almond butter":{cal:614,protein:21,carbs:19,fat:56,fiber:10.5,sodium:7},
+"almonds":{cal:579,protein:21.2,carbs:21.7,fat:49.9,fiber:12.5,sodium:1},
+"walnuts":{cal:654,protein:15.2,carbs:13.7,fat:65.2,fiber:6.7,sodium:2},
+"cashews":{cal:553,protein:18.2,carbs:30.2,fat:43.9,fiber:3.3,sodium:12},
+"chia seeds":{cal:486,protein:17,carbs:42,fat:31,fiber:34,sodium:16},
+"flax seeds":{cal:534,protein:18.3,carbs:28.9,fat:42.2,fiber:27.3,sodium:30},
+"black beans cooked":{cal:132,protein:8.9,carbs:23.7,fat:0.5,fiber:8.7,sodium:1},
+"chickpeas cooked":{cal:164,protein:8.9,carbs:27.4,fat:2.6,fiber:7.6,sodium:7},
+"lentils cooked":{cal:116,protein:9,carbs:20.1,fat:0.4,fiber:7.9,sodium:2},
+"kidney beans cooked":{cal:127,protein:8.7,carbs:22.8,fat:0.5,fiber:6.4,sodium:2},
+"soy sauce":{cal:53,protein:8.1,carbs:4.9,fat:0.6,fiber:0.8,sodium:5493},
+"tomato sauce":{cal:29,protein:1.3,carbs:5.4,fat:0.5,fiber:1.5,sodium:407},
+"salsa":{cal:36,protein:1.5,carbs:7,fat:0.2,fiber:1.8,sodium:430},
+"ketchup":{cal:112,protein:1.7,carbs:25.8,fat:0.5,fiber:0.3,sodium:907},
+"mayonnaise":{cal:680,protein:1,carbs:0.6,fat:75,fiber:0,sodium:635},
+"mustard":{cal:66,protein:4.4,carbs:5.3,fat:3.3,fiber:3.3,sodium:1135},
+"ranch dressing":{cal:463,protein:1.5,carbs:6.7,fat:48,fiber:0.3,sodium:813},
+"coconut milk":{cal:230,protein:2.3,carbs:6,fat:24,fiber:0,sodium:15},
+"heavy cream":{cal:340,protein:2.8,carbs:2.8,fat:36,fiber:0,sodium:38},
+"sour cream":{cal:198,protein:2.4,carbs:4.6,fat:19.4,fiber:0,sodium:53},
+"cottage cheese":{cal:98,protein:11.1,carbs:3.4,fat:4.3,fiber:0,sodium:364},
+"ricotta":{cal:174,protein:11.3,carbs:3,fat:13,fiber:0,sodium:84},
+"ham":{cal:145,protein:21,carbs:1.5,fat:5.5,fiber:0,sodium:1203},
+"turkey breast":{cal:104,protein:24,carbs:0,fat:0.7,fiber:0,sodium:45},
+"sausage":{cal:301,protein:19,carbs:0.5,fat:24,fiber:0,sodium:749},
+"pepperoni":{cal:504,protein:22,carbs:2.9,fat:44,fiber:0,sodium:1761},
+"tempeh":{cal:192,protein:20.3,carbs:7.6,fat:10.8,fiber:0,sodium:9},
+"seitan":{cal:370,protein:75,carbs:14,fat:1.9,fiber:0.6,sodium:60},
+"nutritional yeast":{cal:325,protein:50,carbs:25,fat:4,fiber:21,sodium:25},
+"cornstarch":{cal:381,protein:0.3,carbs:91.3,fat:0.1,fiber:0.9,sodium:9},
+"baking powder":{cal:53,protein:0,carbs:27.7,fat:0,fiber:0.2,sodium:10600},
+"cocoa powder":{cal:228,protein:19.6,carbs:57.9,fat:13.7,fiber:33.2,sodium:21},
+"dark chocolate":{cal:546,protein:5,carbs:60,fat:31,fiber:7,sodium:24},
+"vanilla extract":{cal:288,protein:0.1,carbs:12.7,fat:0.1,fiber:0,sodium:9},
+"cinnamon":{cal:247,protein:4,carbs:81,fat:1.2,fiber:53.1,sodium:10},
+"cumin":{cal:375,protein:17.8,carbs:44.2,fat:22.3,fiber:10.5,sodium:168},
+"paprika":{cal:282,protein:14.1,carbs:54,fat:13,fiber:34.9,sodium:68},
+"turmeric":{cal:312,protein:9.7,carbs:67.1,fat:3.3,fiber:22.7,sodium:27},
+"ginger":{cal:80,protein:1.8,carbs:17.8,fat:0.8,fiber:2,sodium:13}
+};
+const UNIT_TO_G={"g":1,"oz":28.3495,"cup":240,"tbsp":15,"tsp":5,"ml":1,"lb":453.592,"kg":1000};
+const ingNames=Object.keys(DB);
+
+function addRow(){
+const list=document.getElementById('ingredients-list');
+const row=document.createElement('div');
+row.className='ingredient-row';
+row.innerHTML='<div class="ingredient-wrapper"><input type="text" class="ing-name" placeholder="Ingredient" autocomplete="off"></div><input type="number" class="ing-amount" placeholder="Amount" min="0" step="any"><select class="ing-unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select><button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button>';
+list.appendChild(row);
+attachAutocomplete(row.querySelector('.ing-name'));
+}
+
+function removeRow(btn){
+const list=document.getElementById('ingredients-list');
+if(list.children.length>1)btn.closest('.ingredient-row').remove();
+}
+
+function attachAutocomplete(input){
+input.addEventListener('input',function(){
+let wrap=this.closest('.ingredient-wrapper');
+let existing=wrap.querySelector('.suggestions');
+if(existing)existing.remove();
+let val=this.value.toLowerCase().trim();
+if(val.length<2)return;
+let matches=ingNames.filter(n=>n.includes(val)).slice(0,8);
+if(!matches.length)return;
+let div=document.createElement('div');
+div.className='suggestions';
+matches.forEach(m=>{
+let item=document.createElement('div');
+item.textContent=m;
+item.onclick=()=>{input.value=m;div.remove()};
+div.appendChild(item);
+});
+wrap.appendChild(div);
+});
+input.addEventListener('blur',()=>setTimeout(()=>{let s=input.closest('.ingredient-wrapper').querySelector('.suggestions');if(s)s.remove()},200));
+}
+
+function calculate(){
+const rows=document.querySelectorAll('.ingredient-row');
+let totals={cal:0,protein:0,carbs:0,fat:0,fiber:0,sodium:0};
+rows.forEach(row=>{
+let name=row.querySelector('.ing-name').value.toLowerCase().trim();
+let amount=parseFloat(row.querySelector('.ing-amount').value)||0;
+let unit=row.querySelector('.ing-unit').value;
+if(!name||!amount)return;
+let data=DB[name];
+if(!data)return;
+let grams=amount*UNIT_TO_G[unit];
+let factor=grams/100;
+totals.cal+=data.cal*factor;
+totals.protein+=data.protein*factor;
+totals.carbs+=data.carbs*factor;
+totals.fat+=data.fat*factor;
+totals.fiber+=data.fiber*factor;
+totals.sodium+=data.sodium*factor;
+});
+let servings=parseInt(document.getElementById('servings').value)||1;
+document.getElementById('total-cal').textContent=Math.round(totals.cal);
+document.getElementById('total-protein').textContent=totals.protein.toFixed(1)+'g';
+document.getElementById('total-carbs').textContent=totals.carbs.toFixed(1)+'g';
+document.getElementById('total-fat').textContent=totals.fat.toFixed(1)+'g';
+document.getElementById('total-fiber').textContent=totals.fiber.toFixed(1)+'g';
+document.getElementById('total-sodium').textContent=Math.round(totals.sodium)+'mg';
+document.getElementById('ps-cal').textContent=Math.round(totals.cal/servings);
+document.getElementById('ps-protein').textContent=(totals.protein/servings).toFixed(1)+'g';
+document.getElementById('ps-carbs').textContent=(totals.carbs/servings).toFixed(1)+'g';
+document.getElementById('ps-fat').textContent=(totals.fat/servings).toFixed(1)+'g';
+document.getElementById('ps-fiber').textContent=(totals.fiber/servings).toFixed(1)+'g';
+document.getElementById('ps-sodium').textContent=Math.round(totals.sodium/servings)+'mg';
+document.getElementById('serving-count').textContent=servings;
+document.getElementById('result-name').textContent=document.getElementById('recipe-name').value||'Your Recipe';
+document.getElementById('results').style.display='block';
+document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+
+function exportLabel(){
+calculate();
+const canvas=document.getElementById('nutrition-canvas');
+const ctx=canvas.getContext('2d');
+ctx.fillStyle='#ffffff';ctx.fillRect(0,0,400,600);
+ctx.fillStyle='#000000';ctx.font='bold 24px sans-serif';
+ctx.fillText('Nutrition Facts',20,40);
+ctx.font='14px sans-serif';
+let name=document.getElementById('recipe-name').value||'Recipe';
+let servings=document.getElementById('servings').value;
+ctx.fillText(name+' (per serving, '+servings+' servings)',20,70);
+ctx.strokeStyle='#000';ctx.lineWidth=3;
+ctx.beginPath();ctx.moveTo(20,80);ctx.lineTo(380,80);ctx.stroke();
+ctx.lineWidth=1;
+const items=[
+['Calories',document.getElementById('ps-cal').textContent],
+['Protein',document.getElementById('ps-protein').textContent],
+['Total Carbs',document.getElementById('ps-carbs').textContent],
+['Total Fat',document.getElementById('ps-fat').textContent],
+['Fiber',document.getElementById('ps-fiber').textContent],
+['Sodium',document.getElementById('ps-sodium').textContent]
+];
+let y=110;
+ctx.font='16px sans-serif';
+items.forEach(([label,val])=>{
+ctx.fillText(label,20,y);
+ctx.fillText(val,320,y);
+ctx.beginPath();ctx.moveTo(20,y+10);ctx.lineTo(380,y+10);ctx.stroke();
+y+=40;
+});
+ctx.font='11px sans-serif';ctx.fillStyle='#666';
+ctx.fillText('Generated by RecipeTool.net',20,y+30);
+canvas.toBlob(blob=>{
+let url=URL.createObjectURL(blob);
+let a=document.createElement('a');
+a.href=url;a.download='nutrition-label.png';a.click();
+URL.revokeObjectURL(url);
+});
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.querySelectorAll('.ing-name').forEach(attachAutocomplete);
+});
+</script>
+</body>
+</html>

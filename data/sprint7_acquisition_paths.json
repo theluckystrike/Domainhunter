@@ -1,0 +1,511 @@
+{
+  "generated": "2026-05-07",
+  "scanner": "AGENT 5 - WHOIS SCANNER",
+  "sprint": 7,
+  "description": "Master acquisition file for every domain DR 15+ and all pipeline domains with clear acquisition paths",
+  "total_domains": 43,
+  "domains_with_acquisition_paths": 40,
+  "owned_domains": 3,
+  "summary_by_path": {
+    "backorder": 12,
+    "offer": 17,
+    "negotiate": 5,
+    "impossible": 2,
+    "owned": 3
+  },
+  "immediate_actions": [
+    {
+      "action": "PLACE BACKORDERS NOW",
+      "domains": ["workoutlogger.com", "aidevtools.com", "seochecker.com", "bestdevtools.com", "finetuneai.com", "taskplanner.com"],
+      "platforms": "DropCatch.com, SnapNames.com, NameJet.com",
+      "urgency": "These domains expire within 20 days or are already in deletion pipeline"
+    },
+    {
+      "action": "SEND OFFERS THIS WEEK",
+      "domains": ["devhub.io", "codehelper.com", "codeanalyzer.com", "devframework.com", "devaide.com"],
+      "platforms": "Afternic, NameFind, DomainMarket, BrandBucket",
+      "urgency": "These are actively listed for sale - offers can be sent through listing platforms immediately"
+    },
+    {
+      "action": "SET CALENDAR ALERTS",
+      "domains": ["saasmetrics.com", "fitocracy.com", "canoo.com", "codeparrot.ai", "freetail.com"],
+      "alert_dates": "30 days before each expiry date",
+      "urgency": "clientRenewProhibited domains expiring Jul-Dec 2026 - place backorders closer to expiry"
+    }
+  ],
+  "acquisition_paths": [
+    {
+      "domain": "nanowrimo.org",
+      "estimated_dr": 70,
+      "path": "negotiate",
+      "status": "Renewed to 2030, GoDaddy parking, clientRenewProhibited",
+      "cost_estimate": "$5000-50000",
+      "timeline": "Long-term - expires 2030",
+      "difficulty": "very_hard",
+      "value_score": 10,
+      "notes": "Highest DR domain. Bankruptcy estate or strategic holder. Requires finding current owner through GoDaddy WHOIS privacy and negotiating directly."
+    },
+    {
+      "domain": "builder.ai",
+      "estimated_dr": 68,
+      "path": "impossible",
+      "status": "Active tech company with AWS infrastructure",
+      "cost_estimate": "N/A",
+      "timeline": "N/A",
+      "difficulty": "impossible",
+      "value_score": 10,
+      "notes": "Active VC-funded business. Not for sale."
+    },
+    {
+      "domain": "canoo.com",
+      "estimated_dr": 55,
+      "path": "backorder",
+      "status": "clientRenewProhibited, bankrupt EV company, no website",
+      "cost_estimate": "$2000-20000",
+      "timeline": "Sep 2026 drop",
+      "difficulty": "hard",
+      "value_score": 9,
+      "notes": "WHALE TARGET. Bankrupt company domain. Will be highly contested if drops. Budget $5K+ for auction."
+    },
+    {
+      "domain": "apitools.com",
+      "estimated_dr": 42.5,
+      "path": "offer",
+      "status": "Dynadot parking, actively managed",
+      "cost_estimate": "$1000-5000",
+      "timeline": "Immediate offer",
+      "difficulty": "medium",
+      "value_score": 8,
+      "notes": "Premium dev tools keyword. Dynadot parking. Owner is investor - price negotiation needed."
+    },
+    {
+      "domain": "fitocracy.com",
+      "estimated_dr": 37.5,
+      "path": "backorder",
+      "status": "clientRenewProhibited, dead app (503), GoDaddy",
+      "cost_estimate": "$200-2000",
+      "timeline": "Sep 2026 drop",
+      "difficulty": "medium",
+      "value_score": 8,
+      "notes": "High DR with dead app. clientRenewProhibited confirms owner is letting go. Place backorder early."
+    },
+    {
+      "domain": "freetail.com",
+      "estimated_dr": 30,
+      "path": "backorder",
+      "status": "clientRenewProhibited, GoDaddy parking, conflicting expiry dates",
+      "cost_estimate": "$200-1000",
+      "timeline": "Monitor - may already be in grace period",
+      "difficulty": "medium",
+      "value_score": 7,
+      "notes": "DR 30. Registry vs registrar expiry date mismatch needs investigation. Place backorder as hedge."
+    },
+    {
+      "domain": "devhub.io",
+      "estimated_dr": 27,
+      "path": "offer",
+      "status": "Afternic NS = listed for sale",
+      "cost_estimate": "$500-2000",
+      "timeline": "Immediate offer",
+      "difficulty": "easy",
+      "value_score": 7,
+      "notes": "Listed on Afternic. Check for BIN price. Straightforward purchase through marketplace."
+    },
+    {
+      "domain": "tune.ai",
+      "estimated_dr": 25,
+      "path": "negotiate",
+      "status": "Active website, status 'ok', Spaceship hosting",
+      "cost_estimate": "$3000-15000",
+      "timeline": "Long-term negotiation",
+      "difficulty": "hard",
+      "value_score": 7,
+      "notes": "Active business with recent content. Premium .ai domain. Requires direct outreach and negotiation."
+    },
+    {
+      "domain": "prompttools.com",
+      "estimated_dr": 22.5,
+      "path": "offer",
+      "status": "DomainControl parking, tiny static page from 2021",
+      "cost_estimate": "$500-3000",
+      "timeline": "Immediate offer",
+      "difficulty": "medium",
+      "value_score": 6,
+      "notes": "26 year old domain with GoDaddy parking through PDR. Hot AI keyword. Owner may undervalue."
+    },
+    {
+      "domain": "codeparrot.ai",
+      "estimated_dr": 22.5,
+      "path": "backorder",
+      "status": "clientRenewProhibited, GoDaddy parking",
+      "cost_estimate": "$100-500",
+      "timeline": "Dec 2026 drop",
+      "difficulty": "easy",
+      "value_score": 6,
+      "notes": "Former AI project. clientRenewProhibited = will drop. Place backorder for Dec 2026."
+    },
+    {
+      "domain": "codeguide.com",
+      "estimated_dr": 20,
+      "path": "offer",
+      "status": "German registrar (InterNetX), no website, renewed to 2027",
+      "cost_estimate": "$2000-8000",
+      "timeline": "Immediate offer",
+      "difficulty": "hard",
+      "value_score": 6,
+      "notes": "25 year old domain. European owner, enterprise registrar. Requires European domain broker contact."
+    },
+    {
+      "domain": "devtools.io",
+      "estimated_dr": 20,
+      "path": "offer",
+      "status": "NameCheap, Dynadot DNS, no website",
+      "cost_estimate": "$500-2000",
+      "timeline": "Immediate offer",
+      "difficulty": "medium",
+      "value_score": 6,
+      "notes": "Premium dev tools .io domain. No website. Auto-renewed last year. Owner may accept offer."
+    },
+    {
+      "domain": "locale.ai",
+      "estimated_dr": 20,
+      "path": "negotiate",
+      "status": "Cloudflare + Framer 404, former geospatial AI company",
+      "cost_estimate": "$2000-10000",
+      "timeline": "Medium-term negotiation",
+      "difficulty": "medium",
+      "value_score": 6,
+      "notes": "Former Locale.ai company site taken down. Framer 404. Owner may be winding down. Good timing for offer."
+    },
+    {
+      "domain": "fileforge.com",
+      "estimated_dr": 18,
+      "path": "offer",
+      "status": "clientRenewProhibited but renewed to 2027, Cloudflare active",
+      "cost_estimate": "$1000-5000",
+      "timeline": "Check GoDaddy aftermarket listing",
+      "difficulty": "medium",
+      "value_score": 5,
+      "notes": "Mixed signals. clientRenewProhibited + recent renewal = likely GoDaddy aftermarket listing pattern."
+    },
+    {
+      "domain": "bestdevtools.com",
+      "estimated_dr": 15,
+      "path": "backorder",
+      "status": "No website, expires May 22, DNSimple NS",
+      "cost_estimate": "$19-99",
+      "timeline": "15 DAYS",
+      "difficulty": "easy",
+      "value_score": 5,
+      "notes": "Expires very soon with no website. Place backorder immediately."
+    },
+    {
+      "domain": "toolchain.io",
+      "estimated_dr": 15,
+      "path": "offer",
+      "status": "Sav.com registrar, Spaceship parking, actively managed",
+      "cost_estimate": "$200-800",
+      "timeline": "Immediate offer",
+      "difficulty": "easy",
+      "value_score": 5,
+      "notes": "Spaceship parking page. Updated yesterday. Check Sav.com marketplace for listed price."
+    },
+    {
+      "domain": "lowestmortgage.com",
+      "estimated_dr": 12,
+      "path": "offer",
+      "status": "GoDaddy Premium DNS parking, recently renewed",
+      "cost_estimate": "$3000-15000",
+      "timeline": "Check GoDaddy premium listing price",
+      "difficulty": "medium",
+      "value_score": 4,
+      "notes": "28 year old finance domain. GoDaddy Premium parking. Owner actively maintaining."
+    },
+    {
+      "domain": "sitegrader.com",
+      "estimated_dr": 12,
+      "path": "offer",
+      "status": "clientRenewProhibited + Cloudflare active",
+      "cost_estimate": "$500-3000",
+      "timeline": "Immediate offer + backorder hedge",
+      "difficulty": "medium",
+      "value_score": 4,
+      "notes": "Dual strategy. 18 year old domain. Check GoDaddy aftermarket."
+    },
+    {
+      "domain": "codetools.com",
+      "estimated_dr": 12,
+      "path": "offer",
+      "status": "Porkbun, Dundas NS, no website",
+      "cost_estimate": "$1000-5000",
+      "timeline": "Contact via Porkbun",
+      "difficulty": "hard",
+      "value_score": 4,
+      "notes": "27 year old domain. Dundas NS suggests corporate ownership. May be difficult."
+    },
+    {
+      "domain": "saasmetrics.com",
+      "estimated_dr": 12,
+      "path": "backorder",
+      "status": "clientRenewProhibited, GoDaddy parking",
+      "cost_estimate": "$100-500",
+      "timeline": "Jul 2026 drop",
+      "difficulty": "easy",
+      "value_score": 4,
+      "notes": "18 year old SaaS keyword domain. clientRenewProhibited. Place backorder."
+    },
+    {
+      "domain": "thehealthnews.com",
+      "estimated_dr": 10,
+      "path": "offer",
+      "status": "eNom, name-services parking, renewed to 2027",
+      "cost_estimate": "$500-2000",
+      "timeline": "Contact via eNom",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "Spam score 12 (high). Value diminished by spam profile. Low priority offer."
+    },
+    {
+      "domain": "loancompare.com",
+      "estimated_dr": 10,
+      "path": "offer",
+      "status": "Moniker registrar, Moniker DNS parking",
+      "cost_estimate": "$2000-10000",
+      "timeline": "Contact via Moniker",
+      "difficulty": "hard",
+      "value_score": 3,
+      "notes": "Domain investor at Moniker. Finance keyword. Will want premium price."
+    },
+    {
+      "domain": "codingtools.com",
+      "estimated_dr": 10,
+      "path": "offer",
+      "status": "eNom, PowWeb hosting, minimal page (132 bytes)",
+      "cost_estimate": "$500-2000",
+      "timeline": "Contact via eNom",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "22 year old domain. Minimal hosting. Owner may be open to offer."
+    },
+    {
+      "domain": "codebench.com",
+      "estimated_dr": 10,
+      "path": "negotiate",
+      "status": "CSC Corporate Domains, no website",
+      "cost_estimate": "$5000-20000",
+      "timeline": "Long-term corporate negotiation",
+      "difficulty": "very_hard",
+      "value_score": 3,
+      "notes": "CSC = enterprise brand protection. Fortune 500 company holding. Very difficult acquisition."
+    },
+    {
+      "domain": "taskplanner.com",
+      "estimated_dr": 8,
+      "path": "backorder",
+      "status": "clientRenewProhibited, expires May 27, GoDaddy parking",
+      "cost_estimate": "$59-500",
+      "timeline": "20 DAYS",
+      "difficulty": "easy",
+      "value_score": 5,
+      "notes": "Imminent drop. clientRenewProhibited. Place backorder NOW."
+    },
+    {
+      "domain": "lifebetter.com",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "eNom, name-services parking, renewed to 2027",
+      "cost_estimate": "$500-3000",
+      "timeline": "Contact via eNom",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "Same parking setup as thehealthnews.com. Likely same owner portfolio."
+    },
+    {
+      "domain": "aitoolkit.com",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "Easyspace, NameCity NS, stale IIS page from 2020",
+      "cost_estimate": "$500-1500",
+      "timeline": "Contact via Easyspace",
+      "difficulty": "medium",
+      "value_score": 4,
+      "notes": "Hot AI keyword. Stale content = owner may not value it. Good offer opportunity."
+    },
+    {
+      "domain": "imageeditor.net",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "clientRenewProhibited, WordPress redirect, GoDaddy",
+      "cost_estimate": "$500-3000",
+      "timeline": "Check GoDaddy aftermarket + place backorder",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "Dual strategy. 24 year old domain."
+    },
+    {
+      "domain": "codehelper.com",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "Afternic NS + clientRenewProhibited",
+      "cost_estimate": "$500-3000",
+      "timeline": "Immediate Afternic offer + backorder",
+      "difficulty": "easy",
+      "value_score": 4,
+      "notes": "Listed for sale on Afternic. Also has clientRenewProhibited = will drop if not sold."
+    },
+    {
+      "domain": "codeanalyzer.com",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "NameFind NS + clientRenewProhibited",
+      "cost_estimate": "$500-3000",
+      "timeline": "Check NameFind listing + backorder",
+      "difficulty": "easy",
+      "value_score": 4,
+      "notes": "Listed on NameFind premium aftermarket. Also has clientRenewProhibited."
+    },
+    {
+      "domain": "debtcalculator.com",
+      "estimated_dr": 8,
+      "path": "offer",
+      "status": "clientRenewProhibited but renewed to 2027, GoDaddy parking",
+      "cost_estimate": "$2000-10000",
+      "timeline": "Check GoDaddy aftermarket listing",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "26 year old finance domain. clientRenewProhibited + recent renewal = GoDaddy aftermarket pattern."
+    },
+    {
+      "domain": "mortgagecalc.com",
+      "estimated_dr": 6,
+      "path": "impossible",
+      "status": "GoDaddy Corporate Domains, GCD DNS",
+      "cost_estimate": "N/A",
+      "timeline": "N/A",
+      "difficulty": "impossible",
+      "value_score": 2,
+      "notes": "Enterprise brand registrar (GoDaddy Corporate). Likely Bankrate/LendingTree. Not acquirable."
+    },
+    {
+      "domain": "finetuneai.com",
+      "estimated_dr": 5,
+      "path": "backorder",
+      "status": "Expires May 26, redirects to prometric.com",
+      "cost_estimate": "$19-99",
+      "timeline": "19 DAYS",
+      "difficulty": "easy",
+      "value_score": 4,
+      "notes": "Abandoned AI project. Redirects to Prometric. May not be renewed."
+    },
+    {
+      "domain": "devframework.com",
+      "estimated_dr": 5,
+      "path": "offer",
+      "status": "Explicitly for sale at DomainMarket.com",
+      "cost_estimate": "$1000-5000",
+      "timeline": "Immediate - check DomainMarket price",
+      "difficulty": "easy",
+      "value_score": 3,
+      "notes": "NS says 'domain-is-4-sale'. Fixed price listing likely."
+    },
+    {
+      "domain": "metalogo.com",
+      "estimated_dr": 5,
+      "path": "offer",
+      "status": "Moniker, SSL parking, renewed to 2027",
+      "cost_estimate": "$500-2000",
+      "timeline": "Contact via Moniker",
+      "difficulty": "medium",
+      "value_score": 2,
+      "notes": "Domain investor holding. Moniker parking."
+    },
+    {
+      "domain": "workoutlogger.com",
+      "estimated_dr": 5,
+      "path": "backorder",
+      "status": "redemptionPeriod + pendingDelete",
+      "cost_estimate": "$9-39",
+      "timeline": "DROPPING IN DAYS",
+      "difficulty": "easy",
+      "value_score": 2,
+      "notes": "Already in deletion pipeline. Will be released to auction pool imminently."
+    },
+    {
+      "domain": "devaide.com",
+      "estimated_dr": 3,
+      "path": "offer",
+      "status": "Listed on BrandBucket.com",
+      "cost_estimate": "$1000-5000",
+      "timeline": "Check BrandBucket listed price",
+      "difficulty": "easy",
+      "value_score": 2,
+      "notes": "BrandBucket branded domain marketplace listing. Buy directly on platform."
+    },
+    {
+      "domain": "votechain.com",
+      "estimated_dr": 3,
+      "path": "offer",
+      "status": "Internet.bs registrar, IBSpark parking, renewed to 2027",
+      "cost_estimate": "$200-1000",
+      "timeline": "Contact via internet.bs",
+      "difficulty": "medium",
+      "value_score": 1,
+      "notes": "Blockchain/voting niche. Domain investor holding."
+    },
+    {
+      "domain": "aidevtools.com",
+      "estimated_dr": 2.5,
+      "path": "backorder",
+      "status": "EXPIRED May 6 + clientHold + renewPeriod",
+      "cost_estimate": "$9-69",
+      "timeline": "30-45 day grace period from May 6",
+      "difficulty": "easy",
+      "value_score": 3,
+      "notes": "Already expired and in clientHold. Backorder NOW."
+    },
+    {
+      "domain": "seochecker.com",
+      "estimated_dr": 1.3,
+      "path": "backorder",
+      "status": "Expires May 8 (TODAY), clientRenewProhibited, redirects to seoptimer",
+      "cost_estimate": "$200-2000",
+      "timeline": "IMMINENT",
+      "difficulty": "medium",
+      "value_score": 3,
+      "notes": "129 referring domains, 91% dofollow. Expires today/tomorrow. Backorder immediately."
+    },
+    {
+      "domain": "pictureeditor.net",
+      "estimated_dr": 5,
+      "path": "owned",
+      "status": "Registered May 6 2026 at Cloudflare - OWNED",
+      "cost_estimate": "$0",
+      "timeline": "N/A",
+      "difficulty": "N/A",
+      "value_score": "N/A",
+      "notes": "Already acquired and deployed."
+    },
+    {
+      "domain": "ingredientcalculator.com",
+      "estimated_dr": 2,
+      "path": "owned",
+      "status": "Registered May 6 2026 at Cloudflare - OWNED",
+      "cost_estimate": "$0",
+      "timeline": "N/A",
+      "difficulty": "N/A",
+      "value_score": "N/A",
+      "notes": "Already acquired and deployed."
+    },
+    {
+      "domain": "recipetool.net",
+      "estimated_dr": 2,
+      "path": "owned",
+      "status": "Registered May 6 2026 at Cloudflare - OWNED",
+      "cost_estimate": "$0",
+      "timeline": "N/A",
+      "difficulty": "N/A",
+      "value_score": "N/A",
+      "notes": "Already acquired and deployed."
+    }
+  ]
+}

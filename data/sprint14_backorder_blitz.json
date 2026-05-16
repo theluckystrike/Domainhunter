@@ -1,0 +1,381 @@
+{
+  "sprint": 14,
+  "agent": "BACKORDER BLITZ",
+  "scan_date": "2026-05-07",
+  "total_domains": 9,
+  "total_estimated_cost_upfront": 9.99,
+  "total_estimated_cost_if_all_caught_uncontested": {
+    "dropcatch_scenario": 531,
+    "snapnames_scenario": 711,
+    "dynadot_scenario": 99,
+    "note": "You pay only ONE platform per domain — whichever catches it first. These are NOT additive."
+  },
+  "total_estimated_cost_worst_case_all_auctions": 1625,
+
+  "platforms": {
+    "dropcatch": {
+      "name": "DropCatch",
+      "url": "https://www.dropcatch.com",
+      "signup_url": "https://www.dropcatch.com/Registration",
+      "login_url": "https://www.dropcatch.com/login",
+      "backorder_navigation": "Top nav > Backorder",
+      "our_status": "ACCOUNT CREATED — verification submitted, pending 72hrs",
+      "backorder_price": 59,
+      "backorder_tier": "STANDARD (highest priority — beats discount club and bulk partners)",
+      "auction_type": "Public 3-day auction",
+      "payment_method": "Credit card",
+      "upfront_cost": 0,
+      "domains_to_place": 9,
+      "total_if_all_caught": 531
+    },
+    "snapnames": {
+      "name": "SnapNames",
+      "url": "https://www.snapnames.com",
+      "signup_url": "https://www.snapnames.com/account/add.action",
+      "login_url": "https://www.snapnames.com/account/login.action",
+      "backorder_navigation": "Search bar on homepage",
+      "our_status": "NO ACCOUNT — needs signup",
+      "backorder_price": 79,
+      "shared_inventory_with": "NameJet (DO NOT use both)",
+      "auction_type": "Private 3-day auction (backorder holders only)",
+      "payment_method": "Credit card",
+      "upfront_cost": 0,
+      "domains_to_place": 9,
+      "total_if_all_caught": 711
+    },
+    "dynadot": {
+      "name": "Dynadot",
+      "url": "https://www.dynadot.com",
+      "signup_url": "https://www.dynadot.com/account/create",
+      "login_url": "https://www.dynadot.com/account/signin",
+      "backorder_url": "https://www.dynadot.com/market/backorder",
+      "our_status": "NO ACCOUNT — needs signup",
+      "backorder_price_approx": 11,
+      "minimum_deposit": 5,
+      "auction_type": "Private 7-10 day auction (backorder holders only)",
+      "payment_method": "Credit card + $5 account balance",
+      "upfront_cost": 5.00,
+      "domains_to_place": 9,
+      "total_if_all_caught_approx": 99
+    },
+    "godaddy_auctions": {
+      "name": "GoDaddy Auctions",
+      "url": "https://auctions.godaddy.com",
+      "signup_url": "https://www.godaddy.com/auctions/domain-auctions",
+      "our_status": "NO MEMBERSHIP — needs $4.99/yr signup",
+      "backorder_available": false,
+      "backorder_discontinued": "October 2025",
+      "use_case": "Monitor-only for GoDaddy-registered domains appearing in expired auctions",
+      "membership_cost": 4.99,
+      "upfront_cost": 4.99
+    },
+    "namejet": {
+      "name": "NameJet",
+      "url": "https://www.namejet.com",
+      "our_status": "SKIP — shares identical inventory with SnapNames since 2020",
+      "action": "DO NOT CREATE ACCOUNT — using SnapNames instead",
+      "reason": "Placing backorders on both SnapNames AND NameJet = bidding against yourself"
+    },
+    "park_io": {
+      "name": "Park.io",
+      "our_status": "NOT APPLICABLE",
+      "action": "SKIP — does not cover .com or .org (ccTLDs only)"
+    }
+  },
+
+  "domain_matrix": [
+    {
+      "priority": 1,
+      "domain": "gamepicker.com",
+      "tld": ".com",
+      "expiry": "2026-05-13",
+      "days_until_expiry": 5,
+      "status": "clientRenewProhibited",
+      "urgency": "IMMEDIATE",
+      "estimated_drop_date": "2026-07-17 to 2026-07-27",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only — auction if GoDaddy-registered" }
+      },
+      "max_auction_bid": 100,
+      "competition_risk": "MEDIUM",
+      "rationale": "Gaming niche 2-word .com. clientRenewProhibited = high drop probability."
+    },
+    {
+      "priority": 2,
+      "domain": "decoder.com",
+      "tld": ".com",
+      "expiry": "2026-05-26",
+      "days_until_expiry": 18,
+      "status": "clientRenewProhibited",
+      "urgency": "IMMEDIATE — CROWN JEWEL",
+      "estimated_drop_date": "2026-07-30 to 2026-08-09",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 500,
+      "competition_risk": "VERY HIGH",
+      "rationale": "CROWN JEWEL. Single-word .com (7 letters). Massive SEO/brand value. Will attract professional domainers. clientRenewProhibited = high drop probability."
+    },
+    {
+      "priority": 3,
+      "domain": "bestdevtools.com",
+      "tld": ".com",
+      "expiry": "2026-05-22",
+      "days_until_expiry": 14,
+      "status": "DNS dead",
+      "urgency": "IMMEDIATE",
+      "estimated_drop_date": "2026-07-26 to 2026-08-05",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 100,
+      "competition_risk": "MEDIUM",
+      "rationale": "Dev tools keyword domain. DNS dead confirms abandonment."
+    },
+    {
+      "priority": 4,
+      "domain": "sushifaq.com",
+      "tld": ".com",
+      "expiry": "2026-04-10",
+      "days_until_expiry": -27,
+      "status": "PAST EXPIRY — in grace period, could drop any day",
+      "urgency": "CRITICAL — IMMINENT DROP",
+      "estimated_drop_date": "2026-06-14 to 2026-06-24",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 75,
+      "competition_risk": "LOW",
+      "rationale": "Very niche food domain. Past expiry means it is already in the pipeline. Likely low competition — should catch at base price."
+    },
+    {
+      "priority": 5,
+      "domain": "taskplanner.com",
+      "tld": ".com",
+      "expiry": "2026-05-27",
+      "days_until_expiry": 19,
+      "status": "clientRenewProhibited",
+      "urgency": "IMMEDIATE",
+      "estimated_drop_date": "2026-07-31 to 2026-08-10",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 100,
+      "competition_risk": "MEDIUM",
+      "rationale": "Productivity keyword. clientRenewProhibited = registrar locked renewal = high drop probability."
+    },
+    {
+      "priority": 6,
+      "domain": "ghostautonomy.com",
+      "tld": ".com",
+      "expiry": "2026-06-07",
+      "days_until_expiry": 30,
+      "status": "Expiring — $220M dead startup",
+      "urgency": "SOON",
+      "estimated_drop_date": "2026-08-11 to 2026-08-21",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 150,
+      "competition_risk": "MEDIUM-HIGH",
+      "rationale": "Former $220M autonomous driving startup. AI/autonomy hot sector. Domainers monitor dead startup lists."
+    },
+    {
+      "priority": 7,
+      "domain": "fileconverter.com",
+      "tld": ".com",
+      "expiry": "2026-06-20",
+      "days_until_expiry": 43,
+      "status": "clientRenewProhibited",
+      "urgency": "SOON",
+      "estimated_drop_date": "2026-08-24 to 2026-09-03",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 200,
+      "competition_risk": "HIGH",
+      "rationale": "High-traffic keyword domain. 'File converter' is a major search term. Will attract competition."
+    },
+    {
+      "priority": 8,
+      "domain": "fileshare.com",
+      "tld": ".com",
+      "expiry": "2026-06-29",
+      "days_until_expiry": 52,
+      "status": "clientRenewProhibited",
+      "urgency": "SOON",
+      "estimated_drop_date": "2026-09-02 to 2026-09-12",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 300,
+      "competition_risk": "HIGH",
+      "rationale": "Generic 2-word .com. 'Fileshare' is a universal term. Expect strong auction competition from professional domainers."
+    },
+    {
+      "priority": 9,
+      "domain": "globalgeopark.org",
+      "tld": ".org",
+      "expiry": "In auto-renew grace NOW",
+      "days_until_expiry": null,
+      "status": "In auto-renew grace period",
+      "urgency": "MONITORING",
+      "estimated_drop_date": "2026-06 to 2026-07 (depends on grace period end)",
+      "platforms": {
+        "dropcatch": { "place": true, "amount": 59 },
+        "snapnames": { "place": true, "amount": 79 },
+        "namejet": { "place": false, "reason": "Same inventory as SnapNames" },
+        "dynadot": { "place": true, "amount": 11 },
+        "godaddy": { "place": false, "reason": "Monitor only" }
+      },
+      "max_auction_bid": 100,
+      "competition_risk": "LOW",
+      "rationale": ".org TLD has fewer competing drop-catchers. Niche geographic/tourism domain. Low competition expected."
+    }
+  ],
+
+  "step_by_step": [
+    {
+      "step": 1,
+      "action": "Create SnapNames account",
+      "url": "https://www.snapnames.com/account/add.action",
+      "time_estimate_minutes": 2,
+      "details": "Fill: username, email, password, name, address. Verify email. Add credit card.",
+      "cost": 0
+    },
+    {
+      "step": 2,
+      "action": "Create Dynadot account",
+      "url": "https://www.dynadot.com/account/create",
+      "time_estimate_minutes": 2,
+      "details": "Fill: email, password, contact details. Verify email. Set marketplace payment. Add $5 minimum deposit.",
+      "cost": 5.00
+    },
+    {
+      "step": 3,
+      "action": "Place 9 backorders on DropCatch",
+      "url": "https://www.dropcatch.com/login",
+      "time_estimate_minutes": 3,
+      "details": "Log in. Top nav > Backorder. Search each domain. Click Add Backorder. Use STANDARD tier ($59). Verify in My Backorders.",
+      "cost": 0,
+      "domains": [
+        "gamepicker.com", "decoder.com", "bestdevtools.com", "sushifaq.com",
+        "taskplanner.com", "ghostautonomy.com", "fileconverter.com",
+        "fileshare.com", "globalgeopark.org"
+      ]
+    },
+    {
+      "step": 4,
+      "action": "Place 9 backorders on SnapNames",
+      "url": "https://www.snapnames.com/account/login.action",
+      "time_estimate_minutes": 3,
+      "details": "Log in. Search each domain. Click Backorder. Set amount to $79. Confirm. Verify in My Backorders.",
+      "cost": 0,
+      "domains": [
+        "gamepicker.com", "decoder.com", "bestdevtools.com", "sushifaq.com",
+        "taskplanner.com", "ghostautonomy.com", "fileconverter.com",
+        "fileshare.com", "globalgeopark.org"
+      ]
+    },
+    {
+      "step": 5,
+      "action": "Place 9 backorders on Dynadot",
+      "url": "https://www.dynadot.com/market/backorder",
+      "time_estimate_minutes": 2,
+      "details": "Log in. Navigate to backorder page. Search each domain. Click Backorder. Confirm at checkout.",
+      "cost": 0,
+      "domains": [
+        "gamepicker.com", "decoder.com", "bestdevtools.com", "sushifaq.com",
+        "taskplanner.com", "ghostautonomy.com", "fileconverter.com",
+        "fileshare.com", "globalgeopark.org"
+      ]
+    },
+    {
+      "step": 6,
+      "action": "Join GoDaddy Auctions",
+      "url": "https://www.godaddy.com/auctions/domain-auctions",
+      "time_estimate_minutes": 1,
+      "details": "Log in or create GoDaddy account. Click Join Now. Pay $4.99/yr membership. Search for all 9 domains. Add any found to Watchlist.",
+      "cost": 4.99
+    }
+  ],
+
+  "financial_summary": {
+    "upfront_cost_today": {
+      "dynadot_deposit": 5.00,
+      "godaddy_membership": 4.99,
+      "total": 9.99
+    },
+    "per_domain_backorder_costs": {
+      "dropcatch": 59,
+      "snapnames": 79,
+      "dynadot_approx": 11,
+      "note": "Charged ONLY if platform catches the domain. You pay ONE platform per domain."
+    },
+    "realistic_scenario": {
+      "description": "6 of 9 domains caught uncontested on cheapest platform",
+      "cost": "354-474"
+    },
+    "best_case_scenario": {
+      "description": "All 9 caught uncontested on Dynadot (cheapest)",
+      "cost": 99
+    },
+    "worst_case_scenario": {
+      "description": "All 9 go to auction at max bid",
+      "total_max_bids": 1625,
+      "breakdown": {
+        "decoder.com": 500,
+        "fileshare.com": 300,
+        "fileconverter.com": 200,
+        "ghostautonomy.com": 150,
+        "gamepicker.com": 100,
+        "bestdevtools.com": 100,
+        "taskplanner.com": 100,
+        "globalgeopark.org": 100,
+        "sushifaq.com": 75
+      }
+    }
+  },
+
+  "critical_warnings": [
+    "NEVER backorder same domain on BOTH SnapNames AND NameJet — you bid against yourself",
+    "Use DropCatch STANDARD ($59) backorders, NOT Discount Club — Discount Club is deprioritized behind corporate partners",
+    "decoder.com is the crown jewel — expect HEAVY competition from professional domainers",
+    "sushifaq.com is PAST EXPIRY (Apr 10) — could drop any day between now and late June",
+    "gamepicker.com expires in 5 DAYS (May 13) — must place backorders TODAY",
+    "clientRenewProhibited on gamepicker, decoder, taskplanner, fileconverter, fileshare = registrar locked renewal = HIGH drop probability",
+    "GoDaddy discontinued backorders Oct 2025 — auction monitoring only"
+  ]
+}

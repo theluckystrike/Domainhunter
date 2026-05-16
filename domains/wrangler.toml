@@ -1,0 +1,16 @@
+name = "zovo-brands"
+main = "src/index.js"
+compatibility_date = "2025-05-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "dd3f2a29b7707e21a87f26a622c0bb9d"
+workers_dev = false
+preview_urls = false
+
+# All 14 domains are bound via Custom Domains (Workers > Settings > Domains).
+# Custom Domains handle SSL and DNS automatically — no routes needed.
+# Domains were bound via PUT /accounts/{id}/workers/domains API.
+#
+# To add a new domain:
+#   curl -s -X PUT "https://api.cloudflare.com/client/v4/accounts/dd3f2a29b7707e21a87f26a622c0bb9d/workers/domains" \
+#     -H "Authorization: Bearer $CF_ZONE_TOKEN" -H "Content-Type: application/json" \
+#     --data '{"hostname":"NEW.DOMAIN","service":"zovo-brands","environment":"production"}'

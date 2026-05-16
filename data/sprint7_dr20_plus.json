@@ -1,0 +1,32 @@
+{
+  "sprint": 7,
+  "report_date": "2026-05-07",
+  "filter": "VERIFIED DR/DA >= 20",
+  "total_domains": 0,
+  "domains": [],
+  "explanation": "ZERO domains have a VERIFIED DR or DA >= 20. Every previously claimed DR 20+ domain was based on estimates (radiograph_estimate or niche_estimate), never verified with an actual Ahrefs/Moz/SEMrush reading. The only domain with a verified Moz DA reading is fitocracy.com at DA 3. The only domains with verified Ahrefs DR readings are mortgagecalc.com (DR 6) and seochecker.com (DR 1.3). devhub.io was tagged as ahrefs_verified at DR 27 in a prior sprint but we could not independently re-verify this today.",
+  "candidates_by_traffic_signal": [
+    {
+      "domain": "codeparrot.ai",
+      "organic_keywords": 4259,
+      "organic_etv": 18383.21,
+      "reasoning": "Traffic data strongly suggests DR 20+ -- 4,259 keywords ranking globally with $18K+ monthly ETV is not possible at DR < 15. LIKELY DR 25-45 range. But no verified number.",
+      "verdict": "UNVERIFIED -- probable DR 20+ based on traffic signals"
+    },
+    {
+      "domain": "imageeditor.net",
+      "organic_keywords": 463,
+      "organic_etv": 1521.02,
+      "reasoning": "463 keywords ranking in 78 locations with $1.5K ETV suggests real authority above estimated DR 8. Likely DR 15-30 range.",
+      "verdict": "UNVERIFIED -- probable DR 15+ based on traffic signals"
+    },
+    {
+      "domain": "devhub.io",
+      "organic_keywords": 0,
+      "organic_etv": 0,
+      "prior_ahrefs_dr": 27,
+      "reasoning": "Previously tagged as ahrefs_verified DR 27. Domain is parked so zero traffic is expected. If the prior reading was real, this qualifies.",
+      "verdict": "UNVERIFIED -- prior Ahrefs reading of DR 27 could not be re-confirmed"
+    }
+  ]
+}

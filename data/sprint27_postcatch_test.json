@@ -1,0 +1,100 @@
+{
+  "test_date": "2026-05-16",
+  "sprint": "27",
+  "agent": "Agent 5 — Post-Catch Infrastructure Test",
+  "components": {
+    "drop_monitor": {
+      "status": "PASS",
+      "notes": "dry-run loads 37 domains from monitored_domains.json (new active_targets format). Config load supports both legacy 'domains' and new 'active_targets' keys. guerrameats.com found at tier=critical with last_status=clientHold. DB has 54 records across 18 distinct domains. Script exit code 0 on dry-run."
+    },
+    "rdap_client": {
+      "status": "PASS",
+      "notes": "Live RDAP probe to rdap.org/domain/google.com returned valid EPP statuses and entity data within 15s timeout. WHOIS fallback implemented for 404/403/429 HTTP errors. Separate clients/rdap_client.py module exists with RDAPClient class (frozen dataclasses, async batch lookup). Both drop_monitor.py inline RDAP and clients/rdap_client.py are functional."
+    },
+    "notifications": {
+      "status": "PASS",
+      "notes": "macOS osascript desktop notifications functional. sprint26_notification_test.py provides full chain test (desktop notification + log write + log verify + queue check + DB check). send_desktop_notification() in drop_monitor.py, test_notification() in first_blood_prep.py, and sprint26_notification_test.py all use osascript. No Slack webhook configured (DOMAIN_HUNTER_SLACK_WEBHOOK env var not set)."
+    },
+    "backorder_queue": {
+      "status": "PASS",
+      "notes": "backorder_queue.json is well-formed: 19 entries, Dynadot balance=$25.00. guerrameats.com present with status=waiting, playbook=REDIRECT, etv=11376, drop_est=2026-06-26. Budget summary shows auto_trigger_armed=true."
+    },
+    "daily_digest": {
+      "status": "PASS",
+      "notes": "sprint26_daily_digest.py runs without errors in --quiet mode. Reads monitored_domains.json (both config formats), backorder_queue.json, and drop_monitor.db. Outputs guerrameats.com countdown (41 days to estimated drop). Writes to logs/daily_digest.log. macOS notification sent."
+    },
+    "launchd_plists": {
+      "status": "FAIL",
+      "notes": "All 4 plist files validate with plutil -lint (OK). All 4 agents are loaded in launchctl. However, BOTH drop monitor agents are FAILING with exit code 126 (Operation not permitted). Logs show: 'shell-init: error retrieving current directory: getcwd: cannot access parent directories: Operation not permitted' and '/bin/bash: .../run_drop_monitor.sh: Operation not permitted'. This is a macOS Full Disk Access / TCC (Transparency, Consent, and Control) issue — /bin/bash launched by launchd does not have permission to access ~/Desktop/domainhunter/. The agents are loaded but non-functional."
+    },
+    "post_catch_executor": {
+      "status": "PASS_WITH_GAPS",
+      "notes": "post_catch_executor.py runs successfully in dry-run mode for guerrameats.com. 4-step pipeline: DNS setup -> landing page -> marketplace listing -> notification. Uses Dynadot API for DNS, generates landing pages and marketplace listings. HOWEVER: guerrameats.com is NOT in the sprint22 playbook file (sprint22_playbooks_2026-05-15.json), so it falls back to defaults (strategy=FLIP instead of configured REDIRECT from queue, BIN=$4000/min=$250 based on default value estimates)."
+    },
+    "test_suite": {
+      "status": "PASS_WITH_EXCLUSION",
+      "notes": "307/307 tests PASSED (after excluding test_dynadot_client.py due to missing 'respx' module). test_drop_monitor.py (14 tests), test_rdap_client.py (10 tests), test_startup_reaper.py (includes 9 PostCatchExecutor tests) all pass. Test coverage includes: config loading, status change detection, drop date estimation, backorder triggers, SQLite storage, RDAP parsing, landing page generation, marketplace listing."
+    }
+  },
+  "end_to_end_flow_analysis": {
+    "status": "FAIL — 3 PIPELINE GAPS",
+    "flow_trace": {
+      "step_1_rdap_probe": "WORKS — drop_monitor.py queries RDAP, classifies EPP status, detects transitions",
+      "step_2_transition_detection": "WORKS — detect_transition() correctly identifies pendingDelete/available transitions",
+      "step_3_auto_backorder": "WORKS — alert_on_transition() calls place_backorder() via Dynadot API for pendingDelete/available",
+      "step_4_notification": "WORKS — desktop notification + Slack (if webhook configured)",
+      "step_5_queue_update": "MISSING — drop_monitor.py does NOT update backorder_queue.json when status changes",
+      "step_6_post_catch_trigger": "MISSING — no automatic invocation of post_catch_executor.py after successful catch",
+      "step_7_playbook_lookup": "BROKEN — guerrameats.com has no playbook entry, falls back to FLIP defaults instead of REDIRECT"
+    }
+  },
+  "gaps": [
+    "GAP-1 (CRITICAL): Launchd agents failing with 'Operation not permitted'. macOS TCC/Full Disk Access blocks /bin/bash from accessing ~/Desktop/domainhunter/. The automated 4x/day critical monitoring and 1x/day full monitoring are NOT running. No heartbeat file exists at logs/.drop_monitor_heartbeat.",
+    "GAP-2 (HIGH): drop_monitor.py does NOT update backorder_queue.json when it detects a status transition. The queue file is static — only updated by manual sprint scripts (sprint24_update_queue.py, sprint25_update_queue.py). When guerrameats.com transitions to pendingDelete, the queue will still show status='waiting' with epp_status='clientHold'.",
+    "GAP-3 (HIGH): No automatic bridge from drop_monitor.py to post_catch_executor.py. When a domain is actually caught (status=available), there is no automated trigger to run the post-catch workflow. This requires manual intervention.",
+    "GAP-4 (MEDIUM): guerrameats.com is NOT in sprint22_playbooks_2026-05-15.json. The post_catch_executor falls back to default FLIP strategy instead of the REDIRECT strategy configured in backorder_queue.json. Value estimates default to BIN=$4000 instead of queue's $2000-$15000 range.",
+    "GAP-5 (MEDIUM): Slack webhook (DOMAIN_HUNTER_SLACK_WEBHOOK) is not configured in .env. Critical/high tier transitions will only fire macOS desktop notifications, which are ephemeral and easily missed.",
+    "GAP-6 (LOW): test_dynadot_client.py cannot run due to missing 'respx' dependency. The Dynadot API client integration tests are effectively dead.",
+    "GAP-7 (LOW): 19 domains of 37 monitored have never been checked by drop_monitor (last_status=none). Only 18 distinct domains have DB records. These 19 domains have no baseline status for transition detection."
+  ],
+  "recommendations": [
+    "REC-1 (URGENT): Fix launchd permissions. Either: (a) Grant Full Disk Access to /bin/bash in System Settings > Privacy & Security > Full Disk Access, or (b) move the project out of ~/Desktop/ to a non-TCC-protected path like ~/domainhunter/, or (c) use a shim script in /usr/local/bin/ that launchd can access.",
+    "REC-2 (HIGH): Add queue update logic to drop_monitor.py. When a transition is detected, update the corresponding entry in backorder_queue.json with the new epp_status, transition timestamp, and backorder_status (e.g., 'backorder_placed', 'caught', 'dropped').",
+    "REC-3 (HIGH): Add post-catch auto-trigger. When drop_monitor detects status=available for a domain with max_bid>0, automatically invoke post_catch_executor.py. Could be a subprocess call or a separate launchd watcher on the DB.",
+    "REC-4 (MEDIUM): Add guerrameats.com to sprint22_playbooks with strategy=REDIRECT and value estimates matching backorder_queue.json ($2000-$15000). This ensures the post-catch executor uses the correct strategy.",
+    "REC-5 (MEDIUM): Run drop_monitor.py --tier all once (not dry-run) to establish baseline statuses for all 37 domains. Currently 19 domains lack any DB record, so the first real check will detect spurious 'new' transitions.",
+    "REC-6 (LOW): Install 'respx' package (pip install respx) to enable test_dynadot_client.py tests.",
+    "REC-7 (LOW): Consider setting up a Slack webhook or Pushover integration for redundant alerting beyond ephemeral macOS notifications."
+  ],
+  "guerrameats_readiness": {
+    "domain": "guerrameats.com",
+    "current_status": "clientHold",
+    "estimated_drop": "2026-06-26",
+    "days_to_drop": 41,
+    "in_monitored_config": true,
+    "tier": "critical",
+    "max_bid": 200,
+    "etv": 11376,
+    "in_backorder_queue": true,
+    "queue_playbook": "REDIRECT",
+    "in_sprint22_playbook": false,
+    "dynadot_balance": 25.0,
+    "dynadot_api_key_set": true,
+    "auto_backorder_armed": true,
+    "launchd_monitoring_working": false,
+    "db_has_baseline": true,
+    "last_db_status": "clientHold",
+    "last_db_check": "2026-05-15T14:24:30",
+    "ready_for_catch": "NO — launchd agents broken, no automatic monitoring running"
+  },
+  "test_execution_summary": {
+    "drop_monitor_dry_run": "PASS — 37 domains enumerated, guerrameats.com last=clientHold",
+    "daily_digest_quiet": "PASS — ran without errors, logged to daily_digest.log",
+    "post_catch_dry_run": "PASS — 4 steps completed for guerrameats.com (defaults used, no playbook)",
+    "plutil_lint": "PASS — all 4 plist files are valid XML",
+    "launchctl_list": "LOADED — 4 agents present, but 2 drop monitors exit 126",
+    "rdap_live_probe": "PASS — google.com returned valid EPP statuses",
+    "pytest_suite": "307 PASSED, 0 FAILED, 1 COLLECTION ERROR (respx missing)",
+    "sqlite_db": "PASS — 54 records, 18 distinct domains, schema valid"
+  }
+}

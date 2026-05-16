@@ -1,0 +1,149 @@
+{
+  "sprint": 14,
+  "agent": "CRON + GSC",
+  "generated_at": "2026-05-07T11:20:00Z",
+
+  "cron_status": "not_set_up",
+  "cron_current_domainhunter_entries": [],
+  "cron_lines": [
+    "# --- Domain Hunter REVENANT Pipeline (Sprint 14) ---",
+    "# Daily hunter at 06:00 UTC",
+    "0 6 * * * cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py >> logs/daily_hunter.log 2>&1",
+    "# Weekly WHOIS monitor -- Monday 08:00 UTC",
+    "0 8 * * 1 /Users/mike/Desktop/domainhunter/tools/whois_monitor.sh >> /Users/mike/Desktop/domainhunter/logs/whois_monitor.log 2>&1",
+    "# Weekly DataForSEO ETV check -- Monday 09:00 UTC (after WHOIS)",
+    "0 9 * * 1 cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py --sources dataforseo_labs --min-da 10 >> logs/weekly_etv_check.log 2>&1"
+  ],
+  "cron_install_command": "crontab -l > /tmp/crontab_backup.txt && (crontab -l; echo ''; echo '# --- Domain Hunter REVENANT Pipeline (Sprint 14) ---'; echo '# Daily hunter at 06:00 UTC'; echo '0 6 * * * cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py >> logs/daily_hunter.log 2>&1'; echo '# Weekly WHOIS monitor -- Monday 08:00 UTC'; echo '0 8 * * 1 /Users/mike/Desktop/domainhunter/tools/whois_monitor.sh >> /Users/mike/Desktop/domainhunter/logs/whois_monitor.log 2>&1'; echo '# Weekly DataForSEO ETV check -- Monday 09:00 UTC'; echo '0 9 * * 1 cd /Users/mike/Desktop/domainhunter && .venv/bin/python tools/daily_hunter.py --sources dataforseo_labs --min-da 10 >> logs/weekly_etv_check.log 2>&1') | crontab -",
+
+  "env_check": {
+    "DATAFORSEO_LOGIN": "set (support@zovo.one)",
+    "DATAFORSEO_PASSWORD": "set (16 chars)",
+    "DEEPSEEK_API_KEY": "set (sk-...0334)",
+    "CLOUDFLARE_DNS_TOKEN": "set (cfut_...)"
+  },
+  "env_missing": [],
+
+  "dns_check": {
+    "ingredientcalculator.com": {
+      "resolves": true,
+      "a_records": ["172.67.197.245", "104.21.21.107"],
+      "cname": null,
+      "ns_records": ["aron.ns.cloudflare.com", "thaddeus.ns.cloudflare.com"],
+      "txt_records": [
+        "google-site-verification=UeY30LKJo76XlXdbS5J6yTtJXr6bhNJiaw3dVI7uFYM",
+        "google-site-verification=thDvZAKY-2lOjTVhRyKqTHnwldNc6M0jBCwvxNMRVL4"
+      ],
+      "http_status": 200,
+      "server": "cloudflare",
+      "hosting": "Cloudflare Pages (proxied)",
+      "gsc_verification_dns": "ALREADY HAS google-site-verification TXT records (2 found)",
+      "site_live": true,
+      "notes": "Site is live with CSP headers, AdSense script allowed, 24h cache"
+    },
+    "pictureeditor.net": {
+      "resolves": true,
+      "a_records": ["104.21.94.114", "172.67.222.191"],
+      "cname": null,
+      "ns_records": ["aron.ns.cloudflare.com", "thaddeus.ns.cloudflare.com"],
+      "txt_records": [
+        "google-site-verification=-xKx8UCmB312kGY6m7YNnd5go3TSqupaEmLk2y_RrE0",
+        "google-site-verification=wHOjwexCYkGt8rmrx24l-6oHf3CEkmG-4E_c0GqizP0"
+      ],
+      "http_status": 200,
+      "server": "cloudflare",
+      "hosting": "Cloudflare Pages (proxied)",
+      "gsc_verification_dns": "ALREADY HAS google-site-verification TXT records (2 found)",
+      "site_live": true,
+      "notes": "Site is live with GA + AdSense CSP, must-revalidate cache"
+    },
+    "recipetool.net": {
+      "resolves": true,
+      "a_records": ["104.21.28.121", "172.67.146.30"],
+      "cname": null,
+      "ns_records": ["aron.ns.cloudflare.com", "thaddeus.ns.cloudflare.com"],
+      "txt_records": [
+        "google-site-verification=DGozdEND5wOpPAEznAmDo9DYe7kRq28LXzNeTUeP-s8",
+        "google-site-verification=uVBQZF__ATdCaoLR2QQnoha2eZiqqr27CZiAqF20Rac"
+      ],
+      "http_status": 200,
+      "server": "cloudflare",
+      "hosting": "Cloudflare Pages (proxied)",
+      "gsc_verification_dns": "ALREADY HAS google-site-verification TXT records (2 found)",
+      "site_live": true,
+      "notes": "Site is live, minimal CSP, SAMEORIGIN framing"
+    }
+  },
+
+  "gsc_guide": {
+    "summary": "All 3 domains already have google-site-verification DNS TXT records (2 each), meaning GSC properties were likely already added. Steps below are for verification/re-verification if needed.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open Google Search Console",
+        "action": "Go to https://search.google.com/search-console",
+        "notes": "Sign in with your Google account (the one you want to own the properties)"
+      },
+      {
+        "step": 2,
+        "title": "Add Property (URL Prefix method)",
+        "action": "Click 'Add property' in the left sidebar dropdown. Choose 'URL prefix'. Enter https://ingredientcalculator.com (repeat for each domain).",
+        "notes": "URL prefix is simpler than Domain property. Use https:// prefix since all 3 sites serve HTTPS."
+      },
+      {
+        "step": 3,
+        "title": "Verify via DNS TXT Record",
+        "action": "GSC will show a verification code like google-site-verification=XXXXX. Go to Cloudflare Dashboard > select domain > DNS > Records > Add Record. Type: TXT, Name: @, Content: paste the verification string. TTL: Auto.",
+        "notes": "ALL 3 DOMAINS ALREADY HAVE google-site-verification TXT records. If they belong to your Google account, verification should auto-complete. If they belong to a different account, you need to add a NEW TXT record with the new verification code."
+      },
+      {
+        "step": 4,
+        "title": "Submit Sitemap",
+        "action": "In GSC, go to Sitemaps (left sidebar). Enter 'sitemap.xml' and click Submit. Also try 'sitemap_index.xml' if applicable.",
+        "sitemaps_to_try": [
+          "https://ingredientcalculator.com/sitemap.xml",
+          "https://pictureeditor.net/sitemap.xml",
+          "https://recipetool.net/sitemap.xml"
+        ],
+        "notes": "If sites are Cloudflare Pages with static content, ensure sitemap.xml exists in the build output."
+      },
+      {
+        "step": 5,
+        "title": "Check Impressions and Clicks",
+        "action": "GSC Performance tab shows impressions, clicks, CTR, position. Data takes 2-3 days to appear for new properties.",
+        "notes": "For newly acquired domains, check if there is historical data from previous owners. GSC data resets when ownership changes."
+      },
+      {
+        "step": 6,
+        "title": "Request Indexing (optional)",
+        "action": "Use URL Inspection tool in GSC. Paste homepage URL and click 'Request Indexing'. Do this for key pages.",
+        "notes": "Limited to ~10-20 requests per day. Prioritize homepage and high-value pages."
+      }
+    ],
+    "existing_verification_status": {
+      "ingredientcalculator.com": "2 google-site-verification TXT records found -- likely already verified in GSC",
+      "pictureeditor.net": "2 google-site-verification TXT records found -- likely already verified in GSC",
+      "recipetool.net": "2 google-site-verification TXT records found -- likely already verified in GSC"
+    }
+  },
+
+  "daily_hunter_cli": {
+    "script": "/Users/mike/Desktop/domainhunter/tools/daily_hunter.py",
+    "venv_python": "/Users/mike/Desktop/domainhunter/.venv/bin/python",
+    "flags": {
+      "--dry-run": "Run with mock data, no API calls",
+      "--config PATH": "Path to config JSON (default: daily_hunter_config.json)",
+      "--min-da INT": "Override minimum DA filter",
+      "--sources LIST": "Comma-separated source list override (e.g. 'domcop,tech_shutdowns')"
+    }
+  },
+
+  "whois_monitor": {
+    "script": "/Users/mike/Desktop/domainhunter/tools/whois_monitor.sh",
+    "monitors": {
+      "backorder": ["taskplanner.com", "aidevtools.com", "bestdevtools.com", "finetuneai.com"],
+      "watchlist": ["devtools.io", "toolchain.io", "stackreview.com"]
+    },
+    "alerts_on": "pendingDelete status detected"
+  }
+}

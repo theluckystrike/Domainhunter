@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egg Substitute Calculator - Find the Best Egg Replacement for Baking</title>
+<meta name="description" content="Free egg substitute calculator for baking. Find the perfect egg replacement — flax eggs, applesauce, banana, aquafaba, and more. Vegan and allergy-friendly options with exact measurements.">
+<meta name="keywords" content="egg substitute, egg replacement, vegan egg substitute, flax egg, egg substitute for baking, egg alternative, eggless baking">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/egg-substitute">
+<meta property="og:title" content="Egg Substitute Calculator - Best Egg Replacements for Baking">
+<meta property="og:description" content="Calculate exact measurements for egg substitutes in baking. Vegan and allergy-friendly options.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/egg-substitute">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Egg Substitute Calculator">
+<meta name="twitter:description" content="Find the perfect egg replacement for any recipe. Flax eggs, applesauce, banana, aquafaba and more.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Substitute Eggs in Baking",
+  "description": "Find the right egg substitute and exact measurements for your recipe.",
+  "step": [
+    {"@type": "HowToStep", "text": "Enter how many eggs your recipe calls for"},
+    {"@type": "HowToStep", "text": "Select your dietary preference (vegan, allergy-free, etc.)"},
+    {"@type": "HowToStep", "text": "Choose from recommended substitutes with exact measurements"},
+    {"@type": "HowToStep", "text": "Note the best use case for each substitute (binding, leavening, moisture)"}
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media(max-width:640px){ .input-row { grid-template-columns: 1fr; } }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.filter-btn { padding: 6px 14px; border: 1.5px solid var(--clr-border); border-radius: 20px; font-size: 0.85rem; font-weight: 500; cursor: pointer; background: var(--clr-surface); transition: var(--transition); }
+.filter-btn:hover { border-color: var(--clr-accent); color: var(--clr-accent); }
+.filter-btn.active { background: var(--clr-accent); color: #fff; border-color: var(--clr-accent); }
+.substitutes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.sub-card { border: 1.5px solid var(--clr-border); border-radius: var(--radius); padding: 16px; transition: var(--transition); }
+.sub-card:hover { border-color: var(--clr-accent); box-shadow: 0 2px 8px var(--clr-shadow); }
+.sub-card h4 { font-size: 1rem; margin-bottom: 4px; }
+.sub-card .amount { font-size: 1.25rem; font-weight: 700; color: var(--clr-accent-hover); margin: 8px 0; }
+.sub-card .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
+.sub-card .tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+.tag-vegan { background: #DCFCE7; color: #166534; }
+.tag-binding { background: #DBEAFE; color: #1E40AF; }
+.tag-leavening { background: #FEF3C7; color: #92400E; }
+.tag-moisture { background: #E0E7FF; color: #3730A3; }
+.tag-allergy { background: #FCE7F3; color: #9D174D; }
+.sub-card .notes { font-size: 0.8rem; color: var(--clr-text-muted); }
+.best-for { font-size: 0.8rem; color: var(--clr-text-muted); margin-top: 6px; font-style: italic; }
+footer { text-align: center; padding: 32px 16px; color: var(--clr-text-muted); font-size: 0.85rem; border-top: 1px solid var(--clr-border); margin-top: 48px; }
+footer a { color: var(--clr-accent); text-decoration: none; }
+.info-section { margin-top: 32px; }
+.info-section h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.info-section p { color: var(--clr-text-muted); margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/recipe-converter.html">Unit Converter</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <h2>Egg Substitute Calculator</h2>
+  <p class="subtitle">Find the perfect egg replacement for any recipe. Get exact measurements scaled to the number of eggs you need to replace.</p>
+
+  <div class="card">
+    <div class="input-row">
+      <div class="field">
+        <label for="egg-count">Number of Eggs to Replace</label>
+        <input type="number" id="egg-count" value="1" min="1" max="12" step="1">
+      </div>
+      <div class="field">
+        <label for="egg-purpose">Primary Purpose in Recipe</label>
+        <select id="egg-purpose">
+          <option value="all">All purposes</option>
+          <option value="binding">Binding (holds ingredients together)</option>
+          <option value="leavening">Leavening (adds rise)</option>
+          <option value="moisture">Moisture (adds richness)</option>
+        </select>
+      </div>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="vegan">Vegan</button>
+      <button class="filter-btn" data-filter="nut-free">Nut-Free</button>
+      <button class="filter-btn" data-filter="soy-free">Soy-Free</button>
+      <button class="filter-btn" data-filter="low-cal">Low Calorie</button>
+    </div>
+    <div class="substitutes-grid" id="substitutes-grid"></div>
+  </div>
+
+  <div class="info-section">
+    <h3>How to Choose the Right Egg Substitute</h3>
+    <p>The best egg substitute depends on what role eggs play in your recipe. In cookies and brownies, eggs act as binders — flax eggs or chia eggs work great. In cakes, eggs provide leavening — try aquafaba or commercial egg replacers. In moist quick breads, eggs add moisture — use applesauce or mashed banana.</p>
+    <h3>Can I use multiple egg substitutes in one recipe?</h3>
+    <p>Yes, but be cautious. When replacing more than 3 eggs, you may want to combine substitutes (e.g., use flax for binding + extra baking powder for lift). Results vary — recipes with 4+ eggs (like angel food cake) are harder to make egg-free.</p>
+    <h3>Will egg substitutes change the taste?</h3>
+    <p>Some will. Banana and applesauce add subtle flavor. Flax eggs add a slight nutty taste. Aquafaba and commercial replacers are the most neutral options for flavor-sensitive recipes.</p>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a> — Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a> &middot;
+      <a href="/recipe-converter.html">Unit Converter</a> &middot;
+      <a href="/egg-substitute.html">Egg Substitutes</a> &middot;
+      <a href="/baking-ratios.html">Baking Ratios</a> &middot;
+      <a href="/serving-size-calculator.html">Serving Size</a>
+    </p>
+  </div>
+</footer>
+<script>
+const substitutes = [
+  { name: 'Flax Egg', perEgg: '1 tbsp ground flaxseed + 3 tbsp water (let sit 5 min)', tags: ['vegan','binding','soy-free'], bestFor: 'Cookies, muffins, pancakes, brownies', notes: 'Adds slight nutty flavor. Best for dense baked goods.' },
+  { name: 'Chia Egg', perEgg: '1 tbsp chia seeds + 3 tbsp water (let sit 5 min)', tags: ['vegan','binding','soy-free'], bestFor: 'Cookies, bars, quick breads', notes: 'Neutral flavor. Seeds remain slightly visible.' },
+  { name: 'Mashed Banana', perEgg: '1/4 cup (60g) mashed ripe banana', tags: ['vegan','moisture','nut-free','soy-free','low-cal'], bestFor: 'Muffins, pancakes, quick breads, cakes', notes: 'Adds banana flavor and natural sweetness. Best in already-sweet recipes.' },
+  { name: 'Applesauce', perEgg: '1/4 cup (65g) unsweetened applesauce', tags: ['vegan','moisture','nut-free','soy-free','low-cal'], bestFor: 'Cakes, muffins, spice cookies, brownies', notes: 'Very mild flavor. Adds moisture without fat. Reduce sugar slightly.' },
+  { name: 'Aquafaba', perEgg: '3 tbsp aquafaba (chickpea liquid)', tags: ['vegan','leavening','nut-free','soy-free','low-cal'], bestFor: 'Meringues, macarons, fluffy cakes, mousse', notes: 'Can be whipped like egg whites. The most versatile egg replacer.' },
+  { name: 'Silken Tofu', perEgg: '1/4 cup (60g) blended silken tofu', tags: ['vegan','binding','moisture','nut-free'], bestFor: 'Dense cakes, brownies, custards, quiche', notes: 'Neutral flavor when blended smooth. Adds protein and density.' },
+  { name: 'Commercial Egg Replacer', perEgg: '1.5 tsp powder + 3 tbsp water', tags: ['vegan','leavening','nut-free','soy-free'], bestFor: 'Any recipe — cakes, cookies, muffins', notes: 'Most reliable results. Follow package directions for specific brand.' },
+  { name: 'Yogurt', perEgg: '1/4 cup (60g) plain yogurt', tags: ['moisture','binding','nut-free','soy-free'], bestFor: 'Cakes, muffins, pancakes', notes: 'Adds tanginess and moisture. Not vegan unless using plant-based yogurt.' },
+  { name: 'Buttermilk', perEgg: '1/4 cup (60mL) buttermilk', tags: ['moisture','leavening','nut-free','soy-free'], bestFor: 'Cakes, pancakes, waffles, biscuits', notes: 'Adds tenderness and slight tang. Works well with baking soda.' },
+  { name: 'Vinegar + Baking Soda', perEgg: '1 tsp vinegar + 1 tsp baking soda', tags: ['vegan','leavening','nut-free','soy-free','low-cal'], bestFor: 'Cakes, cupcakes — anything needing rise', notes: 'Great for leavening only. Does not bind. Use apple cider or white vinegar.' },
+  { name: 'Arrowroot Powder', perEgg: '2 tbsp arrowroot + 3 tbsp water', tags: ['vegan','binding','nut-free','soy-free','low-cal'], bestFor: 'Cookies, breading, thickening', notes: 'Excellent binder. Neutral flavor. Also works as cornstarch substitute.' },
+  { name: 'Pumpkin Puree', perEgg: '1/4 cup (60g) pumpkin puree', tags: ['vegan','moisture','nut-free','soy-free','low-cal'], bestFor: 'Muffins, spice cakes, brownies, pancakes', notes: 'Adds color and mild earthy flavor. Works great in fall/winter baking.' },
+  { name: 'Mashed Avocado', perEgg: '1/4 cup (60g) mashed avocado', tags: ['vegan','moisture','binding','nut-free','soy-free'], bestFor: 'Brownies, chocolate cake, dense muffins', notes: 'Adds healthy fats. Very creamy. Best in chocolate recipes where green color is hidden.' },
+  { name: 'Carbonated Water', perEgg: '1/4 cup (60mL) carbonated water', tags: ['vegan','leavening','nut-free','soy-free','low-cal'], bestFor: 'Pancakes, waffles, light cakes', notes: 'Adds lift and lightness. Must be used immediately. No binding ability.' }
+];
+
+const grid = document.getElementById('substitutes-grid');
+const eggCountInput = document.getElementById('egg-count');
+const purposeSelect = document.getElementById('egg-purpose');
+const filterBtns = document.querySelectorAll('.filter-btn');
+let activeFilter = 'all';
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    render();
+  });
+});
+
+eggCountInput.addEventListener('input', render);
+purposeSelect.addEventListener('change', render);
+
+function render() {
+  const count = parseInt(eggCountInput.value) || 1;
+  const purpose = purposeSelect.value;
+  let filtered = substitutes;
+  if (activeFilter !== 'all') {
+    filtered = filtered.filter(s => s.tags.includes(activeFilter));
+  }
+  if (purpose !== 'all') {
+    filtered = filtered.filter(s => s.tags.includes(purpose));
+  }
+  grid.innerHTML = filtered.map(s => {
+    const amount = count === 1 ? s.perEgg : scaleAmount(s.perEgg, count);
+    const tagHTML = s.tags.map(t => {
+      let cls = 'tag-binding';
+      if (t === 'vegan') cls = 'tag-vegan';
+      else if (t === 'leavening') cls = 'tag-leavening';
+      else if (t === 'moisture') cls = 'tag-moisture';
+      else if (t === 'nut-free' || t === 'soy-free' || t === 'low-cal') cls = 'tag-allergy';
+      const label = t.replace('-', ' ');
+      return `<span class="tag ${cls}">${label}</span>`;
+    }).join('');
+    return `<div class="sub-card">
+      <h4>${s.name}</h4>
+      <div class="tags">${tagHTML}</div>
+      <div class="amount">${amount}</div>
+      <div class="best-for">Best for: ${s.bestFor}</div>
+      <div class="notes">${s.notes}</div>
+    </div>`;
+  }).join('');
+}
+
+function scaleAmount(perEgg, count) {
+  return perEgg.replace(/(\d+\.?\d*)/g, (match) => {
+    const scaled = parseFloat(match) * count;
+    return scaled % 1 === 0 ? scaled.toString() : scaled.toFixed(1);
+  }) + ` (for ${count} eggs)`;
+}
+
+render();
+</script>
+</body>
+</html>

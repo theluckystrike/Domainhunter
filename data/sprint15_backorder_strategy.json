@@ -1,0 +1,216 @@
+{
+  "sprint": 15,
+  "agent": "BACKORDER STRATEGY",
+  "scan_date": "2026-05-08",
+  "olive_verdict": "HARD NO-GO — olive.com is an active car warranty business (Repair Ventures LLC), NOT the dead Olive AI startup. Expires 2027, BBB A+ rating. COMPLETELY unacquirable.",
+
+  "oliveai_check": {
+    "domain": "oliveai.com",
+    "registrar": "Amazon Registrar, Inc.",
+    "registrant": "Identity Protection Service (proxy for Waystar)",
+    "creation_date": "2017-11-15",
+    "expiry_date": "2026-11-15",
+    "updated_date": "2022-11-30",
+    "status_flags": [
+      "clientDeleteProhibited",
+      "clientTransferProhibited",
+      "clientUpdateProhibited"
+    ],
+    "nameservers": [
+      "ns-419.awsdns-52.com",
+      "ns-949.awsdns-54.net",
+      "ns-1615.awsdns-09.co.uk",
+      "ns-1310.awsdns-35.org"
+    ],
+    "http_status": "301 redirect to https://www.waystar.com/",
+    "dns_a_records": ["3.164.85.2", "3.164.85.22", "3.164.85.4", "3.164.85.61"],
+    "infrastructure": "AWS CloudFront + S3",
+    "etv": 275.16,
+    "organic_keywords": 26,
+    "keywords_pos_1": 5,
+    "keywords_top_10": 18,
+    "estimated_paid_traffic_cost": 316.21,
+    "acquirable": false,
+    "verdict": "NOT DROPPING. Held by Waystar (acquired Olive AI). Active redirect, AWS infrastructure, 6+ months to expiry. clientDeleteProhibited means they intend to keep it. All 3 lock flags set. Zero chance of acquisition.",
+    "note": "ETV $275/mo with 26 keywords is modest but the domain is firmly held by a $3B+ company (Waystar). Not worth monitoring."
+  },
+
+  "targets": {
+    "globalgeopark.org": {
+      "registrar": "Tucows Domains Inc. (via China Enterprise ASP Limited reseller)",
+      "registrant_country": "CN (Beijing)",
+      "creation_date": "2007-04-11",
+      "registry_expiry_date": "2027-04-11T02:12:38Z",
+      "registrar_expiry_date": "2026-04-11T02:12:38Z",
+      "updated_date": "2026-04-15T05:59:07Z",
+      "status_flags_registry": ["autoRenewPeriod"],
+      "status_flags_registrar": ["ok"],
+      "nameservers": ["ns1.renewyourname.net", "ns2.renewyourname.net"],
+      "http_status": "405 Method Not Allowed (GET redirects to /lander — parked page)",
+      "dns_a_records": ["52.223.13.41"],
+      "etv": 626,
+      "organic_keywords": 249,
+      "max_bid": 400,
+      "urgency": "CRITICAL",
+      "analysis": {
+        "autoRenewPeriod_explanation": "The registry shows autoRenewPeriod status, which means the domain expired on 2026-04-11 and was automatically renewed by Tucows. The registrar WHOIS still shows expiry 2026-04-11 while the registry shows 2027-04-11 — this confirms the auto-renewal happened at the registry level but the registrant has NOT explicitly paid for renewal.",
+        "grace_period_timeline": "For .org domains: Auto-Renew Grace Period is 45 days from expiry. Expiry was 2026-04-11. Grace period ends approximately 2026-05-26 (19 days from now). If the registrant does not pay, Tucows will delete the auto-renewal and the domain enters Redemption Grace Period (30 days), then Pending Delete (5 days).",
+        "estimated_drop_date_if_not_renewed": "~2026-07-01 (Redemption end) to ~2026-07-06 (Pending Delete end, available for registration)",
+        "parked_page_signal": "Currently serving a redirect to /lander (parked page). Nameservers are renewyourname.net — these are Tucows/Hover parking nameservers. The original owner has already abandoned the site content.",
+        "risk": "If registrant pays during auto-renew grace period (before ~May 26), domain stays locked. However, the parked/lander page strongly suggests abandonment."
+      },
+      "platforms": {
+        "dropcatch": {
+          "supports_org": true,
+          "cost": "$59 per backorder (refunded if not caught)",
+          "notes": "DropCatch does catch .org domains. PIR (Public Interest Registry) releases expired .org domains similarly to Verisign. DropCatch has strong .org catch rates."
+        },
+        "snapnames": {
+          "supports_org": true,
+          "cost": "$79 per backorder (refunded if not caught)",
+          "notes": "SnapNames/NameJet handle .org drops. Good coverage."
+        },
+        "dynadot": {
+          "supports_org": true,
+          "cost": "~$25 per backorder",
+          "notes": "Dynadot catches .org domains. Cheapest option but lower catch rate."
+        }
+      },
+      "recommended_action": "Place backorders on ALL THREE platforms immediately. Total cost if none catch: $0 (all refundable). Total cost if caught on cheapest: $25 (Dynadot). If multiple catch, it goes to auction — max bid $400."
+    },
+
+    "imageeditor.net": {
+      "registrar": "GoDaddy.com, LLC",
+      "registrant": "Domains By Proxy, LLC (WHOIS privacy)",
+      "registrant_location": "Tempe, Arizona, US",
+      "creation_date": "2002-09-20",
+      "expiry_date": "2026-09-20T00:27:46Z",
+      "updated_date": "2025-09-21T08:45:51Z",
+      "status_flags": [
+        "clientDeleteProhibited",
+        "clientRenewProhibited",
+        "clientTransferProhibited",
+        "clientUpdateProhibited"
+      ],
+      "nameservers": ["ns53.domaincontrol.com", "ns54.domaincontrol.com"],
+      "http_status": "301 to https://www.imageeditor.net/ then 200 OK (WordPress site still live)",
+      "dns_a_records": ["192.185.99.5"],
+      "etv": 246,
+      "organic_keywords": 55,
+      "max_bid": 200,
+      "urgency": "MEDIUM — 4.5 months until expiry",
+      "analysis": {
+        "clientRenewProhibited_explanation": "This flag means the registrant or registrar has explicitly blocked renewal. On GoDaddy, this typically happens when: (1) the domain is part of a legal dispute/UDRP, (2) the registrant requested deletion, (3) there is a billing issue. Combined with clientDeleteProhibited, this is contradictory — it cannot be renewed but also cannot be deleted. This usually means a dispute or administrative hold.",
+        "all_four_locks": "All four client-side locks are set (delete, renew, transfer, update). This is unusual and suggests GoDaddy has placed an administrative lock. Could be UDRP, fraud investigation, or legal hold.",
+        "still_serving_content": "The site is still serving a live WordPress site at www.imageeditor.net, which suggests the hosting is still paid even though the domain is locked.",
+        "estimated_drop_timeline": "Expiry: 2026-09-20. With clientRenewProhibited, the domain CANNOT be renewed. If the lock is not removed before expiry, it will enter GoDaddy's auction or drop process. GoDaddy expired domains: 18-day auction period, then 12-day grace, then drop. Estimated drop: ~November 2026 if not resolved.",
+        "risk": "The clientRenewProhibited lock could be removed at any time if the underlying dispute is resolved. Also, GoDaddy often sends expired premium domains to GoDaddy Auctions before dropping them to the general pool."
+      },
+      "platforms": {
+        "dropcatch": {
+          "supports_net": true,
+          "cost": "$59 per backorder",
+          "notes": "DropCatch has excellent .net catch rates since .net is Verisign registry (same as .com)."
+        },
+        "snapnames": {
+          "supports_net": true,
+          "cost": "$79 per backorder",
+          "notes": "SnapNames has strong .net coverage."
+        },
+        "dynadot": {
+          "supports_net": true,
+          "cost": "~$25 per backorder",
+          "notes": "Dynadot catches .net domains."
+        },
+        "godaddy_auctions": {
+          "supports_net": true,
+          "cost": "Varies (auction format)",
+          "notes": "IMPORTANT: Since this domain is on GoDaddy with clientRenewProhibited, GoDaddy may route it through their own expired domain auction before it drops to the general pool. Monitor GoDaddy Auctions starting ~September 2026."
+        }
+      },
+      "recommended_action": "Place backorders on DropCatch, SnapNames, and Dynadot now ($0 cost until caught). ALSO set up a GoDaddy Auctions watch since GoDaddy often captures its own expiring domains for internal auctions. Max bid $200."
+    }
+  },
+
+  "backorder_plan": [
+    {
+      "priority": 1,
+      "domain": "globalgeopark.org",
+      "action": "PLACE BACKORDERS IMMEDIATELY",
+      "platforms": ["DropCatch", "SnapNames", "Dynadot"],
+      "max_bid": 400,
+      "when": "NOW — domain in autoRenewPeriod, grace period ends ~2026-05-26 (19 days)",
+      "etv": 626,
+      "keywords": 249,
+      "cost_per_platform": {"DropCatch": 59, "SnapNames": 79, "Dynadot": 25},
+      "notes": "Highest ETV target. Auto-renew grace window closing. If backorders placed on all 3 and only one catches it, cost is $25-79. If multiple catch, goes to auction where max bid $400 applies."
+    },
+    {
+      "priority": 2,
+      "domain": "imageeditor.net",
+      "action": "PLACE BACKORDERS + MONITOR GODADDY AUCTIONS",
+      "platforms": ["DropCatch", "SnapNames", "Dynadot", "GoDaddy Auctions (monitor)"],
+      "max_bid": 200,
+      "when": "Place backorders now; GoDaddy auction likely ~September-October 2026",
+      "etv": 246,
+      "keywords": 55,
+      "cost_per_platform": {"DropCatch": 59, "SnapNames": 79, "Dynadot": 25, "GoDaddy Auctions": "variable"},
+      "notes": "clientRenewProhibited means it WILL expire on 2026-09-20 unless the lock is removed. GoDaddy will likely auction it internally first. Domain has a live WordPress site so there may be last-minute renewal attempts, but the renew lock prevents it."
+    },
+    {
+      "priority": 3,
+      "domain": "oliveai.com",
+      "action": "NO ACTION — NOT ACQUIRABLE",
+      "platforms": [],
+      "max_bid": 0,
+      "when": "N/A",
+      "etv": 275,
+      "keywords": 26,
+      "notes": "Held by Waystar ($3B+ company), all 3 client locks set, active CloudFront redirect, 6+ months to expiry. Zero acquisition probability."
+    }
+  ],
+
+  "budget_analysis": {
+    "total_budget_remaining": 565,
+    "backorder_costs_upfront": {
+      "all_platforms_both_domains": 0,
+      "explanation": "All backorder platforms are pay-only-if-caught. Placing backorders on all 3 platforms for both domains costs $0 upfront."
+    },
+    "best_case_scenario": {
+      "cost": 50,
+      "explanation": "Both caught on Dynadot ($25 each) with no auction competition. Total $50, well within budget."
+    },
+    "expected_scenario": {
+      "cost": 175,
+      "explanation": "globalgeopark.org caught by one platform (~$59-79), imageeditor.net goes to GoDaddy internal auction (~$75-100). Total ~$135-179."
+    },
+    "worst_case_scenario": {
+      "cost": 600,
+      "explanation": "Both go to multi-platform auction. globalgeopark.org bid up to $400 max, imageeditor.net bid up to $200 max. Total $600 — EXCEEDS budget by $35."
+    },
+    "affordable": true,
+    "strategy_recommendation": "Place backorders on all platforms for both domains. In worst-case auction scenario, prioritize globalgeopark.org ($626 ETV, 249 keywords) over imageeditor.net ($246 ETV, 55 keywords). If globalgeopark.org auction exceeds $350, REDUCE imageeditor.net max bid to $200 to stay within $565 budget. If both are in simultaneous auctions, hard cap at globalgeopark.org=$365, imageeditor.net=$200 to stay at $565 total.",
+    "roi_projection": {
+      "combined_monthly_etv": 872,
+      "annual_etv": 10464,
+      "best_case_roi": "209x (at $50 cost)",
+      "expected_roi": "60x (at $175 cost)",
+      "worst_case_roi": "17x (at $600 cost)",
+      "note": "Even worst-case ROI of 17x annual ETV vs cost is excellent for domain acquisition."
+    }
+  },
+
+  "critical_timeline": {
+    "immediate": "Place backorders on DropCatch, SnapNames, Dynadot for BOTH globalgeopark.org and imageeditor.net",
+    "2026-05-26": "globalgeopark.org auto-renew grace period ends. If not renewed, enters Redemption Grace Period (~30 days)",
+    "2026-06-25": "globalgeopark.org Redemption Grace Period ends (estimated). Enters Pending Delete (~5 days)",
+    "2026-07-01": "globalgeopark.org estimated drop date — backorder services attempt to catch",
+    "2026-09-20": "imageeditor.net expiry date. GoDaddy expired domain auction process begins",
+    "2026-10-15": "imageeditor.net estimated GoDaddy auction end. If not sold, enters grace/drop pipeline",
+    "2026-11-01": "imageeditor.net estimated drop date if it passes through GoDaddy auction unsold"
+  },
+
+  "platform_signup_status": {
+    "note": "Check sprint15_platform_signup.json and sprint15_signup_guide.md for account setup status on DropCatch, SnapNames, and Dynadot"
+  }
+}

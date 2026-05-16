@@ -1,0 +1,307 @@
+{
+  "sprint": 7,
+  "agent": "STARTUP HUNTER",
+  "generated": "2026-05-07",
+  "description": "Dead startup domains that are expired, expiring, parked, for sale, or abandoned -- sorted by estimated DR descending. These are acquisition candidates.",
+  "total_candidates": 13,
+  "summary": {
+    "tier1_imminent_drops": "ghostautonomy.com (June 2026), scififoods.com (June 2026), fiskerinc.com (Sept 2026)",
+    "tier2_for_sale": "irl.com (actively for sale), kintsugi.com (DomainEasy listing)",
+    "tier3_abandoned_may_lapse": "arrival.com, universalhydrogen.com, mindstrong.com, runningtide.com, zume.com, ubiquitousenergy.com, noogata.com",
+    "estimated_total_dr_value": "Combined DR 400+ across all candidates"
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "company": "Fisker Inc",
+      "domain": "fiskerinc.com",
+      "funding_raised": "$1B+",
+      "estimated_dr": 55,
+      "shutdown_date": "2024-06",
+      "domain_status": "maintenance_page",
+      "whois_expiry": "2026-09-21",
+      "whois_status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "acquisition_strategy": "BACKORDER NOW. clientRenewProhibited = domain will NOT auto-renew. Expiry Sept 21, 2026 + 45-75 day grace/redemption = potential drop Nov-Dec 2026. Was publicly traded EV company, massive press coverage from CNBC/Bloomberg/WSJ/Reuters = very high DR. Place backorder at GoDaddy, NameJet, SnapNames, and DropCatch immediately.",
+      "estimated_acquisition_cost": "$500-5000 (backorder auction)",
+      "niche_value": "EV/automotive - could build EV comparison tool, EV news site",
+      "press_mentions": ["TechCrunch", "CNBC", "Fortune", "Bloomberg", "WSJ", "Reuters"],
+      "risk_factors": "Bankruptcy trustee may sell domain separately; could attract high auction competition",
+      "notes": "Shows 'Under Maintenance' Next.js page. $1B+ raised, was on NASDAQ. Enormous backlink profile from 4+ years of public company coverage."
+    },
+    {
+      "rank": 2,
+      "company": "The Messenger",
+      "domain": "themessenger.com",
+      "funding_raised": "$50M",
+      "estimated_dr": 55,
+      "shutdown_date": "2024-01",
+      "domain_status": "static_shutdown_page",
+      "whois_expiry": "2033-01-11",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "NEGOTIATE PURCHASE. Domain registered through 2033 so won't drop. Contact domain holder via GoDaddy or former company representatives. As a dead news site with no ongoing operations, domain may be available for direct purchase.",
+      "estimated_acquisition_cost": "$5000-25000 (negotiated purchase)",
+      "niche_value": "News/media - could rebuild as news aggregator or content site",
+      "press_mentions": ["CNN", "NBC News", "Variety", "The Hill", "Washington Post", "Fortune", "Axios"],
+      "risk_factors": "Long registration = someone intends to hold. May want premium price.",
+      "notes": "Static HTML page still up. ~300 employees, covered by every major news outlet = tier-1 backlinks. Burned $50M in 8 months."
+    },
+    {
+      "rank": 3,
+      "company": "IRL",
+      "domain": "irl.com",
+      "funding_raised": "$200M",
+      "estimated_dr": 50,
+      "shutdown_date": "2023-06",
+      "domain_status": "for_sale",
+      "whois_expiry": "2027-05-11",
+      "whois_status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited", "serverDeleteProhibited"],
+      "acquisition_strategy": "MAKE OFFER. Page explicitly says 'If you are interested in acquiring any of the Company's assets, please direct your request to inquiries@irl.com'. Premium 3-letter .com with SoftBank backing. This is a BANKRUPTCY ASSET SALE - they want offers.",
+      "estimated_acquisition_cost": "$50,000-500,000 (premium 3-letter .com)",
+      "niche_value": "Social/events - 'In Real Life' brand, perfect for events, meetups, social platform",
+      "press_mentions": ["TechCrunch", "The Verge", "CNBC", "Bloomberg", "SEC filings"],
+      "risk_factors": "3-letter .com domains typically sell for $50K+. Company doing asset liquidation so may have specific price expectations.",
+      "notes": "SoftBank-backed. SEC investigation for fake users. Premium 3-letter .com is worth significant money on its own."
+    },
+    {
+      "rank": 4,
+      "company": "Arrival",
+      "domain": "arrival.com",
+      "funding_raised": "$1B+",
+      "estimated_dr": 50,
+      "shutdown_date": "2024-06",
+      "domain_status": "origin_down_522",
+      "whois_expiry": "2026-12-03",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "MONITOR + BACKORDER. Origin server returns 522 (connection timeout) = server infrastructure is down. Domain expires Dec 2026. Only has clientTransferProhibited (no renewProhibited). Place backorder and monitor. Premium one-word .com domain since 1998.",
+      "estimated_acquisition_cost": "$2000-20000 (backorder or negotiation)",
+      "niche_value": "Travel, logistics, EV - generic one-word domain with broad applicability",
+      "press_mentions": ["Bloomberg", "Reuters", "Financial Times", "Sifted", "TechCrunch"],
+      "risk_factors": "Premium one-word .com since 1998 = high aftermarket value. Was publicly traded (NASDAQ). Bankruptcy trustee may monetize.",
+      "notes": "Former NASDAQ-listed EV company. Origin server completely down. Domain registered on Name.com."
+    },
+    {
+      "rank": 5,
+      "company": "Ghost Autonomy",
+      "domain": "ghostautonomy.com",
+      "funding_raised": "$220M",
+      "estimated_dr": 45,
+      "shutdown_date": "2024-04",
+      "domain_status": "abandoned_cloudflare_block",
+      "whois_expiry": "2026-06-07",
+      "whois_status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "acquisition_strategy": "BACKORDER IMMEDIATELY - EXPIRES IN ~1 MONTH. clientRenewProhibited = WILL NOT AUTO-RENEW. June 7, 2026 expiry. Shows Cloudflare 'suspected phishing' page = completely abandoned. Place backorders at ALL major services (GoDaddy, NameJet, SnapNames, DropCatch, Dynadot) NOW.",
+      "estimated_acquisition_cost": "$100-2000 (backorder, possibly auction)",
+      "niche_value": "Autonomous driving, robotics, AI - could build AV news/comparison site",
+      "press_mentions": ["TechCrunch", "CNBC", "Bloomberg", "SiliconANGLE", "VCPost"],
+      "risk_factors": "OpenAI-backed company. Cloudflare may hold domain. Wild West Domains registrar.",
+      "notes": "MOST URGENT CANDIDATE. OpenAI partnership. Expires June 7 = 31 days from now. clientRenewProhibited confirms abandonment."
+    },
+    {
+      "rank": 6,
+      "company": "Kintsugi (Mental Health AI)",
+      "domain": "kintsugi.com",
+      "funding_raised": "$30M",
+      "estimated_dr": 35,
+      "shutdown_date": "2026-02",
+      "domain_status": "for_sale",
+      "whois_expiry": "2027-03-15",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "BUY VIA DOMAINEASY. Domain redirects to https://www.domaineasy.com/buy-domain/kintsugi.com = listed for sale. Check price on DomainEasy. Premium one-word domain (Japanese term meaning 'golden repair').",
+      "estimated_acquisition_cost": "$5000-50000 (marketplace listing)",
+      "niche_value": "Mental health, wellness, craft/art - 'kintsugi' is a well-known Japanese art concept",
+      "press_mentions": ["Healthcare IT News", "Behavioral Health Business", "TechBuzz.ai"],
+      "risk_factors": "Premium cultural/art term domain = may command premium price. Multiple companies named Kintsugi.",
+      "notes": "kintsugi.ai is a different company (sales tax SaaS, still active). The .com is the mental health startup that shut down Feb 2026. GoDaddy registrar."
+    },
+    {
+      "rank": 7,
+      "company": "Mindstrong",
+      "domain": "mindstrong.com",
+      "funding_raised": "$160M",
+      "estimated_dr": 35,
+      "shutdown_date": "2023-03",
+      "domain_status": "ssl_broken_unresolvable",
+      "whois_expiry": "2027-02-08",
+      "whois_status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "acquisition_strategy": "MONITOR + NEGOTIATE. HTTP works (301 via Cloudflare) but HTTPS fails = SSL expired. Domain on Amazon Registrar through Feb 2027. Assets sold to SonderMind but domain may not have been included. Contact SonderMind or Amazon Registrar.",
+      "estimated_acquisition_cost": "$5000-20000 (negotiation)",
+      "niche_value": "Mental health, wellness, telehealth - strong brandable domain",
+      "press_mentions": ["MobiHealthNews", "MedTech Dive", "Behavioral Health Business", "Modern Healthcare"],
+      "risk_factors": "Amazon Registrar = may be held by AWS. SonderMind may own it. Premium compound domain since 2003.",
+      "notes": "$4B peak valuation. $160M raised. Massive healthcare press coverage. Premium brandable .com."
+    },
+    {
+      "rank": 8,
+      "company": "Universal Hydrogen",
+      "domain": "universalhydrogen.com",
+      "funding_raised": "$100M",
+      "estimated_dr": 35,
+      "shutdown_date": "2024-07",
+      "domain_status": "parking_page",
+      "whois_expiry": "2027-02-16",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "MONITOR + NEGOTIATE. Shows parking page (Parking/1.0 server header). Domain on Name.com through Feb 2027. Liquidated company. Contact Name.com or former principals.",
+      "estimated_acquisition_cost": "$1000-5000 (negotiation or backorder)",
+      "niche_value": "Clean energy, hydrogen, aviation - could build hydrogen industry news/resource site",
+      "press_mentions": ["GeekWire", "Aviation Week", "GreenAir News", "SimpleFlying"],
+      "risk_factors": "Long descriptive domain. Liquidation may have transferred domain.",
+      "notes": "Founded by former Airbus CTO. First hydrogen-powered regional aircraft flight. Quality aviation/energy press backlinks."
+    },
+    {
+      "rank": 9,
+      "company": "Running Tide",
+      "domain": "runningtide.com",
+      "funding_raised": "$54M",
+      "estimated_dr": 30,
+      "shutdown_date": "2024-06",
+      "domain_status": "completely_unresolvable",
+      "whois_expiry": "2027-01-30",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "MONITOR FOR LAPSE. Domain completely unresolvable (no HTTP/HTTPS response). On GoDaddy through Jan 2027. Premium domain since 1996 but descriptive. Monitor for non-renewal.",
+      "estimated_acquisition_cost": "$500-3000 (backorder if drops)",
+      "niche_value": "Ocean/marine, sustainability, carbon removal",
+      "press_mentions": ["CNN", "New York Times", "Canary Media", "Maine Public"],
+      "risk_factors": "Domain since 1996 = original registrant may be different. GoDaddy may auto-renew.",
+      "notes": "CNN and NYT coverage = tier-1 backlinks. Carbon removal startup backed by Microsoft, Shopify, Stripe."
+    },
+    {
+      "rank": 10,
+      "company": "Zume",
+      "domain": "zume.com",
+      "funding_raised": "$445M",
+      "estimated_dr": 35,
+      "shutdown_date": "2023-06",
+      "domain_status": "wix_404_abandoned",
+      "whois_expiry": "2027-05-28",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "NEGOTIATE PURCHASE. Shows Wix 404 page with noindex = abandoned Wix site. Premium 4-letter .com. SoftBank-backed. Contact Wix account holder or company estate.",
+      "estimated_acquisition_cost": "$10,000-100,000 (premium 4-letter .com)",
+      "niche_value": "Food tech, robotics, packaging - short brandable domain",
+      "press_mentions": ["Bloomberg", "NRN", "Forbes", "Vice"],
+      "risk_factors": "4-letter .com domains are premium. SoftBank may retain domain rights. Wix hosting = someone has account access.",
+      "notes": "SoftBank Vision Fund invested $375M. $2.3B peak valuation. Premium 4-letter .com with brand recognition."
+    },
+    {
+      "rank": 11,
+      "company": "SCiFi Foods",
+      "domain": "scififoods.com",
+      "funding_raised": "$30M (estimated)",
+      "estimated_dr": 25,
+      "shutdown_date": "2024-06",
+      "domain_status": "deployment_disabled",
+      "whois_expiry": "2026-06-14",
+      "whois_status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+      "acquisition_strategy": "BACKORDER NOW - EXPIRES JUNE 2026. Vercel deployment disabled = hosting unpaid. clientRenewProhibited = WILL NOT AUTO-RENEW. Similar timeline to ghostautonomy.com. Place backorders immediately.",
+      "estimated_acquisition_cost": "$100-500 (backorder)",
+      "niche_value": "Food tech, alternative protein, science",
+      "press_mentions": ["TechCrunch", "Canary Media"],
+      "risk_factors": "Descriptive domain, lower DR. Cultivated meat niche is very specific.",
+      "notes": "Cultivated meat startup. Vercel shows 'Payment required - DEPLOYMENT_DISABLED'. GoDaddy registrar."
+    },
+    {
+      "rank": 12,
+      "company": "Ubiquitous Energy",
+      "domain": "ubiquitousenergy.com",
+      "funding_raised": "$70M+",
+      "estimated_dr": 25,
+      "shutdown_date": "2024-04",
+      "domain_status": "parked_405",
+      "whois_expiry": "2026-12-19",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "MONITOR + BACKORDER. Returns 405 Method Not Allowed = parked/misconfigured. Moniker registrar. Expires Dec 2026. Monitor for non-renewal.",
+      "estimated_acquisition_cost": "$200-1000 (backorder)",
+      "niche_value": "Solar, clean energy, sustainability",
+      "press_mentions": ["MIT Technology Review", "Canary Media"],
+      "risk_factors": "Long descriptive domain. Moniker registrar may auto-renew.",
+      "notes": "Transparent solar cell technology. $70M+ raised. MIT Tech Review coverage."
+    },
+    {
+      "rank": 13,
+      "company": "Noogata",
+      "domain": "noogata.com",
+      "funding_raised": "$28M",
+      "estimated_dr": 25,
+      "shutdown_date": "2025-05",
+      "domain_status": "error_405",
+      "whois_expiry": "2027-04-28",
+      "whois_status_codes": ["clientTransferProhibited"],
+      "acquisition_strategy": "MONITOR. Recently shut down (May 2025). Returns 405 = minimal server. GoDaddy registrar, updated May 4, 2026. May still be managed during wind-down. Monitor for abandonment.",
+      "estimated_acquisition_cost": "$500-2000 (negotiation or backorder)",
+      "niche_value": "AI analytics, enterprise software",
+      "press_mentions": ["Calcalist/CTech"],
+      "risk_factors": "Team8-backed = Israeli VC may retain domain. Recent shutdown = may still be in wind-down.",
+      "notes": "Enterprise AI analytics. Clients included PepsiCo and Colgate. WHOIS updated as recently as May 4, 2026."
+    }
+  ],
+  "action_items": {
+    "immediate_backorders": [
+      {
+        "domain": "ghostautonomy.com",
+        "urgency": "CRITICAL - expires June 7, 2026 (31 days)",
+        "services": ["GoDaddy", "NameJet", "SnapNames", "DropCatch", "Dynadot"],
+        "estimated_dr": 45,
+        "funding_raised": "$220M"
+      },
+      {
+        "domain": "scififoods.com",
+        "urgency": "HIGH - expires June 14, 2026 (38 days)",
+        "services": ["GoDaddy", "NameJet", "SnapNames", "DropCatch"],
+        "estimated_dr": 25,
+        "funding_raised": "$30M"
+      },
+      {
+        "domain": "fiskerinc.com",
+        "urgency": "HIGH - expires Sept 21, 2026 (137 days)",
+        "services": ["GoDaddy", "NameJet", "SnapNames", "DropCatch"],
+        "estimated_dr": 55,
+        "funding_raised": "$1B+"
+      }
+    ],
+    "negotiate_purchase": [
+      {
+        "domain": "kintsugi.com",
+        "action": "Check price on DomainEasy.com",
+        "estimated_dr": 35
+      },
+      {
+        "domain": "irl.com",
+        "action": "Email inquiries@irl.com for asset pricing",
+        "estimated_dr": 50,
+        "warning": "Premium 3-letter .com = likely expensive"
+      }
+    ],
+    "monitor_for_lapse": [
+      {
+        "domain": "arrival.com",
+        "expiry": "2026-12-03",
+        "estimated_dr": 50
+      },
+      {
+        "domain": "universalhydrogen.com",
+        "expiry": "2027-02-16",
+        "estimated_dr": 35
+      },
+      {
+        "domain": "mindstrong.com",
+        "expiry": "2027-02-08",
+        "estimated_dr": 35
+      },
+      {
+        "domain": "runningtide.com",
+        "expiry": "2027-01-30",
+        "estimated_dr": 30
+      },
+      {
+        "domain": "ubiquitousenergy.com",
+        "expiry": "2026-12-19",
+        "estimated_dr": 25
+      },
+      {
+        "domain": "zume.com",
+        "expiry": "2027-05-28",
+        "estimated_dr": 35,
+        "warning": "Premium 4-letter .com = may attract competition"
+      }
+    ]
+  }
+}

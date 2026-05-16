@@ -300,7 +300,7 @@ def _extract_verdict(item: Any) -> str | None:
         Verdict string or None.
     """
     assert item is not None, "item must not be None"
-    assert hasattr(item, "__dataclass_fields__"), "item must be a dataclass"
+    assert hasattr(item, "__dataclass_fields__") or hasattr(item, "__slots__"), "item must be a dataclass or __slots__ class"
     verdict = getattr(item, "verdict", None)
     if verdict is None:
         return None
@@ -319,8 +319,13 @@ def _serialize_item(item: Any) -> str:
         JSON string representation.
     """
     assert item is not None, "item must not be None"
-    assert hasattr(item, "__dataclass_fields__"), "item must be a dataclass"
+    assert hasattr(item, "__dataclass_fields__") or hasattr(item, "__slots__"), "item must be a dataclass or __slots__ class"
 
-    from dataclasses import asdict
-    data = asdict(item)
+    if hasattr(item, "__dataclass_fields__"):
+        from dataclasses import asdict
+        data = asdict(item)
+    else:
+        to_dict_fn = getattr(item, "to_dict", None)
+        assert callable(to_dict_fn), "__slots__ class must have to_dict()"
+        data = to_dict_fn()
     return json.dumps(data, default=str, ensure_ascii=False)

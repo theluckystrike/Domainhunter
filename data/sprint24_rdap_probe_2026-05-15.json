@@ -1,0 +1,599 @@
+{
+  "generated_at": "2026-05-15T13:43:05.916974+00:00",
+  "probe_type": "live_rdap",
+  "total_queried": 38,
+  "summary": {
+    "total": 38,
+    "drop_signals": 18,
+    "active_registered": 19,
+    "likely_available": 2,
+    "errors": 1
+  },
+  "results": [
+    {
+      "domain": "humane.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "NameCheap, Inc.",
+      "creation_date": "1995-09-20T04:00:00Z",
+      "expiry_date": "2032-09-19T04:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "arrival.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Name.com, Inc.",
+      "creation_date": "1998-06-08T04:00:00Z",
+      "expiry_date": "2026-12-03T19:44:47Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "irl.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client transfer prohibited",
+        "client update prohibited",
+        "server delete prohibited",
+        "server transfer prohibited",
+        "server update prohibited"
+      ],
+      "registrar": "MarkMonitor Inc.",
+      "creation_date": "1991-05-10T04:00:00Z",
+      "expiry_date": "2027-05-11T04:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "olive.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "1996-11-22T05:00:00Z",
+      "expiry_date": "2027-11-21T05:00:00Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "boweryfarming.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Spaceship, Inc.",
+      "creation_date": "2025-08-02T18:27:26Z",
+      "expiry_date": "2027-08-02T18:27:26Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "Wild West Domains, LLC",
+      "creation_date": "2022-06-07T00:53:13Z",
+      "expiry_date": "2026-06-07T00:53:13Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "convoy.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client transfer prohibited",
+        "client update prohibited",
+        "server delete prohibited",
+        "server transfer prohibited",
+        "server update prohibited"
+      ],
+      "registrar": "SafeNames Ltd.",
+      "creation_date": "2000-10-31T11:36:20Z",
+      "expiry_date": "2028-10-31T10:36:20Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "stenn.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "NameCheap, Inc.",
+      "creation_date": "2003-04-27T03:50:29Z",
+      "expiry_date": "2027-04-27T03:50:29Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "veev.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "1999-03-12T05:00:00Z",
+      "expiry_date": "2027-07-02T03:59:59Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "infarm.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "1999-02-18T05:00:00Z",
+      "expiry_date": "2027-02-18T05:00:00Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "fiskerinc.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2016-09-21T23:52:51Z",
+      "expiry_date": "2026-09-21T23:52:51Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "northvolt.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2017-01-24T20:34:12Z",
+      "expiry_date": "2027-01-24T20:34:12Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "easyknock.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Cloudflare, Inc.",
+      "creation_date": "2016-01-12T19:07:55Z",
+      "expiry_date": "2028-01-12T19:07:55Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "ambri.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "1997-06-21T04:00:00Z",
+      "expiry_date": "2027-06-20T04:00:00Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "eaze.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Amazon Registrar, Inc.",
+      "creation_date": "1996-12-13T05:00:00Z",
+      "expiry_date": "2026-12-12T05:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "zume.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Network Solutions, LLC",
+      "creation_date": "2002-05-28T18:19:47Z",
+      "expiry_date": "2027-05-28T18:19:47Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "pandion.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Cloudflare, Inc.",
+      "creation_date": "1996-03-21T05:00:00Z",
+      "expiry_date": "2027-03-22T04:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "bench.co",
+      "source": "rdap",
+      "http_status": 404,
+      "epp_statuses": [],
+      "registrar": "unknown",
+      "creation_date": "",
+      "expiry_date": "",
+      "drop_signal": true,
+      "availability": "likely_available_or_pendingDelete",
+      "error": null
+    },
+    {
+      "domain": "tally.co",
+      "source": "rdap",
+      "http_status": 404,
+      "epp_statuses": [],
+      "registrar": "unknown",
+      "creation_date": "",
+      "expiry_date": "",
+      "drop_signal": true,
+      "availability": "likely_available_or_pendingDelete",
+      "error": null
+    },
+    {
+      "domain": "radpowerbikes.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2015-03-07T19:45:39Z",
+      "expiry_date": "2027-03-07T19:45:39Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "synapsefi.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "NameCheap, Inc.",
+      "creation_date": "2016-10-07T02:04:04Z",
+      "expiry_date": "2032-10-07T02:04:04Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "universalhydrogen.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Name.com, Inc.",
+      "creation_date": "2017-02-16T20:36:58Z",
+      "expiry_date": "2027-02-16T20:36:58Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "mindstrong.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Amazon Registrar, Inc.",
+      "creation_date": "2003-02-08T00:32:59Z",
+      "expiry_date": "2027-02-08T00:32:59Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "kintsugi.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2001-03-15T14:55:47Z",
+      "expiry_date": "2027-03-15T13:55:47Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "plastiq.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2003-03-16T22:10:44Z",
+      "expiry_date": "2027-03-16T21:10:44Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "wyre.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "GKG.Net, Inc.",
+      "creation_date": "1996-05-20T04:00:00Z",
+      "expiry_date": "2027-05-21T04:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "cushion.ai",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "101domain GRS Limited",
+      "creation_date": "2017-12-16T02:11:52Z",
+      "expiry_date": "2026-10-28T02:11:52Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "moxionpower.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client transfer prohibited"
+      ],
+      "registrar": "Squarespace Domains II LLC",
+      "creation_date": "2019-11-27T00:39:28Z",
+      "expiry_date": "2032-11-27T00:39:28Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "runningtide.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "1996-01-29T05:00:00Z",
+      "expiry_date": "2027-01-30T05:00:00Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "themessenger.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2000-01-11T23:32:37Z",
+      "expiry_date": "2033-01-11T23:32:37Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "maas.global",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Gandi SAS",
+      "creation_date": "2016-03-01T19:49:31.24Z",
+      "expiry_date": "2027-03-01T19:49:31.24Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "noogata.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2019-04-28T15:58:26Z",
+      "expiry_date": "2027-04-28T15:58:26Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "hermd.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2000-03-07T20:35:30Z",
+      "expiry_date": "2027-03-07T20:35:30Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "capway.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "active"
+      ],
+      "registrar": "Domain.com - Network Solutions, LLC",
+      "creation_date": "1997-12-16T05:00:00Z",
+      "expiry_date": "2027-12-15T05:00:00Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "scififoods.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2018-06-14T21:33:28Z",
+      "expiry_date": "2026-06-14T21:33:28Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "allplants.com",
+      "source": "rdap",
+      "http_status": 0,
+      "epp_statuses": [],
+      "registrar": "unknown",
+      "creation_date": "",
+      "expiry_date": "",
+      "drop_signal": false,
+      "availability": "unknown",
+      "error": "timeout"
+    },
+    {
+      "domain": "ionicmaterials.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "creation_date": "2009-03-12T12:21:39Z",
+      "expiry_date": "2028-03-12T12:21:39Z",
+      "drop_signal": true,
+      "availability": "registered",
+      "error": null
+    },
+    {
+      "domain": "ubiquitousenergy.com",
+      "source": "rdap",
+      "http_status": 200,
+      "epp_statuses": [
+        "client transfer prohibited"
+      ],
+      "registrar": "Moniker Online Services LLC",
+      "creation_date": "2007-12-19T18:48:39Z",
+      "expiry_date": "2026-12-19T18:48:39Z",
+      "drop_signal": false,
+      "availability": "registered",
+      "error": null
+    }
+  ]
+}

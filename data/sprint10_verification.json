@@ -1,0 +1,518 @@
+{
+  "metadata": {
+    "sprint": 10,
+    "verification_date": "2026-05-07",
+    "protocol": "Sprint 9 Deep Verification Protocol (5-point)",
+    "verifier": "AGENT 5",
+    "api_cost_usd": 0.20,
+    "api_calls_made": 20,
+    "domains_verified": 5,
+    "verdict_summary": "ALL 5 DOMAINS SHOW ZERO KEYWORDS IN DATAFORSEO. 3 of 5 are pure keyword-play domains with no SEO history (brand value only). 2 are parked/for-sale landers with no organic presence. Bid recommendations significantly adjusted."
+  },
+
+  "verification_scorecard": [
+    {
+      "domain": "devtools.io",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T3 (BRAND VALUE ONLY)",
+      "old_max_bid": "TBD (watchlist)",
+      "new_max_bid": 100,
+      "change": "DOWNGRADE — zero keywords, zero traffic, domain unreachable. Brand value of 'devtools' as a keyword is the only asset."
+    },
+    {
+      "domain": "toolchain.io",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T3 (BRAND VALUE ONLY)",
+      "old_max_bid": "TBD (watchlist)",
+      "new_max_bid": 75,
+      "change": "DOWNGRADE — zero keywords, zero traffic. Currently a Spaceship for-sale lander. No SEO equity to acquire."
+    },
+    {
+      "domain": "stackreview.com",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T4 (SKIP)",
+      "old_max_bid": "TBD (watchlist)",
+      "new_max_bid": 30,
+      "change": "DOWNGRADE — zero keywords, zero traffic. HugeDomains for-sale page at $2,495+ listed price. No organic history. Keyword is too close to Stack Exchange/Stack Overflow brand confusion."
+    },
+    {
+      "domain": "taskplanner.com",
+      "old_tier": "T1 (#1 priority)",
+      "new_tier": "T3 (BRAND VALUE ONLY)",
+      "old_max_bid": 200,
+      "new_max_bid": 75,
+      "change": "CRITICAL DOWNGRADE — zero keywords, zero traffic, zero domain rank in DataForSEO globally. GoDaddy/Afternic for-sale lander. No SEO history to leverage. Only value is the exact-match keyword 'task planner' for branding. Reduce bid from $200 to $75 max."
+    },
+    {
+      "domain": "aidevtools.com",
+      "old_tier": "T1 (#1 priority)",
+      "new_tier": "T3 (BRAND VALUE ONLY)",
+      "old_max_bid": 150,
+      "new_max_bid": 50,
+      "change": "CRITICAL DOWNGRADE — zero keywords, zero traffic, domain unreachable (HTTP connection refused). No SEO equity. Only value is the AI + devtools keyword combination for branding. Reduce bid from $150 to $50 max."
+    }
+  ],
+
+  "total_savings_from_verification": {
+    "taskplanner_saved": 125,
+    "aidevtools_saved": 100,
+    "stackreview_avoided": "unknown (was TBD)",
+    "total_confirmed_savings": 225,
+    "cumulative_sprint9_plus_sprint10": 1195,
+    "note": "Sprint 9 saved $970. Sprint 10 saves an additional $225 on confirmed bid reductions. Running total: $1,195 saved by deep verification protocol."
+  },
+
+  "domains": [
+    {
+      "domain": "devtools.io",
+      "tier": "T3",
+      "verification_date": "2026-05-07",
+      "expiry_date": "2026-07-04",
+      "current_http_status": "UNREACHABLE (connection refused on both HTTPS and HTTP)",
+      "site_still_live": false,
+      "verified_metrics": {
+        "dataforseo_keywords_us_en": 0,
+        "dataforseo_keywords_global": 0,
+        "dataforseo_etv_us_en": 0,
+        "dataforseo_etv_global": 0,
+        "dataforseo_domain_rank": null,
+        "dataforseo_items_returned": 0,
+        "reported_da": null,
+        "reported_dr": null,
+        "reported_rd": null
+      },
+      "dataforseo_keyword_breakdown": {
+        "note": "ZERO keywords returned from DataForSEO Labs — both US English and global queries. No items, no metrics, no ranked keywords whatsoever."
+      },
+      "top_keywords": [],
+      "top_backlinks": [
+        {
+          "source": "unknown",
+          "notes": "Cannot verify any backlinks. Domain is completely unreachable. No DataForSEO backlinks API access. Web searches for devtools.io return only Chrome DevTools Protocol documentation, not this domain."
+        }
+      ],
+      "critical_finding": "devtools.io has ZERO organic presence in Google. The domain is completely unreachable (HTTP connection refused). Web searches reveal no history of this domain being used as a significant website — results are dominated by Chrome DevTools. This is a PARKED/UNUSED domain with zero SEO equity. Its only value is the 'devtools' keyword brand potential in the .io TLD.",
+      "wayback_content": "Web Archive unreachable. Web search yields no information about devtools.io as an active website. The domain appears to have been parked or unused for an extended period.",
+      "trademark_risk": "LOW-MODERATE — 'DevTools' is a generic term widely used (Chrome DevTools, Firefox DevTools, etc.). No single entity owns the term. However, brand confusion with Chrome DevTools is possible in marketing.",
+      "backorder_strategy": {
+        "platform": "Park.io (specializes in .io TLDs)",
+        "backorder_date": "2026-06-20 (per Sprint 9 timeline)",
+        "expiry_date": "2026-07-04",
+        "notes": "Park.io is the recommended platform for .io domains per Sprint 9 timeline."
+      },
+      "key_risks": [
+        "ZERO keywords, ZERO traffic — no SEO equity to inherit",
+        "Domain unreachable — no content, no active site",
+        "No known backlink profile — cannot verify any claimed authority",
+        "Chrome DevTools brand confusion in marketing",
+        ".io TLD phase-out concerns (British Indian Ocean Territory sovereignty transfer)"
+      ],
+      "key_strengths": [
+        "'devtools' is a high-value keyword in the developer tools space",
+        ".io TLD is still respected in tech communities",
+        "Short, memorable, exact-match keyword domain",
+        "No trademark issues — generic term",
+        "Could be built into a developer tools directory/aggregator"
+      ],
+      "verdict": "BRAND VALUE ONLY. Zero SEO equity. The only value here is the keyword 'devtools.io' as a brandable domain for a developer tools project. You are buying a blank canvas, not an authority domain. Worth pursuing only at commodity pricing ($75-100 max), not premium pricing.",
+      "recommended_max_bid": 100,
+      "bid_tiers": {
+        "ideal_price": 25,
+        "comfortable_price": 50,
+        "stretch_price": 75,
+        "absolute_max": 100
+      },
+      "confidence": "high"
+    },
+
+    {
+      "domain": "toolchain.io",
+      "tier": "T3",
+      "verification_date": "2026-05-07",
+      "expiry_date": "2026-07-07",
+      "current_http_status": 200,
+      "site_still_live": true,
+      "site_content": "Spaceship.com for-sale lander page. Domain is listed for sale on Spaceship marketplace.",
+      "verified_metrics": {
+        "dataforseo_keywords_us_en": 0,
+        "dataforseo_keywords_global": 0,
+        "dataforseo_etv_us_en": 0,
+        "dataforseo_etv_global": 0,
+        "dataforseo_domain_rank": null,
+        "dataforseo_items_returned": 0,
+        "reported_da": null,
+        "reported_dr": null,
+        "reported_rd": null
+      },
+      "dataforseo_keyword_breakdown": {
+        "note": "ZERO keywords returned from DataForSEO Labs — both US English and global queries. No items, no metrics."
+      },
+      "top_keywords": [],
+      "top_backlinks": [
+        {
+          "source": "unknown",
+          "notes": "Cannot verify backlinks. Web search shows only general toolchain-related results (ARM toolchain, GNU toolchain, BuildBuddy toolchain on GitHub). No evidence of toolchain.io having been an active content site."
+        }
+      ],
+      "critical_finding": "toolchain.io is currently a Spaceship.com for-sale lander. It has ZERO keywords and ZERO traffic in DataForSEO. The domain has been parked as a for-sale page, meaning any historical SEO equity (if it ever existed) has long since decayed. The for-sale listing suggests the current owner is an investor/domainer, not a site operator. This is a pure keyword-brand play.",
+      "spaceship_listing": {
+        "platform": "Spaceship.com (by Namecheap)",
+        "status": "FOR SALE",
+        "asking_price": "Unknown (requires visiting Spaceship checkout)",
+        "lease_to_own": "May be available per listing",
+        "notes": "If the owner is listing it for sale on Spaceship, they may not let it drop. The domain may be renewed or sold before expiry. Backorder may be futile if owner maintains the registration."
+      },
+      "wayback_content": "Web Archive unreachable. Web search yields only general toolchain-related results. No evidence of toolchain.io being used as a significant content site.",
+      "trademark_risk": "NONE — 'toolchain' is a generic software development term. No trademark risk.",
+      "backorder_strategy": {
+        "platform": "Park.io (for .io TLDs)",
+        "backorder_date": "2026-06-23 (per Sprint 9 timeline)",
+        "expiry_date": "2026-07-07",
+        "warning": "DOMAIN MAY NOT DROP — currently listed for sale on Spaceship. Owner is actively monetizing. High probability of renewal."
+      },
+      "key_risks": [
+        "ZERO keywords, ZERO traffic — no SEO equity",
+        "Currently for-sale on Spaceship — owner may renew, domain may never drop",
+        "No known backlink profile",
+        "Competing with established toolchain sites (Open Toolchain Foundation, etc.)",
+        ".io TLD phase-out concerns"
+      ],
+      "key_strengths": [
+        "'toolchain' is a recognized developer term",
+        ".io TLD tech credibility",
+        "Generic, non-trademarked term",
+        "Could serve DevOps/CI-CD toolchain comparison site"
+      ],
+      "verdict": "BRAND VALUE ONLY with HIGH RISK OF NON-DROP. The domain is actively listed for sale on Spaceship, meaning the owner is trying to monetize it and may renew. Even if it drops, there is zero SEO equity. Only pursue at backorder-minimum pricing and be prepared for the backorder to fail.",
+      "recommended_max_bid": 75,
+      "bid_tiers": {
+        "ideal_price": 25,
+        "comfortable_price": 40,
+        "stretch_price": 60,
+        "absolute_max": 75
+      },
+      "confidence": "medium"
+    },
+
+    {
+      "domain": "stackreview.com",
+      "tier": "T4",
+      "verification_date": "2026-05-07",
+      "expiry_date": "2026-07-08",
+      "current_http_status": 200,
+      "site_still_live": true,
+      "site_content": "HugeDomains.com for-sale lander page. Listed at HugeDomains' standard pricing (typically $2,000-$5,000).",
+      "verified_metrics": {
+        "dataforseo_keywords_us_en": 0,
+        "dataforseo_keywords_global": 0,
+        "dataforseo_etv_us_en": 0,
+        "dataforseo_etv_global": 0,
+        "dataforseo_domain_rank": null,
+        "dataforseo_items_returned": 0,
+        "reported_da": null,
+        "reported_dr": null,
+        "reported_rd": null
+      },
+      "dataforseo_keyword_breakdown": {
+        "note": "ZERO keywords returned from DataForSEO Labs — both US English and global queries. No items, no metrics."
+      },
+      "top_keywords": [],
+      "top_backlinks": [
+        {
+          "source": "github.com/stack-review",
+          "type": "GitHub organization page for Stack Review project",
+          "still_live": true,
+          "value": "LOW — GitHub org link, likely nofollow. The Stack Review project on GitHub uses Next.js and was a peer code review platform, but it appears to be an independent project, not the owner of stackreview.com."
+        }
+      ],
+      "critical_finding": "stackreview.com is a HugeDomains for-sale page with ZERO organic presence. HugeDomains is a bulk domain investor that holds thousands of brandable .com domains. Their standard pricing is $2,000-$5,000, which is massively overpriced for a zero-traffic domain. Additionally, the 'Stack Review' brand creates confusion with Stack Exchange/Stack Overflow's Code Review site (codereview.stackexchange.com), which is a TRADEMARK/BRAND RISK.",
+      "hugedomains_analysis": {
+        "platform": "HugeDomains.com",
+        "typical_asking_price": "$2,000-$5,000",
+        "owner_type": "Bulk domain investor/portfolio",
+        "renewal_probability": "HIGH — HugeDomains renews their portfolio domains systematically",
+        "drop_probability": "VERY LOW — this is a professional domain portfolio company. They do not let domains drop.",
+        "notes": "HugeDomains domains almost never enter the backorder market. They are renewed and held for sale indefinitely. Placing a backorder is likely futile."
+      },
+      "wayback_content": "Web search confirms a GitHub project called 'Stack Review' exists (stack-review/stackreview-frontend) — a peer code review platform using Next.js, Auth0, and MongoDB. This appears to be an unrelated open-source project, not the domain owner.",
+      "trademark_risk": "MODERATE — 'Stack Review' creates direct brand confusion with Stack Exchange's Code Review community (codereview.stackexchange.com). Stack Exchange/Stack Overflow are trademarked. While 'stack review' is technically generic, any tool or site using this name risks cease-and-desist from Stack Exchange.",
+      "key_risks": [
+        "ZERO keywords, ZERO traffic — no SEO equity",
+        "HugeDomains ownership — domain WILL NOT DROP. Backorder is futile.",
+        "HugeDomains asking price likely $2,000-$5,000 — far above value",
+        "Brand confusion with Stack Exchange/Stack Overflow — trademark risk",
+        "Competing with established code review platforms (GitHub, GitLab, Crucible)"
+      ],
+      "key_strengths": [
+        "'stack review' could work for tech stack comparison niche",
+        ".com TLD",
+        "Two-word, easy to remember"
+      ],
+      "verdict": "SKIP ENTIRELY. HugeDomains does not let domains drop — backorder will fail. Their asking price ($2,000-$5,000) is absurd for a zero-traffic domain. Stack Exchange brand confusion adds trademark risk. Remove from watchlist.",
+      "recommended_max_bid": 30,
+      "recommended_action": "REMOVE FROM WATCHLIST. Do not place backorders. HugeDomains domains do not drop.",
+      "bid_tiers": {
+        "ideal_price": 0,
+        "comfortable_price": 0,
+        "stretch_price": 0,
+        "absolute_max": 30,
+        "notes": "Only if it somehow appears in a backorder auction, which is extremely unlikely given HugeDomains ownership."
+      },
+      "confidence": "high"
+    },
+
+    {
+      "domain": "taskplanner.com",
+      "tier": "T3",
+      "verification_date": "2026-05-07",
+      "expiry_date": "2026-05-27",
+      "est_drop_date": "2026-07-09",
+      "current_http_status": 200,
+      "site_still_live": true,
+      "site_content": "GoDaddy/Afternic for-sale lander page (gdforsale). Standard domain parking with sale option.",
+      "verified_metrics": {
+        "dataforseo_keywords_us_en": 0,
+        "dataforseo_keywords_global": 0,
+        "dataforseo_etv_us_en": 0,
+        "dataforseo_etv_global": 0,
+        "dataforseo_domain_rank": null,
+        "dataforseo_items_returned": 0,
+        "reported_da": null,
+        "reported_dr": null,
+        "reported_rd": null
+      },
+      "dataforseo_keyword_breakdown": {
+        "note": "ZERO keywords returned from DataForSEO Labs — both US English and global queries. No items, no metrics, no domain rank. This domain has never ranked for any keyword in Google, or has lost all rankings entirely."
+      },
+      "top_keywords": [],
+      "top_backlinks": [
+        {
+          "source": "unknown",
+          "notes": "Cannot verify any backlinks. No DataForSEO backlinks API access. Web searches for taskplanner.com return only Microsoft Planner results, not this domain."
+        }
+      ],
+      "critical_finding": "taskplanner.com has ZERO organic presence in Google — zero keywords, zero traffic, zero domain rank, both US and globally. The domain is a GoDaddy/Afternic for-sale lander, indicating it has been parked, not actively used. Web searches for 'taskplanner.com' return only Microsoft Planner results, meaning Google does not associate this domain with any content. The previous #1 priority ranking and $200 max bid were based on keyword brand value alone, which this verification confirms — there is NO SEO equity to inherit. The clientRenewProhibited flag from Sprint 9 analysis still suggests high drop probability, but the domain's value is purely as a brandable exact-match keyword domain.",
+      "microsoft_planner_competition": {
+        "note": "Microsoft Planner dominates all 'task planner' search queries. Google SERPs for 'task planner' show Microsoft 365, Todoist, Trello, Asana, Bordio, TaskOPad. Competing in this space requires significant content investment against well-funded incumbents.",
+        "difficulty": "VERY HIGH — keyword dominated by enterprise SaaS products with massive marketing budgets"
+      },
+      "wayback_content": "Web Archive unreachable. Web search for taskplanner.com returns no relevant results about this specific domain — only general task management tool comparisons.",
+      "trademark_risk": "LOW — 'task planner' is a generic descriptive phrase. No trademark issues.",
+      "previous_assessment": {
+        "sprint": 8,
+        "previous_tier": "T1 (#1 priority)",
+        "previous_max_bid": 200,
+        "rationale": "Productivity keyword domain. Already backordered on DropCatch."
+      },
+      "key_risks": [
+        "ZERO keywords, ZERO traffic — NO SEO equity whatsoever",
+        "GoDaddy for-sale lander — domain has been parked, not used as active site",
+        "Microsoft Planner dominates all 'task planner' SERPs — extreme competition",
+        "GoDaddy-registered domains go to GoDaddy Auctions first — may face premium pricing",
+        "No backlink profile to leverage for redirects",
+        "Previous $200 max bid was severely overpriced for a zero-equity domain"
+      ],
+      "key_strengths": [
+        "'taskplanner.com' is a clean exact-match keyword .com domain",
+        "No trademark issues — generic descriptive phrase",
+        "Productivity/task management is a high-value niche",
+        "clientRenewProhibited flag suggests high drop probability",
+        ".com TLD with clean two-word keyword"
+      ],
+      "verdict": "DOWNGRADE FROM T1 TO T3. REDUCE BID FROM $200 TO $75. The #1 priority ranking was unjustified — there is ZERO SEO equity. This is a keyword-brand play only. The 'task planner' keyword is dominated by Microsoft and enterprise SaaS incumbents, making organic ranking extremely difficult even with the exact-match domain. Still worth catching at commodity pricing for the brandable .com value, but not at premium pricing.",
+      "recommended_max_bid": 75,
+      "bid_tiers": {
+        "ideal_price": 25,
+        "comfortable_price": 40,
+        "stretch_price": 60,
+        "absolute_max": 75
+      },
+      "confidence": "high"
+    },
+
+    {
+      "domain": "aidevtools.com",
+      "tier": "T3",
+      "verification_date": "2026-05-07",
+      "expiry_date": "pending (est. drop 2026-06-17)",
+      "current_http_status": "UNREACHABLE (both HTTPS and HTTP return empty response)",
+      "site_still_live": false,
+      "verified_metrics": {
+        "dataforseo_keywords_us_en": 0,
+        "dataforseo_keywords_global": 0,
+        "dataforseo_etv_us_en": 0,
+        "dataforseo_etv_global": 0,
+        "dataforseo_domain_rank": null,
+        "dataforseo_items_returned": 0,
+        "reported_da": null,
+        "reported_dr": null,
+        "reported_rd": null
+      },
+      "dataforseo_keyword_breakdown": {
+        "note": "ZERO keywords returned from DataForSEO Labs — both US English and global queries. No items, no metrics."
+      },
+      "top_keywords": [],
+      "top_backlinks": [
+        {
+          "source": "unknown",
+          "notes": "Cannot verify any backlinks. Domain is unreachable. Web searches for 'aidevtools.com' return only general AI developer tools lists (awesome-ai-devtools on GitHub, Chrome AI assistance docs), not this specific domain."
+        }
+      ],
+      "critical_finding": "aidevtools.com has ZERO organic presence in Google and is completely unreachable (HTTP connection refused/empty response on both protocols). The domain has no content, no rankings, no traffic, and no verifiable backlinks. Web searches return no evidence of this domain ever being used as an active website. The previous #1 priority ranking and $150 max bid were based entirely on the AI + devtools keyword combination, which while trendy, provides zero inheritable SEO equity.",
+      "ai_devtools_competition": {
+        "note": "The AI developer tools space is saturated with well-funded competitors. GitHub's awesome-ai-devtools list, Chrome's DevTools AI assistance, and dozens of venture-backed AI coding tools dominate search results. The keyword 'ai devtools' or 'ai developer tools' is increasingly commoditized.",
+        "competing_domains": ["github.com/jamesmurdza/awesome-ai-devtools", "developer.chrome.com/docs/devtools/ai-assistance", "domain.ai", "aidomaingenius.com"],
+        "difficulty": "HIGH — competitive keyword space with major platform players"
+      },
+      "wayback_content": "Web Archive unreachable. Web search yields no information about aidevtools.com as an active website.",
+      "trademark_risk": "NONE — 'AI dev tools' is a generic descriptive phrase. No trademark risk.",
+      "previous_assessment": {
+        "sprint": 8,
+        "previous_tier": "T1 (#1 priority)",
+        "previous_max_bid": 150,
+        "rationale": "AI/dev tools keyword domain. Already backordered on DropCatch."
+      },
+      "key_risks": [
+        "ZERO keywords, ZERO traffic — NO SEO equity whatsoever",
+        "Domain completely unreachable — no content, no active site",
+        "No backlink profile to leverage",
+        "AI developer tools keyword space is highly competitive",
+        "Previous $150 max bid was overpriced for a zero-equity domain",
+        "'AI' keyword premium may attract competing backorder bids"
+      ],
+      "key_strengths": [
+        "'aidevtools.com' combines two hot keywords (AI + devtools)",
+        "No trademark issues",
+        ".com TLD",
+        "AI/developer tools is a growing market",
+        "Could serve as an AI coding tools comparison/directory site"
+      ],
+      "verdict": "DOWNGRADE FROM T1 TO T3. REDUCE BID FROM $150 TO $50. There is ZERO SEO equity to inherit. This is a keyword-brand play only, and the keyword space is highly competitive. The AI hype may drive competing backorder bids, so keep the bid conservative. At $50 or less, it is a reasonable speculative brand play. Above that, you are overpaying for a blank .com.",
+      "recommended_max_bid": 50,
+      "bid_tiers": {
+        "ideal_price": 15,
+        "comfortable_price": 30,
+        "stretch_price": 40,
+        "absolute_max": 50
+      },
+      "confidence": "high"
+    }
+  ],
+
+  "protocol_results_summary": {
+    "step_1_dataforseo_keywords": {
+      "devtools_io": "ZERO — DEBUNKED",
+      "toolchain_io": "ZERO — DEBUNKED",
+      "stackreview_com": "ZERO — DEBUNKED",
+      "taskplanner_com": "ZERO — DEBUNKED",
+      "aidevtools_com": "ZERO — DEBUNKED"
+    },
+    "step_2_backlink_quality": {
+      "devtools_io": "UNVERIFIABLE — no backlinks API, domain unreachable",
+      "toolchain_io": "UNVERIFIABLE — for-sale lander, no organic backlinks",
+      "stackreview_com": "MINIMAL — GitHub org link only, HugeDomains parking page",
+      "taskplanner_com": "UNVERIFIABLE — GoDaddy for-sale lander, no organic backlinks",
+      "aidevtools_com": "UNVERIFIABLE — domain unreachable, no evidence of backlinks"
+    },
+    "step_3_link_direction": {
+      "all_domains": "N/A — no claimed backlinks to verify direction for any domain"
+    },
+    "step_4_trademark_check": {
+      "devtools_io": "LOW-MODERATE — generic term, Chrome DevTools brand confusion possible",
+      "toolchain_io": "NONE — fully generic term",
+      "stackreview_com": "MODERATE — Stack Exchange/Stack Overflow brand confusion",
+      "taskplanner_com": "NONE — generic descriptive phrase",
+      "aidevtools_com": "NONE — generic descriptive phrase"
+    },
+    "step_5_traffic_reality": {
+      "devtools_io": "ZERO — DEBUNKED",
+      "toolchain_io": "ZERO — DEBUNKED",
+      "stackreview_com": "ZERO — DEBUNKED",
+      "taskplanner_com": "ZERO — DEBUNKED",
+      "aidevtools_com": "ZERO — DEBUNKED"
+    }
+  },
+
+  "updated_bid_table": [
+    {
+      "domain": "taskplanner.com",
+      "old_tier": "T1",
+      "new_tier": "T3",
+      "old_max_bid": 200,
+      "new_max_bid": 75,
+      "savings": 125,
+      "rationale": "Zero SEO equity. Brand value only. GoDaddy for-sale lander. Microsoft Planner dominates SERPs. Keep as commodity backorder at $75 max."
+    },
+    {
+      "domain": "aidevtools.com",
+      "old_tier": "T1",
+      "new_tier": "T3",
+      "old_max_bid": 150,
+      "new_max_bid": 50,
+      "savings": 100,
+      "rationale": "Zero SEO equity. Brand value only. Domain unreachable. Competitive AI keyword space. Commodity backorder at $50 max."
+    },
+    {
+      "domain": "devtools.io",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T3",
+      "old_max_bid": null,
+      "new_max_bid": 100,
+      "savings": null,
+      "rationale": "Zero SEO equity. Strong brandable keyword in .io TLD. Worth up to $100 for brand value. Use Park.io for .io backorder."
+    },
+    {
+      "domain": "toolchain.io",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T3",
+      "old_max_bid": null,
+      "new_max_bid": 75,
+      "savings": null,
+      "rationale": "Zero SEO equity. Spaceship for-sale lander — may not drop. Worth $75 max if it somehow enters backorder market."
+    },
+    {
+      "domain": "stackreview.com",
+      "old_tier": "WATCHLIST",
+      "new_tier": "T4 (SKIP)",
+      "old_max_bid": null,
+      "new_max_bid": 30,
+      "savings": null,
+      "rationale": "Zero SEO equity. HugeDomains ownership = WILL NOT DROP. Stack Exchange brand confusion. REMOVE FROM WATCHLIST."
+    }
+  ],
+
+  "actionable_recommendations": [
+    {
+      "priority": "CRITICAL",
+      "action": "Reduce taskplanner.com max bid from $200 to $75 across all platforms",
+      "reason": "DataForSEO confirms zero keywords, zero traffic. No SEO equity justifies premium pricing."
+    },
+    {
+      "priority": "CRITICAL",
+      "action": "Reduce aidevtools.com max bid from $150 to $50 across all platforms",
+      "reason": "DataForSEO confirms zero keywords, zero traffic. Domain is unreachable. Keyword-brand value only."
+    },
+    {
+      "priority": "HIGH",
+      "action": "REMOVE stackreview.com from watchlist entirely",
+      "reason": "HugeDomains ownership means domain will NOT drop. Do not waste backorder slots on this domain."
+    },
+    {
+      "priority": "HIGH",
+      "action": "Set devtools.io max bid at $100 for Park.io backorder (place by Jun 20)",
+      "reason": "Strong keyword brand value but zero SEO equity. $100 is fair for a brandable .io keyword domain."
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Set toolchain.io max bid at $75 for Park.io backorder (place by Jun 23) with DROP RISK WARNING",
+      "reason": "Currently listed for sale on Spaceship — may be renewed. Zero SEO equity even if it drops."
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Reallocate saved $225 to higher-priority targets (globalgeopark.org, ghostautonomy.com)",
+      "reason": "These domains have VERIFIED SEO equity from Sprint 9. Budget is better spent on domains with real traffic."
+    }
+  ],
+
+  "sprint10_key_lesson": "KEYWORD DOMAINS ARE NOT SEO DOMAINS. All 5 domains verified in this sprint had zero organic presence. Their value was entirely based on keyword brand potential, not inheritable SEO equity. The Sprint 9 Deep Verification Protocol correctly identifies this distinction: DataForSEO showing zero keywords = no SEO value, regardless of how good the keyword combination sounds. Brand value is real but worth significantly less than SEO equity. Always verify before assigning T1 priority or premium bids to keyword-play domains."
+}

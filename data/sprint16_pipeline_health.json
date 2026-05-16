@@ -1,0 +1,76 @@
+{
+  "sprint": 16,
+  "agent": "PIPELINE HEALTH",
+  "timestamp": "2026-05-08T14:00:00Z",
+  "cron": {
+    "installed": false,
+    "entries": [],
+    "note": "No domainhunter cron entries found. 50+ entries exist for other projects (EarlyThunder, Zovo, BLN) but daily_hunter.py is NOT scheduled."
+  },
+  "pipeline": {
+    "syntax_ok": true,
+    "dry_run_output": "Pipeline runs clean in dry-run mode. 5 sources configured, all skip correctly. Dedup 41->41 candidates. Price verification catches 3 mismatches (devtoolkit.io, codesnippets.io, devworkflow.io at 154x markup). ETV filter removes 4 low-value domains (<$100). Final output: 37 candidates stored to data/daily/2026-05-08.json. 20 whale ETV domains identified (>=$1000).",
+    "errors": [
+      "urllib3 NotOpenSSLWarning (cosmetic, non-blocking): LibreSSL 2.8.3 vs expected OpenSSL 1.1.1+"
+    ]
+  },
+  "deepseek": {
+    "key_set": true,
+    "api_works": true,
+    "model_returned": "deepseek-v4-flash",
+    "test_response": "OK",
+    "balance": "unknown (DeepSeek API does not expose balance via chat endpoint)"
+  },
+  "dataforseo": {
+    "balance": 23.78,
+    "api_works": true,
+    "login": "support@zovo.one",
+    "note": "API responds in 0.37s. $23.78 remaining balance."
+  },
+  "config": {
+    "etv_enabled": true,
+    "deepseek_enabled": false,
+    "openrank_enabled": true,
+    "expiry_monitor_enabled": true,
+    "price_verification": true,
+    "min_da_filter": 15,
+    "etv_min_threshold": 100,
+    "dataforseo_max_lookups_per_day": 50,
+    "sources_count": 5
+  },
+  "bulk_etv_scanner": {
+    "syntax_ok": true
+  },
+  "logs": {
+    "files": 0,
+    "last_modified": "N/A",
+    "note": "Log directory exists but is EMPTY. No pipeline runs have generated logs."
+  },
+  "data": {
+    "files": 119,
+    "total_size_mb": 407,
+    "most_recent": "data/daily/2026-05-08.json (just created by dry-run)"
+  },
+  "overall_status": "PARTIAL",
+  "blockers": [
+    "NO CRON JOB: daily_hunter.py is not scheduled in crontab. Pipeline will NOT run automatically.",
+    "DEEPSEEK DISABLED: Config has deepseek_enabled=false and deepseek_api_key is empty string, despite .env having a valid working key."
+  ],
+  "fixes_needed": [
+    "ADD CRON: Schedule daily_hunter.py in crontab (e.g., '0 5 * * * cd /Users/mike/Desktop/domainhunter && python3 tools/daily_hunter.py >> logs/daily_hunter.log 2>&1')",
+    "ENABLE DEEPSEEK: Set deepseek_enabled=true and deepseek_api_key to the .env key in daily_hunter_config.json, or read from env var",
+    "FIX LOGGING: Pipeline runs produce no log files - verify logger writes to logs/ directory",
+    "UPGRADE SSL: Consider upgrading OpenSSL to eliminate urllib3 warnings (cosmetic but noisy)"
+  ],
+  "healthy_components": [
+    "daily_hunter.py syntax valid and dry-run passes cleanly",
+    "bulk_etv_scan.py syntax valid",
+    "DataForSEO API works, $23.78 balance remaining",
+    "DeepSeek API works, responds with deepseek-v4-flash model",
+    "ETV verification pipeline operational (37/41 pass, 20 whales identified)",
+    "Price verification catches mismatches correctly (3 caught at 154x markup)",
+    "OpenRank cross-check enabled",
+    "Expiry monitor enabled",
+    "119 data files (407MB) accumulated"
+  ]
+}

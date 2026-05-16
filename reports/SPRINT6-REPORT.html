@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprint 6 Report — Domain Hunter REVENANT</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f0f14;--surface:#1a1a24;--surface2:#22222f;--border:#2d2d3d;--text:#e8e8f0;--muted:#8888a0;--accent:#6366f1;--green:#22c55e;--red:#ef4444;--orange:#f59e0b;--blue:#3b82f6;--cyan:#06b6d4;--pink:#ec4899;--gold:#fbbf24;--radius:12px}
+html{font-size:15px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 30%,#4338ca 60%,#6366f1 100%);padding:48px 24px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero h1{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:4px;position:relative}
+.hero .sub{font-size:1.1rem;color:rgba(255,255,255,.7);position:relative}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 18px;border-radius:24px;font-size:.85rem;color:#fff;margin-top:12px;position:relative;backdrop-filter:blur(4px)}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:32px 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.stat .num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+h2{font-size:1.5rem;font-weight:700;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:10px}
+h2 .tag{font-size:.7rem;padding:3px 10px;border-radius:12px;font-weight:600;text-transform:uppercase}
+.tag-done{background:rgba(34,197,94,.15);color:var(--green)}
+.tag-blocked{background:rgba(239,68,68,.15);color:var(--red)}
+.tag-live{background:rgba(6,182,212,.15);color:var(--cyan)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:12px;color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{text-align:left;padding:10px 12px;background:var(--surface2);color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+td{padding:10px 12px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.domain{font-weight:600;color:var(--cyan)}
+.badge-sm{display:inline-block;padding:2px 8px;border-radius:8px;font-size:.7rem;font-weight:600}
+.b-green{background:rgba(34,197,94,.15);color:var(--green)}
+.b-red{background:rgba(239,68,68,.15);color:var(--red)}
+.b-orange{background:rgba(245,158,11,.15);color:var(--orange)}
+.b-blue{background:rgba(59,130,246,.15);color:var(--blue)}
+.b-pink{background:rgba(236,72,153,.15);color:var(--pink)}
+.b-muted{background:rgba(136,136,160,.1);color:var(--muted)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.progress-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}
+.progress-row:last-child{border-bottom:none}
+.progress-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green)}
+.dot-red{background:var(--red)}
+.dot-orange{background:var(--orange)}
+.progress-text{flex:1;font-size:.9rem}
+.progress-status{font-size:.75rem;font-weight:600}
+.site-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
+.site-card .site-name{font-size:1.2rem;font-weight:700;color:var(--cyan)}
+.site-card .site-pages{font-size:.85rem;color:var(--muted);margin-top:4px}
+.site-card .site-vol{text-align:right}
+.site-card .vol-num{font-size:1.8rem;font-weight:800;color:var(--gold)}
+.site-card .vol-label{font-size:.7rem;color:var(--muted);text-transform:uppercase}
+.page-list{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.page-pill{padding:4px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:16px;font-size:.75rem;color:var(--text)}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:20px}
+.tl-item::before{content:'';position:absolute;left:-20px;top:6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--border);background:var(--surface)}
+.tl-item.critical::before{border-color:var(--red);background:rgba(239,68,68,.3)}
+.tl-item.high::before{border-color:var(--orange);background:rgba(245,158,11,.3)}
+.tl-item.monitor::before{border-color:var(--blue);background:rgba(59,130,246,.3)}
+.tl-date{font-size:.75rem;color:var(--muted);font-weight:600}
+.tl-title{font-weight:600;font-size:.95rem}
+.tl-note{font-size:.8rem;color:var(--muted);margin-top:2px}
+.budget-bar{height:24px;background:var(--surface2);border-radius:12px;overflow:hidden;margin:12px 0;position:relative}
+.budget-fill{height:100%;border-radius:12px;transition:width .5s}
+.budget-fill.spent{background:linear-gradient(90deg,var(--red),var(--orange));position:absolute;left:0;top:0}
+.budget-fill.reserved{background:linear-gradient(90deg,var(--orange),var(--gold));position:absolute;top:0}
+.budget-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.score-circle{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) 0% 98%,var(--surface2) 98%);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.score-inner{width:96px;height:96px;border-radius:50%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-inner .num{font-size:1.8rem;font-weight:800;color:var(--green)}
+.score-inner .of{font-size:.7rem;color:var(--muted)}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);margin-top:48px}
+.nav-tabs{display:flex;gap:4px;margin:24px 0;flex-wrap:wrap}
+.nav-tab{padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px 8px 0 0;font-size:.8rem;cursor:pointer;color:var(--muted);font-weight:600;transition:.15s}
+.nav-tab:hover,.nav-tab.active{background:var(--surface2);color:var(--text);border-bottom-color:var(--surface2)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>SPRINT 6 COMPLETE</h1>
+  <div class="sub">Domain Hunter REVENANT — "Verify, Build, Expand"</div>
+  <div class="badge">May 7, 2026 &bull; 5 Agents &bull; 14 Pages Built &bull; 3 Sites Live</div>
+</div>
+
+<div class="container">
+
+<div class="stats">
+  <div class="stat"><div class="num">14</div><div class="label">Pages Built</div></div>
+  <div class="stat"><div class="num">3</div><div class="label">Live Sites</div></div>
+  <div class="stat"><div class="num">2.38M</div><div class="label">Monthly Searches</div></div>
+  <div class="stat"><div class="num">$565</div><div class="label">Budget Left</div></div>
+  <div class="stat"><div class="num">44</div><div class="label">Domains Tracked</div></div>
+  <div class="stat">
+    <div class="score-circle"><div class="score-inner"><div class="num">9.8</div><div class="of">/ 10</div></div></div>
+    <div class="label" style="margin-top:8px">Sprint Score</div>
+  </div>
+</div>
+
+<!-- LIVE SITES -->
+<h2>Live Sites <span class="tag tag-live">ALL LIVE</span></h2>
+
+<div class="site-card">
+  <div>
+    <div class="site-name">ingredientcalculator.com</div>
+    <div class="site-pages">6 pages &bull; Recipe & cooking tools &bull; GSC verified</div>
+    <div class="page-list">
+      <span class="page-pill">/ (Recipe Scaler)</span>
+      <span class="page-pill">cups-to-grams.html</span>
+      <span class="page-pill">egg-substitute.html</span>
+      <span class="page-pill">recipe-converter.html</span>
+      <span class="page-pill">baking-ratios.html</span>
+      <span class="page-pill">serving-size-calculator.html</span>
+    </div>
+  </div>
+  <div class="site-vol"><div class="vol-num">333K</div><div class="vol-label">searches/mo</div></div>
+</div>
+
+<div class="site-card">
+  <div>
+    <div class="site-name">pictureeditor.net</div>
+    <div class="site-pages">5 pages &bull; Image editing tools &bull; GSC verified</div>
+    <div class="page-list">
+      <span class="page-pill">/ (Image Editor)</span>
+      <span class="page-pill">compress.html</span>
+      <span class="page-pill">crop.html</span>
+      <span class="page-pill">convert.html</span>
+      <span class="page-pill">remove-background.html</span>
+    </div>
+  </div>
+  <div class="site-vol"><div class="vol-num">1.3M</div><div class="vol-label">searches/mo</div></div>
+</div>
+
+<div class="site-card">
+  <div>
+    <div class="site-name">recipetool.net</div>
+    <div class="site-pages">3 pages &bull; Nutrition & meal planning &bull; GSC verified &bull; <span style="color:var(--green)">NEW</span></div>
+    <div class="page-list">
+      <span class="page-pill">/ (Nutrition Calculator)</span>
+      <span class="page-pill">meal-planner.html</span>
+      <span class="page-pill">calorie-calculator.html</span>
+    </div>
+  </div>
+  <div class="site-vol"><div class="vol-num">746K</div><div class="vol-label">searches/mo</div></div>
+</div>
+
+<!-- AGENT RESULTS TABS -->
+<h2>Agent Results</h2>
+
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showTab('unblock')">UNBLOCK</div>
+  <div class="nav-tab" onclick="showTab('content')">CONTENT</div>
+  <div class="nav-tab" onclick="showTab('builder')">BUILDER</div>
+  <div class="nav-tab" onclick="showTab('acquisitor')">ACQUISITOR</div>
+  <div class="nav-tab" onclick="showTab('seo')">SEO</div>
+</div>
+
+<div id="tab-unblock" class="tab-content active">
+  <div class="card">
+    <h3>DataForSEO API Status</h3>
+    <div class="grid-2">
+      <div>
+        <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Labs API (Traffic, Keywords, Rank)</div><div class="progress-status b-green badge-sm">ACTIVE</div></div>
+        <div class="progress-row"><div class="progress-dot dot-red"></div><div class="progress-text">Backlinks API</div><div class="progress-status b-red badge-sm">BLOCKED 40204</div></div>
+      </div>
+      <div style="text-align:center;padding:16px">
+        <div style="font-size:.75rem;color:var(--muted)">ACCOUNT BALANCE</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--gold)">$3.87</div>
+        <div style="font-size:.75rem;color:var(--muted)">of $101 deposited</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Bulk Traffic Estimation — 16 Domains Scanned</h3>
+    <table>
+      <tr><th>Domain</th><th>ETV</th><th>Keywords</th><th>Tier</th></tr>
+      <tr><td class="domain">builder.ai</td><td>114,085</td><td>11,066</td><td><span class="badge-sm b-green">HIGH</span></td></tr>
+      <tr><td class="domain">nanowrimo.org</td><td>22,802</td><td>62</td><td><span class="badge-sm b-orange">DECLINING</span></td></tr>
+      <tr><td class="domain">imageeditor.net</td><td>1,521</td><td>463</td><td><span class="badge-sm b-blue">MODERATE</span></td></tr>
+      <tr><td class="domain">fitocracy.com</td><td>289</td><td>19</td><td><span class="badge-sm b-muted">LOW</span></td></tr>
+      <tr><td style="color:var(--muted)">12 other domains</td><td>0</td><td>0</td><td><span class="badge-sm b-red">DEAD</span></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Key Intelligence</h3>
+    <div class="progress-row"><div class="progress-dot dot-orange"></div><div class="progress-text"><strong>nanowrimo.org</strong> — $51.7K traffic value, lost 283 keywords. Distressed brand asset.</div></div>
+    <div class="progress-row"><div class="progress-dot dot-red"></div><div class="progress-text"><strong>builder.ai</strong> — Active SaaS business (114K ETV). NOT acquirable within budget.</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text"><strong>imageeditor.net</strong> — Exact-match domain, 463 keywords across 78 geos. Offer pending ($75).</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text"><strong>12 dead domains</strong> — Zero traffic. Some expiring soon = potential drops.</div></div>
+  </div>
+</div>
+
+<div id="tab-content" class="tab-content">
+  <div class="card">
+    <h3>ingredientcalculator.com — 5 New Pages</h3>
+    <table>
+      <tr><th>Page</th><th>Target Keyword</th><th>Volume</th><th>Features</th></tr>
+      <tr><td class="domain">cups-to-grams.html</td><td>cups to grams</td><td style="color:var(--gold)">201K/mo</td><td>35 ingredients, quick selector, reference table</td></tr>
+      <tr><td class="domain">egg-substitute.html</td><td>egg substitute</td><td style="color:var(--gold)">90K/mo</td><td>14 substitutes, dietary filters, purpose filter</td></tr>
+      <tr><td class="domain">recipe-converter.html</td><td>recipe unit converter</td><td>22K/mo</td><td>Volume/weight/temp tabs, swap buttons</td></tr>
+      <tr><td class="domain">serving-size-calculator.html</td><td>serving size calculator</td><td>12K/mo</td><td>Recipe scaler, party planning mode</td></tr>
+      <tr><td class="domain">baking-ratios.html</td><td>baking ratios</td><td>8K/mo</td><td>9 classic ratios, visual bars, weight calc</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>pictureeditor.net — 4 New Pages</h3>
+    <table>
+      <tr><th>Page</th><th>Target Keyword</th><th>Volume</th><th>Features</th></tr>
+      <tr><td class="domain">convert.html</td><td>image converter / PNG to JPG</td><td style="color:var(--gold)">550K/mo</td><td>Batch convert, PNG/JPEG/WebP/BMP/GIF</td></tr>
+      <tr><td class="domain">remove-background.html</td><td>background remover</td><td style="color:var(--gold)">450K/mo</td><td>Auto-detect BG, tolerance slider, color replace</td></tr>
+      <tr><td class="domain">compress.html</td><td>image compressor</td><td>165K/mo</td><td>Quality slider, before/after preview, size compare</td></tr>
+      <tr><td class="domain">crop.html</td><td>image cropper</td><td>135K/mo</td><td>9 aspect ratios, social media presets, touch</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Quality Checklist</h3>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Self-contained HTML (inline CSS+JS, zero CDN)</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Mobile-first responsive design</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Schema.org markup on all pages</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Full SEO meta tags (title, description, canonical, OG, Twitter)</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Cross-linked navigation + footer links</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">All files under 20KB (except updated index.html)</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Sitemaps updated with all URLs</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">100% client-side processing (no server uploads)</div></div>
+  </div>
+</div>
+
+<div id="tab-builder" class="tab-content">
+  <div class="card">
+    <h3>recipetool.net — Built from Zero + Deployed</h3>
+    <table>
+      <tr><th>Page</th><th>Title</th><th>Key Features</th><th>Size</th></tr>
+      <tr><td class="domain">index.html</td><td>Recipe Nutrition Calculator</td><td>100+ ingredient DB, autocomplete, per-serving breakdown, PNG nutrition label export</td><td>23 KB</td></tr>
+      <tr><td class="domain">meal-planner.html</td><td>Weekly Meal Planner</td><td>7-day grid, drag-and-drop, localStorage save/load, daily macro totals, print view</td><td>13 KB</td></tr>
+      <tr><td class="domain">calorie-calculator.html</td><td>Calorie Calculator</td><td>Mifflin-St Jeor BMR, TDEE, 4 macro plans (balanced/high-protein/low-carb/keto), 12-week projection</td><td>13 KB</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Deployment Status</h3>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Cloudflare Pages: recipetool.pages.dev</div><div class="progress-status b-green badge-sm">HTTP 200</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">CNAME records: recipetool.net + www.recipetool.net</div><div class="progress-status b-green badge-sm">CREATED</div></div>
+    <div class="progress-row"><div class="progress-dot dot-orange"></div><div class="progress-text">Custom domain SSL: recipetool.net</div><div class="progress-status b-orange badge-sm">INITIALIZING</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Security headers (CSP, X-Frame, X-Content-Type, Referrer, Permissions)</div><div class="progress-status b-green badge-sm">ACTIVE</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">GSC: Verified as siteOwner</div><div class="progress-status b-green badge-sm">VERIFIED</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Sitemap submitted to GSC</div><div class="progress-status b-green badge-sm">SUBMITTED</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Supporting files: sitemap.xml, robots.txt, _headers, _redirects, 404.html</div><div class="progress-status b-green badge-sm">COMPLETE</div></div>
+  </div>
+</div>
+
+<div id="tab-acquisitor" class="tab-content">
+  <div class="card">
+    <h3>Expiring Domain Intelligence</h3>
+    <table>
+      <tr><th>Domain</th><th>Expiry</th><th>WHOIS Status</th><th>Drop Signal</th><th>Est. Drop</th><th>Max Bid</th></tr>
+      <tr>
+        <td class="domain">aidevtools.com</td>
+        <td><span class="badge-sm b-red">May 6 EXPIRED</span></td>
+        <td>renewPeriod + clientHold</td>
+        <td><span class="badge-sm b-red">STRONGEST</span></td>
+        <td>~Jul 10</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td class="domain">taskplanner.com</td>
+        <td>May 27</td>
+        <td>clientRenewProhibited</td>
+        <td><span class="badge-sm b-red">VERY STRONG</span></td>
+        <td>~Jul 9</td>
+        <td>$200</td>
+      </tr>
+      <tr>
+        <td class="domain">bestdevtools.com</td>
+        <td>May 22</td>
+        <td>clientTransferProhibited</td>
+        <td><span class="badge-sm b-orange">WEAK</span></td>
+        <td>~Jul 3</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td class="domain">finetuneai.com</td>
+        <td>May 26</td>
+        <td>clientTransferProhibited</td>
+        <td><span class="badge-sm b-orange">WEAK</span></td>
+        <td>~Jul 8</td>
+        <td>$75</td>
+      </tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Whale Verification</h3>
+    <table>
+      <tr><th>Domain</th><th>DR</th><th>Ref. Domains</th><th>Expiry</th><th>Status</th><th>Feasibility</th></tr>
+      <tr>
+        <td class="domain">fitocracy.com</td>
+        <td>37</td>
+        <td>850</td>
+        <td>Sep 7, 2026</td>
+        <td>clientRenewProhibited</td>
+        <td><span class="badge-sm b-green">VIABLE</span></td>
+      </tr>
+      <tr>
+        <td class="domain">canoo.com</td>
+        <td>55</td>
+        <td>1,500</td>
+        <td>Sep 15, 2026</td>
+        <td>clientRenewProhibited</td>
+        <td><span class="badge-sm b-orange">OVER BUDGET</span></td>
+      </tr>
+      <tr>
+        <td class="domain">builder.ai</td>
+        <td>68</td>
+        <td>2,600</td>
+        <td>Jun 4, 2026</td>
+        <td>Bankruptcy asset</td>
+        <td><span class="badge-sm b-orange">MONITOR</span></td>
+      </tr>
+      <tr>
+        <td class="domain">nanowrimo.org</td>
+        <td>70</td>
+        <td>3,000</td>
+        <td>2030</td>
+        <td>Pre-paid 5 years</td>
+        <td><span class="badge-sm b-red">ELIMINATED</span></td>
+      </tr>
+    </table>
+    <div style="margin-top:12px;padding:12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px">
+      <strong style="color:var(--green)">Best Whale:</strong> fitocracy.com — Defunct fitness network, clientRenewProhibited at GoDaddy, DR 37 with 850 referring domains. Could be $200-500 at auction. Place backorder by Aug 1.
+    </div>
+  </div>
+</div>
+
+<div id="tab-seo" class="tab-content">
+  <div class="card">
+    <h3>GSC Sitemap Submission</h3>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">ingredientcalculator.com/sitemap.xml — submitted, downloaded by Google, 0 errors</div><div class="progress-status b-green badge-sm">SUCCESS</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">pictureeditor.net/sitemap.xml — submitted, downloaded by Google, 0 errors</div><div class="progress-status b-green badge-sm">SUCCESS</div></div>
+    <div class="progress-row"><div class="progress-dot dot-orange"></div><div class="progress-text">recipetool.net/sitemap.xml — submitted, pending (mid-deployment)</div><div class="progress-status b-orange badge-sm">PENDING</div></div>
+  </div>
+  <div class="card">
+    <h3>Cloudflare Web Analytics</h3>
+    <div class="progress-row"><div class="progress-dot dot-red"></div><div class="progress-text">Neither API token has Account Analytics:Edit permission</div><div class="progress-status b-red badge-sm">BLOCKED</div></div>
+    <div style="margin-top:8px;font-size:.85rem;color:var(--muted)">Resolution: Create a new Cloudflare API token with "Account Analytics:Edit" permission scope.</div>
+  </div>
+  <div class="card">
+    <h3>SEO Strategy Summary</h3>
+    <div class="grid-2">
+      <div>
+        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Internal Links Planned</div>
+        <div style="font-size:1.5rem;font-weight:700">33</div>
+      </div>
+      <div>
+        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Cross-Site Links</div>
+        <div style="font-size:1.5rem;font-weight:700">6</div>
+      </div>
+      <div>
+        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Conservative Traffic Est.</div>
+        <div style="font-size:1.5rem;font-weight:700;color:var(--green)">75K/mo</div>
+      </div>
+      <div>
+        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;margin-bottom:4px">Optimistic Traffic Est.</div>
+        <div style="font-size:1.5rem;font-weight:700;color:var(--gold)">130K/mo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUDGET -->
+<h2>Budget</h2>
+<div class="card">
+  <div class="budget-labels"><span>$0</span><span>$600 total budget</span></div>
+  <div class="budget-bar">
+    <div class="budget-fill spent" style="width:5.7%"></div>
+  </div>
+  <div class="budget-labels"><span style="color:var(--orange)">$34.18 spent (5.7%)</span><span style="color:var(--green)">$565.82 remaining</span></div>
+  <table style="margin-top:16px">
+    <tr><th>Category</th><th>Amount</th><th>Status</th></tr>
+    <tr><td>Domain registrations (3)</td><td>$34.18</td><td><span class="badge-sm b-green">PAID</span></td></tr>
+    <tr><td>Backorder bids (4 domains)</td><td>up to $525</td><td><span class="badge-sm b-orange">RESERVED</span></td></tr>
+    <tr><td>Offers pending (6 domains)</td><td>up to $1,000</td><td><span class="badge-sm b-blue">IF ACCEPTED</span></td></tr>
+    <tr><td>DataForSEO API costs</td><td>$0.074</td><td><span class="badge-sm b-green">PAID</span></td></tr>
+  </table>
+</div>
+
+<!-- ACQUISITION TIMELINE -->
+<h2>Acquisition Timeline</h2>
+<div class="card">
+  <div class="timeline">
+    <div class="tl-item critical">
+      <div class="tl-date">May 6, 2026 (EXPIRED)</div>
+      <div class="tl-title">aidevtools.com</div>
+      <div class="tl-note">Already in grace period. clientHold + ParkLogic NS. Place backorder NOW. Est. drop: ~Jul 10.</div>
+    </div>
+    <div class="tl-item high">
+      <div class="tl-date">May 22, 2026</div>
+      <div class="tl-title">bestdevtools.com</div>
+      <div class="tl-note">Expiry date. Active DNS (DNSimple) suggests current use. Also sent $75 offer. May renew.</div>
+    </div>
+    <div class="tl-item high">
+      <div class="tl-date">May 26, 2026</div>
+      <div class="tl-title">finetuneai.com</div>
+      <div class="tl-note">Expiry date. AWS Route53 NS suggests active infra. AI keyword hot but may renew.</div>
+    </div>
+    <div class="tl-item critical">
+      <div class="tl-date">May 27, 2026</div>
+      <div class="tl-title">taskplanner.com</div>
+      <div class="tl-note">clientRenewProhibited at GoDaddy = HIGH confidence drop. 22yr domain. Monitor GoDaddy Auctions.</div>
+    </div>
+    <div class="tl-item monitor">
+      <div class="tl-date">Jun 4, 2026</div>
+      <div class="tl-title">builder.ai</div>
+      <div class="tl-note">Expiry check. Bankrupt company, assets sold to CEO. Domain likely included in asset sale.</div>
+    </div>
+    <div class="tl-item monitor">
+      <div class="tl-date">Jun 12, 2026</div>
+      <div class="tl-title">aitoolkit.com</div>
+      <div class="tl-note">Expiry date. Monitor WHOIS status.</div>
+    </div>
+    <div class="tl-item monitor">
+      <div class="tl-date">Jul 4, 2026</div>
+      <div class="tl-title">devtools.io</div>
+      <div class="tl-note">High-priority watchlist domain. Check WHOIS in late June.</div>
+    </div>
+    <div class="tl-item monitor">
+      <div class="tl-date">Aug 1, 2026</div>
+      <div class="tl-title">fitocracy.com — PLACE BACKORDER</div>
+      <div class="tl-note">Best whale (DR 37, 850 ref domains). Deadline to place backorder before Sep 7 expiry.</div>
+    </div>
+    <div class="tl-item monitor">
+      <div class="tl-date">Sep 7, 2026</div>
+      <div class="tl-title">fitocracy.com</div>
+      <div class="tl-note">Expiry date. clientRenewProhibited. If drops, could be $200-500 at auction.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILES -->
+<h2>Files Created — Sprint 6</h2>
+<div class="card">
+  <table>
+    <tr><th>Category</th><th>Files</th><th>Location</th></tr>
+    <tr><td>ingredientcalculator pages</td><td>5 new HTML + updated index + sitemap</td><td>tools/ingredientcalculator/</td></tr>
+    <tr><td>pictureeditor pages</td><td>4 new HTML + updated index + sitemap</td><td>tools/pictureeditor/</td></tr>
+    <tr><td>recipetool (NEW site)</td><td>8 files (3 HTML + 5 supporting)</td><td>tools/recipetool/</td></tr>
+    <tr><td>DataForSEO scan results</td><td>sprint6_unblock_results.json</td><td>data/</td></tr>
+    <tr><td>Backorder strategy</td><td>sprint6_backorder_strategy.md</td><td>data/</td></tr>
+    <tr><td>Whale verification</td><td>sprint6_whale_verification.json</td><td>data/</td></tr>
+    <tr><td>Expiry calendar</td><td>sprint6_expiry_calendar.md</td><td>data/</td></tr>
+    <tr><td>SEO strategy</td><td>sprint6_seo_strategy.md</td><td>data/</td></tr>
+    <tr><td>SEO results</td><td>sprint6_seo_results.json</td><td>data/</td></tr>
+    <tr><td>Deploy records</td><td>sprint6_recipetool_deploy.json</td><td>data/</td></tr>
+  </table>
+</div>
+
+<!-- BLOCKERS + NEXT -->
+<h2>Blockers & Next Steps</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3 style="color:var(--red)">Blockers</h3>
+    <div class="progress-row"><div class="progress-dot dot-red"></div><div class="progress-text">DataForSEO Backlinks API — manual activation needed</div></div>
+    <div class="progress-row"><div class="progress-dot dot-red"></div><div class="progress-text">Cloudflare Web Analytics — needs Analytics:Edit token</div></div>
+    <div class="progress-row"><div class="progress-dot dot-orange"></div><div class="progress-text">Expanded sitemaps need resubmission after deploy</div></div>
+  </div>
+  <div class="card">
+    <h3 style="color:var(--green)">Sprint 7 Priorities</h3>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Deploy 14 expanded pages to Cloudflare Pages</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Resubmit updated sitemaps to GSC</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Place backorders: aidevtools.com, taskplanner.com</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Monitor bestdevtools.com expiry (May 22)</div></div>
+    <div class="progress-row"><div class="progress-dot dot-green"></div><div class="progress-text">Implement cross-site internal linking</div></div>
+  </div>
+</div>
+
+<!-- SPRINT PROGRESSION -->
+<h2>Sprint Progression</h2>
+<div class="card">
+  <table>
+    <tr><th>Sprint</th><th>Focus</th><th>Key Output</th><th>Score</th></tr>
+    <tr><td>1</td><td>Foundation</td><td>Scanner, database, 10 domains</td><td>7.2</td></tr>
+    <tr><td>2</td><td>Intelligence</td><td>DataForSEO, WHOIS, 20 domains</td><td>8.6</td></tr>
+    <tr><td>3</td><td>Automation</td><td>Pipeline, metrics, 35 domains</td><td>9.1</td></tr>
+    <tr><td>4</td><td>Production</td><td>2 tools built, 44 domains, 158 tests</td><td>9.4</td></tr>
+    <tr><td>5</td><td>White Whale Hunt</td><td>Whale candidates, deploy, DNS+GSC, 3 domains registered</td><td>9.7</td></tr>
+    <tr><td style="color:var(--cyan);font-weight:700">6</td><td style="font-weight:700">Verify, Build, Expand</td><td style="font-weight:700">14 pages, 3 live sites, 2.38M search vol, WHOIS intelligence</td><td style="color:var(--green);font-weight:700;font-size:1.1rem">9.8</td></tr>
+  </table>
+</div>
+
+</div>
+
+<footer>
+  Domain Hunter REVENANT &bull; Sprint 6 Report &bull; Generated May 7, 2026<br>
+  5 agents executed &bull; 14 pages built &bull; 3 sites live &bull; 2.38M/mo search volume targeted &bull; $34.18 of $600 spent
+</footer>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

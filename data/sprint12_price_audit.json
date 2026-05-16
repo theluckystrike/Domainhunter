@@ -1,0 +1,463 @@
+{
+  "sprint": 12,
+  "agent": "AGENT 1: PRICE AUDITOR",
+  "audit_date": "2026-05-07",
+  "mission": "Verify ACTUAL live prices for every domain Sprint 10 recommended as cheap",
+  "methodology": [
+    "WHOIS lookups (registry + registrar level expiry comparison)",
+    "DNS A record resolution to identify parking/aftermarket IPs",
+    "HTTP landing page analysis (LANDER_SYSTEM type, Sedo/Moniker ERRP pages)",
+    "Afternic API JSON extraction (buyNowPrice, minPrice, sellable status)",
+    "EPP status code analysis (clientRenewProhibited = auction indicator)",
+    "Registrar vs Registry expiry date discrepancy analysis"
+  ],
+
+  "executive_summary": {
+    "total_domains_audited": 10,
+    "sprint10_pricing_accuracy": "3 out of 10 domains had COMPLETELY WRONG pricing",
+    "confirmed_fake_closeouts": 3,
+    "domains_genuinely_in_expired_auction": 5,
+    "domains_on_third_party_aftermarket": 2,
+    "critical_finding": "Sprint 10 confused GoDaddy Aftermarket/Premium (Afternic) listings with GoDaddy Closeout. rbiwoodtools.com ($5 claimed) is actually $1,500+ Make Offer. shrimpvietnam.com ($5 claimed) is $2,022 Buy Now on Afternic. sobsuan.com ($5 claimed) is $300+ Make Offer on Afternic. The 'expired auction' domains (chapter7bankruptcy, flashcardsonline, freeexercise, freetail, lifebetter, sageinvestor) have genuinely expired at their registrars in April 2026 and are likely in the GoDaddy/Tucows/eNom auction or closeout pipeline, but their CURRENT auction prices cannot be verified from outside the GoDaddy Auctions platform (requires authenticated login)."
+  },
+
+  "godaddy_marketplace_education": {
+    "system_1_registration": {
+      "name": "Standard Registration",
+      "url": "godaddy.com/domainsearch",
+      "price_range": "$2-15/yr for fresh unregistered domains",
+      "how_to_identify": "Domain shows 'Available' in WHOIS with no registration"
+    },
+    "system_2_aftermarket": {
+      "name": "Aftermarket/Premium (Afternic)",
+      "url": "afternic.com/forsale/{domain}",
+      "price_range": "$300-$500,000+ set by domain owners",
+      "how_to_identify": "Afternic API shows sellable:true, buyNowPrice>0 or minPrice>0, domains park on GoDaddy lander with LANDER_SYSTEM=CP, redirect to /lander, IP resolves to 52.223.13.41 or 76.223.67.189",
+      "key_red_flag": "Sprint 10 confused these with closeouts"
+    },
+    "system_3_expired_auction": {
+      "name": "Expired Domain Auctions",
+      "url": "auctions.godaddy.com (requires login)",
+      "price_range": "$1 starting bid, market-driven",
+      "how_to_identify": "Registrar-level expiry shows 2026 date while registry shows 2027, clientRenewProhibited EPP status, LANDER_SYSTEM=PW, domains on domaincontrol.com nameservers",
+      "timeline": "Day 26 after expiry: auction starts (10 days). Day 36: closeout starts (5 days, declining price). Day 42+: released to registry."
+    },
+    "system_4_closeout": {
+      "name": "Closeout (Post-Auction)",
+      "url": "auctions.godaddy.com with Closeout filter",
+      "price_range": "$5-$25 Buy Now, declining daily",
+      "how_to_identify": "Only available 36-41 days after expiry, only if auction received zero bids. CANNOT be verified from outside GoDaddy Auctions platform."
+    }
+  },
+
+  "domain_audits": [
+    {
+      "domain": "rbiwoodtools.com",
+      "sprint10_claimed_price": 5.00,
+      "sprint10_claimed_source": "GoDaddy Closeout ($5 BuyNow)",
+      "verified_status": "aftermarket_premium",
+      "verified_price": null,
+      "verified_price_note": "Make Offer only. Minimum offer: $1,500.00 USD. No Buy Now option.",
+      "afternic_data": {
+        "sellable": true,
+        "sellerId": 653462625,
+        "minPrice": 1500,
+        "minPriceDisplay": "$1,500.00",
+        "buyNowEnabled": false,
+        "buyNowPrice": 0,
+        "isBoostSpin": true,
+        "isFastTransfer": false
+      },
+      "whois": {
+        "registrar": "Tucows Domains Inc.",
+        "registry_expiry": "2027-03-30T04:00:00Z",
+        "registrar_expiry": "2026-03-30T04:00:00",
+        "creation_date": "1996-03-29T05:00:00Z",
+        "updated_date": "2026-04-03T03:05:07Z",
+        "status_codes": ["clientTransferProhibited", "clientUpdateProhibited"],
+        "nameservers": ["NS1.RENEWYOURNAME.NET", "NS2.RENEWYOURNAME.NET"]
+      },
+      "dns_ip": "52.223.13.41",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=CP, Afternic for-sale)",
+      "lander_system": "CP (CashParking/Afternic)",
+      "verified_url": "https://www.afternic.com/forsale/rbiwoodtools.com",
+      "verification_verdict": "FAKE PRICE - Sprint 10 said $5 closeout, actually $1,500+ aftermarket Make Offer on Afternic",
+      "notes": "Domain expired at Tucows on 2026-03-30 (38 days ago). It was picked up or is being held in Tucows aftermarket pipeline and listed on Afternic at minimum $1,500 Make Offer. This was NEVER a $5 closeout. The age claim of 30 years (1996 creation) is correct."
+    },
+    {
+      "domain": "shrimpvietnam.com",
+      "sprint10_claimed_price": 5.00,
+      "sprint10_claimed_source": "GoDaddy Closeout ($5 BuyNow)",
+      "verified_status": "aftermarket_premium",
+      "verified_price": 2022.00,
+      "verified_price_note": "Buy Now: $2,022.00 USD on Afternic. Fixed price, not negotiable.",
+      "afternic_data": {
+        "sellable": true,
+        "sellerId": 363417257,
+        "minPrice": 2022,
+        "minPriceDisplay": "$2,022.00",
+        "buyNowEnabled": true,
+        "buyNowPrice": 2022,
+        "buyNowPriceDisplay": "$2,022.00",
+        "isBoostSpin": true,
+        "isFastTransfer": false,
+        "leaseToOwnEnabled": false
+      },
+      "whois": {
+        "registrar": "GoDaddy.com, LLC",
+        "registry_expiry": "2027-03-27T08:00:52Z",
+        "registrar_expiry": "2026-03-27T03:00:52Z",
+        "creation_date": "2000-03-27T09:00:52Z",
+        "updated_date": "2026-04-08T12:23:16Z",
+        "status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited", "clientRenewProhibited"],
+        "nameservers": ["NS33.DOMAINCONTROL.COM", "NS34.DOMAINCONTROL.COM"]
+      },
+      "dns_ip": "76.223.67.189",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=PW)",
+      "lander_system": "PW (Parking Website)",
+      "verified_url": "https://www.afternic.com/forsale/shrimpvietnam.com",
+      "verification_verdict": "FAKE PRICE - Sprint 10 said $5 closeout, actually $2,022 Buy Now on Afternic",
+      "notes": "Domain expired at GoDaddy on 2026-03-27 (41 days ago). Has clientRenewProhibited status. Was acquired from expired auction and is now listed on Afternic at $2,022 Buy Now. Sprint 10 was off by 404x. The seller (ID 363417257) set a firm $2,022 price."
+    },
+    {
+      "domain": "sobsuan.com",
+      "sprint10_claimed_price": 5.00,
+      "sprint10_claimed_source": "GoDaddy Closeout ($5 BuyNow)",
+      "verified_status": "aftermarket_premium",
+      "verified_price": null,
+      "verified_price_note": "Make Offer only. Minimum offer: $300.00 USD on Afternic. Also showing as expired at Moniker registrar.",
+      "afternic_data": {
+        "sellable": true,
+        "sellerId": 503525196,
+        "minPrice": 300,
+        "minPriceDisplay": "$300.00",
+        "buyNowEnabled": false,
+        "buyNowPrice": 0,
+        "isBoostSpin": true,
+        "isFastTransfer": false
+      },
+      "whois": {
+        "registrar": "Moniker Online Services LLC",
+        "registry_expiry": "2027-03-27T09:11:49Z",
+        "registrar_expiry": "2027-03-27T09:11:49Z",
+        "creation_date": "2005-03-27T10:11:49Z",
+        "updated_date": "2026-04-27T13:13:49Z",
+        "status_codes": ["clientTransferProhibited"],
+        "nameservers": ["NS3.EXPIRATIONWARNING.NET", "NS7.EXPIRATIONWARNING.NET"]
+      },
+      "dns_ip": "51.161.21.1",
+      "landing_page": "Moniker ERRP page (Expired Registration Recovery Policy) with ParkingCrew monetization",
+      "lander_system": "Moniker ERRP/ParkingCrew",
+      "verified_url": "https://www.afternic.com/forsale/sobsuan.com",
+      "verification_verdict": "FAKE PRICE - Sprint 10 said $5 closeout, actually $300+ aftermarket Make Offer on Afternic",
+      "notes": "Domain is at Moniker with expirationwarning.net nameservers. Landing page shows 'Expired Registration Recovery Policy' but the domain is listed on Afternic at minimum $300 Make Offer. Nameservers are expiration warning pattern typical of Moniker's expired domain parking. Sprint 10 claimed 12,661 pageviews of traffic - this is plausible as the domain has parkingcrew.net monetization showing it receives visitors. However, the $5 closeout claim was completely false."
+    },
+    {
+      "domain": "wdtech.com",
+      "sprint10_claimed_price": 1.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($1 starting bid, 0 bids)",
+      "verified_status": "expired_moniker_sedo_parking",
+      "verified_price": null,
+      "verified_price_note": "NOT on GoDaddy Auctions at all. Domain is at Moniker/Sedo. Landing page says 'This domain has expired'. Not listed on Afternic (sellable:false). May be available through Sedo Make Offer or Moniker renewal, price unknown.",
+      "afternic_data": {
+        "sellable": false,
+        "note": "Not listed on Afternic at all"
+      },
+      "whois": {
+        "registrar": "Moniker Online Services LLC",
+        "registry_expiry": "2027-04-10T18:18:44Z",
+        "registrar_expiry": "2027-04-10T18:18:44Z",
+        "creation_date": "2004-04-10T18:18:44Z",
+        "updated_date": "2026-04-15T15:14:34Z",
+        "status_codes": ["clientTransferProhibited"],
+        "nameservers": ["MID113.NS1.SSLPARKING.COM", "MID113.NS2.SSLPARKING.COM"]
+      },
+      "dns_ip": "185.53.179.130",
+      "landing_page": "Sedo parking page with Moniker expired notice: 'This domain has expired, if you're the owner click here to renew it'",
+      "lander_system": "Sedo/Moniker",
+      "verified_url": "http://wdtech.com (resolves to Sedo parking at 185.53.179.130)",
+      "verification_verdict": "FAKE SOURCE - Sprint 10 said GoDaddy Expiring Auction $1, but domain is NOT on GoDaddy at all. It is at Moniker/Sedo. It IS expired but not available via GoDaddy Auctions.",
+      "notes": "This domain is NOT registered at GoDaddy. It is at Moniker Online Services LLC with Sedo parking. Sprint 10 claimed it was a GoDaddy Expiring Auction at $1 - this is impossible since GoDaddy only auctions domains registered through GoDaddy. The domain has expired and is on Sedo's parking infrastructure. Potential acquisition path: contact Moniker/Sedo, but price is unknown and likely $500-$5,000+ for a 6-char tech .com."
+    },
+    {
+      "domain": "chapter7bankruptcy.com",
+      "sprint10_claimed_price": 1.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($1 starting bid, 0 bids)",
+      "verified_status": "expired_godaddy_auction_pipeline",
+      "verified_price": null,
+      "verified_price_note": "Domain genuinely expired at GoDaddy on 2026-04-11 (26 days ago). Currently entering auction phase (day 26 = auction start). May actually be available at $1 starting bid if auction just opened. Price CANNOT be verified without GoDaddy Auctions login.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic - consistent with being in expired auction pipeline"
+      },
+      "whois": {
+        "registrar": "GoDaddy.com, LLC",
+        "registry_expiry": "2027-04-12T01:05:00Z",
+        "registrar_expiry": "2026-04-11T20:05:00Z",
+        "creation_date": "2000-04-12T01:05:00Z",
+        "updated_date": "2026-04-23T12:47:57Z",
+        "status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "nameservers": ["PDNS13.DOMAINCONTROL.COM", "PDNS14.DOMAINCONTROL.COM"]
+      },
+      "dns_ip": "76.223.67.189",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=PW)",
+      "lander_system": "PW (Parking Website - GoDaddy expired domain parking)",
+      "verified_url": "https://auctions.godaddy.com (requires login to verify)",
+      "verification_verdict": "PLAUSIBLE BUT UNVERIFIED - Domain genuinely expired at GoDaddy 26 days ago, consistent with entering expired auction. Sprint 10 claim of $1 auction is plausible timing-wise. However: (1) auction may have already received bids driving price up, (2) auction may have ended and domain may be in closeout or sold, (3) updated_date of April 23 suggests some processing occurred 2+ weeks ago. Requires GoDaddy Auctions login to confirm current status.",
+      "notes": "PDNS nameservers (PDNS13/14) are GoDaddy's premium DNS, suggesting this domain was actively used before expiry. The 26-year-old exact-match legal keyword domain (Chapter 7 Bankruptcy) is extremely valuable - if it really was at $1 with 0 bids, it's likely been bid up significantly by now or the auction already ended."
+    },
+    {
+      "domain": "flashcardsonline.com",
+      "sprint10_claimed_price": 1.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($1 starting bid, 0 bids)",
+      "verified_status": "expired_godaddy_auction_pipeline",
+      "verified_price": null,
+      "verified_price_note": "Domain genuinely expired at GoDaddy on 2026-04-11 (26 days ago). Entering auction phase. Price CANNOT be verified without GoDaddy Auctions login.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic - consistent with expired auction pipeline"
+      },
+      "whois": {
+        "registrar": "GoDaddy.com, LLC",
+        "registry_expiry": "2027-04-12T04:00:00Z",
+        "registrar_expiry": "2026-04-11T23:00:00Z",
+        "creation_date": "1999-04-12T04:00:00Z",
+        "updated_date": "2026-04-23T14:13:59Z",
+        "status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "nameservers": ["NS01.DOMAINCONTROL.COM", "NS02.DOMAINCONTROL.COM"]
+      },
+      "dns_ip": "76.223.67.189",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=PW)",
+      "lander_system": "PW",
+      "verified_url": "https://auctions.godaddy.com (requires login to verify)",
+      "verification_verdict": "PLAUSIBLE BUT UNVERIFIED - Domain genuinely expired 26 days ago at GoDaddy. Auction timing aligns with Sprint 10 claim. However, auction likely already started and price may have increased from $1. Requires GoDaddy Auctions login.",
+      "notes": "27-year education niche domain. NS01/NS02 are GoDaddy's oldest nameserver pair, consistent with very old domain registration. Updated date of April 23 (2 weeks ago) suggests auction processing has already occurred."
+    },
+    {
+      "domain": "freeexercise.com",
+      "sprint10_claimed_price": 1.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($1 starting bid, 0 bids)",
+      "verified_status": "expired_godaddy_auction_pipeline",
+      "verified_price": null,
+      "verified_price_note": "Domain genuinely expired at GoDaddy on 2026-04-08 (29 days ago). In auction phase (approximately day 3 of 10-day auction). Price CANNOT be verified without GoDaddy Auctions login.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic - consistent with expired auction pipeline"
+      },
+      "whois": {
+        "registrar": "GoDaddy.com, LLC",
+        "registry_expiry": "2027-04-08T19:58:03Z",
+        "registrar_expiry": "2026-04-08T14:58:03Z",
+        "creation_date": "2000-04-08T19:58:03Z",
+        "updated_date": "2026-04-20T12:41:06Z",
+        "status_codes": ["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "nameservers": ["NS07.DOMAINCONTROL.COM", "NS08.DOMAINCONTROL.COM"]
+      },
+      "dns_ip": "76.223.67.189",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=PW)",
+      "lander_system": "PW",
+      "verified_url": "https://auctions.godaddy.com (requires login to verify)",
+      "verification_verdict": "PLAUSIBLE BUT UNVERIFIED - Domain genuinely expired 29 days ago at GoDaddy. Within expired auction window. Sprint 10 $1 claim is plausible for initial listing. Requires GoDaddy Auctions login to confirm current bid.",
+      "notes": "26-year health/fitness domain. Updated April 20 (17 days ago) suggests auction processing already occurred."
+    },
+    {
+      "domain": "sageinvestor.com",
+      "sprint10_claimed_price": 1.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($1 starting bid, 0 bids)",
+      "verified_status": "expired_tucows_pipeline",
+      "verified_price": null,
+      "verified_price_note": "Domain expired at Tucows on 2026-04-04 (33 days ago). NOT on GoDaddy Auctions. Not on Afternic. In Tucows expired domain pipeline. Price and acquisition path unknown.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic"
+      },
+      "whois": {
+        "registrar": "Tucows Domains Inc.",
+        "registry_expiry": "2027-04-04T11:56:35Z",
+        "registrar_expiry": "2026-04-04T11:56:35Z",
+        "creation_date": "2001-04-04T11:56:35Z",
+        "updated_date": "2026-04-08T03:09:53Z",
+        "status_codes": ["ok"],
+        "nameservers": ["NS1.RENEWYOURNAME.NET", "NS2.RENEWYOURNAME.NET"]
+      },
+      "dns_ip": "52.223.13.41",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=CP, Afternic parking)",
+      "lander_system": "CP (CashParking)",
+      "verified_url": "https://www.afternic.com/forsale/sageinvestor.com (shows sellable:false)",
+      "verification_verdict": "FAKE SOURCE - Sprint 10 said GoDaddy Expiring Auction $1, but domain is at Tucows NOT GoDaddy. Tucows domains do NOT go through GoDaddy Auctions. Domain is in Tucows expired pipeline, displayed on Afternic parking but NOT listed for sale. Acquisition requires Tucows/domain catching.",
+      "notes": "Tucows-registered domain. The 'ok' EPP status (unusual for expired domains) and renewyourname.net nameservers suggest Tucows is holding the domain in their redemption/aftermarket pipeline. Sprint 10 could not have seen this on GoDaddy Auctions since it's not a GoDaddy domain. Interesting: domain still resolves to an IP (52.223.13.41) showing Afternic parking page, suggesting Tucows routes expired domains through Afternic's parking infrastructure."
+    },
+    {
+      "domain": "freetail.com",
+      "sprint10_claimed_price": 103.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($103, 20 bids)",
+      "verified_status": "expired_godaddy_auction_active",
+      "verified_price": null,
+      "verified_price_note": "Domain genuinely expired at GoDaddy on 2026-04-05 (32 days ago). In late auction phase (approximately day 6 of 10-day auction). Has clientRenewProhibited status confirming active GoDaddy auction/expiry processing. Updated 2 days ago (May 5). Price likely higher than $103 by now given 20 bids reported by Sprint 10.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic - consistent with active GoDaddy expired auction"
+      },
+      "whois": {
+        "registrar": "GoDaddy.com, LLC",
+        "registry_expiry": "2027-04-05T10:38:34Z",
+        "registrar_expiry": "2026-04-05T05:38:34Z",
+        "creation_date": "2001-04-05T10:38:35Z",
+        "updated_date": "2026-05-05T12:40:16Z",
+        "status_codes": ["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited", "clientUpdateProhibited"],
+        "nameservers": ["NS71.DOMAINCONTROL.COM", "NS72.DOMAINCONTROL.COM"]
+      },
+      "dns_ip": "76.223.67.189",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=PW)",
+      "lander_system": "PW",
+      "verified_url": "https://auctions.godaddy.com (requires login to verify)",
+      "verification_verdict": "LIKELY GENUINE AUCTION - clientRenewProhibited confirms active GoDaddy expiry processing. Sprint 10 claim of $103 with 20 bids is plausible. Domain was updated just 2 days ago (May 5). However, 32 days post-expiry means auction may be ending soon or entering closeout. Current price likely higher than $103.",
+      "notes": "MOST CREDIBLE Sprint 10 claim. clientRenewProhibited is the definitive GoDaddy auction indicator. Updated 2 days ago confirms active processing. 25-year brandable two-word .com with 20 bids - price has likely increased significantly from $103. GoDaddy valued at $9,190. The auction was REAL but the $103 price point was a snapshot in time."
+    },
+    {
+      "domain": "lifebetter.com",
+      "sprint10_claimed_price": 58.00,
+      "sprint10_claimed_source": "GoDaddy Expiring Auction ($58, 14 bids)",
+      "verified_status": "expired_enom_pipeline",
+      "verified_price": null,
+      "verified_price_note": "Domain expired at eNom on 2026-04-08 (29 days ago). NOT on GoDaddy Auctions. Not on Afternic. In eNom expired domain pipeline. eNom WHOIS was updated TODAY (May 7) suggesting active processing.",
+      "afternic_data": {
+        "sellable": false,
+        "sellerId": 0,
+        "note": "Not on Afternic"
+      },
+      "whois": {
+        "registrar": "eNom, LLC",
+        "registry_expiry": "2027-04-08T12:40:47Z",
+        "registrar_expiry": "2026-04-08T12:40:47Z",
+        "creation_date": "2005-04-08T12:40:47Z",
+        "updated_date_registry": "2026-04-09T08:21:31Z",
+        "updated_date_registrar": "2026-05-07T09:28:06Z",
+        "status_codes": ["clientTransferProhibited"],
+        "nameservers": ["DNS1.NAME-SERVICES.COM", "DNS2.NAME-SERVICES.COM", "DNS3.NAME-SERVICES.COM", "DNS4.NAME-SERVICES.COM", "DNS5.NAME-SERVICES.COM"]
+      },
+      "dns_ip": "15.197.212.58",
+      "landing_page": "GoDaddy parking lander (LANDER_SYSTEM=CP)",
+      "lander_system": "CP (CashParking)",
+      "verified_url": "N/A - not on GoDaddy Auctions or Afternic",
+      "verification_verdict": "FAKE SOURCE - Sprint 10 said GoDaddy Expiring Auction $58 with 14 bids, but domain is at eNom NOT GoDaddy. eNom domains do NOT go through GoDaddy Auctions. Domain is in eNom expired pipeline. Sprint 10 could not have seen this on GoDaddy Auctions.",
+      "notes": "eNom-registered domain (part of Tucows Inc). name-services.com nameservers are eNom's standard nameservers. Interesting: eNom registrar WHOIS was updated TODAY (May 7 09:28 UTC), suggesting active processing - possibly entering eNom's auction system or being renewed. Sprint 10 claimed 14 bids at $58 on GoDaddy - this is impossible since the domain is not at GoDaddy. Sprint 10 also claimed 21 years old but creation date shows 2005 = 21 years, which is correct."
+    }
+  ],
+
+  "verdict_summary": {
+    "CONFIRMED_FAKE_CLOSEOUT": [
+      {
+        "domain": "rbiwoodtools.com",
+        "claimed": "$5 GoDaddy Closeout",
+        "actual": "$1,500+ Make Offer on Afternic",
+        "price_ratio": "300x+ more expensive than claimed"
+      },
+      {
+        "domain": "shrimpvietnam.com",
+        "claimed": "$5 GoDaddy Closeout",
+        "actual": "$2,022 Buy Now on Afternic",
+        "price_ratio": "404x more expensive than claimed"
+      },
+      {
+        "domain": "sobsuan.com",
+        "claimed": "$5 GoDaddy Closeout",
+        "actual": "$300+ Make Offer on Afternic",
+        "price_ratio": "60x+ more expensive than claimed"
+      }
+    ],
+    "CONFIRMED_WRONG_SOURCE": [
+      {
+        "domain": "wdtech.com",
+        "claimed": "$1 GoDaddy Expiring Auction",
+        "actual": "Expired at Moniker/Sedo, NOT on GoDaddy at all",
+        "registrar": "Moniker Online Services LLC"
+      },
+      {
+        "domain": "sageinvestor.com",
+        "claimed": "$1 GoDaddy Expiring Auction",
+        "actual": "Expired at Tucows, NOT on GoDaddy Auctions",
+        "registrar": "Tucows Domains Inc."
+      },
+      {
+        "domain": "lifebetter.com",
+        "claimed": "$58 GoDaddy Expiring Auction (14 bids)",
+        "actual": "Expired at eNom, NOT on GoDaddy Auctions",
+        "registrar": "eNom, LLC"
+      }
+    ],
+    "PLAUSIBLE_BUT_UNVERIFIED": [
+      {
+        "domain": "chapter7bankruptcy.com",
+        "claimed": "$1 GoDaddy Expiring Auction",
+        "assessment": "Domain IS at GoDaddy, IS expired, timing fits auction window. Plausible but may have bids now.",
+        "risk": "HIGH - premium legal keyword, likely attracts bids quickly"
+      },
+      {
+        "domain": "flashcardsonline.com",
+        "claimed": "$1 GoDaddy Expiring Auction",
+        "assessment": "Domain IS at GoDaddy, IS expired, timing fits. Plausible but unverifiable without login.",
+        "risk": "MEDIUM - education niche has moderate demand"
+      },
+      {
+        "domain": "freeexercise.com",
+        "claimed": "$1 GoDaddy Expiring Auction",
+        "assessment": "Domain IS at GoDaddy, IS expired, timing fits. Plausible but unverifiable without login.",
+        "risk": "MEDIUM - health/fitness keyword"
+      }
+    ],
+    "LIKELY_GENUINE_AUCTION": [
+      {
+        "domain": "freetail.com",
+        "claimed": "$103 GoDaddy Expiring Auction (20 bids)",
+        "assessment": "STRONGEST EVIDENCE of genuine auction. clientRenewProhibited status, updated 2 days ago, GoDaddy registrar. Price was $103 at time of Sprint 10 scan but has likely increased.",
+        "risk": "LOW probability of being fake, HIGH probability price has increased"
+      }
+    ]
+  },
+
+  "recommendations": {
+    "immediate_actions": [
+      "REMOVE rbiwoodtools.com, shrimpvietnam.com, sobsuan.com from all acquisition targets - they are aftermarket premium domains at $300-$2,022+, not closeouts",
+      "REMOVE wdtech.com, sageinvestor.com, lifebetter.com from GoDaddy auction watchlist - they are NOT on GoDaddy Auctions (wrong registrar)",
+      "LOG INTO GoDaddy Auctions to verify current prices for chapter7bankruptcy.com, flashcardsonline.com, freeexercise.com, freetail.com",
+      "freetail.com has the strongest evidence of being a real auction - prioritize checking this one"
+    ],
+    "process_improvements": [
+      "ALWAYS check WHOIS registrar before claiming domain is on GoDaddy Auctions - only GoDaddy-registered domains appear there",
+      "ALWAYS compare registry expiry vs registrar expiry to detect expired domains",
+      "ALWAYS check Afternic API (buyNowPrice, sellable, minPrice) to detect aftermarket pricing",
+      "NEVER assume a domain on a GoDaddy parking page is a closeout - the same parking lander serves both $5 closeouts and $50,000 aftermarket domains",
+      "Look for clientRenewProhibited EPP status as the definitive indicator of GoDaddy auction/expiry processing"
+    ],
+    "reliable_verification_signals": {
+      "genuine_godaddy_auction_indicators": [
+        "Registrar = GoDaddy.com, LLC",
+        "Registrar expiry date in 2026 (past), registry shows 2027 (auto-renewed)",
+        "clientRenewProhibited EPP status code",
+        "LANDER_SYSTEM=PW on parking page",
+        "Afternic API shows sellable:false (not on aftermarket)",
+        "Updated date within last 30 days"
+      ],
+      "aftermarket_premium_indicators": [
+        "Afternic API shows sellable:true with minPrice > 0",
+        "buyNowPrice > 0 = fixed price listing",
+        "LANDER_SYSTEM=CP (CashParking) on parking page",
+        "sellerId > 0 = active seller listing",
+        "renewyourname.net nameservers (Tucows aftermarket)",
+        "sslparking.com nameservers (Sedo/Moniker)"
+      ],
+      "wrong_registrar_indicators": [
+        "Registrar != GoDaddy but claimed as GoDaddy Auction",
+        "Moniker = Sedo marketplace, NOT GoDaddy",
+        "Tucows = Afternic pipeline, NOT GoDaddy Auctions",
+        "eNom = Tucows subsidiary, NOT GoDaddy Auctions"
+      ]
+    }
+  }
+}

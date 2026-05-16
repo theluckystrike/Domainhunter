@@ -1,0 +1,794 @@
+{
+    "version": "0.1.20260430",
+    "status_code": 20000,
+    "status_message": "Ok.",
+    "time": "0.2292 sec.",
+    "cost": 0.0144,
+    "tasks_count": 1,
+    "tasks_error": 0,
+    "tasks": [
+        {
+            "id": "05070257-1508-0391-0000-d1a6095cf746",
+            "status_code": 20000,
+            "status_message": "Ok.",
+            "time": "0.1998 sec.",
+            "cost": 0.0144,
+            "result_count": 1,
+            "path": [
+                "v3",
+                "dataforseo_labs",
+                "google",
+                "bulk_traffic_estimation",
+                "live"
+            ],
+            "data": {
+                "api": "dataforseo_labs",
+                "function": "bulk_traffic_estimation",
+                "se_type": "google",
+                "targets": [
+                    "aidevtools.com",
+                    "seochecker.com",
+                    "builder.ai",
+                    "bestdevtools.com",
+                    "finetuneai.com",
+                    "taskplanner.com",
+                    "aitoolkit.com",
+                    "mortgagecalc.com",
+                    "loancompare.com",
+                    "devtools.io",
+                    "prompttools.com",
+                    "devhub.io",
+                    "apitools.com",
+                    "toolchain.io",
+                    "saasmetrics.com",
+                    "codehelper.com",
+                    "codeanalyzer.com",
+                    "codingtools.com",
+                    "macrocalculator.com",
+                    "fitnesstools.com",
+                    "analyticstools.com",
+                    "caloriecalc.com",
+                    "colorpicker.com",
+                    "pomodorotimer.com",
+                    "codetools.com",
+                    "nutritioncalc.com",
+                    "investcalculator.com",
+                    "bmicalculator.com",
+                    "codeparrot.ai",
+                    "stackreview.com",
+                    "codecompare.com",
+                    "devaide.com",
+                    "codebench.com",
+                    "launchable.io",
+                    "codeguide.com",
+                    "taxestimator.com",
+                    "savingscalculator.com",
+                    "budgetcalc.com",
+                    "cookingtools.com",
+                    "keywordfinder.com",
+                    "ingredientfinder.com",
+                    "imageresizer.com",
+                    "mealcalculator.com",
+                    "recipescaler.com"
+                ],
+                "location_code": 2840,
+                "language_code": "en"
+            },
+            "result": [
+                {
+                    "se_type": "google",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "total_count": 44,
+                    "items_count": 44,
+                    "items": [
+                        {
+                            "se_type": "google",
+                            "target": "imageresizer.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 1122794.9302002434,
+                                    "count": 45993
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codeparrot.ai",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 5351.938527619466,
+                                    "count": 1213
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "cookingtools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 7.161000154912472,
+                                    "count": 5
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "colorpicker.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 33.082000732421875,
+                                    "count": 2
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "aitoolkit.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 1.859999991953373,
+                                    "count": 8
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "pomodorotimer.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 407.70000577531755,
+                                    "count": 27
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "nutritioncalc.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 8.378999948501587,
+                                    "count": 2
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "ingredientfinder.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0.8190000057220459,
+                                    "count": 1
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "builder.ai",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 23393.267257304862,
+                                    "count": 3482
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "aidevtools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "seochecker.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "bestdevtools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "finetuneai.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "taskplanner.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "mortgagecalc.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "loancompare.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "devtools.io",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "prompttools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "devhub.io",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "apitools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "toolchain.io",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "saasmetrics.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codehelper.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codeanalyzer.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codingtools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "macrocalculator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "fitnesstools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "analyticstools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "caloriecalc.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codetools.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "investcalculator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "bmicalculator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "stackreview.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codecompare.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "devaide.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codebench.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "launchable.io",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "codeguide.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "taxestimator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "savingscalculator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "budgetcalc.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "keywordfinder.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "mealcalculator.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        },
+                        {
+                            "se_type": "google",
+                            "target": "recipescaler.com",
+                            "metrics": {
+                                "organic": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "paid": {
+                                    "etv": 0,
+                                    "count": 0
+                                },
+                                "local_pack": null,
+                                "featured_snippet": null
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

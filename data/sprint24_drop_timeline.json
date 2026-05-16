@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-05-15T00:00:00Z",
+  "sprint": "24",
+  "today": "2026-05-15",
+  "total_domains": 19,
+  "urgent_count": 0,
+  "timeline": [
+    {
+      "domain": "guerrameats.com",
+      "drop_est": "2026-06-26",
+      "days_until_drop": 42,
+      "lifecycle_phase": "clientHold (pre-pendingDelete)",
+      "epp_status": "clientHold",
+      "pending_delete_window": {
+        "start": "2026-06-21",
+        "end": "2026-06-26"
+      },
+      "action": "ACTION: Monitor weekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "REDIRECT",
+      "etv": 11376,
+      "est_value_low": 2000,
+      "est_value_high": 15000,
+      "monitor_tier": "critical",
+      "reaper_score": 0
+    },
+    {
+      "domain": "sunnyray.org",
+      "drop_est": "2026-06-30",
+      "days_until_drop": 46,
+      "lifecycle_phase": "autoRenewPeriod",
+      "epp_status": "autoRenewPeriod",
+      "pending_delete_window": {
+        "start": "2026-06-25",
+        "end": "2026-06-30"
+      },
+      "action": "ACTION: Monitor weekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 2842,
+      "est_value_low": 500,
+      "est_value_high": 5000,
+      "monitor_tier": "critical",
+      "reaper_score": 0
+    },
+    {
+      "domain": "globalgeopark.org",
+      "drop_est": "2026-07-01",
+      "days_until_drop": 47,
+      "lifecycle_phase": "autoRenewPeriod",
+      "epp_status": "autoRenewPeriod",
+      "pending_delete_window": {
+        "start": "2026-06-26",
+        "end": "2026-07-01"
+      },
+      "action": "ACTION: Monitor weekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 626,
+      "est_value_low": 200,
+      "est_value_high": 2000,
+      "monitor_tier": "critical",
+      "reaper_score": 0
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "drop_est": "2026-07-06",
+      "days_until_drop": 52,
+      "lifecycle_phase": "clientRenewProhibited",
+      "epp_status": "clientRenewProhibited",
+      "pending_delete_window": {
+        "start": "2026-07-01",
+        "end": "2026-07-06"
+      },
+      "action": "ACTION: Monitor weekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 100,
+      "est_value_high": 1000,
+      "monitor_tier": "high",
+      "reaper_score": 0
+    },
+    {
+      "domain": "sendy.co",
+      "drop_est": "2026-07-16",
+      "days_until_drop": 62,
+      "lifecycle_phase": "clientRenewProhibited",
+      "epp_status": "clientRenewProhibited",
+      "pending_delete_window": {
+        "start": "2026-07-11",
+        "end": "2026-07-16"
+      },
+      "action": "ACTION: Monitor biweekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "REDIRECT",
+      "etv": 3179,
+      "est_value_low": 500,
+      "est_value_high": 5000,
+      "monitor_tier": "high",
+      "reaper_score": 0
+    },
+    {
+      "domain": "readingfoundation.org",
+      "drop_est": "2026-07-30",
+      "days_until_drop": 76,
+      "lifecycle_phase": "clientRenewProhibited",
+      "epp_status": "clientRenewProhibited",
+      "pending_delete_window": {
+        "start": "2026-07-25",
+        "end": "2026-07-30"
+      },
+      "action": "ACTION: Monitor biweekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "REDIRECT",
+      "etv": 7207,
+      "est_value_low": 1000,
+      "est_value_high": 10000,
+      "monitor_tier": "high",
+      "reaper_score": 0
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "drop_est": "2026-08-06",
+      "days_until_drop": 83,
+      "lifecycle_phase": "clientRenewProhibited",
+      "epp_status": "clientRenewProhibited",
+      "pending_delete_window": {
+        "start": "2026-08-01",
+        "end": "2026-08-06"
+      },
+      "action": "ACTION: Monitor biweekly",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 2600,
+      "est_value_high": 26000,
+      "monitor_tier": "critical",
+      "reaper_score": 55.1
+    },
+    {
+      "domain": "humane.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 3000,
+      "est_value_high": 30000,
+      "monitor_tier": "critical",
+      "reaper_score": 58.3
+    },
+    {
+      "domain": "arrival.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 7500,
+      "est_value_high": 75000,
+      "monitor_tier": "critical",
+      "reaper_score": 56.5
+    },
+    {
+      "domain": "irl.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 3000,
+      "est_value_high": 30000,
+      "monitor_tier": "critical",
+      "reaper_score": 56.0
+    },
+    {
+      "domain": "olive.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 7500,
+      "est_value_high": 75000,
+      "monitor_tier": "critical",
+      "reaper_score": 56.0
+    },
+    {
+      "domain": "boweryfarming.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 7500,
+      "est_value_high": 75000,
+      "monitor_tier": "critical",
+      "reaper_score": 55.1
+    },
+    {
+      "domain": "convoy.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 52.9
+    },
+    {
+      "domain": "stenn.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 52.9
+    },
+    {
+      "domain": "veev.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 52.9
+    },
+    {
+      "domain": "infarm.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 51.3
+    },
+    {
+      "domain": "fiskerinc.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 51.1
+    },
+    {
+      "domain": "northvolt.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 6000,
+      "est_value_high": 60000,
+      "monitor_tier": "high",
+      "reaper_score": 51.1
+    },
+    {
+      "domain": "easyknock.com",
+      "drop_est": "TBD",
+      "days_until_drop": null,
+      "lifecycle_phase": "dry_run",
+      "epp_status": "dry_run",
+      "pending_delete_window": {
+        "start": "TBD",
+        "end": "TBD"
+      },
+      "action": "ACTION: Needs WHOIS/RDAP probe for drop date",
+      "urgent": false,
+      "backorder_status": "waiting",
+      "playbook": "FLIP",
+      "etv": 0,
+      "est_value_low": 2400,
+      "est_value_high": 24000,
+      "monitor_tier": "high",
+      "reaper_score": 50.4
+    }
+  ]
+}

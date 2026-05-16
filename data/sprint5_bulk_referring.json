@@ -1,0 +1,36 @@
+{
+    "version": "0.1.20260430",
+    "status_code": 20000,
+    "status_message": "Ok.",
+    "time": "0 sec.",
+    "cost": 0,
+    "tasks_count": 1,
+    "tasks_error": 1,
+    "tasks": [
+        {
+            "id": "05070257-1508-0351-0000-dfd008889be1",
+            "status_code": 40204,
+            "status_message": "Access denied. Visit Plans and Subscriptions to activate your subscription and get access to this API: https:\/\/app.dataforseo.com\/backlinks-subscription .",
+            "time": "0 sec.",
+            "cost": 0,
+            "result_count": 0,
+            "path": [
+                "v3",
+                "backlinks",
+                "bulk_referring_domains",
+                "live"
+            ],
+            "data": {
+                "api": "backlinks",
+                "function": "bulk_referring_domains",
+                "targets": [
+                    "imageresizer.com",
+                    "builder.ai",
+                    "codeparrot.ai",
+                    "pomodorotimer.com"
+                ]
+            },
+            "result": null
+        }
+    ]
+}

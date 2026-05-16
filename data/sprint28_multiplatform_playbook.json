@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-05-16T00:00:00Z",
+  "sprint": "28",
+  "platforms": {
+    "dropcatch": {
+      "url": "https://www.dropcatch.com",
+      "api": true,
+      "api_version": "v2",
+      "api_docs": "https://api.dropcatch.com/documentation",
+      "api_examples": "https://github.com/NameBright/DropCatchBackorderExamples",
+      "auth_method": "NameBright OAuth2 (client_credentials) — 30-min tokens",
+      "auth_endpoint": "https://api.namebright.com/auth/token",
+      "api_endpoints": {
+        "place_backorders": "PUT https://api.dropcatch.com/v2/backorders",
+        "cancel_backorders": "DELETE https://api.dropcatch.com/v2/backorders",
+        "list_backorders": "GET https://api.dropcatch.com/v2/backorders",
+        "search_auctions": "GET https://api.dropcatch.com/v2/auctions",
+        "get_auction": "GET https://api.dropcatch.com/v2/auctions/{id}",
+        "get_bids": "GET https://api.dropcatch.com/v2/auctions/{id}/bids",
+        "place_bids": "POST https://api.dropcatch.com/v2/bids",
+        "download_dropping": "GET https://api.dropcatch.com/v2/downloads/dropping/{type}",
+        "legacy_backorder": "POST https://www.dropcatch.com/api/BackorderDomainsApi/BackOrderDomains",
+        "legacy_cancel": "POST https://www.dropcatch.com/api/BackorderDomainsApi/CancelBackOrders"
+      },
+      "api_setup_steps": [
+        "1. Create NameBright account: https://www.namebright.com/NewAccount",
+        "2. Enable API access: https://www.namebright.com/Settings#Api",
+        "3. Grant 'Register Domains' permission",
+        "4. Configure IP whitelist",
+        "5. Log into DropCatch.com with NameBright credentials at least once",
+        "6. Set DROPCATCH_CLIENT_ID and DROPCATCH_CLIENT_SECRET in .env"
+      ],
+      "cost_standard": "$59.00 per backorder",
+      "cost_discount_club": "$8.00-$58.00 (name your price, lower priority)",
+      "refundable": true,
+      "refund_policy": "Full refund if domain not caught. Only charged on successful catch.",
+      "auction_rules": {
+        "single_backorder": "Winner pays backorder fee only ($59)",
+        "multiple_backorders": "3-day public auction (anyone can bid, not just backorder holders)",
+        "bid_increments": "Up to $99: $5 min increment; $100-$499: $10; $500-$1000: $25; $1000+: $100",
+        "snipe_protection": "Bids in last 5 minutes extend auction by 5 minutes"
+      },
+      "catch_rate_contested": "60-80%",
+      "catch_rate_uncontested": "85-95%",
+      "accreditations": 1201,
+      "accreditation_note": "1,201+ ICANN registrar accreditations — sends 1,201 simultaneous registration attempts",
+      "discount_club_warning": "Standard $59 backorders ALWAYS trump Discount Club. Corporate partners also have priority over Discount Club.",
+      "best_for": "Tier A — any domain with expected competition. Highest catch rate in the industry.",
+      "automation": {
+        "api_client": "clients/dropcatch_client.py",
+        "browser_opener": "scripts/sprint28_dropcatch_opener.py",
+        "applescript": "scripts/sprint28_dropcatch_applescript.py",
+        "legacy_scpt": "scripts/dropcatch_backorder.scpt"
+      },
+      "url_patterns": {
+        "listing_page": "https://www.dropcatch.com/snap/listing/{domain}",
+        "domain_page": "https://www.dropcatch.com/domain/{domain}",
+        "api_management": "https://www.dropcatch.com/account/api-management"
+      }
+    },
+    "dynadot": {
+      "url": "https://www.dynadot.com",
+      "api": true,
+      "api_version": "v3",
+      "api_docs": "https://api.dynadot.com/api3.json",
+      "auth_method": "API key as query parameter",
+      "cost": "$10.99 per backorder",
+      "refundable": true,
+      "refund_policy": "Full refund if not caught",
+      "catch_rate_contested": "1-3%",
+      "catch_rate_uncontested": "10-25%",
+      "accreditations": 15,
+      "best_for": "Tier S — uncontested/zero-competition domains where $10.99 is acceptable risk",
+      "automation": "Full API via clients/dynadot_client.py",
+      "limitations": "Only 15 ICANN accreditations — loses nearly every contested drop"
+    },
+    "snapnames": {
+      "url": "https://www.snapnames.com",
+      "api": false,
+      "api_note": "No public API found. Manual/browser only.",
+      "cost": "$79.00 per backorder (increased from $69 in July 2016)",
+      "refundable": true,
+      "refund_policy": "Only charged if domain is caught AND you win the auction",
+      "auction_rules": {
+        "format": "Private auction — only backorder holders can bid (NOT public like DropCatch)",
+        "duration": "3-day auction if multiple backorders",
+        "bid_limit_default": "$2,500 across all active auctions (can be increased)"
+      },
+      "catch_rate": "30-50% (second to DropCatch)",
+      "accreditations": "286+ (Web.com/Network Solutions registrar pool)",
+      "best_for": "Tier A supplement — private auction format means lower final prices than DropCatch public auctions",
+      "critical_warning": {
+        "shared_inventory": "SnapNames and NameJet share IDENTICAL inventory since 2020 merger",
+        "bidding_against_yourself": "If you backorder on BOTH SnapNames and NameJet, you bid against yourself",
+        "rule": "NEVER use both SnapNames AND NameJet — pick ONE platform only"
+      },
+      "seller_commission": "15%",
+      "second_chance": "Bid or Buy program for unsold domains (launched Oct 2025)"
+    },
+    "namejet": {
+      "url": "https://www.namejet.com",
+      "api": false,
+      "cost": "$79.00 per backorder",
+      "refundable": true,
+      "critical_warning": "SHARED INVENTORY WITH SNAPNAMES — do NOT use both. Pick one.",
+      "best_for": "SKIP — use SnapNames instead (same inventory, same company)",
+      "payment_method": "Wire transfer only",
+      "bid_limit": "$2,500 across active auctions (standard users)"
+    },
+    "godaddy_auctions": {
+      "url": "https://auctions.godaddy.com",
+      "api": true,
+      "api_docs": "https://developer.godaddy.com/doc/endpoint/auctions",
+      "api_base_url": "https://api.godaddy.com",
+      "api_ote_url": "https://api.ote-godaddy.com",
+      "auth_method": "API Key + Secret in header (sso-key format)",
+      "api_access_note": "Email auctions@godaddy.com to request API access",
+      "api_endpoints": {
+        "aftermarket_list": "POST /v1/aftermarket/listings/expiry",
+        "aftermarket_delete": "DELETE /v1/aftermarket/listings",
+        "note": "Bid endpoint exists but documentation is sparse. Search and list endpoints limited."
+      },
+      "membership_cost": "$4.99/year (required)",
+      "cost_model": "Auction format — bids start at variable amounts",
+      "seller_commission": "15% (GoDaddy NS) or 25% (other NS)",
+      "auction_rules": {
+        "duration": "7-day public auctions",
+        "snipe_protection": "Soft close — bids in final minutes extend auction",
+        "payment_window": "7 days after winning"
+      },
+      "best_for": "Tier B — GoDaddy-registered expiring domains that bypass registry deletion",
+      "limitation": "Only covers domains registered at GoDaddy. Does NOT catch registry pending-delete drops."
+    }
+  },
+  "tier_strategy": {
+    "S": {
+      "description": "Zero competition expected — obscure/niche domains",
+      "platforms": ["dynadot"],
+      "max_cost_per_domain": "$10.99",
+      "rationale": "Dynadot's 15 accreditations sufficient when no competitors exist"
+    },
+    "A": {
+      "description": "Competition expected — valuable/brandable domains",
+      "platforms": ["dropcatch", "dynadot"],
+      "max_cost_per_domain": "$69.99 ($59 DropCatch + $10.99 Dynadot)",
+      "rationale": "DropCatch's 1,201 accreditations for the catch. Dynadot as cheap backup. If DropCatch catches it, auction may push price up.",
+      "optional_supplement": "SnapNames ($79) for private-auction-only opportunity — add if domain value justifies $149 total exposure"
+    },
+    "A_plus": {
+      "description": "Must-win — premium one-word/brandable domains worth $5K+",
+      "platforms": ["dropcatch", "snapnames", "dynadot"],
+      "max_cost_per_domain": "$148.99 ($59 + $79 + $10.99)",
+      "rationale": "Triple-platform coverage maximizes catch probability. SnapNames private auction may yield lower price than DropCatch public auction."
+    },
+    "B": {
+      "description": "GoDaddy-registered domains appearing in GoDaddy Auctions",
+      "platforms": ["godaddy_auctions"],
+      "max_cost_per_domain": "Variable (auction bid)",
+      "rationale": "GoDaddy domains never enter registry pending-delete — must bid in GoDaddy Auctions"
+    },
+    "C": {
+      "description": "Low value — not worth backorder costs",
+      "platforms": [],
+      "action": "skip",
+      "rationale": "Domain value does not justify even the cheapest backorder ($10.99)"
+    }
+  },
+  "budget_scenarios": {
+    "conservative": {
+      "tier_s_3_domains_dynadot": "$32.97",
+      "tier_a_2_domains_dropcatch_plus_dynadot": "$139.98",
+      "total": "$172.95"
+    },
+    "aggressive": {
+      "tier_s_3_domains_dynadot": "$32.97",
+      "tier_a_plus_2_domains_triple_platform": "$297.98",
+      "tier_b_godaddy_reserve": "$200.00",
+      "total": "$530.95"
+    },
+    "current_queue_estimate": {
+      "ghostautonomy_com_tier_a": "$69.99",
+      "guerrameats_com_tier_a": "$69.99",
+      "sunnyray_org_tier_s": "$10.99",
+      "globalgeopark_org_tier_s": "$10.99",
+      "goodglammgroup_com_tier_s": "$10.99",
+      "sendy_co_tier_a": "$69.99",
+      "readingfoundation_org_tier_a": "$69.99",
+      "total_max_exposure": "$312.93",
+      "note": "DropCatch refunds if not caught. Dynadot refunds if not caught. Actual cost = $0 if nothing drops."
+    }
+  },
+  "critical_rules": {
+    "rule_1_no_snapnames_plus_namejet": "NEVER backorder the same domain on both SnapNames AND NameJet — shared inventory means you bid against yourself",
+    "rule_2_dropcatch_standard_over_discount": "Always use standard $59 backorder on DropCatch for priority domains. Discount Club has lower priority.",
+    "rule_3_check_registrar_first": "Check WHOIS registrar before choosing platform. GoDaddy-registered domains go to GoDaddy Auctions, not pending-delete.",
+    "rule_4_set_max_bids": "Always set a max bid BEFORE an auction starts. Auctions can escalate quickly.",
+    "rule_5_refund_safety": "All platforms refund if the domain is not caught. The exposure is $0 until a catch happens."
+  }
+}

@@ -1,0 +1,375 @@
+{
+  "research_date": "2026-05-16",
+  "agent": "Agent 7, Sprint 27",
+  "summary": "Comprehensive deep dive into Dynadot backorder mechanics. Key finding: Dynadot ONLY accepts backorders for domains currently in pendingDelete status. The 'could not find backorder' error from Sprint 24/25 confirms our domains are NOT yet in Dynadot's pendingDelete inventory. Dynadot has ~15 ICANN accreditations vs DropCatch's ~1,200 — catch rate is roughly 1% vs DropCatch per domain. For Tier S targets, Dynadot alone is insufficient.",
+
+  "backorder_timing": {
+    "earliest_acceptance": "Domain MUST be in pendingDelete status at the registry level. Dynadot cannot accept backorders for domains in grace period, auto-renew period, redemption period, clientHold, or clientRenewProhibited. The domain must appear in Dynadot's pendingDelete inventory list before a backorder can be placed.",
+    "optimal_timing": "Place backorder IMMEDIATELY when pendingDelete status is detected via RDAP/WHOIS. The pendingDelete window is only 5 days. Earlier is better — Dynadot gives chronological priority to first backorder requester if multiple people backorder the same domain.",
+    "too_late": "Once the domain drops (day 5 of pendingDelete), it is released to the public and becomes a race between registrar accreditations. Backorder must be placed BEFORE the drop, during the 5-day pendingDelete window.",
+    "key_constraint": "Our drop_monitor.py already auto-triggers backorder on pendingDelete detection (line 510: if transition.current_status in ('pendingDelete', 'available')). The 6-hour cron interval may miss the window — consider increasing frequency to every 1-2 hours for domains within 7 days of estimated pendingDelete.",
+    "sprint25_evidence": "All 19 backorder attempts on 2026-05-15 returned 'could not find backorder fot this domain' — confirming none are in pendingDelete yet. guerrameats.com is in clientHold, sunnyray.org and globalgeopark.org are in autoRenewPeriod."
+  },
+
+  "api_mechanics": {
+    "endpoint": "https://api.dynadot.com/api3.json",
+    "method": "GET (all parameters as query string)",
+    "authentication": "API key as 'key' query parameter",
+    "commands": {
+      "add_backorder_request": {
+        "description": "Place a backorder on a pending delete domain",
+        "required_params": ["key", "command=add_backorder_request", "domain"],
+        "optional_params": ["currency (USD, CNY, GBP, EUR, INR, CAD — defaults to account currency)"],
+        "success_response": {
+          "AddBackorderRequestResponse": {
+            "ResponseCode": "0",
+            "Status": "success"
+          }
+        },
+        "error_response": {
+          "AddBackorderRequestResponse": {
+            "ResponseCode": "-1",
+            "Status": "error",
+            "Error": "could not find backorder fot this domain : <domain>"
+          }
+        }
+      },
+      "delete_backorder_request": {
+        "description": "Cancel an existing backorder",
+        "required_params": ["key", "command=delete_backorder_request", "domain"],
+        "notes": "Can cancel at any time before domain drops. After catch, domain is auto-added to account and CANNOT be grace-deleted."
+      },
+      "backorder_request_list": {
+        "description": "List all active backorders",
+        "required_params": ["key", "command=backorder_request_list", "startDate", "endDate"],
+        "notes": "Returns BackorderRequestListResponse with list of backordered domains. Our client uses 2020-01-01 to 2030-12-31 as range."
+      }
+    },
+    "error_codes": {
+      "-1_could_not_find": "Domain not in Dynadot's pendingDelete inventory. Most common error — domain hasn't reached pendingDelete phase yet.",
+      "-1_incorrect_command": "Invalid command name (seen in balance check attempt from Sprint 25)",
+      "401_403": "API key invalid or rejected",
+      "rate_limit": "Client-side enforced at 10 requests/minute. No documented server-side rate limit beyond this."
+    },
+    "rate_limits": "10 requests per minute (client-side in dynadot_client.py). Dynadot API docs do not specify a hard server-side limit but recommend conservative usage.",
+    "sandbox": "Sandbox supported for add_backorder_request, delete_backorder_request, and backorder_request_list — useful for testing.",
+    "multithread": "Multi-thread supported for all backorder commands."
+  },
+
+  "catch_rate": {
+    "dynadot_accreditations": "~15 ICANN registrar accreditations (approximate, based on community reports from NamePros 2024)",
+    "dropcatch_accreditations": "~1,201 ICANN registrar accreditations (confirmed via DomainNameWire April 2025)",
+    "snapnames_namejet_accreditations": "Shared infrastructure, moderate accreditation count (exact number not public, estimated 50-100)",
+    "catch_rate_formula": "Success rate is approximately proportional to (your_accreditations / total_accreditations_racing). If DropCatch has 1,200 and Dynadot has 15, Dynadot's chance is ~1.2% per contested domain.",
+    "estimated_dynadot_catch_rate": {
+      "uncontested_domain": "50-70% (if Dynadot is the only service attempting to catch)",
+      "moderately_contested": "5-15% (several services competing)",
+      "highly_contested": "1-3% (DropCatch, SnapNames, and many registrars competing)",
+      "niche_org_domain": "10-25% (less competition on .org than .com)"
+    },
+    "vs_dropcatch": "DropCatch catches 50%+ of all drop-caught .com domains due to massive accreditation advantage. DropCatch full-price ($59) achieves 60-80% for moderately competitive domains. Dynadot is described as 'competing with Pheenix for the bottom of the food chain' in drop-catching (NamePros community).",
+    "for_org_tld": ".org domains have significantly less drop-catch competition than .com. Fewer professional domainers target .org. Dynadot's relative chance improves materially for .org — estimated 15-30% for niche .org domains like sunnyray.org and globalgeopark.org.",
+    "dropcatch_decline_2024": "DropCatch's per-registrar catch rate declined 57% from Dec 2023 to Dec 2024 (58 domains/registrar/month to 25). ICANN fee overhead rose from ~$8 to ~$18 per domain caught. May reduce accreditations in future.",
+    "source_notes": "Accreditation numbers from NamePros threads and DomainNameWire (April 2025). Exact catch rates are proprietary — estimates based on community reports."
+  },
+
+  "multi_platform_strategy": {
+    "for_tier_s_domains": "Dynadot alone is INSUFFICIENT. For guerrameats.com (ETV $11,376), must use DropCatch ($59) as primary catcher + Dynadot ($10.99) as cheap backup. Consider SnapNames ($79) as third layer.",
+    "how_multi_platform_works": "Only ONE platform catches any given domain (the one whose registrar accreditation wins the registry race). You only pay the winning platform. Other platforms charge $0. No risk of double-payment.",
+    "recommended_layering": {
+      "tier_s_critical_domains": {
+        "platforms": ["DropCatch ($59)", "SnapNames ($79)", "Dynadot ($10.99)"],
+        "total_cost_if_caught": "Pay only winning platform ($10.99-$79 depending on who catches)",
+        "combined_catch_probability": "70-90% for niche domains, 40-60% for moderate competition",
+        "applies_to": ["guerrameats.com", "sunnyray.org", "globalgeopark.org", "ghostautonomy.com"]
+      },
+      "tier_a_high_domains": {
+        "platforms": ["DropCatch ($59)", "Dynadot ($10.99)"],
+        "total_cost_if_caught": "$10.99-$59",
+        "combined_catch_probability": "60-80% for niche domains",
+        "applies_to": ["goodglammgroup.com", "sendy.co", "readingfoundation.org"]
+      },
+      "tier_b_medium_domains": {
+        "platforms": ["Dynadot ($10.99)"],
+        "total_cost_if_caught": "$10.99",
+        "combined_catch_probability": "5-25% alone",
+        "applies_to": ["bestdevtools.com", "taskplanner.com", "codehelper.com"]
+      }
+    },
+    "cancellation": "Yes — Dynadot backorders can be cancelled via delete_backorder_request API or web UI at any time before the domain drops. If DropCatch catches a domain, you can cancel the Dynadot backorder (though it would auto-fail anyway since another registrar won).",
+    "auction_risk": "If multiple USERS place backorders on the SAME platform for the same domain, it goes to auction. DropCatch: public 3-day auction. SnapNames/Dynadot: private auction among backorder holders only."
+  },
+
+  "account_status": {
+    "dynadot_balance": "$25.00 (confirmed via API on 2026-05-15)",
+    "minimum_required": "$5.00 account balance or $5+ order in last 365 days",
+    "needed_balance": "$50.00 recommended (covers 4-5 simultaneous backorder catches at $10.99 each)",
+    "topup_amount": "$25.00 additional deposit needed",
+    "max_simultaneous_backorders": "UNLIMITED — Dynadot removed the previous limit (was 10). No cap on number of concurrent backorders.",
+    "backorder_pricing": {
+      "com": "$10.99",
+      "org": "$10.99 (estimated — check Dynadot backorder page for exact current price)",
+      "net": "$10.99 (estimated)",
+      "co": "Varies by TLD"
+    },
+    "payment_charged_when": "Only charged if domain is successfully caught. If not caught, $0. Once caught, domain auto-added to account and CANNOT be grace-deleted — you committed to pay when placing the backorder.",
+    "dropcatch_account_status": "ACCOUNT CREATED — verification PENDING since Sprint 10 (requires government ID + selfie upload). THIS IS THE #1 BLOCKER for our multi-platform strategy.",
+    "snapnames_account_status": "NO ACCOUNT — needs signup at https://www.snapnames.com/registration.action"
+  },
+
+  "guerrameats_specific": {
+    "domain": "guerrameats.com",
+    "current_status": "clientHold + clientDeleteProhibited + clientTransferProhibited",
+    "registrar": "Squarespace Domains II LLC",
+    "rdap_expiry": "2027-04-07T02:36:43Z (registry shows auto-renewed, but domain is in clientHold = not being used)",
+    "creation_date": "2005-04-07T02:36:43Z",
+    "last_changed": "2026-04-07T08:59:48Z",
+    "etv": 11376,
+    "playbook": "REDIRECT",
+    "max_bid": 200,
+
+    "lifecycle_analysis": {
+      "current_phase": "clientHold — DNS is dead, domain suspended by Squarespace. This is BEFORE grace period expiration.",
+      "squarespace_flow": "Squarespace sends expired domains to GoDaddy Auctions (partnership since August 2025). Flow: expiry -> 30d grace -> GoDaddy Auctions (10d) -> Closeout (5d if no bids) -> Registry Redemption (25d) -> pendingDelete (5d) -> DROP.",
+      "confusing_expiry": "RDAP shows expiry 2027-04-07 — this is likely an auto-renewal by Squarespace that the owner has NOT paid for. The clientHold status confirms Squarespace has suspended the domain. The real 'effective expiry' was likely April 7, 2026.",
+      "estimated_timeline": {
+        "effective_expiry": "~2026-04-07 (clientHold applied on this date)",
+        "grace_period_ends": "~2026-05-07 (30 days after effective expiry)",
+        "godaddy_auction_starts": "~2026-05-07 to 2026-05-17 (10-day auction)",
+        "godaddy_closeout": "~2026-05-17 to 2026-05-22 (5-day closeout if no bids)",
+        "redemption_period": "~2026-05-22 to 2026-06-21 (30 days)",
+        "pending_delete_start": "~2026-06-21",
+        "pending_delete_end_DROP": "~2026-06-26",
+        "note": "These dates are ESTIMATES. Actual timing depends on when Squarespace actually deleted the domain from their system and submitted to GoDaddy Auctions."
+      }
+    },
+    "backorder_window": "5-day pendingDelete window, estimated 2026-06-21 to 2026-06-26",
+    "strategy": {
+      "phase_1_now": "Monitor via RDAP every 24-48 hours for status transition from clientHold to redemptionPeriod or pendingDelete",
+      "phase_2_godaddy_auction": "Watch GoDaddy Auctions for guerrameats.com listing. It's a niche brand domain — likely passes through unsold. GoDaddy membership required ($4.99/year) for monitoring.",
+      "phase_3_pending_delete": "The MOMENT RDAP shows pendingDelete status, immediately place Dynadot backorder via API + place DropCatch backorder manually (if verification complete) + place SnapNames backorder (if account created).",
+      "phase_4_drop_day": "~June 26. If all platforms miss, attempt manual registration at Dynadot/Cloudflare/Porkbun immediately."
+    },
+    "risk_assessment": {
+      "godaddy_auction_risk": "LOW — guerrameats.com is a niche brand (meat delivery). Unlikely to attract domainer bids in GoDaddy auction. High probability of passing through unsold.",
+      "competition_risk": "LOW-MEDIUM — domain has ETV $11,376 which indicates real search traffic. Some domainers may notice this. However, it's a long brand name, not a generic keyword.",
+      "catch_probability": {
+        "dynadot_alone": "10-20%",
+        "dynadot_plus_dropcatch": "65-80%",
+        "triple_platform": "80-90%"
+      }
+    }
+  },
+
+  "current_implementation_review": {
+    "dynadot_client_py": {
+      "path": "/Users/mike/Desktop/domainhunter/clients/dynadot_client.py",
+      "status": "WELL IMPLEMENTED",
+      "strengths": [
+        "Correct API endpoint (https://api.dynadot.com/api3.json)",
+        "Correct command name (add_backorder_request)",
+        "Proper rate limiting (10 RPM, sliding window)",
+        "Retry with exponential backoff (3 attempts, 2-30s)",
+        "Dry-run mode for testing",
+        "Typed dataclasses for results",
+        "Error parsing for backorder-specific responses"
+      ],
+      "weaknesses": [
+        "Does not parse the 'could not find backorder' error specifically — treats all -1 responses the same",
+        "No automatic retry scheduling when domain is not yet in pendingDelete",
+        "list_backorder uses hardcoded date range 2020-2030 — works but could use dynamic dates"
+      ]
+    },
+    "drop_monitor_py": {
+      "path": "/Users/mike/Desktop/domainhunter/scripts/drop_monitor.py",
+      "status": "WELL IMPLEMENTED with timing gap",
+      "key_behavior": "Auto-triggers Dynadot backorder when pendingDelete or available status detected (line 510)",
+      "cron_schedule": "Every 6 hours (0 */6 * * *)",
+      "gap": "6-hour interval means worst case 6 hours between pendingDelete transition and backorder placement. For a 5-day window this is acceptable, but tighter monitoring (1-2 hours) is recommended for domains within 14 days of estimated pendingDelete.",
+      "whois_fallback": "Has WHOIS fallback when RDAP returns 404/403/429 — good resilience"
+    },
+    "backorder_queue_json": {
+      "path": "/Users/mike/Desktop/domainhunter/data/backorder_queue.json",
+      "status": "STALE — shows 0 active backorders, all 'waiting' status. Accurate since no domains have reached pendingDelete yet."
+    }
+  },
+
+  "recommendations": [
+    {
+      "priority": 1,
+      "action": "COMPLETE DROPCATCH VERIFICATION IMMEDIATELY",
+      "detail": "Upload government ID + selfie to DropCatch account. This is the #1 blocker from Sprint 10 — still unresolved. DropCatch catches 50%+ of .com drops. Without it, our catch probability drops from 80% to 10-20%.",
+      "deadline": "Before 2026-06-01 (3+ weeks before guerrameats.com estimated pendingDelete)"
+    },
+    {
+      "priority": 2,
+      "action": "CREATE SNAPNAMES ACCOUNT",
+      "detail": "Sign up at https://www.snapnames.com/registration.action. Add credit card. Do NOT also create NameJet account (shared inventory = bidding against yourself). SnapNames is the #2 catching service after DropCatch.",
+      "deadline": "Before 2026-06-01"
+    },
+    {
+      "priority": 3,
+      "action": "TOP UP DYNADOT BALANCE TO $50",
+      "detail": "Current balance is $25. Add $25 more to cover multiple simultaneous catches. At $10.99 per backorder catch, $50 covers 4 domains.",
+      "deadline": "Before 2026-06-15"
+    },
+    {
+      "priority": 4,
+      "action": "INCREASE DROP MONITOR FREQUENCY FOR IMMINENT DOMAINS",
+      "detail": "For guerrameats.com (est. pendingDelete ~June 21), sunnyray.org (~June 25), and globalgeopark.org (~June 26): increase RDAP check frequency from every 6 hours to every 2 hours starting June 1. Modify cron: '0 */2 * * *' for critical tier.",
+      "deadline": "2026-06-01"
+    },
+    {
+      "priority": 5,
+      "action": "ADD GODADDY AUCTION MONITORING",
+      "detail": "guerrameats.com goes through GoDaddy Auctions before pendingDelete (Squarespace partnership). Purchase GoDaddy Auctions membership ($4.99/year). Monitor for guerrameats.com listing. If it appears in auction at a reasonable price, consider bidding there instead of waiting for drop.",
+      "deadline": "Before 2026-05-30"
+    },
+    {
+      "priority": 6,
+      "action": "ADD SPECIFIC ERROR HANDLING FOR 'could not find backorder' IN CLIENT",
+      "detail": "In dynadot_client.py, parse the 'could not find backorder' error specifically and return a distinct status (e.g., 'not_in_pendingdelete') so the pipeline can distinguish 'domain not ready' from actual API errors. This enables smarter retry logic.",
+      "deadline": "Not urgent — quality improvement"
+    },
+    {
+      "priority": 7,
+      "action": "IMPLEMENT PRE-PENDINGDELETE RETRY SCHEDULER",
+      "detail": "For domains in clientHold or redemptionPeriod, automatically retry Dynadot backorder daily. The moment it succeeds, stop retrying. This catches the pendingDelete transition faster than waiting for RDAP detection + separate backorder placement.",
+      "deadline": "Before 2026-06-15"
+    },
+    {
+      "priority": 8,
+      "action": "DOCUMENT THE SQUARESPACE -> GODADDY AUCTION -> DROP TIMELINE",
+      "detail": "guerrameats.com may appear in GoDaddy Auctions BEFORE reaching pendingDelete. If someone bids in the GoDaddy auction, the domain never reaches pendingDelete and our backorder strategy fails. Monitor both paths.",
+      "deadline": "Informational — add to monitored_domains.json notes"
+    }
+  ],
+
+  "domain_lifecycle_reference": {
+    "standard_gtld_flow": {
+      "phase_1_grace": {
+        "name": "Auto-Renew Grace Period",
+        "duration": "0-45 days (registrar-dependent, typically 30)",
+        "description": "Domain expired but registrar auto-renewed. Owner can pay renewal to keep it. DNS may still work."
+      },
+      "phase_2_auction": {
+        "name": "Registrar Internal Auction (if applicable)",
+        "duration": "10-15 days",
+        "description": "Some registrars (GoDaddy, Tucows, Squarespace, Name.com) send expired domains to GoDaddy Auctions before deletion. If sold here, domain NEVER reaches pendingDelete.",
+        "applies_to_our_domains": ["guerrameats.com (Squarespace)", "sunnyray.org (Tucows)", "globalgeopark.org (Tucows)", "ghostautonomy.com (Wild West/GoDaddy)", "goodglammgroup.com (GoDaddy)", "readingfoundation.org (GoDaddy)"]
+      },
+      "phase_3_closeout": {
+        "name": "GoDaddy Closeout (reverse auction)",
+        "duration": "5 days",
+        "description": "If no bids in auction, domain enters declining-price closeout ($30 -> $15 -> $5). First-come, first-served."
+      },
+      "phase_4_redemption": {
+        "name": "Redemption Grace Period",
+        "duration": "30 days",
+        "description": "Domain deleted from registrar. Registry holds it. Original owner can restore with $80-$150+ fee. NO backorders possible during this phase."
+      },
+      "phase_5_pending_delete": {
+        "name": "pendingDelete",
+        "duration": "5 days EXACTLY",
+        "description": "IRREVERSIBLE. Domain scheduled for deletion. Cannot be recovered by anyone. THIS is when Dynadot accepts backorders. RDAP status shows 'pending delete' or 'pendingDelete'."
+      },
+      "phase_6_drop": {
+        "name": "Domain Drop",
+        "duration": "Instant",
+        "description": "Domain released to registry pool. Drop-catch services race to register. Whoever's registrar accreditation sends the fastest EPP create command wins."
+      }
+    },
+    "total_days_expiry_to_drop": "65-80 days depending on registrar (with internal auction: 75-80 days)"
+  },
+
+  "platform_comparison": {
+    "DropCatch": {
+      "accreditations": "~1,201",
+      "backorder_cost": "$59 standard",
+      "catch_rate": "60-80% for moderate competition, 50%+ of all .com drops",
+      "auction_type": "Public 3-day auction if multiple users backordered",
+      "our_status": "ACCOUNT CREATED, VERIFICATION PENDING (government ID needed)",
+      "verdict": "MUST USE for all Tier S domains. #1 priority to unblock."
+    },
+    "SnapNames": {
+      "accreditations": "~50-100 (estimated, shared with NameJet)",
+      "backorder_cost": "$79 minimum",
+      "catch_rate": "15-30% estimated",
+      "auction_type": "Private auction among backorder holders only",
+      "our_status": "NO ACCOUNT — needs signup",
+      "verdict": "Good supplementary service. Private auction = less competition."
+    },
+    "Dynadot": {
+      "accreditations": "~15",
+      "backorder_cost": "$10.99 for .com",
+      "catch_rate": "1-3% for highly contested .com, 10-25% for niche .org",
+      "auction_type": "Private auction among backorder holders, 7-day duration",
+      "our_status": "ACCOUNT ACTIVE, $25 balance",
+      "verdict": "Budget backup only. Insufficient alone for Tier S domains. Good for low-competition .org domains."
+    },
+    "GoDaddy_Auctions": {
+      "accreditations": "N/A (only for GoDaddy-registered domains)",
+      "cost": "$4.99/year membership + bid",
+      "catch_rate": "N/A — auction only, not drop-catch",
+      "our_status": "NO MEMBERSHIP",
+      "verdict": "MONITOR ONLY — guerrameats.com (Squarespace), sunnyray.org (Tucows), and globalgeopark.org (Tucows) will pass through GoDaddy Auctions before reaching pendingDelete."
+    }
+  },
+
+  "critical_timeline_next_30_days": [
+    {
+      "date": "2026-05-16",
+      "action": "THIS SPRINT — research complete. Next: unblock DropCatch verification.",
+      "domain": "all"
+    },
+    {
+      "date": "2026-05-20",
+      "action": "Check GoDaddy Auctions for guerrameats.com listing. It may appear in auction ~30-45 days after Squarespace clientHold (applied 2026-04-07), which means ~May 7-22.",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "2026-06-01",
+      "action": "DEADLINE: DropCatch verification must be complete. SnapNames account created. Dynadot topped up to $50.",
+      "domain": "all"
+    },
+    {
+      "date": "2026-06-01",
+      "action": "Increase drop_monitor.py frequency to every 2 hours for critical tier domains.",
+      "domain": "guerrameats.com, sunnyray.org, globalgeopark.org"
+    },
+    {
+      "date": "2026-06-15",
+      "action": "Begin daily Dynadot backorder attempts for guerrameats.com (retry until accepted = pendingDelete confirmed).",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "~2026-06-21",
+      "action": "ESTIMATED pendingDelete START for guerrameats.com. Auto-backorder should trigger via drop_monitor.py. Verify on all 3 platforms manually.",
+      "domain": "guerrameats.com"
+    },
+    {
+      "date": "~2026-06-25",
+      "action": "ESTIMATED pendingDelete START for sunnyray.org (Tucows -> GoDaddy Auctions -> drop).",
+      "domain": "sunnyray.org"
+    },
+    {
+      "date": "~2026-06-26",
+      "action": "ESTIMATED DROP DAY for guerrameats.com. Check all platforms for catch result.",
+      "domain": "guerrameats.com"
+    }
+  ],
+
+  "sources": [
+    "https://www.dynadot.com/help/question/place-a-backorder",
+    "https://www.dynadot.com/help/question/backorder-service",
+    "https://www.dynadot.com/domain/api-commands",
+    "https://www.dynadot.com/help/question/increase-backorder-limit",
+    "https://www.dynadot.com/help/question/remove-backorder",
+    "https://www.dynadot.com/market/backorder",
+    "https://www.namepros.com/threads/is-dynas-drop-catch-backorder-service-any-good.1331544/",
+    "https://www.namepros.com/threads/dear-drop-catch-veterans-where-to-backorder-in-2025.1353085/",
+    "https://domainnamewire.com/2025/04/17/will-dropcatch-com-shut-down-some-of-its-registrar-accreditations/",
+    "https://domaindetails.com/kb/domain-investing/expired-domain-auctions-comparison",
+    "https://vocal.media/01/top-drop-catch-alternatives-5-best-domain-backorder-services-in-2025-bnc1i0vyn"
+  ]
+}

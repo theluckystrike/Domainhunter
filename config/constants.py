@@ -155,3 +155,99 @@ MAX_SPECTRE_SCORED: Final[int] = 5
 # ---------------------------------------------------------------------------
 HTTP_TIMEOUT_SECONDS: Final[int] = 30
 HTTP_USER_AGENT: Final[str] = "DomainHunter/1.0 (+https://github.com/domain-hunter)"
+
+# ---------------------------------------------------------------------------
+# Sprint 3: Tool-potential niches
+# ---------------------------------------------------------------------------
+TOOL_NICHES: Final[dict[str, tuple[str, ...]]] = {
+    "finance": ("mortgage", "loan", "invest", "budget", "tax", "savings", "compound", "interest"),
+    "health": ("calorie", "macro", "bmi", "workout", "exercise", "nutrition", "diet", "fitness"),
+    "cooking": ("recipe", "ingredient", "cooking", "meal", "kitchen", "baking", "food"),
+    "real_estate": ("property", "rent", "housing", "mortgage", "home", "realtor"),
+    "education": ("learn", "course", "study", "tutor", "quiz", "exam", "flashcard"),
+    "photography": ("photo", "image", "camera", "editing", "color", "resize"),
+    "marketing": ("seo", "analytics", "conversion", "email", "campaign", "funnel"),
+    "productivity": ("todo", "task", "project", "calendar", "schedule", "timer"),
+    "travel": ("flight", "hotel", "itinerary", "packing", "visa", "currency"),
+    "design": ("color", "font", "palette", "wireframe", "mockup", "ui", "ux"),
+    "crypto": ("bitcoin", "ethereum", "defi", "wallet", "gas", "staking"),
+}
+
+# ---------------------------------------------------------------------------
+# Sprint 3: Revised ORACLE weights (backlinks-first)
+# ---------------------------------------------------------------------------
+SPRINT3_WEIGHTS: Final[dict[str, float]] = {
+    "backlink_quality": 0.35,
+    "referring_domains": 0.20,
+    "archive_history": 0.15,
+    "tool_opportunity": 0.15,
+    "domain_rating": 0.10,
+    "price": 0.05,
+}
+
+# ---------------------------------------------------------------------------
+# Tier 1 authority domains (DR 70+)
+# ---------------------------------------------------------------------------
+TIER1_AUTHORITY_DOMAINS: Final[tuple[str, ...]] = (
+    "nytimes.com", "bbc.com", "wikipedia.org", "forbes.com", "techcrunch.com",
+    "theguardian.com", "nature.com", "github.com", "reddit.com", "medium.com",
+    "wsj.com", "bloomberg.com", "reuters.com", "cnn.com", "wired.com",
+    "arstechnica.com", "theverge.com", "mashable.com", "entrepreneur.com",
+    "inc.com", "fastcompany.com", "businessinsider.com",
+)
+
+# ---------------------------------------------------------------------------
+# DeepSeek rate limits
+# ---------------------------------------------------------------------------
+RATE_LIMIT_DEEPSEEK: Final[float] = 5.0
+DEEPSEEK_MAX_BATCH_SIZE: Final[int] = 50
+
+# ---------------------------------------------------------------------------
+# Sprint 19 — Drop Monitor Constants
+# ---------------------------------------------------------------------------
+RDAP_SERVERS: Final[MappingProxyType] = MappingProxyType({
+    "com": "https://rdap.verisign.com/com/v1/domain/",
+    "net": "https://rdap.verisign.com/net/v1/domain/",
+    "org": "https://rdap.publicinterestregistry.org/rdap/domain/",
+    "io": "https://rdap.nic.io/domain/",
+    "ai": "https://rdap.nic.ai/domain/",
+    "co": "https://rdap.nic.co/domain/",
+    "dev": "https://rdap.nic.google/domain/",
+})
+
+RDAP_RATE_LIMIT_DELAY: Final[float] = 3.0  # seconds between requests per TLD
+RDAP_MAX_CONCURRENT: Final[int] = 20
+RDAP_TIMEOUT_SECONDS: Final[int] = 15
+RDAP_MAX_RETRIES: Final[int] = 3
+
+DYNADOT_API_BASE: Final[str] = "https://api.dynadot.com/api3.json"
+DYNADOT_RATE_LIMIT_RPM: Final[int] = 10
+DYNADOT_BACKORDER_COST: Final[float] = 10.99
+DYNADOT_TIMEOUT_SECONDS: Final[int] = 30
+
+DROP_MONITOR_MAX_DOMAINS: Final[int] = 100
+DROP_MONITOR_DB_PATH: Final[str] = "data/domain_monitoring.db"
+
+# EPP status codes indicating domain is dropping
+EPP_DROP_SIGNALS: Final[tuple] = (
+    "pendingDelete",
+    "redemptionPeriod",
+)
+
+EPP_WATCH_SIGNALS: Final[tuple] = (
+    "clientRenewProhibited",
+    "clientHold",
+    "autoRenewPeriod",
+    "serverHold",
+)
+
+# Registrar grace period estimates (days from expiry to drop)
+REGISTRAR_GRACE_PERIODS: Final[MappingProxyType] = MappingProxyType({
+    "GoDaddy": 80,
+    "Wild West Domains": 80,
+    "Squarespace": 75,
+    "Tucows": 80,
+    "Cloudflare": 75,
+    "Namecheap": 62,
+    "default": 75,
+})
