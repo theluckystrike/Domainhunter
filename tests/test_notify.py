@@ -251,16 +251,17 @@ def test_normal_routes_email_and_stdout(
     mock_stdout, mock_ntfy, mock_email, mock_config,
     full_config: NotifyConfig,
 ) -> None:
-    """Normal priority sends to email + stdout only (skips ntfy)."""
+    """Normal priority sends to email + stdout + ntfy (all channels)."""
     mock_config.return_value = full_config
     mock_stdout.return_value = NotifyResult("stdout", True, "ok")
+    mock_ntfy.return_value = NotifyResult("ntfy", True, "ok")
     mock_email.return_value = NotifyResult("email", True, "ok")
 
     results = send_alert("Subject", "Body", priority="normal")
 
-    assert len(results) == 2
+    assert len(results) == 3
     mock_stdout.assert_called_once()
-    mock_ntfy.assert_not_called()
+    mock_ntfy.assert_called_once()
     mock_email.assert_called_once()
 
 

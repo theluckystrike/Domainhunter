@@ -245,9 +245,11 @@ def check_dropcatch_platform(settings: Settings) -> PlatformStatus:
             settings.dropcatch_client_id,
             settings.dropcatch_api_secret,
         ) as client:
-            # Verify token works by listing backorders (lightweight call)
-            existing: list[dict[str, Any]] = client.list_backorders(size=1)
-            assert isinstance(existing, list), "Expected list response"
+            # Verify token works by listing backorders (lightweight call).
+            # list_backorders() now always returns a list (unwraps dict
+            # wrappers internally), but guard defensively here too.
+            raw: Any = client.list_backorders(size=1)
+            existing: list[dict[str, Any]] = raw if isinstance(raw, list) else []
             return PlatformStatus(
                 name="DropCatch",
                 available=True,

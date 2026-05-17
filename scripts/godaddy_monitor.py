@@ -383,6 +383,19 @@ def download_inventory(file_key: str, dry_run: bool = False) -> list[dict[str, A
     return []
 
 
+def _parse_price(raw_val: Any) -> float:
+    """Parse price from GoDaddy data — handles '$5', '$12.99', and numeric values."""
+    if isinstance(raw_val, (int, float)):
+        return float(raw_val)
+    s = str(raw_val).strip().lstrip("$").replace(",", "")
+    if not s:
+        return 0.0
+    try:
+        return float(s)
+    except ValueError:
+        return 0.0
+
+
 def search_inventory(
     data: list[dict[str, Any]], targets: set[str], source: str
 ) -> list[AuctionListing]:
@@ -401,7 +414,7 @@ def search_inventory(
                 break
 
         if domain_val in targets:
-            price = float(item.get("Price", item.get("price", item.get("MinBid", 0))))
+            price = _parse_price(item.get("Price", item.get("price", item.get("MinBid", 0))))
             bid_count = int(item.get("Bids", item.get("bids", item.get("BidCount", 0))))
             end_time = str(item.get("EndTime", item.get("endTime", item.get("AuctionEndTime", ""))))
             traffic = int(item.get("Traffic", item.get("traffic", 0)))
@@ -452,7 +465,7 @@ def scan_opportunistic(
         if not name_part:
             continue
 
-        price = float(item.get("Price", item.get("price", item.get("MinBid", 0))))
+        price = _parse_price(item.get("Price", item.get("price", item.get("MinBid", 0))))
 
         # SHORT_COM: 5 or fewer alphanumeric characters
         if len(name_part) <= 5 and name_part.isalnum():

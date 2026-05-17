@@ -397,7 +397,28 @@ class DropCatchClient:
         assert response.status_code == 200, (
             f"List backorders failed: HTTP {response.status_code} — {response.text}"
         )
-        return response.json()
+
+        data: Any = response.json()
+
+        # API may return a dict wrapper (e.g. {"Results": [...]}) instead of
+        # a bare list.  Unwrap it so callers always get list[dict].
+        if isinstance(data, dict):
+            for key in ("Results", "results", "Backorders", "backorders", "items"):
+                if key in data and isinstance(data[key], list):
+                    data = data[key]
+                    break
+            else:
+                # Dict has no recognisable list value — return empty list
+                logger.warning(
+                    "list_backorders_unexpected_dict",
+                    keys=list(data.keys()),
+                )
+                data = []
+
+        assert isinstance(data, list), (
+            f"Expected list from list_backorders, got {type(data).__name__}"
+        )
+        return data
 
     # ----- Auctions (v2 API) -----
 

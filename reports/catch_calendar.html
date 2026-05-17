@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catch Calendar - 73 Day Window</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e17;color:#e2e8f0;font-family:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono',monospace;font-size:13px;line-height:1.5;padding:12px}
+.hdr{text-align:center;padding:16px 8px 12px;border-bottom:1px solid #1e293b;margin-bottom:16px}
+.hdr h1{font-size:18px;letter-spacing:2px;color:#38bdf8;font-weight:700}
+.hdr .dates{font-size:11px;color:#64748b;margin-top:4px}
+.next-banner{background:#1e293b;border:1px solid #334155;border-radius:6px;padding:12px 16px;margin-bottom:16px;text-align:center}
+.next-banner .label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:1.5px}
+.next-banner .evt{font-size:14px;color:#facc15;margin:4px 0}
+.next-banner .countdown{font-size:20px;font-weight:700;color:#38bdf8}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:#1e293b}
+.entry{position:relative;margin-bottom:12px;padding:10px 12px;background:#111827;border-radius:6px;border-left:3px solid #334155}
+.entry::before{content:'';position:absolute;left:-20px;top:14px;width:10px;height:10px;border-radius:50%;background:#334155;border:2px solid #0a0e17;z-index:1}
+.entry.t-human{border-left-color:#f87171}.entry.t-human::before{background:#f87171}
+.entry.t-auto{border-left-color:#4ade80}.entry.t-auto::before{background:#4ade80}
+.entry.t-watch{border-left-color:#facc15}.entry.t-watch::before{background:#facc15}
+.entry.t-system{border-left-color:#22d3ee}.entry.t-system::before{background:#22d3ee}
+.entry.t-critical{border-left-color:#fb923c}.entry.t-critical::before{background:#fb923c}
+.entry.today{box-shadow:0 0 12px rgba(56,189,248,.3);border-color:#38bdf8}
+.entry.today::before{background:#38bdf8;box-shadow:0 0 8px #38bdf8}
+.entry.past{opacity:.45}
+.meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
+.date{color:#94a3b8;font-size:11px}
+.day-badge{font-size:10px;padding:1px 6px;border-radius:3px;font-weight:700}
+.t-human .day-badge{background:#f8717120;color:#f87171}
+.t-auto .day-badge{background:#4ade8020;color:#4ade80}
+.t-watch .day-badge{background:#facc1520;color:#facc15}
+.t-system .day-badge{background:#22d3ee20;color:#22d3ee}
+.t-critical .day-badge{background:#fb923c20;color:#fb923c}
+.evt-name{font-size:13px;font-weight:600;margin:4px 0 2px;color:#e2e8f0}
+.action{font-size:11px;color:#94a3b8;word-break:break-word}
+.legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:16px;font-size:11px}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.stats{text-align:center;font-size:11px;color:#64748b;margin-top:16px;padding-top:12px;border-top:1px solid #1e293b}
+@media(max-width:480px){body{padding:8px;font-size:12px}.hdr h1{font-size:15px}.entry{padding:8px 10px}.evt-name{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+<h1>CATCH CALENDAR &mdash; 73 DAY WINDOW</h1>
+<div class="dates">2026-05-17 &rarr; 2026-07-30</div>
+</div>
+<div id="next-banner" class="next-banner"></div>
+<div class="legend">
+<span><span class="dot" style="background:#f87171"></span> Human</span>
+<span><span class="dot" style="background:#4ade80"></span> Auto</span>
+<span><span class="dot" style="background:#facc15"></span> Watch</span>
+<span><span class="dot" style="background:#22d3ee"></span> System</span>
+<span><span class="dot" style="background:#fb923c"></span> Critical</span>
+</div>
+<div id="timeline" class="timeline"></div>
+<div class="stats" id="stats"></div>
+<script>
+var D=[
+{d:"2026-05-17",y:0,e:"Sprint 33. System check. All 3 catch platforms armed.",t:"system",a:"none"},
+{d:"2026-05-28",y:11,e:"GoDaddy ID verification DEADLINE",t:"human",a:"HUMAN: Verify submitted + approved"},
+{d:"2026-06-01",y:15,e:"Dynadot must be topped up by now",t:"human",a:"HUMAN: Add $50 to Dynadot"},
+{d:"2026-06-01",y:15,e:"ingredientcalculator.com 2-week check",t:"auto",a:"AUTO: GSC pull"},
+{d:"2026-06-04",y:18,e:"cytheris.com EXPIRES",t:"critical",a:"MONITOR: Confirm site goes down"},
+{d:"2026-06-07",y:21,e:"ghostautonomy.com EXPIRES",t:"critical",a:"MONITOR: Confirm site goes down"},
+{d:"2026-06-14",y:28,e:"scififoods.com EXPIRES (Jun 14)",t:"watch",a:"MONITOR: Check RDAP status"},
+{d:"2026-06-15",y:29,e:"ingredientcalculator.com 30-day checkpoint",t:"auto",a:"AUTO: Full GSC analysis. Determines REBUILD vs FLIP strategy."},
+{d:"2026-06-20",y:34,e:"Increase monitoring frequency to DAILY",t:"system",a:"AUTO: Daemon config change"},
+{d:"2026-06-23",y:37,e:"bside.com EXPIRES",t:"critical",a:"MONITOR: Confirm expiry"},
+{d:"2026-06-25",y:39,e:"START 2x/day GoDaddy inventory checks",t:"system",a:"AUTO: Daemon config"},
+{d:"2026-06-26",y:40,e:"guerrameats.com pendingDelete WINDOW (FIRST BLOOD)",t:"critical",a:"AUTO: Dynadot backorder fires ($10.99)"},
+{d:"2026-06-30",y:44,e:"cytheris.com GoDaddy Auction STARTS",t:"watch",a:"WATCH: Bid if no competition (min $12, max $50)"},
+{d:"2026-06-30",y:44,e:"sunnyray.org pendingDelete",t:"critical",a:"AUTO: Dynadot backorder fires ($10.99). Tucows direct catch."},
+{d:"2026-07-01",y:45,e:"globalgeopark.org pendingDelete",t:"critical",a:"AUTO: Dynadot backorder fires ($10.99). Tucows direct catch."},
+{d:"2026-07-03",y:47,e:"ghostautonomy.com GoDaddy Auction STARTS",t:"watch",a:"WATCH: Bid max $200. TM CLEAR."},
+{d:"2026-07-06",y:50,e:"goodglammgroup.com drop est.",t:"watch",a:"MONITOR: DropCatch backorder active"},
+{d:"2026-07-10",y:54,e:"cytheris.com CLOSEOUT STARTS ($9)",t:"critical",a:"BUY: Day 1 at $32 total. SAFEST PATH."},
+{d:"2026-07-13",y:57,e:"ghostautonomy.com CLOSEOUT STARTS ($9)",t:"critical",a:"BUY: Day 1 at $32 total. THE PLAY."},
+{d:"2026-07-14",y:58,e:"cytheris.com Closeout Day 5 ($5)",t:"watch",a:"LAST CHANCE: $28 total if still available"},
+{d:"2026-07-16",y:60,e:"sendy.co drop est.",t:"watch",a:"MONITOR: DropCatch backorder active"},
+{d:"2026-07-17",y:62,e:"ghostautonomy.com Closeout Day 5 ($5)",t:"watch",a:"LAST CHANCE: $28 total"},
+{d:"2026-07-19",y:63,e:"bside.com GoDaddy Auction STARTS",t:"watch",a:"BID: Max $500. 5-char dictionary .com. Competitive."},
+{d:"2026-07-29",y:73,e:"bside.com CLOSEOUT starts",t:"watch",a:"BUY: $28-32 if no bids in auction"},
+{d:"2026-07-30",y:74,e:"readingfoundation.org drop est.",t:"watch",a:"MONITOR: DropCatch backorder active"}
+];
+function p(s){var a=s.split('-');return new Date(a[0],a[1]-1,a[2])}
+function fmt(dt){var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[dt.getMonth()]+' '+dt.getDate()+', '+dt.getFullYear()}
+function dayName(dt){return['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dt.getDay()]}
+var now=new Date();now.setHours(0,0,0,0);
+var todayStr=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+var nextEvt=null;
+for(var i=0;i<D.length;i++){var ed=p(D[i].d);if(ed>=now){nextEvt=D[i];break;}}
+var nb=document.getElementById('next-banner');
+if(nextEvt){var dd=Math.round((p(nextEvt.d)-now)/864e5);nb.innerHTML='<div class="label">Next Event</div><div class="evt">'+nextEvt.e+'</div><div class="countdown">'+(dd===0?'TODAY':dd===1?'TOMORROW':'in '+dd+' days')+' &mdash; '+fmt(p(nextEvt.d))+'</div>';}
+else{nb.innerHTML='<div class="label">All events completed</div>';}
+var tl=document.getElementById('timeline');var html='';var pastC=0,futC=0;
+for(var i=0;i<D.length;i++){
+var ev=D[i],dt=p(ev.d),isPast=dt<now,isToday=ev.d===todayStr;
+if(isPast)pastC++;else futC++;
+var cls='entry t-'+ev.t;if(isToday)cls+=' today';if(isPast&&!isToday)cls+=' past';
+html+='<div class="'+cls+'">';
+html+='<div class="meta"><span class="date">'+dayName(dt)+', '+fmt(dt)+'</span><span class="day-badge">DAY '+ev.y+'</span></div>';
+html+='<div class="evt-name">'+ev.e+'</div>';
+if(ev.a&&ev.a!=='none')html+='<div class="action">'+ev.a+'</div>';
+html+='</div>';
+}
+tl.innerHTML=html;
+document.getElementById('stats').textContent=pastC+' completed / '+futC+' remaining / '+D.length+' total events';
+</script>
+</body>
+</html>

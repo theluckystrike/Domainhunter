@@ -1,0 +1,279 @@
+{
+  "generated_at": "2026-05-17T10:59:48.991592+00:00",
+  "check_type": "sprint33_rdap_fresh_check",
+  "method": "direct RDAP (Verisign .com, PIR .org) + whois fallback (.co)",
+  "domains": {
+    "cytheris.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-06-04T16:24:53Z",
+      "last_changed": "2025-06-05T13:45:48Z",
+      "nameservers": [
+        "NS25255.OVH.NET",
+        "SDNS1.OVH.NET"
+      ],
+      "dns_resolves": false,
+      "registration_date": "2002-06-04T16:24:53Z",
+      "rdap_db_updated": "2026-05-17T10:57:32Z",
+      "expected_status": "clientRenewProhibited + 3 other locks",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 18,
+      "analysis": "NO CHANGE from sprint32 baseline. All 4 client locks intact. Still NXDOMAIN. Expiry Jun 4 confirmed. GoDaddy clientRenewProhibited = owner cannot renew, domain will enter GoDaddy auction pipeline ~30 days after expiry (~Jul 4). STILL ON TRACK.",
+      "signal_strength": "STRONG_DROP",
+      "alert": null
+    },
+    "ghostautonomy.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "Wild West Domains, LLC",
+      "expiry": "2026-06-07T00:53:13Z",
+      "last_changed": "2024-11-27T13:14:56Z",
+      "nameservers": [
+        "COBY.NS.CLOUDFLARE.COM",
+        "MELODY.NS.CLOUDFLARE.COM"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "172.67.171.189, 104.21.71.212",
+      "registration_date": "2022-06-07T00:53:13Z",
+      "rdap_db_updated": "2026-05-17T10:57:32Z",
+      "expected_status": "clientRenewProhibited + 3 other locks",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 20,
+      "analysis": "NO CHANGE from sprint32 baseline. All 4 client locks intact. Still on Cloudflare and resolving. clientRenewProhibited = owner cannot renew. Expiry Jun 7 = 21 days. Wild West (GoDaddy reseller) will process through GoDaddy auction. Last changed Nov 2024 = no recent activity. STILL ON TRACK despite DNS resolving.",
+      "signal_strength": "STRONG_DROP",
+      "alert": null
+    },
+    "guerrameats.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client hold",
+        "client transfer prohibited"
+      ],
+      "registrar": "Squarespace Domains II LLC",
+      "expiry": "2027-04-07T02:36:43Z",
+      "last_changed": "2026-04-07T08:59:48Z",
+      "nameservers": [
+        "NS-CLOUD-B1.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B2.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B3.GOOGLEDOMAINS.COM",
+        "NS-CLOUD-B4.GOOGLEDOMAINS.COM"
+      ],
+      "dns_resolves": false,
+      "registration_date": "2005-04-07T02:36:43Z",
+      "rdap_db_updated": "2026-05-17T10:57:32Z",
+      "expected_status": "clientHold + clientDeleteProhibited + clientTransferProhibited",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 324,
+      "analysis": "NO CHANGE from sprint32 baseline. clientHold STILL ACTIVE = domain suspended by registrar. NXDOMAIN confirmed. Expiry 2027-04-07 (auto-renewed). Squarespace auto-renewed but clientHold suspension remains. Extended timeline but high-signal: owner paying but domain suspended. Drop requires either explicit cancellation or lapse at next renewal cycle (Apr 2027).",
+      "signal_strength": "MEDIUM_DROP_EXTENDED",
+      "alert": null
+    },
+    "sunnyray.org": {
+      "epp_status": [
+        "auto renew period"
+      ],
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-04-11T09:19:44.317Z",
+      "last_changed": "2026-04-15T02:35:09.769Z",
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "52.223.13.41",
+      "registration_date": "2005-04-11T09:19:44.317Z",
+      "rdap_db_updated": "2026-05-17T10:57:55.961Z",
+      "expected_status": "autoRenewPeriod",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 328,
+      "analysis": "NO CHANGE from sprint32 baseline. autoRenewPeriod STILL ACTIVE (32+ days since auto-renewal on Apr 15). renewyourname.net nameservers = Tucows expired-domain parking. IP 52.223.13.41 = AWS Global Accelerator (parking page). KEY OBSERVATION: autoRenewPeriod typically lasts 45 days from renewal date. Auto-renewed Apr 11, so 45-day window ends ~May 26. If still in autoRenewPeriod on May 26+, owner has NOT confirmed payment. Watch for transition to redemptionPeriod or pendingDelete.",
+      "signal_strength": "HIGH_DROP",
+      "critical_date": "2026-05-26 (approx 45-day autoRenew window close)",
+      "alert": "APPROACHING CRITICAL DATE - autoRenew 45-day window closes ~May 26 (9 days)"
+    },
+    "globalgeopark.org": {
+      "epp_status": [
+        "auto renew period"
+      ],
+      "registrar": "Tucows Domains Inc.",
+      "expiry": "2027-04-11T02:12:38.271Z",
+      "last_changed": "2026-04-15T05:59:07.598Z",
+      "nameservers": [
+        "ns1.renewyourname.net",
+        "ns2.renewyourname.net"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "52.223.13.41",
+      "registration_date": "2007-04-11T02:12:38.271Z",
+      "rdap_db_updated": "2026-05-17T10:57:58.75Z",
+      "expected_status": "autoRenewPeriod",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 328,
+      "analysis": "NO CHANGE from sprint32 baseline. Identical pattern to sunnyray.org. autoRenewPeriod active, renewyourname.net parking nameservers, same parking IP. Auto-renewed Apr 11, 45-day window closes ~May 26. If autoRenewPeriod persists past May 26, owner has NOT paid and domain will proceed to redemptionPeriod then pendingDelete.",
+      "signal_strength": "HIGH_DROP",
+      "critical_date": "2026-05-26 (approx 45-day autoRenew window close)",
+      "alert": "APPROACHING CRITICAL DATE - autoRenew 45-day window closes ~May 26 (9 days)"
+    },
+    "goodglammgroup.com": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-06T18:20:52Z",
+      "last_changed": "2024-07-07T11:26:40Z",
+      "nameservers": [
+        "NS43.DOMAINCONTROL.COM",
+        "NS44.DOMAINCONTROL.COM"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "3.33.130.190, 15.197.148.33",
+      "registration_date": "2021-07-06T18:20:52Z",
+      "rdap_db_updated": "2026-05-17T10:57:47Z",
+      "expected_status": "clientRenewProhibited + 3 other locks",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 50,
+      "analysis": "NO CHANGE. All 4 client locks intact including clientRenewProhibited. GoDaddy DOMAINCONTROL nameservers (parking). Resolves to AWS Global Accelerator IPs (3.33.x, 15.197.x = parking). Last changed Jul 2024 = no activity for 10 months. Expiry Jul 6 = 50 days. GoDaddy auction route. STILL ON TRACK.",
+      "signal_strength": "STRONG_DROP",
+      "alert": null
+    },
+    "sendy.co": {
+      "epp_status": [
+        "client transfer prohibited",
+        "client update prohibited",
+        "client renew prohibited",
+        "client delete prohibited"
+      ],
+      "registrar": "Wild West Domains, LLC (via Domains By Proxy)",
+      "expiry": "2026-07-16T23:59:59Z",
+      "last_changed": "2025-10-07T16:53:31Z",
+      "nameservers": [
+        "NS-1163.AWSDNS-17.ORG",
+        "NS-156.AWSDNS-19.COM",
+        "NS-1857.AWSDNS-40.CO.UK",
+        "NS-615.AWSDNS-12.NET"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "45.33.92.230",
+      "registration_date": "2012-07-17T11:31:00Z",
+      "rdap_source": "whois (RDAP .co server unreachable)",
+      "expected_status": "clientRenewProhibited",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 60,
+      "analysis": "Status confirmed via WHOIS (RDAP .co server down). All 4 client locks including clientRenewProhibited. Wild West Domains (GoDaddy reseller) with Domains By Proxy privacy. AWS Route53 nameservers still pointed. Resolves to 45.33.92.230 (Linode). Expiry Jul 16 = 60 days. Last changed Oct 2025. clientRenewProhibited on .co ccTLD = owner cannot renew. GoDaddy/Wild West auction path. STILL ON TRACK.",
+      "signal_strength": "STRONG_DROP",
+      "alert": null
+    },
+    "readingfoundation.org": {
+      "epp_status": [
+        "client delete prohibited",
+        "client renew prohibited",
+        "client transfer prohibited",
+        "client update prohibited"
+      ],
+      "registrar": "GoDaddy.com, LLC",
+      "expiry": "2026-07-30T04:00:00Z",
+      "last_changed": "2024-07-18T18:54:52.759Z",
+      "nameservers": [
+        "ns11.eapps.com",
+        "ns12.eapps.com",
+        "ns13.eapps.com",
+        "ns14.eapps.com"
+      ],
+      "dns_resolves": true,
+      "dns_ip": "68.169.62.173",
+      "registration_date": "1998-07-31T04:00:00.867Z",
+      "rdap_db_updated": "2026-05-17T10:58:11.403Z",
+      "expected_status": "clientRenewProhibited + 3 other locks",
+      "status_match": true,
+      "change_detected": false,
+      "days_to_expiry": 73,
+      "analysis": "NO CHANGE. All 4 client locks intact including clientRenewProhibited. eapps.com nameservers (hosting provider). Domain still resolves to 68.169.62.173. Last changed Jul 2024 = no activity for 10 months. Expiry Jul 30 = 74 days. 28-year-old domain (registered 1998). GoDaddy clientRenewProhibited = GoDaddy auction route. ETV $7,207 = highest ETV in catch portfolio. STILL ON TRACK.",
+      "signal_strength": "STRONG_DROP",
+      "alert": null
+    }
+  },
+  "summary": {
+    "total_checked": 8,
+    "all_status_matched": true,
+    "changes_detected": 0,
+    "renewals_detected": 0,
+    "transfers_detected": 0,
+    "new_owners_detected": 0,
+    "alerts": [
+      "sunnyray.org: autoRenew 45-day window closes ~May 26 (9 days) - CHECK DAILY",
+      "globalgeopark.org: autoRenew 45-day window closes ~May 26 (9 days) - CHECK DAILY",
+      "cytheris.com: expires Jun 4 (18 days) - approaching expiry",
+      "ghostautonomy.com: expires Jun 7 (21 days) - approaching expiry"
+    ],
+    "drop_timeline": [
+      {
+        "domain": "cytheris.com",
+        "expiry": "2026-06-04",
+        "drop_est": "~2026-07-04 (GoDaddy auction)",
+        "days": 18
+      },
+      {
+        "domain": "ghostautonomy.com",
+        "expiry": "2026-06-07",
+        "drop_est": "~2026-08-06 (GoDaddy auction)",
+        "days": 21
+      },
+      {
+        "domain": "sunnyray.org",
+        "critical_date": "~2026-05-26",
+        "note": "45-day autoRenew window close",
+        "days": 9
+      },
+      {
+        "domain": "globalgeopark.org",
+        "critical_date": "~2026-05-26",
+        "note": "45-day autoRenew window close",
+        "days": 9
+      },
+      {
+        "domain": "guerrameats.com",
+        "expiry": "2027-04-07",
+        "drop_est": "Extended - clientHold",
+        "days": 325
+      },
+      {
+        "domain": "goodglammgroup.com",
+        "expiry": "2026-07-06",
+        "drop_est": "~2026-08-05 (GoDaddy auction)",
+        "days": 50
+      },
+      {
+        "domain": "sendy.co",
+        "expiry": "2026-07-16",
+        "drop_est": "~2026-08-15 (GoDaddy/WildWest)",
+        "days": 60
+      },
+      {
+        "domain": "readingfoundation.org",
+        "expiry": "2026-07-30",
+        "drop_est": "~2026-08-29 (GoDaddy auction)",
+        "days": 74
+      }
+    ],
+    "verdict": "ALL 8 TARGETS STABLE. Zero unexpected changes. No renewals, no transfers, no new owners. All drop signals intact. Two Tucows autoRenewPeriod domains (sunnyray.org, globalgeopark.org) approaching critical 45-day window close ~May 26 -- recommend daily RDAP checks starting May 24."
+  }
+}

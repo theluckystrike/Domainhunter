@@ -9,16 +9,19 @@ away from their Mac. Channels:
 
 Priority routing:
   "critical" -> all channels (ntfy + email + stdout)
-  "high"     -> email + ntfy + stdout
-  "normal"   -> email + stdout
+  "high"     -> all channels (ntfy + email + stdout)
+  "normal"   -> all channels (ntfy + email + stdout)
 
 Config via environment variables:
   NOTIFY_EMAIL_TO      - recipient email address
   RESEND_API_KEY       - Resend.com API key for sending email
-  NOTIFY_NTFY_TOPIC    - ntfy.sh topic (e.g., "domainhunter-alerts")
+  NOTIFY_NTFY_TOPIC    - ntfy.sh topic (default: "domainhunter-revenant-alerts")
 
-Run standalone: python scripts/notify.py --test
-Use as library: from scripts.notify import send_alert
+Run standalone:
+  python scripts/notify.py --test                        # all channels
+  python scripts/notify.py --test-ntfy "Custom message"  # ntfy only
+Use as library:
+  from scripts.notify import send_alert, send_ntfy
 
 NASA Power of 10: functions <60 lines, min 2 assertions,
 fixed loop bounds, no global mutable state, frozen dataclasses.
@@ -37,6 +40,7 @@ from typing import Final
 
 # ── Constants (immutable) ─────────────────────────────────────────────
 NTFY_BASE_URL: Final[str] = "https://ntfy.sh/"
+NTFY_DEFAULT_TOPIC: Final[str] = "domainhunter-revenant-alerts"
 RESEND_API_URL: Final[str] = "https://api.resend.com/emails"
 RESEND_FROM_ADDRESS: Final[str] = "DomainHunter <alerts@domainhunter.dev>"
 REQUEST_TIMEOUT: Final[int] = 15
@@ -90,7 +94,7 @@ def load_config() -> NotifyConfig:
     config = NotifyConfig(
         email_to=os.environ.get("NOTIFY_EMAIL_TO", ""),
         resend_api_key=os.environ.get("RESEND_API_KEY", ""),
-        ntfy_topic=os.environ.get("NOTIFY_NTFY_TOPIC", ""),
+        ntfy_topic=os.environ.get("NOTIFY_NTFY_TOPIC", NTFY_DEFAULT_TOPIC),
     )
     assert isinstance(config, NotifyConfig), "Config creation failed"
     assert config is not None, "Config must not be None"
@@ -175,15 +179,59 @@ def _send_email(subject: str, body: str, config: NotifyConfig) -> NotifyResult:
     return NotifyResult(channel="email", success=success, detail=detail)
 
 
+# ── Public ntfy.sh API ───────────────────────────────────────────────
+def send_ntfy(title: str, message: str, priority: str = "default",
+              tags: str = "") -> bool:
+    """Send push notification via ntfy.sh.
+
+    Public convenience function -- works without full NotifyConfig.
+    Uses NOTIFY_NTFY_TOPIC env var or falls back to default topic.
+
+    Args:
+        title: Notification title (max 256 chars).
+        message: Notification body text.
+        priority: One of "critical", "high", "medium", "default", "low".
+        tags: Comma-separated ntfy tag names (default: "domain,alert").
+
+    Returns:
+        True if ntfy.sh accepted the notification (HTTP 200).
+    """
+    assert title and len(title) > 0, "Title required"
+    assert message and len(message) > 0, "Message required"
+
+    prio_map = {
+        "critical": "urgent",
+        "high": "high",
+        "medium": "default",
+        "default": "default",
+        "low": "low",
+    }
+    topic = os.environ.get("NOTIFY_NTFY_TOPIC", NTFY_DEFAULT_TOPIC)
+    url = f"{NTFY_BASE_URL}{topic}"
+
+    headers = {
+        "Title": title[:256],
+        "Priority": prio_map.get(priority, "default"),
+        "Tags": tags or "domain,alert",
+    }
+
+    data = message[:MAX_BODY_LENGTH].encode("utf-8")
+
+    try:
+        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
+            return resp.status == 200
+    except (urllib.error.URLError, urllib.error.HTTPError, OSError):
+        return False
+
+
 # ── Main Dispatcher ──────────────────────────────────────────────────
 def send_alert(subject: str, body: str,
                priority: str = "normal") -> list[NotifyResult]:
-    """Dispatch alert across configured channels based on priority.
+    """Dispatch alert across all configured channels.
 
-    Priority routing:
-      "critical" -> ntfy + email + stdout
-      "high"     -> ntfy + email + stdout
-      "normal"   -> email + stdout
+    All priorities fire on all available channels (ntfy + email + stdout).
+    ntfy.sh is free mobile push -- no reason to gate on priority.
 
     Returns list of NotifyResult for each channel attempted.
     """
@@ -197,8 +245,8 @@ def send_alert(subject: str, body: str,
     # stdout always fires
     results.append(_send_stdout(subject, body))
 
-    # ntfy for critical and high
-    if priority in ("critical", "high") and config.has_ntfy:
+    # ntfy for all priorities (free mobile push -- always send)
+    if config.has_ntfy:
         results.append(_send_ntfy(subject, body, priority, config))
 
     # email for all priorities when configured
@@ -274,12 +322,56 @@ def _run_test() -> int:
     return 0 if all_ok else 1
 
 
+def _run_test_ntfy(message: str) -> int:
+    """Send a test notification via ntfy.sh only.
+
+    Args:
+        message: Custom message text to send, or default if empty.
+
+    Returns:
+        0 on success, 1 on failure.
+    """
+    assert isinstance(message, str), "Message must be string"
+    assert len(message) <= MAX_BODY_LENGTH, f"Message too long: {len(message)}"
+
+    topic = os.environ.get("NOTIFY_NTFY_TOPIC", NTFY_DEFAULT_TOPIC)
+    print("Domain Hunter -- ntfy.sh Test")
+    print(f"  Topic:     {topic}")
+    print(f"  URL:       {NTFY_BASE_URL}{topic}")
+    print(f"  Timestamp: {datetime.now(timezone.utc).isoformat()}")
+    print()
+
+    body = message or "Test alert from Domain Hunter -- ntfy.sh is working."
+    ok = send_ntfy(
+        title="Domain Hunter Test",
+        message=body,
+        priority="default",
+        tags="white_check_mark,domain,test",
+    )
+
+    if ok:
+        print("  [OK] ntfy.sh notification sent successfully.")
+        print(f"  Open https://ntfy.sh/{topic} in browser to verify.")
+        return 0
+
+    print("  [FAIL] ntfy.sh notification failed.")
+    print("  Check network connectivity and topic name.")
+    return 1
+
+
 def main() -> int:
     """CLI entry point."""
+    if "--test-ntfy" in sys.argv:
+        # Extract message: everything after --test-ntfy flag
+        idx = sys.argv.index("--test-ntfy")
+        msg = " ".join(sys.argv[idx + 1:]) if idx + 1 < len(sys.argv) else ""
+        return _run_test_ntfy(msg)
     if "--test" in sys.argv:
         return _run_test()
-    print("Usage: python scripts/notify.py --test")
-    print("  Or import: from scripts.notify import send_alert")
+    print("Usage:")
+    print("  python scripts/notify.py --test            # Test all channels")
+    print("  python scripts/notify.py --test-ntfy [msg] # Test ntfy.sh only")
+    print("  Or import: from scripts.notify import send_alert, send_ntfy")
     return 0
 
 

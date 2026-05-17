@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T09:49:54.397111+00:00",
+  "generated_at": "2026-05-17T10:53:11.141633+00:00",
   "date": "2026-05-17",
   "dry_run": true,
   "catch_window_days": 90,
@@ -86,9 +86,9 @@
     {
       "domain": "guerrameats.com",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $200.00",
+      "price": 200.0
     },
     {
       "domain": "guerrameats.com",
@@ -107,9 +107,9 @@
     {
       "domain": "cytheris.com",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $150.00",
+      "price": 150.0
     },
     {
       "domain": "cytheris.com",
@@ -128,9 +128,9 @@
     {
       "domain": "sunnyray.org",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $100.00",
+      "price": 100.0
     },
     {
       "domain": "sunnyray.org",
@@ -149,9 +149,9 @@
     {
       "domain": "globalgeopark.org",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $400.00",
+      "price": 400.0
     },
     {
       "domain": "globalgeopark.org",
@@ -170,9 +170,9 @@
     {
       "domain": "goodglammgroup.com",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $100.00",
+      "price": 100.0
     },
     {
       "domain": "goodglammgroup.com",
@@ -191,9 +191,9 @@
     {
       "domain": "sendy.co",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $150.00",
+      "price": 150.0
     },
     {
       "domain": "sendy.co",
@@ -212,9 +212,9 @@
     {
       "domain": "readingfoundation.org",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $200.00",
+      "price": 200.0
     },
     {
       "domain": "readingfoundation.org",
@@ -233,9 +233,9 @@
     {
       "domain": "ghostautonomy.com",
       "platform": "dropcatch",
-      "status": "skipped",
-      "message": "No credentials configured",
-      "price": 0.0
+      "status": "dry_run",
+      "message": "Would place backorder at $200.00",
+      "price": 200.0
     },
     {
       "domain": "ghostautonomy.com",
@@ -256,7 +256,7 @@
     {
       "name": "DropCatch",
       "available": false,
-      "status_text": "[SKIP] No credentials"
+      "status_text": "[FAIL] AssertionError"
     },
     {
       "name": "Dynadot",

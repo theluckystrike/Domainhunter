@@ -1,0 +1,190 @@
+{
+  "check_date": "2026-05-17",
+  "domain": "ingredientcalculator.com",
+  "acquisition_date": "2026-05-07",
+  "days_since_acquisition": 10,
+  "hosting": "Cloudflare Pages (free tier)",
+
+  "pages_checked": [
+    {
+      "url": "https://ingredientcalculator.com/",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "index.html",
+      "note": "Homepage, fully functional"
+    },
+    {
+      "url": "https://ingredientcalculator.com/cups-to-grams",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "cups-to-grams.html",
+      "note": "Live and serving correctly"
+    },
+    {
+      "url": "https://ingredientcalculator.com/recipe-converter",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "recipe-converter.html",
+      "note": "Live and serving correctly"
+    },
+    {
+      "url": "https://ingredientcalculator.com/serving-size-calculator",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "serving-size-calculator.html",
+      "note": "Live and serving correctly"
+    },
+    {
+      "url": "https://ingredientcalculator.com/egg-substitute",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "egg-substitute.html",
+      "note": "Live and serving correctly"
+    },
+    {
+      "url": "https://ingredientcalculator.com/baking-ratios",
+      "status": 200,
+      "in_sitemap": true,
+      "local_file": "baking-ratios.html",
+      "note": "Live and serving correctly"
+    },
+    {
+      "url": "https://ingredientcalculator.com/allergen-substitutes",
+      "status": 404,
+      "in_sitemap": false,
+      "local_file": "allergen-substitutes.html (50.7KB, created 2026-05-16)",
+      "note": "NOT DEPLOYED. Exists locally but was never pushed to Cloudflare Pages. Also not in live sitemap."
+    },
+    {
+      "url": "https://ingredientcalculator.com/how-to-scale-recipes",
+      "status": 404,
+      "in_sitemap": false,
+      "local_file": "how-to-scale-recipes.html (68.8KB, created 2026-05-16)",
+      "note": "NOT DEPLOYED. Exists locally but was never pushed to Cloudflare Pages. Also not in live sitemap."
+    },
+    {
+      "url": "https://ingredientcalculator.com/baking-conversion-calculator",
+      "status": 404,
+      "in_sitemap": false,
+      "local_file": null,
+      "note": "This URL does not exist — no local file, no sitemap entry. The correct baking page is /baking-ratios."
+    },
+    {
+      "url": "https://ingredientcalculator.com/cooking-unit-converter",
+      "status": 404,
+      "in_sitemap": false,
+      "local_file": null,
+      "note": "This URL does not exist — no local file, no sitemap entry. The correct unit converter page is /recipe-converter."
+    },
+    {
+      "url": "https://ingredientcalculator.com/ingredient-scaler",
+      "status": 404,
+      "in_sitemap": false,
+      "local_file": null,
+      "note": "This URL does not exist — no local file, no sitemap entry. The serving size calculator at /serving-size-calculator handles recipe scaling."
+    },
+    {
+      "url": "https://ingredientcalculator.com/sitemap.xml",
+      "status": 200,
+      "note": "Live sitemap has 6 URLs, lastmod 2026-05-16. Does NOT include the 2 new local pages."
+    },
+    {
+      "url": "https://ingredientcalculator.com/robots.txt",
+      "status": 200,
+      "note": "Clean — Allow: /, Sitemap reference present."
+    }
+  ],
+
+  "page_summary": {
+    "total_live_pages": 6,
+    "total_returning_200": 6,
+    "total_returning_404": 5,
+    "real_404s_not_deployed": 2,
+    "phantom_404s_never_existed": 3,
+    "local_files_not_deployed": ["allergen-substitutes.html", "how-to-scale-recipes.html"]
+  },
+
+  "indexed_pages": {
+    "google_site_search_count": 1,
+    "indexed_urls": ["https://ingredientcalculator.com/"],
+    "not_indexed_yet": [
+      "https://ingredientcalculator.com/cups-to-grams",
+      "https://ingredientcalculator.com/recipe-converter",
+      "https://ingredientcalculator.com/serving-size-calculator",
+      "https://ingredientcalculator.com/egg-substitute",
+      "https://ingredientcalculator.com/baking-ratios"
+    ],
+    "note": "Only the homepage is indexed by Google after 10 days. GSC data (from satellite report) shows 384 impressions, 3 clicks, avg position 32.2 over 28-day window. Sitemap submitted with 6 URLs, 0 indexed by GSC. This is normal for a 10-day-old domain."
+  },
+
+  "gsc_metrics": {
+    "source": "Satellite report from 2026-05-16",
+    "period": "2026-04-16 to 2026-05-14 (28 days)",
+    "impressions": 384,
+    "clicks": 3,
+    "ctr_percent": 0.78,
+    "avg_position": 32.2,
+    "peak_day": "2026-05-14 (90 impressions)",
+    "top_queries": [
+      {"query": "ingredient calculator", "impressions": 7, "clicks": 1, "position": 16},
+      {"query": "ingredient converter", "impressions": 3, "clicks": 1, "position": 21},
+      {"query": "cooking ingredient calculator", "impressions": 4, "clicks": 0, "position": 17},
+      {"query": "baking calculator conversions", "impressions": 4, "clicks": 0, "position": 53.2}
+    ],
+    "sitemap_submitted": 6,
+    "sitemap_indexed": 0,
+    "trend": "Impressions accelerating — 38 on May 8 rising to 90 on May 14. Positive signal."
+  },
+
+  "local_vs_deployed_drift": {
+    "issue": "SITEMAP DIVERGENCE",
+    "severity": "MEDIUM",
+    "detail": "The local sitemap.xml has been overwritten and only contains 3 URLs (homepage + 2 new pages with .html extensions). The live sitemap has 6 URLs (homepage + 5 original subpages with clean URLs). The local file is WRONG and would break the live sitemap if deployed as-is.",
+    "local_sitemap_urls": 3,
+    "live_sitemap_urls": 6,
+    "local_html_files": 8,
+    "fix": "Update local sitemap.xml to include all 8 content pages (homepage + 5 original + 2 new) with clean URLs (no .html extensions), then redeploy."
+  },
+
+  "issues": [
+    {
+      "severity": "HIGH",
+      "issue": "2 new content pages not deployed",
+      "detail": "allergen-substitutes.html (50.7KB) and how-to-scale-recipes.html (68.8KB) exist locally but were never deployed to Cloudflare Pages. Combined 119.5KB of content sitting idle.",
+      "fix": "Update sitemap.xml to include all 8 pages, then run: wrangler pages deploy tools/ingredientcalculator --project-name=ingredientcalculator"
+    },
+    {
+      "severity": "HIGH",
+      "issue": "Local sitemap.xml is WRONG — would destroy live sitemap if deployed",
+      "detail": "Local sitemap has only 3 URLs (with .html extensions) while the live sitemap correctly has 6 URLs (clean URLs). Deploying the local sitemap would remove 5 pages from Google's crawl list.",
+      "fix": "Rebuild local sitemap.xml with all 8 content URLs using clean paths (no .html extensions) before redeploying."
+    },
+    {
+      "severity": "LOW",
+      "issue": "0 subpages indexed by Google after 10 days",
+      "detail": "GSC shows sitemap submitted with 6 URLs but 0 indexed. Only homepage indexed via organic discovery. This is expected for a brand-new domain but should improve within 2-4 weeks.",
+      "fix": "No action needed — wait. Optionally request indexing via GSC URL Inspection tool for each subpage."
+    },
+    {
+      "severity": "LOW",
+      "issue": "No backlinks or directory submissions",
+      "detail": "Zero external backlinks detected. Domain authority building has not started.",
+      "fix": "Submit to cooking directories, ProductHunt, and relevant forums once all pages are deployed."
+    }
+  ],
+
+  "overall_status": "MOSTLY HEALTHY — 6/6 deployed pages returning 200, but 2 new pages pending deployment and local sitemap is dangerously out of sync",
+
+  "recommendations": [
+    "PRIORITY 1: Fix local sitemap.xml — must include ALL 8 content pages with clean URLs (no .html extensions). The current local sitemap would destroy the live one if deployed.",
+    "PRIORITY 2: Deploy the updated site to Cloudflare Pages to push allergen-substitutes and how-to-scale-recipes live. Command: wrangler pages deploy tools/ingredientcalculator --project-name=ingredientcalculator",
+    "PRIORITY 3: After deployment, verify all 8 pages return 200 and the live sitemap lists all 8 URLs.",
+    "PRIORITY 4: Request indexing for all subpages via Google Search Console URL Inspection tool — this can accelerate the 2-4 week natural indexing timeline.",
+    "PRIORITY 5: Monitor impressions trend — currently accelerating (38 to 90/day over past week). If this continues, subpage indexing should follow naturally.",
+    "PRIORITY 6: Consider adding more long-tail content pages (butter substitute, flour types, cooking temp converter) to expand keyword surface area.",
+    "PRIORITY 7: Begin backlink acquisition once all pages are deployed and indexed — cooking directories, recipe forums, ProductHunt.",
+    "WARNING: Do NOT deploy without fixing the local sitemap.xml first. The current local sitemap would remove 5 pages from Google's crawl index."
+  ],
+
+  "next_checkpoint": "2026-06-01 (15-day follow-up — verify new pages deployed, check GSC for subpage indexing progress)"
+}
