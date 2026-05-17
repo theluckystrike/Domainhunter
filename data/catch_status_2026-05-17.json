@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-17T10:53:11.141633+00:00",
+  "generated_at": "2026-05-17T11:25:31.373299+00:00",
   "date": "2026-05-17",
-  "dry_run": true,
+  "dry_run": false,
   "catch_window_days": 90,
   "summary": {
     "total_targets": 8,
@@ -86,15 +86,15 @@
     {
       "domain": "guerrameats.com",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $200.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 200.0
     },
     {
       "domain": "guerrameats.com",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : guerrameats.com",
       "price": 10.99
     },
     {
@@ -107,15 +107,15 @@
     {
       "domain": "cytheris.com",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $150.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 150.0
     },
     {
       "domain": "cytheris.com",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : cytheris.com",
       "price": 10.99
     },
     {
@@ -128,15 +128,15 @@
     {
       "domain": "sunnyray.org",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $100.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 100.0
     },
     {
       "domain": "sunnyray.org",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : sunnyray.org",
       "price": 10.99
     },
     {
@@ -149,15 +149,15 @@
     {
       "domain": "globalgeopark.org",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $400.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 400.0
     },
     {
       "domain": "globalgeopark.org",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : globalgeopark.org",
       "price": 10.99
     },
     {
@@ -170,15 +170,15 @@
     {
       "domain": "goodglammgroup.com",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $100.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 100.0
     },
     {
       "domain": "goodglammgroup.com",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : goodglammgroup.com",
       "price": 10.99
     },
     {
@@ -191,15 +191,15 @@
     {
       "domain": "sendy.co",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $150.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain,BackorderTypeNotSupportedForTld",
       "price": 150.0
     },
     {
       "domain": "sendy.co",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : sendy.co",
       "price": 10.99
     },
     {
@@ -212,15 +212,15 @@
     {
       "domain": "readingfoundation.org",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $200.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 200.0
     },
     {
       "domain": "readingfoundation.org",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : readingfoundation.org",
       "price": 10.99
     },
     {
@@ -233,15 +233,15 @@
     {
       "domain": "ghostautonomy.com",
       "platform": "dropcatch",
-      "status": "dry_run",
-      "message": "Would place backorder at $200.00",
+      "status": "failed",
+      "message": "Backorder failed: NoDroppingDomain",
       "price": 200.0
     },
     {
       "domain": "ghostautonomy.com",
       "platform": "dynadot",
-      "status": "dry_run",
-      "message": "Would place backorder at $10.99",
+      "status": "failed",
+      "message": "could not find backorder fot this domain : ghostautonomy.com",
       "price": 10.99
     },
     {
@@ -255,8 +255,8 @@
   "platforms": [
     {
       "name": "DropCatch",
-      "available": false,
-      "status_text": "[FAIL] AssertionError"
+      "available": true,
+      "status_text": "[OK] Authenticated"
     },
     {
       "name": "Dynadot",

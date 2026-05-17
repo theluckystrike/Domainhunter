@@ -89,6 +89,48 @@ _BACKORDER_PARTIAL_FAILURE_RESPONSE: dict[str, Any] = {
     ],
 }
 
+# v2 Swagger spec format (PascalCase with Successes/Failures)
+_BACKORDER_V2_SUCCESS_RESPONSE: dict[str, Any] = {
+    "Successes": [
+        {
+            "Domain": "expiredgem.com",
+            "Amount": 59.00,
+            "MaxBid": 59.00,
+            "Type": "Standard",
+            "DropDate": "2026-05-20",
+        },
+        {
+            "Domain": "droppingsoon.net",
+            "Amount": 59.00,
+            "MaxBid": 59.00,
+            "Type": "Standard",
+            "DropDate": "2026-05-21",
+        },
+    ],
+    "Failures": [],
+}
+
+_BACKORDER_V2_PARTIAL_FAILURE_RESPONSE: dict[str, Any] = {
+    "Successes": [
+        {
+            "Domain": "gooddomain.com",
+            "Amount": 59.00,
+            "MaxBid": 59.00,
+            "Type": "Standard",
+            "DropDate": "2026-05-20",
+        },
+    ],
+    "Failures": [
+        {
+            "Domain": "baddomain.com",
+            "Error": {
+                "ErrorCode": "InvalidDomain",
+                "Description": "Domain is not in a droppable state",
+            },
+        },
+    ],
+}
+
 _CANCEL_BACKORDERS_RESPONSE: dict[str, Any] = {
     "someErrors": False,
     "results": [
@@ -542,3 +584,66 @@ def test_context_manager() -> None:
 
     # After __exit__, the HTTP client should be closed
     assert True  # If no exception, context manager works
+
+
+# ---------------------------------------------------------------------------
+# 19. Bulk backorder parsing — v2 PascalCase Successes/Failures format
+# ---------------------------------------------------------------------------
+def test_bulk_backorder_parsing_v2_format() -> None:
+    """_parse_bulk_backorder handles v2 API format with Successes/Failures."""
+    result = DropCatchClient._parse_bulk_backorder(_BACKORDER_V2_SUCCESS_RESPONSE)
+
+    assert isinstance(result, BulkBackorderResult)
+    assert result.some_errors is False
+    assert len(result.results) == 2
+
+    first = result.results[0]
+    assert isinstance(first, BackorderResult)
+    assert first.domain == "expiredgem.com"
+    assert first.success is True
+    assert first.max_bid == pytest.approx(59.00)
+    assert first.status_code == "Success"
+
+
+# ---------------------------------------------------------------------------
+# 20. Bulk backorder parsing — v2 partial failure format
+# ---------------------------------------------------------------------------
+def test_bulk_backorder_parsing_v2_partial_failure() -> None:
+    """_parse_bulk_backorder handles v2 API format with mixed Successes/Failures."""
+    result = DropCatchClient._parse_bulk_backorder(_BACKORDER_V2_PARTIAL_FAILURE_RESPONSE)
+
+    assert isinstance(result, BulkBackorderResult)
+    assert result.some_errors is True
+    assert len(result.results) == 2
+
+    successes = [r for r in result.results if r.success]
+    failures = [r for r in result.results if not r.success]
+    assert len(successes) == 1
+    assert len(failures) == 1
+
+    assert successes[0].domain == "gooddomain.com"
+    assert successes[0].max_bid == pytest.approx(59.00)
+
+    assert failures[0].domain == "baddomain.com"
+    assert "not in a droppable state" in failures[0].message
+    assert failures[0].status_code == "InvalidDomain"
+
+
+# ---------------------------------------------------------------------------
+# 21. place_backorders with v2 response — end-to-end with mocked HTTP
+# ---------------------------------------------------------------------------
+def test_place_backorders_v2_response() -> None:
+    """place_backorders correctly parses v2 Successes/Failures response."""
+    client = _make_client()
+
+    with patch.object(
+        client._http, "request",
+        side_effect=_auth_then_api(_make_mock_response(200, _BACKORDER_V2_SUCCESS_RESPONSE)),
+    ):
+        result = client.place_backorders(["expiredgem.com", "droppingsoon.net"])
+
+    assert isinstance(result, BulkBackorderResult)
+    assert result.some_errors is False
+    assert len(result.results) == 2
+    assert all(r.success for r in result.results)
+    assert result.results[0].domain == "expiredgem.com"

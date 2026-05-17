@@ -72,19 +72,19 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 </head><body>
 <div class="header">
   <h1>REVENANT</h1>
-  <div class="meta">Command Center<br>2026-05-17 | Sprint 32 | <span style="color:#4ade80;font-weight:bold">CATCH MODE ARMED</span><br>Domain Hunter v5.3 | <a href="PIPELINE-IMPROVEMENT-DASHBOARD.html" style="color:#38bdf8">Pipeline Dashboard &rarr;</a></div>
+  <div class="meta">Command Center<br>2026-05-17 | Sprint 33 | <span style="color:#4ade80;font-weight:bold">MONITORING MODE</span><br>Domain Hunter v5.4 | <a href="PIPELINE-IMPROVEMENT-DASHBOARD.html" style="color:#38bdf8">Pipeline Dashboard &rarr;</a></div>
 </div>
 <div class="container">
 <div class="hero-grid">
   <div class="stat-card">
     <div class="stat-label">PIPELINE STATUS</div>
     <div class="stat-value green">HEALTHY</div>
-    <div class="stat-sub">Sprint 32 | CATCH MODE ARMED | NameBright + DropCatch + GoDaddy: ALL LIVE</div>
+    <div class="stat-sub">Sprint 33 | MONITORING MODE | NameBright + DropCatch + GoDaddy: ALL LIVE + FUNDED</div>
   </div>
   <div class="stat-card">
     <div class="stat-label">BUDGET REMAINING</div>
-    <div class="stat-value accent">$543.04</div>
-    <div class="stat-sub">90.5% of $600 &bull; 5 domains &bull; $56.10 invested &bull; 2 listed &bull; Dynadot: $3.24</div>
+    <div class="stat-value accent">$343.04</div>
+    <div class="stat-sub">57.2% of $600 &bull; 5 domains &bull; $256.96 deployed &bull; NB: $121.25 &bull; DY: $78.24</div>
   </div>
   <div class="stat-card">
     <div class="stat-label">DOMAINS OWNED</div>
@@ -98,22 +98,22 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   </div>
 </div>
 <div class="tab-bar"><button class="tab-btn" data-tab="overview">Overview</button><button class="tab-btn" data-tab="portfolio">Portfolio</button><button class="tab-btn" data-tab="pipeline">Pipeline</button><button class="tab-btn" data-tab="candidates">Candidates</button><button class="tab-btn" data-tab="watchlist">Watchlist</button><button class="tab-btn" data-tab="whales">Whales</button><button class="tab-btn" data-tab="financials">Financials</button><button class="tab-btn" data-tab="startups">Startups</button><button class="tab-btn" data-tab="infra">Infrastructure</button></div>
-<section class="panel active" id="tab-overview"><section class="panel"><h2>Critical Alerts — Sprint 32: Catch Mode Armed (18 Days)</h2>
-<div class="alert alert-green">NAMEBRIGHT API: LIVE &check; OAuth2 auth working. Balance: $0.00. Account: 2 domains (b2berp.com, Dismissticket.com). 6/6 connectivity checks GREEN.</div>
-<div class="alert alert-green">DROPCATCH API: LIVE &check; Separate auth endpoint (api.dropcatch.com/Authorize). Backorders + auctions accessible. Live auction data: MyPhotos.com $2,905 (85 bidders).</div>
-<div class="alert alert-green">CATCH ORCHESTRATOR: READY &check; Unified pipeline: DropCatch ($59) + Dynadot ($10.99) + GoDaddy Closeout ($28-34). Auto-backorder on imminent drops.</div>
-<div class="alert alert-green">GODADDY AUCTIONS: MEMBERSHIP ACTIVE &check; + WATCHLIST SET (3 domains) &check; + Daily email alerts ON &check;</div>
-<div class="alert alert-cyan">STRATEGY: GoDaddy Closeout = PRIMARY ($28-34/domain). DropCatch = BACKUP ($59). Dynadot = INSURANCE ($10.99).</div>
-<div class="alert alert-red">ACTION: Complete GoDaddy IDENTITY VERIFICATION (capped at 2 bids / $1,500 until verified). Needed before bside.com auction.</div>
-<div class="alert alert-red">ACTION: Fund NameBright account ($0.00 balance). Need $59+/domain for DropCatch backorders.</div>
+<section class="panel active" id="tab-overview"><section class="panel"><h2>Critical Alerts — Sprint 33: Monitoring Mode (18 Days)</h2>
+<div class="alert alert-green">NAMEBRIGHT: FUNDED &check; Balance: $121.25. Supports 2 DropCatch backorders ($59/ea). OAuth2 LIVE. 6/6 checks GREEN.</div>
+<div class="alert alert-green">DYNADOT: FUNDED &check; Balance: $78.24. Supports 7 backorders at $10.99 each. Ready for pendingDelete catches.</div>
+<div class="alert alert-green">DROPCATCH API: LIVE &check; Auth works. Backorders rejected: <code>NoDroppingDomain</code> &mdash; domains must enter pendingDelete before DropCatch accepts. Re-run ~5 days before each drop date.</div>
+<div class="alert alert-cyan">CATCH ORCHESTRATOR: LIVE-TESTED &check; 8 targets attempted. All return <code>NoDroppingDomain</code> (DC) / <code>not found</code> (DY). Expected &mdash; domains 40-81 days from drop. Parser fixed for v2 API (lowercase keys). Re-run Jun 21+.</div>
+<div class="alert alert-green">NTFY PUSH: LIVE &check; Mobile notifications via ntfy.sh. Topic: domainhunter-revenant-alerts. Install ntfy app + subscribe.</div>
+<div class="alert alert-green">RDAP: 8/8 TARGETS STABLE &check; All EPP statuses confirmed. Zero surprise renewals. Next critical date: May 26 (sunnyray/globalgeopark).</div>
+<div class="alert alert-cyan">STRATEGY: GoDaddy Closeout = PRIMARY ($28-34). DropCatch = BACKUP ($59). Dynadot = INSURANCE ($10.99).</div>
+<div class="alert alert-yellow">GoDaddy ID VERIFICATION: NOT FOUND. Security page only has 2FA/password. Passport upload location unclear &mdash; check account.godaddy.com &rarr; Profile or bidder verification email. Deadline: May 28.</div>
+<div class="alert alert-yellow">SMS ALERTS: OFF. Enable at auctions.godaddy.com/beta/settings for &ldquo;outbid&rdquo; + &ldquo;ending in 1hr&rdquo; notifications.</div>
 <div class="alert alert-yellow">URGENT: cytheris.com EXPIRES JUN 4 &mdash; 18 days. GoDaddy Auction ~Jun 30, Closeout ~Jul 10</div>
 <div class="alert alert-yellow">URGENT: ghostautonomy.com EXPIRES JUN 7 &mdash; 21 days. GoDaddy Auction ~Jul 3, Closeout ~Jul 13</div>
-<div class="alert alert-yellow">WATCH: bside.com expires Jun 23 &mdash; 37 days. GoDaddy Auction ~Jul 19. COMPETITIVE &mdash; verify ID first!</div>
-<div class="alert alert-yellow">SMS ALERTS: OFF. Enable at auctions.godaddy.com/beta/settings for &ldquo;outbid&rdquo; + &ldquo;ending in 1hr&rdquo; notifications.</div>
-<div class="alert alert-yellow">DYNADOT: Top up needed. $3.24 balance (need $25+ for backorders).</div>
-<div class="alert alert-green">INVENTORY MONITOR: scripts/godaddy_monitor.py live. 2M+ domains scanned daily (6 files, no auth).</div>
-<div class="alert alert-green">LISTED: viryd.com ($2,500) + neovistainc.com ($1,500) on Afternic + Dan.com &check;</div>
-<div class="alert alert-green">DAEMON HEALTHY: PID 40365, heartbeat current, 37 domains monitored</div>
+<div class="alert alert-yellow">WATCH: sunnyray.org + globalgeopark.org autoRenew deadline ~May 26. Daily RDAP checks starting May 24.</div>
+<div class="alert alert-green">FOR-SALE PAGES: 4 landing pages generated &check; viryd.com ($2,500), neovistainc.com ($1,500), pictureeditor.net ($500), recipetool.net ($300)</div>
+<div class="alert alert-green">CATCH CALENDAR: 73-day timeline published &check; reports/catch_calendar.html (25 events, mobile-friendly)</div>
+<div class="alert alert-green">DAEMON HEALTHY: PID 40365, heartbeat current, 37 domains monitored, KeepAlive active</div>
 </section>
 <section class="panel"><h2>Catch Window Countdown</h2>
 <h3 style="margin-top:16px">18 days to first expiry. 40 days to first blood. All 3 catch platforms ARMED.</h3>
@@ -150,7 +150,7 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <div class="timeline-item complete"><div class="sprint-label" style="color:var(--accent)">Sprint 30: Trust But Verify</div><div class="sprint-desc"><strong>VALIDATED:</strong> Full pipeline live run (269&rarr;228&rarr;71&rarr;153 scored). Bug 8 fixed. RDAP intel corrected +44 days. viryd.com + neovistainc.com listed on Afternic. $0.00 spent.</div></div>
   <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 31: GoDaddy Strategy + Full Setup</div><div class="sprint-desc"><strong>COMPLETE:</strong> GoDaddy Auctions ACTIVE (membership already existed). Watchlist: cytheris.com + ghostautonomy.com + bside.com with daily email alerts. Inventory monitor deployed (2M+ domains/scan). Strategy shift: Closeout ($28-34) is PRIMARY, DropCatch ($59+) = last resort. Remaining: ID verification + API key + enable SMS alerts. viryd.com + neovistainc.com on Afternic + Dan.com &check;.</div></div>
   <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 32: Catch Mode Armed</div><div class="sprint-desc"><strong>ALL 3 PLATFORMS LIVE:</strong> NameBright API LIVE. DropCatch API LIVE (separate auth). Catch Orchestrator built. NameBright client 787 LOC. 431 tests. 4,379 LOC added.</div></div>
-  <div class="timeline-item current"><div class="sprint-label" style="color:var(--cyan)">Sprint 33: Close the Gaps</div><div class="sprint-desc"><strong>MONITORING MODE:</strong> RDAP 8/8 targets stable. For-sale landing pages deployed (4 domains). ntfy.sh mobile push LIVE. Catch calendar (73-day timeline). GoDaddy inventory monitor tested (299K closeout domains, $5 price bug FIXED). Human action guide created. ingredientcalculator.com: 6 pages live, 384 impressions, 1 indexed. Daemon healthy (27h uptime, KeepAlive active). 431 tests. System enters monitoring mode.</div></div>
+  <div class="timeline-item current"><div class="sprint-label" style="color:var(--cyan)">Sprint 33: Close the Gaps + Live Test</div><div class="sprint-desc"><strong>LIVE ORCHESTRATOR RUN:</strong> 8 targets attempted on DropCatch + Dynadot. ALL returned <code>NoDroppingDomain</code> &mdash; both platforms require pendingDelete status (expected, domains 40-81 days early). DropCatch parser fixed (v2 API lowercase keys). sendy.co: .co TLD not supported by DropCatch. Accounts funded: NB $121.25, DY $78.24. 434 tests. Re-run backorders ~5 days before each drop date.</div></div>
 </div>
 </section></section>
 <section class="panel" id="tab-portfolio">
@@ -211,14 +211,14 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 </tbody></table>
 <h3>Health Check</h3>
 <table><thead><tr><th>Component</th><th>Status</th><th>Notes</th></tr></thead><tbody>
-  <tr><td>Tests</td><td><span class="badge badge-green">431/431</span></td><td>352 existing + 79 new (NameBright 16, DropCatch 18, orchestrator, scanner), all passing</td></tr>
-  <tr><td>Scripts</td><td><span class="badge badge-green">42/42</span></td><td>All importable (+4 new: namebright_setup, catch_orchestrator, dropcatch_dropping_scanner_v2, post_catch updated)</td></tr>
+  <tr><td>Tests</td><td><span class="badge badge-green">434/434</span></td><td>+3 new DropCatch v2 parser tests. All passing.</td></tr>
+  <tr><td>Scripts</td><td><span class="badge badge-green">43/43</span></td><td>+deploy_landing_page.py. All importable.</td></tr>
   <tr><td>Data Files</td><td><span class="badge badge-green">145/145</span></td><td>Valid JSON</td></tr>
   <tr><td>Daemon Scheduler</td><td><span class="badge badge-green">PID 40365</span></td><td>LaunchAgent + KeepAlive + Homebrew python. Heartbeat current. 37 domains monitored.</td></tr>
-  <tr><td>NameBright API</td><td><span class="badge badge-green">LIVE</span></td><td>OAuth2 auth (201 Created). Balance: $0.00. 2 domains: b2berp.com, Dismissticket.com. 787 LOC client, 12 endpoints. 6/6 checks GREEN.</td></tr>
+  <tr><td>NameBright API</td><td><span class="badge badge-green">FUNDED</span></td><td>OAuth2 auth (201 Created). Balance: $121.25 (covers 2 catches at $59). 2 domains: b2berp.com, Dismissticket.com. 787 LOC client, 12 endpoints.</td></tr>
   <tr><td>DropCatch API</td><td><span class="badge badge-green">LIVE</span></td><td>Separate auth: api.dropcatch.com/Authorize (JSON body, returns {token}). Backorders, auctions, bids all working. Live: MyPhotos.com $2,905.</td></tr>
-  <tr><td>Catch Orchestrator</td><td><span class="badge badge-green">ARMED</span></td><td>Unified catch pipeline: DropCatch ($59) + Dynadot ($10.99) + GoDaddy Closeout ($28-34). Auto-backorder for imminent drops. 8 targets queued.</td></tr>
-  <tr><td>Dynadot API</td><td><span class="badge badge-yellow">LOW BAL</span></td><td>$3.24 balance. Backorders only accepted during pendingDelete (5-day window). Need $25+ top-up.</td></tr>
+  <tr><td>Catch Orchestrator</td><td><span class="badge badge-green">LIVE-TESTED</span></td><td>8 targets attempted. All <code>NoDroppingDomain</code> (expected — 40-81 days early). Parser fixed for v2 API. Re-run ~5 days before each drop.</td></tr>
+  <tr><td>Dynadot API</td><td><span class="badge badge-green">FUNDED</span></td><td>$78.24 balance. Backorders only accepted during pendingDelete (5-day window). 7 backorders ready.</td></tr>
   <tr><td>Portfolio Tracker</td><td><span class="badge badge-green">ACTIVE</span></td><td>5 domains (Dynadot) + 2 domains (NameBright), $56.10 invested. 2 listed (Afternic + Dan.com).</td></tr>
   <tr><td>Marketplace</td><td><span class="badge badge-green">LIVE</span></td><td>viryd.com $2,500 + neovistainc.com $1,500 on Afternic + Dan.com</td></tr>
   <tr><td>Daily Digest</td><td><span class="badge badge-green">ACTIVE</span></td><td>09:00 daily, portfolio summary included</td></tr>
@@ -456,8 +456,8 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 <h2>Financial Overview</h2>
 <div class="fin-grid">
   <div class="fin-card"><div class="fin-label">Total Budget</div><div class="fin-value">$600.00</div></div>
-  <div class="fin-card"><div class="fin-label">Spent</div><div class="fin-value red">$56.96</div></div>
-  <div class="fin-card"><div class="fin-label">Remaining</div><div class="fin-value green">$543.04</div></div>
+  <div class="fin-card"><div class="fin-label">Spent</div><div class="fin-value red">$256.96</div></div>
+  <div class="fin-card"><div class="fin-label">Remaining</div><div class="fin-value green">$343.04</div></div>
   <div class="fin-card"><div class="fin-label">Portfolio</div><div class="fin-value cyan">5 domains</div></div>
 </div>
 <h3>Cost Breakdown</h3>
@@ -468,7 +468,8 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <tr><td>Sprint 29: neovistainc.com</td><td>$10.99</td><td>1.8%</td></tr>
   <tr><td>GoDaddy Auctions Membership</td><td class="green">$0 (already active)</td><td>0%</td></tr>
   <tr><td>GoDaddy Closeout Budget (3 domains)</td><td class="accent">$96 max</td><td>16%</td></tr>
-  <tr><td>Dynadot Balance</td><td class="dim">$3.24</td><td>0.5%</td></tr>
+  <tr><td>NameBright/DropCatch Balance</td><td class="green">$121.25</td><td>20.2%</td></tr>
+  <tr><td>Dynadot Balance</td><td class="green">$78.24</td><td>13.0%</td></tr>
   <tr><td>Afternic + Dan.com Listings</td><td class="green">$4,000 (BIN total)</td><td>--</td></tr>
   <tr><td>Pending GoDaddy Closeout Buys (3)</td><td class="accent">~$84-96</td><td>--</td></tr>
 </tbody></table></section>
@@ -493,9 +494,9 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 <h3>Active Drop Targets (RDAP verified May 17)</h3>
 <table><thead><tr><th>Domain</th><th>Expiry</th><th>Drop Signal</th><th>Est. Drop</th><th>Backorder</th><th>Notes</th></tr></thead>
 <tbody>
-<tr class="urgency-red"><td><strong>cytheris.com</strong></td><td>Jun 4</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 13</td><td><span class="badge badge-green">DC READY</span></td><td>$45.7M biotech, GoDaddy. Closeout PRIMARY ($32). DropCatch BACKUP ($59). API LIVE.</td></tr>
-<tr class="urgency-red"><td><strong>ghostautonomy.com</strong></td><td>Jun 7</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 16</td><td><span class="badge badge-green">DC READY</span></td><td>$220M funded, TM CLEAR. Wild West/GoDaddy. All 3 catch platforms armed.</td></tr>
-<tr class="urgency-yellow"><td><strong>bside.com</strong></td><td>Jun 23</td><td><span class="badge badge-yellow">WATCHING</span></td><td>~Sep 1</td><td><span class="badge badge-green">DC READY</span></td><td>5-char dictionary .com, $5K-$25K. All catch platforms armed.</td></tr>
+<tr class="urgency-red"><td><strong>cytheris.com</strong></td><td>Jun 4</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 13</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>$45.7M biotech, GoDaddy. NoDroppingDomain. Closeout PRIMARY ($32). Re-run DC ~Aug 8.</td></tr>
+<tr class="urgency-red"><td><strong>ghostautonomy.com</strong></td><td>Jun 7</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 16</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>$220M funded, TM CLEAR. NoDroppingDomain. Re-run DC ~Aug 11.</td></tr>
+<tr class="urgency-yellow"><td><strong>bside.com</strong></td><td>Jun 23</td><td><span class="badge badge-yellow">WATCHING</span></td><td>~Sep 1</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>5-char dictionary .com, $5K-$25K. Re-run DC ~Aug 27.</td></tr>
 <tr class="urgency-yellow"><td><strong>guerrameats.com</strong></td><td>Apr 2027</td><td><span class="badge badge-orange">clientHold</span></td><td>Uncertain</td><td><span class="badge badge-dim">--</span></td><td>$11,376/mo ETV. DNS dead. Strongest signal but long expiry.</td></tr>
 <tr class="urgency-dim"><td><strong>olive.com</strong></td><td>Nov 2027</td><td><span class="badge badge-dim">NOT DROPPING</span></td><td>--</td><td>--</td><td>$902M funded. Renewed to Nov 2027. DNSMadeEasy = active management.</td></tr>
 <tr class="urgency-dim"><td><strong>infarm.com</strong></td><td>Feb 2027</td><td><span class="badge badge-dim">NOT DROPPING</span></td><td>--</td><td>--</td><td>$500M funded. Recently modified Apr 29, 2026. Renewed to Feb 2027.</td></tr>
@@ -503,8 +504,8 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 <section class="panel" id="tab-infra">
 <h2>Infrastructure</h2>
 <div class="fin-grid">
-  <div class="fin-card"><div class="fin-label">Tests</div><div class="fin-value green">431/431</div></div>
-  <div class="fin-card"><div class="fin-label">Scripts</div><div class="fin-value green">42/42</div></div>
+  <div class="fin-card"><div class="fin-label">Tests</div><div class="fin-value green">434/434</div></div>
+  <div class="fin-card"><div class="fin-label">Scripts</div><div class="fin-value green">43/43</div></div>
   <div class="fin-card"><div class="fin-label">Catch Platforms</div><div class="fin-value green">3/3 LIVE</div></div>
   <div class="fin-card"><div class="fin-label">Connectivity</div><div class="fin-value green">6/6 GREEN</div></div>
 </div>
@@ -533,7 +534,7 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <tr><td><strong>DropCatch v2</strong></td><td>30/30s</td><td>30s</td><td><span class="badge badge-green">LIVE</span> Separate auth: api.dropcatch.com/Authorize (JSON, {token}). Backorders + auctions + bids. 524 LOC client. Live auction feed accessible.</td></tr>
   <tr><td><strong>GoDaddy Auctions</strong></td><td>60/min</td><td>60s</td><td><span class="badge badge-green">ACTIVE</span> Membership confirmed. Watchlist: 3 domains. Daily email ON. ID verify: PENDING.</td></tr>
   <tr><td>GoDaddy Inventory</td><td>No limit</td><td>60s</td><td><span class="badge badge-green">DEPLOYED</span> godaddy_monitor.py — daily check of 6 inventory files (no auth needed)</td></tr>
-  <tr><td>Dynadot</td><td>10 req/min</td><td>30s</td><td><span class="badge badge-yellow">LOW BAL</span> Balance: $3.24. 1-3% catch rate. Insurance tier. Need $25+ top-up.</td></tr>
+  <tr><td>Dynadot</td><td>10 req/min</td><td>30s</td><td><span class="badge badge-green">FUNDED</span> Balance: $78.24. 7 backorders at $10.99. Accepts only during pendingDelete (5-day window). Insurance tier.</td></tr>
 </tbody></table></section>
 </div>
 <script>document.addEventListener('DOMContentLoaded', function() {

@@ -1,13 +1,309 @@
 {
-  "timestamp": "2026-05-16T07:52:45.696826+00:00",
-  "total": 1,
-  "success_count": 1,
+  "timestamp": "2026-05-17T10:53:12.047517+00:00",
+  "total": 38,
+  "success_count": 38,
   "fail_count": 0,
   "results": [
+    {
+      "domain": "cytheris.com",
+      "tier": "critical",
+      "max_bid": 150,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "olive.com",
+      "tier": "critical",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "infarm.com",
+      "tier": "critical",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "veev.com",
+      "tier": "critical",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "ambri.com",
+      "tier": "critical",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "guerrameats.com",
+      "tier": "critical",
+      "max_bid": 200,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "sunnyray.org",
+      "tier": "critical",
+      "max_bid": 100,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "globalgeopark.org",
+      "tier": "critical",
+      "max_bid": 400,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "runningtide.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "cerebras.net",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "datarobot.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "noogata.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "peartherapeutics.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "inscripta.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "motional.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "katerra.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "kintsugi.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "quantumscape.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "brandless.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "thredup.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "scififoods.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "ionicmaterials.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "tally.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "tier": "high",
+      "max_bid": 200,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "vineventures.com",
+      "tier": "high",
+      "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
     {
       "domain": "fiskerinc.com",
       "tier": "high",
       "max_bid": 300,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "northvolt.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "radpowerbikes.com",
+      "tier": "high",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "tier": "high",
+      "max_bid": 100,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "sendy.co",
+      "tier": "high",
+      "max_bid": 150,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "readingfoundation.org",
+      "tier": "high",
+      "max_bid": 200,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "imageeditor.net",
+      "tier": "medium",
+      "max_bid": 200,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "bestdevtools.com",
+      "tier": "medium",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "taskplanner.com",
+      "tier": "medium",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "codehelper.com",
+      "tier": "medium",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "codeanalyzer.com",
+      "tier": "medium",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "fileconverter.com",
+      "tier": "medium",
+      "max_bid": 59,
+      "success": true,
+      "message": "[DRY RUN] Would backorder at $59.00",
+      "method": "dry_run"
+    },
+    {
+      "domain": "cookingtool.com",
+      "tier": "medium",
+      "max_bid": 59,
       "success": true,
       "message": "[DRY RUN] Would backorder at $59.00",
       "method": "dry_run"

@@ -324,7 +324,9 @@ class DropCatchClient:
             f"Backorder failed: HTTP {response.status_code} — {response.text}"
         )
 
-        return self._parse_bulk_backorder(response.json())
+        raw_data = response.json()
+        logger.debug("place_backorders_raw_response", data=str(raw_data)[:500])
+        return self._parse_bulk_backorder(raw_data)
 
     def place_backorders_legacy(
         self,
@@ -527,20 +529,60 @@ class DropCatchClient:
 
     @staticmethod
     def _parse_bulk_backorder(data: dict[str, Any]) -> BulkBackorderResult:
-        """Parse a bulk backorder API response into typed result."""
+        """Parse a bulk backorder API response into typed result.
+
+        Handles TWO response formats:
+          - v2 Swagger spec (live API): {"Successes": [...], "Failures": [...]}
+            Successes items: {Domain, Amount, MaxBid, Type, DropDate}
+            Failures items:  {Domain, Error: {ErrorCode, Description}}
+          - Legacy/examples (camelCase): {"someErrors": bool, "results": [...]}
+            Results items: {domainName, success, maxBid, message, statusCode}
+        """
         assert isinstance(data, dict), f"Expected dict, got {type(data)}"
 
-        results = []
-        for r in data.get("results", []):
-            results.append(BackorderResult(
-                domain=r.get("domainName", ""),
-                success=r.get("success", False),
-                max_bid=float(r.get("maxBid", 0)),
-                message=r.get("message", ""),
-                status_code=str(r.get("statusCode", "")),
-            ))
+        results: list[BackorderResult] = []
+
+        # --- Format 1: v2 API with Successes/Failures (any casing) ---
+        successes = data.get("Successes") or data.get("successes") or []
+        failures = data.get("Failures") or data.get("failures") or []
+
+        if successes or failures:
+            for s in successes:
+                domain = s.get("Domain") or s.get("domain") or ""
+                max_bid = float(s.get("MaxBid") or s.get("maxBid") or s.get("Amount") or s.get("amount") or 0)
+                results.append(BackorderResult(
+                    domain=domain,
+                    success=True,
+                    max_bid=max_bid,
+                    message="Backorder placed successfully",
+                    status_code="Success",
+                ))
+            for f in failures:
+                domain = f.get("Domain") or f.get("domain") or ""
+                error_obj = f.get("Error") or f.get("error") or {}
+                err_desc = error_obj.get("Description") or error_obj.get("description") or "" if isinstance(error_obj, dict) else str(error_obj)
+                err_code = error_obj.get("ErrorCode") or error_obj.get("errorCode") or "" if isinstance(error_obj, dict) else ""
+                results.append(BackorderResult(
+                    domain=domain,
+                    success=False,
+                    max_bid=0.0,
+                    message=err_desc or f"Backorder failed: {err_code}" if err_code else err_desc or "Backorder failed",
+                    status_code=str(err_code),
+                ))
+            some_errors = len(failures) > 0
+        else:
+            # --- Format 2: Legacy camelCase with results array ---
+            for r in data.get("results", []):
+                results.append(BackorderResult(
+                    domain=r.get("domainName", ""),
+                    success=r.get("success", False),
+                    max_bid=float(r.get("maxBid", 0)),
+                    message=r.get("message", ""),
+                    status_code=str(r.get("statusCode", "")),
+                ))
+            some_errors = data.get("someErrors", False)
 
         return BulkBackorderResult(
-            some_errors=data.get("someErrors", False),
+            some_errors=some_errors,
             results=results,
         )
