@@ -260,7 +260,7 @@ class DropCatchClient:
                 "client_secret": self._client_secret,
             },
         )
-        assert response.status_code == 200, (
+        assert response.status_code in (200, 201), (
             f"Auth failed: HTTP {response.status_code} — {response.text}"
         )
 

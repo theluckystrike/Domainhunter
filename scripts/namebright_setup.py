@@ -157,7 +157,7 @@ def authenticate(
             detail=f"Connection error: {exc}",
         ), ""
 
-    if response.status_code != 200:
+    if response.status_code not in (200, 201):
         return CheckResult(
             label="OAuth2 authentication",
             passed=False,

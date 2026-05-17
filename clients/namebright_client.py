@@ -298,7 +298,7 @@ class NameBrightClient:
                 "client_secret": self._client_secret,
             },
         )
-        if response.status_code != 200:
+        if response.status_code not in (200, 201):
             raise NameBrightAuthError(
                 f"Auth failed: HTTP {response.status_code} — {response.text[:300]}"
             )
@@ -399,17 +399,22 @@ class NameBrightClient:
             params={"page": page, "domainsPerPage": per_page},
         )
         data = self._handle_response(response, "list_domains")
-        assert isinstance(data, list), f"Expected list, got {type(data)}"
+        # API returns {"ResultsTotal": N, "CurrentPage": N, "Domains": [...]}
+        if isinstance(data, dict):
+            domain_list = data.get("Domains", data.get("domains", []))
+        else:
+            domain_list = data
+        assert isinstance(domain_list, list), f"Expected list, got {type(domain_list)}"
 
         results: list[DomainSummary] = []
-        for idx, item in enumerate(data):
+        for idx, item in enumerate(domain_list):
             if idx >= _MAX_DOMAINS_PER_PAGE:
                 break
             assert isinstance(item, dict), f"Expected dict at index {idx}"
             results.append(DomainSummary(
                 domain=str(item.get("DomainName", item.get("domainName", ""))),
                 status=str(item.get("Status", item.get("status", ""))),
-                expiry=str(item.get("ExpireDate", item.get("expireDate", ""))),
+                expiry=str(item.get("ExpirationDate", item.get("ExpireDate", item.get("expireDate", "")))),
             ))
         return results
 
