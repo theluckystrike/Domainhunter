@@ -55,7 +55,8 @@ logger: structlog.stdlib.BoundLogger = structlog.get_logger(__name__)
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-_AUTH_URL: str = "https://api.namebright.com/auth/token"
+_AUTH_URL: str = "https://api.dropcatch.com/Authorize"
+_AUTH_URL_LEGACY: str = "https://api.namebright.com/auth/token"
 _API_BASE_URL: str = "https://api.dropcatch.com"
 _LEGACY_BASE_URL: str = "https://www.dropcatch.com"
 _TIMEOUT_SECONDS: int = 30
@@ -250,26 +251,27 @@ class DropCatchClient:
         return self._refresh_token()
 
     def _refresh_token(self) -> str:
-        """Request a new OAuth2 bearer token from NameBright."""
+        """Request a new bearer token from DropCatch API."""
         response = self._rate_limited_request(
             "POST",
             _AUTH_URL,
-            data={
-                "grant_type": "client_credentials",
-                "client_id": self._client_id,
-                "client_secret": self._client_secret,
+            json={
+                "ClientId": self._client_id,
+                "ClientSecret": self._client_secret,
             },
+            headers={"Content-Type": "application/json"},
         )
         assert response.status_code in (200, 201), (
             f"Auth failed: HTTP {response.status_code} — {response.text}"
         )
 
         data = response.json()
-        token = data.get("access_token")
-        assert token, f"No access_token in auth response: {data}"
+        # DropCatch returns "token", NameBright returns "access_token"
+        token = data.get("token") or data.get("access_token")
+        assert token, f"No token in auth response: {list(data.keys())}"
 
         self._access_token = token
-        expires_in = int(data.get("expires_in", _TOKEN_LIFETIME_SECONDS))
+        expires_in = int(data.get("expiresIn", data.get("expires_in", _TOKEN_LIFETIME_SECONDS)))
         self._token_expiry = time.time() + expires_in - _TOKEN_REFRESH_BUFFER
 
         logger.info("dropcatch_token_refreshed", expires_in=expires_in)

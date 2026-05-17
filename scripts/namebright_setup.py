@@ -309,37 +309,47 @@ def check_dropcatch_api(
     http: httpx.Client,
     token: str,
 ) -> CheckResult:
-    """Test DropCatch v2 API by listing backorders."""
-    assert len(token) > 0, "token required"
+    """Test DropCatch v2 API with its own auth endpoint."""
     assert isinstance(http, httpx.Client), "http client required"
+    assert isinstance(token, str), "token must be string"
 
-    headers = {"Authorization": f"Bearer {token}"}
-    params = {"size": 1}
+    settings = Settings()
+    dc_id = settings.dropcatch_client_id or ""
+    dc_secret = settings.dropcatch_api_secret or ""
+
+    if not dc_id or not dc_secret:
+        return CheckResult(label="DropCatch API", passed=False, detail="Missing DROPCATCH_API_SECRET in .env")
 
     try:
-        response = http.get(_BACKORDERS_URL, headers=headers, params=params)
-    except httpx.RequestError as exc:
-        return CheckResult(
-            label="DropCatch API",
-            passed=False,
-            detail=f"Connection error: {exc}",
+        auth_resp = http.post(
+            "https://api.dropcatch.com/Authorize",
+            json={"ClientId": dc_id, "ClientSecret": dc_secret},
+            headers={"Content-Type": "application/json"},
         )
+    except httpx.RequestError as exc:
+        return CheckResult(label="DropCatch API", passed=False, detail=f"Auth error: {exc}")
+
+    if auth_resp.status_code != 200:
+        return CheckResult(label="DropCatch API", passed=False, detail=f"Auth: {auth_resp.status_code}")
+
+    dc_token = auth_resp.json().get("token", "")
+    assert len(dc_token) > 0, "No token in DropCatch auth response"
+
+    try:
+        response = http.get(
+            _BACKORDERS_URL,
+            headers={"Authorization": f"Bearer {dc_token}", "Content-Type": "application/json"},
+            params={"size": 1},
+        )
+    except httpx.RequestError as exc:
+        return CheckResult(label="DropCatch API", passed=False, detail=f"Connection error: {exc}")
 
     if response.status_code != 200:
-        return CheckResult(
-            label="DropCatch API",
-            passed=False,
-            detail=f"{response.status_code} {response.reason_phrase}",
-        )
+        return CheckResult(label="DropCatch API", passed=False, detail=f"{response.status_code}")
 
     data = response.json()
     count = _extract_backorder_count(data)
-
-    return CheckResult(
-        label="DropCatch API",
-        passed=True,
-        detail=f"Accessible ({count} active backorders)",
-    )
+    return CheckResult(label="DropCatch API", passed=True, detail=f"Accessible ({count} active backorders)")
 
 
 def _extract_backorder_count(data: Any) -> int:

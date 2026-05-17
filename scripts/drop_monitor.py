@@ -591,7 +591,7 @@ def _dropcatch_api_backorder(domain: str) -> str | None:
         from config.settings import Settings
         settings = Settings()
         client_id = settings.dropcatch_client_id or ""
-        client_secret = settings.dropcatch_client_secret or ""
+        client_secret = settings.dropcatch_api_secret or ""
     except Exception:
         logger.debug("dropcatch_settings_unavailable", domain=domain)
         return None

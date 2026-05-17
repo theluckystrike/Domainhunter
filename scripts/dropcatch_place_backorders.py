@@ -209,7 +209,7 @@ def _load_credentials() -> tuple[str, str]:
         from config.settings import Settings  # noqa: E402
         settings = Settings()
         client_id = settings.dropcatch_client_id or ""
-        client_secret = settings.dropcatch_client_secret or ""
+        client_secret = settings.dropcatch_api_secret or ""
         assert isinstance(client_id, str), "client_id must be string"
         assert isinstance(client_secret, str), "client_secret must be string"
         return client_id, client_secret

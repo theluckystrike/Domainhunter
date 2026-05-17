@@ -227,7 +227,7 @@ def check_dropcatch_platform(settings: Settings) -> PlatformStatus:
     assert isinstance(settings, Settings), "settings must be Settings"
 
     has_creds: bool = bool(
-        settings.dropcatch_client_id and settings.dropcatch_client_secret
+        settings.dropcatch_client_id and settings.dropcatch_api_secret
     )
     if not has_creds:
         return PlatformStatus(
@@ -243,7 +243,7 @@ def check_dropcatch_platform(settings: Settings) -> PlatformStatus:
 
         with DropCatchClient(
             settings.dropcatch_client_id,
-            settings.dropcatch_client_secret,
+            settings.dropcatch_api_secret,
         ) as client:
             # Verify token works by listing backorders (lightweight call)
             existing: list[dict[str, Any]] = client.list_backorders(size=1)
@@ -305,7 +305,7 @@ def place_dropcatch_backorder(
     assert "." in target.domain, f"Invalid domain: {target.domain}"
     assert isinstance(dry_run, bool), "dry_run must be bool"
 
-    if not settings.dropcatch_client_id or not settings.dropcatch_client_secret:
+    if not settings.dropcatch_client_id or not settings.dropcatch_api_secret:
         return BackorderAction(
             domain=target.domain, platform="dropcatch",
             status="skipped", message="No credentials configured",
@@ -330,7 +330,7 @@ def place_dropcatch_backorder(
 
         with DropCatchClient(
             settings.dropcatch_client_id,
-            settings.dropcatch_client_secret,
+            settings.dropcatch_api_secret,
         ) as client:
             result = client.place_backorders([target.domain], amount=price)
             if result.results and result.results[0].success:

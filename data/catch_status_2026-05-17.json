@@ -1,0 +1,273 @@
+{
+  "generated_at": "2026-05-17T09:49:54.397111+00:00",
+  "date": "2026-05-17",
+  "dry_run": true,
+  "catch_window_days": 90,
+  "summary": {
+    "total_targets": 8,
+    "total_actions": 24,
+    "errors": 0
+  },
+  "targets": [
+    {
+      "domain": "guerrameats.com",
+      "tier": "critical",
+      "drop_est": "2026-06-26",
+      "days_until_drop": 40,
+      "max_bid": 200.0,
+      "etv": 11376.0,
+      "registrar": "Squarespace Domains II LLC"
+    },
+    {
+      "domain": "cytheris.com",
+      "tier": "critical",
+      "drop_est": "2026-06-30",
+      "days_until_drop": 44,
+      "max_bid": 150.0,
+      "etv": 0.0,
+      "registrar": "GoDaddy.com, LLC"
+    },
+    {
+      "domain": "sunnyray.org",
+      "tier": "critical",
+      "drop_est": "2026-06-30",
+      "days_until_drop": 44,
+      "max_bid": 100.0,
+      "etv": 2842.0,
+      "registrar": "Tucows Domains Inc."
+    },
+    {
+      "domain": "globalgeopark.org",
+      "tier": "critical",
+      "drop_est": "2026-07-01",
+      "days_until_drop": 45,
+      "max_bid": 400.0,
+      "etv": 626.0,
+      "registrar": "Tucows Domains Inc."
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "tier": "high",
+      "drop_est": "2026-07-06",
+      "days_until_drop": 50,
+      "max_bid": 100.0,
+      "etv": 0.0,
+      "registrar": "GoDaddy.com, LLC"
+    },
+    {
+      "domain": "sendy.co",
+      "tier": "high",
+      "drop_est": "2026-07-16",
+      "days_until_drop": 60,
+      "max_bid": 150.0,
+      "etv": 3179.0,
+      "registrar": "unknown"
+    },
+    {
+      "domain": "readingfoundation.org",
+      "tier": "high",
+      "drop_est": "2026-07-30",
+      "days_until_drop": 74,
+      "max_bid": 200.0,
+      "etv": 7207.0,
+      "registrar": "GoDaddy.com, LLC"
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "tier": "high",
+      "drop_est": "2026-08-06",
+      "days_until_drop": 81,
+      "max_bid": 200.0,
+      "etv": 1428.0,
+      "registrar": "Wild West Domains, LLC"
+    }
+  ],
+  "actions": [
+    {
+      "domain": "guerrameats.com",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "guerrameats.com",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "guerrameats.com",
+      "platform": "godaddy",
+      "status": "skipped",
+      "message": "Registrar is Squarespace Domains II LLC, not GoDaddy",
+      "price": 0.0
+    },
+    {
+      "domain": "cytheris.com",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "cytheris.com",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "cytheris.com",
+      "platform": "godaddy",
+      "status": "pending",
+      "message": "Add to GoDaddy watchlist: https://auctions.godaddy.com/trpItemListing.aspx?miession=searchitem&searchterm=cytheris.com",
+      "price": 0.0
+    },
+    {
+      "domain": "sunnyray.org",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "sunnyray.org",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "sunnyray.org",
+      "platform": "godaddy",
+      "status": "skipped",
+      "message": "Registrar is Tucows Domains Inc., not GoDaddy",
+      "price": 0.0
+    },
+    {
+      "domain": "globalgeopark.org",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "globalgeopark.org",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "globalgeopark.org",
+      "platform": "godaddy",
+      "status": "skipped",
+      "message": "Registrar is Tucows Domains Inc., not GoDaddy",
+      "price": 0.0
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "goodglammgroup.com",
+      "platform": "godaddy",
+      "status": "pending",
+      "message": "Add to GoDaddy watchlist: https://auctions.godaddy.com/trpItemListing.aspx?miession=searchitem&searchterm=goodglammgroup.com",
+      "price": 0.0
+    },
+    {
+      "domain": "sendy.co",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "sendy.co",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "sendy.co",
+      "platform": "godaddy",
+      "status": "skipped",
+      "message": "Registrar is unknown, not GoDaddy",
+      "price": 0.0
+    },
+    {
+      "domain": "readingfoundation.org",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "readingfoundation.org",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "readingfoundation.org",
+      "platform": "godaddy",
+      "status": "pending",
+      "message": "Add to GoDaddy watchlist: https://auctions.godaddy.com/trpItemListing.aspx?miession=searchitem&searchterm=readingfoundation.org",
+      "price": 0.0
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "platform": "dropcatch",
+      "status": "skipped",
+      "message": "No credentials configured",
+      "price": 0.0
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "platform": "dynadot",
+      "status": "dry_run",
+      "message": "Would place backorder at $10.99",
+      "price": 10.99
+    },
+    {
+      "domain": "ghostautonomy.com",
+      "platform": "godaddy",
+      "status": "pending",
+      "message": "Add to GoDaddy watchlist: https://auctions.godaddy.com/trpItemListing.aspx?miession=searchitem&searchterm=ghostautonomy.com",
+      "price": 0.0
+    }
+  ],
+  "platforms": [
+    {
+      "name": "DropCatch",
+      "available": false,
+      "status_text": "[SKIP] No credentials"
+    },
+    {
+      "name": "Dynadot",
+      "available": true,
+      "status_text": "[OK] API key configured"
+    },
+    {
+      "name": "GoDaddy Watch",
+      "available": true,
+      "status_text": "[OK] Manual watchlist"
+    }
+  ],
+  "errors": []
+}

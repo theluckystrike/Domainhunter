@@ -41,11 +41,12 @@ class Settings(BaseSettings):
     dynadot_api_key: str = ""
 
     # REGISTRAR (DropCatch backorders + NameBright domain management)
-    # Both share the same NameBright OAuth2 credentials
     # Format: client_id = "accountname:appname"
-    # Setup: https://www.namebright.com/Settings#Api
+    # NameBright API: https://www.namebright.com/Settings#Api
+    # DropCatch API: https://www.dropcatch.com/account/api-management
     dropcatch_client_id: str = ""
-    dropcatch_client_secret: str = ""
+    dropcatch_client_secret: str = ""  # NameBright OAuth2 secret
+    dropcatch_api_secret: str = ""  # DropCatch-specific API password
 
     # POST-CATCH DNS (used by post_catch_executor.py)
     post_catch_nameservers: str = "ns1.cloudflare.com,ns2.cloudflare.com"

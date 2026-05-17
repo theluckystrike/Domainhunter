@@ -741,7 +741,7 @@ def run_scan(days: int | None) -> ScanResult:
     assert len(settings.dropcatch_client_id) > 0, (
         "DROPCATCH_CLIENT_ID not set in .env"
     )
-    assert len(settings.dropcatch_client_secret) > 0, (
+    assert len(settings.dropcatch_api_secret) > 0, (
         "DROPCATCH_CLIENT_SECRET not set in .env"
     )
 
@@ -753,7 +753,7 @@ def run_scan(days: int | None) -> ScanResult:
 
     with DropCatchClient(
         client_id=settings.dropcatch_client_id,
-        client_secret=settings.dropcatch_client_secret,
+        client_secret=settings.dropcatch_api_secret,
     ) as client:
         print(f"  Downloading dropping domains: {scan_label}...",
               file=sys.stderr)
