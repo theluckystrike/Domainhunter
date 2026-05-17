@@ -1,6 +1,6 @@
 """API client exports for Domain Hunter pipeline.
 
-All 9 clients follow the same pattern:
+All 10 clients follow the same pattern:
 - Class-based with Settings injected via constructor
 - async methods using aiohttp
 - Input validation at entry (assert)
@@ -30,6 +30,13 @@ from clients.google_cse import (
 from clients.moz_apify import MozApifyClient, MozApifyError
 from clients.reddit_search import RedditSearchClient, RedditSearchError
 from clients.wayback import WaybackClient, WaybackError
+from clients.namebright_client import (
+    NameBrightClient,
+    NameBrightError,
+    NameBrightAuthError,
+    NameBrightRateLimitError,
+    NameBrightNotFoundError,
+)
 from clients.whoisfreaks import WhoisFreaksClient, WhoisFreaksError
 
 __all__: list[str] = [
@@ -44,6 +51,7 @@ __all__: list[str] = [
     "GitHubSearchClient",
     "RedditSearchClient",
     "AnthropicClient",
+    "NameBrightClient",
     # Errors
     "WhoisFreaksError",
     "CatchDomsError",
@@ -58,4 +66,8 @@ __all__: list[str] = [
     "GitHubSearchError",
     "RedditSearchError",
     "AnthropicClientError",
+    "NameBrightError",
+    "NameBrightAuthError",
+    "NameBrightRateLimitError",
+    "NameBrightNotFoundError",
 ]

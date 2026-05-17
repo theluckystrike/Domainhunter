@@ -40,11 +40,16 @@ class Settings(BaseSettings):
     # REGISTRAR (Dynadot backorders)
     dynadot_api_key: str = ""
 
-    # REGISTRAR (DropCatch backorders — via NameBright OAuth2)
+    # REGISTRAR (DropCatch backorders + NameBright domain management)
+    # Both share the same NameBright OAuth2 credentials
     # Format: client_id = "accountname:appname"
     # Setup: https://www.namebright.com/Settings#Api
     dropcatch_client_id: str = ""
     dropcatch_client_secret: str = ""
+
+    # POST-CATCH DNS (used by post_catch_executor.py)
+    post_catch_nameservers: str = "ns1.cloudflare.com,ns2.cloudflare.com"
+    post_catch_landing_ip: str = ""
 
     # Sprint 19 — Drop Monitor
     drop_monitor_db_path: str = "data/domain_monitoring.db"

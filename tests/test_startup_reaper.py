@@ -841,7 +841,7 @@ class TestPostCatchExecutor:
     def test_notify_dry_run(self) -> None:
         """Notification in dry-run mode does not trigger osascript."""
         from scripts.post_catch_executor import _step_notify
-        result = _step_notify("notify.com", dry_run=True)
+        result = _step_notify("notify.com", dry_run=True, source="dynadot")
         assert "DRY-RUN" in result
         assert "notify.com" in result
 
@@ -850,9 +850,9 @@ class TestPostCatchExecutor:
         from scripts.post_catch_executor import execute_post_catch
         results = execute_post_catch("fulltest.com", dry_run=True)
         assert isinstance(results, dict)
-        assert "dns" in results
+        assert "dns_dynadot" in results
         assert "landing" in results
         assert "listing" in results
         assert "notify" in results
-        for key in ("dns", "landing", "listing", "notify"):
+        for key in ("dns_dynadot", "landing", "listing", "notify"):
             assert "DRY-RUN" in results[key]

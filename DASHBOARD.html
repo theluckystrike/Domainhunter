@@ -110,7 +110,7 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
 <div class="alert alert-green">INVENTORY MONITOR: scripts/godaddy_monitor.py live. 2M+ domains scanned daily (6 files, no auth).</div>
 <div class="alert alert-green">LISTED: viryd.com ($2,500) + neovistainc.com ($1,500) on Afternic + Dan.com &check;</div>
 <div class="alert alert-green">DAEMON HEALTHY: PID 40365, heartbeat current, 37 domains monitored</div>
-<div class="alert alert-green">NAMEBRIGHT API: T&amp;C ACCEPTED. Backup for DropCatch (Day 77+ only). Pending approval.</div>
+<div class="alert alert-green">NAMEBRIGHT API: APPROVED &amp; ACTIVE. Full DropCatch v2 backorder + auction API. NameBright domain management API. Setup: create API key at my.namebright.com/my-account/api-management</div>
 </section>
 <section class="panel"><h2>Catch Window Countdown</h2>
 <h3 style="margin-top:16px">19 days to first expiry. 41 days to first blood.</h3>
@@ -211,7 +211,9 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <tr><td>Scripts</td><td><span class="badge badge-green">38/38</span></td><td>All importable</td></tr>
   <tr><td>Data Files</td><td><span class="badge badge-green">145/145</span></td><td>Valid JSON</td></tr>
   <tr><td>Daemon Scheduler</td><td><span class="badge badge-green">PID 40365</span></td><td>LaunchAgent + KeepAlive + Homebrew python. Heartbeat current. 37 domains monitored.</td></tr>
-  <tr><td>DropCatch API</td><td><span class="badge badge-yellow">T&amp;C DONE</span></td><td>Client wired + rate limiter. NameBright T&amp;C accepted. API key approval pending (1-2 days).</td></tr>
+  <tr><td>DropCatch API</td><td><span class="badge badge-green">APPROVED</span></td><td>Full v2 API client (524 LOC). OAuth2 auth, backorder/auction/bid management, dropping domains scanner. NameBright domain management client added. Awaiting user API key creation.</td></tr>
+  <tr><td>NameBright Domain API</td><td><span class="badge badge-green">APPROVED</span></td><td>Domain management API &mdash; registration, DNS, nameservers, transfers, account balance. Shares OAuth2 with DropCatch. Client: clients/namebright_client.py</td></tr>
+  <tr><td>Catch Orchestrator</td><td><span class="badge badge-green">READY</span></td><td>Unified catch pipeline &mdash; DropCatch + Dynadot + GoDaddy watchlist. Auto-backorder for imminent drops. scripts/catch_orchestrator.py</td></tr>
   <tr><td>Dynadot API</td><td><span class="badge badge-yellow">LOW BAL</span></td><td>$3.24 balance. Backorders only accepted during pendingDelete (5-day window). Need $25+ top-up.</td></tr>
   <tr><td>Portfolio Tracker</td><td><span class="badge badge-green">ACTIVE</span></td><td>5 domains, $56.10 invested. 2 listed (Afternic + Dan.com). auto-add on catch</td></tr>
   <tr><td>Marketplace</td><td><span class="badge badge-green">LIVE</span></td><td>viryd.com $2,500 + neovistainc.com $1,500 on Afternic + Dan.com</td></tr>
@@ -525,7 +527,7 @@ tr.urgency-green td { border-left: 3px solid var(--green); }
   <tr><td>DeepSeek</td><td>5 req/s</td><td>60s</td><td>Classifier</td></tr>
   <tr><td><strong>GoDaddy Auctions</strong></td><td>60/min</td><td>60s</td><td><span class="badge badge-green">ACTIVE</span> Membership confirmed. Watchlist: 3 domains. Daily email ON. ID verify: PENDING. API key: PENDING.</td></tr>
   <tr><td>GoDaddy Inventory</td><td>No limit</td><td>60s</td><td><span class="badge badge-green">DEPLOYED</span> godaddy_monitor.py — daily check of 6 inventory files (no auth needed)</td></tr>
-  <tr><td>DropCatch v2</td><td>30/30s</td><td>30s</td><td><span class="badge badge-yellow">BACKUP</span> T&amp;C ACCEPTED. API access pending. Last resort only (Day 77+).</td></tr>
+  <tr><td>DropCatch v2</td><td>30/30s</td><td>30s</td><td><span class="badge badge-green">APPROVED</span> Full v2 API active. OAuth2 auth, backorder/auction/bid management.</td></tr>
   <tr><td>Dynadot</td><td>10 req/min</td><td>30s</td><td><span class="badge badge-dim">INSURANCE</span> Balance: $3.24. 1-3% catch rate. Lowest priority.</td></tr>
 </tbody></table></section>
 </div>
