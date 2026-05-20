@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meal Prep Calculator — Weekly Planner & Shopping List Generator | RecipeTool</title>
+<meta name="description" content="Free weekly meal prep planner with automatic shopping list generator. Plan breakfast, lunch, dinner, and snacks for 7 days. Get calorie/macro summaries and aggregated grocery lists. No signup required.">
+<link rel="canonical" href="https://recipetool.net/guides/meal-prep-calculator.html">
+<meta property="og:title" content="Meal Prep Calculator — Weekly Planner & Shopping List Generator">
+<meta property="og:description" content="Plan your weekly meals, track calories and macros, and generate an automatic shopping list. Free meal prep tool.">
+<meta property="og:url" content="https://recipetool.net/guides/meal-prep-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meal Prep Calculator — Weekly Planner & Shopping List Generator">
+<meta name="twitter:description" content="Plan meals for the week, track macros, generate shopping lists. Free meal prep calculator.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Meal Prep Calculator",
+      "description": "Free weekly meal prep planner with calorie and macro tracking. Assign meals to a 7-day grid and generate an aggregated shopping list automatically.",
+      "url": "https://recipetool.net/guides/meal-prep-calculator.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does meal-prepped food last in the refrigerator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most meal-prepped foods last 3-5 days in the refrigerator when stored at 40°F (4°C) or below. Cooked chicken, beef, and pork are safe for 3-4 days. Cooked grains and pasta last 3-5 days. Cooked vegetables last 3-7 days depending on the type. Raw cut vegetables last 3-5 days. Soups and stews last 3-4 days. If you need longer storage, freeze portions for up to 3 months. Always use airtight containers and let food cool before refrigerating."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best containers for meal prep?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Glass containers with snap-lock lids are the gold standard for meal prep. They do not absorb stains or odors, are microwave-safe, dishwasher-safe, and last for years. BPA-free plastic containers are lighter and more affordable but may stain. Look for containers with divided compartments to keep foods separate. Sizes of 28-36 oz work well for most meals. Mason jars are excellent for soups, salads, and overnight oats. Always ensure containers are airtight to prevent spoilage."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:960px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.btn-sm{padding:.35rem .7rem;font-size:.8rem}
+.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
+
+/* Meal grid */
+.grid-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.meal-grid{display:grid;grid-template-columns:80px repeat(7,1fr);gap:2px;min-width:700px;font-size:.8rem}
+.grid-header{background:var(--primary);color:white;padding:.4rem .3rem;text-align:center;font-weight:600;font-size:.75rem;border-radius:4px 4px 0 0}
+.grid-label{background:var(--warm-dark);padding:.4rem .3rem;text-align:center;font-weight:600;font-size:.75rem;display:flex;align-items:center;justify-content:center;border-radius:4px 0 0 4px}
+.grid-cell{background:var(--warm);padding:.3rem;min-height:60px;border-radius:3px;cursor:pointer;transition:background .15s;position:relative}
+.grid-cell:hover{background:var(--warm-dark)}
+.grid-cell .meal-tag{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:2px 4px;font-size:.7rem;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center}
+.grid-cell .meal-tag .remove-meal{background:none;border:none;color:#c62828;cursor:pointer;font-size:.8rem;padding:0 2px;line-height:1}
+.grid-cell .meal-cal{font-size:.65rem;color:var(--text-light)}
+.grid-cell .add-meal-btn{background:none;border:1px dashed var(--border);border-radius:4px;width:100%;padding:4px;cursor:pointer;font-size:.7rem;color:var(--text-light);transition:all .15s}
+.grid-cell .add-meal-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+/* Meal picker modal */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:200;justify-content:center;align-items:center}
+.modal-overlay.show{display:flex}
+.modal{background:var(--white);border-radius:12px;padding:1.25rem;max-width:420px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.modal h3{color:var(--primary-dark);margin-bottom:.75rem;font-size:1rem}
+.modal input{width:100%;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem;margin-bottom:.5rem}
+.modal input:focus{outline:none;border-color:var(--primary)}
+.meal-option{padding:.5rem;border:1px solid var(--border);border-radius:6px;margin-bottom:.4rem;cursor:pointer;transition:all .15s}
+.meal-option:hover{background:var(--warm);border-color:var(--primary)}
+.meal-option .meal-name{font-weight:600;font-size:.85rem}
+.meal-option .meal-macros{font-size:.7rem;color:var(--text-light)}
+
+/* Summary */
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:.5rem;margin:.75rem 0}
+.summary-item{text-align:center;padding:.5rem;background:var(--warm);border-radius:6px}
+.summary-item .val{font-size:1.2rem;font-weight:700;color:var(--primary-dark)}
+.summary-item .lbl{font-size:.7rem;color:var(--text-light)}
+.day-summary{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;font-size:.75rem;margin:.5rem 0}
+.day-summary div{text-align:center;padding:.3rem;background:var(--warm);border-radius:4px}
+.day-summary .day-name{font-weight:600;font-size:.7rem}
+.day-summary .day-cal{font-weight:700;color:var(--primary-dark)}
+
+/* Shopping list */
+.shop-list{list-style:none;padding:0}
+.shop-list li{padding:.35rem 0;border-bottom:1px solid var(--border);font-size:.85rem;display:flex;gap:.5rem;align-items:center}
+.shop-list li:last-child{border-bottom:none}
+.shop-list .shop-check{width:16px;height:16px;accent-color:var(--primary)}
+.shop-category{font-weight:600;color:var(--primary-dark);margin-top:.75rem;margin-bottom:.25rem;font-size:.85rem}
+
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:600px){
+.meal-grid{min-width:600px}
+.day-summary{grid-template-columns:repeat(4,1fr)}
+.summary-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media print{
+header,nav,footer,.btn,.btn-group,.add-meal-btn,.remove-meal,.modal-overlay{display:none!important}
+body{background:#fff}
+.card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Meal Prep Calculator</h1>
+<p>Plan your week, track macros, generate shopping lists</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html">Unit Converter</a>
+<a href="/tools/recipe-scaler.html">Recipe Scaler</a>
+<a href="/guides/meal-prep-calculator.html" class="active">Meal Prep</a>
+<a href="/answers/cooking-substitutions.html">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== WEEKLY PLANNER GRID ===== -->
+<div class="card">
+<h2>Weekly Meal Planner</h2>
+<p>Click any cell to assign a meal. Calories and macros update automatically.</p>
+<div class="grid-wrapper">
+<div class="meal-grid" id="meal-grid"></div>
+</div>
+<div class="btn-group">
+<button class="btn btn-outline btn-sm" onclick="clearAll()">Clear All</button>
+<button class="btn btn-outline btn-sm" onclick="loadSample()">Load Sample Week</button>
+</div>
+</div>
+
+<!-- ===== DAILY & WEEKLY SUMMARY ===== -->
+<div class="card">
+<h2>Nutrition Summary</h2>
+<h3>Weekly Totals</h3>
+<div class="summary-grid" id="weekly-summary">
+<div class="summary-item"><div class="val" id="wk-cal">0</div><div class="lbl">Calories</div></div>
+<div class="summary-item"><div class="val" id="wk-protein">0g</div><div class="lbl">Protein</div></div>
+<div class="summary-item"><div class="val" id="wk-carbs">0g</div><div class="lbl">Carbs</div></div>
+<div class="summary-item"><div class="val" id="wk-fat">0g</div><div class="lbl">Fat</div></div>
+<div class="summary-item"><div class="val" id="wk-avg">0</div><div class="lbl">Avg Cal/Day</div></div>
+</div>
+<h3>Daily Breakdown</h3>
+<div class="day-summary" id="day-summary"></div>
+</div>
+
+<!-- ===== SHOPPING LIST ===== -->
+<div class="card" id="shopping-card" style="display:none">
+<h2>Shopping List</h2>
+<div id="shopping-list"></div>
+<div class="btn-group">
+<button class="btn btn-outline btn-sm" onclick="copyShoppingList()">Copy List</button>
+<button class="btn btn-outline btn-sm" onclick="window.print()">Print</button>
+</div>
+</div>
+<div class="card">
+<div class="btn-group" style="margin-top:0">
+<button class="btn" onclick="generateShoppingList()">Generate Shopping List</button>
+</div>
+</div>
+
+<!-- ===== MEAL PICKER MODAL ===== -->
+<div class="modal-overlay" id="meal-modal">
+<div class="modal">
+<h3 id="modal-title">Add Meal</h3>
+<input type="text" id="meal-search" placeholder="Search meals..." oninput="filterMeals()">
+<div id="meal-options"></div>
+<div style="text-align:right;margin-top:.5rem"><button class="btn btn-outline btn-sm" onclick="closeModal()">Cancel</button></div>
+</div>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>The Complete Guide to Meal Prep</h2>
+<p>Meal prepping is the practice of planning, preparing, and portioning your meals in advance — typically for the coming week. It saves time, reduces food waste, controls nutrition, and eliminates the daily stress of "what's for dinner?" Whether you are meal prepping for weight loss, muscle gain, or simply to eat more consistently, the principles are the same.</p>
+
+<h3>Why Meal Prep Works</h3>
+<p>The primary benefit of meal prep is decision fatigue elimination. Research published in the journal Appetite found that people make an average of 226 food-related decisions per day. Each decision drains willpower, and by evening, tired decision-makers tend to choose convenient, calorie-dense options. Meal prep front-loads these decisions to a single planning session, typically on Sunday, when you have the mental energy to make thoughtful choices.</p>
+<p>The financial benefits are equally compelling. A study by the USDA found that the average American household wastes roughly 30% of purchased food. Meal prepping virtually eliminates this waste because every ingredient is purchased with a specific purpose and used within the week. Many meal preppers report saving 40-60% on their weekly food costs compared to a combination of eating out and unplanned grocery shopping.</p>
+<p>From a nutritional standpoint, meal prep gives you precise control over calories, protein, carbohydrates, and fats. When you cook and portion meals yourself, you know exactly what is in each container. This is dramatically more accurate than estimating restaurant portions, which studies show are typically 2-3 times larger than standard serving sizes.</p>
+
+<h3>Batch Cooking Strategies</h3>
+<p>The most efficient approach to meal prep is batch cooking: preparing large quantities of staple ingredients that can be combined in different ways throughout the week. Rather than cooking seven completely different meals, cook three to four protein sources, two to three grain or starch bases, and prep several vegetables. Mix and match these components daily to create variety without the workload of cooking from scratch each time.</p>
+<p>A typical batch cooking session might include: baking 4 pounds of chicken thighs seasoned two different ways, cooking a large pot of rice and a pot of quinoa, roasting two sheet pans of mixed vegetables, and preparing a large pot of soup or chili. This single 2-3 hour cooking session yields enough food for 12-15 individual meals.</p>
+<p>The "protein + grain + vegetable" formula is the simplest framework for balanced meal prep. Each container gets a palm-sized portion of protein (roughly 4-6 ounces cooked), a fist-sized portion of grain or starch (roughly 3/4 to 1 cup cooked), and a generous helping of vegetables (1-2 cups). This formula typically yields 400-550 calories per meal with a balanced macronutrient profile.</p>
+
+<h3>Food Storage and Safety</h3>
+<p>Proper food storage is critical for meal prep safety. Cooked proteins (chicken, beef, pork, fish) are safe in the refrigerator for 3-4 days at 40 degrees Fahrenheit or below. Cooked grains last 4-6 days. Most cooked vegetables last 3-5 days. Soups and stews are good for 3-4 days refrigerated.</p>
+<p>For meals planned for later in the week (days 4-7), freeze the portions on the day you cook them and transfer to the refrigerator the night before to thaw. This "cook once, freeze some" strategy extends your prep to a full week without food safety concerns. Most cooked meals freeze well for 2-3 months, though texture quality is best within the first month.</p>
+<p>Temperature is the critical factor. The "danger zone" for bacterial growth is between 40 and 140 degrees Fahrenheit. Food should spend no more than 2 hours in this range. After cooking, let food cool for no more than 30 minutes at room temperature, then refrigerate or freeze. Dividing large batches into shallow containers speeds cooling significantly — a deep pot of soup can take 8+ hours to cool to safe temperatures in the refrigerator, while the same soup divided into shallow containers cools in 1-2 hours.</p>
+
+<h3>Container Organization</h3>
+<p>Invest in a set of uniform, stackable containers. Glass containers with snap-lock lids are the gold standard: they do not stain, do not absorb odors, are microwave-safe, and are dishwasher-safe. A typical meal prep setup needs 10-14 single-compartment containers (for lunches and dinners) and 5-7 smaller containers (for breakfasts and snacks).</p>
+<p>Label each container with the day of the week and the meal type (Monday Lunch, Tuesday Dinner, etc.) using small pieces of tape or reusable labels. Stack them in the refrigerator in day order so you can grab the next meal without thinking. This "grab and go" system is what makes meal prep genuinely time-saving during the busy weekday.</p>
+<p>For freezer storage, use containers that are both freezer-safe and microwave-safe so you can go directly from freezer to microwave. Leave a small amount of headspace in liquid-heavy meals (soups, stews) to allow for expansion during freezing. Freeze containers flat for space efficiency and faster thawing.</p>
+
+<h3>Meal Prep for Different Goals</h3>
+<p>For weight loss, focus on high-protein, high-fiber meals that keep you full. Target 1,500-1,800 calories per day spread across 3 meals and 1-2 snacks. Prioritize lean proteins (chicken breast, turkey, fish, tofu), complex carbohydrates (brown rice, quinoa, sweet potatoes), and abundant vegetables. Avoid calorie-dense sauces and dressings — measure them carefully or prepare lighter versions.</p>
+<p>For muscle gain, increase total calories to 2,500-3,000+ per day with a strong emphasis on protein (0.7-1 gram per pound of body weight). Include protein at every meal and snack. Higher-calorie carbohydrate sources like white rice, pasta, and bread help meet calorie targets without excessive food volume. Healthy fats from nuts, avocado, and olive oil add calorie density.</p>
+<p>For general health and maintenance, aim for a balanced macronutrient split of roughly 30% protein, 40% carbohydrates, and 30% fat. Emphasize variety — different colored vegetables, varied protein sources, and a mix of whole grains. Meal prep does not mean eating the same thing every day; use the batch cooking strategy to create different flavor profiles from the same base ingredients.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How long does meal-prepped food last in the fridge?</div>
+<div class="faq-a">Most cooked proteins last 3-4 days, grains 4-6 days, and vegetables 3-5 days at 40&deg;F or below. For days 5-7, freeze portions on cook day and thaw overnight in the fridge. Always use airtight containers and let food cool before refrigerating.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What containers are best for meal prep?</div>
+<div class="faq-a">Glass containers with snap-lock lids are ideal — no staining, no odor absorption, microwave and dishwasher safe. Get 10-14 for main meals and 5-7 smaller ones for snacks. BPA-free plastic works too but may stain with tomato-based sauces.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How much time does meal prep take?</div>
+<div class="faq-a">A typical Sunday meal prep session takes 2-3 hours to prepare 12-15 meals for the week. With practice, many people reduce this to 90 minutes. The time investment pays back 30-45 minutes per day that would otherwise be spent cooking or deciding what to eat.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Can I freeze meal-prepped food?</div>
+<div class="faq-a">Yes. Most cooked meals freeze well for 2-3 months. Proteins, grains, soups, and stews freeze excellently. Avoid freezing raw vegetables (they become mushy) and dairy-heavy sauces (they may separate). Leave headspace for expansion and label with the date.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== MEAL DATABASE ===== */
+const MEALS={
+/* Breakfast */
+"Oatmeal & Berries":{cal:310,protein:10,carbs:52,fat:8,category:"Breakfast",ingredients:{"rolled oats":"1 cup","blueberries":"1/2 cup","honey":"1 tbsp","milk":"1/2 cup"}},
+"Greek Yogurt Parfait":{cal:280,protein:18,carbs:38,fat:6,category:"Breakfast",ingredients:{"greek yogurt":"1 cup","granola":"1/4 cup","strawberries":"1/2 cup","honey":"1 tsp"}},
+"Scrambled Eggs & Toast":{cal:380,protein:22,carbs:30,fat:18,category:"Breakfast",ingredients:{"eggs":"3 large","bread":"2 slices","butter":"1 tsp","milk":"2 tbsp"}},
+"Banana Smoothie":{cal:260,protein:12,carbs:44,fat:5,category:"Breakfast",ingredients:{"banana":"1 large","greek yogurt":"1/2 cup","milk":"1 cup","honey":"1 tsp"}},
+"Avocado Toast":{cal:340,protein:12,carbs:32,fat:20,category:"Breakfast",ingredients:{"bread":"2 slices","avocado":"1/2 medium","eggs":"1 large","salt":"pinch"}},
+"Overnight Oats":{cal:350,protein:14,carbs:55,fat:9,category:"Breakfast",ingredients:{"rolled oats":"1 cup","milk":"1 cup","chia seeds":"1 tbsp","maple syrup":"1 tbsp","berries":"1/2 cup"}},
+/* Lunch */
+"Chicken & Rice Bowl":{cal:520,protein:38,carbs:55,fat:14,category:"Lunch",ingredients:{"chicken breast":"6 oz","brown rice":"1 cup cooked","broccoli":"1 cup","soy sauce":"1 tbsp","olive oil":"1 tsp"}},
+"Turkey Wrap":{cal:420,protein:30,carbs:38,fat:16,category:"Lunch",ingredients:{"flour tortilla":"1 large","turkey breast":"4 oz","lettuce":"1 cup","tomato":"1/2 medium","cheese":"1 slice","mustard":"1 tbsp"}},
+"Quinoa Salad":{cal:390,protein:16,carbs:48,fat:16,category:"Lunch",ingredients:{"quinoa":"1 cup cooked","chickpeas":"1/2 cup","cucumber":"1/2 cup","bell pepper":"1/2 cup","olive oil":"1 tbsp","lemon":"1 tbsp juice"}},
+"Tuna Salad":{cal:360,protein:32,carbs:24,fat:14,category:"Lunch",ingredients:{"canned tuna":"5 oz","mayonnaise":"1 tbsp","celery":"1/4 cup","bread":"2 slices","lettuce":"1 cup"}},
+"Veggie Stir Fry":{cal:380,protein:14,carbs:50,fat:14,category:"Lunch",ingredients:{"tofu":"4 oz","brown rice":"1 cup cooked","mixed vegetables":"2 cups","soy sauce":"1 tbsp","sesame oil":"1 tsp"}},
+"Salmon & Sweet Potato":{cal:480,protein:34,carbs:40,fat:18,category:"Lunch",ingredients:{"salmon fillet":"5 oz","sweet potato":"1 medium","green beans":"1 cup","olive oil":"1 tsp","lemon":"1/2"}},
+/* Dinner */
+"Grilled Chicken & Vegetables":{cal:450,protein:42,carbs:28,fat:18,category:"Dinner",ingredients:{"chicken breast":"6 oz","mixed vegetables":"2 cups","olive oil":"1 tbsp","garlic":"2 cloves","rice":"3/4 cup cooked"}},
+"Pasta Bolognese":{cal:550,protein:28,carbs:62,fat:20,category:"Dinner",ingredients:{"pasta":"2 oz dry","ground beef":"4 oz","tomato sauce":"1/2 cup","onion":"1/4 cup","garlic":"2 cloves","olive oil":"1 tsp","parmesan":"1 tbsp"}},
+"Beef Stir Fry":{cal:480,protein:35,carbs:42,fat:18,category:"Dinner",ingredients:{"beef sirloin":"5 oz","brown rice":"1 cup cooked","bell pepper":"1/2 cup","broccoli":"1 cup","soy sauce":"2 tbsp","sesame oil":"1 tsp"}},
+"Baked Cod & Quinoa":{cal:410,protein:36,carbs:38,fat:12,category:"Dinner",ingredients:{"cod fillet":"6 oz","quinoa":"1 cup cooked","asparagus":"1 cup","olive oil":"1 tsp","lemon":"1/2"}},
+"Chicken Burrito Bowl":{cal:520,protein:36,carbs:56,fat:16,category:"Dinner",ingredients:{"chicken breast":"5 oz","brown rice":"1 cup cooked","black beans":"1/2 cup","salsa":"1/4 cup","avocado":"1/4 medium","lettuce":"1 cup"}},
+"Shrimp Tacos":{cal:440,protein:30,carbs:40,fat:18,category:"Dinner",ingredients:{"shrimp":"5 oz","corn tortillas":"3 small","cabbage":"1 cup","avocado":"1/4 medium","lime":"1","cilantro":"2 tbsp"}},
+/* Snacks */
+"Apple & Peanut Butter":{cal:200,protein:7,carbs:22,fat:11,category:"Snack",ingredients:{"apple":"1 medium","peanut butter":"1 tbsp"}},
+"Trail Mix":{cal:220,protein:6,carbs:20,fat:14,category:"Snack",ingredients:{"almonds":"1 oz","raisins":"1 tbsp","dark chocolate chips":"1 tbsp"}},
+"Protein Bar":{cal:210,protein:20,carbs:24,fat:8,category:"Snack",ingredients:{"protein bar":"1 bar"}},
+"Cottage Cheese & Fruit":{cal:180,protein:16,carbs:18,fat:4,category:"Snack",ingredients:{"cottage cheese":"3/4 cup","peaches":"1/2 cup"}},
+"Hummus & Veggies":{cal:160,protein:6,carbs:18,fat:8,category:"Snack",ingredients:{"hummus":"1/4 cup","carrots":"1/2 cup","celery":"1/2 cup","bell pepper":"1/4 cup"}},
+"Hard Boiled Eggs":{cal:140,protein:12,carbs:1,fat:10,category:"Snack",ingredients:{"eggs":"2 large","salt":"pinch"}}
+};
+
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const SLOTS=['Breakfast','Lunch','Dinner','Snack'];
+
+/* Plan state: plan[day][slot] = [mealName, ...] */
+let plan={};
+DAYS.forEach(d=>{plan[d]={};SLOTS.forEach(s=>{plan[d][s]=[]})});
+
+let currentDay='';
+let currentSlot='';
+
+/* ===== BUILD GRID ===== */
+function buildGrid(){
+const g=document.getElementById('meal-grid');
+g.innerHTML='';
+/* Header row */
+g.innerHTML+='<div class="grid-header"></div>';
+DAYS.forEach(d=>{g.innerHTML+='<div class="grid-header">'+d+'</div>'});
+/* Slot rows */
+SLOTS.forEach(slot=>{
+g.innerHTML+='<div class="grid-label">'+slot+'</div>';
+DAYS.forEach(day=>{
+const cellId='cell-'+day+'-'+slot;
+let cellHtml='<div class="grid-cell" id="'+cellId+'">';
+const meals=plan[day][slot];
+meals.forEach((m,i)=>{
+const data=MEALS[m];
+cellHtml+='<div class="meal-tag">'+m.substring(0,18)+'<button class="remove-meal" onclick="removeMeal(\''+day+'\',\''+slot+'\','+i+')">&times;</button></div>';
+if(data)cellHtml+='<div class="meal-cal">'+data.cal+' cal</div>';
+});
+cellHtml+='<button class="add-meal-btn" onclick="openModal(\''+day+'\',\''+slot+'\')">+ Add</button>';
+cellHtml+='</div>';
+g.innerHTML+=cellHtml;
+});
+});
+updateSummary();
+}
+
+/* ===== MODAL ===== */
+function openModal(day,slot){
+currentDay=day;currentSlot=slot;
+document.getElementById('modal-title').textContent='Add '+slot+' — '+day;
+document.getElementById('meal-search').value='';
+renderMealOptions('');
+document.getElementById('meal-modal').classList.add('show');
+document.getElementById('meal-search').focus();
+}
+function closeModal(){document.getElementById('meal-modal').classList.remove('show')}
+function filterMeals(){renderMealOptions(document.getElementById('meal-search').value)}
+
+function renderMealOptions(query){
+const container=document.getElementById('meal-options');
+container.innerHTML='';
+const q=query.toLowerCase();
+/* Prioritize meals matching the current slot category */
+const sortedMeals=Object.entries(MEALS).sort((a,b)=>{
+const aMatch=a[1].category===currentSlot?0:1;
+const bMatch=b[1].category===currentSlot?0:1;
+return aMatch-bMatch;
+});
+let count=0;
+for(const[name,data]of sortedMeals){
+if(q&&!name.toLowerCase().includes(q))continue;
+if(count>=20)break;
+const div=document.createElement('div');
+div.className='meal-option';
+div.innerHTML='<div class="meal-name">'+name+'</div><div class="meal-macros">'+data.cal+' cal | P: '+data.protein+'g | C: '+data.carbs+'g | F: '+data.fat+'g</div>';
+div.onclick=()=>{plan[currentDay][currentSlot].push(name);closeModal();buildGrid()};
+container.appendChild(div);
+count++;
+}
+if(count===0)container.innerHTML='<p style="font-size:.85rem;color:var(--text-light);padding:.5rem">No meals found. Try a different search.</p>';
+}
+
+function removeMeal(day,slot,idx){
+plan[day][slot].splice(idx,1);
+buildGrid();
+}
+
+/* ===== SUMMARY ===== */
+function updateSummary(){
+let wk={cal:0,protein:0,carbs:0,fat:0};
+const dayCals={};
+DAYS.forEach(d=>{
+let dayCal=0;
+SLOTS.forEach(s=>{
+plan[d][s].forEach(m=>{
+const data=MEALS[m];
+if(data){wk.cal+=data.cal;wk.protein+=data.protein;wk.carbs+=data.carbs;wk.fat+=data.fat;dayCal+=data.cal}
+});
+});
+dayCals[d]=dayCal;
+});
+document.getElementById('wk-cal').textContent=wk.cal.toLocaleString();
+document.getElementById('wk-protein').textContent=wk.protein+'g';
+document.getElementById('wk-carbs').textContent=wk.carbs+'g';
+document.getElementById('wk-fat').textContent=wk.fat+'g';
+document.getElementById('wk-avg').textContent=Math.round(wk.cal/7);
+const ds=document.getElementById('day-summary');
+ds.innerHTML='';
+DAYS.forEach(d=>{
+ds.innerHTML+='<div><div class="day-name">'+d+'</div><div class="day-cal">'+dayCals[d]+'</div><div>cal</div></div>';
+});
+}
+
+/* ===== SHOPPING LIST ===== */
+function generateShoppingList(){
+const agg={};
+DAYS.forEach(d=>{
+SLOTS.forEach(s=>{
+plan[d][s].forEach(m=>{
+const data=MEALS[m];
+if(!data||!data.ingredients)return;
+for(const[item,qty]of Object.entries(data.ingredients)){
+if(!agg[item])agg[item]={qty:[],count:0};
+agg[item].qty.push(qty);
+agg[item].count++;
+}
+});
+});
+});
+const items=Object.entries(agg);
+if(items.length===0){alert('Add meals to your plan first!');return}
+/* Categorize */
+const categories={"Produce":[],"Protein":[],"Dairy & Eggs":[],"Grains & Bread":[],"Pantry":[],"Other":[]};
+const catMap={"apple":"Produce","banana":"Produce","avocado":"Produce","broccoli":"Produce","spinach":"Produce","lettuce":"Produce","tomato":"Produce","onion":"Produce","garlic":"Produce","bell pepper":"Produce","cucumber":"Produce","asparagus":"Produce","cabbage":"Produce","celery":"Produce","carrots":"Produce","green beans":"Produce","sweet potato":"Produce","lime":"Produce","lemon":"Produce","cilantro":"Produce","peaches":"Produce","strawberries":"Produce","blueberries":"Produce","berries":"Produce","mixed vegetables":"Produce","chicken breast":"Protein","turkey breast":"Protein","ground beef":"Protein","beef sirloin":"Protein","salmon fillet":"Protein","cod fillet":"Protein","shrimp":"Protein","canned tuna":"Protein","tofu":"Protein","eggs":"Dairy & Eggs","milk":"Dairy & Eggs","greek yogurt":"Dairy & Eggs","cottage cheese":"Dairy & Eggs","butter":"Dairy & Eggs","cheese":"Dairy & Eggs","parmesan":"Dairy & Eggs","brown rice":"Grains & Bread","rice":"Grains & Bread","quinoa":"Grains & Bread","pasta":"Grains & Bread","bread":"Grains & Bread","rolled oats":"Grains & Bread","flour tortilla":"Grains & Bread","corn tortillas":"Grains & Bread","granola":"Grains & Bread","olive oil":"Pantry","sesame oil":"Pantry","soy sauce":"Pantry","tomato sauce":"Pantry","salsa":"Pantry","honey":"Pantry","maple syrup":"Pantry","peanut butter":"Pantry","mustard":"Pantry","mayonnaise":"Pantry","salt":"Pantry","hummus":"Pantry","chickpeas":"Pantry","black beans":"Pantry","chia seeds":"Pantry","almonds":"Pantry","raisins":"Pantry","dark chocolate chips":"Pantry","protein bar":"Pantry"};
+items.forEach(([item,data])=>{
+const cat=catMap[item]||"Other";
+const qtyStr=data.count>1?data.qty[0]+' x'+data.count:data.qty[0];
+categories[cat].push({name:item,qty:qtyStr,count:data.count});
+});
+let html='';
+for(const[cat,list]of Object.entries(categories)){
+if(list.length===0)continue;
+html+='<div class="shop-category">'+cat+'</div><ul class="shop-list">';
+list.sort((a,b)=>a.name.localeCompare(b.name));
+list.forEach(item=>{
+html+='<li><input type="checkbox" class="shop-check"> '+item.name+' — <strong>'+item.qty+'</strong></li>';
+});
+html+='</ul>';
+}
+document.getElementById('shopping-list').innerHTML=html;
+document.getElementById('shopping-card').style.display='';
+document.getElementById('shopping-card').scrollIntoView({behavior:'smooth'});
+}
+
+function copyShoppingList(){
+const items=document.querySelectorAll('#shopping-list li');
+let text='Shopping List\n\n';
+let currentCat='';
+document.querySelectorAll('#shopping-list .shop-category, #shopping-list li').forEach(el=>{
+if(el.classList.contains('shop-category')){text+='\n'+el.textContent+':\n'}
+else{text+='  [ ] '+el.textContent.trim()+'\n'}
+});
+navigator.clipboard.writeText(text).then(()=>alert('Copied!')).catch(()=>alert('Copy failed.'));
+}
+
+/* ===== PRESETS ===== */
+function clearAll(){
+DAYS.forEach(d=>{SLOTS.forEach(s=>{plan[d][s]=[]})});
+buildGrid();
+document.getElementById('shopping-card').style.display='none';
+}
+
+function loadSample(){
+clearAll();
+const sample={
+Mon:{Breakfast:['Oatmeal & Berries'],Lunch:['Chicken & Rice Bowl'],Dinner:['Pasta Bolognese'],Snack:['Apple & Peanut Butter']},
+Tue:{Breakfast:['Greek Yogurt Parfait'],Lunch:['Turkey Wrap'],Dinner:['Beef Stir Fry'],Snack:['Trail Mix']},
+Wed:{Breakfast:['Scrambled Eggs & Toast'],Lunch:['Quinoa Salad'],Dinner:['Grilled Chicken & Vegetables'],Snack:['Cottage Cheese & Fruit']},
+Thu:{Breakfast:['Banana Smoothie'],Lunch:['Tuna Salad'],Dinner:['Baked Cod & Quinoa'],Snack:['Hard Boiled Eggs']},
+Fri:{Breakfast:['Avocado Toast'],Lunch:['Salmon & Sweet Potato'],Dinner:['Chicken Burrito Bowl'],Snack:['Hummus & Veggies']},
+Sat:{Breakfast:['Overnight Oats'],Lunch:['Veggie Stir Fry'],Dinner:['Shrimp Tacos'],Snack:['Protein Bar']},
+Sun:{Breakfast:['Scrambled Eggs & Toast'],Lunch:['Chicken & Rice Bowl'],Dinner:['Grilled Chicken & Vegetables'],Snack:['Apple & Peanut Butter']}
+};
+for(const[d,slots]of Object.entries(sample)){
+for(const[s,meals]of Object.entries(slots)){
+plan[d][s]=meals;
+}
+}
+buildGrid();
+}
+
+/* FAQ */
+function toggleFaq(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+
+/* Init */
+document.addEventListener('DOMContentLoaded',()=>{buildGrid()});
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/food-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Cost Calculator — Food Cost Per Serving & Markup</a></li>
+<li><a href="/guides/meal-planning-template.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner — Auto Shopping List & Calorie Tracking</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+<li><a href="/meal-planner.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner - Plan Your Meals & Track Calories</a></li>
+</ul>
+</section>
+
+</body>
+</html>

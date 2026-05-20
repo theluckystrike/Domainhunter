@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baker's Percentage Calculator - Hydration Analysis &amp; Bread Ratios | Ingredient Calculator</title>
+<meta name="description" content="Free baker's percentage calculator with hydration analysis. Enter flour weight, get all ingredient amounts via baker's percentages. Presets for sandwich bread, sourdough, pizza, brioche, and focaccia.">
+<meta name="keywords" content="baker's percentage calculator, bakers math, bread hydration calculator, dough calculator, sourdough calculator, pizza dough ratio, brioche ratio, baker's math formula, bread baking ratios">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/baking-ratio-calculator.html">
+<meta property="og:title" content="Baker's Percentage Calculator - Hydration Analysis &amp; Bread Ratios">
+<meta property="og:description" content="Free baker's percentage calculator. Enter flour weight, calculate all ingredients via baker's percentages with presets for common breads.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/baking-ratio-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Baker's Percentage Calculator - Hydration &amp; Bread Ratios">
+<meta name="twitter:description" content="Free baker's percentage calculator with hydration analysis and presets for sandwich bread, sourdough, pizza, brioche, and focaccia.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Baker's Percentage Calculator",
+  "url": "https://ingredientcalculator.com/tools/baking-ratio-calculator.html",
+  "description": "Free baker's percentage calculator with hydration analysis. Calculate all bread ingredients from flour weight using baker's math with presets for common doughs.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Baker's percentage calculation from flour weight",
+    "Hydration level gauge with dough description",
+    "Presets for sandwich, sourdough, pizza, brioche, focaccia",
+    "Custom ingredient rows",
+    "Total dough weight calculation"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is baker's percentage and how does it work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Baker's percentage (also called baker's math) is a notation method used in baking where each ingredient's weight is expressed as a percentage of the total flour weight. Flour is always 100%. For example, if a recipe uses 1000g flour and 650g water, the water is 65% in baker's percentage. This system makes it easy to scale recipes to any batch size and compare dough formulas regardless of quantity. To convert baker's percentages to actual weights, multiply the flour weight by each ingredient's percentage divided by 100."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does hydration percentage mean in bread baking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hydration percentage is the ratio of water (or total liquid) weight to flour weight, expressed as a percentage. A 65% hydration dough has 650g water per 1000g flour. Hydration dramatically affects dough texture and bread characteristics: low hydration (55-60%) produces firm, dense doughs ideal for bagels; medium hydration (60-68%) creates manageable doughs for sandwich bread and rolls; high hydration (70-80%) yields open, airy crumb structures like ciabatta and sourdough; and very high hydration (80%+) creates extremely wet, sticky doughs that produce large, irregular holes like focaccia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is weighing ingredients more accurate than measuring by volume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cup of flour can vary from 120g to 160g depending on how it is scooped, packed, or sifted. This 30%+ variation can dramatically change a bread's texture and structure. Weight measurements are absolute and repeatable. Professional bakeries worldwide use weight-based baker's percentages because they eliminate measurement variability, make scaling precise, and ensure consistent results batch after batch. A kitchen scale accurate to 1 gram is the single best investment for improving baking results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much salt should I use in bread dough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard salt percentage in bread is 1.8% to 2.2% of flour weight (baker's percentage). Most professional bakers use 2%. Salt strengthens gluten structure, controls yeast fermentation rate, and provides flavor. Below 1.5%, bread tastes bland and dough may over-ferment. Above 2.5%, salt inhibits yeast activity too aggressively and the bread may taste salty. For health-conscious baking, you can reduce to 1.5% without major structural issues, but going below 1% significantly affects both flavor and dough handling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use baker's percentages with sourdough starter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but you need to account for the flour and water already in the starter. A typical sourdough starter is 100% hydration (equal parts flour and water by weight). If you add 200g of starter, that contributes 100g flour and 100g water to the dough. For accurate baker's percentages, add that flour to your total flour amount and that water to your total water amount when calculating true hydration. This calculator handles starter as a separate ingredient, but serious bakers should note the hidden flour and water content when fine-tuning hydration levels."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ingredientcalculator.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Baker's Percentage Calculator",
+      "item": "https://ingredientcalculator.com/tools/baking-ratio-calculator.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px; line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+.breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted); }
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+.panel .subtitle { color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition); text-decoration: none;
+}
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn-sm { padding: 6px 14px; font-size: 0.85rem; }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success); }
+
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.result-table th, .result-table td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid #D1FAE5;
+}
+.result-table th {
+  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.result-table tr:last-child td { border-bottom: none; }
+
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+/* Preset cards */
+.preset-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px; margin-bottom: 20px;
+}
+.preset-card {
+  text-align: center; padding: 12px 8px; border: 2px solid var(--clr-border);
+  border-radius: var(--radius-sm); cursor: pointer; transition: all var(--transition);
+  background: var(--clr-surface); font-size: 0.85rem;
+}
+.preset-card:hover { border-color: var(--clr-accent); }
+.preset-card.active { border-color: var(--clr-accent); background: var(--clr-accent-bg); }
+.preset-card .preset-name { font-weight: 700; font-size: 0.9rem; display: block; }
+.preset-card .preset-hydration { font-size: 0.78rem; color: var(--clr-text-muted); }
+
+/* Hydration gauge */
+.hydration-gauge { margin: 20px 0; }
+.gauge-bar { height: 32px; border-radius: 16px; background: linear-gradient(90deg, #FDE68A 0%, #D97706 40%, #059669 70%, #0284C7 100%); position: relative; overflow: visible; border: 1px solid var(--clr-border); }
+.gauge-needle {
+  position: absolute; top: -6px; width: 4px; height: 44px;
+  background: var(--clr-text); border-radius: 2px;
+  transition: left 0.4s ease;
+}
+.gauge-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--clr-text-muted); margin-top: 4px; }
+.gauge-value { text-align: center; font-size: 1.6rem; font-weight: 800; color: var(--clr-accent); margin-top: 8px; }
+.gauge-desc { text-align: center; font-size: 0.9rem; color: var(--clr-text-muted); }
+
+/* Ingredient rows */
+.ingredient-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 8px; align-items: end; margin-bottom: 8px;
+}
+.ingredient-row input[type="text"],
+.ingredient-row input[type="number"] { padding: 8px 10px; font-size: 0.88rem; }
+.remove-row-btn {
+  background: none; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); width: 36px; height: 36px;
+  cursor: pointer; font-size: 1.1rem; color: var(--clr-danger);
+  transition: all var(--transition); display: flex; align-items: center; justify-content: center;
+}
+.remove-row-btn:hover { background: #FEE2E2; border-color: var(--clr-danger); }
+
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+  .ingredient-row { grid-template-columns: 1fr 1fr; }
+  .preset-grid { grid-template-columns: repeat(2, 1fr); }
+  .panel { padding: 16px; }
+  nav { display: none; }
+}
+
+@media print {
+  header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/tools/baking-ratio-calculator.html" class="active">Baker's %</a>
+      <a href="/guides/portion-control-guide.html">Portion Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Baker's Percentage Calculator</span> &mdash; Hydration Analysis</h1>
+    <p>Enter your flour weight and calculate every ingredient using baker's percentages. Load presets for sandwich bread, sourdough, pizza dough, brioche, and focaccia with real-time hydration analysis.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Baker's Percentage Calculator
+  </div>
+
+  <section class="panel">
+    <h2>Baker's Percentage Calculator</h2>
+    <p class="subtitle">Flour is always 100%. All other ingredients are expressed as a percentage of flour weight.</p>
+
+    <label style="margin-bottom:8px;">Bread Type Presets</label>
+    <div class="preset-grid" id="bp-presets" role="radiogroup" aria-label="Bread presets">
+      <div class="preset-card" data-preset="sandwich" tabindex="0" role="radio" aria-checked="false">
+        <span class="preset-name">Sandwich</span>
+        <span class="preset-hydration">62% hydration</span>
+      </div>
+      <div class="preset-card" data-preset="sourdough" tabindex="0" role="radio" aria-checked="false">
+        <span class="preset-name">Sourdough</span>
+        <span class="preset-hydration">75% hydration</span>
+      </div>
+      <div class="preset-card" data-preset="pizza" tabindex="0" role="radio" aria-checked="false">
+        <span class="preset-name">Pizza</span>
+        <span class="preset-hydration">65% hydration</span>
+      </div>
+      <div class="preset-card" data-preset="brioche" tabindex="0" role="radio" aria-checked="false">
+        <span class="preset-name">Brioche</span>
+        <span class="preset-hydration">52% hydration</span>
+      </div>
+      <div class="preset-card" data-preset="focaccia" tabindex="0" role="radio" aria-checked="false">
+        <span class="preset-name">Focaccia</span>
+        <span class="preset-hydration">80% hydration</span>
+      </div>
+    </div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="bp-flour">Flour Weight (grams)</label>
+        <input type="number" id="bp-flour" min="50" max="10000" step="1" value="500" aria-label="Flour weight in grams">
+      </div>
+      <div class="form-group">
+        <label for="bp-flour-type">Flour Type</label>
+        <select id="bp-flour-type">
+          <option value="bread">Bread Flour (12-14% protein)</option>
+          <option value="ap">All-Purpose Flour (10-12% protein)</option>
+          <option value="whole-wheat">Whole Wheat Flour (14% protein)</option>
+          <option value="00">Type 00 Flour (Italian, 11-12%)</option>
+        </select>
+      </div>
+    </div>
+
+    <h3 style="font-size:1rem;margin:16px 0 8px;">Ingredients (Baker's Percentage)</h3>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin-bottom:4px;padding:0 0 4px;border-bottom:1px solid var(--clr-border);">
+      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Ingredient</span>
+      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Baker's %</span>
+      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Weight (g)</span>
+      <span style="width:36px;"></span>
+    </div>
+    <div id="bp-ingredients"></div>
+
+    <div class="btn-row" style="margin-top:8px;">
+      <button class="btn btn-secondary btn-sm" id="bp-add-row" aria-label="Add ingredient row">+ Add Ingredient</button>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="bp-calc" aria-label="Calculate weights">Calculate</button>
+      <button class="btn btn-secondary" id="bp-reset" aria-label="Reset all">Reset</button>
+    </div>
+
+    <!-- Hydration gauge -->
+    <div id="bp-gauge-section" style="display:none;">
+      <h3 style="font-size:1rem;margin:24px 0 8px;color:var(--clr-accent);">Hydration Level</h3>
+      <div class="hydration-gauge">
+        <div class="gauge-bar"><div class="gauge-needle" id="bp-needle" style="left:50%;"></div></div>
+        <div class="gauge-labels">
+          <span>45% (Stiff)</span>
+          <span>65% (Medium)</span>
+          <span>80% (Wet)</span>
+          <span>100%+</span>
+        </div>
+        <div class="gauge-value" id="bp-hydration-val">65%</div>
+        <div class="gauge-desc" id="bp-hydration-desc">Medium hydration</div>
+      </div>
+    </div>
+
+    <!-- Results table -->
+    <div class="result-box" id="bp-results" aria-live="polite">
+      <h3>Formula Summary</h3>
+      <table class="result-table" id="bp-result-table" aria-label="Baker's percentage results">
+        <thead><tr><th>Ingredient</th><th>Baker's %</th><th>Weight (g)</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid #D1FAE5;">
+        <strong style="font-size:0.95rem;">Total Dough Weight: <span id="bp-total-weight" style="color:var(--clr-accent);">0</span>g</strong>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Baker's percentage guide">
+  <h2>Understanding Baker's Percentages: The Professional Bread Baker's Language</h2>
+
+  <p>Baker's percentage, also known as baker's math or formula percentage, is the universal system professional bakers use to express bread formulas. Unlike home recipes that list ingredients in cups or tablespoons, baker's percentages describe every ingredient's weight relative to the total flour weight, which is always defined as 100%. This deceptively simple notation unlocks the ability to scale any recipe to any batch size, compare different bread formulas at a glance, and understand the fundamental structure of dough without getting lost in specific quantities.</p>
+
+  <h3>Why Baker's Percentage Matters</h3>
+  <p>Imagine you have a recipe for a single loaf of sandwich bread and need to scale it for 50 loaves. With volumetric measurements, you would need to multiply every measurement individually, convert fractions, and hope nothing gets lost in rounding. With baker's percentages, you simply decide your total flour weight and multiply each percentage. The math is trivially simple, and the result is always proportionally correct.</p>
+  <p>More importantly, baker's percentages let you intuitively understand dough character. When a baker says "this is a 75% hydration dough," every experienced baker immediately knows the dough will be tacky, require gentle handling, and produce an open, airy crumb. The percentage tells you more about the bread than any list of specific weights ever could.</p>
+
+  <h3>Hydration and Dough Character</h3>
+  <p>Hydration is the single most important baker's percentage after flour itself. It is the ratio of total water (and liquid) weight to total flour weight. Different hydration levels produce dramatically different doughs:</p>
+  <ul>
+    <li><strong>45-55% hydration (Stiff doughs)</strong> &mdash; Bagels, pretzels, and some pasta doughs. These are firm, easy to shape, and produce a dense, chewy crumb with small, uniform air pockets. The low water content means strong gluten development through aggressive kneading.</li>
+    <li><strong>55-65% hydration (Low-medium)</strong> &mdash; Sandwich bread, dinner rolls, challah. Manageable doughs that hold their shape well during proofing. They produce a soft, tender crumb with even, small-to-medium air holes ideal for slicing and spreading.</li>
+    <li><strong>65-75% hydration (Medium-high)</strong> &mdash; Sourdough boules, baguettes, country loaves. Tacky but workable doughs that benefit from stretch-and-fold techniques rather than traditional kneading. The higher water content creates larger, more irregular air pockets and a more complex flavor through extended fermentation.</li>
+    <li><strong>75-85% hydration (High)</strong> &mdash; Ciabatta, focaccia, Neapolitan pizza (some styles). Very sticky, wet doughs that require bench scrapers and wet hands to handle. The reward is a dramatically open crumb with large, glossy holes and a crispy, crackly crust.</li>
+    <li><strong>85-100%+ hydration (Very high)</strong> &mdash; Pancake batters, certain flatbreads, and experimental artisan loaves. These are nearly pourable and require molds or pans. The extreme moisture creates maximum oven spring and an incredibly airy interior.</li>
+  </ul>
+
+  <h3>Common Bread Formulas in Baker's Percentages</h3>
+  <p>The five presets in this calculator represent the most popular bread categories baked worldwide. Here is what makes each formula unique and why the ratios work:</p>
+  <p><strong>Sandwich Bread (62% hydration):</strong> The quintessential everyday loaf. Flour 100%, water 62%, sugar 6%, butter 5%, salt 2%, yeast 1.5%, milk powder 3%. The sugar and butter create a soft, tender crumb that stays fresh longer. The moderate hydration makes this dough forgiving for beginners &mdash; it kneads easily, rises predictably, and shapes without sticking.</p>
+  <p><strong>Sourdough (75% hydration):</strong> Flour 100%, water 75%, sourdough starter 20%, salt 2%. No commercial yeast. The levain provides leavening through wild yeast and lactic acid bacteria, creating complex sour flavors. The higher hydration compensates for the whole-grain flour often blended in and produces the signature open crumb with irregular holes.</p>
+  <p><strong>Pizza Dough (65% hydration):</strong> Flour 100%, water 65%, olive oil 3%, salt 2.5%, yeast 0.5%. The relatively low yeast percentage allows for a slow, cold fermentation (24-72 hours) that develops deep flavor. Olive oil adds extensibility, making the dough easier to stretch thin without tearing.</p>
+  <p><strong>Brioche (52% hydration):</strong> Flour 100%, eggs 40%, butter 50%, sugar 10%, salt 2%, yeast 2.5%, milk 12%. Brioche is technically more pastry than bread, with an enormous amount of butter that creates a rich, golden, cake-like crumb. The low water content comes almost entirely from eggs and milk, and the butter is incorporated slowly into an already-developed dough.</p>
+  <p><strong>Focaccia (80% hydration):</strong> Flour 100%, water 80%, olive oil 8%, salt 2.5%, yeast 1%. The very high hydration creates the characteristic large bubbles and airy interior. Generous olive oil in and on the dough gives focaccia its distinctive crispy bottom and golden top. The dough is simply pressed into an oiled pan rather than shaped, making it one of the most forgiving high-hydration breads.</p>
+
+  <h3>Tips for Using Baker's Percentages at Home</h3>
+  <p>To get the most out of this system, invest in a kitchen scale that reads in 1-gram increments. Scales under 15 dollars work perfectly for home baking. Always weigh your flour rather than scooping with a cup &mdash; a single cup of flour can range from 120g to 160g depending on technique, which at 500g total could throw your hydration off by 8 percentage points. When adding ingredients from a sourdough starter, remember that a 100% hydration starter contributes equal parts flour and water, so factor those amounts into your true flour and water totals for accurate hydration calculations.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Flour Is Always 100%</h3>
+      <p>Every other ingredient is calculated relative to flour. If using multiple flours, their combined weight equals 100%. Each flour's individual contribution is its sub-percentage.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Hydration Drives Texture</h3>
+      <p>Higher hydration equals more open crumb and crispier crust. Lower hydration equals tighter crumb and softer texture. Adjust by 5% increments until you find your preference.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Salt Controls Yeast</h3>
+      <p>Never skip salt. At 2%, it regulates fermentation speed, strengthens gluten, and provides flavor. Too much salt (above 2.5%) kills yeast. Too little causes over-fermentation.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Weigh Everything</h3>
+      <p>Baker's percentages only work with weight measurements. A kitchen scale is the single best investment for consistent baking results, eliminating the variability of volumetric cups and spoons.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/baking-ratio-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Baker's %</a> &middot;
+      <a href="/guides/portion-control-guide.html" style="color:var(--clr-accent);text-decoration:none;">Portion Guide</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ---- Presets ---- */
+  var presets = {
+    sandwich: {
+      ingredients: [
+        { name: 'Water', pct: 62, isLiquid: true },
+        { name: 'Sugar', pct: 6, isLiquid: false },
+        { name: 'Butter', pct: 5, isLiquid: false },
+        { name: 'Salt', pct: 2, isLiquid: false },
+        { name: 'Instant Yeast', pct: 1.5, isLiquid: false },
+        { name: 'Milk Powder', pct: 3, isLiquid: false }
+      ]
+    },
+    sourdough: {
+      ingredients: [
+        { name: 'Water', pct: 75, isLiquid: true },
+        { name: 'Sourdough Starter (100% hydration)', pct: 20, isLiquid: false },
+        { name: 'Salt', pct: 2, isLiquid: false }
+      ]
+    },
+    pizza: {
+      ingredients: [
+        { name: 'Water', pct: 65, isLiquid: true },
+        { name: 'Olive Oil', pct: 3, isLiquid: false },
+        { name: 'Salt', pct: 2.5, isLiquid: false },
+        { name: 'Instant Yeast', pct: 0.5, isLiquid: false }
+      ]
+    },
+    brioche: {
+      ingredients: [
+        { name: 'Eggs', pct: 40, isLiquid: true },
+        { name: 'Butter', pct: 50, isLiquid: false },
+        { name: 'Sugar', pct: 10, isLiquid: false },
+        { name: 'Salt', pct: 2, isLiquid: false },
+        { name: 'Instant Yeast', pct: 2.5, isLiquid: false },
+        { name: 'Milk', pct: 12, isLiquid: true }
+      ]
+    },
+    focaccia: {
+      ingredients: [
+        { name: 'Water', pct: 80, isLiquid: true },
+        { name: 'Olive Oil', pct: 8, isLiquid: false },
+        { name: 'Salt', pct: 2.5, isLiquid: false },
+        { name: 'Instant Yeast', pct: 1, isLiquid: false }
+      ]
+    }
+  };
+
+  var container = document.getElementById('bp-ingredients');
+
+  /* ---- Default ingredients (blank) ---- */
+  var defaultIngredients = [
+    { name: 'Water', pct: 65, isLiquid: true },
+    { name: 'Salt', pct: 2, isLiquid: false },
+    { name: 'Instant Yeast', pct: 1, isLiquid: false }
+  ];
+
+  function createRow(data) {
+    var row = document.createElement('div');
+    row.className = 'ingredient-row';
+    row.innerHTML =
+      '<div class="form-group">' +
+        '<input type="text" class="ing-name" value="' + (data.name || '') + '" placeholder="Ingredient name" aria-label="Ingredient name">' +
+      '</div>' +
+      '<div class="form-group">' +
+        '<input type="number" class="ing-pct" min="0" max="200" step="0.1" value="' + (data.pct || '') + '" placeholder="%" aria-label="Baker percentage">' +
+      '</div>' +
+      '<div class="form-group">' +
+        '<input type="number" class="ing-weight" readonly tabindex="-1" style="background:var(--clr-surface-alt);font-weight:600;" aria-label="Calculated weight">' +
+      '</div>' +
+      '<button class="remove-row-btn" aria-label="Remove ingredient" title="Remove">&times;</button>';
+
+    row.querySelector('.remove-row-btn').addEventListener('click', function () {
+      if (container.children.length > 1) { row.remove(); }
+    });
+
+    /* Live calculation on percentage change */
+    row.querySelector('.ing-pct').addEventListener('input', liveCalc);
+
+    container.appendChild(row);
+    return row;
+  }
+
+  function loadIngredients(list) {
+    container.innerHTML = '';
+    for (var i = 0; i < list.length; i++) {
+      createRow(list[i]);
+    }
+  }
+
+  loadIngredients(defaultIngredients);
+
+  /* ---- Preset selection ---- */
+  var presetCards = document.querySelectorAll('.preset-card');
+  presetCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      presetCards.forEach(function (c) {
+        c.classList.remove('active');
+        c.setAttribute('aria-checked', 'false');
+      });
+      card.classList.add('active');
+      card.setAttribute('aria-checked', 'true');
+      var key = card.getAttribute('data-preset');
+      if (presets[key]) {
+        loadIngredients(presets[key].ingredients);
+        calculate();
+      }
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    });
+  });
+
+  /* ---- Add row ---- */
+  document.getElementById('bp-add-row').addEventListener('click', function () {
+    createRow({ name: '', pct: '', isLiquid: false });
+  });
+
+  /* ---- Live calculation ---- */
+  function liveCalc() {
+    var flour = parseFloat(document.getElementById('bp-flour').value);
+    if (isNaN(flour) || flour <= 0) return;
+
+    var rows = container.querySelectorAll('.ingredient-row');
+    for (var i = 0; i < rows.length; i++) {
+      var pctInput = rows[i].querySelector('.ing-pct');
+      var weightInput = rows[i].querySelector('.ing-weight');
+      var pct = parseFloat(pctInput.value);
+      if (!isNaN(pct)) {
+        weightInput.value = Math.round(flour * pct / 100);
+      } else {
+        weightInput.value = '';
+      }
+    }
+  }
+
+  document.getElementById('bp-flour').addEventListener('input', liveCalc);
+
+  /* ---- Full calculation ---- */
+  function calculate() {
+    var flour = parseFloat(document.getElementById('bp-flour').value);
+    if (isNaN(flour) || flour <= 0) return;
+
+    var rows = container.querySelectorAll('.ingredient-row');
+    var totalWeight = flour;
+    var totalLiquid = 0;
+    var resultRows = [];
+
+    resultRows.push({ name: 'Flour', pct: 100, weight: flour });
+
+    for (var i = 0; i < rows.length; i++) {
+      var nameInput = rows[i].querySelector('.ing-name');
+      var pctInput = rows[i].querySelector('.ing-pct');
+      var weightInput = rows[i].querySelector('.ing-weight');
+      var name = nameInput.value.trim();
+      var pct = parseFloat(pctInput.value);
+
+      if (name && !isNaN(pct)) {
+        var weight = Math.round(flour * pct / 100);
+        weightInput.value = weight;
+        totalWeight += weight;
+        resultRows.push({ name: name, pct: pct, weight: weight });
+
+        /* Detect liquids for hydration */
+        var nameLower = name.toLowerCase();
+        if (nameLower.indexOf('water') !== -1 || nameLower.indexOf('milk') !== -1 ||
+            nameLower.indexOf('egg') !== -1 || nameLower.indexOf('juice') !== -1) {
+          totalLiquid += pct;
+        }
+      }
+    }
+
+    /* Hydration */
+    var hydration = totalLiquid;
+    updateHydrationGauge(hydration);
+
+    /* Result table */
+    var tbody = document.querySelector('#bp-result-table tbody');
+    tbody.innerHTML = '';
+    for (var j = 0; j < resultRows.length; j++) {
+      var r = resultRows[j];
+      var tr = document.createElement('tr');
+      if (j === 0) {
+        tr.innerHTML = '<td><strong>' + r.name + '</strong></td><td><strong>100%</strong></td><td><strong>' + r.weight + 'g</strong></td>';
+      } else {
+        tr.innerHTML = '<td>' + r.name + '</td><td>' + r.pct + '%</td><td>' + r.weight + 'g</td>';
+      }
+      tbody.appendChild(tr);
+    }
+
+    document.getElementById('bp-total-weight').textContent = totalWeight;
+
+    var results = document.getElementById('bp-results');
+    results.classList.add('visible');
+    results.style.display = 'block';
+  }
+
+  function updateHydrationGauge(hydration) {
+    var section = document.getElementById('bp-gauge-section');
+    section.style.display = 'block';
+
+    /* Position needle: 45% = 0%, 100% = 100% of bar */
+    var pos = Math.max(0, Math.min(100, ((hydration - 45) / 55) * 100));
+    document.getElementById('bp-needle').style.left = pos + '%';
+    document.getElementById('bp-hydration-val').textContent = hydration.toFixed(1) + '%';
+
+    var desc;
+    if (hydration < 55) {
+      desc = 'Stiff dough — dense, chewy texture. Ideal for bagels and pretzels.';
+    } else if (hydration < 63) {
+      desc = 'Low-medium hydration — easy to handle. Good for sandwich bread and rolls.';
+    } else if (hydration < 70) {
+      desc = 'Medium hydration — slightly tacky. Standard for many artisan breads.';
+    } else if (hydration < 78) {
+      desc = 'Medium-high hydration — tacky and extensible. Great for sourdough and baguettes.';
+    } else if (hydration < 85) {
+      desc = 'High hydration — wet and sticky. Produces open crumb with large holes like ciabatta and focaccia.';
+    } else {
+      desc = 'Very high hydration — nearly pourable. Requires molds or pans. Maximum oven spring.';
+    }
+    document.getElementById('bp-hydration-desc').textContent = desc;
+  }
+
+  document.getElementById('bp-calc').addEventListener('click', calculate);
+
+  document.getElementById('bp-reset').addEventListener('click', function () {
+    document.getElementById('bp-flour').value = '500';
+    document.getElementById('bp-flour-type').value = 'bread';
+    presetCards.forEach(function (c) {
+      c.classList.remove('active');
+      c.setAttribute('aria-checked', 'false');
+    });
+    loadIngredients(defaultIngredients);
+    document.getElementById('bp-results').classList.remove('visible');
+    document.getElementById('bp-results').style.display = 'none';
+    document.getElementById('bp-gauge-section').style.display = 'none';
+  });
+
+  /* Initial live calc */
+  liveCalc();
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/macro-calculator.html" style="color:#3b82f6;text-decoration:none;">Macronutrient Calculator - Daily Macro Targets & Meal Plan</a></li>
+<li><a href="/baking-ratios.html" style="color:#3b82f6;text-decoration:none;">Baking Ratios Calculator</a></li>
+<li><a href="/guides/meal-prep-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Cost Calculator - Homemade vs Delivery vs Meal Kit</a></li>
+<li><a href="/research/glycemic-index-calculator.html" style="color:#3b82f6;text-decoration:none;">Glycemic Index Calculator - GI/GL with Meal Planning Optimization</a></li>
+</ul>
+</section>
+
+</body>
+</html>

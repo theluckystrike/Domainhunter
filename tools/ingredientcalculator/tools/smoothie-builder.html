@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoothie Recipe Builder - Nutrition Balancing &amp; Custom Blends | Ingredient Calculator</title>
+<meta name="description" content="Free smoothie recipe builder with real-time nutrition balancing. Build custom smoothies from 60+ ingredients, see calories, protein, carbs, fat, and fiber update live, then copy your recipe. Includes preset smoothie templates for post-workout, green, tropical, and protein smoothies.">
+<meta name="keywords" content="smoothie builder, smoothie recipe maker, smoothie nutrition calculator, protein smoothie builder, green smoothie recipe, custom smoothie maker, smoothie calorie counter, smoothie macro calculator, healthy smoothie builder, smoothie ingredients">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/smoothie-builder.html">
+<meta property="og:title" content="Smoothie Recipe Builder - Nutrition Balancing &amp; Custom Blends">
+<meta property="og:description" content="Free smoothie builder with real-time nutrition balancing. Build custom smoothies from 60+ ingredients with live calorie and macro tracking.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/smoothie-builder.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smoothie Recipe Builder - Nutrition Balancing &amp; Custom Blends">
+<meta name="twitter:description" content="Free smoothie builder with real-time nutrition balancing. Build custom smoothies from 60+ ingredients with live calorie and macro tracking.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Smoothie Recipe Builder",
+  "url": "https://ingredientcalculator.com/tools/smoothie-builder.html",
+  "description": "Free smoothie recipe builder with real-time nutrition balancing. Build custom smoothies from 60+ ingredients, see live nutrition updates, and copy your recipe.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "60+ smoothie ingredients database",
+    "Real-time nutrition calculation",
+    "Preset smoothie templates",
+    "Custom portion sizes",
+    "Copy recipe to clipboard",
+    "Macro balance visualization"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many calories should a healthy smoothie have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ideal calorie count for a smoothie depends on its purpose. A meal replacement smoothie should contain 400 to 600 calories with a balanced ratio of protein (20-30g), healthy fats, and complex carbohydrates. A post-workout recovery smoothie works well at 300 to 500 calories with emphasis on protein (25-40g) and fast-digesting carbs. A light snack smoothie should stay between 150 and 250 calories. A common mistake is making smoothies that are calorie-dense without realizing it. Adding multiple tablespoons of nut butter, handfuls of granola, and full-fat coconut milk can easily push a smoothie past 800 calories, which exceeds most people's needs for a single meal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best protein source for smoothies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best protein source depends on your dietary preferences and goals. Whey protein powder is the most bioavailable option, absorbed quickly and ideal for post-workout smoothies, providing 20 to 30 grams of protein per scoop with complete amino acids. Greek yogurt adds 15 to 20 grams per cup along with probiotics and a creamy texture. Cottage cheese blends smoothly and provides 14 grams per half cup with casein protein for sustained amino acid release. For plant-based options, pea protein powder offers 20 to 25 grams per scoop with a complete amino acid profile, and silken tofu adds 10 grams per half cup while creating a creamy consistency. Combining hemp seeds and nut butter provides both protein and healthy fats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use fresh or frozen fruit in smoothies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frozen fruit is generally superior to fresh for smoothies for several reasons. Frozen fruit is picked and frozen at peak ripeness, preserving nutrient content that fresh fruit may lose during transportation and storage. Frozen fruit creates a thicker, colder smoothie without the need for ice, which dilutes flavor and nutrition. Frozen fruit is also typically less expensive per pound and eliminates waste from spoilage. The one advantage of fresh fruit is texture variety, as some fruits like bananas become very dense when frozen. A good strategy is to use a mix: frozen berries and mango for base thickness, and fresh banana or avocado for creaminess. Nutritionally, frozen and fresh are nearly identical, with some studies showing frozen fruit retains slightly more vitamin C due to faster processing after harvest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make a smoothie thicker without adding more calories?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several ingredients add thickness with minimal calories. Frozen cauliflower rice is nearly flavorless and adds creamy body at only 25 calories per cup. Frozen zucchini chunks blend smooth and contribute negligible calories. Ice is calorie-free but dilutes flavor. A tablespoon of chia seeds adds thickness as they absorb liquid and swell, contributing only 60 calories along with fiber and omega-3 fatty acids. Xanthan gum, just a quarter teaspoon, creates significant thickness without any calories. Frozen banana is a classic thickener but adds about 105 calories. Psyllium husk powder thickens dramatically and adds beneficial fiber at about 20 calories per tablespoon. Using less liquid is the simplest approach, since a higher solid-to-liquid ratio naturally creates a thicker consistency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What order should I add ingredients to a blender?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The order of ingredients significantly affects blending quality. Start with liquid at the bottom, closest to the blades, so the blender can create a vortex that pulls solid ingredients down. Add soft fresh ingredients next, such as yogurt, soft fruits, and leafy greens. Then add harder or frozen ingredients on top where they can be pushed down by gravity into the blending vortex. Powders like protein powder should go in after liquid to prevent clumping at the bottom. Ice and frozen fruit go last on top. For most blenders, this order prevents air pockets and dry ingredient clumps that require stopping and stirring. If your smoothie is too thick to blend, add liquid in small increments rather than pushing ingredients down with a utensil while the blender is running, which is dangerous."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ingredientcalculator.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Smoothie Recipe Builder",
+      "item": "https://ingredientcalculator.com/tools/smoothie-builder.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB; --clr-success: #059669;
+  --clr-success-bg: #ECFDF5; --clr-info: #0284C7; --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626; --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.skip-link { position: absolute; top: -100%; left: 16px; background: var(--clr-accent); color: #fff; padding: 8px 16px; border-radius: var(--radius-sm); z-index: 1000; font-weight: 600; text-decoration: none; }
+.skip-link:focus { top: 8px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.logo { font-size: 1.35rem; font-weight: 800; color: var(--clr-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.logo-icon { width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: background var(--transition), color var(--transition); }
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+.hero { text-align: center; padding: 48px 16px 32px; background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%); }
+.hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--clr-text); margin-bottom: 12px; line-height: 1.2; }
+.hero h1 span { color: var(--clr-accent); }
+.hero p { font-size: 1.1rem; color: var(--clr-text-muted); max-width: 640px; margin: 0 auto; }
+.breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted); }
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.panel { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin: 24px auto; max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow); }
+.panel h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+.panel .subtitle { color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+input[type="text"], input[type="number"], select { width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border); border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.95rem; background: var(--clr-surface); transition: border-color var(--transition), box-shadow var(--transition); color: var(--clr-text); }
+input:focus, select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px rgba(217,119,6,0.15); }
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 20px; border: none; border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary { background: var(--clr-surface-alt); color: var(--clr-text); border: 1px solid var(--clr-border); }
+.btn-secondary:hover { background: var(--clr-border); }
+.btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.nutrition-result { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; margin-top: 16px; }
+.nutr-card { text-align: center; padding: 14px 8px; background: var(--clr-surface-alt); border-radius: var(--radius-sm); border: 1px solid var(--clr-border); }
+.nutr-card .nutr-val { font-size: 1.5rem; font-weight: 800; color: var(--clr-accent); }
+.nutr-card .nutr-label { font-size: 0.75rem; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+.nutr-card .nutr-unit { font-size: 0.78rem; color: var(--clr-text-muted); }
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li { color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 20px; }
+.info-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 20px; }
+.info-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.info-card p { font-size: 0.9rem; }
+
+.ingredient-list { margin-top: 12px; }
+.ing-item { display: flex; align-items: center; gap: 8px; padding: 8px; border-bottom: 1px solid var(--clr-border); font-size: 0.88rem; }
+.ing-item:last-child { border-bottom: none; }
+.ing-item-name { flex: 1; font-weight: 600; }
+.ing-item-amt { width: 80px; }
+.ing-item-cal { width: 60px; text-align: right; color: var(--clr-accent); font-weight: 700; }
+.ing-item-remove { background: none; border: none; color: var(--clr-danger); cursor: pointer; font-size: 1.1rem; font-weight: 700; padding: 4px 8px; }
+
+.macro-bar { display: flex; height: 24px; border-radius: 12px; overflow: hidden; margin-top: 12px; border: 1px solid var(--clr-border); }
+.macro-bar-protein { background: #059669; }
+.macro-bar-carbs { background: #D97706; }
+.macro-bar-fat { background: #7C3AED; }
+.macro-legend { display: flex; gap: 16px; margin-top: 8px; font-size: 0.8rem; color: var(--clr-text-muted); }
+.macro-legend span { display: flex; align-items: center; gap: 4px; }
+.macro-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.preset-btn { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; margin: 4px; cursor: pointer; border: 1px solid var(--clr-border); background: var(--clr-surface); transition: all var(--transition); color: var(--clr-text); }
+.preset-btn:hover { border-color: var(--clr-accent); background: var(--clr-accent-light); color: var(--clr-accent); }
+
+.copy-feedback { display: inline-block; margin-left: 8px; font-size: 0.82rem; color: var(--clr-success); font-weight: 600; opacity: 0; transition: opacity 0.3s; }
+.copy-feedback.show { opacity: 1; }
+
+footer { text-align: center; padding: 32px 16px; border-top: 1px solid var(--clr-border); margin-top: 40px; color: var(--clr-text-muted); font-size: 0.85rem; }
+@media (max-width: 640px) { .form-row.cols-2, .form-row.cols-3, .form-row.cols-4 { grid-template-columns: 1fr; } .panel { padding: 16px; } nav { display: none; } }
+@media print { header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; } .panel { border: none; box-shadow: none; } }
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home"><span class="logo-icon" aria-hidden="true">&#9878;</span>IngredientCalculator</a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/tools/smoothie-builder.html" class="active">Smoothie Builder</a>
+      <a href="/tools/recipe-converter-metric.html">Recipe Converter</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Smoothie Recipe Builder</span> &mdash; Nutrition Balancing &amp; Custom Blends</h1>
+    <p>Build your perfect smoothie from 60+ ingredients with real-time nutrition tracking. Add fruits, vegetables, proteins, and liquids, then watch calories, macros, and fiber update instantly.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Smoothie Recipe Builder
+  </div>
+
+  <section class="panel">
+    <h2>Quick Start Presets</h2>
+    <p class="subtitle">Click a preset to load a balanced smoothie recipe, then customize it to your taste.</p>
+    <div id="sb-presets"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Build Your Smoothie</h2>
+    <p class="subtitle">Select an ingredient category, choose your ingredient, set the amount, and add it to your smoothie.</p>
+
+    <div class="form-row cols-4">
+      <div class="form-group">
+        <label for="sb-category">Category</label>
+        <select id="sb-category"></select>
+      </div>
+      <div class="form-group">
+        <label for="sb-ingredient">Ingredient</label>
+        <select id="sb-ingredient"></select>
+      </div>
+      <div class="form-group">
+        <label for="sb-amount">Amount (g or ml)</label>
+        <input type="number" id="sb-amount" value="100" min="1" max="1000">
+      </div>
+      <div class="form-group" style="justify-content:flex-end;">
+        <button class="btn btn-primary" id="sb-add" style="align-self:flex-end;">Add Ingredient</button>
+      </div>
+    </div>
+
+    <h3 style="font-size:1rem;margin-top:16px;">Your Smoothie Ingredients</h3>
+    <div class="ingredient-list" id="sb-list">
+      <div style="padding:20px;text-align:center;color:var(--clr-text-muted);font-size:0.9rem;">No ingredients added yet. Select ingredients above or load a preset.</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="sb-clear">Clear All</button>
+      <button class="btn btn-secondary" id="sb-copy">Copy Recipe</button>
+      <span class="copy-feedback" id="sb-copy-feedback">Copied!</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Nutrition Summary</h2>
+    <p class="subtitle">Real-time nutrition totals for your smoothie. The macro bar shows the caloric contribution from protein, carbs, and fat.</p>
+    <div class="nutrition-result" id="sb-nutrition"></div>
+    <div class="macro-bar" id="sb-macrobar"></div>
+    <div class="macro-legend">
+      <span><span class="macro-dot" style="background:#059669;"></span> Protein</span>
+      <span><span class="macro-dot" style="background:#D97706;"></span> Carbs</span>
+      <span><span class="macro-dot" style="background:#7C3AED;"></span> Fat</span>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Smoothie building guide">
+  <h2>The Complete Guide to Building Nutritionally Balanced Smoothies</h2>
+
+  <p>Smoothies have evolved from simple fruit blends into powerful nutritional tools used by athletes, health-conscious individuals, and anyone looking for a convenient way to increase their intake of fruits, vegetables, and protein. However, the difference between a truly nutritious smoothie and a sugar-laden calorie bomb comes down to ingredient selection and balance. This guide teaches you the principles of smoothie building, from base liquids to booster ingredients, so you can create blends that taste great while supporting your health goals.</p>
+
+  <h3>The Five Components of a Balanced Smoothie</h3>
+  <p>Every well-constructed smoothie has five key components that work together to create the right nutrition profile, flavor, and texture. The liquid base (1 to 1.5 cups) determines the consistency and adds its own nutritional value. Water is calorie-free but bland. Milk and plant milks add protein and creaminess. Coconut water provides electrolytes with minimal calories. The fruit component (1 to 1.5 cups) supplies natural sweetness, vitamins, and fiber. Frozen fruit is preferred because it creates thickness without diluting ice. The vegetable component (0.5 to 1 cup) adds micronutrients and fiber with minimal calories and sugar. Spinach is the classic choice because it blends invisibly, while kale has a stronger flavor. The protein component (20 to 30 grams) promotes satiety and muscle recovery. Options include protein powder, Greek yogurt, cottage cheese, or silken tofu. The healthy fat component (1 to 2 tablespoons) adds satiety, aids fat-soluble vitamin absorption, and improves mouthfeel. Good choices include nut butter, avocado, chia seeds, or flax seeds.</p>
+
+  <h3>Common Smoothie Mistakes and How to Avoid Them</h3>
+  <p>The most common smoothie mistake is using too much fruit, especially high-sugar fruits like banana, mango, and pineapple. A smoothie with two bananas, a cup of mango, and orange juice can contain 70 to 90 grams of sugar, equivalent to nearly two cans of soda. While this is natural sugar packaged with fiber and vitamins, the caloric impact is substantial. The fix is to limit fruit to one to one and a half cups and balance it with vegetables and protein. Another frequent mistake is neglecting protein, which turns a smoothie into a fast-digesting sugar rush that leaves you hungry within an hour. Adding 20 to 30 grams of protein transforms a smoothie into a sustaining meal. Using juice as a liquid base adds concentrated sugar without the fiber found in whole fruit. Whole milk, plant milk, or water are better options. Finally, many people underestimate how calorie-dense smoothie add-ins are. Two tablespoons of peanut butter add 188 calories, a quarter cup of granola adds 130 calories, and a tablespoon of coconut oil adds 121 calories. These are nutritious ingredients, but their caloric contribution must be accounted for.</p>
+
+  <h3>Smoothies for Specific Goals</h3>
+  <p>For weight loss, build smoothies that maximize satiety per calorie. Prioritize protein (25 to 30 grams), fiber (8 to 12 grams from vegetables, berries, and seeds), and volume (use water or unsweetened almond milk as the base). Keep total calories between 300 and 400. Spinach, cauliflower, and cucumber add volume and nutrients with minimal calories. For muscle building, focus on protein (30 to 40 grams) and carbohydrates (40 to 60 grams) consumed within 30 to 60 minutes after training. A combination of whey protein, banana, oats, and milk provides the rapid amino acid delivery and glycogen replenishment that muscles need. For general health and immunity, load up on colorful produce: berries provide anthocyanins, citrus provides vitamin C, spinach provides iron and folate, and turmeric provides anti-inflammatory curcumin. Adding a tablespoon of ground flaxseed provides omega-3 fatty acids, and a serving of yogurt adds beneficial probiotics.</p>
+
+  <h3>Meal Prep and Storage Tips</h3>
+  <p>Smoothies are best consumed immediately after blending, as oxidation begins breaking down vitamins and the texture can separate. However, with some planning, you can streamline your smoothie routine significantly. Freezer smoothie packs are the most popular prep method: pre-portion fruits, vegetables, and dry ingredients into individual freezer bags, then add liquid and blend when ready. These packs last three to six months frozen. If you must store a blended smoothie, use an airtight container filled to the top to minimize air exposure, and consume within 24 hours. Adding a squeeze of lemon juice slows oxidation. For batch blending, make no more than two days worth at a time and store in sealed mason jars in the refrigerator. Shake or re-blend before drinking, as separation is normal.</p>
+
+  <h3>Understanding Smoothie Nutrition Labels</h3>
+  <p>When using this smoothie builder, keep in mind that nutrition values are based on raw ingredient data from USDA databases. Blending does not significantly change the caloric content or macronutrient profile of ingredients, though it does break down fiber into smaller particles that are digested more quickly than whole food fiber. This means that a smoothie containing an apple, for example, will spike blood sugar more than eating the same apple whole, even though the calorie and fiber content are identical. This is not a reason to avoid smoothies, but it is a reason to include protein and fat in every smoothie to slow digestion and moderate the blood sugar response. The fiber in smoothies is still nutritionally valuable for gut health and satiety compared to juice, which removes fiber entirely.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Freeze Your Greens</h3>
+      <p>Buy spinach and kale in bulk, portion into freezer bags. Frozen greens blend just as well as fresh and last months instead of days.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Protein is Non-Negotiable</h3>
+      <p>Always include 20-30g of protein per smoothie. Without it, you are making a sugar drink that will leave you hungry in an hour.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Limit Liquid</h3>
+      <p>Start with less liquid than you think you need. You can always add more, but you cannot make an over-thinned smoothie thicker without extra ingredients.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Count Your Fruit</h3>
+      <p>Cap fruit at 1.5 cups per smoothie. Use half vegetables and half fruit for lower sugar content while maintaining sweetness.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/recipe-converter-metric.html" style="color:var(--clr-accent);text-decoration:none;">Recipe Converter</a> &middot;
+      <a href="/tools/smoothie-builder.html" style="color:var(--clr-accent);text-decoration:none;">Smoothie Builder</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ---- Ingredient DB (per 100g) ---- */
+  var ingredients = {
+    'Fruits': {
+      'Banana': { cal:89, protein:1.1, carbs:22.8, fat:0.3, fiber:2.6, sugar:12.2, defAmt:120 },
+      'Strawberries': { cal:32, protein:0.7, carbs:7.7, fat:0.3, fiber:2.0, sugar:4.9, defAmt:150 },
+      'Blueberries': { cal:57, protein:0.7, carbs:14.5, fat:0.3, fiber:2.4, sugar:10.0, defAmt:150 },
+      'Raspberries': { cal:52, protein:1.2, carbs:11.9, fat:0.7, fiber:6.5, sugar:4.4, defAmt:125 },
+      'Mango': { cal:60, protein:0.8, carbs:15.0, fat:0.4, fiber:1.6, sugar:13.7, defAmt:150 },
+      'Pineapple': { cal:50, protein:0.5, carbs:13.1, fat:0.1, fiber:1.4, sugar:9.9, defAmt:150 },
+      'Peach': { cal:39, protein:0.9, carbs:9.5, fat:0.3, fiber:1.5, sugar:8.4, defAmt:150 },
+      'Mixed Berries (frozen)': { cal:48, protein:0.7, carbs:11.3, fat:0.3, fiber:3.0, sugar:7.5, defAmt:150 },
+      'Acai (frozen puree)': { cal:70, protein:1.5, carbs:4.0, fat:5.0, fiber:3.0, sugar:2.0, defAmt:100 },
+      'Avocado': { cal:160, protein:2.0, carbs:8.5, fat:14.7, fiber:6.7, sugar:0.7, defAmt:50 },
+      'Dates (pitted)': { cal:277, protein:1.8, carbs:75.0, fat:0.2, fiber:6.7, sugar:63.4, defAmt:24 },
+      'Apple': { cal:52, protein:0.3, carbs:13.8, fat:0.2, fiber:2.4, sugar:10.4, defAmt:150 },
+      'Cherries': { cal:50, protein:1.0, carbs:12.2, fat:0.3, fiber:1.6, sugar:8.5, defAmt:140 }
+    },
+    'Vegetables': {
+      'Spinach': { cal:23, protein:2.9, carbs:3.6, fat:0.4, fiber:2.2, sugar:0.4, defAmt:40 },
+      'Kale': { cal:35, protein:2.9, carbs:4.4, fat:1.5, fiber:4.1, sugar:0.8, defAmt:40 },
+      'Cucumber': { cal:16, protein:0.7, carbs:3.6, fat:0.1, fiber:0.5, sugar:1.7, defAmt:100 },
+      'Celery': { cal:14, protein:0.7, carbs:3.0, fat:0.2, fiber:1.6, sugar:1.3, defAmt:60 },
+      'Beet': { cal:43, protein:1.6, carbs:9.6, fat:0.2, fiber:2.8, sugar:6.8, defAmt:80 },
+      'Carrot': { cal:41, protein:0.9, carbs:9.6, fat:0.2, fiber:2.8, sugar:4.7, defAmt:80 },
+      'Sweet Potato (cooked)': { cal:86, protein:1.6, carbs:20.1, fat:0.1, fiber:3.0, sugar:4.2, defAmt:80 },
+      'Cauliflower (frozen)': { cal:25, protein:2.0, carbs:5.0, fat:0.3, fiber:2.0, sugar:1.9, defAmt:80 },
+      'Zucchini (frozen)': { cal:17, protein:1.2, carbs:3.1, fat:0.3, fiber:1.0, sugar:2.5, defAmt:80 },
+      'Ginger root': { cal:80, protein:1.8, carbs:17.8, fat:0.8, fiber:2.0, sugar:1.7, defAmt:5 }
+    },
+    'Protein': {
+      'Whey protein powder': { cal:400, protein:80.0, carbs:10.0, fat:5.0, fiber:0, sugar:5.0, defAmt:30 },
+      'Plant protein powder': { cal:380, protein:70.0, carbs:15.0, fat:7.0, fiber:3.0, sugar:3.0, defAmt:30 },
+      'Greek yogurt (plain)': { cal:97, protein:9.0, carbs:3.6, fat:5.0, fiber:0, sugar:3.2, defAmt:150 },
+      'Cottage cheese': { cal:98, protein:11.1, carbs:3.4, fat:4.3, fiber:0, sugar:2.7, defAmt:120 },
+      'Silken tofu': { cal:55, protein:4.8, carbs:2.0, fat:3.0, fiber:0.2, sugar:1.1, defAmt:120 },
+      'Skyr': { cal:63, protein:11.0, carbs:4.0, fat:0.2, fiber:0, sugar:3.5, defAmt:150 },
+      'Collagen peptides': { cal:360, protein:90.0, carbs:0, fat:0, fiber:0, sugar:0, defAmt:15 }
+    },
+    'Liquids': {
+      'Whole milk': { cal:61, protein:3.2, carbs:4.8, fat:3.3, fiber:0, sugar:5.1, defAmt:240 },
+      'Almond milk (unsweetened)': { cal:15, protein:0.6, carbs:0.6, fat:1.1, fiber:0.2, sugar:0, defAmt:240 },
+      'Oat milk': { cal:43, protein:1.0, carbs:7.0, fat:1.5, fiber:0.8, sugar:4.0, defAmt:240 },
+      'Coconut milk (carton)': { cal:19, protein:0.2, carbs:0.7, fat:1.8, fiber:0, sugar:0, defAmt:240 },
+      'Coconut water': { cal:19, protein:0.7, carbs:3.7, fat:0.2, fiber:1.1, sugar:2.6, defAmt:240 },
+      'Orange juice': { cal:45, protein:0.7, carbs:10.4, fat:0.2, fiber:0.2, sugar:8.4, defAmt:120 },
+      'Water': { cal:0, protein:0, carbs:0, fat:0, fiber:0, sugar:0, defAmt:240 },
+      'Soy milk': { cal:33, protein:2.8, carbs:1.2, fat:1.6, fiber:0.4, sugar:1.0, defAmt:240 },
+      'Cold brew coffee': { cal:2, protein:0.3, carbs:0, fat:0, fiber:0, sugar:0, defAmt:120 }
+    },
+    'Seeds & Nuts': {
+      'Chia seeds': { cal:486, protein:16.5, carbs:42.1, fat:30.7, fiber:34.4, sugar:0, defAmt:15 },
+      'Flax seeds (ground)': { cal:534, protein:18.3, carbs:28.9, fat:42.2, fiber:27.3, sugar:1.6, defAmt:10 },
+      'Hemp seeds': { cal:553, protein:31.6, carbs:8.7, fat:48.8, fiber:4.0, sugar:1.5, defAmt:15 },
+      'Peanut butter': { cal:588, protein:25.1, carbs:20.0, fat:50.4, fiber:6.0, sugar:9.0, defAmt:32 },
+      'Almond butter': { cal:614, protein:21.0, carbs:18.8, fat:55.5, fiber:10.5, sugar:4.4, defAmt:32 },
+      'Cashew butter': { cal:587, protein:17.6, carbs:27.6, fat:49.4, fiber:2.0, sugar:5.0, defAmt:32 },
+      'Walnuts': { cal:654, protein:15.2, carbs:13.7, fat:65.2, fiber:6.7, sugar:2.6, defAmt:15 },
+      'Coconut (shredded)': { cal:354, protein:3.3, carbs:15.2, fat:33.5, fiber:9.0, sugar:6.2, defAmt:15 }
+    },
+    'Boosters': {
+      'Honey': { cal:304, protein:0.3, carbs:82.4, fat:0, fiber:0.2, sugar:82.1, defAmt:15 },
+      'Maple syrup': { cal:260, protein:0, carbs:67.0, fat:0.1, fiber:0, sugar:60.5, defAmt:15 },
+      'Cocoa powder': { cal:228, protein:19.6, carbs:57.9, fat:13.7, fiber:33.2, sugar:1.8, defAmt:10 },
+      'Cacao nibs': { cal:450, protein:14.0, carbs:34.0, fat:36.0, fiber:18.0, sugar:0, defAmt:15 },
+      'Turmeric powder': { cal:354, protein:7.8, carbs:64.9, fat:9.9, fiber:21.1, sugar:3.2, defAmt:3 },
+      'Cinnamon': { cal:247, protein:4.0, carbs:80.6, fat:1.2, fiber:53.1, sugar:2.2, defAmt:3 },
+      'Matcha powder': { cal:324, protein:30.6, carbs:38.9, fat:5.3, fiber:38.5, sugar:0, defAmt:3 },
+      'Oats (rolled)': { cal:389, protein:16.9, carbs:66.3, fat:6.9, fiber:10.6, sugar:1.0, defAmt:40 },
+      'Spirulina': { cal:290, protein:57.5, carbs:23.9, fat:7.7, fiber:3.6, sugar:3.1, defAmt:5 },
+      'MCT oil': { cal:862, protein:0, carbs:0, fat:100, fiber:0, sugar:0, defAmt:10 }
+    }
+  };
+
+  var presets = {
+    'Post-Workout Recovery': [
+      { cat:'Fruits', name:'Banana', amt:120 },
+      { cat:'Fruits', name:'Mixed Berries (frozen)', amt:150 },
+      { cat:'Protein', name:'Whey protein powder', amt:30 },
+      { cat:'Liquids', name:'Whole milk', amt:240 },
+      { cat:'Boosters', name:'Oats (rolled)', amt:40 },
+      { cat:'Boosters', name:'Honey', amt:15 }
+    ],
+    'Green Power': [
+      { cat:'Vegetables', name:'Spinach', amt:60 },
+      { cat:'Vegetables', name:'Cucumber', amt:100 },
+      { cat:'Fruits', name:'Banana', amt:120 },
+      { cat:'Fruits', name:'Mango', amt:80 },
+      { cat:'Seeds & Nuts', name:'Chia seeds', amt:10 },
+      { cat:'Liquids', name:'Coconut water', amt:240 },
+      { cat:'Vegetables', name:'Ginger root', amt:5 }
+    ],
+    'Tropical Bliss': [
+      { cat:'Fruits', name:'Mango', amt:150 },
+      { cat:'Fruits', name:'Pineapple', amt:100 },
+      { cat:'Fruits', name:'Banana', amt:80 },
+      { cat:'Liquids', name:'Coconut milk (carton)', amt:200 },
+      { cat:'Protein', name:'Greek yogurt (plain)', amt:100 },
+      { cat:'Seeds & Nuts', name:'Coconut (shredded)', amt:10 }
+    ],
+    'Protein Chocolate': [
+      { cat:'Protein', name:'Whey protein powder', amt:35 },
+      { cat:'Fruits', name:'Banana', amt:120 },
+      { cat:'Seeds & Nuts', name:'Peanut butter', amt:32 },
+      { cat:'Boosters', name:'Cocoa powder', amt:10 },
+      { cat:'Liquids', name:'Almond milk (unsweetened)', amt:240 },
+      { cat:'Fruits', name:'Dates (pitted)', amt:12 }
+    ],
+    'Berry Antioxidant': [
+      { cat:'Fruits', name:'Blueberries', amt:100 },
+      { cat:'Fruits', name:'Raspberries', amt:100 },
+      { cat:'Fruits', name:'Strawberries', amt:80 },
+      { cat:'Fruits', name:'Acai (frozen puree)', amt:100 },
+      { cat:'Protein', name:'Greek yogurt (plain)', amt:150 },
+      { cat:'Liquids', name:'Oat milk', amt:180 },
+      { cat:'Seeds & Nuts', name:'Flax seeds (ground)', amt:10 }
+    ]
+  };
+
+  var smoothieItems = [];
+
+  /* Build presets */
+  function buildPresets() {
+    var container = document.getElementById('sb-presets');
+    var html = '';
+    for (var name in presets) {
+      html += '<button class="preset-btn" data-preset="' + name + '">' + name + '</button>';
+    }
+    container.innerHTML = html;
+    var btns = container.querySelectorAll('.preset-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () {
+        var pName = this.getAttribute('data-preset');
+        loadPreset(pName);
+      });
+    }
+  }
+
+  function loadPreset(name) {
+    smoothieItems = [];
+    var items = presets[name];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var db = ingredients[item.cat][item.name];
+      if (db) smoothieItems.push({ name: item.name, category: item.cat, amount: item.amt, db: db });
+    }
+    renderList();
+    updateNutrition();
+  }
+
+  /* Build category/ingredient selects */
+  function buildSelects() {
+    var catSelect = document.getElementById('sb-category');
+    var cats = Object.keys(ingredients);
+    for (var c = 0; c < cats.length; c++) {
+      var opt = document.createElement('option');
+      opt.value = cats[c]; opt.textContent = cats[c];
+      catSelect.appendChild(opt);
+    }
+    updateIngredientSelect();
+    catSelect.addEventListener('change', updateIngredientSelect);
+  }
+
+  function updateIngredientSelect() {
+    var cat = document.getElementById('sb-category').value;
+    var ingSelect = document.getElementById('sb-ingredient');
+    ingSelect.innerHTML = '';
+    var items = ingredients[cat];
+    for (var name in items) {
+      var opt = document.createElement('option');
+      opt.value = name; opt.textContent = name;
+      ingSelect.appendChild(opt);
+    }
+    /* Set default amount */
+    var first = Object.keys(items)[0];
+    if (first && items[first].defAmt) {
+      document.getElementById('sb-amount').value = items[first].defAmt;
+    }
+  }
+
+  function addIngredient() {
+    var cat = document.getElementById('sb-category').value;
+    var name = document.getElementById('sb-ingredient').value;
+    var amt = parseFloat(document.getElementById('sb-amount').value);
+    if (!name || isNaN(amt) || amt <= 0) return;
+    var db = ingredients[cat][name];
+    if (!db) return;
+    smoothieItems.push({ name: name, category: cat, amount: amt, db: db });
+    renderList();
+    updateNutrition();
+  }
+
+  function removeIngredient(index) {
+    smoothieItems.splice(index, 1);
+    renderList();
+    updateNutrition();
+  }
+
+  function renderList() {
+    var container = document.getElementById('sb-list');
+    if (smoothieItems.length === 0) {
+      container.innerHTML = '<div style="padding:20px;text-align:center;color:var(--clr-text-muted);font-size:0.9rem;">No ingredients added yet. Select ingredients above or load a preset.</div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < smoothieItems.length; i++) {
+      var item = smoothieItems[i];
+      var cal = Math.round(item.db.cal * item.amount / 100);
+      html += '<div class="ing-item">';
+      html += '<div class="ing-item-name">' + escapeHtml(item.name) + '</div>';
+      html += '<div class="ing-item-amt">' + item.amount + 'g</div>';
+      html += '<div class="ing-item-cal">' + cal + ' cal</div>';
+      html += '<button class="ing-item-remove" data-idx="' + i + '" title="Remove">&times;</button>';
+      html += '</div>';
+    }
+    container.innerHTML = html;
+    var removeBtns = container.querySelectorAll('.ing-item-remove');
+    for (var r = 0; r < removeBtns.length; r++) {
+      removeBtns[r].addEventListener('click', function () {
+        removeIngredient(parseInt(this.getAttribute('data-idx'), 10));
+      });
+    }
+  }
+
+  function updateNutrition() {
+    var totals = { cal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sugar: 0 };
+    for (var i = 0; i < smoothieItems.length; i++) {
+      var item = smoothieItems[i];
+      var f = item.amount / 100;
+      totals.cal += item.db.cal * f;
+      totals.protein += item.db.protein * f;
+      totals.carbs += item.db.carbs * f;
+      totals.fat += item.db.fat * f;
+      totals.fiber += item.db.fiber * f;
+      totals.sugar += item.db.sugar * f;
+    }
+
+    var fields = [
+      { label:'Calories', val:Math.round(totals.cal), unit:'kcal' },
+      { label:'Protein', val:Math.round(totals.protein*10)/10, unit:'g' },
+      { label:'Carbs', val:Math.round(totals.carbs*10)/10, unit:'g' },
+      { label:'Fat', val:Math.round(totals.fat*10)/10, unit:'g' },
+      { label:'Fiber', val:Math.round(totals.fiber*10)/10, unit:'g' },
+      { label:'Sugar', val:Math.round(totals.sugar*10)/10, unit:'g' }
+    ];
+
+    var html = '';
+    for (var f2 = 0; f2 < fields.length; f2++) {
+      html += '<div class="nutr-card"><div class="nutr-val">' + fields[f2].val + '</div><div class="nutr-label">' + fields[f2].label + '</div><div class="nutr-unit">' + fields[f2].unit + '</div></div>';
+    }
+    document.getElementById('sb-nutrition').innerHTML = html;
+
+    /* Macro bar */
+    var proteinCal = totals.protein * 4;
+    var carbsCal = totals.carbs * 4;
+    var fatCal = totals.fat * 9;
+    var totalMacroCal = proteinCal + carbsCal + fatCal;
+    if (totalMacroCal > 0) {
+      var pPct = (proteinCal / totalMacroCal * 100).toFixed(0);
+      var cPct = (carbsCal / totalMacroCal * 100).toFixed(0);
+      var fPct = (fatCal / totalMacroCal * 100).toFixed(0);
+      document.getElementById('sb-macrobar').innerHTML =
+        '<div class="macro-bar-protein" style="width:' + pPct + '%" title="Protein ' + pPct + '%"></div>' +
+        '<div class="macro-bar-carbs" style="width:' + cPct + '%" title="Carbs ' + cPct + '%"></div>' +
+        '<div class="macro-bar-fat" style="width:' + fPct + '%" title="Fat ' + fPct + '%"></div>';
+    } else {
+      document.getElementById('sb-macrobar').innerHTML = '';
+    }
+  }
+
+  function escapeHtml(str) { var d = document.createElement('div'); d.appendChild(document.createTextNode(str)); return d.innerHTML; }
+
+  /* Event listeners */
+  document.getElementById('sb-add').addEventListener('click', addIngredient);
+  document.getElementById('sb-clear').addEventListener('click', function () {
+    smoothieItems = []; renderList(); updateNutrition();
+  });
+
+  document.getElementById('sb-ingredient').addEventListener('change', function () {
+    var cat = document.getElementById('sb-category').value;
+    var name = this.value;
+    var db = ingredients[cat] && ingredients[cat][name];
+    if (db && db.defAmt) document.getElementById('sb-amount').value = db.defAmt;
+  });
+
+  document.getElementById('sb-copy').addEventListener('click', function () {
+    if (smoothieItems.length === 0) return;
+    var text = 'Smoothie Recipe\n';
+    for (var i = 0; i < smoothieItems.length; i++) {
+      text += '- ' + smoothieItems[i].name + ': ' + smoothieItems[i].amount + 'g\n';
+    }
+    text += '\nNutrition: ';
+    var cards = document.querySelectorAll('#sb-nutrition .nutr-card');
+    for (var c = 0; c < cards.length; c++) {
+      text += cards[c].querySelector('.nutr-label').textContent + ': ' + cards[c].querySelector('.nutr-val').textContent + cards[c].querySelector('.nutr-unit').textContent + '  ';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        var fb = document.getElementById('sb-copy-feedback');
+        fb.classList.add('show'); setTimeout(function () { fb.classList.remove('show'); }, 2000);
+      });
+    }
+  });
+
+  /* Init */
+  buildPresets();
+  buildSelects();
+  updateNutrition();
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/baking-ratio-calculator.html" style="color:#3b82f6;text-decoration:none;">Baker's Percentage Calculator - Hydration Analysis & Bread Ratios</a></li>
+<li><a href="/tools/macro-calculator.html" style="color:#3b82f6;text-decoration:none;">Macronutrient Calculator - Daily Macro Targets & Meal Plan</a></li>
+<li><a href="/tools/recipe-converter-metric.html" style="color:#3b82f6;text-decoration:none;">US to Metric Recipe Converter - Ingredient-Aware Unit Conversion</a></li>
+<li><a href="/tools/recipe-nutrition-estimator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Estimator - Paste Any Recipe, Get Nutrition Facts</a></li>
+</ul>
+</section>
+
+</body>
+</html>

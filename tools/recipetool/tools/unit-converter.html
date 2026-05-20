@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Unit Converter — Cups, Grams, mL & Temperature | RecipeTool</title>
+<meta name="description" content="Free cooking measurement converter with ingredient density database. Convert cups to grams, tablespoons to mL, Fahrenheit to Celsius. Accurate conversions for flour, sugar, butter, and 15+ ingredients.">
+<link rel="canonical" href="https://recipetool.net/tools/unit-converter.html">
+<meta property="og:title" content="Cooking Unit Converter — Cups, Grams, mL & Temperature">
+<meta property="og:description" content="Convert cooking measurements with ingredient-aware density. Cups to grams, tbsp to mL, F to C. Free, instant, no signup.">
+<meta property="og:url" content="https://recipetool.net/tools/unit-converter.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cooking Unit Converter — Cups, Grams, mL & Temperature">
+<meta name="twitter:description" content="Convert cooking measurements with ingredient density. Cups to grams, tbsp to mL, F to C. Free and instant.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Cooking Unit Converter",
+      "description": "Free cooking measurement converter with ingredient density database. Converts between cups, tablespoons, teaspoons, milliliters, liters, fluid ounces, grams, kilograms, pounds, and ounces with ingredient-specific accuracy.",
+      "url": "https://recipetool.net/tools/unit-converter.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does 1 cup of flour weigh less than 1 cup of sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flour and sugar have different densities. One cup of all-purpose flour weighs approximately 125 grams, while one cup of granulated sugar weighs about 200 grams. Flour has air pockets between its fine particles, making it lighter per volume. This is why professional bakers always weigh ingredients rather than using cup measurements — the same cup can hold dramatically different weights depending on the ingredient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert Fahrenheit to Celsius for oven temperatures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To convert Fahrenheit to Celsius, subtract 32, then multiply by 5/9. For example, 350°F = (350 - 32) × 5/9 = 176.7°C. Common oven temperatures: 325°F = 163°C, 350°F = 177°C, 375°F = 191°C, 400°F = 204°C, 425°F = 218°C, 450°F = 232°C. Most ovens have a tolerance of ±25°F, so rounding to the nearest 5°C is perfectly acceptable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a fluid ounce the same as a weight ounce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A fluid ounce (fl oz) measures volume (approximately 29.57 mL), while a weight ounce (oz) measures mass (approximately 28.35 grams). For water, they are nearly interchangeable because water weighs roughly 1 gram per milliliter. But for other ingredients like honey (which is denser) or oil (which is lighter), 1 fluid ounce and 1 weight ounce represent different amounts."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.converter-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:.75rem;align-items:end;margin-bottom:1rem}
+.converter-grid label{display:block;font-size:.8rem;color:var(--text-light);margin-bottom:.25rem;font-weight:500}
+.converter-grid select,.converter-grid input{width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.converter-grid select:focus,.converter-grid input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.swap-btn{background:var(--warm);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.swap-btn:hover{background:var(--warm-dark)}
+.result-box{background:var(--warm);border-radius:8px;padding:1rem;text-align:center;margin:1rem 0}
+.result-box .value{font-size:1.8rem;font-weight:700;color:var(--primary-dark)}
+.result-box .label{font-size:.8rem;color:var(--text-light);margin-top:.25rem}
+.ref-table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+.ref-table th,.ref-table td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.ref-table th{background:var(--warm);color:var(--primary-dark);font-weight:600;font-size:.8rem;text-transform:uppercase}
+.ref-table tr:hover{background:var(--warm)}
+.temp-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:.75rem;align-items:end}
+.temp-grid input{width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.temp-grid input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.temp-grid label{display:block;font-size:.8rem;color:var(--text-light);margin-bottom:.25rem;font-weight:500}
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:600px){
+.converter-grid{grid-template-columns:1fr}
+.swap-btn{margin:0 auto}
+.temp-grid{grid-template-columns:1fr}
+.ref-table{font-size:.75rem}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Cooking Unit Converter</h1>
+<p>Convert measurements with ingredient-aware density</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html" class="active">Unit Converter</a>
+<a href="/tools/recipe-scaler.html">Recipe Scaler</a>
+<a href="/guides/meal-prep-calculator.html">Meal Prep</a>
+<a href="/answers/cooking-substitutions.html">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== VOLUME/WEIGHT CONVERTER ===== -->
+<div class="card">
+<h2>Volume &amp; Weight Converter</h2>
+<p>Select an ingredient for accurate density-based conversions between volume and weight units. For volume-to-volume or weight-to-weight conversions, the ingredient selection is not required.</p>
+<div style="margin-bottom:.75rem">
+<label for="ingredient-select" style="font-size:.8rem;color:var(--text-light);font-weight:500;display:block;margin-bottom:.25rem">Ingredient (for volume-weight accuracy)</label>
+<select id="ingredient-select" style="width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+<option value="water">Water (default)</option>
+<option value="flour">All-Purpose Flour</option>
+<option value="bread_flour">Bread Flour</option>
+<option value="cake_flour">Cake Flour</option>
+<option value="sugar">Granulated Sugar</option>
+<option value="brown_sugar">Brown Sugar (packed)</option>
+<option value="powdered_sugar">Powdered Sugar</option>
+<option value="butter">Butter</option>
+<option value="milk">Whole Milk</option>
+<option value="heavy_cream">Heavy Cream</option>
+<option value="oil">Vegetable/Olive Oil</option>
+<option value="honey">Honey</option>
+<option value="maple_syrup">Maple Syrup</option>
+<option value="rice">Uncooked Rice</option>
+<option value="oats">Rolled Oats</option>
+<option value="cocoa">Cocoa Powder</option>
+<option value="cornstarch">Cornstarch</option>
+<option value="salt">Table Salt</option>
+<option value="baking_powder">Baking Powder</option>
+</select>
+</div>
+<div class="converter-grid">
+<div>
+<label for="from-amount">Amount</label>
+<input type="number" id="from-amount" value="1" min="0" step="any">
+<label for="from-unit" style="margin-top:.5rem">From</label>
+<select id="from-unit">
+<option value="cup">Cups</option>
+<option value="tbsp">Tablespoons</option>
+<option value="tsp">Teaspoons</option>
+<option value="ml">Milliliters (mL)</option>
+<option value="l">Liters</option>
+<option value="floz">Fluid Ounces</option>
+<option value="g">Grams</option>
+<option value="kg">Kilograms</option>
+<option value="lb">Pounds</option>
+<option value="oz">Ounces (weight)</option>
+</select>
+</div>
+<button class="swap-btn" onclick="swapUnits()" title="Swap units">&#8646;</button>
+<div>
+<label for="to-result">Result</label>
+<input type="text" id="to-result" readonly style="background:var(--warm);font-weight:600">
+<label for="to-unit" style="margin-top:.5rem">To</label>
+<select id="to-unit">
+<option value="g" selected>Grams</option>
+<option value="cup">Cups</option>
+<option value="tbsp">Tablespoons</option>
+<option value="tsp">Teaspoons</option>
+<option value="ml">Milliliters (mL)</option>
+<option value="l">Liters</option>
+<option value="floz">Fluid Ounces</option>
+<option value="kg">Kilograms</option>
+<option value="lb">Pounds</option>
+<option value="oz">Ounces (weight)</option>
+</select>
+</div>
+</div>
+<div class="result-box" id="conversion-summary" style="display:none">
+<div class="value" id="summary-value"></div>
+<div class="label" id="summary-label"></div>
+</div>
+</div>
+
+<!-- ===== TEMPERATURE CONVERTER ===== -->
+<div class="card">
+<h2>Temperature Converter</h2>
+<p>Convert between Fahrenheit and Celsius. Type in either field and the other updates instantly.</p>
+<div class="temp-grid">
+<div>
+<label for="temp-f">Fahrenheit (&deg;F)</label>
+<input type="number" id="temp-f" value="350" step="any">
+</div>
+<button class="swap-btn" style="pointer-events:none;opacity:.5">&#8596;</button>
+<div>
+<label for="temp-c">Celsius (&deg;C)</label>
+<input type="number" id="temp-c" value="177" step="any">
+</div>
+</div>
+<h3>Common Oven Temperatures</h3>
+<table class="ref-table">
+<thead><tr><th>Description</th><th>&deg;F</th><th>&deg;C</th><th>Gas Mark</th></tr></thead>
+<tbody>
+<tr><td>Very Low</td><td>250</td><td>121</td><td>1/2</td></tr>
+<tr><td>Low</td><td>300</td><td>149</td><td>2</td></tr>
+<tr><td>Moderate Low</td><td>325</td><td>163</td><td>3</td></tr>
+<tr><td>Moderate</td><td>350</td><td>177</td><td>4</td></tr>
+<tr><td>Moderate High</td><td>375</td><td>191</td><td>5</td></tr>
+<tr><td>Hot</td><td>400</td><td>204</td><td>6</td></tr>
+<tr><td>Very Hot</td><td>425</td><td>218</td><td>7</td></tr>
+<tr><td>Extremely Hot</td><td>450</td><td>232</td><td>8</td></tr>
+<tr><td>Broil</td><td>500</td><td>260</td><td>10</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== QUICK REFERENCE ===== -->
+<div class="card">
+<h2>Common Cooking Conversions Quick Reference</h2>
+<table class="ref-table">
+<thead><tr><th>Measurement</th><th>Equivalent</th><th>Metric</th></tr></thead>
+<tbody>
+<tr><td>1 tablespoon</td><td>3 teaspoons</td><td>15 mL</td></tr>
+<tr><td>1 fluid ounce</td><td>2 tablespoons</td><td>29.57 mL</td></tr>
+<tr><td>1/4 cup</td><td>4 tablespoons</td><td>59 mL</td></tr>
+<tr><td>1/3 cup</td><td>5 tbsp + 1 tsp</td><td>79 mL</td></tr>
+<tr><td>1/2 cup</td><td>8 tablespoons</td><td>118 mL</td></tr>
+<tr><td>1 cup</td><td>16 tablespoons</td><td>237 mL</td></tr>
+<tr><td>1 pint</td><td>2 cups</td><td>473 mL</td></tr>
+<tr><td>1 quart</td><td>4 cups</td><td>946 mL</td></tr>
+<tr><td>1 gallon</td><td>4 quarts / 16 cups</td><td>3,785 mL</td></tr>
+<tr><td>1 ounce (weight)</td><td>-</td><td>28.35 g</td></tr>
+<tr><td>1 pound</td><td>16 ounces</td><td>453.6 g</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== INGREDIENT DENSITY TABLE ===== -->
+<div class="card">
+<h2>Ingredient Weight per Cup</h2>
+<p>This is why measuring by weight matters. The same 1-cup measure can hold dramatically different weights depending on the ingredient:</p>
+<table class="ref-table">
+<thead><tr><th>Ingredient</th><th>1 Cup (grams)</th><th>1 Tbsp (grams)</th></tr></thead>
+<tbody id="density-table"></tbody>
+</table>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>Understanding Cooking Measurement Systems</h2>
+<p>If you have ever tried to follow a recipe from another country, you know the frustration of encountering unfamiliar measurements. The world of cooking measurements is divided into two primary systems: the US customary system and the metric system. Understanding both — and knowing how to convert between them — is an essential skill for any home cook.</p>
+
+<h3>US Customary vs. Metric: Two Worlds of Measurement</h3>
+<p>The United States, Liberia, and Myanmar are the only countries that have not officially adopted the metric system. This means that the vast majority of recipes published in English outside the US use grams, milliliters, and Celsius. American recipes rely on cups, tablespoons, teaspoons, ounces, and Fahrenheit. Neither system is inherently better, but the metric system offers one significant advantage in the kitchen: precision.</p>
+<p>Cup measurements are volumetric — they measure how much space an ingredient takes up. Gram measurements are gravimetric — they measure the actual mass of an ingredient. This distinction matters enormously because the same volume of different ingredients can have wildly different weights. One cup of all-purpose flour weighs about 125 grams, while one cup of granulated sugar weighs approximately 200 grams. One cup of honey weighs a whopping 340 grams. If a recipe simply says "1 cup" and you are using the wrong ingredient density assumption, your results can be significantly off.</p>
+
+<h3>Why Ingredient Density Matters</h3>
+<p>Density is the relationship between an ingredient's mass and the volume it occupies. In cooking, this concept is critical when converting between volume measurements (cups, tablespoons) and weight measurements (grams, ounces). Water has a density of approximately 1 gram per milliliter, which makes it the baseline for most conversion calculators. But almost no other cooking ingredient shares this convenient density.</p>
+<p>Consider butter: it is denser than flour but less dense than honey. One cup of butter weighs about 227 grams, while one cup of flour weighs only 125 grams. If you were converting a recipe from volume to weight and assumed all ingredients weighed the same per cup, your butter-to-flour ratio would be completely wrong. This is precisely why professional pastry chefs and serious bakers always weigh their ingredients on a kitchen scale rather than scooping with measuring cups.</p>
+<p>The density of dry ingredients is further complicated by how they are measured. Flour that has been sifted weighs less per cup than flour scooped directly from the bag. Brown sugar packed firmly into a cup weighs more than brown sugar loosely spooned in. The "spoon and level" method — spooning flour into the cup and leveling with a straight edge — produces the most consistent results for volume measurement, typically yielding about 125 grams per cup for all-purpose flour.</p>
+
+<h3>Common Conversion Mistakes to Avoid</h3>
+<p>The most frequent mistake home cooks make is confusing fluid ounces with weight ounces. A fluid ounce is a unit of volume (approximately 29.57 mL), while a weight ounce is a unit of mass (approximately 28.35 grams). For water, these are nearly identical, which creates the false impression that they are always interchangeable. But for ingredients like flour, oil, or honey, using a fluid ounce where a weight ounce is intended (or vice versa) can throw off your recipe significantly.</p>
+<p>Another common error is assuming that tablespoon and cup measurements are universal. An Australian tablespoon is 20 mL, while a US tablespoon is 14.79 mL (commonly rounded to 15 mL). A Japanese cup is 200 mL, an Imperial (UK) cup is 284 mL, and a US cup is 236.6 mL (commonly rounded to 240 mL). When following recipes from different countries, always check which measurement standard is being used.</p>
+<p>Temperature conversion errors are equally problematic. Forgetting to convert oven temperatures between Fahrenheit and Celsius can ruin an entire dish. A recipe calling for 350&deg;F (177&deg;C) baked at 350&deg;C (662&deg;F) would char your food in minutes. Always double-check the temperature scale, especially when using recipes from international sources.</p>
+
+<h3>Volume Measurements for Liquids vs. Dry Ingredients</h3>
+<p>Liquid and dry measuring cups are designed differently for a reason. Liquid measuring cups (usually glass or clear plastic with a spout) are meant to be filled to the marked line, allowing the meniscus to sit at eye level for accurate reading. Dry measuring cups (usually metal or plastic nested sets) are designed to be filled to the brim and leveled off with a straight edge.</p>
+<p>Using a dry measuring cup for liquids makes it nearly impossible to fill to the exact line without spilling. Using a liquid measuring cup for dry ingredients makes it difficult to level off accurately. The actual volume difference between the two methods can be 10-15% for ingredients like flour, which is enough to noticeably affect baking outcomes.</p>
+
+<h3>When to Use Weight vs. Volume</h3>
+<p>For baking, always use weight measurements when available. Baking is a precise chemical process where the ratios of flour, sugar, fat, leavening, and liquid determine the texture, rise, and structure of the final product. A 10% error in flour can mean the difference between a tender cake and a dense, dry brick. For savory cooking — soups, stews, stir-fries — volume measurements are generally forgiving enough. An extra tablespoon of soy sauce or a slightly heaped cup of chopped vegetables rarely ruins a dish.</p>
+<p>If you are serious about consistent results, investing in a kitchen scale that reads in both grams and ounces is one of the best upgrades you can make to your cooking equipment. Digital scales are inexpensive, take up minimal counter space, and eliminate the guesswork of measuring cups entirely. Many professional recipe developers now publish recipes with gram measurements specifically because scales provide repeatable accuracy that cups cannot match.</p>
+
+<h3>Tips for Accurate Conversions</h3>
+<p>When converting recipes, round to practical measurements. If a conversion yields 14.79 mL, just use 1 tablespoon (15 mL). If the result is 237 grams, rounding to 240 grams is perfectly fine. Cooking is not chemistry at the molecular level — small rounding differences are absorbed by the natural variation in ingredients.</p>
+<p>For recipes that you convert frequently, keep a personal reference sheet with the conversions already calculated. This saves time and reduces the chance of arithmetic errors. Many experienced home cooks tape a conversion chart to the inside of a kitchen cabinet door for quick reference.</p>
+<p>Finally, when scaling converted recipes, remember that spices and salt often need less aggressive scaling. Doubling a recipe does not always mean doubling the salt — taste as you go. Baking powder and baking soda should be scaled carefully, as too much leavening can cause baked goods to rise and then collapse. Use our <a href="/tools/recipe-scaler.html" style="color:var(--primary)">recipe scaler</a> for intelligent scaling that accounts for these non-linear relationships.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Why does 1 cup of flour weigh less than 1 cup of sugar?</div>
+<div class="faq-a">Flour and sugar have different densities. One cup of all-purpose flour weighs approximately 125 grams, while one cup of granulated sugar weighs about 200 grams. Flour has air pockets between its fine particles, making it lighter per volume. This is why professional bakers always weigh ingredients rather than using cup measurements.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do I convert Fahrenheit to Celsius for oven temperatures?</div>
+<div class="faq-a">Subtract 32, then multiply by 5/9. For example, 350&deg;F = (350 - 32) &times; 5/9 = 176.7&deg;C. Common oven temps: 325&deg;F = 163&deg;C, 350&deg;F = 177&deg;C, 375&deg;F = 191&deg;C, 400&deg;F = 204&deg;C, 425&deg;F = 218&deg;C, 450&deg;F = 232&deg;C.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Is a fluid ounce the same as a weight ounce?</div>
+<div class="faq-a">No. A fluid ounce (fl oz) measures volume (approximately 29.57 mL), while a weight ounce (oz) measures mass (approximately 28.35 grams). For water they are nearly equal, but for honey, flour, or oil, the difference is significant. Always check whether a recipe means fluid or weight ounces.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What is the difference between a US cup and a metric cup?</div>
+<div class="faq-a">A US cup is 236.6 mL (rounded to 240 mL), while an Australian metric cup is 250 mL, and a Japanese cup is 200 mL. An Imperial (UK) cup is 284 mL. When following international recipes, always check which cup standard is used.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Should I sift flour before measuring?</div>
+<div class="faq-a">It depends on the recipe. Sifted flour weighs about 20% less per cup than unsifted flour. If a recipe says "1 cup sifted flour," sift first then measure. If it says "1 cup flour, sifted," measure first then sift. Better yet, use a scale: 125 grams of flour is 125 grams whether sifted or not.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== INGREDIENT DENSITY DATABASE (grams per mL) ===== */
+const DENSITIES={
+water:{name:"Water",gPerMl:1.0},
+flour:{name:"All-Purpose Flour",gPerMl:0.529},
+bread_flour:{name:"Bread Flour",gPerMl:0.55},
+cake_flour:{name:"Cake Flour",gPerMl:0.487},
+sugar:{name:"Granulated Sugar",gPerMl:0.845},
+brown_sugar:{name:"Brown Sugar (packed)",gPerMl:0.93},
+powdered_sugar:{name:"Powdered Sugar",gPerMl:0.504},
+butter:{name:"Butter",gPerMl:0.959},
+milk:{name:"Whole Milk",gPerMl:1.03},
+heavy_cream:{name:"Heavy Cream",gPerMl:1.01},
+oil:{name:"Vegetable/Olive Oil",gPerMl:0.92},
+honey:{name:"Honey",gPerMl:1.42},
+maple_syrup:{name:"Maple Syrup",gPerMl:1.37},
+rice:{name:"Uncooked Rice",gPerMl:0.85},
+oats:{name:"Rolled Oats",gPerMl:0.39},
+cocoa:{name:"Cocoa Powder",gPerMl:0.43},
+cornstarch:{name:"Cornstarch",gPerMl:0.54},
+salt:{name:"Table Salt",gPerMl:1.217},
+baking_powder:{name:"Baking Powder",gPerMl:0.93}
+};
+
+/* Unit definitions: conversion factor to mL (volume) or grams (weight) */
+const VOLUME_UNITS={cup:236.588,tbsp:14.787,tsp:4.929,ml:1,l:1000,floz:29.574};
+const WEIGHT_UNITS={g:1,kg:1000,lb:453.592,oz:28.3495};
+
+function isVolume(u){return u in VOLUME_UNITS}
+function isWeight(u){return u in WEIGHT_UNITS}
+
+function convert(){
+const amount=parseFloat(document.getElementById('from-amount').value);
+if(isNaN(amount)||amount<0){document.getElementById('to-result').value='';document.getElementById('conversion-summary').style.display='none';return}
+const fromU=document.getElementById('from-unit').value;
+const toU=document.getElementById('to-unit').value;
+const ingKey=document.getElementById('ingredient-select').value;
+const density=DENSITIES[ingKey].gPerMl;
+let result;
+
+if(isVolume(fromU)&&isVolume(toU)){
+result=amount*VOLUME_UNITS[fromU]/VOLUME_UNITS[toU];
+}else if(isWeight(fromU)&&isWeight(toU)){
+result=amount*WEIGHT_UNITS[fromU]/WEIGHT_UNITS[toU];
+}else if(isVolume(fromU)&&isWeight(toU)){
+let mL=amount*VOLUME_UNITS[fromU];
+let grams=mL*density;
+result=grams/WEIGHT_UNITS[toU];
+}else if(isWeight(fromU)&&isVolume(toU)){
+let grams=amount*WEIGHT_UNITS[fromU];
+let mL=grams/density;
+result=mL/VOLUME_UNITS[toU];
+}
+
+if(result!==undefined){
+let display=result<0.01?result.toExponential(2):result<10?result.toFixed(3):result<1000?result.toFixed(2):result.toFixed(1);
+display=parseFloat(display);
+document.getElementById('to-result').value=display;
+let fromLabel=document.getElementById('from-unit').selectedOptions[0].textContent;
+let toLabel=document.getElementById('to-unit').selectedOptions[0].textContent;
+document.getElementById('summary-value').textContent=amount+' '+fromLabel+' = '+display+' '+toLabel;
+document.getElementById('summary-label').textContent=DENSITIES[ingKey].name+(isVolume(fromU)!==isVolume(toU)?' (density-adjusted)':'');
+document.getElementById('conversion-summary').style.display='';
+}
+}
+
+function swapUnits(){
+const f=document.getElementById('from-unit');
+const t=document.getElementById('to-unit');
+const tmp=f.value;
+f.value=t.value;
+t.value=tmp;
+convert();
+}
+
+/* Temperature */
+function fToC(){
+const f=parseFloat(document.getElementById('temp-f').value);
+if(isNaN(f))return;
+document.getElementById('temp-c').value=Math.round((f-32)*5/9*10)/10;
+}
+function cToF(){
+const c=parseFloat(document.getElementById('temp-c').value);
+if(isNaN(c))return;
+document.getElementById('temp-f').value=Math.round((c*9/5+32)*10)/10;
+}
+
+/* Density reference table */
+function buildDensityTable(){
+const tbody=document.getElementById('density-table');
+for(const[key,d]of Object.entries(DENSITIES)){
+const cupG=Math.round(d.gPerMl*236.588);
+const tbspG=Math.round(d.gPerMl*14.787*10)/10;
+const tr=document.createElement('tr');
+tr.innerHTML='<td>'+d.name+'</td><td>'+cupG+' g</td><td>'+tbspG+' g</td>';
+tbody.appendChild(tr);
+}
+}
+
+/* FAQ accordion */
+function toggleFaq(el){
+el.classList.toggle('open');
+el.nextElementSibling.classList.toggle('open');
+}
+
+/* Event listeners */
+document.getElementById('from-amount').addEventListener('input',convert);
+document.getElementById('from-unit').addEventListener('change',convert);
+document.getElementById('to-unit').addEventListener('change',convert);
+document.getElementById('ingredient-select').addEventListener('change',convert);
+document.getElementById('temp-f').addEventListener('input',fToC);
+document.getElementById('temp-c').addEventListener('input',cToF);
+
+document.addEventListener('DOMContentLoaded',()=>{
+buildDensityTable();
+convert();
+fToC();
+});
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/bread-calculator.html" style="color:#3b82f6;text-decoration:none;">Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios</a></li>
+<li><a href="/tools/fermentation-calculator.html" style="color:#3b82f6;text-decoration:none;">Fermentation Calculator — Sourdough, Kombucha & Yogurt Timing</a></li>
+<li><a href="/tools/recipe-scaler.html" style="color:#3b82f6;text-decoration:none;">Recipe Scaler — Double, Triple or Halve Any Recipe</a></li>
+<li><a href="/tools/sourdough-calculator.html" style="color:#3b82f6;text-decoration:none;">Sourdough Starter Feeding Calculator with Timeline</a></li>
+</ul>
+</section>
+
+</body>
+</html>

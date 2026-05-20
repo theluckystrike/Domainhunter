@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cooking Substitutions Finder — Ingredient Swap Guide with Diet Filters | RecipeTool</title>
+<meta name="description" content="Free interactive ingredient substitution finder. Search 30+ common cooking ingredients with vegan, dairy-free, gluten-free, nut-free, and low-sugar filters. Find ratios, notes, and best use cases for every swap.">
+<link rel="canonical" href="https://recipetool.net/answers/cooking-substitutions.html">
+<meta property="og:title" content="Cooking Substitutions Finder — Ingredient Swap Guide">
+<meta property="og:description" content="Find ingredient substitutions with dietary filters. 30+ ingredients, 90+ swaps with ratios and notes. Free tool.">
+<meta property="og:url" content="https://recipetool.net/answers/cooking-substitutions.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cooking Substitutions Finder — Ingredient Swap Guide">
+<meta name="twitter:description" content="Interactive ingredient substitution finder with diet filters. Vegan, dairy-free, gluten-free swaps.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Cooking Substitutions Finder",
+      "description": "Interactive ingredient substitution tool with dietary filters. Search 30+ common ingredients and find ratio-accurate swaps with diet compatibility badges.",
+      "url": "https://recipetool.net/answers/cooking-substitutions.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I substitute butter with oil in baking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but use about 3/4 the amount of oil as butter (for 1 cup butter, use 3/4 cup oil). Butter is about 80% fat and 20% water, while oil is 100% fat. Oil-based baked goods tend to be moister and denser. Butter contributes flavor and helps with leavening (creamed butter traps air), so oil works best in quick breads, muffins, and cakes rather than cookies or pastries where butter's structure is important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best egg substitute for baking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the egg's role. For binding: use 1 tablespoon ground flaxseed + 3 tablespoons water per egg (let sit 5 minutes to gel). For moisture: use 1/4 cup applesauce or mashed banana per egg. For leavening: use 1 teaspoon baking powder + 1 tablespoon vinegar per egg. Commercial egg replacers work well for all purposes. In recipes with 3+ eggs where eggs provide primary structure (like meringue or angel food cake), substitutions rarely work well."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use almond flour instead of all-purpose flour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not as a direct 1:1 swap. Almond flour has no gluten, so it cannot provide the same structure. For cookies and quick breads, you can often replace up to 25-30% of the flour with almond flour. For fully gluten-free baking, replace all-purpose flour with a blend of almond flour plus a binding agent like xanthan gum (1/4 teaspoon per cup). Expect a denser, moister texture. Almond flour also adds fat and protein, changing the nutritional profile."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.search-box{width:100%;padding:.6rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.95rem;margin-bottom:.75rem}
+.search-box:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.filter-btn{padding:.35rem .7rem;border:1px solid var(--border);border-radius:20px;background:var(--white);cursor:pointer;font-size:.8rem;font-weight:500;transition:all .15s;color:var(--text-light)}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
+.result-count{font-size:.8rem;color:var(--text-light);margin-bottom:.75rem}
+.sub-card{border:1px solid var(--border);border-radius:8px;margin-bottom:.75rem;overflow:hidden;transition:all .2s}
+.sub-card:hover{box-shadow:var(--shadow)}
+.sub-header{padding:.75rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--warm)}
+.sub-header:hover{background:var(--warm-dark)}
+.sub-header .ing-name{font-weight:600;font-size:.95rem;color:var(--text)}
+.sub-header .toggle{font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.sub-header.open .toggle{transform:rotate(45deg)}
+.sub-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.sub-body.open{max-height:2000px}
+.swap-item{padding:.75rem;border-top:1px solid var(--border)}
+.swap-item:nth-child(even){background:rgba(255,243,224,.3)}
+.swap-name{font-weight:600;font-size:.9rem;margin-bottom:.25rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.swap-ratio{background:var(--primary);color:white;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
+.swap-details{font-size:.85rem;color:var(--text-light);margin-bottom:.35rem}
+.swap-use{font-size:.8rem;color:var(--text-light);font-style:italic}
+.badge{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.65rem;font-weight:600;margin-left:2px}
+.badge-vegan{background:#e8f5e9;color:#2e7d32}
+.badge-dairy{background:#e3f2fd;color:#1565c0}
+.badge-gluten{background:#fff3e0;color:#e65100}
+.badge-nut{background:#fce4ec;color:#c62828}
+.badge-sugar{background:#f3e5f5;color:#7b1fa2}
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+@media(max-width:600px){
+.filter-row{gap:.3rem}
+.filter-btn{font-size:.75rem;padding:.25rem .5rem}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Cooking Substitutions Finder</h1>
+<p>Find ingredient swaps with diet filters &amp; ratios</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html">Unit Converter</a>
+<a href="/tools/recipe-scaler.html">Recipe Scaler</a>
+<a href="/guides/meal-prep-calculator.html">Meal Prep</a>
+<a href="/answers/cooking-substitutions.html" class="active">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== SUBSTITUTION FINDER TOOL ===== -->
+<div class="card">
+<h2>Find Ingredient Substitutions</h2>
+<input type="text" class="search-box" id="search-input" placeholder="Type an ingredient name (e.g., butter, eggs, milk...)">
+<div class="filter-row">
+<button class="filter-btn" data-filter="vegan" onclick="toggleFilter(this)">Vegan</button>
+<button class="filter-btn" data-filter="dairy-free" onclick="toggleFilter(this)">Dairy-Free</button>
+<button class="filter-btn" data-filter="gluten-free" onclick="toggleFilter(this)">Gluten-Free</button>
+<button class="filter-btn" data-filter="nut-free" onclick="toggleFilter(this)">Nut-Free</button>
+<button class="filter-btn" data-filter="low-sugar" onclick="toggleFilter(this)">Low-Sugar</button>
+</div>
+<div class="result-count" id="result-count"></div>
+<div id="results-container"></div>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>The Science of Ingredient Substitution</h2>
+<p>Every ingredient in a recipe serves one or more functions: structure, moisture, flavor, leavening, binding, or emulsification. Successful substitution requires understanding which function the ingredient performs and choosing a replacement that fulfills the same role. This is why substitution is not simply about finding something that "tastes similar" — it is about matching the physical and chemical behavior of the original ingredient.</p>
+
+<h3>Understanding Ingredient Functions</h3>
+<p>Flour provides structure in baked goods through gluten, a protein network that forms when wheat flour is mixed with liquid and agitated. Gluten traps gas bubbles from leavening agents, creating the rise and chewiness of bread. Substituting all-purpose flour with almond flour or coconut flour fundamentally changes this process because neither contains gluten. Gluten-free baking typically requires additional binding agents — xanthan gum, psyllium husk, or egg — to mimic the structural role of gluten.</p>
+<p>Eggs perform multiple roles simultaneously: they bind ingredients together, contribute moisture, provide structure through proteins that coagulate when heated, add richness and fat (from the yolk), and help with leavening (whipped eggs trap air). This multi-functionality is why eggs are one of the hardest ingredients to substitute. A flax egg (ground flaxseed mixed with water) provides binding but not leavening. Applesauce provides moisture but not structure. The best approach is to match the substitute to the egg's primary role in that specific recipe.</p>
+<p>Fats (butter, oil, shortening) serve multiple purposes as well. They tenderize by coating flour proteins and inhibiting gluten formation, create flaky layers in pastry, carry flavor, contribute to browning through the Maillard reaction, and add moisture. Butter specifically contributes water content (about 15-20%) and milk solids that brown and create flavor. Oil is 100% fat with no water or protein, which is why oil-based cakes are moister but lack the complex flavor of butter-based ones.</p>
+
+<h3>When Substitutions Work Well</h3>
+<p>Substitutions are most successful in forgiving recipes — those where the exact texture and structure are not critical. Soups, stews, smoothies, stir-fries, and salad dressings are very forgiving. You can swap one vegetable for another, change the protein source, or use a different liquid with minimal impact on the final dish. These recipes are about flavor and general consistency rather than precise chemical interactions.</p>
+<p>Quick breads, muffins, and pancakes are moderately forgiving. They rely on chemical leavening (baking powder, baking soda) rather than yeast or whipped eggs for rise, so structural substitutions affect texture but rarely cause outright failure. You can substitute butter with oil, use a milk alternative, or swap some flour for almond meal and still get an edible, enjoyable result — though the texture will differ from the original.</p>
+<p>Substitutions are hardest in precision baking: bread (which depends on gluten development), pastry (which depends on fat layering), and egg-dependent recipes like meringues, souffle, and custards. These recipes are essentially chemistry experiments where each ingredient serves a specific, critical function. Substituting in these contexts often requires a fundamentally different recipe rather than a simple ingredient swap.</p>
+
+<h3>Texture and Flavor Considerations</h3>
+<p>Even when a substitution works structurally, it may change the flavor or texture in unexpected ways. Coconut oil is a common butter substitute, but it adds a noticeable coconut flavor that may not suit every recipe. Greek yogurt is an excellent substitute for sour cream in savory dishes, but its tangier flavor and thicker texture may alter the character of a dessert recipe. Honey can replace sugar, but it adds distinct floral notes and extra moisture that affect both flavor and texture.</p>
+<p>Texture changes are often more noticeable than flavor changes. Swapping butter for oil in cookies produces a chewier, denser cookie rather than a crisp one. Using applesauce instead of oil in muffins creates a slightly gummier texture. Replacing all-purpose flour with coconut flour yields a denser, drier product because coconut flour absorbs significantly more liquid. In each case, the result may still be delicious — but it will be different from the original.</p>
+
+<h3>Ratio Adjustments</h3>
+<p>Substitution ratios are rarely 1:1. Coconut flour absorbs roughly 3-4 times as much liquid as wheat flour, so you typically use 1/4 to 1/3 cup of coconut flour per cup of all-purpose flour, plus extra eggs or liquid. Honey is sweeter than sugar by volume (about 25% sweeter) and adds liquid, so you use less honey and reduce other liquids in the recipe. Applesauce replacing oil is roughly 1:1 by volume, but it adds sugar and changes the fat content.</p>
+<p>Our substitution finder includes specific ratios for every swap, calculated for the most common use cases. When a substitution requires additional adjustments (extra liquid, reduced baking time, added binding agent), we note those in the details. Always read the full substitution notes, not just the ratio, to achieve the best results.</p>
+
+<h3>Dietary Substitutions</h3>
+<p>For vegan baking, the two most critical substitutions are eggs and dairy. Flax eggs and chia eggs work well as binders. Aquafaba (the liquid from canned chickpeas) is remarkable for whipping into meringue-like foams. Plant-based milks work as near-direct substitutes for dairy milk in most recipes. Vegan butter substitutes have improved dramatically and perform well in most applications, though they may have higher water content than dairy butter.</p>
+<p>For gluten-free cooking, the best approach is often to use recipes specifically developed for gluten-free ingredients rather than adapting wheat-based recipes. Gluten-free flour blends (typically a combination of rice flour, tapioca starch, and potato starch) are designed to approximate the behavior of all-purpose flour, but they still perform differently. Adding 1/4 teaspoon xanthan gum per cup of gluten-free flour helps provide the binding that gluten normally supplies.</p>
+<p>For low-sugar substitutions, consider that sugar does more than sweeten — it helps with browning, tenderness, moisture retention, and preservation. Reducing sugar in baked goods by more than 25% noticeably affects texture and shelf life. Sugar alternatives like stevia and monk fruit provide sweetness without calories but do not replicate sugar's other functions. Erythritol is a sugar alcohol that bakes more similarly to sugar, measuring roughly 1:1, but it can have a cooling aftertaste.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Can I substitute butter with oil in baking?</div>
+<div class="faq-a">Yes, use 3/4 cup oil per 1 cup butter. Oil-based baked goods are moister and denser. Butter adds flavor and helps with leavening (creamed butter traps air), so oil works best in quick breads and muffins rather than cookies or pastry.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What is the best egg substitute for baking?</div>
+<div class="faq-a">It depends on the egg's role. For binding: 1 tbsp ground flaxseed + 3 tbsp water per egg. For moisture: 1/4 cup applesauce or mashed banana. For leavening: 1 tsp baking powder + 1 tbsp vinegar. Commercial egg replacers are the most versatile option.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Can I use almond flour instead of all-purpose flour?</div>
+<div class="faq-a">Not as a direct 1:1 swap. Almond flour has no gluten, so it cannot provide structure. Replace up to 25-30% for partial swaps. For fully gluten-free, use almond flour plus xanthan gum (1/4 tsp per cup). Expect denser, moister results.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do I substitute buttermilk?</div>
+<div class="faq-a">Add 1 tablespoon of white vinegar or lemon juice to a measuring cup, then fill to 1 cup with milk. Let stand 5 minutes until it curdles. This creates a close approximation of buttermilk's acidity and thickness. Plain yogurt thinned with milk also works well.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Can I reduce sugar in a recipe without affecting the result?</div>
+<div class="faq-a">You can typically reduce sugar by up to 25% in most baked goods without major issues. Beyond that, texture, browning, moisture, and shelf life are all affected. Sugar is not just a sweetener — it tenderizes, helps with browning, and retains moisture. For significant reductions, try sugar alcohols like erythritol which bake more like sugar.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== SUBSTITUTION DATABASE ===== */
+const SUBS={
+"Butter":{subs:[
+{name:"Coconut Oil",ratio:"1:1",notes:"Solid at room temp like butter. Adds mild coconut flavor. Works well in cookies and quick breads.",use:"Baking, sauteing",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Olive Oil / Vegetable Oil",ratio:"3/4 cup oil per 1 cup butter",notes:"100% fat vs butter's 80%. Produces moister, denser texture. Neutral oils best for baking.",use:"Muffins, quick breads, cakes",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Applesauce",ratio:"1/2 cup per 1 cup butter",notes:"Reduces fat significantly. Adds sweetness and moisture. Works best as partial replacement (replace half the butter).",use:"Muffins, quick breads, low-fat baking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Eggs":{subs:[
+{name:"Flax Egg (ground flaxseed + water)",ratio:"1 tbsp flax + 3 tbsp water = 1 egg",notes:"Mix and let sit 5 min to gel. Excellent binder. Adds mild nutty flavor and fiber. Best for dense baked goods.",use:"Cookies, muffins, pancakes",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Chia Egg (chia seeds + water)",ratio:"1 tbsp chia + 3 tbsp water = 1 egg",notes:"Let sit 5 min. Neutral flavor. Good binding. Seeds remain slightly visible.",use:"Muffins, quick breads, energy bars",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Mashed Banana",ratio:"1/4 cup = 1 egg",notes:"Adds sweetness and banana flavor. Provides moisture more than binding. Slightly dense result.",use:"Pancakes, muffins, sweet breads",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Milk (whole)":{subs:[
+{name:"Oat Milk",ratio:"1:1",notes:"Creamiest plant milk. Neutral flavor. Froths well. Works in baking, cooking, and beverages.",use:"Baking, sauces, cereal, coffee",diets:["vegan","dairy-free","nut-free"]},
+{name:"Almond Milk",ratio:"1:1",notes:"Thinner than whole milk. Mild nutty flavor. Lower in calories and protein. May not thicken sauces as well.",use:"Baking, smoothies, cereal",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Coconut Milk (carton, not canned)",ratio:"1:1",notes:"Slightly sweet, mild coconut flavor. Good for baking. Canned coconut milk is much thicker — use diluted.",use:"Baking, curries, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"All-Purpose Flour":{subs:[
+{name:"Gluten-Free Flour Blend",ratio:"1:1 (with xanthan gum added)",notes:"Best commercial option. Contains rice flour, tapioca, and potato starch. Add 1/4 tsp xanthan gum per cup if not included.",use:"Most baking applications",diets:["gluten-free","nut-free"]},
+{name:"Almond Flour",ratio:"Replace up to 25-30% of AP flour",notes:"No gluten — cannot fully replace. Adds moisture, fat, protein. Produces denser texture. Best as partial swap.",use:"Cookies, muffins, crusts",diets:["gluten-free","low-sugar"]},
+{name:"Oat Flour",ratio:"1:1 (add 1/4 tsp xanthan gum per cup)",notes:"Grind rolled oats in blender. Mild flavor. Slightly denser than AP flour. Use certified GF oats for celiac.",use:"Pancakes, muffins, cookies",diets:["nut-free"]}
+]},
+"Sugar (granulated)":{subs:[
+{name:"Honey",ratio:"3/4 cup honey per 1 cup sugar, reduce liquids by 1/4 cup",notes:"25% sweeter than sugar. Adds moisture and floral flavor. Lowers baking temp by 25F to prevent over-browning.",use:"Quick breads, sauces, dressings",diets:["gluten-free","dairy-free","nut-free"]},
+{name:"Maple Syrup",ratio:"3/4 cup per 1 cup sugar, reduce liquids by 3 tbsp",notes:"Distinct maple flavor. Contains minerals. Adds moisture. Reduce oven temp by 25F.",use:"Pancakes, oatmeal, marinades, baking",diets:["vegan","gluten-free","dairy-free","nut-free"]},
+{name:"Erythritol / Monk Fruit Sweetener",ratio:"1:1 for erythritol; follow package for monk fruit",notes:"Zero or very low calorie. Erythritol bakes similarly to sugar but may have cooling aftertaste. Does not brown as well.",use:"Any recipe where sugar reduction is goal",diets:["vegan","gluten-free","dairy-free","nut-free","low-sugar"]}
+]},
+"Heavy Cream":{subs:[
+{name:"Coconut Cream",ratio:"1:1",notes:"Thick layer from top of chilled canned coconut milk. Rich and creamy. Whips similarly to heavy cream. Coconut flavor.",use:"Whipped cream, curries, soups",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Cashew Cream",ratio:"1:1 (blend soaked cashews with water)",notes:"Soak 1 cup cashews 2-4 hrs, blend with 1/2 cup water until smooth. Neutral flavor. Rich texture.",use:"Pasta sauces, soups, desserts",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Evaporated Milk",ratio:"1:1",notes:"Not as rich as heavy cream but works in cooking. Cannot be whipped. 60% of cream's fat content.",use:"Soups, sauces, baking (not whipping)",diets:["gluten-free","nut-free"]}
+]},
+"Sour Cream":{subs:[
+{name:"Greek Yogurt",ratio:"1:1",notes:"Higher protein, lower fat. Tangier flavor. Slightly thinner. Excellent in baking and as a topping.",use:"Baking, dips, toppings, dressings",diets:["gluten-free","nut-free"]},
+{name:"Cashew Cream + Lemon Juice",ratio:"1 cup cashew cream + 1 tbsp lemon juice",notes:"Blend soaked cashews with water and lemon. Rich, tangy. Let sit 1 hour for flavor to develop.",use:"Dips, tacos, baked potatoes",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Silken Tofu (blended)",ratio:"1:1 (blend until smooth)",notes:"Neutral flavor. Add lemon juice for tang. High protein. Very smooth texture when blended well.",use:"Dips, dressings, baking",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Buttermilk":{subs:[
+{name:"Milk + Vinegar/Lemon Juice",ratio:"1 cup milk + 1 tbsp vinegar or lemon juice",notes:"Let stand 5-10 min until curdled. Works with any milk including plant-based. Closest substitute.",use:"Baking, pancakes, fried chicken brine",diets:["gluten-free","nut-free"]},
+{name:"Plain Yogurt + Milk",ratio:"3/4 cup yogurt + 1/4 cup milk",notes:"Provides acidity and thickness. Thin with milk to buttermilk consistency. Works in all baking.",use:"Baking, marinades, dressings",diets:["gluten-free","nut-free"]},
+{name:"Plant Milk + Vinegar",ratio:"1 cup plant milk + 1 tbsp vinegar",notes:"Use soy or oat milk for best results. Let curdle 5-10 min. Fully vegan buttermilk substitute.",use:"Vegan baking, pancakes",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Cream Cheese":{subs:[
+{name:"Cashew Cream Cheese",ratio:"1:1",notes:"Blend soaked cashews with lemon juice, nutritional yeast, salt. Rich and tangy. Many commercial options available.",use:"Frostings, cheesecakes, dips, bagels",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Silken Tofu + Lemon",ratio:"1:1 (blend until smooth, add 1 tbsp lemon juice per cup)",notes:"Light, smooth texture. Lower fat than cream cheese. Needs seasonings for flavor.",use:"Dips, baking, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Greek Yogurt (strained)",ratio:"1:1 (strain through cheesecloth 4-8 hrs)",notes:"Thick, tangy. Higher protein, lower fat. Not as rich but works well in baking and dips.",use:"Dips, baking, frostings",diets:["gluten-free","nut-free"]}
+]},
+"Soy Sauce":{subs:[
+{name:"Coconut Aminos",ratio:"1:1 (slightly sweeter, use less salt elsewhere)",notes:"Soy-free, gluten-free. Milder, sweeter flavor. Lower sodium. Made from coconut sap.",use:"Stir fry, marinades, dressings",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Tamari",ratio:"1:1",notes:"Made from soybeans like soy sauce but typically gluten-free (check label). Richer, less salty flavor.",use:"Stir fry, sushi, marinades",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Worcestershire Sauce",ratio:"1:1 (different flavor profile)",notes:"Adds umami but has different flavor — more complex, slightly sweet. Not vegan (contains anchovies). Check for GF versions.",use:"Marinades, stews, Bloody Marys",diets:["dairy-free","nut-free"]}
+]},
+"Cornstarch":{subs:[
+{name:"Arrowroot Powder",ratio:"1:1",notes:"Neutral flavor. Clearer thickening than cornstarch. Do not boil — add at end of cooking. Freezes better than cornstarch.",use:"Sauces, pie fillings, gravies",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Tapioca Starch",ratio:"2 tbsp tapioca per 1 tbsp cornstarch",notes:"Slightly chewy texture. Glossy finish. Works well in fruit pies and Asian desserts. Freezes well.",use:"Pies, puddings, bubble tea",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"All-Purpose Flour",ratio:"2 tbsp flour per 1 tbsp cornstarch",notes:"Needs longer cooking to remove raw taste. Creates opaque rather than clear thickening. Not gluten-free.",use:"Gravies, roux-based sauces",diets:["vegan","dairy-free","nut-free","low-sugar"]}
+]},
+"Honey":{subs:[
+{name:"Maple Syrup",ratio:"1:1",notes:"Different flavor profile but similar consistency and sweetness. Vegan alternative. Works in most recipes.",use:"Dressings, baking, oatmeal, marinades",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Agave Nectar",ratio:"2/3 cup agave per 1 cup honey",notes:"Sweeter than honey. Thinner consistency. Low glycemic index. Neutral flavor.",use:"Beverages, dressings, raw desserts",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Brown Rice Syrup",ratio:"1.25 cups per 1 cup honey",notes:"Less sweet than honey. Mild, butterscotch-like flavor. Sticky, thick texture. Good for granola bars.",use:"Granola bars, sticky sauces",diets:["vegan","dairy-free","nut-free"]}
+]},
+"Peanut Butter":{subs:[
+{name:"Sunflower Seed Butter",ratio:"1:1",notes:"Nut-free. Similar texture and fat content. Slightly earthier flavor. May turn green in baked goods (harmless — reaction with baking soda).",use:"Sandwiches, baking, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Almond Butter",ratio:"1:1",notes:"Milder flavor. Slightly thinner consistency. Higher in vitamin E. Not suitable for nut allergies.",use:"Sandwiches, baking, sauces",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Tahini (sesame paste)",ratio:"1:1",notes:"Different flavor — nutty, slightly bitter. Thinner. Lower in protein. Works in savory and some sweet applications.",use:"Dressings, hummus, cookies, sauces",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Yogurt (plain)":{subs:[
+{name:"Coconut Yogurt",ratio:"1:1",notes:"Made from coconut milk. Mild coconut flavor. Lower protein than dairy yogurt. Check for live cultures.",use:"Parfaits, smoothies, baking",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Soy Yogurt",ratio:"1:1",notes:"Closest to dairy yogurt in protein content. Neutral flavor. Cultures well. Widely available.",use:"Parfaits, baking, dressings",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Mashed Banana",ratio:"1/4 cup per 1/4 cup yogurt",notes:"Adds sweetness and moisture. Less tangy. Works in baking and smoothies. Not a topping substitute.",use:"Baking, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Baking Powder":{subs:[
+{name:"Baking Soda + Cream of Tartar",ratio:"1/4 tsp baking soda + 1/2 tsp cream of tartar = 1 tsp baking powder",notes:"Mix fresh for each use. This IS what baking powder is (plus cornstarch). Acts immediately — bake promptly.",use:"Any recipe calling for baking powder",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Self-Rising Flour (replace AP flour + baking powder)",ratio:"Use self-rising flour and omit baking powder and salt",notes:"Self-rising flour contains flour, baking powder, and salt. Adjust salt in recipe accordingly.",use:"Biscuits, pancakes, quick breads",diets:["dairy-free","nut-free","low-sugar"]},
+{name:"Whipped Egg Whites",ratio:"2 whipped whites per 1 tsp baking powder",notes:"Fold gently into batter. Provides lift through trapped air. Changes recipe dynamics — not a drop-in replacement.",use:"Cakes, waffles, pancakes",diets:["dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Rice (white)":{subs:[
+{name:"Cauliflower Rice",ratio:"1:1 by volume",notes:"Dramatically lower in calories and carbs. Pulse raw cauliflower in food processor. Sautee or steam 5 min.",use:"Stir fry, burrito bowls, fried rice",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Quinoa",ratio:"1:1",notes:"Complete protein (all 9 essential amino acids). Slightly nutty flavor. Cook in 15 min. Higher fiber and protein.",use:"Bowls, salads, side dishes",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Brown Rice",ratio:"1:1 (increase cook time to 40-45 min)",notes:"Whole grain with bran intact. More fiber, vitamins, minerals. Chewier texture. Longer cooking time.",use:"Any rice application",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Pasta":{subs:[
+{name:"Zucchini Noodles (Zoodles)",ratio:"2 medium zucchini per 2 oz dry pasta",notes:"Very low calorie and carb. Spiralize raw, then quickly sautee 2-3 min or eat raw. Releases water — pat dry.",use:"Stir fry, light sauces, cold salads",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Gluten-Free Pasta (rice/corn based)",ratio:"1:1",notes:"Cook according to package — tends to overcook faster than wheat pasta. Rinse after cooking to prevent sticking.",use:"Any pasta recipe",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Chickpea Pasta / Lentil Pasta",ratio:"1:1",notes:"Higher protein and fiber. Slightly different texture — firmer. Beany undertone. Holds up well with hearty sauces.",use:"Pasta dishes, mac and cheese",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Bread Crumbs":{subs:[
+{name:"Rolled Oats (pulsed)",ratio:"1:1",notes:"Pulse in blender for 5 seconds. Adds fiber. Slightly different texture. Toast in pan for crunchier result.",use:"Meatballs, breading, casserole topping",diets:["vegan","dairy-free","nut-free"]},
+{name:"Crushed Crackers or Chips",ratio:"1:1",notes:"Use any variety. Adds salt and flavor. Crush in bag with rolling pin. Check labels for gluten-free options.",use:"Breading, casserole topping",diets:["vegan","dairy-free","nut-free"]},
+{name:"Almond Meal",ratio:"1:1",notes:"Adds nutty flavor, protein, and healthy fats. Gluten-free. Does not crisp the same way — toasts nicely.",use:"Breading, meatballs, casserole topping",diets:["vegan","dairy-free","gluten-free","low-sugar"]}
+]},
+"Tomato Paste":{subs:[
+{name:"Ketchup",ratio:"1 tbsp paste = 1 tbsp ketchup (reduce sugar/vinegar elsewhere)",notes:"Sweeter and less concentrated. Contains vinegar. Works in a pinch for sauces and soups. Adjust seasoning.",use:"Soups, stews, sauces",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Tomato Sauce (reduced)",ratio:"Simmer 3 tbsp tomato sauce until reduced to 1 tbsp",notes:"Less concentrated than paste. Reduce by simmering to thicken. Adds more liquid to recipe initially.",use:"Sauces, soups, pizza",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Canned Diced Tomatoes (blended & reduced)",ratio:"Blend and reduce 1/2 cup to get 1-2 tbsp paste equivalent",notes:"Fresh tomato flavor. More texture. Takes time to reduce. Good when you want tomato flavor without concentrated paste.",use:"Sauces, soups, chili",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Mayonnaise":{subs:[
+{name:"Greek Yogurt",ratio:"1:1",notes:"Tangier, higher protein, much lower fat. Works well in salads and sandwiches. Not suitable for high-heat applications.",use:"Chicken salad, deviled eggs, dressings",diets:["gluten-free","nut-free"]},
+{name:"Avocado (mashed)",ratio:"1:1",notes:"Creamy texture. Adds healthy fats. Mild flavor. Turns brown if not used quickly — add lemon juice to slow oxidation.",use:"Sandwiches, wraps, dressings",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Hummus",ratio:"1:1",notes:"Adds protein and fiber. Different flavor profile — savory, nutty. Thicker than mayo. Works as spread or dip.",use:"Sandwiches, wraps, dipping",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Vegetable Broth":{subs:[
+{name:"Chicken Broth",ratio:"1:1",notes:"Richer, more savory flavor. Not vegetarian/vegan. Works in all cooking applications. Low-sodium varieties available.",use:"Soups, sauces, rice, deglazing",diets:["dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Mushroom Broth",ratio:"1:1",notes:"Deep, earthy umami flavor. Vegetarian. Darker color. Excellent for risottos and gravies.",use:"Risotto, gravy, soups, stews",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Water + Soy Sauce",ratio:"1 cup water + 1 tsp soy sauce",notes:"Quick substitute. Soy sauce adds umami and salt. Use coconut aminos for soy-free version. Adjust salt.",use:"Stir fry, soups, quick cooking",diets:["vegan","dairy-free","nut-free","low-sugar"]}
+]},
+"Lemon Juice":{subs:[
+{name:"Lime Juice",ratio:"1:1",notes:"Slightly different flavor — more floral. Works interchangeably in most recipes. Same acidity level.",use:"Dressings, marinades, baking, beverages",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"White Vinegar",ratio:"1/2 tsp vinegar per 1 tsp lemon juice",notes:"More acidic than lemon juice. Use less. Sharper flavor without citrus notes. Best for acidity rather than flavor.",use:"Baking (activation of baking soda), pickling",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Apple Cider Vinegar",ratio:"1/2 tsp per 1 tsp lemon juice",notes:"Mild fruity flavor. Less tart than white vinegar. Adds slight sweetness. Good for dressings and marinades.",use:"Dressings, marinades, baking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Onion":{subs:[
+{name:"Shallots",ratio:"3 shallots per 1 medium onion",notes:"Milder, sweeter, more refined flavor. Excellent in vinaigrettes and sauces. More expensive.",use:"Sauces, dressings, fine cooking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Leeks (white & light green parts)",ratio:"1 large leek per 1 medium onion",notes:"Milder, sweeter. Requires thorough washing (sand between layers). Delicate flavor for soups and quiches.",use:"Soups, quiche, potato dishes",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Onion Powder",ratio:"1 tsp per 1 small onion",notes:"Concentrated. No texture — just flavor. Good when you want onion flavor without the crunch or moisture.",use:"Dry rubs, seasoning blends, quick cooking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Garlic":{subs:[
+{name:"Garlic Powder",ratio:"1/4 tsp per 1 clove",notes:"Concentrated, no texture. Slightly different flavor — mellower. Distributes more evenly in dry mixes.",use:"Rubs, seasoning blends, quick cooking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Garlic-Infused Oil",ratio:"1/2 tsp per 1 clove (add oil to cooking fat amount)",notes:"Adds garlic flavor without FODMAP fructans. Good for IBS-friendly cooking. Discard garlic pieces.",use:"Low-FODMAP cooking, sauces, pasta",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Shallots",ratio:"1/2 shallot per 2-3 cloves garlic",notes:"Adds mild allium flavor. Not the same as garlic but works when garlic is unavailable. Sweeter, less pungent.",use:"Sauces, dressings, roasting",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Chocolate (baking)":{subs:[
+{name:"Cocoa Powder + Oil",ratio:"3 tbsp cocoa + 1 tbsp oil = 1 oz baking chocolate",notes:"Unsweetened cocoa. Adjust sugar if replacing sweetened chocolate. Dutch-process cocoa is milder.",use:"Brownies, cakes, cookies",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Carob Powder",ratio:"3 tbsp carob per 1 oz chocolate (reduce sugar by 25%)",notes:"Naturally sweet. No caffeine or theobromine. Different flavor — earthy, slightly sweet. Not actually chocolate.",use:"Brownies, cookies, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Cacao Nibs",ratio:"1 oz nibs per 1 oz chocolate",notes:"Unsweetened, crunchy. Intense chocolate flavor. No added sugar. Works as add-in, not melted chocolate replacement.",use:"Cookies, trail mix, yogurt topping",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]}
+]},
+"Ricotta Cheese":{subs:[
+{name:"Cottage Cheese (blended)",ratio:"1:1 (blend until smooth)",notes:"Higher protein. Slightly tangier. Blend until smooth for ricotta-like texture. Drain excess liquid.",use:"Lasagna, stuffed shells, pancakes",diets:["gluten-free","nut-free"]},
+{name:"Tofu Ricotta",ratio:"1:1 (crumble firm tofu, season with lemon, nutritional yeast, salt)",notes:"Vegan. Season well — tofu is bland alone. Nutritional yeast adds cheesy flavor. Surprisingly convincing.",use:"Lasagna, stuffed shells, pizza",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Cashew Ricotta",ratio:"1:1 (soak and blend cashews with lemon juice)",notes:"Rich, creamy. Soak cashews 2-4 hrs. Blend with lemon, garlic, nutritional yeast. Very close to real ricotta.",use:"Lasagna, stuffed shells, ravioli",diets:["vegan","dairy-free","gluten-free"]}
+]},
+"Cheddar Cheese":{subs:[
+{name:"Nutritional Yeast",ratio:"2 tbsp per 1/4 cup shredded cheddar (for flavor, not melting)",notes:"Cheesy, nutty flavor. Flaky texture. Rich in B-vitamins. Does not melt. Use for flavor in sauces and toppings.",use:"Pasta, popcorn, mac and cheese sauce",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Vegan Cheddar Shreds",ratio:"1:1",notes:"Commercial options vary widely in quality. Best brands melt well. Often coconut oil-based. Check ingredient labels.",use:"Sandwiches, pizza, nachos",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Gouda or Gruyere",ratio:"1:1",notes:"Different flavor profiles but similar melting properties. Gouda is sweeter, Gruyere is nuttier. Both work as cheddar alternatives.",use:"Mac and cheese, grilled cheese, sauces",diets:["gluten-free","nut-free"]}
+]},
+"Olive Oil":{subs:[
+{name:"Avocado Oil",ratio:"1:1",notes:"Neutral flavor. Higher smoke point (520F vs 375F). Excellent for high-heat cooking. Similar healthy fat profile.",use:"Searing, roasting, frying, dressings",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Coconut Oil",ratio:"1:1",notes:"Solid at room temp. Mild coconut flavor (refined has less). Good for baking. Different fat profile (saturated).",use:"Baking, sauteing, medium-heat cooking",diets:["vegan","dairy-free","gluten-free","nut-free","low-sugar"]},
+{name:"Butter",ratio:"1:1 (for cooking; 3/4 cup butter per 1 cup oil for baking)",notes:"Adds rich flavor and browning. Lower smoke point. Not vegan/dairy-free. Better for moderate heat cooking.",use:"Sauteing, baking, finishing sauces",diets:["gluten-free","nut-free","low-sugar"]}
+]},
+"Brown Sugar":{subs:[
+{name:"White Sugar + Molasses",ratio:"1 cup white sugar + 1 tbsp molasses = 1 cup light brown sugar",notes:"This IS brown sugar. Use 2 tbsp molasses for dark brown sugar. Mix thoroughly. Exact replica.",use:"Any recipe calling for brown sugar",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Coconut Sugar",ratio:"1:1",notes:"Lower glycemic index. Caramel-like flavor. Less moisture than brown sugar. Slightly drier texture in baking.",use:"Baking, sauces, coffee",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Maple Syrup",ratio:"2/3 cup per 1 cup brown sugar, reduce liquids by 1/4 cup",notes:"Liquid — adjust recipe accordingly. Maple flavor. More moisture. Reduce oven temp by 25F.",use:"Oatmeal, baking, marinades",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]},
+"Vanilla Extract":{subs:[
+{name:"Maple Syrup",ratio:"1:1",notes:"Adds warm, sweet flavor. Not the same as vanilla but complements many of the same recipes. Adds sweetness.",use:"Baking, oatmeal, smoothies",diets:["vegan","dairy-free","gluten-free","nut-free"]},
+{name:"Almond Extract",ratio:"1/2 tsp per 1 tsp vanilla",notes:"Much stronger — use half the amount. Different flavor — nutty, cherry-like. Works well in cookies, cakes, frostings.",use:"Cookies, cakes, frostings",diets:["vegan","dairy-free","gluten-free"]},
+{name:"Vanilla Bean Paste / Vanilla Powder",ratio:"1:1 for paste; 1/2 tsp powder per 1 tsp extract",notes:"Paste has visible vanilla bean seeds — premium appearance. Powder is alcohol-free. Both have stronger vanilla flavor.",use:"Custards, ice cream, premium baking",diets:["vegan","dairy-free","gluten-free","nut-free"]}
+]}
+};
+
+/* ===== ACTIVE FILTERS ===== */
+let activeFilters=new Set();
+
+function toggleFilter(btn){
+const f=btn.dataset.filter;
+if(activeFilters.has(f)){activeFilters.delete(f);btn.classList.remove('active')}
+else{activeFilters.add(f);btn.classList.add('active')}
+renderResults();
+}
+
+/* ===== RENDER ===== */
+function renderResults(){
+const query=document.getElementById('search-input').value.toLowerCase().trim();
+const container=document.getElementById('results-container');
+container.innerHTML='';
+let count=0;
+let subCount=0;
+
+for(const[ingredient,data]of Object.entries(SUBS)){
+if(query&&!ingredient.toLowerCase().includes(query))continue;
+/* Filter subs by diet */
+const filteredSubs=data.subs.filter(sub=>{
+for(const f of activeFilters){
+const dietKey=f==='dairy-free'?'dairy-free':f;
+if(!sub.diets.includes(dietKey))return false;
+}
+return true;
+});
+if(filteredSubs.length===0&&activeFilters.size>0)continue;
+const displaySubs=activeFilters.size>0?filteredSubs:data.subs;
+count++;
+subCount+=displaySubs.length;
+
+let html='<div class="sub-card"><div class="sub-header" onclick="toggleCard(this)">';
+html+='<span class="ing-name">'+ingredient+' ('+displaySubs.length+' substitution'+(displaySubs.length!==1?'s':'')+')</span>';
+html+='<span class="toggle">+</span></div><div class="sub-body">';
+
+displaySubs.forEach(sub=>{
+html+='<div class="swap-item">';
+html+='<div class="swap-name">'+sub.name+' <span class="swap-ratio">'+sub.ratio+'</span>';
+sub.diets.forEach(d=>{
+const labels={'vegan':'Vegan','dairy-free':'DF','gluten-free':'GF','nut-free':'NF','low-sugar':'LS'};
+const classes={'vegan':'badge-vegan','dairy-free':'badge-dairy','gluten-free':'badge-gluten','nut-free':'badge-nut','low-sugar':'badge-sugar'};
+html+=' <span class="badge '+classes[d]+'">'+labels[d]+'</span>';
+});
+html+='</div>';
+html+='<div class="swap-details">'+sub.notes+'</div>';
+html+='<div class="swap-use">Best for: '+sub.use+'</div>';
+html+='</div>';
+});
+html+='</div></div>';
+container.innerHTML+=html;
+}
+document.getElementById('result-count').textContent=count+' ingredient'+(count!==1?'s':'')+' found, '+subCount+' total substitutions'+(activeFilters.size>0?' (filtered)':'');
+if(count===0){
+container.innerHTML='<p style="text-align:center;padding:1rem;color:var(--text-light)">No ingredients found. Try a different search term or remove filters.</p>';
+}
+}
+
+function toggleCard(header){
+header.classList.toggle('open');
+header.querySelector('.toggle').textContent=header.classList.contains('open')?'-':'+';
+header.nextElementSibling.classList.toggle('open');
+}
+
+/* FAQ */
+function toggleFaq(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+
+/* Events */
+document.getElementById('search-input').addEventListener('input',renderResults);
+
+/* Init */
+document.addEventListener('DOMContentLoaded',renderResults);
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/cooking-temperatures.html" style="color:#3b82f6;text-decoration:none;">Cooking Temperature Guide — Meat & Baking Temps with Timer</a></li>
+<li><a href="/answers/egg-substitutes.html" style="color:#3b82f6;text-decoration:none;">Egg Substitute Finder for Baking — Ratio Calculator</a></li>
+<li><a href="/answers/spice-pairing-guide.html" style="color:#3b82f6;text-decoration:none;">Spice Pairing Guide — Interactive Compatibility Matrix & Flavor Profiles</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+</ul>
+</section>
+
+</body>
+</html>

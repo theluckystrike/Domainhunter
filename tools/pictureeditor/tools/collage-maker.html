@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photo Collage Builder Online — Drag-and-Drop Layouts Free | PictureEditor</title>
+<meta name="description" content="Free online photo collage builder with drag-and-drop layouts. 6 layout presets, customizable gaps, borders, and backgrounds. Canvas rendering with instant download. Client-side — your images never leave your device.">
+<meta name="keywords" content="photo collage maker, collage builder, photo grid, image collage online, collage layout, drag drop collage, photo montage, picture collage, collage creator, free collage tool">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/collage-maker.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/collage-maker.html">
+<meta property="og:title" content="Photo Collage Builder Online — Drag-and-Drop Layouts Free">
+<meta property="og:description" content="Build stunning photo collages with customizable layouts, gaps, and borders. Free, private, no server upload required.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photo Collage Builder Online — Drag-and-Drop Layouts Free">
+<meta name="twitter:description" content="Create photo collages with drag-and-drop layouts. 6 presets, custom gaps and backgrounds. Free, private, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Photo Collage Builder Online",
+    "url":"https://pictureeditor.net/tools/collage-maker.html",
+    "description":"Free online photo collage builder with drag-and-drop layouts. 6 presets including 2x1, 2x2, 3x1, 1+2, 2+1, and 3x3. Customizable gaps, borders, and background colors with canvas rendering.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How many photos can I add to a collage?","acceptedAnswer":{"@type":"Answer","text":"The number of photos depends on the layout you choose. The 2x1 layout holds 2 photos, 2x2 holds 4, 3x1 holds 3, 1+2 holds 3 (one large plus two small), 2+1 holds 3 (two small plus one large), and 3x3 holds 9. Upload as many images as you need and drag them into your preferred slots."}},
+      {"@type":"Question","name":"Can I adjust the spacing between photos in the collage?","acceptedAnswer":{"@type":"Answer","text":"Yes. The gap slider lets you control the spacing between photos from 0 pixels (no gap, seamless collage) to 50 pixels. You can also set a background color that shows through the gaps, creating a colored border effect between your images. The border radius control rounds the corners of each photo slot."}},
+      {"@type":"Question","name":"What resolution is the downloaded collage?","acceptedAnswer":{"@type":"Answer","text":"The collage is rendered at 1200 pixels wide by default, with height determined by the layout aspect ratio. Each photo slot is rendered at the maximum resolution that fits within its grid cell. The output is a high-quality PNG file suitable for printing or sharing on social media platforms."}},
+      {"@type":"Question","name":"Can I rearrange photos after placing them in the collage?","acceptedAnswer":{"@type":"Answer","text":"Yes. Simply drag a new image from the upload pool onto any slot to replace the existing photo. You can also click any filled slot to swap it with another image. The preview updates in real time as you make changes, so you can experiment with different arrangements before downloading."}},
+      {"@type":"Question","name":"Are my photos uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All collage building happens entirely in your browser using the HTML5 Canvas API. Your photos never leave your device. The tool reads image files locally, composites them on a canvas element, and exports the result as a downloadable PNG. Zero network requests are made during the entire process."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"Collage Maker","item":"https://pictureeditor.net/tools/collage-maker.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:16px}
+.tab-bar button{padding:8px 18px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);border-bottom:none;background:#f1f5f9;color:var(--text-secondary)}
+.tab-bar button.active{background:var(--surface);color:var(--accent);border-color:var(--accent);border-bottom:1.5px solid var(--surface);margin-bottom:-1px;position:relative;z-index:1}
+.tab-content{border:1.5px solid var(--border);border-radius:0 8px 8px 8px;padding:16px;background:var(--surface)}
+/* Color input */
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field input[type="text"],.text-field input[type="number"]{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.text-field input:focus{border-color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+/* Collage-specific */
+.layout-grid{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.layout-grid button{width:72px;height:54px;border:2px solid var(--border);border-radius:8px;background:var(--surface);display:flex;flex-wrap:wrap;gap:2px;padding:4px;align-items:stretch;align-content:stretch;transition:.15s}
+.layout-grid button:hover{border-color:var(--accent)}
+.layout-grid button.active{border-color:var(--accent);background:#eef2ff}
+.layout-grid button .cell{background:#cbd5e1;border-radius:2px;flex-shrink:0}
+.collage-preview{display:grid;gap:8px;margin:16px 0;min-height:200px}
+.collage-slot{background:#f1f5f9;border:2px dashed var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;position:relative;min-height:80px;transition:.15s}
+.collage-slot:hover{border-color:var(--accent);background:#eef2ff}
+.collage-slot.filled{border-style:solid;border-color:transparent}
+.collage-slot.filled img{width:100%;height:100%;object-fit:cover}
+.collage-slot .slot-label{font-size:.75rem;color:var(--text-secondary);font-weight:600}
+.thumb-pool{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;min-height:60px;padding:12px;background:#f8fafc;border:1px solid var(--border);border-radius:8px}
+.thumb-pool img{width:56px;height:56px;object-fit:cover;border-radius:6px;cursor:grab;border:2px solid transparent;transition:.15s}
+.thumb-pool img:hover{border-color:var(--accent)}
+.thumb-pool img.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(99,102,241,.3)}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .tab-bar button{padding:6px 12px;font-size:.78rem}
+  .layout-grid button{width:60px;height:45px}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Collage Maker
+</nav>
+
+<h2>Photo Collage Builder &mdash; Drag-and-Drop Layouts Free</h2>
+<p class="subtitle">Build beautiful photo collages with customizable grid layouts, adjustable gaps, background colors, and instant download. Upload your images, choose a layout, drag photos into slots, and export a high-quality collage &mdash; all in your browser.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="collage-tool" style="margin-top:0">Collage Builder</h3>
+  <p>Upload multiple images below, select a layout preset, then drag or click to place photos into slots. Adjust gap size, border radius, and background color to match your style. Download when you are satisfied with the arrangement.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop images here, or click to select multiple</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB each</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+
+  <!-- Controls (hidden until images loaded) -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Image Pool -->
+    <div style="margin-bottom:16px">
+      <label style="font-size:.85rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:6px">Uploaded Images (click to select, then click a slot)</label>
+      <div class="thumb-pool" id="thumbPool"></div>
+      <button class="btn btn-outline" id="addMoreBtn" style="font-size:.8rem;padding:6px 14px;margin-top:8px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add More Images
+      </button>
+      <input type="file" id="addMoreInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+    </div>
+
+    <!-- Layout Presets -->
+    <div style="margin-bottom:16px">
+      <label style="font-size:.85rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:6px">Layout Preset</label>
+      <div class="layout-grid" id="layoutGrid">
+        <button data-layout="2x1" class="active" title="2x1 Side by Side">
+          <span class="cell" style="width:48%;height:100%"></span>
+          <span class="cell" style="width:48%;height:100%"></span>
+        </button>
+        <button data-layout="2x2" title="2x2 Grid">
+          <span class="cell" style="width:48%;height:48%"></span>
+          <span class="cell" style="width:48%;height:48%"></span>
+          <span class="cell" style="width:48%;height:48%"></span>
+          <span class="cell" style="width:48%;height:48%"></span>
+        </button>
+        <button data-layout="3x1" title="3x1 Three Columns">
+          <span class="cell" style="width:31%;height:100%"></span>
+          <span class="cell" style="width:31%;height:100%"></span>
+          <span class="cell" style="width:31%;height:100%"></span>
+        </button>
+        <button data-layout="1+2" title="1 Large + 2 Small">
+          <span class="cell" style="width:60%;height:100%"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;width:36%;height:100%"><span class="cell" style="width:100%;height:48%"></span><span class="cell" style="width:100%;height:48%"></span></span>
+        </button>
+        <button data-layout="2+1" title="2 Small + 1 Large">
+          <span style="display:flex;flex-direction:column;gap:2px;width:36%;height:100%"><span class="cell" style="width:100%;height:48%"></span><span class="cell" style="width:100%;height:48%"></span></span>
+          <span class="cell" style="width:60%;height:100%"></span>
+        </button>
+        <button data-layout="3x3" title="3x3 Grid">
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+          <span class="cell" style="width:30%;height:30%"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Gap, Border, Background -->
+    <div class="slider-field">
+      <label>Gap Size <span id="gapVal">8px</span></label>
+      <input type="range" id="gapSlider" min="0" max="50" value="8">
+    </div>
+    <div class="slider-field">
+      <label>Border Radius <span id="radiusVal">8px</span></label>
+      <input type="range" id="radiusSlider" min="0" max="40" value="8">
+    </div>
+    <div class="color-field">
+      <label for="bgColor">Background Color</label>
+      <input type="color" id="bgColor" value="#ffffff">
+    </div>
+
+    <!-- Info Row -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Images</div><div class="value" id="imgCountInfo">0</div></div>
+      <div class="info-box accent"><div class="label">Layout</div><div class="value" id="layoutInfo">2x1</div></div>
+      <div class="info-box green"><div class="label">Slots Filled</div><div class="value" id="filledInfo">0/2</div></div>
+    </div>
+
+    <!-- Collage Preview -->
+    <div class="pane-label" style="font-size:.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;margin-bottom:8px">Collage Preview</div>
+    <div class="collage-preview" id="collagePreview"></div>
+
+    <!-- Hidden canvas for export -->
+    <canvas id="exportCanvas" class="hidden"></canvas>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Collage
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#collage-tool">Collage Builder</a></li>
+    <li><a href="#why-collages">Why Photo Collages Matter</a></li>
+    <li><a href="#choosing-layouts">Choosing the Right Layout</a></li>
+    <li><a href="#design-principles">Collage Design Principles</a></li>
+    <li><a href="#color-and-spacing">Color, Spacing, and Visual Harmony</a></li>
+    <li><a href="#professional-uses">Professional Uses for Photo Collages</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: WHY COLLAGES ===== -->
+<section class="card" id="why-collages">
+  <h3 style="margin-top:0">Why Photo Collages Matter</h3>
+
+  <h4>Telling a Story Through Multiple Images</h4>
+  <p>A single photograph captures a moment, but a collage tells a story. By arranging multiple images together, you create a narrative that no individual photo can convey alone. Wedding photographers use collages to show the ceremony, reception, and candid moments on a single page. Travel bloggers combine landscape shots, food photos, and street scenes to capture the essence of a destination. Real estate agents display multiple rooms and angles in one visual package that gives buyers a comprehensive property overview without scrolling through dozens of separate images.</p>
+  <p>The power of collages lies in juxtaposition. When you place two or more images next to each other, viewers naturally create connections between them. A before-and-after collage tells a transformation story. A grid of product variations shows range and options. A timeline collage documents progress over time. These visual relationships emerge automatically from the arrangement, making collages one of the most efficient forms of visual communication available to anyone with a camera and a few minutes to spare.</p>
+
+  <h4>Social Media Optimization</h4>
+  <p>Social media platforms favor single-image posts in their algorithms, but many stories require multiple photos. A collage solves this by packing several images into one post that displays at full resolution in the feed. Instagram carousel posts show multiple images, but each image appears individually and many viewers never swipe past the first. A collage ensures all your key images are seen immediately, increasing engagement and telling your complete story in the fraction of a second that social media viewers dedicate to each post as they scroll through their feeds.</p>
+  <p>Platform-specific considerations matter for collage dimensions. Instagram favors square (1:1) or portrait (4:5) formats. Pinterest performs best with tall images (2:3 or 1:2 ratio). Twitter and Facebook display landscape images most prominently. Choosing a collage layout that matches your target platform's preferred aspect ratio ensures your content displays optimally and avoids awkward cropping that could cut off important visual elements from your carefully arranged composition.</p>
+
+  <h4>Memory Preservation and Gifting</h4>
+  <p>Beyond digital sharing, photo collages serve as meaningful personal artifacts. A printed collage makes a thoughtful gift that shows more care than a single enlarged photo. Parents create year-in-review collages documenting their children's growth milestones. Couples assemble anniversary collages highlighting their best shared moments. These physical or digital compilations become treasured keepsakes precisely because they capture breadth rather than a single instant, preserving the texture and variety of lived experience in a format that invites extended viewing and conversation.</p>
+</section>
+
+<!-- ===== SECTION: CHOOSING LAYOUTS ===== -->
+<section class="card" id="choosing-layouts">
+  <h3 style="margin-top:0">Choosing the Right Layout</h3>
+
+  <h4>2x1 Side by Side: Before and After</h4>
+  <p>The 2x1 layout places two images next to each other horizontally. This is the classic before-and-after format used in fitness transformations, home renovations, photo editing comparisons, and product improvements. The viewer's eye naturally moves from left to right, interpreting the left image as "before" and the right as "after." This layout works best when both images share similar framing and composition so the viewer can focus on the differences rather than trying to orient themselves between two completely different scenes. The 2x1 layout also works well for comparison shopping, showing two product options side by side for easy visual evaluation.</p>
+
+  <h4>2x2 Grid: Equal Emphasis</h4>
+  <p>The 2x2 grid gives equal visual weight to four images. This balanced layout is ideal when all four images are equally important and no single image should dominate. Product photography often uses 2x2 grids to show four color variations, four angles, or four features of the same item. Event photographers use it to capture four key moments — the invitation, the ceremony, the celebration, and the farewell. The symmetry of the 2x2 grid creates a clean, professional appearance that works across all platforms and print formats, making it the most versatile layout choice for general-purpose collages.</p>
+
+  <h4>1+2 and 2+1: Hierarchical Layouts</h4>
+  <p>These asymmetric layouts establish a visual hierarchy by making one image larger than the others. The 1+2 layout features one dominant image on the left with two smaller images stacked on the right. The 2+1 reverses this arrangement. Use these layouts when you have a hero image that deserves emphasis plus supporting images that provide context. A food blogger might use the large slot for the finished dish and the smaller slots for key ingredients or preparation steps. A portrait photographer might feature the main headshot prominently while showing environmental or detail shots in the smaller slots.</p>
+
+  <h4>3x1 and 3x3: Maximum Coverage</h4>
+  <p>The 3x1 triptych layout creates a panoramic feel, ideal for landscape photography where three adjacent shots can be stitched visually to suggest a wider view. It also works well for sequential storytelling — three stages of a process, three expressions in a portrait series, or three variations of a design concept. The 3x3 grid is the maximum-density layout, accommodating nine images in a compact format. This grid excels for mood boards, portfolio samplers, Instagram grid previews, and any context where you want to present the broadest possible selection of images in a single visual unit without sacrificing individual image clarity.</p>
+</section>
+
+<!-- ===== SECTION: DESIGN PRINCIPLES ===== -->
+<section class="card" id="design-principles">
+  <h3 style="margin-top:0">Collage Design Principles</h3>
+
+  <h4>Visual Consistency Across Frames</h4>
+  <p>The most polished collages maintain visual consistency across all images. This means matching color temperature, exposure level, and editing style before assembling the collage. A collage where one image is warm-toned and another is cool, or one is dark and moody while another is bright and airy, creates visual discord that distracts from the content. Professional designers apply the same filter preset, color grade, or editing recipe to all images before collage assembly. Even minor consistency adjustments dramatically improve the final result because the human eye is extremely sensitive to tonal mismatches when images are placed adjacent to each other.</p>
+
+  <h4>Focal Point Distribution</h4>
+  <p>Each image in a collage should have a clear focal point, and these focal points should be distributed so they do not compete with each other. If every image has its subject in the center, the collage can feel static and repetitive. Vary the placement of subjects across images — one with the focal point on the left, another on the right, a third in the lower third. This creates visual movement that guides the viewer's eye around the entire collage rather than having it land on the same relative position in each frame and bounce between identical compositions.</p>
+
+  <h4>Scale and Proportion</h4>
+  <p>When using asymmetric layouts like 1+2 or 2+1, the hero image should contain the most visually impactful or narratively important content. Do not waste the large slot on a supporting image. The large frame attracts the most attention and sets the tone for the entire collage. Viewers process the large image first, then scan the smaller images for additional context. This reading pattern mirrors magazine layout design, where editors deliberately choose which image gets the full-page treatment and which images serve as supporting thumbnails in the sidebar or margin.</p>
+</section>
+
+<!-- ===== SECTION: COLOR AND SPACING ===== -->
+<section class="card" id="color-and-spacing">
+  <h3 style="margin-top:0">Color, Spacing, and Visual Harmony</h3>
+
+  <h4>Gap Size and Its Visual Impact</h4>
+  <p>The gap between collage frames dramatically affects the overall feel. Zero gap creates a seamless mosaic where images flow into each other — ideal for artistic collages and mood boards where you want an immersive, magazine-spread feel. Small gaps (4-8 pixels) provide subtle separation that helps the eye distinguish individual images without breaking the visual flow. Medium gaps (12-20 pixels) create a framed gallery effect that gives each image room to breathe. Large gaps (25+ pixels) create a sparse, modern layout where the background color becomes a significant design element that frames each image as a distinct piece in an exhibition-style presentation.</p>
+
+  <h4>Background Color Selection</h4>
+  <p>White backgrounds create a clean, gallery-like presentation that works universally. Black backgrounds add drama and make colors pop, particularly effective for vibrant food photography, neon-lit night scenes, or saturated product shots. Matching the background to a dominant color in your images creates a cohesive, branded look. For social media, consider using your brand colors as the collage background to maintain visual identity across all your posts. Avoid busy or patterned backgrounds — they compete with the photos for attention and make the collage look cluttered rather than curated.</p>
+
+  <h4>Border Radius and Modern Aesthetics</h4>
+  <p>Rounded corners on collage slots soften the overall presentation and create a modern, friendly aesthetic. Sharp corners feel more formal and editorial. The border radius should match your brand's design language — if your website and social media presence use rounded elements, your collages should too. A radius of 8-12 pixels provides noticeable softening without making the images feel like they are floating in bubbles. Excessive rounding (20+ pixels) works only for very large image slots where the rounded corners do not cut into the image content itself, removing important visual information from the composition.</p>
+</section>
+
+<!-- ===== SECTION: PROFESSIONAL USES ===== -->
+<section class="card" id="professional-uses">
+  <h3 style="margin-top:0">Professional Uses for Photo Collages</h3>
+
+  <h4>E-Commerce Product Displays</h4>
+  <p>Online retailers use collages to show product variations, usage scenarios, and detail views in a single image. A clothing brand might collage the same garment in four colors. A furniture store might show a piece from the front, side, back, and in a styled room setting. These multi-view collages reduce the number of clicks a customer must make to evaluate a product, increasing time-on-page and conversion rates. Amazon and Etsy sellers report that listing images containing multi-angle collages outperform single-view images by significant margins in click-through rates from search results.</p>
+
+  <h4>Portfolio Presentation</h4>
+  <p>Photographers, designers, and artists use collages as portfolio samplers that showcase their range and style in a single image. A wedding photographer's website hero image might be a 3x3 collage showing ceremony moments, portraits, details, and reception highlights. This immediately communicates the breadth of coverage a client can expect. Graphic designers collage their best work into presentation boards for client pitches. Architects compile rendering collages showing exterior views, interior spaces, and material details. The collage format serves as a visual resume that communicates capability faster than any text description or sequential gallery could achieve.</p>
+
+  <h4>Social Media Marketing</h4>
+  <p>Marketing teams create branded collages for product launches, event recaps, and seasonal campaigns. A restaurant might collage their new menu items for an announcement post. A gym might create a client transformation grid showing multiple success stories. A travel agency might assemble destination highlight collages for each package they offer. These purpose-built marketing collages are designed for specific platforms — square for Instagram, landscape for Twitter, tall for Pinterest — and incorporate brand colors in the background and gaps to maintain visual consistency across all marketing channels and touchpoints in the customer journey.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many photos can I add to a collage?</div>
+    <div class="faq-a"><p>The number of photos depends on the layout you choose. The 2x1 layout holds 2 photos, 2x2 holds 4, 3x1 holds 3, 1+2 holds 3, 2+1 holds 3, and 3x3 holds 9. You can upload as many images as you want to the image pool and then drag or click to place them into your preferred slots. Swap images freely by selecting a new one and clicking an occupied slot.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I adjust the spacing between photos in the collage?</div>
+    <div class="faq-a"><p>Yes. The gap slider lets you control the spacing between photos from 0 pixels (no gap, seamless collage) to 50 pixels. The background color shows through the gaps, creating a colored border effect between your images. You can also adjust the border radius to round the corners of each photo slot for a modern, polished appearance.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What resolution is the downloaded collage?</div>
+    <div class="faq-a"><p>The collage is rendered at 1200 pixels wide by default, with the height determined by the layout aspect ratio. Each photo slot is rendered at the maximum resolution that fits within its grid cell. The output is a high-quality PNG file suitable for printing at standard sizes or sharing on any social media platform without visible quality loss.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I rearrange photos after placing them in the collage?</div>
+    <div class="faq-a"><p>Yes. Click any image in the pool to select it, then click a slot to place or replace the photo in that slot. The preview updates in real time as you make changes. You can experiment freely with different arrangements, gap sizes, background colors, and layouts before committing to a final download.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my photos uploaded to a server?</div>
+    <div class="faq-a"><p>No. All collage building happens entirely in your browser using the HTML5 Canvas API. Your photos never leave your device. The tool reads image files locally, composites them on a canvas element, and exports the result as a downloadable PNG file. Zero network requests are made with your image data during the entire collage creation process.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var thumbPool = document.getElementById("thumbPool");
+  var addMoreBtn = document.getElementById("addMoreBtn");
+  var addMoreInput = document.getElementById("addMoreInput");
+  var layoutGrid = document.getElementById("layoutGrid");
+  var collagePreview = document.getElementById("collagePreview");
+  var exportCanvas = document.getElementById("exportCanvas");
+  var gapSlider = document.getElementById("gapSlider");
+  var gapVal = document.getElementById("gapVal");
+  var radiusSlider = document.getElementById("radiusSlider");
+  var radiusVal = document.getElementById("radiusVal");
+  var bgColor = document.getElementById("bgColor");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var imgCountInfo = document.getElementById("imgCountInfo");
+  var layoutInfo = document.getElementById("layoutInfo");
+  var filledInfo = document.getElementById("filledInfo");
+
+  var images = [];
+  var selectedImgIdx = -1;
+  var currentLayout = "2x1";
+  var slotImages = {};
+
+  var layouts = {
+    "2x1": {cols:"1fr 1fr",rows:"1fr",slots:[{r:1,c:1},{r:1,c:2}]},
+    "2x2": {cols:"1fr 1fr",rows:"1fr 1fr",slots:[{r:1,c:1},{r:1,c:2},{r:2,c:1},{r:2,c:2}]},
+    "3x1": {cols:"1fr 1fr 1fr",rows:"1fr",slots:[{r:1,c:1},{r:1,c:2},{r:1,c:3}]},
+    "1+2": {cols:"2fr 1fr",rows:"1fr 1fr",slots:[{r:1,c:1,rs:2},{r:1,c:2},{r:2,c:2}]},
+    "2+1": {cols:"1fr 2fr",rows:"1fr 1fr",slots:[{r:1,c:1},{r:2,c:1},{r:1,c:2,rs:2}]},
+    "3x3": {cols:"1fr 1fr 1fr",rows:"1fr 1fr 1fr",slots:[{r:1,c:1},{r:1,c:2},{r:1,c:3},{r:2,c:1},{r:2,c:2},{r:2,c:3},{r:3,c:1},{r:3,c:2},{r:3,c:3}]}
+  };
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFiles(fileInput.files);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+  });
+
+  /* Add more */
+  addMoreBtn.addEventListener("click", function() { addMoreInput.click(); });
+  addMoreInput.addEventListener("change", function() {
+    if (addMoreInput.files && addMoreInput.files.length) handleFiles(addMoreInput.files);
+  });
+
+  function handleFiles(files) {
+    var loaded = 0;
+    var total = files.length;
+    for (var i = 0; i < files.length; i++) {
+      (function(file) {
+        if (!file.type.match(/image\/(jpeg|png|webp)/)) { loaded++; return; }
+        var img = new Image();
+        img.onload = function() {
+          images.push(img);
+          loaded++;
+          if (loaded >= total) {
+            dropZone.classList.add("hidden");
+            controls.classList.remove("hidden");
+            renderThumbs();
+            buildSlots();
+            autoFillSlots();
+          }
+        };
+        img.src = URL.createObjectURL(file);
+      })(files[i]);
+    }
+  }
+
+  function renderThumbs() {
+    thumbPool.innerHTML = "";
+    images.forEach(function(img, idx) {
+      var thumb = document.createElement("img");
+      thumb.src = img.src;
+      thumb.title = "Image " + (idx + 1);
+      thumb.addEventListener("click", function() {
+        selectedImgIdx = idx;
+        thumbPool.querySelectorAll("img").forEach(function(t) { t.classList.remove("selected"); });
+        thumb.classList.add("selected");
+      });
+      if (idx === selectedImgIdx) thumb.classList.add("selected");
+      thumbPool.appendChild(thumb);
+    });
+    imgCountInfo.textContent = images.length;
+  }
+
+  function buildSlots() {
+    var lay = layouts[currentLayout];
+    collagePreview.style.gridTemplateColumns = lay.cols;
+    collagePreview.style.gridTemplateRows = lay.rows;
+    collagePreview.style.gap = gapSlider.value + "px";
+    collagePreview.style.background = bgColor.value;
+    collagePreview.style.padding = gapSlider.value + "px";
+    collagePreview.style.borderRadius = "12px";
+    collagePreview.style.minHeight = "300px";
+    collagePreview.innerHTML = "";
+
+    lay.slots.forEach(function(slot, idx) {
+      var div = document.createElement("div");
+      div.className = "collage-slot";
+      div.style.gridRow = slot.r + " / span " + (slot.rs || 1);
+      div.style.gridColumn = slot.c + " / span " + (slot.cs || 1);
+      div.style.borderRadius = radiusSlider.value + "px";
+      div.dataset.slotIdx = idx;
+
+      if (slotImages[idx] !== undefined && images[slotImages[idx]]) {
+        var imgEl = document.createElement("img");
+        imgEl.src = images[slotImages[idx]].src;
+        imgEl.style.borderRadius = radiusSlider.value + "px";
+        div.appendChild(imgEl);
+        div.classList.add("filled");
+      } else {
+        var lbl = document.createElement("span");
+        lbl.className = "slot-label";
+        lbl.textContent = "Slot " + (idx + 1);
+        div.appendChild(lbl);
+      }
+
+      div.addEventListener("click", function() {
+        if (selectedImgIdx >= 0) {
+          slotImages[idx] = selectedImgIdx;
+          buildSlots();
+          updateFilledCount();
+        }
+      });
+
+      collagePreview.appendChild(div);
+    });
+    updateFilledCount();
+  }
+
+  function autoFillSlots() {
+    var lay = layouts[currentLayout];
+    for (var i = 0; i < lay.slots.length && i < images.length; i++) {
+      slotImages[i] = i;
+    }
+    buildSlots();
+  }
+
+  function updateFilledCount() {
+    var lay = layouts[currentLayout];
+    var filled = 0;
+    for (var i = 0; i < lay.slots.length; i++) {
+      if (slotImages[i] !== undefined && images[slotImages[i]]) filled++;
+    }
+    filledInfo.textContent = filled + "/" + lay.slots.length;
+  }
+
+  /* Layout switching */
+  layoutGrid.addEventListener("click", function(e) {
+    var btn = e.target.closest("button[data-layout]");
+    if (!btn) return;
+    currentLayout = btn.dataset.layout;
+    layoutGrid.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    layoutInfo.textContent = currentLayout;
+    slotImages = {};
+    autoFillSlots();
+  });
+
+  /* Real-time updates */
+  gapSlider.addEventListener("input", function() {
+    gapVal.textContent = gapSlider.value + "px";
+    buildSlots();
+  });
+  radiusSlider.addEventListener("input", function() {
+    radiusVal.textContent = radiusSlider.value + "px";
+    buildSlots();
+  });
+  bgColor.addEventListener("input", function() {
+    buildSlots();
+  });
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!images.length) return;
+    var lay = layouts[currentLayout];
+    var gap = parseInt(gapSlider.value);
+    var radius = parseInt(radiusSlider.value);
+    var bg = bgColor.value;
+    var W = 1200;
+
+    /* Calculate grid dimensions */
+    var colParts = lay.cols.split(" ");
+    var rowParts = lay.rows.split(" ");
+    var numCols = colParts.length;
+    var numRows = rowParts.length;
+
+    /* Parse fr values */
+    var colFracs = colParts.map(function(c) { return parseFloat(c); });
+    var rowFracs = rowParts.map(function(r) { return parseFloat(r); });
+    var colTotal = colFracs.reduce(function(a, b) { return a + b; }, 0);
+    var rowTotal = rowFracs.reduce(function(a, b) { return a + b; }, 0);
+
+    var innerW = W - gap * (numCols + 1);
+    var cellBaseW = innerW / colTotal;
+    var cellBaseH = (W * 0.75 - gap * (numRows + 1)) / rowTotal;
+    var H = Math.round(cellBaseH * rowTotal + gap * (numRows + 1));
+
+    exportCanvas.width = W;
+    exportCanvas.height = H;
+    var ctx = exportCanvas.getContext("2d");
+
+    /* Background */
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    /* Draw each slot */
+    lay.slots.forEach(function(slot, idx) {
+      var colIdx = slot.c - 1;
+      var rowIdx = slot.r - 1;
+      var colSpan = slot.cs || 1;
+      var rowSpan = slot.rs || 1;
+
+      /* Calculate position */
+      var x = gap;
+      for (var ci = 0; ci < colIdx; ci++) x += colFracs[ci] * cellBaseW + gap;
+      var y = gap;
+      for (var ri = 0; ri < rowIdx; ri++) y += rowFracs[ri] * cellBaseH + gap;
+
+      /* Calculate size */
+      var w = 0;
+      for (var cs = 0; cs < colSpan; cs++) w += colFracs[colIdx + cs] * cellBaseW;
+      w += (colSpan - 1) * gap;
+      var h = 0;
+      for (var rs = 0; rs < rowSpan; rs++) h += rowFracs[rowIdx + rs] * cellBaseH;
+      h += (rowSpan - 1) * gap;
+
+      x = Math.round(x);
+      y = Math.round(y);
+      w = Math.round(w);
+      h = Math.round(h);
+
+      if (slotImages[idx] !== undefined && images[slotImages[idx]]) {
+        var img = images[slotImages[idx]];
+
+        /* Rounded rect clip */
+        ctx.save();
+        ctx.beginPath();
+        var r2 = Math.min(radius, w / 2, h / 2);
+        ctx.moveTo(x + r2, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r2);
+        ctx.arcTo(x + w, y + h, x, y + h, r2);
+        ctx.arcTo(x, y + h, x, y, r2);
+        ctx.arcTo(x, y, x + w, y, r2);
+        ctx.closePath();
+        ctx.clip();
+
+        /* Cover fit */
+        var imgRatio = img.naturalWidth / img.naturalHeight;
+        var slotRatio = w / h;
+        var sx, sy, sw, sh;
+        if (imgRatio > slotRatio) {
+          sh = img.naturalHeight;
+          sw = sh * slotRatio;
+          sx = (img.naturalWidth - sw) / 2;
+          sy = 0;
+        } else {
+          sw = img.naturalWidth;
+          sh = sw / slotRatio;
+          sx = 0;
+          sy = (img.naturalHeight - sh) / 2;
+        }
+        ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+        ctx.restore();
+      } else {
+        /* Empty slot placeholder */
+        ctx.save();
+        ctx.beginPath();
+        var r3 = Math.min(radius, w / 2, h / 2);
+        ctx.moveTo(x + r3, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r3);
+        ctx.arcTo(x + w, y + h, x, y + h, r3);
+        ctx.arcTo(x, y + h, x, y, r3);
+        ctx.arcTo(x, y, x + w, y, r3);
+        ctx.closePath();
+        ctx.fillStyle = "#f1f5f9";
+        ctx.fill();
+        ctx.restore();
+      }
+    });
+
+    exportCanvas.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "photo-collage.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    images = [];
+    selectedImgIdx = -1;
+    slotImages = {};
+    currentLayout = "2x1";
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    addMoreInput.value = "";
+    thumbPool.innerHTML = "";
+    collagePreview.innerHTML = "";
+    layoutGrid.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); });
+    layoutGrid.querySelector('[data-layout="2x1"]').classList.add("active");
+    layoutInfo.textContent = "2x1";
+    imgCountInfo.textContent = "0";
+    filledInfo.textContent = "0/2";
+    gapSlider.value = 8;
+    gapVal.textContent = "8px";
+    radiusSlider.value = 8;
+    radiusVal.textContent = "8px";
+    bgColor.value = "#ffffff";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/gif-maker.html" style="color:#3b82f6;text-decoration:none;">GIF Maker Online — Create GIFs from Image Sequence Free</a></li>
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/color-picker.html" style="color:#3b82f6;text-decoration:none;">Color Picker & Palette Extractor — Free Online Tool</a></li>
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+</ul>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crop Image Online Free — Social Media Presets &amp; Aspect Ratios | PictureEditor</title>
+<meta name="description" content="Free online image crop tool with social media preset aspect ratios. Crop for Instagram, YouTube, Facebook, Stories. Draggable crop area with pixel dimensions. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="crop image online, image cropper, crop for instagram, crop for youtube thumbnail, aspect ratio crop, 16:9 crop, 1:1 crop, 4:5 crop, social media crop tool, free image cropper">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/crop-tool.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/crop-tool.html">
+<meta property="og:title" content="Crop Image Online Free — Social Media Presets &amp; Aspect Ratios">
+<meta property="og:description" content="Crop images with preset aspect ratios for Instagram, YouTube, Facebook, Stories. Draggable crop overlay. Free, private.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crop Image Online Free — Social Media Presets">
+<meta name="twitter:description" content="Crop images with social media presets. Instagram, YouTube, Facebook aspect ratios. Free online tool.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Crop Tool",
+    "url":"https://pictureeditor.net/tools/crop-tool.html",
+    "description":"Free online image crop tool with social media preset aspect ratios and draggable crop overlay.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What aspect ratio should I use for Instagram?","acceptedAnswer":{"@type":"Answer","text":"Instagram supports multiple aspect ratios: 1:1 (square, 1080x1080) for classic posts, 4:5 (portrait, 1080x1350) for maximum feed real estate, 1.91:1 (landscape, 1080x566), and 9:16 (1080x1920) for Stories and Reels. The 4:5 portrait ratio is recommended for feed posts as it occupies the most screen space."}},
+      {"@type":"Question","name":"What is the best aspect ratio for YouTube thumbnails?","acceptedAnswer":{"@type":"Answer","text":"YouTube thumbnails should be 16:9 aspect ratio at 1280x720 pixels minimum. This is the standard widescreen ratio that matches YouTube's video player. Custom thumbnails must be under 2MB and in JPEG, GIF, or PNG format."}},
+      {"@type":"Question","name":"Does cropping reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"Cropping itself does not reduce quality — it simply selects a portion of the original pixels. However, if you crop a large area from a small image, the remaining portion may be too few pixels for your target use. Always start with the largest source image available."}},
+      {"@type":"Question","name":"What is the rule of thirds?","acceptedAnswer":{"@type":"Answer","text":"The rule of thirds divides an image into a 3x3 grid. Placing key subjects along the grid lines or at their intersections creates more dynamic, visually appealing compositions than centering the subject. When cropping, position the most important elements at these intersection points."}},
+      {"@type":"Question","name":"Is my image uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All cropping is performed entirely in your browser using the HTML5 Canvas API. Your images never leave your device. This tool works offline once loaded."}}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hidden{display:none!important}
+/* Drop zone */
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+/* Preset buttons */
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-bottom:16px}
+.preset-btn{padding:10px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.8rem;font-weight:600;text-align:center;transition:all .15s;background:var(--surface)}
+.preset-btn:hover,.preset-btn.active{border-color:var(--accent);color:var(--accent);background:#eef2ff}
+.preset-btn .dims{font-size:.7rem;color:var(--text-secondary);font-weight:400;display:block;margin-top:2px}
+.preset-btn.active .dims{color:var(--accent)}
+/* Custom inputs */
+.custom-row{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.custom-row .field{display:flex;flex-direction:column;gap:4px}
+.custom-row .field label{font-size:.8rem;font-weight:600;color:var(--text-secondary)}
+.custom-row .field input{width:90px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.custom-row .field input:focus{border-color:var(--accent)}
+.custom-row .sep{font-size:1.2rem;color:var(--text-secondary);margin-top:20px}
+/* Crop area */
+.crop-container{position:relative;display:inline-block;max-width:100%;margin-top:12px;user-select:none;-webkit-user-select:none;touch-action:none}
+.crop-container img{display:block;max-width:100%;max-height:500px}
+.crop-overlay{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
+.crop-shade{position:absolute;background:rgba(0,0,0,.55)}
+.crop-box{position:absolute;border:2px solid #fff;box-shadow:0 0 0 9999px rgba(0,0,0,.55);cursor:move;pointer-events:auto}
+.crop-box .handle{position:absolute;width:16px;height:16px;background:#fff;border:2px solid var(--accent);border-radius:3px;pointer-events:auto}
+.crop-box .handle-tl{top:-8px;left:-8px;cursor:nw-resize}
+.crop-box .handle-tr{top:-8px;right:-8px;cursor:ne-resize}
+.crop-box .handle-bl{bottom:-8px;left:-8px;cursor:sw-resize}
+.crop-box .handle-br{bottom:-8px;right:-8px;cursor:se-resize}
+/* Rule of thirds grid */
+.thirds-grid{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.thirds-grid .line{position:absolute;background:rgba(255,255,255,.35)}
+.thirds-grid .line.h{width:100%;height:1px}
+.thirds-grid .line.v{height:100%;width:1px}
+/* Info */
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:100px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.1rem;font-weight:700;margin-top:4px}
+.info-box.accent .value{color:var(--accent)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Table */
+.size-table{width:100%;border-collapse:collapse;margin:16px 0}
+.size-table th,.size-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:.875rem}
+.size-table th{background:#f1f5f9;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary)}
+.size-table tr:hover{background:#f8fafc}
+.size-table .platform{font-weight:600;color:var(--accent)}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preset-grid{grid-template-columns:1fr 1fr}
+  .custom-row{flex-direction:column;align-items:stretch}
+  .custom-row .field input{width:100%}
+  .info-row{flex-direction:column}
+  .size-table{font-size:.8rem}
+  .size-table th,.size-table td{padding:8px 6px}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/crop-tool.html">Tools</a><span>/</span>
+  Crop Tool
+</nav>
+
+<h2>Crop Image Online — Social Media Presets &amp; Custom Aspect Ratios</h2>
+<p class="subtitle">Crop images with preset aspect ratios for Instagram, YouTube, Facebook, Stories, and more. Draggable crop overlay with pixel dimensions. All processing happens in your browser — your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="crop-tool" style="margin-top:0">Image Crop Tool</h3>
+
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP, GIF &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+  <div class="controls hidden" id="controls">
+    <!-- Presets -->
+    <label style="font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;display:block">Aspect Ratio Presets</label>
+    <div class="preset-grid" id="presetGrid">
+      <button class="preset-btn active" data-ratio="0">Free<span class="dims">Any ratio</span></button>
+      <button class="preset-btn" data-ratio="1">1:1<span class="dims">Instagram Square</span></button>
+      <button class="preset-btn" data-ratio="1.7778">16:9<span class="dims">YouTube / Widescreen</span></button>
+      <button class="preset-btn" data-ratio="0.5625">9:16<span class="dims">Stories / Reels</span></button>
+      <button class="preset-btn" data-ratio="1.3333">4:3<span class="dims">Standard</span></button>
+      <button class="preset-btn" data-ratio="1.5">3:2<span class="dims">Photo Print</span></button>
+      <button class="preset-btn" data-ratio="0.6667">2:3<span class="dims">Pinterest Pin</span></button>
+      <button class="preset-btn" data-ratio="1.91">1.91:1<span class="dims">Facebook Post</span></button>
+      <button class="preset-btn" data-ratio="0.8">4:5<span class="dims">Instagram Portrait</span></button>
+      <button class="preset-btn" data-ratio="custom">Custom<span class="dims">Enter ratio</span></button>
+    </div>
+
+    <!-- Custom ratio -->
+    <div class="custom-row hidden" id="customRow">
+      <div class="field">
+        <label for="ratioW">Width Ratio</label>
+        <input type="number" id="ratioW" value="16" min="1" max="100">
+      </div>
+      <span class="sep">:</span>
+      <div class="field">
+        <label for="ratioH">Height Ratio</label>
+        <input type="number" id="ratioH" value="9" min="1" max="100">
+      </div>
+      <button class="btn btn-primary" id="applyCustom" style="margin-top:18px">Apply</button>
+    </div>
+
+    <!-- Crop area -->
+    <div class="crop-container" id="cropContainer">
+      <img id="cropImg" alt="Image to crop">
+      <div class="crop-box" id="cropBox">
+        <div class="thirds-grid">
+          <div class="line h" style="top:33.33%"></div>
+          <div class="line h" style="top:66.67%"></div>
+          <div class="line v" style="left:33.33%"></div>
+          <div class="line v" style="left:66.67%"></div>
+        </div>
+        <div class="handle handle-tl" data-handle="tl"></div>
+        <div class="handle handle-tr" data-handle="tr"></div>
+        <div class="handle handle-bl" data-handle="bl"></div>
+        <div class="handle handle-br" data-handle="br"></div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Original</div><div class="value" id="origDims">--</div></div>
+      <div class="info-box accent"><div class="label">Crop Size</div><div class="value" id="cropDims">--</div></div>
+      <div class="info-box"><div class="label">Aspect Ratio</div><div class="value" id="ratioDisplay">Free</div></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Cropped Image
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#crop-tool">Crop Tool</a></li>
+    <li><a href="#aspect-ratios">Understanding Aspect Ratios</a></li>
+    <li><a href="#social-media-ratios">Social Media Aspect Ratio Reference</a></li>
+    <li><a href="#composition-rules">Cropping Composition Rules</a></li>
+    <li><a href="#crop-vs-resize">Cropping vs Resizing</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== ASPECT RATIOS ===== -->
+<section class="card" id="aspect-ratios">
+  <h3 style="margin-top:0">Understanding Aspect Ratios</h3>
+
+  <h4>What Is an Aspect Ratio?</h4>
+  <p>An aspect ratio is the proportional relationship between an image's width and height, expressed as two numbers separated by a colon. A 16:9 aspect ratio means for every 16 units of width, there are 9 units of height. The actual pixel dimensions do not matter — a 1920x1080 image and a 3840x2160 image both have a 16:9 aspect ratio. The ratio defines the shape of the image, not its size.</p>
+  <p>Aspect ratios matter because they determine how images fit into designated spaces. A 16:9 video thumbnail looks perfect in a YouTube player, but posting it to Instagram's square feed crops the sides. Social media platforms enforce specific aspect ratios to ensure visual consistency in their feeds. Cropping your images to the correct ratio before uploading gives you complete control over which part of the image is displayed.</p>
+
+  <h4>Common Aspect Ratios and Their Origins</h4>
+  <ul>
+    <li><strong>1:1 (Square):</strong> Instagram's original format. Equal width and height creates a balanced, symmetrical frame. Commonly used for profile photos, product shots, and social media posts. 1080x1080 pixels is the standard digital size.</li>
+    <li><strong>4:3 (Standard):</strong> The traditional television and computer monitor ratio before widescreen adoption. Still used in iPad displays, many digital cameras, and some social media formats. Common resolutions: 1024x768, 2048x1536.</li>
+    <li><strong>3:2 (Classic Photo):</strong> The standard ratio for 35mm film photography and most DSLR cameras. Slightly wider than 4:3, it produces images that feel more natural and less boxy. Standard print sizes (4x6, 6x9) use this ratio.</li>
+    <li><strong>16:9 (Widescreen):</strong> The universal standard for video, HDTV, and modern displays. YouTube, Vimeo, and most streaming platforms use 16:9. Key resolutions: 1280x720 (720p), 1920x1080 (1080p), 3840x2160 (4K).</li>
+    <li><strong>9:16 (Vertical):</strong> The inverse of 16:9, used for mobile-first vertical content. Instagram Stories, TikTok, YouTube Shorts, and Snapchat all use 9:16. The standard resolution is 1080x1920.</li>
+    <li><strong>4:5 (Portrait):</strong> Instagram's recommended portrait format, providing 25% more vertical space than a square post in the feed. At 1080x1350 pixels, it is the maximum vertical size Instagram displays without cropping.</li>
+    <li><strong>1.91:1 (Facebook/LinkedIn):</strong> The standard landscape ratio for Facebook and LinkedIn feed posts and link previews. Approximately equivalent to 1200x628 pixels. Wider than 16:9, it fills more horizontal space in feeds.</li>
+  </ul>
+</section>
+
+<!-- ===== SOCIAL MEDIA REFERENCE ===== -->
+<section class="card" id="social-media-ratios">
+  <h3 style="margin-top:0">Social Media Aspect Ratio Reference (2026)</h3>
+
+  <div style="overflow-x:auto">
+  <table class="size-table">
+    <thead>
+      <tr><th>Platform</th><th>Content Type</th><th>Aspect Ratio</th><th>Recommended Size</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="platform">Instagram</td><td>Square Post</td><td>1:1</td><td>1080 x 1080 px</td></tr>
+      <tr><td class="platform">Instagram</td><td>Portrait Post</td><td>4:5</td><td>1080 x 1350 px</td></tr>
+      <tr><td class="platform">Instagram</td><td>Landscape Post</td><td>1.91:1</td><td>1080 x 566 px</td></tr>
+      <tr><td class="platform">Instagram</td><td>Story / Reel</td><td>9:16</td><td>1080 x 1920 px</td></tr>
+      <tr><td class="platform">YouTube</td><td>Thumbnail</td><td>16:9</td><td>1280 x 720 px</td></tr>
+      <tr><td class="platform">YouTube</td><td>Channel Banner</td><td>16:9</td><td>2560 x 1440 px</td></tr>
+      <tr><td class="platform">Facebook</td><td>Feed Post</td><td>1.91:1</td><td>1200 x 630 px</td></tr>
+      <tr><td class="platform">Facebook</td><td>Cover Photo</td><td>2.63:1</td><td>820 x 312 px</td></tr>
+      <tr><td class="platform">Facebook</td><td>Story</td><td>9:16</td><td>1080 x 1920 px</td></tr>
+      <tr><td class="platform">Twitter/X</td><td>In-Stream Post</td><td>16:9</td><td>1600 x 900 px</td></tr>
+      <tr><td class="platform">Twitter/X</td><td>Header</td><td>3:1</td><td>1500 x 500 px</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Feed Post</td><td>1.91:1</td><td>1200 x 627 px</td></tr>
+      <tr><td class="platform">LinkedIn</td><td>Banner</td><td>4:1</td><td>1584 x 396 px</td></tr>
+      <tr><td class="platform">Pinterest</td><td>Standard Pin</td><td>2:3</td><td>1000 x 1500 px</td></tr>
+      <tr><td class="platform">TikTok</td><td>Video Cover</td><td>9:16</td><td>1080 x 1920 px</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ===== COMPOSITION RULES ===== -->
+<section class="card" id="composition-rules">
+  <h3 style="margin-top:0">Cropping Composition Rules</h3>
+
+  <h4>The Rule of Thirds</h4>
+  <p>The rule of thirds is the most widely used composition guideline in photography and design. Imagine dividing your image into a 3x3 grid of equal rectangles — two horizontal lines and two vertical lines. The four points where these lines intersect are called "power points." Placing your main subject on or near one of these power points creates a more dynamic, visually engaging composition than centering the subject.</p>
+  <p>When cropping, the rule of thirds grid (shown as overlay lines in the crop tool above) guides you to position key elements along these lines. A portrait might place the subject's eyes at the top-third line. A landscape might place the horizon along the bottom-third line. The off-center placement creates visual tension and directs the viewer's eye through the image in a more interesting path than a static centered composition.</p>
+
+  <h4>Leading Lines and Negative Space</h4>
+  <p>When cropping, consider how lines within the image guide the viewer's eye. Roads, fences, rivers, architectural elements, and even a person's gaze create leading lines that direct attention toward a focal point. Crop to emphasize these lines — include enough of the line to establish direction, and ensure it leads toward something interesting rather than out of the frame.</p>
+  <p>Negative space — the empty or uncluttered area around your subject — gives the composition room to breathe. When cropping, resist the urge to fill every pixel with the subject. Leaving space in the direction a person is looking or an object is moving creates a sense of context and movement. A tightly cropped portrait can feel claustrophobic, while some negative space around the face creates a more professional, editorial feel.</p>
+
+  <h4>Cropping Portraits</h4>
+  <p>The most important rule for cropping portraits: never crop at a joint. Avoid cropping at the wrists, elbows, knees, or ankles, as this creates an amputated appearance. Instead, crop at mid-forearm, mid-thigh, or mid-shin. For headshots, crop above the chest or at mid-chest. Always leave some space above the head — cropping too tightly at the top of the head feels uncomfortable.</p>
+  <p>For social media profile pictures (always 1:1), position the face in the center but slightly above the vertical center. The eyes should fall approximately on the upper third line. Most platforms display profile pictures at very small sizes (32-64px), so fill the frame with the face — small details and backgrounds will be invisible at display size.</p>
+
+  <h4>Cropping for Different Platforms</h4>
+  <p>Each platform's feed algorithm and display behavior reward specific compositions. Instagram's 4:5 portrait format gives you the most screen real estate in the feed — use it for maximum stopping power. YouTube thumbnails at 16:9 need bold, readable elements because they are often displayed at small sizes (120x67px) — crop tight on faces and add text that remains legible at thumbnail scale. Facebook's 1.91:1 landscape format favors wide compositions — panoramic scenes and group photos work well in this wider frame.</p>
+</section>
+
+<!-- ===== CROP VS RESIZE ===== -->
+<section class="card" id="crop-vs-resize">
+  <h3 style="margin-top:0">Cropping vs Resizing — What is the Difference?</h3>
+
+  <h4>Cropping: Selecting a Portion</h4>
+  <p>Cropping removes parts of an image to change its composition or aspect ratio. The pixels within the cropped area remain at their original resolution — no quality loss occurs from the crop itself. If you crop a 4000x3000 image to a 2000x2000 square, each pixel in the result is identical to the corresponding pixel in the original. The image simply has fewer pixels because you selected a subset.</p>
+  <p>Cropping is a destructive operation in the sense that information outside the crop boundary is discarded. This is why it is important to work from the original source file when cropping — you cannot un-crop an already-cropped image to recover the removed areas.</p>
+
+  <h4>Resizing: Changing Dimensions</h4>
+  <p>Resizing (also called resampling or scaling) changes the pixel dimensions of the entire image without removing any portion. Downsizing (making smaller) averages multiple source pixels into fewer output pixels. Upsizing (making larger) interpolates new pixels between existing ones. Unlike cropping, resizing modifies every pixel in the image through mathematical interpolation, which can introduce subtle softening.</p>
+
+  <h4>When to Crop First, Then Resize</h4>
+  <p>The optimal workflow is to crop first to establish the correct composition and aspect ratio, then resize to the target pixel dimensions. If you need a 1080x1080 Instagram post from a 4000x3000 photograph, first crop to a square (selecting the best composition), then resize the cropped result down to 1080x1080. This gives you full control over both composition and final size. Use the crop tool on this page, then the <a href="/guides/resize-image-online.html">resize tool</a> for the final dimensions.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What aspect ratio should I use for Instagram?</div>
+    <div class="faq-a"><p>Instagram supports 1:1 (square, 1080x1080), 4:5 (portrait, 1080x1350), 1.91:1 (landscape, 1080x566), and 9:16 (Stories/Reels, 1080x1920). For maximum feed presence, use 4:5 portrait — it takes up the most screen space in the scrolling feed.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best aspect ratio for YouTube thumbnails?</div>
+    <div class="faq-a"><p>YouTube thumbnails use 16:9 aspect ratio at 1280x720 pixels minimum. This matches the standard video player dimensions. Keep text large and faces prominent, as thumbnails are often displayed at very small sizes in search results and suggestions.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does cropping reduce image quality?</div>
+    <div class="faq-a"><p>Cropping itself does not reduce pixel quality — it selects a portion of the original pixels without modification. However, if you crop aggressively (selecting a small area from a large image), the resulting image has fewer total pixels. If you then need to display it at a large size, it may appear lower resolution. Always start with the largest source image available.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the rule of thirds?</div>
+    <div class="faq-a"><p>The rule of thirds divides an image into a 3x3 grid of equal sections. Placing key subjects at the intersection points (where the lines cross) or along the lines creates more dynamic compositions than centering. The crop tool above shows thirds grid lines on the crop overlay to guide your composition.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my image uploaded to a server?</div>
+    <div class="faq-a"><p>No. All cropping is performed entirely in your browser using the HTML5 Canvas API. Your images are never uploaded to any server. You can verify by checking the Network tab in developer tools (F12). This tool works fully offline once loaded.</p></div>
+  </div>
+</section>
+
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var presetGrid = document.getElementById("presetGrid");
+  var customRow = document.getElementById("customRow");
+  var ratioW = document.getElementById("ratioW");
+  var ratioH = document.getElementById("ratioH");
+  var applyCustom = document.getElementById("applyCustom");
+  var cropContainer = document.getElementById("cropContainer");
+  var cropImg = document.getElementById("cropImg");
+  var cropBox = document.getElementById("cropBox");
+  var origDimsEl = document.getElementById("origDims");
+  var cropDimsEl = document.getElementById("cropDims");
+  var ratioDisplayEl = document.getElementById("ratioDisplay");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+
+  var originalImage = null;
+  var originalFile = null;
+  var aspectRatio = 0; // 0 = free
+  var displayScale = 1; // ratio of displayed size to natural size
+
+  // Crop box state (in display pixels relative to cropContainer)
+  var crop = { x: 0, y: 0, w: 0, h: 0 };
+  var dragState = null; // null | {type: 'move'|'tl'|'tr'|'bl'|'br', startX, startY, startCrop}
+
+  /* Drop zone */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault(); dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.startsWith("image/")) return;
+    originalFile = file;
+    var img = new Image();
+    img.onload = function() {
+      originalImage = img;
+      cropImg.src = URL.createObjectURL(file);
+      cropImg.onload = function() {
+        dropZone.classList.add("hidden");
+        controls.classList.remove("hidden");
+        displayScale = cropImg.clientWidth / img.naturalWidth;
+        origDimsEl.textContent = img.naturalWidth + " x " + img.naturalHeight;
+        // Init crop to full image
+        crop.x = 0; crop.y = 0;
+        crop.w = cropImg.clientWidth;
+        crop.h = cropImg.clientHeight;
+        if (aspectRatio > 0) applyAspectConstraint();
+        updateCropBox();
+      };
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  /* Presets */
+  var presetBtns = presetGrid.querySelectorAll(".preset-btn");
+  presetGrid.addEventListener("click", function(e) {
+    var btn = e.target.closest(".preset-btn");
+    if (!btn) return;
+    presetBtns.forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+
+    var val = btn.dataset.ratio;
+    if (val === "custom") {
+      customRow.classList.remove("hidden");
+      return;
+    }
+    customRow.classList.add("hidden");
+    aspectRatio = parseFloat(val);
+    ratioDisplayEl.textContent = aspectRatio === 0 ? "Free" : btn.textContent.trim().split("\n")[0];
+    if (originalImage && aspectRatio > 0) {
+      applyAspectConstraint();
+      updateCropBox();
+    }
+  });
+
+  applyCustom.addEventListener("click", function() {
+    var w = parseInt(ratioW.value) || 1;
+    var h = parseInt(ratioH.value) || 1;
+    aspectRatio = w / h;
+    ratioDisplayEl.textContent = w + ":" + h;
+    presetBtns.forEach(function(b) { b.classList.remove("active"); });
+    presetGrid.querySelector('[data-ratio="custom"]').classList.add("active");
+    if (originalImage) {
+      applyAspectConstraint();
+      updateCropBox();
+    }
+  });
+
+  function applyAspectConstraint() {
+    if (aspectRatio <= 0) return;
+    var maxW = cropImg.clientWidth;
+    var maxH = cropImg.clientHeight;
+    // Fit aspect ratio within image bounds centered on current crop center
+    var cx = crop.x + crop.w / 2;
+    var cy = crop.y + crop.h / 2;
+    var newW, newH;
+    if (maxW / maxH > aspectRatio) {
+      newH = maxH * 0.8;
+      newW = newH * aspectRatio;
+    } else {
+      newW = maxW * 0.8;
+      newH = newW / aspectRatio;
+    }
+    if (newW > maxW) { newW = maxW; newH = newW / aspectRatio; }
+    if (newH > maxH) { newH = maxH; newW = newH * aspectRatio; }
+    crop.w = newW;
+    crop.h = newH;
+    crop.x = Math.max(0, Math.min(maxW - newW, cx - newW / 2));
+    crop.y = Math.max(0, Math.min(maxH - newH, cy - newH / 2));
+  }
+
+  function updateCropBox() {
+    cropBox.style.left = crop.x + "px";
+    cropBox.style.top = crop.y + "px";
+    cropBox.style.width = crop.w + "px";
+    cropBox.style.height = crop.h + "px";
+    // Pixel dimensions
+    var pw = Math.round(crop.w / displayScale);
+    var ph = Math.round(crop.h / displayScale);
+    cropDimsEl.textContent = pw + " x " + ph;
+  }
+
+  /* Drag handlers */
+  function getPos(e) {
+    var rect = cropContainer.getBoundingClientRect();
+    var clientX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+    var clientY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function startDrag(e) {
+    e.preventDefault();
+    var pos = getPos(e);
+    var handle = e.target.closest(".handle");
+    if (handle) {
+      dragState = { type: handle.dataset.handle, startX: pos.x, startY: pos.y, startCrop: Object.assign({}, crop) };
+    } else if (e.target === cropBox || e.target.closest(".thirds-grid")) {
+      dragState = { type: "move", startX: pos.x, startY: pos.y, startCrop: Object.assign({}, crop) };
+    }
+  }
+
+  function doDrag(e) {
+    if (!dragState) return;
+    e.preventDefault();
+    var pos = getPos(e);
+    var dx = pos.x - dragState.startX;
+    var dy = pos.y - dragState.startY;
+    var sc = dragState.startCrop;
+    var maxW = cropImg.clientWidth;
+    var maxH = cropImg.clientHeight;
+    var minSize = 20;
+
+    if (dragState.type === "move") {
+      crop.x = Math.max(0, Math.min(maxW - crop.w, sc.x + dx));
+      crop.y = Math.max(0, Math.min(maxH - crop.h, sc.y + dy));
+    } else {
+      var newX = sc.x, newY = sc.y, newW = sc.w, newH = sc.h;
+      var t = dragState.type;
+
+      if (t === "br" || t === "tr") {
+        newW = Math.max(minSize, Math.min(maxW - sc.x, sc.w + dx));
+      }
+      if (t === "bl" || t === "tl") {
+        var dxClamped = Math.max(-sc.x, Math.min(sc.w - minSize, dx));
+        newX = sc.x + dxClamped;
+        newW = sc.w - dxClamped;
+      }
+      if (t === "bl" || t === "br") {
+        newH = Math.max(minSize, Math.min(maxH - sc.y, sc.h + dy));
+      }
+      if (t === "tl" || t === "tr") {
+        var dyClamped = Math.max(-sc.y, Math.min(sc.h - minSize, dy));
+        newY = sc.y + dyClamped;
+        newH = sc.h - dyClamped;
+      }
+
+      // Apply aspect ratio constraint
+      if (aspectRatio > 0) {
+        if (t === "br" || t === "tr" || t === "bl" || t === "tl") {
+          // Use the larger change to determine
+          if (Math.abs(dx) > Math.abs(dy)) {
+            newH = newW / aspectRatio;
+          } else {
+            newW = newH * aspectRatio;
+          }
+          // Bounds check
+          if (newX + newW > maxW) { newW = maxW - newX; newH = newW / aspectRatio; }
+          if (newY + newH > maxH) { newH = maxH - newY; newW = newH * aspectRatio; }
+          if (newW < minSize) { newW = minSize; newH = newW / aspectRatio; }
+          if (newH < minSize) { newH = minSize; newW = newH * aspectRatio; }
+          // Recalc position for tl/tr/bl handles
+          if (t === "tl") { newX = sc.x + sc.w - newW; newY = sc.y + sc.h - newH; }
+          if (t === "tr") { newY = sc.y + sc.h - newH; }
+          if (t === "bl") { newX = sc.x + sc.w - newW; }
+        }
+      }
+
+      // Final bounds
+      newX = Math.max(0, newX);
+      newY = Math.max(0, newY);
+      if (newX + newW > maxW) newW = maxW - newX;
+      if (newY + newH > maxH) newH = maxH - newY;
+
+      crop.x = newX; crop.y = newY; crop.w = newW; crop.h = newH;
+    }
+    updateCropBox();
+  }
+
+  function endDrag() { dragState = null; }
+
+  cropBox.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", doDrag);
+  document.addEventListener("mouseup", endDrag);
+  cropBox.addEventListener("touchstart", startDrag, {passive: false});
+  document.addEventListener("touchmove", doDrag, {passive: false});
+  document.addEventListener("touchend", endDrag);
+
+  /* Recalc on window resize */
+  window.addEventListener("resize", function() {
+    if (!originalImage) return;
+    var oldScale = displayScale;
+    displayScale = cropImg.clientWidth / originalImage.naturalWidth;
+    var ratio = displayScale / oldScale;
+    crop.x *= ratio; crop.y *= ratio; crop.w *= ratio; crop.h *= ratio;
+    updateCropBox();
+  });
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!originalImage) return;
+    var sx = Math.round(crop.x / displayScale);
+    var sy = Math.round(crop.y / displayScale);
+    var sw = Math.round(crop.w / displayScale);
+    var sh = Math.round(crop.h / displayScale);
+    // Clamp
+    sw = Math.min(sw, originalImage.naturalWidth - sx);
+    sh = Math.min(sh, originalImage.naturalHeight - sy);
+
+    var canvas = document.createElement("canvas");
+    canvas.width = sw;
+    canvas.height = sh;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(originalImage, sx, sy, sw, sh, 0, 0, sw, sh);
+
+    canvas.toBlob(function(blob) {
+      if (!blob) return;
+      var ext = originalFile.type === "image/png" ? "png" : originalFile.type === "image/webp" ? "webp" : "jpg";
+      var mime = originalFile.type === "image/png" ? "image/png" : originalFile.type === "image/webp" ? "image/webp" : "image/jpeg";
+      var name = originalFile.name.replace(/\.[^.]+$/, "") + "-cropped-" + sw + "x" + sh + "." + ext;
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, originalFile.type === "image/png" ? "image/png" : originalFile.type === "image/webp" ? "image/webp" : "image/jpeg", 0.92);
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    originalImage = null;
+    originalFile = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    aspectRatio = 0;
+    presetBtns.forEach(function(b) { b.classList.remove("active"); });
+    presetBtns[0].classList.add("active");
+    customRow.classList.add("hidden");
+    ratioDisplayEl.textContent = "Free";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/watermark-tool.html" style="color:#3b82f6;text-decoration:none;">Image Watermark Tool Online — Add Text & Image Watermarks Free</a></li>
+<li><a href="/answers/screenshot-annotation-tool.html" style="color:#3b82f6;text-decoration:none;">Screenshot Annotation Tool — Arrows, Text, Blur & Markup Free</a></li>
+<li><a href="/crop.html" style="color:#3b82f6;text-decoration:none;">Image Cropper Online</a></li>
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

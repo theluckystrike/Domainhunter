@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Resolution Calculator — DPI/PPI &amp; Print Size Estimator Free | PictureEditor</title>
+<meta name="description" content="Free image resolution calculator. Enter pixel dimensions or desired print size to calculate DPI/PPI, print sizes at 72/150/300/600 DPI, file size per format, megapixels, and social media dimension presets. Instant results, no upload needed.">
+<meta name="keywords" content="image resolution calculator, DPI calculator, PPI calculator, print size calculator, megapixel calculator, image dimensions, photo print size, DPI to pixels, pixels to inches, social media image sizes">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/answers/image-resolution-calculator.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/answers/image-resolution-calculator.html">
+<meta property="og:title" content="Image Resolution Calculator — DPI/PPI &amp; Print Size Estimator Free">
+<meta property="og:description" content="Calculate DPI, PPI, print sizes, file sizes, and megapixels from pixel dimensions. Social media presets included. Free, instant results.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Resolution Calculator — DPI/PPI &amp; Print Size Estimator Free">
+<meta name="twitter:description" content="Calculate DPI, print sizes, file sizes, megapixels from image dimensions. Social media presets. Free, instant.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Image Resolution Calculator — DPI/PPI and Print Size Estimator",
+    "url":"https://pictureeditor.net/answers/image-resolution-calculator.html",
+    "description":"Free image resolution calculator with DPI/PPI computation, print size estimation at multiple DPI values, file size estimation per format, megapixel calculator, and social media dimension presets.",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "image":"https://pictureeditor.net/og/image-resolution-calculator.png"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the difference between DPI and PPI?","acceptedAnswer":{"@type":"Answer","text":"DPI (dots per inch) refers to the number of ink dots a printer places per inch of paper. PPI (pixels per inch) refers to the number of pixels displayed per inch on a screen. In practice, the terms are often used interchangeably when discussing image resolution, but they describe different things — DPI is a printer specification, PPI is a display/image specification. When someone says an image is '300 DPI', they typically mean 300 PPI."}},
+      {"@type":"Question","name":"What DPI do I need for printing?","acceptedAnswer":{"@type":"Answer","text":"For professional photo prints, 300 DPI is the standard. At this resolution, individual pixels are invisible to the naked eye at normal viewing distance. For large prints viewed from a distance (posters, banners), 150 DPI is acceptable. For billboards and very large prints viewed from far away, 72 DPI can suffice. For fine art reproduction and gallery prints, 360-600 DPI provides maximum detail."}},
+      {"@type":"Question","name":"How do I calculate print size from pixel dimensions?","acceptedAnswer":{"@type":"Answer","text":"Divide the pixel dimension by the desired DPI. For example, a 3000x2000 pixel image at 300 DPI produces a 10x6.67 inch print (3000/300 = 10 inches, 2000/300 = 6.67 inches). At 150 DPI, the same image produces a 20x13.33 inch print. The formula is: Print Size (inches) = Pixels / DPI."}},
+      {"@type":"Question","name":"What resolution do social media platforms require?","acceptedAnswer":{"@type":"Answer","text":"Instagram recommends 1080x1080 for square posts, 1080x1350 for portrait, and 1080x566 for landscape. Facebook recommends 1200x630 for link shares and 2048x2048 maximum. Twitter recommends 1200x675 for in-stream images. LinkedIn recommends 1200x627. YouTube thumbnails are 1280x720. These are display resolutions — platforms will downscale larger images but may also re-compress them."}},
+      {"@type":"Question","name":"How do I calculate the file size of an image?","acceptedAnswer":{"@type":"Answer","text":"Uncompressed file size = Width x Height x Bytes per pixel. For 24-bit RGB, that is 3 bytes per pixel. A 3000x2000 image = 18,000,000 bytes = ~17.2 MB uncompressed. Compressed sizes vary dramatically by format and content: JPEG at quality 80 typically achieves 10:1 to 20:1 compression (0.9-1.7 MB), WebP at quality 80 achieves 15:1 to 30:1 (0.6-1.1 MB), and PNG varies from 2:1 to 10:1 depending on image complexity."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Answers","item":"https://pictureeditor.net/answers/"},
+      {"@type":"ListItem","position":3,"name":"Image Resolution Calculator","item":"https://pictureeditor.net/answers/image-resolution-calculator.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hidden{display:none!important}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Input fields */
+.input-group{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:flex-end}
+.input-field{flex:1;min-width:120px}
+.input-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.input-field input,.input-field select{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.input-field input:focus,.input-field select:focus{border-color:var(--accent)}
+/* Results table */
+.result-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.9rem}
+.result-table th{text-align:left;padding:10px 12px;background:#f1f5f9;font-size:.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid var(--border)}
+.result-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.result-table tr:last-child td{border-bottom:none}
+.result-table .highlight{font-weight:700;color:var(--accent)}
+/* Preset chips */
+.preset-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.preset-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:20px;font-size:.8rem;font-weight:600;color:var(--text-secondary);background:var(--surface);cursor:pointer;transition:.15s}
+.preset-chip:hover{border-color:var(--accent);color:var(--accent)}
+.preset-chip.active{border-color:var(--accent);background:#eef2ff;color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .info-row{flex-direction:column}
+  .input-group{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .result-table{font-size:.8rem}
+  .result-table th,.result-table td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/answers/">Answers</a><span>/</span>
+  Image Resolution Calculator
+</nav>
+
+<h2>Image Resolution Calculator &mdash; DPI/PPI &amp; Print Size Estimator</h2>
+<p class="subtitle">Enter pixel dimensions or desired print size to calculate DPI, PPI, print sizes at multiple resolutions, estimated file sizes per format, and megapixels. Social media dimension presets included. Instant calculations, no upload needed.</p>
+
+<!-- ===== CALCULATOR SECTION ===== -->
+<section class="card" id="calculator-section">
+  <h3 id="calculator-tool" style="margin-top:0">Resolution Calculator</h3>
+  <p>Enter your image's pixel dimensions below, or select a social media preset. The calculator instantly computes print sizes at standard DPI values, estimated file sizes for common formats, and megapixel count.</p>
+
+  <!-- Social Media Presets -->
+  <h4 style="margin-top:12px">Social Media Presets</h4>
+  <div class="preset-row" id="presets">
+    <button class="preset-chip" data-w="1080" data-h="1080">Instagram Square</button>
+    <button class="preset-chip" data-w="1080" data-h="1350">Instagram Portrait</button>
+    <button class="preset-chip" data-w="1080" data-h="566">Instagram Landscape</button>
+    <button class="preset-chip" data-w="1200" data-h="630">Facebook Link</button>
+    <button class="preset-chip" data-w="1200" data-h="675">Twitter/X</button>
+    <button class="preset-chip" data-w="1200" data-h="627">LinkedIn</button>
+    <button class="preset-chip" data-w="1280" data-h="720">YouTube Thumbnail</button>
+    <button class="preset-chip" data-w="1920" data-h="1080">Full HD</button>
+    <button class="preset-chip" data-w="3840" data-h="2160">4K UHD</button>
+    <button class="preset-chip" data-w="4000" data-h="3000">12 MP Camera</button>
+    <button class="preset-chip" data-w="6000" data-h="4000">24 MP Camera</button>
+    <button class="preset-chip" data-w="8192" data-h="5464">45 MP Camera</button>
+  </div>
+
+  <!-- Pixel Input -->
+  <h4>Pixel Dimensions</h4>
+  <div class="input-group">
+    <div class="input-field">
+      <label for="pxWidth">Width (pixels)</label>
+      <input type="number" id="pxWidth" value="3000" min="1" max="100000">
+    </div>
+    <div class="input-field">
+      <label for="pxHeight">Height (pixels)</label>
+      <input type="number" id="pxHeight" value="2000" min="1" max="100000">
+    </div>
+  </div>
+
+  <!-- Print Size Input (reverse calculation) -->
+  <h4>Or Enter Desired Print Size</h4>
+  <div class="input-group">
+    <div class="input-field">
+      <label for="printW">Width (inches)</label>
+      <input type="number" id="printW" value="" min="0.1" max="1000" step="0.1" placeholder="e.g. 8">
+    </div>
+    <div class="input-field">
+      <label for="printH">Height (inches)</label>
+      <input type="number" id="printH" value="" min="0.1" max="1000" step="0.1" placeholder="e.g. 10">
+    </div>
+    <div class="input-field">
+      <label for="printDPI">Target DPI</label>
+      <select id="printDPI">
+        <option value="72">72 DPI (Screen)</option>
+        <option value="150">150 DPI (Poster)</option>
+        <option value="300" selected>300 DPI (Photo Print)</option>
+        <option value="600">600 DPI (Fine Art)</option>
+      </select>
+    </div>
+    <div style="padding-bottom:2px">
+      <button class="btn btn-primary" id="calcFromPrint">Calculate Pixels</button>
+    </div>
+  </div>
+
+  <!-- Summary Stats -->
+  <div class="info-row" id="summaryRow">
+    <div class="info-box"><div class="label">Total Pixels</div><div class="value" id="totalPx">6,000,000</div></div>
+    <div class="info-box accent"><div class="label">Megapixels</div><div class="value" id="megapixels">6.0 MP</div></div>
+    <div class="info-box"><div class="label">Aspect Ratio</div><div class="value" id="aspectRatio">3:2</div></div>
+    <div class="info-box green"><div class="label">Uncompressed Size</div><div class="value" id="rawSize">17.2 MB</div></div>
+  </div>
+
+  <!-- Print Size Table -->
+  <h4>Print Sizes at Standard DPI</h4>
+  <table class="result-table" id="printTable">
+    <thead>
+      <tr><th>DPI</th><th>Print Width</th><th>Print Height</th><th>Use Case</th><th>Quality</th></tr>
+    </thead>
+    <tbody id="printBody"></tbody>
+  </table>
+
+  <!-- File Size Estimates -->
+  <h4>Estimated File Sizes by Format</h4>
+  <table class="result-table" id="sizeTable">
+    <thead>
+      <tr><th>Format</th><th>Quality</th><th>Compression</th><th>Est. File Size</th></tr>
+    </thead>
+    <tbody id="sizeBody"></tbody>
+  </table>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#calculator-tool">Resolution Calculator</a></li>
+    <li><a href="#understanding-resolution">Understanding Image Resolution</a></li>
+    <li><a href="#dpi-vs-ppi">DPI vs PPI: What Is the Difference</a></li>
+    <li><a href="#print-resolution">Print Resolution Requirements</a></li>
+    <li><a href="#screen-resolution">Screen Resolution and Web Images</a></li>
+    <li><a href="#megapixels-explained">Megapixels Explained</a></li>
+    <li><a href="#file-size-factors">What Determines Image File Size</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: UNDERSTANDING RESOLUTION ===== -->
+<section class="card" id="understanding-resolution">
+  <h3 style="margin-top:0">Understanding Image Resolution</h3>
+
+  <h4>What Resolution Actually Means</h4>
+  <p>Image resolution describes the amount of detail an image contains, measured in pixels. A 3000x2000 pixel image contains 6 million pixels arranged in a grid 3000 pixels wide and 2000 pixels tall. Each pixel stores a single color value. The more pixels in the grid, the more detail the image can capture and display. Resolution is not a measure of quality — a blurry 6000x4000 image has high resolution but low quality. Resolution determines the upper limit of detail that the image can contain; lens quality, focus accuracy, and processing determine how much of that potential is realized.</p>
+  <p>Resolution becomes particularly important when bridging the digital and physical worlds. A digital image has no inherent physical size — it is just a grid of numbers. Physical size only exists when the image is displayed on a screen or printed on paper. The relationship between pixel count and physical size is determined by resolution density — how many pixels are mapped to each physical inch. This is where DPI and PPI enter the picture.</p>
+
+  <h4>Resolution Independence in Digital Displays</h4>
+  <p>On modern high-DPI displays (Retina, OLED), a single CSS pixel may correspond to two or more physical pixels. A website image displayed at 400 CSS pixels wide on a 2x Retina display actually needs 800 physical pixels to appear sharp. This is why web developers often serve images at 2x the display size. If your image will be viewed on high-DPI screens, the effective resolution requirement doubles. A 1000px-wide web image should ideally be 2000 pixels wide in the source file to remain sharp on Retina displays.</p>
+</section>
+
+<!-- ===== SECTION: DPI VS PPI ===== -->
+<section class="card" id="dpi-vs-ppi">
+  <h3 style="margin-top:0">DPI vs PPI: What Is the Difference</h3>
+
+  <h4>PPI — Pixels Per Inch (Image/Screen)</h4>
+  <p>PPI (pixels per inch) describes how many pixels are packed into each inch of an image as displayed on screen or defined in the image metadata. An image with 300 PPI metadata and 3000 pixels of width is "intended" to display at 10 inches wide. However, PPI is a metadata suggestion, not a physical constraint — the same image can be displayed at any size on any screen regardless of its PPI setting. PPI metadata is primarily used by print software to determine default print dimensions.</p>
+
+  <h4>DPI — Dots Per Inch (Printer)</h4>
+  <p>DPI (dots per inch) is a printer specification describing how many ink dots the printer places per inch of paper. A 1200 DPI printer can place 1200 individual ink dots per inch, producing extremely fine detail. DPI and PPI are not the same — a 300 PPI image printed on a 1200 DPI printer uses 4 ink dots (in a 2x2 grid) to represent each pixel. Higher printer DPI produces smoother color transitions and finer detail within each pixel, but the image's detail is still limited by its PPI. You cannot print more detail than the image contains, regardless of how high the printer's DPI is.</p>
+
+  <h4>Why the Terms Are Confused</h4>
+  <p>In everyday conversation and even in professional settings, "DPI" is commonly used to mean PPI. When someone says "this image is 300 DPI," they almost always mean it has 300 PPI — 300 pixels per inch of intended display size. When a print shop says "we need files at 300 DPI," they mean the image should have enough pixels to produce 300 pixels per inch at the desired print size. The technical distinction matters in advanced print production but is irrelevant for most photographers and designers. This calculator uses both terms interchangeably, following common industry usage.</p>
+</section>
+
+<!-- ===== SECTION: PRINT RESOLUTION ===== -->
+<section class="card" id="print-resolution">
+  <h3 style="margin-top:0">Print Resolution Requirements</h3>
+
+  <h4>Standard Print Resolution: 300 DPI</h4>
+  <p>300 DPI is the industry standard for photographic prints because at normal viewing distance (12-18 inches), the human eye cannot distinguish individual pixels at this density. A 4x6 inch print at 300 DPI requires 1200x1800 pixels (2.16 megapixels). An 8x10 print requires 2400x3000 pixels (7.2 megapixels). A 16x20 print requires 4800x6000 pixels (28.8 megapixels). Most modern cameras produce enough pixels for prints up to 16x20 at 300 DPI without any upscaling.</p>
+
+  <h4>Large Format Prints: 150 DPI</h4>
+  <p>For prints larger than 20 inches that will be viewed from 3 feet or more away, 150 DPI is acceptable. Posters, trade show graphics, and large canvas prints fall into this category. At 150 DPI, a 24x36 inch poster requires 3600x5400 pixels (19.4 megapixels) — achievable with most modern cameras. The reduced DPI requirement for large prints reflects the greater viewing distance — you do not examine a poster with a magnifying glass.</p>
+
+  <h4>Billboards and Banners: 72 DPI or Less</h4>
+  <p>Very large prints viewed from significant distances (billboards, building wraps, event banners) can use 72 DPI or even lower. A 10-foot billboard at 72 DPI requires only about 8640x4320 pixels. At the intended viewing distance of 50+ feet, even this relatively low resolution appears sharp. Some billboard printers accept files as low as 30 DPI because the viewing distance is so extreme that individual pixels are invisible.</p>
+
+  <h4>Fine Art and Museum Prints: 360-600 DPI</h4>
+  <p>Gallery prints and fine art reproductions intended for close inspection often require 360-600 DPI. This exceeds the resolution limit of the naked eye at normal viewing distance but provides extra detail for viewers who lean in close to examine texture and brushwork. Fine art printers like the Epson SureColor series are optimized for 360 PPI input, and Canon imagePROGRAF printers work best with 300 or 600 PPI. Check your printer's optimal input resolution before preparing files.</p>
+</section>
+
+<!-- ===== SECTION: SCREEN RESOLUTION ===== -->
+<section class="card" id="screen-resolution">
+  <h3 style="margin-top:0">Screen Resolution and Web Images</h3>
+
+  <h4>Web Images: Pixel Dimensions Matter, DPI Does Not</h4>
+  <p>For images displayed on screens, DPI metadata is completely irrelevant. A 1200x800 pixel image displays identically on the web whether its metadata says 72 DPI, 300 DPI, or 1 DPI. Browsers ignore the DPI tag and map image pixels directly to CSS pixels (with device pixel ratio scaling). What matters for web images is pixel dimensions and file size. A 1200px-wide image is sufficient for a full-width display on a standard screen. For Retina/HiDPI screens, serve 2400px-wide images that the browser scales to 1200 CSS pixels.</p>
+
+  <h4>Social Media Platform Requirements</h4>
+  <p>Each social media platform has optimal image dimensions that balance quality with upload processing speed. Instagram processes uploads to a maximum of 1080px on the longest edge. Facebook displays images at various sizes depending on context but accepts up to 2048px. Twitter crops to 16:9 in the timeline but shows full images when clicked. Uploading images larger than the platform's maximum results in server-side downscaling and re-compression, which can reduce quality. Uploading images at exactly the recommended dimensions gives you maximum control over the final appearance.</p>
+</section>
+
+<!-- ===== SECTION: MEGAPIXELS ===== -->
+<section class="card" id="megapixels-explained">
+  <h3 style="margin-top:0">Megapixels Explained</h3>
+
+  <h4>What a Megapixel Is</h4>
+  <p>One megapixel equals one million pixels. A camera sensor that captures 6000x4000 pixels produces 24-megapixel images (6000 x 4000 = 24,000,000 pixels = 24 MP). Megapixels determine the maximum resolution of the captured image, which in turn determines the maximum print size at a given DPI. Higher megapixels do not mean better image quality — they mean more detail capacity. A 12 MP image from a camera with an excellent lens can look sharper than a 50 MP image from a camera with a mediocre lens.</p>
+
+  <h4>How Many Megapixels Do You Need</h4>
+  <p>For social media and web use: 2-4 MP is sufficient since platforms downscale to around 1-2 MP anyway. For standard photo prints up to 8x10: 8-12 MP provides 300 DPI. For large prints up to 20x30: 18-24 MP provides 300 DPI. For commercial billboard use: 12-20 MP is sufficient at the lower DPI requirements. For crop flexibility (sports, wildlife where you crop tight on distant subjects): 40+ MP allows significant cropping while retaining print-quality resolution. Most modern smartphones capture 12-48 MP, which is more than sufficient for almost any consumer use case.</p>
+</section>
+
+<!-- ===== SECTION: FILE SIZE ===== -->
+<section class="card" id="file-size-factors">
+  <h3 style="margin-top:0">What Determines Image File Size</h3>
+
+  <h4>The Three Factors</h4>
+  <p>Image file size is determined by three factors: pixel count, color depth, and compression. Pixel count is straightforward — more pixels means more data. Color depth (bits per pixel) determines how many bytes each pixel requires: 24-bit RGB uses 3 bytes per pixel, 48-bit RGB uses 6 bytes, and 32-bit RGBA (with transparency) uses 4 bytes. Compression is the most variable factor — the same image can be 50 KB or 5 MB depending on the format and quality setting.</p>
+
+  <h4>Compression Ratios by Format</h4>
+  <p>JPEG at quality 80 typically compresses photographs to 1/10 to 1/20 of the uncompressed size. A 6 MP image (17.2 MB uncompressed) becomes roughly 0.9-1.7 MB as JPEG. WebP at quality 80 achieves about 25-35% better compression than JPEG, so the same image would be 0.6-1.1 MB. PNG lossless compression produces files 2-5x smaller than uncompressed for photographs, so 3.4-8.6 MB for the same image. These are approximate ranges — actual compression depends heavily on image content. Images with simple patterns compress much better than images with complex detail.</p>
+
+  <h4>Content Complexity and Compression</h4>
+  <p>A photograph of a clear blue sky compresses far more efficiently than a photograph of a detailed cityscape because the sky has massive color redundancy. The sky image might compress to 1/50 of its uncompressed size, while the cityscape compresses to only 1/8. This is why file size estimates are always approximate — the calculator provides typical ranges based on average photographic content, but your specific results will vary based on what the image depicts.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the difference between DPI and PPI?</div>
+    <div class="faq-a"><p>DPI (dots per inch) is a printer specification describing ink dot density. PPI (pixels per inch) describes pixel density in an image or on a screen. In practice, the terms are used interchangeably when discussing image resolution. When someone says "300 DPI image," they mean 300 pixels per inch. The technical distinction matters for advanced print production but not for most photography and design workflows.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What DPI do I need for printing?</div>
+    <div class="faq-a"><p>300 DPI for standard photo prints viewed at arm's length. 150 DPI for posters and large prints viewed from 3+ feet away. 72 DPI for billboards and banners viewed from a distance. 360-600 DPI for fine art gallery prints examined up close. The required DPI decreases as viewing distance increases because the eye's resolving power decreases with distance.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I calculate print size from pixel dimensions?</div>
+    <div class="faq-a"><p>Divide pixels by DPI. A 3000x2000 pixel image at 300 DPI = 10 x 6.67 inches (3000/300 and 2000/300). At 150 DPI, the same image = 20 x 13.33 inches. The formula is: Print Size (inches) = Pixels / DPI. Enter your dimensions in the calculator above for instant results at all standard DPI values.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What resolution do social media platforms require?</div>
+    <div class="faq-a"><p>Instagram: 1080x1080 (square), 1080x1350 (portrait), 1080x566 (landscape). Facebook: 1200x630 (link share). Twitter/X: 1200x675. LinkedIn: 1200x627. YouTube thumbnails: 1280x720. Uploading at exactly these dimensions gives you maximum control over how the platform displays and compresses your image.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I calculate the file size of an image?</div>
+    <div class="faq-a"><p>Uncompressed: Width x Height x 3 bytes (for 24-bit RGB). A 3000x2000 image = 18 MB uncompressed. Compressed sizes depend on format and content: JPEG quality 80 compresses to approximately 1/10-1/20 of uncompressed (0.9-1.7 MB), WebP quality 80 to 1/15-1/30 (0.6-1.1 MB), PNG lossless to 1/2-1/5 (3.6-9 MB for photos). Use the calculator above for instant estimates.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var pxWidth = document.getElementById("pxWidth");
+  var pxHeight = document.getElementById("pxHeight");
+  var printW = document.getElementById("printW");
+  var printH = document.getElementById("printH");
+  var printDPI = document.getElementById("printDPI");
+  var calcFromPrint = document.getElementById("calcFromPrint");
+  var totalPxEl = document.getElementById("totalPx");
+  var megapixelsEl = document.getElementById("megapixels");
+  var aspectRatioEl = document.getElementById("aspectRatio");
+  var rawSizeEl = document.getElementById("rawSize");
+  var printBody = document.getElementById("printBody");
+  var sizeBody = document.getElementById("sizeBody");
+  var presets = document.getElementById("presets");
+
+  function gcd(a, b) {
+    a = Math.abs(Math.round(a));
+    b = Math.abs(Math.round(b));
+    while (b) { var t = b; b = a % b; a = t; }
+    return a;
+  }
+
+  function formatNum(n) {
+    return n.toLocaleString();
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  function calculate() {
+    var w = parseInt(pxWidth.value) || 0;
+    var h = parseInt(pxHeight.value) || 0;
+    if (w <= 0 || h <= 0) return;
+
+    var total = w * h;
+    var mp = total / 1000000;
+    var g = gcd(w, h);
+    var ratioW = w / g;
+    var ratioH = h / g;
+    /* Simplify common ratios */
+    if (ratioW > 100) {
+      var knownRatios = [[1,1],[4,3],[3,2],[16,9],[16,10],[5,4],[3,1],[2,1],[4,5],[9,16],[21,9]];
+      var bestMatch = ratioW + ":" + ratioH;
+      var threshold = 0.02;
+      var actual = w / h;
+      for (var k = 0; k < knownRatios.length; k++) {
+        var r = knownRatios[k][0] / knownRatios[k][1];
+        if (Math.abs(actual - r) / r < threshold) {
+          bestMatch = knownRatios[k][0] + ":" + knownRatios[k][1];
+          break;
+        }
+      }
+      aspectRatioEl.textContent = bestMatch;
+    } else {
+      aspectRatioEl.textContent = ratioW + ":" + ratioH;
+    }
+
+    totalPxEl.textContent = formatNum(total);
+    megapixelsEl.textContent = mp.toFixed(1) + " MP";
+    var rawBytes = total * 3;
+    rawSizeEl.textContent = formatSize(rawBytes);
+
+    /* Print size table */
+    var dpiValues = [
+      { dpi: 72, use: "Screen / Web", quality: "Low (screen only)" },
+      { dpi: 150, use: "Posters / Banners", quality: "Acceptable" },
+      { dpi: 300, use: "Photo Prints", quality: "Professional" },
+      { dpi: 600, use: "Fine Art / Museum", quality: "Maximum" }
+    ];
+    var html = "";
+    for (var i = 0; i < dpiValues.length; i++) {
+      var d = dpiValues[i];
+      var pw = (w / d.dpi).toFixed(2);
+      var ph = (h / d.dpi).toFixed(2);
+      var pwCm = (pw * 2.54).toFixed(1);
+      var phCm = (ph * 2.54).toFixed(1);
+      var cls = d.dpi === 300 ? ' class="highlight"' : '';
+      html += "<tr><td" + cls + ">" + d.dpi + " DPI</td>";
+      html += "<td>" + pw + '" (' + pwCm + " cm)</td>";
+      html += "<td>" + ph + '" (' + phCm + " cm)</td>";
+      html += "<td>" + d.use + "</td>";
+      html += "<td>" + d.quality + "</td></tr>";
+    }
+    printBody.innerHTML = html;
+
+    /* File size estimates */
+    var formats = [
+      { name: "JPEG", quality: "Quality 95", ratio: 5 },
+      { name: "JPEG", quality: "Quality 80", ratio: 15 },
+      { name: "JPEG", quality: "Quality 60", ratio: 25 },
+      { name: "WebP", quality: "Quality 95", ratio: 7 },
+      { name: "WebP", quality: "Quality 80", ratio: 22 },
+      { name: "WebP", quality: "Quality 60", ratio: 35 },
+      { name: "PNG", quality: "Lossless", ratio: 3 },
+      { name: "TIFF", quality: "Uncompressed", ratio: 1 },
+      { name: "BMP", quality: "Uncompressed", ratio: 1 }
+    ];
+    var shtml = "";
+    for (var j = 0; j < formats.length; j++) {
+      var f = formats[j];
+      var estSize = rawBytes / f.ratio;
+      var comprLabel = f.ratio === 1 ? "1:1 (none)" : "~1:" + f.ratio;
+      shtml += "<tr><td><strong>" + f.name + "</strong></td>";
+      shtml += "<td>" + f.quality + "</td>";
+      shtml += "<td>" + comprLabel + "</td>";
+      shtml += "<td>" + formatSize(estSize) + "</td></tr>";
+    }
+    sizeBody.innerHTML = shtml;
+  }
+
+  pxWidth.addEventListener("input", calculate);
+  pxHeight.addEventListener("input", calculate);
+
+  /* Presets */
+  presets.addEventListener("click", function(e) {
+    var chip = e.target.closest(".preset-chip");
+    if (!chip) return;
+    presets.querySelectorAll(".preset-chip").forEach(function(c) { c.classList.remove("active"); });
+    chip.classList.add("active");
+    pxWidth.value = chip.dataset.w;
+    pxHeight.value = chip.dataset.h;
+    calculate();
+  });
+
+  /* Calculate pixels from print size */
+  calcFromPrint.addEventListener("click", function() {
+    var pw = parseFloat(printW.value);
+    var ph = parseFloat(printH.value);
+    var dpi = parseInt(printDPI.value);
+    if (!pw || !ph || !dpi) { alert("Please enter desired print width, height, and target DPI."); return; }
+    pxWidth.value = Math.round(pw * dpi);
+    pxHeight.value = Math.round(ph * dpi);
+    presets.querySelectorAll(".preset-chip").forEach(function(c) { c.classList.remove("active"); });
+    calculate();
+  });
+
+  /* Initial calculation */
+  calculate();
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+<li><a href="/guides/social-media-image-sizes.html" style="color:#3b82f6;text-decoration:none;">Social Media Image Sizes Guide 2026 — Auto-Crop Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>

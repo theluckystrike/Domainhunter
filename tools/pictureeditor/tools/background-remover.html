@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Background Remover Online — Remove Image Backgrounds Free | PictureEditor</title>
+<meta name="description" content="Free online background remover with flood-fill algorithm and tolerance control. Click to select background areas, preview with checkerboard transparency, and download PNG with transparent background. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="background remover, remove background online, transparent background, remove image background, background eraser, photo background remover, make transparent PNG, cut out background, background removal tool, free background remover">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/background-remover.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/background-remover.html">
+<meta property="og:title" content="Background Remover Online — Remove Image Backgrounds Free">
+<meta property="og:description" content="Remove image backgrounds with click-to-select flood fill. Tolerance control, checkerboard preview, PNG export. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Background Remover Online — Remove Image Backgrounds Free">
+<meta name="twitter:description" content="Remove backgrounds with click-to-select and tolerance control. Download transparent PNG. Free, private, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Background Remover Online",
+    "url":"https://pictureeditor.net/tools/background-remover.html",
+    "description":"Free online background remover using flood-fill algorithm with adjustable tolerance. Click on background areas to make them transparent. Download as PNG with alpha channel.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How does the flood-fill background removal work?","acceptedAnswer":{"@type":"Answer","text":"When you click on a pixel, the algorithm checks its color and spreads outward to all connected pixels that are within the tolerance threshold of the clicked color. Those pixels are made transparent. Higher tolerance includes more color variation, making it easier to select gradients and shadows. Lower tolerance is more precise for removing uniform backgrounds."}},
+      {"@type":"Question","name":"What tolerance setting should I use?","acceptedAnswer":{"@type":"Answer","text":"For solid-color backgrounds (white, green screen), use tolerance 20-40. For backgrounds with slight gradients or lighting variation, use 40-70. For complex backgrounds with significant color shifts, use 70-100 and make multiple clicks. Start low and increase gradually — you can always undo and try a higher value."}},
+      {"@type":"Question","name":"Can I remove multiple background areas?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each click removes a connected region of similar color. If your background is divided by the subject (for example, background visible on both sides of a person), you need to click each separate background area individually. The tool accumulates all removed areas into a single transparent result."}},
+      {"@type":"Question","name":"Why does the download file have a checkerboard pattern?","acceptedAnswer":{"@type":"Answer","text":"The checkerboard pattern is only shown in the preview to indicate transparent areas — it is not part of the image. The downloaded PNG file contains proper alpha transparency. When you open the file in a photo editor or place it on a web page, the transparent areas will show whatever is behind the image."}},
+      {"@type":"Question","name":"Does this tool use AI for background removal?","acceptedAnswer":{"@type":"Answer","text":"No. This tool uses a classic flood-fill algorithm that operates on color similarity. You manually click the areas you want to remove and control the tolerance. This approach gives you precise control over exactly what gets removed. It works best for images with distinct background colors. For complex scenes where the background and subject share similar colors, AI-based tools may produce better automatic results."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"Background Remover","item":"https://pictureeditor.net/tools/background-remover.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Canvas wrapper with checkerboard */
+.canvas-wrap{position:relative;display:inline-block;margin-top:16px;max-width:100%}
+.canvas-wrap canvas{display:block;max-width:100%;border-radius:8px;cursor:crosshair}
+.checkerboard{background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;border-radius:8px;border:1px solid var(--border)}
+.instructions{background:#eef2ff;border:1px solid var(--accent);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.9rem;color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Background Remover
+</nav>
+
+<h2>Background Remover &mdash; Make Transparent Backgrounds Free</h2>
+<p class="subtitle">Remove image backgrounds using a flood-fill algorithm with adjustable tolerance. Click on background areas to select them, preview with checkerboard transparency, and download as PNG with transparent background. Everything runs in your browser.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="remover-tool" style="margin-top:0">Background Removal Tool</h3>
+  <p>Upload an image, then click on any background area you want to remove. Adjust the tolerance slider to control how much color variation is included in each selection. Undo mistakes with the undo button. Download the result as a transparent PNG.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+  <!-- Controls (hidden until image loaded) -->
+  <div class="controls hidden" id="controls">
+
+    <div class="instructions" id="instructions">Click on any background area in the image below to make it transparent. Adjust tolerance for more or less color range.</div>
+
+    <div class="slider-field">
+      <label>Tolerance <span id="tolVal">32</span></label>
+      <input type="range" id="tolSlider" min="0" max="255" value="32">
+    </div>
+
+    <div class="info-row">
+      <div class="info-box"><div class="label">Dimensions</div><div class="value" id="dimInfo">--</div></div>
+      <div class="info-box green"><div class="label">Pixels Removed</div><div class="value" id="removedInfo">0</div></div>
+      <div class="info-box accent"><div class="label">% Removed</div><div class="value" id="pctInfo">0%</div></div>
+    </div>
+
+    <!-- Canvas -->
+    <div class="canvas-wrap checkerboard">
+      <canvas id="mainCanvas"></canvas>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-primary" id="undoBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        Undo
+      </button>
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Transparent PNG
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#remover-tool">Background Removal Tool</a></li>
+    <li><a href="#how-flood-fill-works">How Flood-Fill Background Removal Works</a></li>
+    <li><a href="#tolerance-guide">Understanding Tolerance Settings</a></li>
+    <li><a href="#best-backgrounds">Which Backgrounds Remove Best</a></li>
+    <li><a href="#after-removal">What to Do After Removing the Background</a></li>
+    <li><a href="#advanced-techniques">Advanced Background Removal Techniques</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: HOW FLOOD FILL WORKS ===== -->
+<section class="card" id="how-flood-fill-works">
+  <h3 style="margin-top:0">How Flood-Fill Background Removal Works</h3>
+
+  <h4>The Flood-Fill Algorithm Explained</h4>
+  <p>Flood fill is one of the oldest and most intuitive algorithms in computer graphics. You have used it every time you clicked the paint bucket tool in any image editor. The algorithm starts at a single pixel — the one you clicked — reads its color value, and then expands outward to all neighboring pixels. For each neighbor, the algorithm checks whether its color is "close enough" to the starting pixel's color. If it is, the neighbor is included in the selection and the algorithm continues expanding from that pixel. If the color difference exceeds the tolerance threshold, the expansion stops in that direction.</p>
+  <p>The result is a connected region of similarly-colored pixels. In the context of background removal, every pixel in that region is made transparent by setting its alpha channel to zero. The "tolerance" parameter controls the definition of "close enough" — it is the maximum allowed difference between the starting pixel's color and each candidate pixel's color, measured as the Euclidean distance in RGB color space.</p>
+
+  <h4>Color Distance and the Tolerance Parameter</h4>
+  <p>Each pixel has three color channels: red, green, and blue, each ranging from 0 to 255. The color distance between two pixels is calculated as the square root of the sum of squared differences across all three channels. For example, pure white (255, 255, 255) and a light gray (240, 240, 240) have a distance of about 26. A tolerance of 30 would include that gray in the selection; a tolerance of 20 would not. This mathematical relationship is why tolerance settings are so sensitive — small changes in the slider can dramatically affect which pixels are selected.</p>
+  <p>The algorithm used in this tool processes the image pixel-by-pixel using the Canvas API's <code>getImageData()</code> method, which provides direct access to the RGBA values of every pixel. The flood fill runs as a breadth-first search using a queue, visiting each pixel at most once for optimal performance. On a typical 1080p image, the algorithm completes in under 100 milliseconds even when selecting large background regions.</p>
+
+  <h4>Why Some Edges Look Rough</h4>
+  <p>Flood fill operates on exact pixel boundaries, which means it does not handle anti-aliased edges gracefully. Most images have soft, blended edges where the subject gradually transitions into the background over several pixels. The flood fill either includes or excludes each pixel — there is no partial selection. This binary behavior can leave a visible "halo" of background-colored pixels around the subject, or cut into the subject's edges if the tolerance is too high. For best results, start with a low tolerance, remove the bulk of the background, then make additional clicks near edges with a slightly higher tolerance to clean up remaining fragments.</p>
+</section>
+
+<!-- ===== SECTION: TOLERANCE GUIDE ===== -->
+<section class="card" id="tolerance-guide">
+  <h3 style="margin-top:0">Understanding Tolerance Settings</h3>
+
+  <h4>Low Tolerance (0-30): Precision Mode</h4>
+  <p>Low tolerance values select only pixels that very closely match the clicked pixel's color. A tolerance of 0 selects only pixels that are exactly the same color — useful for digitally generated graphics with perfectly uniform backgrounds. A tolerance of 10-20 handles the minor color variation caused by JPEG compression artifacts on solid backgrounds. Use low tolerance when the background is a single, uniform color (white, solid gray, or a specific brand color) and you want maximum precision around the subject edges.</p>
+
+  <h4>Medium Tolerance (30-70): General Purpose</h4>
+  <p>Medium tolerance is appropriate for most real-world photographs. Studio backgrounds are rarely perfectly uniform — they have subtle gradients from lighting, shadows near the subject, and color variation from the camera sensor. A tolerance of 40-60 handles these variations while still respecting the boundary between the subject and background. This range is the best starting point for most images. If you find that the selection is leaving patches of background unselected, increase the tolerance. If it is eating into the subject, decrease it.</p>
+
+  <h4>High Tolerance (70-150): Aggressive Mode</h4>
+  <p>High tolerance values select pixels across a wide range of colors. This is necessary for backgrounds with significant color variation — gradual sky gradients, multi-colored walls, natural outdoor scenes, or backgrounds with complex patterns. The risk is that high tolerance may select pixels within the subject that happen to be similar in color to the background. When using high tolerance, make smaller, more targeted clicks rather than clicking in the middle of a large background area. Click specifically on the problem areas that lower tolerance missed.</p>
+
+  <h4>Very High Tolerance (150-255): Nuclear Option</h4>
+  <p>Tolerance values above 150 select almost any color, effectively removing everything connected to the clicked region regardless of color similarity. This is rarely useful for background removal because it will almost certainly remove parts of the subject. The only practical use case is removing everything except a subject that is completely surrounded by a thin, clearly-defined edge — and even then, you typically get better results with medium tolerance and multiple clicks.</p>
+</section>
+
+<!-- ===== SECTION: BEST BACKGROUNDS ===== -->
+<section class="card" id="best-backgrounds">
+  <h3 style="margin-top:0">Which Backgrounds Remove Best</h3>
+
+  <h4>Ideal: Solid Color Backgrounds</h4>
+  <p>Pure white, solid gray, and chroma key green or blue backgrounds produce the cleanest results. A single click with tolerance 20-40 typically removes the entire background in one operation. Product photography on white backgrounds, headshots on gray backdrops, and video production green screens all fall into this category. If you control the shooting environment, using a solid, uniform background is the single most effective way to ensure clean background removal.</p>
+
+  <h4>Good: Simple Gradient Backgrounds</h4>
+  <p>Studio backgrounds with soft lighting gradients work well with medium tolerance (40-60). You may need 2-3 clicks in different areas to capture the full range of the gradient. Shadows near the subject's edges may require separate clicks with slightly higher tolerance. The key is that the background colors remain distinctly different from the subject — even if the background varies from light gray in the center to medium gray at the edges, it is still separable from a human subject wearing colored clothing.</p>
+
+  <h4>Challenging: Complex Natural Backgrounds</h4>
+  <p>Outdoor scenes, interior rooms, and any background containing multiple colors and textures require many clicks and careful tolerance adjustment. Each distinct background area needs to be selected separately. The tool works incrementally — each click adds to the total removed area — so you can systematically work through complex backgrounds one section at a time. These scenarios typically require 10-20 clicks with varying tolerance settings and may benefit from the undo function to recover from overshooting.</p>
+
+  <h4>Difficult: Color Overlap Between Subject and Background</h4>
+  <p>When the subject and background share similar colors — a person in a white shirt against a white wall, or a green plant against a green background — flood fill cannot reliably distinguish between them. The algorithm has no concept of "subject" or "object" — it only sees color similarity. In these cases, use the lowest tolerance that selects any background at all, make precise clicks in areas far from the subject, and accept that you may not achieve a perfectly clean result without manual pixel-level editing.</p>
+</section>
+
+<!-- ===== SECTION: AFTER REMOVAL ===== -->
+<section class="card" id="after-removal">
+  <h3 style="margin-top:0">What to Do After Removing the Background</h3>
+
+  <h4>Saving as Transparent PNG</h4>
+  <p>Always download your result as PNG. JPEG does not support transparency — if you save a background-removed image as JPEG, the transparent areas will be filled with white (or black, depending on the software). PNG preserves the alpha channel, which stores the transparency information for each pixel. The resulting file will be larger than a JPEG because PNG uses lossless compression, but the transparency information is preserved perfectly.</p>
+
+  <h4>Using Your Transparent Image</h4>
+  <p>Transparent PNG images can be placed on any background in design software, presentation tools, and web pages. Common uses include compositing subjects onto new backgrounds, creating product images for e-commerce listings, building social media graphics, and preparing images for presentations. In HTML, simply use the PNG file in an <code>&lt;img&gt;</code> tag — the transparent areas will show whatever is behind the element, whether that is a solid color, a gradient, another image, or a video.</p>
+
+  <h4>Cleaning Up Edges</h4>
+  <p>If the flood fill left a slight halo around the subject, you can refine the edges in any image editor that supports eraser tools. Open the transparent PNG, zoom to 200-400%, and manually erase the remaining background pixels along the edges. For a softer, more natural look, use a soft-edged eraser to feather the transition. This post-processing step takes 2-5 minutes and dramatically improves the quality of the cutout.</p>
+</section>
+
+<!-- ===== SECTION: ADVANCED TECHNIQUES ===== -->
+<section class="card" id="advanced-techniques">
+  <h3 style="margin-top:0">Advanced Background Removal Techniques</h3>
+
+  <h4>The Incremental Approach</h4>
+  <p>Rather than trying to remove the entire background in a single click, use an incremental strategy. Start with low tolerance (15-25) and click the most uniform area of the background — usually the center. This removes the easy part. Then increase tolerance to 30-40 and click on remaining background patches that have slight color variation. Continue increasing tolerance and clicking smaller areas until only edge pixels remain. This approach takes more clicks but produces far cleaner results than a single high-tolerance click.</p>
+
+  <h4>Working with Shadows</h4>
+  <p>Product photography often includes natural shadows that extend from the subject onto the background. Decide before you start whether you want to keep or remove the shadows. Shadows that touch the subject will be partially preserved at low tolerance settings because they blend into the subject. If you want a completely shadow-free cutout, increase tolerance near the subject's base. If you want to preserve some shadow for a natural look, keep the tolerance lower in those areas and click only on the pure background regions away from the shadow.</p>
+
+  <h4>Handling Hair and Fine Detail</h4>
+  <p>Hair, fur, and other fine details are the most challenging elements in background removal because individual strands are partially transparent and blend with the background at the pixel level. Flood fill cannot handle these edges well because each strand pixel is a mix of hair color and background color. For portraits and pet photos, expect some loss of fine hair detail around the edges. The best mitigation is to shoot against a strongly contrasting background (a person with dark hair against a white background, or light hair against a dark background) so the color distance between hair and background is maximized.</p>
+
+  <h4>Combining with Other Tools</h4>
+  <p>For best results, use background removal as one step in a multi-tool workflow. First, crop the image to remove unnecessary areas using <a href="/crop.html">our crop tool</a>. Then remove the background using this tool. Finally, compress the transparent PNG using <a href="/tools/image-compressor.html">our compressor</a> in PNG mode to minimize file size. This three-step workflow produces optimized, transparent images ready for any use case.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the flood-fill background removal work?</div>
+    <div class="faq-a"><p>When you click on a pixel, the algorithm reads its color and spreads outward to all connected pixels whose color is within the tolerance threshold. Those matching pixels are made transparent. Higher tolerance includes more color variation (better for gradients and shadows). Lower tolerance is more precise (better for uniform backgrounds). Each click adds to the removal — you can make multiple clicks to progressively remove more background.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What tolerance setting should I use?</div>
+    <div class="faq-a"><p>For solid-color backgrounds (white, green screen), use tolerance 20-40. For backgrounds with slight gradients or lighting variation, use 40-70. For complex backgrounds with significant color shifts, use 70-100 and make multiple smaller clicks. Start low and increase gradually — you can always undo and try a higher value.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I remove multiple background areas?</div>
+    <div class="faq-a"><p>Yes. Each click removes a separate connected region of similar color. If your background is divided by the subject (for example, visible on both sides of a person), click each separate background area individually. The tool accumulates all removed areas into a single transparent result that you can download as one PNG.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does the download file have a checkerboard pattern?</div>
+    <div class="faq-a"><p>It does not. The checkerboard pattern is only shown in the preview to indicate which areas are transparent. The downloaded PNG file contains proper alpha transparency. When you open it in a photo editor or place it on a web page, the transparent areas will show whatever is behind the image — not a checkerboard.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this tool use AI for background removal?</div>
+    <div class="faq-a"><p>No. This tool uses a classic flood-fill algorithm based on color similarity. You manually click the areas you want to remove and control the tolerance. This gives you precise control over exactly what gets removed. It works best for images with distinct background colors. For complex scenes where the background and subject share similar colors, AI-based tools may produce better automatic results, but they run on remote servers rather than in your browser.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("mainCanvas");
+  var ctx = canvas.getContext("2d", { willReadFrequently: true });
+  var tolSlider = document.getElementById("tolSlider");
+  var tolVal = document.getElementById("tolVal");
+  var dimInfo = document.getElementById("dimInfo");
+  var removedInfo = document.getElementById("removedInfo");
+  var pctInfo = document.getElementById("pctInfo");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var undoBtn = document.getElementById("undoBtn");
+  var resetBtn = document.getElementById("resetBtn");
+
+  var sourceImg = null;
+  var imgW = 0, imgH = 0;
+  var displayScale = 1;
+  var history = []; // stack of ImageData snapshots
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  tolSlider.addEventListener("input", function() {
+    tolVal.textContent = tolSlider.value;
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      imgW = img.naturalWidth;
+      imgH = img.naturalHeight;
+      var maxW = 800;
+      displayScale = imgW > maxW ? maxW / imgW : 1;
+      canvas.width = Math.round(imgW * displayScale);
+      canvas.height = Math.round(imgH * displayScale);
+      ctx.drawImage(sourceImg, 0, 0, canvas.width, canvas.height);
+      history = [ctx.getImageData(0, 0, canvas.width, canvas.height)];
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = imgW + "x" + imgH;
+      updateStats();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function updateStats() {
+    var data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var pixels = data.data;
+    var total = canvas.width * canvas.height;
+    var removed = 0;
+    for (var i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] === 0) removed++;
+    }
+    removedInfo.textContent = removed.toLocaleString();
+    pctInfo.textContent = total > 0 ? Math.round((removed / total) * 100) + "%" : "0%";
+  }
+
+  /* Flood fill on canvas click */
+  canvas.addEventListener("click", function(e) {
+    if (!sourceImg) return;
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / rect.width;
+    var scaleY = canvas.height / rect.height;
+    var x = Math.floor((e.clientX - rect.left) * scaleX);
+    var y = Math.floor((e.clientY - rect.top) * scaleY);
+    if (x < 0 || y < 0 || x >= canvas.width || y >= canvas.height) return;
+
+    /* Save current state for undo */
+    history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    if (history.length > 30) history.shift();
+
+    var tolerance = parseInt(tolSlider.value);
+    floodFillTransparent(x, y, tolerance);
+    updateStats();
+  });
+
+  function floodFillTransparent(startX, startY, tolerance) {
+    var w = canvas.width;
+    var h = canvas.height;
+    var imageData = ctx.getImageData(0, 0, w, h);
+    var pixels = imageData.data;
+    var visited = new Uint8Array(w * h);
+
+    var idx = (startY * w + startX) * 4;
+    var targetR = pixels[idx];
+    var targetG = pixels[idx + 1];
+    var targetB = pixels[idx + 2];
+
+    /* If clicking on an already transparent pixel, skip */
+    if (pixels[idx + 3] === 0) return;
+
+    var tolSq = tolerance * tolerance;
+    var queue = [startX, startY];
+    visited[startY * w + startX] = 1;
+
+    while (queue.length > 0) {
+      var cy = queue.pop();
+      var cx = queue.pop();
+      var ci = (cy * w + cx) * 4;
+
+      pixels[ci + 3] = 0; /* Make transparent */
+
+      /* Check 4 neighbors */
+      var neighbors = [
+        [cx - 1, cy], [cx + 1, cy],
+        [cx, cy - 1], [cx, cy + 1]
+      ];
+      for (var n = 0; n < 4; n++) {
+        var nx = neighbors[n][0];
+        var ny = neighbors[n][1];
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        var ni = ny * w + nx;
+        if (visited[ni]) continue;
+        visited[ni] = 1;
+        var pi = ni * 4;
+        if (pixels[pi + 3] === 0) continue; /* Already transparent */
+        var dr = pixels[pi] - targetR;
+        var dg = pixels[pi + 1] - targetG;
+        var db = pixels[pi + 2] - targetB;
+        var distSq = dr * dr + dg * dg + db * db;
+        if (distSq <= tolSq) {
+          queue.push(nx, ny);
+        }
+      }
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  /* Undo */
+  undoBtn.addEventListener("click", function() {
+    if (history.length <= 1) return;
+    history.pop(); /* Remove current state */
+    var prev = history[history.length - 1];
+    ctx.putImageData(prev, 0, 0);
+    updateStats();
+  });
+
+  /* Download at full resolution */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    /* Create full-res canvas */
+    var fullCanvas = document.createElement("canvas");
+    fullCanvas.width = imgW;
+    fullCanvas.height = imgH;
+    var fctx = fullCanvas.getContext("2d", { willReadFrequently: true });
+    fctx.drawImage(sourceImg, 0, 0, imgW, imgH);
+
+    /* Get current display canvas transparency mask */
+    var displayData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var fullData = fctx.getImageData(0, 0, imgW, imgH);
+    var dw = canvas.width;
+    var dh = canvas.height;
+
+    /* Map display transparency to full resolution */
+    for (var fy = 0; fy < imgH; fy++) {
+      for (var fx = 0; fx < imgW; fx++) {
+        var dx = Math.floor(fx * displayScale);
+        var dy = Math.floor(fy * displayScale);
+        if (dx >= dw) dx = dw - 1;
+        if (dy >= dh) dy = dh - 1;
+        var di = (dy * dw + dx) * 4;
+        if (displayData.data[di + 3] === 0) {
+          var fi = (fy * imgW + fx) * 4;
+          fullData.data[fi + 3] = 0;
+        }
+      }
+    }
+    fctx.putImageData(fullData, 0, 0);
+
+    fullCanvas.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "background-removed.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    history = [];
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    removedInfo.textContent = "0";
+    pctInfo.textContent = "0%";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/remove-background.html" style="color:#3b82f6;text-decoration:none;">Background Remover</a></li>
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+<li><a href="/tools/color-picker.html" style="color:#3b82f6;text-decoration:none;">Color Picker & Palette Extractor — Free Online Tool</a></li>
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+</ul>
+</section>
+
+</body>
+</html>

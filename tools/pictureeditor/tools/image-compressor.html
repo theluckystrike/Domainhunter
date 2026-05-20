@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Compressor Online — Reduce File Size Up to 90% Free | PictureEditor</title>
+<meta name="description" content="Free online image compressor with batch mode. Reduce JPEG, PNG, and WebP file sizes by up to 90% with quality preview. Side-by-side before/after comparison. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="image compressor, compress image online, reduce image file size, compress JPEG, compress PNG, compress WebP, batch image compression, lossy compression, lossless compression, image optimizer">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/image-compressor.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/image-compressor.html">
+<meta property="og:title" content="Image Compressor Online — Reduce File Size Up to 90% Free">
+<meta property="og:description" content="Compress images up to 90% smaller with quality preview. JPEG, PNG, WebP batch compression. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Compressor Online — Reduce File Size Up to 90% Free">
+<meta name="twitter:description" content="Batch compress images with quality preview. JPEG, PNG, WebP supported. Free, private, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Compressor Online",
+    "url":"https://pictureeditor.net/tools/image-compressor.html",
+    "description":"Free online image compressor with batch mode, quality preview, and side-by-side comparison. Reduce JPEG, PNG, WebP file sizes by up to 90%.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the difference between lossy and lossless compression?","acceptedAnswer":{"@type":"Answer","text":"Lossy compression (JPEG, WebP) permanently removes data to achieve smaller files. Lossless compression (PNG) reduces file size without any data loss. Lossy typically achieves 60-90% reduction while lossless achieves 10-50% depending on image content."}},
+      {"@type":"Question","name":"What quality setting should I use for web images?","acceptedAnswer":{"@type":"Answer","text":"For web images, quality 70-80 offers the best balance of file size and visual quality. For social media, 75-85 is ideal. For print or archival, use 90-95. WebP format gives the best quality-to-size ratio at any setting."}},
+      {"@type":"Question","name":"Does this tool upload my images to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression happens entirely in your browser using the Canvas API. Your images never leave your device. You can verify this by checking the Network tab in browser developer tools."}},
+      {"@type":"Question","name":"Can I compress multiple images at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool supports batch mode — select or drag multiple images at once. Each image is compressed individually with your chosen settings, and you can download all results."}},
+      {"@type":"Question","name":"Which format produces the smallest file size?","acceptedAnswer":{"@type":"Answer","text":"WebP produces the smallest files for photographs, typically 25-35% smaller than JPEG at equivalent visual quality. For screenshots and graphics with solid colors, PNG with lossless compression can be very efficient. JPEG remains the universal fallback for maximum compatibility."}}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane img{max-width:100%;max-height:350px;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Batch list */
+.batch-list{margin-top:16px}
+.batch-item{display:flex;align-items:center;gap:12px;padding:12px;background:#f8fafc;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;flex-wrap:wrap}
+.batch-item img{width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+.batch-item .name{font-weight:600;font-size:.85rem;flex:1;min-width:100px;word-break:break-all}
+.batch-item .sizes{font-size:.8rem;color:var(--text-secondary);display:flex;gap:12px;align-items:center}
+.batch-item .savings{font-weight:700;color:var(--green);font-size:.85rem}
+.batch-item .dl-btn{padding:6px 14px;background:var(--green);color:#fff;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;border:none}
+.batch-item .dl-btn:hover{background:var(--green-hover)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .batch-item{flex-direction:column;text-align:center}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/image-compressor.html">Tools</a><span>/</span>
+  Image Compressor
+</nav>
+
+<h2>Image Compressor Online — Reduce File Size Up to 90%</h2>
+<p class="subtitle">Compress JPEG, PNG, and WebP images with real-time quality preview. Batch mode supported. All processing happens in your browser — your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="compressor-tool" style="margin-top:0">Image Compression Tool</h3>
+  <p>Drop one or more images below. Adjust quality and output format, compare before/after side by side, and download the compressed results. Everything runs locally — nothing is uploaded.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop images here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB each. Multiple files allowed.</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+
+  <!-- Controls (hidden until image loaded) -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Quality Slider -->
+    <div class="slider-field">
+      <label>Quality <span id="qualityVal">80%</span></label>
+      <input type="range" id="qualitySlider" min="1" max="100" value="80">
+    </div>
+
+    <!-- Output Format -->
+    <div class="format-select">
+      <label for="formatSelect">Output Format</label>
+      <select id="formatSelect">
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/png">PNG</option>
+        <option value="image/webp" selected>WebP</option>
+      </select>
+    </div>
+
+    <!-- Single Image Preview (for first/selected image) -->
+    <div id="singlePreview">
+      <div class="info-row">
+        <div class="info-box"><div class="label">Original</div><div class="value" id="origSize">--</div></div>
+        <div class="info-box green"><div class="label">Compressed</div><div class="value" id="compSize">--</div></div>
+        <div class="info-box accent"><div class="label">Reduction</div><div class="value" id="savings">--</div></div>
+      </div>
+      <div class="preview-area">
+        <div class="preview-pane"><div class="pane-label">Original</div><img id="previewOrig" alt="Original image preview"></div>
+        <div class="preview-pane"><div class="pane-label">Compressed</div><img id="previewComp" alt="Compressed image preview"></div>
+      </div>
+    </div>
+
+    <!-- Batch List -->
+    <div class="batch-list hidden" id="batchList">
+      <h4 style="margin-top:0">Batch Results</h4>
+      <div id="batchItems"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span id="downloadLabel">Download Compressed</span>
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#compressor-tool">Compression Tool</a></li>
+    <li><a href="#how-compression-works">How Image Compression Works</a></li>
+    <li><a href="#lossy-vs-lossless">Lossy vs Lossless Compression</a></li>
+    <li><a href="#format-guide">When to Use Each Format</a></li>
+    <li><a href="#quality-tradeoffs">Quality vs File Size Tradeoffs</a></li>
+    <li><a href="#optimization-tips">Image Optimization Best Practices</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: HOW COMPRESSION WORKS ===== -->
+<section class="card" id="how-compression-works">
+  <h3 style="margin-top:0">How Image Compression Works</h3>
+
+  <h4>The Fundamentals of Digital Image Data</h4>
+  <p>A digital image is a grid of pixels, each storing color information. An uncompressed 1920x1080 image with 24-bit color (8 bits per channel for red, green, and blue) requires exactly 6,220,800 bytes — roughly 6 MB — regardless of what the image contains. A plain white rectangle and a complex photograph occupy the same space in raw form. Image compression exploits the fact that most images contain massive amounts of redundancy that can be represented more efficiently.</p>
+  <p>All compression algorithms work by identifying patterns in the pixel data. Adjacent pixels in a photograph are usually similar in color. A blue sky might span thousands of pixels that vary by only a few color values. Instead of storing each pixel individually, compression algorithms encode these patterns using mathematical transforms, run-length encoding, or predictive models that represent the same visual information in far fewer bytes.</p>
+
+  <h4>The Compression Pipeline</h4>
+  <p>Modern image compression typically follows a multi-stage pipeline. First, the color space is transformed — JPEG converts RGB to YCbCr, separating luminance (brightness) from chrominance (color), because human vision is far more sensitive to brightness detail than color detail. Second, the image is divided into blocks (8x8 pixels for JPEG, variable for WebP). Third, a mathematical transform (Discrete Cosine Transform for JPEG, Walsh-Hadamard for WebP) converts spatial pixel data into frequency components. Finally, quantization reduces the precision of less important frequency components, and entropy coding (Huffman or arithmetic) produces the final compressed bitstream.</p>
+  <p>This tool leverages your browser's built-in encoding engines to perform this entire pipeline. When you adjust the quality slider, you are controlling the quantization step — how aggressively the encoder discards high-frequency detail. The Canvas API's <code>toBlob()</code> method accepts a quality parameter between 0 and 1 that maps directly to the encoder's quantization tables.</p>
+
+  <h4>Why Some Images Compress Better Than Others</h4>
+  <p>Photographs with smooth gradients and large areas of similar color compress extremely well because the frequency transform produces mostly low-frequency components that survive quantization. Images with fine detail, sharp edges, text overlays, or noise contain significant high-frequency content that requires more bits to represent. A photograph of a cloudy sky might compress to 5% of its original size at quality 70, while a detailed cityscape at night might only reach 30% reduction at the same setting.</p>
+</section>
+
+<!-- ===== SECTION: LOSSY VS LOSSLESS ===== -->
+<section class="card" id="lossy-vs-lossless">
+  <h3 style="margin-top:0">Lossy vs Lossless Compression</h3>
+
+  <h4>Lossy Compression: Trading Precision for Size</h4>
+  <p>Lossy compression permanently removes data from the image to achieve dramatic file size reductions. The key insight is that it removes data that humans are least likely to notice. JPEG and WebP lossy modes exploit the limitations of human visual perception — we are poor at perceiving small changes in color compared to brightness, and we struggle to see fine detail in areas of rapid change. By selectively discarding this imperceptible information, lossy compression routinely achieves 80-95% file size reduction.</p>
+  <p>The tradeoff is irreversibility. Once data is discarded, it cannot be recovered. This makes lossy compression cumulative — every save cycle introduces additional degradation. Opening a JPEG, making a minor edit, and saving it again at the same quality level does not produce the same file. Each generation introduces additional artifacts around edges, in gradients, and in areas of uniform color. This is known as generation loss, and it is the primary reason professional photographers work with lossless formats (RAW, TIFF) and only export to JPEG as a final distribution step.</p>
+
+  <h4>Lossless Compression: Perfect Fidelity</h4>
+  <p>Lossless compression reduces file size without discarding any image data whatsoever. The decompressed output is bit-for-bit identical to the original input. PNG is the most common lossless format for the web. It uses a combination of filtering (predicting each pixel based on its neighbors) and DEFLATE compression (the same algorithm used in ZIP files) to eliminate redundancy without losing information.</p>
+  <p>The limitation is compression efficiency. Lossless compression typically achieves only 10-50% file size reduction for photographs, compared to 70-95% for lossy. However, for images with large areas of identical color — screenshots, diagrams, text renders, logos — lossless compression can be remarkably efficient, sometimes reducing files by 90% or more because the repeated color values create highly compressible patterns.</p>
+
+  <h4>Practical Decision Framework</h4>
+  <p>Use lossy compression (JPEG or WebP lossy) for photographs, illustrations with smooth gradients, and any image where visual appearance matters more than mathematical precision. Use lossless compression (PNG or WebP lossless) for screenshots, technical diagrams, images with text, logos, and any image that will undergo further editing. When in doubt, WebP offers both lossy and lossless modes with consistently superior compression ratios compared to JPEG and PNG respectively.</p>
+</section>
+
+<!-- ===== SECTION: FORMAT GUIDE ===== -->
+<section class="card" id="format-guide">
+  <h3 style="margin-top:0">When to Use Each Format</h3>
+
+  <h4>JPEG — The Universal Photograph Format</h4>
+  <p>JPEG has been the default photograph format since 1992 and remains universally supported across every device, browser, email client, and operating system. Its lossy compression is specifically optimized for photographic content. At quality 80-85, JPEG produces excellent results with typical file sizes of 100-300 KB for a 1080p image. The main limitations are no transparency support and visible blocking artifacts at low quality settings. Use JPEG when maximum compatibility is required or when you are distributing images to systems where WebP support is uncertain.</p>
+
+  <h4>WebP — The Modern All-Rounder</h4>
+  <p>WebP, developed by Google, produces files 25-35% smaller than JPEG at equivalent visual quality in lossy mode, and 26% smaller than PNG in lossless mode. It supports both lossy and lossless compression, alpha transparency, and animation. Browser support exceeded 99% in 2025, making it the recommended default for web images. WebP uses a more advanced prediction model and entropy coding than JPEG, which is why it achieves better compression. The only remaining reason to avoid WebP is compatibility with very old software or systems that have not been updated.</p>
+
+  <h4>PNG — Lossless with Transparency</h4>
+  <p>PNG is the correct choice when you need bit-perfect lossless compression or 8-bit alpha transparency. Screenshots, logos, icons, UI elements, and any image containing text or sharp edges should use PNG. The lossless nature means PNG files are significantly larger than lossy alternatives for photographs — a photo that is 200 KB as a JPEG might be 2 MB as a PNG. Never use PNG for photographs unless you specifically need lossless preservation. For transparency with photographs, WebP with alpha is a far more efficient option.</p>
+</section>
+
+<!-- ===== SECTION: QUALITY TRADEOFFS ===== -->
+<section class="card" id="quality-tradeoffs">
+  <h3 style="margin-top:0">Quality vs File Size Tradeoffs</h3>
+
+  <p>Understanding the relationship between quality settings and file size helps you make informed compression decisions. The relationship is non-linear — the first 20% of quality reduction typically achieves 50-60% of the total possible file size savings, while the remaining quality reduction yields diminishing returns.</p>
+
+  <h4>Quality Setting Guide</h4>
+  <ul>
+    <li><strong>Quality 95-100:</strong> Near-lossless. File size reduction of 20-40%. Appropriate for archival photography and print production where every detail matters.</li>
+    <li><strong>Quality 80-90:</strong> Excellent quality. File size reduction of 50-70%. The sweet spot for web images, social media, and professional publishing. Artifacts are invisible to most viewers.</li>
+    <li><strong>Quality 60-75:</strong> Good quality. File size reduction of 70-85%. Acceptable for blog posts, thumbnails, and content where file size matters more than pixel-perfect quality. Minor artifacts visible on close inspection.</li>
+    <li><strong>Quality 40-55:</strong> Moderate quality. File size reduction of 80-90%. Suitable for email attachments, messaging apps, and low-bandwidth scenarios. Visible artifacts in gradients and around edges.</li>
+    <li><strong>Quality 10-35:</strong> Low quality. File size reduction of 90-97%. Only appropriate for tiny thumbnails or placeholder images. Heavy blocking artifacts and color banding clearly visible.</li>
+  </ul>
+
+  <h4>Format Comparison at Equal Visual Quality</h4>
+  <p>At the same perceived visual quality, WebP consistently produces the smallest files. A typical 1080x1080 photograph at quality 80 produces approximately: JPEG at 250 KB, WebP at 170 KB, PNG at 2.5 MB. The WebP advantage increases at lower quality settings — at quality 50, WebP might be 40% smaller than JPEG because its more sophisticated prediction model handles aggressive compression more gracefully.</p>
+  <p>One important nuance: PNG file size does not change with the quality slider because PNG is always lossless. The quality parameter is ignored for PNG output. If you select PNG as the output format, focus on image dimensions rather than the quality slider for file size control.</p>
+</section>
+
+<!-- ===== SECTION: OPTIMIZATION TIPS ===== -->
+<section class="card" id="optimization-tips">
+  <h3 style="margin-top:0">Image Optimization Best Practices</h3>
+
+  <h4>1. Resize Before Compressing</h4>
+  <p>The single most effective optimization is reducing image dimensions to match their display size. A 4000x3000 photograph displayed at 800px wide on a website wastes 93% of its pixels. Resize first using <a href="/guides/resize-image-online.html">our resize tool</a>, then compress. This combination routinely achieves 95%+ file size reduction with excellent visual quality.</p>
+
+  <h4>2. Choose the Right Format for Your Content</h4>
+  <p>Photographs belong in WebP or JPEG. Screenshots and graphics with text belong in PNG. Logos and icons belong in SVG when possible, PNG when not. Using the wrong format can result in files 5-10x larger than necessary. A logo saved as JPEG will have artifacts around the edges and be larger than the same logo in PNG.</p>
+
+  <h4>3. Avoid Double Compression</h4>
+  <p>Never compress an already-compressed JPEG. Each compression cycle introduces additional artifacts and the file size savings are minimal because the first compression already removed the easy-to-discard data. Always start from the highest quality source available. If you only have a compressed version, compress it at the same or higher quality than the original to minimize additional degradation.</p>
+
+  <h4>4. Use Responsive Images</h4>
+  <p>For web developers, serve different image sizes for different screen sizes using the <code>srcset</code> attribute or the <code>&lt;picture&gt;</code> element. A mobile visitor on a 375px-wide screen should not download the same 2000px-wide image sent to desktop visitors. Generating multiple compressed versions at different sizes (400px, 800px, 1200px, 2000px) ensures every visitor gets the optimal file size.</p>
+
+  <h4>5. Consider Content Delivery Networks</h4>
+  <p>CDNs with image optimization capabilities (Cloudflare, Imgix, Cloudinary) can automatically compress and convert images to the best format for each visitor's browser. This is the most efficient approach for websites with large image libraries, as it eliminates the need to manually generate and maintain multiple compressed versions of every image.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the difference between lossy and lossless compression?</div>
+    <div class="faq-a"><p>Lossy compression (JPEG, WebP lossy) permanently removes image data to achieve smaller files — typically 60-95% reduction. The removed data is chosen to be as imperceptible as possible. Lossless compression (PNG, WebP lossless) reduces file size without any data loss — the decompressed image is identical to the original. Lossy is best for photographs; lossless is best for screenshots, logos, and images that will be further edited.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What quality setting should I use for web images?</div>
+    <div class="faq-a"><p>For web images, quality 70-80 offers the best balance of file size and visual quality. Most visitors cannot distinguish quality 80 from quality 100 in a normal browsing context. For social media, 75-85 is ideal since platforms apply their own compression on upload. For print or archival purposes, use 90-95 to preserve maximum detail.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this tool upload my images to a server?</div>
+    <div class="faq-a"><p>No. All compression happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device. You can verify this by opening your browser's network tab (F12 &gt; Network) — you will see zero image uploads while using the tool. This makes it safe for sensitive, private, or confidential images.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I compress multiple images at once?</div>
+    <div class="faq-a"><p>Yes. This tool supports batch mode. Select multiple files using the file picker (hold Ctrl/Cmd to select multiple) or drag and drop several images at once. Each image is compressed individually with your chosen quality and format settings, and you can download each result or use the Download All button.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Which format produces the smallest file size?</div>
+    <div class="faq-a"><p>For photographs, WebP produces the smallest files — typically 25-35% smaller than JPEG at the same visual quality. For screenshots and graphics with solid colors, PNG with lossless compression can be very efficient because repeated color patterns compress well. In general, WebP is the best default choice for web images in 2026 with over 99% browser support.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var qualitySlider = document.getElementById("qualitySlider");
+  var qualityVal = document.getElementById("qualityVal");
+  var formatSelect = document.getElementById("formatSelect");
+  var origSizeEl = document.getElementById("origSize");
+  var compSizeEl = document.getElementById("compSize");
+  var savingsEl = document.getElementById("savings");
+  var previewOrig = document.getElementById("previewOrig");
+  var previewComp = document.getElementById("previewComp");
+  var singlePreview = document.getElementById("singlePreview");
+  var batchList = document.getElementById("batchList");
+  var batchItems = document.getElementById("batchItems");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var downloadLabel = document.getElementById("downloadLabel");
+  var resetBtn = document.getElementById("resetBtn");
+
+  var files = [];
+  var results = []; // {file, blob, origSize, compSize}
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFiles(fileInput.files);
+  });
+  dropZone.addEventListener("dragover", function(e) {
+    e.preventDefault();
+    dropZone.classList.add("drag-over");
+  });
+  dropZone.addEventListener("dragleave", function() {
+    dropZone.classList.remove("drag-over");
+  });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) {
+      handleFiles(e.dataTransfer.files);
+    }
+  });
+
+  function handleFiles(fileList) {
+    files = [];
+    results = [];
+    for (var i = 0; i < fileList.length; i++) {
+      if (fileList[i].type.match(/image\/(jpeg|png|webp)/)) {
+        files.push(fileList[i]);
+      }
+    }
+    if (files.length === 0) { alert("Please select JPEG, PNG, or WebP images."); return; }
+    dropZone.classList.add("hidden");
+    controls.classList.remove("hidden");
+
+    if (files.length === 1) {
+      singlePreview.classList.remove("hidden");
+      batchList.classList.add("hidden");
+      downloadLabel.textContent = "Download Compressed";
+      compressSingle(files[0]);
+    } else {
+      singlePreview.classList.add("hidden");
+      batchList.classList.remove("hidden");
+      downloadLabel.textContent = "Download All (" + files.length + ")";
+      batchItems.innerHTML = "";
+      for (var j = 0; j < files.length; j++) {
+        compressBatchItem(files[j], j);
+      }
+    }
+  }
+
+  function compressSingle(file) {
+    previewOrig.src = URL.createObjectURL(file);
+    origSizeEl.textContent = formatSize(file.size);
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var quality = parseInt(qualitySlider.value) / 100;
+      var format = formatSelect.value;
+      canvas.toBlob(function(blob) {
+        if (!blob) return;
+        results = [{file: file, blob: blob, origSize: file.size, compSize: blob.size}];
+        previewComp.src = URL.createObjectURL(blob);
+        compSizeEl.textContent = formatSize(blob.size);
+        var pct = Math.round((1 - blob.size / file.size) * 100);
+        savingsEl.textContent = (pct > 0 ? "-" : "+") + Math.abs(pct) + "%";
+      }, format, quality);
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function compressBatchItem(file, index) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var quality = parseInt(qualitySlider.value) / 100;
+      var format = formatSelect.value;
+      canvas.toBlob(function(blob) {
+        if (!blob) return;
+        results[index] = {file: file, blob: blob, origSize: file.size, compSize: blob.size};
+        renderBatchItem(index);
+      }, format, quality);
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function renderBatchItem(index) {
+    var r = results[index];
+    if (!r) return;
+    var existing = document.getElementById("batch-" + index);
+    if (existing) existing.remove();
+    var pct = Math.round((1 - r.compSize / r.origSize) * 100);
+    var div = document.createElement("div");
+    div.className = "batch-item";
+    div.id = "batch-" + index;
+    div.innerHTML = '<img src="' + URL.createObjectURL(r.file) + '" alt="thumbnail">' +
+      '<div class="name">' + escapeHtml(r.file.name) + '</div>' +
+      '<div class="sizes">' + formatSize(r.origSize) + ' &rarr; ' + formatSize(r.compSize) + '</div>' +
+      '<div class="savings">' + (pct > 0 ? "-" : "+") + Math.abs(pct) + '%</div>' +
+      '<button class="dl-btn" data-idx="' + index + '">Download</button>';
+    batchItems.appendChild(div);
+  }
+
+  function escapeHtml(str) {
+    var d = document.createElement("div");
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  batchItems.addEventListener("click", function(e) {
+    if (e.target.classList.contains("dl-btn")) {
+      var idx = parseInt(e.target.dataset.idx);
+      downloadResult(results[idx]);
+    }
+  });
+
+  function recompressAll() {
+    if (files.length === 1) {
+      compressSingle(files[0]);
+    } else {
+      batchItems.innerHTML = "";
+      results = [];
+      for (var j = 0; j < files.length; j++) {
+        compressBatchItem(files[j], j);
+      }
+    }
+  }
+
+  qualitySlider.addEventListener("input", function() {
+    qualityVal.textContent = qualitySlider.value + "%";
+    recompressAll();
+  });
+  formatSelect.addEventListener("change", recompressAll);
+
+  function downloadResult(r) {
+    if (!r || !r.blob) return;
+    var ext = formatSelect.value.split("/")[1];
+    if (ext === "jpeg") ext = "jpg";
+    var name = r.file.name.replace(/\.[^.]+$/, "") + "-compressed." + ext;
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(r.blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  downloadBtn.addEventListener("click", function() {
+    if (results.length === 0) return;
+    if (results.length === 1) {
+      downloadResult(results[0]);
+    } else {
+      for (var i = 0; i < results.length; i++) {
+        if (results[i]) {
+          (function(r) {
+            setTimeout(function() { downloadResult(r); }, i * 200);
+          })(results[i]);
+        }
+      }
+    }
+  });
+
+  resetBtn.addEventListener("click", function() {
+    files = [];
+    results = [];
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    batchItems.innerHTML = "";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>

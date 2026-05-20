@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Cost Calculator — Food Cost Per Serving &amp; Markup | RecipeTool</title>
+<meta name="description" content="Free recipe cost calculator with ingredient price database. Calculate cost per serving, food cost percentage, and restaurant markup. Compare homemade vs. delivery prices for any recipe.">
+<link rel="canonical" href="https://recipetool.net/guides/food-cost-calculator.html">
+<meta property="og:title" content="Recipe Cost Calculator — Food Cost Per Serving & Markup">
+<meta property="og:description" content="Calculate recipe costs, cost per serving, food cost percentage, and restaurant markup. Compare homemade vs. delivery prices. Free and instant.">
+<meta property="og:url" content="https://recipetool.net/guides/food-cost-calculator.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Cost Calculator — Food Cost Per Serving & Markup">
+<meta name="twitter:description" content="Calculate recipe costs with ingredient prices. Cost per serving, food cost %, restaurant markup. Free and instant.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Recipe Cost Calculator — Analyze Recipe Cost with Ingredient Price Database",
+      "description": "Free recipe cost calculator with ingredient price database. Calculate cost per serving, food cost percentage, and restaurant markup. Compare homemade vs. delivery prices.",
+      "url": "https://recipetool.net/guides/food-cost-calculator.html",
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "publisher": {"@type": "Organization", "name": "Recipe Tool", "url": "https://recipetool.net"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://recipetool.net/guides/food-cost-calculator.html"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a good food cost percentage for a restaurant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The industry standard food cost percentage for restaurants ranges from 25% to 35% of the menu price. Fine dining typically targets 28-32%, fast casual aims for 25-30%, and pizza restaurants can achieve 20-25% due to the low cost of dough ingredients. Food cost percentage is calculated as (ingredient cost / menu price) x 100. A food cost above 35% usually indicates pricing problems or food waste issues that need to be addressed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate cost per serving for a recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate cost per serving, first add up the cost of every ingredient used in the recipe. Divide the total ingredient cost by the number of servings the recipe yields. For example, if a soup recipe costs $12.50 in ingredients and makes 6 servings, the cost per serving is $12.50 / 6 = $2.08. Remember to account for partial package usage — if you use half a can of tomatoes, only count half the can's cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it cheaper to cook at home or order delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cooking at home is almost always significantly cheaper. Studies show that the average home-cooked meal costs $4-5 per serving, while the average restaurant meal costs $13-15 per serving, and delivery adds another $5-10 in fees and tips. That means home cooking saves roughly $8-20 per meal per person. For a family of four eating dinner at home instead of ordering delivery, the savings can exceed $200-400 per week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do restaurants calculate menu prices from food costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Restaurants use the food cost percentage method: divide the ingredient cost by the target food cost percentage. If a dish costs $4 in ingredients and the target food cost is 30%, the menu price should be $4 / 0.30 = $13.33. This markup covers not just ingredients but also labor, rent, utilities, insurance, equipment depreciation, and profit margin. Most restaurants apply a 3x to 4x multiplier on ingredient costs to set menu prices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I include spices and cooking oil in recipe cost calculations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, for accurate costing you should include all ingredients, even small amounts of spices and oil. While a teaspoon of salt costs fractions of a cent, expensive spices like saffron, vanilla extract, or specialty oils can significantly impact recipe cost. A practical approach is to calculate the cost per teaspoon or tablespoon for your pantry staples and keep a reference list. For most recipes, basic seasonings add $0.10-0.50 to the total cost."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://recipetool.net/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://recipetool.net/guides/"},
+        {"@type": "ListItem", "position": 3, "name": "Food Cost Calculator", "item": "https://recipetool.net/guides/food-cost-calculator.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08);--danger:#e53935}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.btn-sm{padding:.35rem .7rem;font-size:.8rem}
+.btn-danger{background:var(--danger)}
+.btn-danger:hover{background:#c62828}
+.result-box{background:var(--warm);border-radius:8px;padding:1rem;text-align:center;margin:1rem 0}
+.result-box .value{font-size:1.8rem;font-weight:700;color:var(--primary-dark)}
+.result-box .label{font-size:.8rem;color:var(--text-light);margin-top:.25rem}
+.ref-table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+.ref-table th,.ref-table td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.ref-table th{background:var(--warm);color:var(--primary-dark);font-weight:600;font-size:.8rem;text-transform:uppercase}
+.ref-table tr:hover{background:var(--warm)}
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+.form-group{margin-bottom:.75rem}
+.form-group label{display:block;font-size:.8rem;color:var(--text-light);margin-bottom:.25rem;font-weight:500}
+.form-group select,.form-group input{width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.form-row-4{display:grid;grid-template-columns:2.5fr 1fr 1fr .5fr;gap:.5rem;align-items:end;margin-bottom:.5rem}
+.ing-list{margin:.75rem 0}
+.ing-item{display:grid;grid-template-columns:2.5fr 1fr 1fr .5fr;gap:.5rem;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
+.ing-item .name{font-weight:500}
+.ing-item .cost{color:var(--primary-dark);font-weight:600}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1rem 0}
+.stat-card{background:var(--warm);border-radius:8px;padding:.75rem;text-align:center}
+.stat-card .val{font-size:1.4rem;font-weight:700;color:var(--primary-dark)}
+.stat-card .lbl{font-size:.75rem;color:var(--text-light);margin-top:.15rem}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin:1rem 0}
+.compare-col{background:var(--warm);border-radius:8px;padding:.75rem;text-align:center}
+.compare-col.highlight{background:var(--success);color:white}
+.compare-col .price{font-size:1.3rem;font-weight:700}
+.compare-col .type{font-size:.8rem;margin-top:.15rem}
+@media(max-width:600px){
+.form-row{grid-template-columns:1fr}
+.form-row-4{grid-template-columns:1fr 1fr}
+.ing-item{grid-template-columns:1fr 1fr}
+.stats-grid{grid-template-columns:1fr}
+.compare-grid{grid-template-columns:1fr}
+.ref-table{font-size:.75rem}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Recipe Cost Calculator</h1>
+<p>Analyze recipe costs with ingredient pricing &amp; markup calculations</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html">Unit Converter</a>
+<a href="/tools/recipe-scaler.html">Recipe Scaler</a>
+<a href="/guides/food-cost-calculator.html" class="active">Food Cost</a>
+<a href="/answers/cooking-substitutions.html">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== INGREDIENT INPUT ===== -->
+<div class="card">
+<h2>Add Recipe Ingredients</h2>
+<p>Enter each ingredient with its price and quantity. The calculator will automatically compute your total recipe cost, cost per serving, and food cost percentage.</p>
+<div class="form-row-4">
+<div class="form-group">
+<label for="ing-name">Ingredient Name</label>
+<input type="text" id="ing-name" placeholder="e.g., Chicken breast">
+</div>
+<div class="form-group">
+<label for="ing-price">Price ($)</label>
+<input type="number" id="ing-price" placeholder="4.99" min="0" step="0.01">
+</div>
+<div class="form-group">
+<label for="ing-qty">Qty Used</label>
+<div style="display:flex;gap:.25rem">
+<input type="number" id="ing-qty" placeholder="2" min="0" step="any" style="flex:1">
+<select id="ing-unit" style="width:auto;padding:.3rem;border:1px solid var(--border);border-radius:4px;font-size:.8rem">
+<option value="whole">whole</option>
+<option value="lb">lb</option>
+<option value="oz">oz</option>
+<option value="cup">cup</option>
+<option value="tbsp">tbsp</option>
+<option value="tsp">tsp</option>
+<option value="can">can</option>
+<option value="pkg">pkg</option>
+</select>
+</div>
+</div>
+<div>
+<button class="btn btn-sm" onclick="addIngredient()" style="margin-top:1.1rem">Add</button>
+</div>
+</div>
+<div class="form-row" style="margin-bottom:.75rem">
+<div class="form-group">
+<label for="servings">Number of Servings</label>
+<input type="number" id="servings" value="4" min="1" step="1">
+</div>
+<div class="form-group">
+<label for="recipe-name">Recipe Name (optional)</label>
+<input type="text" id="recipe-name" placeholder="e.g., Chicken Stir Fry">
+</div>
+</div>
+<h3>Ingredient List</h3>
+<div id="ing-list" class="ing-list">
+<p style="color:var(--text-light);font-style:italic;font-size:.85rem">No ingredients added yet. Use the form above to add ingredients.</p>
+</div>
+<div style="display:flex;gap:.5rem;margin-top:.5rem">
+<button class="btn" onclick="calculateCost()">Calculate Cost</button>
+<button class="btn btn-outline" onclick="loadSample()">Load Sample Recipe</button>
+<button class="btn btn-outline" onclick="clearAll()">Clear All</button>
+</div>
+</div>
+
+<!-- ===== COST RESULTS ===== -->
+<div class="card" id="results-card" style="display:none">
+<h2>Cost Breakdown</h2>
+<div class="stats-grid" id="stats-grid"></div>
+<table class="ref-table" id="cost-table">
+<thead><tr><th>Ingredient</th><th>Qty</th><th>Cost</th><th>% of Total</th></tr></thead>
+<tbody id="cost-tbody"></tbody>
+<tfoot id="cost-tfoot"></tfoot>
+</table>
+</div>
+
+<!-- ===== MARKUP CALCULATOR ===== -->
+<div class="card">
+<h2>Restaurant Markup Calculator</h2>
+<p>Calculate menu pricing based on your target food cost percentage. The industry standard ranges from 25% to 35%.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="markup-cost">Ingredient Cost Per Serving ($)</label>
+<input type="number" id="markup-cost" placeholder="3.50" min="0" step="0.01">
+</div>
+<div class="form-group">
+<label for="markup-pct">Target Food Cost %</label>
+<select id="markup-pct">
+<option value="20">20% (Pizza / Fast Food)</option>
+<option value="25">25% (Fast Casual)</option>
+<option value="28">28% (Casual Dining)</option>
+<option value="30" selected>30% (Standard)</option>
+<option value="32">32% (Fine Dining)</option>
+<option value="35">35% (Premium)</option>
+</select>
+</div>
+</div>
+<button class="btn" onclick="calcMarkup()">Calculate Menu Price</button>
+<div class="result-box" id="markup-result" style="display:none">
+<div class="value" id="markup-price"></div>
+<div class="label" id="markup-label"></div>
+</div>
+</div>
+
+<!-- ===== COMPARISON ===== -->
+<div class="card">
+<h2>Homemade vs. Restaurant vs. Delivery</h2>
+<p>See how much you save by cooking at home. Enter your cost per serving and compare against typical restaurant and delivery prices.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="compare-home">Your Cost Per Serving ($)</label>
+<input type="number" id="compare-home" placeholder="3.50" min="0" step="0.01">
+</div>
+<div class="form-group">
+<label for="compare-people">People / Servings</label>
+<input type="number" id="compare-people" value="4" min="1" step="1">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="compare-restaurant">Restaurant Price Per Person ($)</label>
+<input type="number" id="compare-restaurant" value="16" min="0" step="0.5">
+</div>
+<div class="form-group">
+<label for="compare-delivery">Delivery Price Per Person ($)</label>
+<input type="number" id="compare-delivery" value="22" min="0" step="0.5">
+</div>
+</div>
+<button class="btn" onclick="calcCompare()">Compare Prices</button>
+<div class="compare-grid" id="compare-grid" style="display:none"></div>
+<div class="result-box" id="compare-savings" style="display:none">
+<div class="value" id="savings-val"></div>
+<div class="label" id="savings-label"></div>
+</div>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>Understanding Food Costs: A Complete Guide</h2>
+<p>Whether you are running a restaurant, meal prepping on a budget, or simply curious about where your grocery money goes, understanding food costs is a fundamental skill that can save you hundreds or even thousands of dollars per year. This guide breaks down everything you need to know about calculating, analyzing, and optimizing food costs for both home cooks and food service professionals.</p>
+
+<h3>What Is Food Cost Percentage?</h3>
+<p>Food cost percentage is the ratio of ingredient cost to menu price (for restaurants) or to the comparable market price of a meal (for home cooks). It is calculated as: food cost percentage equals ingredient cost divided by selling price, multiplied by 100. For restaurants, the target food cost percentage typically falls between 25 and 35 percent, meaning that for every dollar a customer pays, 25 to 35 cents goes toward ingredient costs. The remaining 65 to 75 cents covers labor, rent, utilities, equipment, insurance, marketing, and profit.</p>
+<p>For home cooks, the food cost percentage is useful for understanding value. If a restaurant charges 15 dollars for a pasta dish that costs 3 dollars in ingredients at home, the food cost is 20 percent — meaning you are paying a 5x markup for the convenience, ambiance, and service. Understanding this markup helps you make informed decisions about when eating out is worthwhile and when cooking at home delivers dramatically better value.</p>
+
+<h3>Calculating Cost Per Serving Accurately</h3>
+<p>The most common mistake in recipe costing is failing to account for partial package usage. If a recipe calls for one cup of flour and you buy a five-pound bag, you should not count the entire bag as an ingredient cost. Instead, calculate the cost per unit: a five-pound bag (approximately 17.5 cups) that costs 4.50 dollars means each cup costs about 0.26 dollars. This per-unit calculation is essential for accurate recipe costing.</p>
+<p>Proteins are typically the most expensive component of a recipe, often accounting for 40 to 60 percent of the total ingredient cost. Vegetables and grains are usually the cheapest components. Understanding this cost distribution helps you optimize recipes for budget without sacrificing nutrition or satisfaction. Swapping chicken thighs for chicken breasts can save 30 to 40 percent on the protein portion alone while arguably delivering better flavor in many dishes.</p>
+
+<h3>Hidden Costs Most People Forget</h3>
+<p>A truly comprehensive recipe cost analysis should include pantry staples that are easy to overlook: cooking oil, salt, pepper, garlic, basic spices, and condiments. While each recipe might use only a few cents worth of these items, they add up across hundreds of meals. A well-stocked spice rack can represent 50 to 100 dollars of inventory, and those costs should be amortized across the meals that use them.</p>
+<p>Energy costs for cooking are another hidden factor. Running an oven at 350 degrees Fahrenheit for one hour costs approximately 0.15 to 0.30 dollars depending on your electricity rate and oven efficiency. Stovetop cooking is more efficient, typically costing 0.05 to 0.10 dollars per hour. Slow cookers and Instant Pots are the most energy-efficient cooking methods at 0.02 to 0.05 dollars per hour. These costs are small individually but can amount to 10 to 25 dollars per month for a household that cooks daily.</p>
+
+<h3>Strategies for Reducing Recipe Costs</h3>
+<p>The single most effective strategy for reducing food costs is reducing waste. The average American household wastes approximately 30 to 40 percent of the food it purchases. Meal planning, proper storage, and creative use of leftovers can cut this waste dramatically. Learning to use vegetable scraps for stock, repurposing leftover proteins into new dishes, and understanding proper food storage (which items go in the fridge, which on the counter, which in a cool dark pantry) can reduce your effective food cost by 20 to 30 percent without changing what you buy.</p>
+<p>Buying in bulk makes sense for shelf-stable items you use regularly: rice, dried beans, pasta, flour, sugar, and canned goods. Unit prices for bulk packages are typically 15 to 40 percent lower than smaller packages. However, bulk buying only saves money if you actually use everything before it expires. A five-pound bag of flour that goes stale is more expensive per usable cup than a smaller bag that gets used completely.</p>
+<p>Seasonal produce is another powerful cost reducer. Tomatoes in August can cost one-third what they cost in January, and they taste dramatically better. Building your meal plans around seasonal produce availability delivers both cost savings and better flavor. Farmers markets, especially at the end of the day when vendors want to clear inventory, can offer exceptional value on fresh produce.</p>
+
+<h3>Restaurant Pricing: The Math Behind Your Menu</h3>
+<p>Restaurant owners use food cost percentage as their primary pricing metric. The standard formula is: menu price equals ingredient cost divided by target food cost percentage. If a steak dinner costs 8 dollars in ingredients and the target food cost is 30 percent, the menu price should be approximately 26.67 dollars. Most restaurants round to psychologically appealing price points, so this would likely become 26.99 or 27.95.</p>
+<p>Different restaurant categories have different target food costs. Fast food operations aim for 20 to 25 percent because their high volume and standardized processes keep labor costs low. Casual dining targets 28 to 32 percent. Fine dining restaurants sometimes accept 32 to 38 percent food costs because their higher check averages and beverage margins compensate. Beverage margins, particularly for alcoholic drinks, are typically 75 to 85 percent — a glass of wine that costs the restaurant 2 dollars may sell for 12 dollars, offsetting tighter food margins.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What is a good food cost percentage for a restaurant?</div>
+<div class="faq-a">The industry standard ranges from 25% to 35%. Fine dining targets 28-32%, fast casual aims for 25-30%, and pizza restaurants can achieve 20-25% due to low ingredient costs. Food cost above 35% usually indicates pricing problems or waste issues.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do I calculate cost per serving for a recipe?</div>
+<div class="faq-a">Add up the cost of every ingredient used, then divide by the number of servings. For partial package usage, calculate the cost per unit first (e.g., price per cup of flour from a 5-lb bag), then multiply by the amount your recipe uses.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Is it cheaper to cook at home or order delivery?</div>
+<div class="faq-a">Home cooking is almost always cheaper. Average home-cooked meals cost $4-5 per serving vs. $13-15 for restaurants and $18-25 for delivery (with fees and tips). A family of four saves roughly $200-400 per week by cooking at home instead of ordering delivery.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do restaurants calculate menu prices from food costs?</div>
+<div class="faq-a">Divide ingredient cost by the target food cost percentage. A dish costing $4 in ingredients with a 30% target food cost should be priced at $4 / 0.30 = $13.33. Most restaurants apply a 3x to 4x multiplier on ingredient costs.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Should I include spices and cooking oil in recipe cost calculations?</div>
+<div class="faq-a">Yes, for accuracy include all ingredients. While basic salt and pepper add fractions of a cent, expensive spices like saffron or vanilla extract can significantly impact cost. Calculate cost per teaspoon for pantry staples and keep a reference list. Basic seasonings typically add $0.10-0.50 to a recipe.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== INGREDIENT LIST STATE ===== */
+let ingredients=[];
+
+function addIngredient(){
+const name=document.getElementById('ing-name').value.trim();
+const price=parseFloat(document.getElementById('ing-price').value);
+const qty=parseFloat(document.getElementById('ing-qty').value);
+const unit=document.getElementById('ing-unit').value;
+if(!name||isNaN(price)||isNaN(qty)){alert('Please fill in ingredient name, price, and quantity.');return}
+ingredients.push({name,price,qty,unit});
+document.getElementById('ing-name').value='';
+document.getElementById('ing-price').value='';
+document.getElementById('ing-qty').value='';
+renderIngredients();
+}
+
+function removeIngredient(i){
+ingredients.splice(i,1);
+renderIngredients();
+}
+
+function renderIngredients(){
+const list=document.getElementById('ing-list');
+if(ingredients.length===0){
+list.innerHTML='<p style="color:var(--text-light);font-style:italic;font-size:.85rem">No ingredients added yet.</p>';
+return;
+}
+let html='';
+ingredients.forEach((ing,i)=>{
+html+='<div class="ing-item"><span class="name">'+ing.name+'</span><span>'+ing.qty+' '+ing.unit+'</span><span class="cost">$'+ing.price.toFixed(2)+'</span><button class="btn btn-sm btn-danger" onclick="removeIngredient('+i+')">X</button></div>';
+});
+list.innerHTML=html;
+}
+
+function loadSample(){
+ingredients=[
+{name:'Chicken Thighs (boneless)',price:3.99,qty:1.5,unit:'lb'},
+{name:'Jasmine Rice',price:0.65,qty:2,unit:'cup'},
+{name:'Broccoli',price:1.79,qty:1,unit:'whole'},
+{name:'Soy Sauce',price:0.35,qty:3,unit:'tbsp'},
+{name:'Sesame Oil',price:0.25,qty:1,unit:'tbsp'},
+{name:'Garlic (3 cloves)',price:0.20,qty:3,unit:'whole'},
+{name:'Ginger (1 inch)',price:0.15,qty:1,unit:'whole'},
+{name:'Cornstarch',price:0.08,qty:1,unit:'tbsp'},
+{name:'Vegetable Oil',price:0.12,qty:2,unit:'tbsp'},
+{name:'Green Onions',price:0.50,qty:3,unit:'whole'}
+];
+document.getElementById('servings').value=4;
+document.getElementById('recipe-name').value='Chicken Stir Fry with Rice';
+renderIngredients();
+}
+
+function clearAll(){
+ingredients=[];
+renderIngredients();
+document.getElementById('results-card').style.display='none';
+}
+
+function calculateCost(){
+if(ingredients.length===0){alert('Add at least one ingredient first.');return}
+const servings=parseInt(document.getElementById('servings').value)||4;
+let total=0;
+ingredients.forEach(ing=>{total+=ing.price});
+
+const perServing=total/servings;
+const perRecipe=total;
+
+/* Stats grid */
+const statsGrid=document.getElementById('stats-grid');
+statsGrid.innerHTML='<div class="stat-card"><div class="val">$'+perRecipe.toFixed(2)+'</div><div class="lbl">Total Recipe Cost</div></div>'
++'<div class="stat-card"><div class="val">$'+perServing.toFixed(2)+'</div><div class="lbl">Cost Per Serving</div></div>'
++'<div class="stat-card"><div class="val">'+servings+'</div><div class="lbl">Servings</div></div>';
+
+/* Cost table */
+const tbody=document.getElementById('cost-tbody');
+tbody.innerHTML='';
+ingredients.forEach(ing=>{
+const pct=(ing.price/total*100).toFixed(1);
+const tr=document.createElement('tr');
+tr.innerHTML='<td>'+ing.name+'</td><td>'+ing.qty+' '+ing.unit+'</td><td>$'+ing.price.toFixed(2)+'</td><td>'+pct+'%</td>';
+tbody.appendChild(tr);
+});
+const tfoot=document.getElementById('cost-tfoot');
+tfoot.innerHTML='<tr style="font-weight:700;background:var(--warm)"><td>Total</td><td></td><td>$'+total.toFixed(2)+'</td><td>100%</td></tr>';
+
+document.getElementById('results-card').style.display='';
+
+/* Auto-fill other calculators */
+document.getElementById('markup-cost').value=perServing.toFixed(2);
+document.getElementById('compare-home').value=perServing.toFixed(2);
+}
+
+function calcMarkup(){
+const cost=parseFloat(document.getElementById('markup-cost').value);
+const pct=parseInt(document.getElementById('markup-pct').value);
+if(isNaN(cost)||cost<=0){alert('Enter a valid ingredient cost.');return}
+const menuPrice=cost/(pct/100);
+const multiplier=(menuPrice/cost).toFixed(1);
+document.getElementById('markup-price').textContent='$'+menuPrice.toFixed(2);
+document.getElementById('markup-label').textContent='Menu price at '+pct+'% food cost ('+multiplier+'x markup on $'+cost.toFixed(2)+' ingredient cost)';
+document.getElementById('markup-result').style.display='';
+}
+
+function calcCompare(){
+const home=parseFloat(document.getElementById('compare-home').value);
+const people=parseInt(document.getElementById('compare-people').value)||4;
+const restaurant=parseFloat(document.getElementById('compare-restaurant').value);
+const delivery=parseFloat(document.getElementById('compare-delivery').value);
+if(isNaN(home)){alert('Enter your cost per serving.');return}
+
+const homeTotal=home*people;
+const restTotal=restaurant*people;
+const delTotal=delivery*people;
+
+const grid=document.getElementById('compare-grid');
+grid.innerHTML='<div class="compare-col highlight"><div class="price">$'+homeTotal.toFixed(2)+'</div><div class="type" style="color:rgba(255,255,255,.9)">Homemade ('+people+' servings)</div></div>'
++'<div class="compare-col"><div class="price" style="color:var(--primary-dark)">$'+restTotal.toFixed(2)+'</div><div class="type">Restaurant ('+people+' people)</div></div>'
++'<div class="compare-col"><div class="price" style="color:var(--danger)">$'+delTotal.toFixed(2)+'</div><div class="type">Delivery ('+people+' people)</div></div>';
+grid.style.display='';
+
+const savingsVsDelivery=(delTotal-homeTotal);
+const weeklySavings=savingsVsDelivery*7;
+const yearlySavings=savingsVsDelivery*365;
+document.getElementById('savings-val').textContent='$'+savingsVsDelivery.toFixed(2)+' saved per meal';
+document.getElementById('savings-label').textContent='vs. delivery | $'+weeklySavings.toFixed(0)+'/week | $'+yearlySavings.toFixed(0)+'/year if you cook daily';
+document.getElementById('compare-savings').style.display='';
+}
+
+/* FAQ accordion */
+function toggleFaq(el){
+el.classList.toggle('open');
+el.nextElementSibling.classList.toggle('open');
+}
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/research/food-waste-calculator.html" style="color:#3b82f6;text-decoration:none;">Food Waste Calculator — Household Waste Estimator & Storage Tips</a></li>
+<li><a href="/guides/meal-prep-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Calculator — Weekly Planner & Shopping List Generator</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+<li><a href="/nutrition-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Calculator — Count Calories by Ingredients</a></li>
+</ul>
+</section>
+
+</body>
+</html>

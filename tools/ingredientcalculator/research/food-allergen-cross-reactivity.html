@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Allergen Cross-Reactivity Database - Interactive Allergy Risk Assessment | Ingredient Calculator</title>
+<meta name="description" content="Free food allergen cross-reactivity database with interactive risk assessment. Explore cross-reactive relationships between 14 major allergen groups, check ingredient safety, and understand which foods may trigger reactions based on your known allergies.">
+<meta name="keywords" content="food allergen cross-reactivity, allergy cross-reaction, food allergy database, allergen checker, nut allergy cross-reactivity, shellfish allergy, latex fruit syndrome, oral allergy syndrome, pollen food allergy, food allergy risk assessment">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/research/food-allergen-cross-reactivity.html">
+<meta property="og:title" content="Food Allergen Cross-Reactivity Database - Interactive Allergy Risk Assessment">
+<meta property="og:description" content="Free allergen cross-reactivity database. Explore cross-reactive relationships between 14 major allergen groups and assess your personal risk.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/research/food-allergen-cross-reactivity.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Food Allergen Cross-Reactivity Database - Interactive Allergy Risk Assessment">
+<meta name="twitter:description" content="Free allergen cross-reactivity database. Explore cross-reactive relationships between 14 major allergen groups and assess your personal risk.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Food Allergen Cross-Reactivity Database",
+  "url": "https://ingredientcalculator.com/research/food-allergen-cross-reactivity.html",
+  "description": "Free food allergen cross-reactivity database with interactive risk assessment. Explore cross-reactive relationships between 14 major allergen groups and understand which foods may trigger reactions.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "14 major allergen group database",
+    "Cross-reactivity probability percentages",
+    "Interactive allergy risk assessment",
+    "Ingredient safety checker",
+    "Oral allergy syndrome mapping",
+    "Latex-fruit syndrome reference"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is food allergen cross-reactivity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cross-reactivity occurs when proteins in one food are structurally similar to proteins in another food, causing the immune system to react to both. For example, someone allergic to shrimp may also react to crab and lobster because these crustaceans share a protein called tropomyosin. Cross-reactivity does not mean you will definitely react to the related food. It means there is an increased probability based on shared protein structures. The actual reaction rate varies significantly. Tree nut cross-reactivity with other tree nuts is estimated at 30 to 50 percent, while peanut to tree nut cross-reactivity is only about 5 to 10 percent despite common labeling warnings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If I am allergic to peanuts, am I also allergic to tree nuts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peanuts are legumes, not tree nuts, and the proteins involved are structurally different. Clinical cross-reactivity between peanuts and tree nuts is estimated at only 5 to 10 percent. However, many people with peanut allergies are advised to avoid tree nuts for two reasons. First, cross-contamination during processing is common since nuts and peanuts are often handled on shared equipment. Second, some individuals develop independent allergies to both peanuts and tree nuts. An allergist can perform specific IgE testing and oral food challenges to determine exactly which nuts are safe for you personally, which is preferable to blanket avoidance that unnecessarily restricts your diet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is oral allergy syndrome and how does it relate to pollen allergies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oral allergy syndrome (OAS), also called pollen-food allergy syndrome, is a cross-reactive condition where people with pollen allergies experience itching, tingling, or mild swelling in the mouth and throat when eating certain raw fruits, vegetables, or nuts. This occurs because some plant food proteins are structurally similar to pollen proteins. Birch pollen allergy commonly cross-reacts with raw apples, pears, cherries, peaches, plums, carrots, celery, and hazelnuts. Ragweed pollen allergy cross-reacts with melons, bananas, and zucchini. Grass pollen allergy cross-reacts with tomatoes, potatoes, and peaches. Importantly, cooking usually destroys the cross-reactive proteins, so people with OAS can typically eat the same foods when cooked without any reaction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can someone allergic to cow's milk drink goat's milk safely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cross-reactivity between cow's milk and goat's milk is very high, estimated at 90 to 95 percent, because the casein proteins are nearly identical between bovine and caprine species. Sheep milk has similarly high cross-reactivity with cow's milk. This means most people with cow's milk allergy will also react to goat and sheep milk products. However, some individuals with cow's milk allergy can tolerate extensively heated or baked milk, such as in muffins or cakes, because heat denatures the whey proteins (alpha-lactalbumin and beta-lactoglobulin) that are often the primary triggers. This should only be tested under medical supervision with an allergist, never at home."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between food allergy and food intolerance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Food allergy involves the immune system, specifically IgE antibodies, and can cause severe, potentially life-threatening reactions including anaphylaxis. Even trace amounts of the allergen can trigger a reaction. Food intolerance does not involve the immune system and is typically caused by enzyme deficiencies (like lactase deficiency in lactose intolerance), sensitivity to food chemicals (like sulfites or histamine), or digestive issues. Intolerances are dose-dependent, meaning small amounts may be tolerated while larger amounts cause symptoms. Symptoms of intolerance are usually limited to digestive discomfort, headaches, or skin issues, and are not life-threatening. Cross-reactivity as discussed in this tool applies specifically to immune-mediated food allergies, not intolerances."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Research",
+      "item": "https://ingredientcalculator.com/research/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Food Allergen Cross-Reactivity Database",
+      "item": "https://ingredientcalculator.com/research/food-allergen-cross-reactivity.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5; --clr-surface: #FFFFFF; --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3; --clr-border-focus: #D97706; --clr-text: #1C1917;
+  --clr-text-muted: #78716C; --clr-accent: #D97706; --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7; --clr-accent-bg: #FFFBEB; --clr-success: #059669;
+  --clr-success-bg: #ECFDF5; --clr-info: #0284C7; --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626; --clr-danger-bg: #FEF2F2; --clr-warning-bg: #FFFBEB;
+  --clr-shadow: rgba(28,25,23,0.08); --radius: 10px; --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.skip-link { position: absolute; top: -100%; left: 16px; background: var(--clr-accent); color: #fff; padding: 8px 16px; border-radius: var(--radius-sm); z-index: 1000; font-weight: 600; text-decoration: none; }
+.skip-link:focus { top: 8px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.logo { font-size: 1.35rem; font-weight: 800; color: var(--clr-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.logo-icon { width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm); transition: background var(--transition), color var(--transition); }
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+.hero { text-align: center; padding: 48px 16px 32px; background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%); }
+.hero h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--clr-text); margin-bottom: 12px; line-height: 1.2; }
+.hero h1 span { color: var(--clr-accent); }
+.hero p { font-size: 1.1rem; color: var(--clr-text-muted); max-width: 640px; margin: 0 auto; }
+.breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted); }
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.panel { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin: 24px auto; max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow); }
+.panel h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+.panel .subtitle { color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+input[type="text"], select { width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border); border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.95rem; background: var(--clr-surface); transition: border-color var(--transition), box-shadow var(--transition); color: var(--clr-text); }
+input:focus, select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px rgba(217,119,6,0.15); }
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 20px; border: none; border-radius: var(--radius-sm); font-family: var(--font); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all var(--transition); text-decoration: none; }
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary { background: var(--clr-surface-alt); color: var(--clr-text); border: 1px solid var(--clr-border); }
+.btn-secondary:hover { background: var(--clr-border); }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.result-box { background: var(--clr-success-bg); border: 1px solid #A7F3D0; border-radius: var(--radius-sm); padding: 16px; margin-top: 20px; display: none; }
+.result-box.visible { display: block; }
+.result-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success); }
+.nutrition-result { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 16px; }
+.nutr-card { text-align: center; padding: 16px; background: var(--clr-surface-alt); border-radius: var(--radius-sm); border: 1px solid var(--clr-border); }
+.nutr-card .nutr-val { font-size: 1.6rem; font-weight: 800; color: var(--clr-accent); }
+.nutr-card .nutr-label { font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+.nutr-card .nutr-unit { font-size: 0.8rem; color: var(--clr-text-muted); }
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li { color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 20px; }
+.info-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 20px; }
+.info-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.info-card p { font-size: 0.9rem; }
+
+.allergen-chip { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin: 4px; cursor: pointer; border: 2px solid var(--clr-border); background: var(--clr-surface); transition: all var(--transition); }
+.allergen-chip:hover { border-color: var(--clr-accent); }
+.allergen-chip.selected { background: var(--clr-accent); color: #fff; border-color: var(--clr-accent); }
+.risk-high { background: var(--clr-danger-bg); border-color: var(--clr-danger); color: var(--clr-danger); }
+.risk-moderate { background: var(--clr-warning-bg); border-color: var(--clr-accent); color: var(--clr-accent-hover); }
+.risk-low { background: var(--clr-info-bg); border-color: var(--clr-info); color: var(--clr-info); }
+.cross-card { padding: 14px; margin: 8px 0; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); }
+.cross-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.cross-pct { font-weight: 800; font-size: 1.1rem; }
+.cross-foods { font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 4px; }
+.cross-protein { font-size: 0.82rem; color: var(--clr-text-muted); font-style: italic; margin-top: 2px; }
+
+footer { text-align: center; padding: 32px 16px; border-top: 1px solid var(--clr-border); margin-top: 40px; color: var(--clr-text-muted); font-size: 0.85rem; }
+@media (max-width: 640px) { .form-row.cols-2 { grid-template-columns: 1fr; } .panel { padding: 16px; } nav { display: none; } }
+@media print { header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; } .panel { border: none; box-shadow: none; } .result-box { display: block !important; } }
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home"><span class="logo-icon" aria-hidden="true">&#9878;</span>IngredientCalculator</a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/research/food-allergen-cross-reactivity.html" class="active">Allergen Database</a>
+      <a href="/tools/recipe-converter-metric.html">Recipe Converter</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Food Allergen Cross-Reactivity Database</span> &mdash; Interactive Allergy Risk Assessment</h1>
+    <p>Explore cross-reactive relationships between 14 major allergen groups. Select your known allergies to see which other foods may pose a risk, with probability percentages and the responsible protein families.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/research/">Research</a> &rsaquo; Food Allergen Cross-Reactivity Database
+  </div>
+
+  <section class="panel">
+    <h2>Select Your Known Allergies</h2>
+    <p class="subtitle">Click on one or more allergen groups below that you are allergic to. The tool will display cross-reactive foods, probability of reaction, and the shared protein responsible.</p>
+    <div id="ac-chips" style="margin-bottom:16px;"></div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="ac-assess" aria-label="Run cross-reactivity assessment">Assess Cross-Reactivity</button>
+      <button class="btn btn-secondary" id="ac-clear" aria-label="Clear selections">Clear All</button>
+    </div>
+
+    <div class="result-box" id="ac-results" aria-live="polite">
+      <h3>Cross-Reactivity Assessment</h3>
+      <div class="nutrition-result" id="ac-summary"></div>
+      <div id="ac-detail" style="margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Ingredient Safety Checker</h2>
+    <p class="subtitle">Type a food or ingredient to check if it cross-reacts with any of your selected allergies above.</p>
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="ac-food-input">Food or Ingredient</label>
+        <input type="text" id="ac-food-input" placeholder="e.g., cashew, shrimp, kiwi, celery">
+      </div>
+      <div class="form-group" style="justify-content:flex-end;">
+        <button class="btn btn-primary" id="ac-check" aria-label="Check ingredient safety" style="align-self:flex-end;">Check Safety</button>
+      </div>
+    </div>
+    <div id="ac-food-result" style="margin-top:12px;"></div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Allergen cross-reactivity guide">
+  <h2>Understanding Food Allergen Cross-Reactivity</h2>
+
+  <p>Food allergen cross-reactivity is one of the most important yet frequently misunderstood aspects of food allergy management. When your immune system develops an allergy to a specific food protein, it creates antibodies that recognize the three-dimensional structure of that protein. If another food contains a protein with a similar structure, those same antibodies may bind to it and trigger an allergic reaction, even though you have never been exposed to that food before. This phenomenon has significant implications for dietary management, and understanding the science behind it can help you make safer food choices while avoiding unnecessarily restrictive diets.</p>
+
+  <h3>The Major Cross-Reactive Allergen Families</h3>
+  <p>Several protein families are responsible for most food allergen cross-reactivity. Tropomyosin is a muscle protein found in crustaceans, mollusks, and dust mites that accounts for the high cross-reactivity between shrimp, crab, lobster, and other shellfish. The clinical cross-reactivity within crustaceans is estimated at 75 percent, meaning three out of four people allergic to one crustacean will react to another. Cross-reactivity between crustaceans and mollusks (like clams and mussels) is lower, around 30 to 40 percent, because their tropomyosin structures are more divergent. Caseins are the primary milk proteins responsible for cross-reactivity between cow, goat, sheep, and buffalo milk, with rates exceeding 90 percent. Legume storage proteins called vicilins and legumins are shared across peanuts, soybeans, lentils, and other legumes, though clinical cross-reactivity is lower than lab testing suggests, typically 5 to 10 percent for peanut to other legumes.</p>
+
+  <h3>Pollen-Food Allergy Syndrome</h3>
+  <p>One of the most common forms of cross-reactivity is pollen-food allergy syndrome, previously called oral allergy syndrome. This affects up to 70 percent of people with birch pollen allergy, who may experience itching and tingling when eating raw apples, pears, cherries, peaches, plums, carrots, celery, hazelnuts, and almonds. The cross-reactive proteins in these foods, called pathogenesis-related proteins (PR-10), share structural homology with Bet v 1, the major birch pollen allergen. Because these proteins are heat-labile, meaning they break down when cooked, most people with oral allergy syndrome can eat the same foods when they are heated, baked, or canned. Grass pollen allergy cross-reacts with tomatoes, potatoes, and melons through profilin proteins. Mugwort pollen cross-reacts with celery, carrots, and spices through lipid transfer proteins.</p>
+
+  <h3>Tree Nut Cross-Reactivity</h3>
+  <p>Tree nut allergy presents a complex cross-reactivity picture because the term encompasses botanically diverse species. Walnut and pecan are closely related (both Juglandaceae family) with cross-reactivity rates of 80 to 90 percent. Cashew and pistachio (Anacardiaceae family) show similarly high cross-reactivity of 70 to 80 percent. However, cross-reactivity between walnut and cashew is much lower, around 20 to 30 percent. Almonds, which are technically stone fruits related to peaches, have moderate cross-reactivity with other tree nuts at 15 to 30 percent. Many allergists now recommend component-resolved diagnostic testing to identify which specific nut proteins a patient is sensitized to, enabling targeted avoidance rather than blanket tree nut elimination. This approach significantly improves quality of life for people who may safely consume most tree nuts while needing to avoid only one or two.</p>
+
+  <h3>Latex-Fruit Syndrome</h3>
+  <p>Approximately 30 to 50 percent of people with latex allergy also react to certain fruits and vegetables, a condition called latex-fruit syndrome. The cross-reactive proteins include chitinases and hevein-like proteins. The highest-risk foods are banana (50 percent cross-reactivity with latex), avocado (35 percent), chestnut (30 percent), and kiwi (25 percent). Moderate-risk foods include potato, tomato, bell pepper, and papaya. This cross-reactivity is clinically important for healthcare workers and others with occupational latex exposure who may develop progressive food allergies.</p>
+
+  <h3>Important Limitations and Medical Disclaimer</h3>
+  <p>This tool provides educational information about food allergen cross-reactivity based on published clinical research and review articles. Cross-reactivity percentages represent population-level probabilities and may not reflect your individual risk. Many factors influence whether a cross-reactive food will actually cause a reaction in a specific person, including the specific protein epitopes involved, the amount consumed, whether the food is cooked or raw, and individual immune system variations. Laboratory cross-reactivity (IgE binding in blood tests) is consistently higher than clinical cross-reactivity (actual symptoms upon eating), meaning blood tests overestimate real-world reaction rates. This tool is not a substitute for professional medical advice. Always consult with a board-certified allergist before introducing potentially cross-reactive foods into your diet, and carry prescribed emergency medication if you have a history of anaphylaxis.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Lab vs. Clinical</h3>
+      <p>Blood test cross-reactivity rates are 2-3x higher than clinical reaction rates. Positive IgE tests do not always mean you will react to the food when eaten.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Cooking Changes Risk</h3>
+      <p>Many cross-reactive proteins in fruits and vegetables are heat-sensitive. Oral allergy syndrome symptoms often disappear when the food is cooked, baked, or canned.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Test, Don't Guess</h3>
+      <p>Component-resolved diagnostics can identify exactly which proteins trigger your allergy, enabling targeted avoidance rather than eliminating entire food groups.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Carry Epinephrine</h3>
+      <p>If you have a history of anaphylaxis, always carry prescribed auto-injectors when trying foods that may cross-react with your known allergens.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Cross-reactivity data based on published clinical reviews. This tool is not medical advice. Consult an allergist for personal guidance.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/recipe-converter-metric.html" style="color:var(--clr-accent);text-decoration:none;">Recipe Converter</a> &middot;
+      <a href="/research/food-allergen-cross-reactivity.html" style="color:var(--clr-accent);text-decoration:none;">Allergen Database</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  var allergenDB = {
+    'Peanut': {
+      foods: ['peanuts','peanut butter','peanut oil','peanut flour'],
+      crossReactions: [
+        { group:'Tree Nuts', pct:'5-10%', risk:'low', protein:'Vicilin (Ara h 1), Legumin', foods:'almond, walnut, cashew, pecan, hazelnut' },
+        { group:'Soybean', pct:'5-15%', risk:'low', protein:'Gly m 5, Gly m 6 (storage proteins)', foods:'soy milk, tofu, edamame, soy sauce' },
+        { group:'Other Legumes', pct:'5-10%', risk:'low', protein:'Vicilin, Legumin (shared storage proteins)', foods:'lentils, chickpeas, green peas, kidney beans' },
+        { group:'Lupin', pct:'15-25%', risk:'moderate', protein:'Conglutin (similar to Ara h 1)', foods:'lupin flour, lupin seeds (common in EU bakery)' }
+      ]
+    },
+    'Tree Nuts': {
+      foods: ['almonds','walnuts','cashews','pecans','pistachios','hazelnuts','macadamia','brazil nuts'],
+      crossReactions: [
+        { group:'Walnut-Pecan', pct:'80-90%', risk:'high', protein:'Jug r 1, Jug r 4 (2S albumin, vicilin)', foods:'walnut, pecan (same botanical family)' },
+        { group:'Cashew-Pistachio', pct:'70-80%', risk:'high', protein:'Ana o 3, Pis v 1 (2S albumin)', foods:'cashew, pistachio (Anacardiaceae family)' },
+        { group:'Hazelnut-Birch Pollen', pct:'50-70%', risk:'high', protein:'Cor a 1 (PR-10, Bet v 1 homolog)', foods:'hazelnut (especially raw), also apple, cherry' },
+        { group:'Peanut', pct:'5-10%', risk:'low', protein:'Shared storage proteins', foods:'peanuts (legume, not a true nut)' },
+        { group:'Coconut', pct:'<5%', risk:'low', protein:'Minimal shared proteins', foods:'coconut (drupe, not true tree nut)' },
+        { group:'Sesame', pct:'10-20%', risk:'moderate', protein:'2S albumin family', foods:'sesame seeds, tahini' }
+      ]
+    },
+    'Cow\'s Milk': {
+      foods: ['milk','cheese','yogurt','butter','cream','whey','casein','ice cream'],
+      crossReactions: [
+        { group:'Goat Milk', pct:'90-95%', risk:'high', protein:'Casein (alpha-s1, alpha-s2, beta, kappa)', foods:'goat milk, goat cheese, goat yogurt' },
+        { group:'Sheep Milk', pct:'90-95%', risk:'high', protein:'Casein (highly conserved)', foods:'sheep milk, Roquefort, feta, manchego' },
+        { group:'Buffalo Milk', pct:'85-90%', risk:'high', protein:'Casein, beta-lactoglobulin', foods:'buffalo mozzarella, buffalo milk' },
+        { group:'Mare/Donkey Milk', pct:'5-10%', risk:'low', protein:'Different casein structure', foods:'mare milk, donkey milk (sometimes tolerated)' },
+        { group:'Beef', pct:'10-20%', risk:'moderate', protein:'Bovine serum albumin (BSA)', foods:'beef, veal (heat-labile protein, cooked usually safe)' }
+      ]
+    },
+    'Egg': {
+      foods: ['chicken eggs','egg white','egg yolk','mayonnaise','meringue'],
+      crossReactions: [
+        { group:'Other Bird Eggs', pct:'50-70%', risk:'high', protein:'Ovomucoid, ovalbumin', foods:'duck eggs, quail eggs, goose eggs, turkey eggs' },
+        { group:'Chicken Meat', pct:'2-5%', risk:'low', protein:'Alpha-livetin (bird-egg syndrome)', foods:'chicken meat (very rare, mostly in bird-egg syndrome)' },
+        { group:'Other Poultry', pct:'<5%', risk:'low', protein:'Serum albumin', foods:'turkey, duck meat (rare)' }
+      ]
+    },
+    'Shellfish (Crustaceans)': {
+      foods: ['shrimp','crab','lobster','crayfish','prawns','langoustine'],
+      crossReactions: [
+        { group:'Other Crustaceans', pct:'75-85%', risk:'high', protein:'Tropomyosin (Met e 1, Pen a 1)', foods:'shrimp, crab, lobster, crayfish, prawns' },
+        { group:'Mollusks', pct:'30-40%', risk:'moderate', protein:'Tropomyosin (less conserved)', foods:'clams, mussels, oysters, scallops, squid, octopus' },
+        { group:'Dust Mites', pct:'40-60%', risk:'high', protein:'Tropomyosin (Der p 10)', foods:'not food; but dust mite allergy predicts shellfish risk' },
+        { group:'Cockroach', pct:'30-40%', risk:'moderate', protein:'Tropomyosin (Bla g 7)', foods:'not food; environmental cross-reactivity' },
+        { group:'Insects (edible)', pct:'20-40%', risk:'moderate', protein:'Tropomyosin', foods:'crickets, mealworms, silkworm (emerging food source)' }
+      ]
+    },
+    'Fish': {
+      foods: ['salmon','tuna','cod','halibut','tilapia','bass','trout','sardines'],
+      crossReactions: [
+        { group:'Other Fish Species', pct:'50-70%', risk:'high', protein:'Parvalbumin (Gad c 1)', foods:'cod, salmon, tuna, mackerel, herring, trout' },
+        { group:'Shellfish', pct:'<5%', risk:'low', protein:'Minimal shared proteins', foods:'shrimp, crab (independent allergy common)' }
+      ]
+    },
+    'Wheat': {
+      foods: ['bread','pasta','flour','crackers','cereal','couscous','semolina'],
+      crossReactions: [
+        { group:'Rye', pct:'20-30%', risk:'moderate', protein:'Omega-5 gliadin, gamma-gliadin', foods:'rye bread, rye flour, pumpernickel' },
+        { group:'Barley', pct:'20-25%', risk:'moderate', protein:'Hordein (prolamin family)', foods:'barley, malt, beer' },
+        { group:'Oats', pct:'5-10%', risk:'low', protein:'Avenin (less similar prolamin)', foods:'oats, oatmeal (often tolerated)' },
+        { group:'Grass Pollen', pct:'15-20%', risk:'moderate', protein:'Profilin, nsLTP', foods:'not food; grass pollen sensitization' }
+      ]
+    },
+    'Soy': {
+      foods: ['tofu','soy milk','edamame','soy sauce','miso','tempeh','soy lecithin'],
+      crossReactions: [
+        { group:'Peanut', pct:'5-15%', risk:'low', protein:'Gly m 5 and Gly m 6 (storage proteins)', foods:'peanuts, peanut butter' },
+        { group:'Other Legumes', pct:'5-10%', risk:'low', protein:'Vicilin, legumin family', foods:'lentils, chickpeas, beans, peas' },
+        { group:'Birch Pollen', pct:'10-15%', risk:'moderate', protein:'Gly m 4 (PR-10 / Bet v 1 homolog)', foods:'not food; birch pollen sensitization' }
+      ]
+    },
+    'Sesame': {
+      foods: ['sesame seeds','tahini','hummus','sesame oil','halvah'],
+      crossReactions: [
+        { group:'Tree Nuts', pct:'10-20%', risk:'moderate', protein:'2S albumin (Ses i 1)', foods:'walnut, hazelnut, cashew' },
+        { group:'Peanut', pct:'5-10%', risk:'low', protein:'Storage protein homology', foods:'peanuts' },
+        { group:'Poppy Seed', pct:'15-25%', risk:'moderate', protein:'Seed storage proteins', foods:'poppy seeds, poppy seed pastries' },
+        { group:'Kiwi', pct:'10-15%', risk:'low', protein:'11S globulin', foods:'kiwi fruit' }
+      ]
+    },
+    'Birch Pollen (OAS)': {
+      foods: ['birch pollen (environmental)'],
+      crossReactions: [
+        { group:'Rosaceae Fruits', pct:'50-70%', risk:'high', protein:'PR-10 (Bet v 1 homologs)', foods:'apple, pear, cherry, peach, plum, apricot (raw)' },
+        { group:'Apiaceae Vegetables', pct:'30-50%', risk:'moderate', protein:'PR-10 (Api g 1, Dau c 1)', foods:'celery, carrot, parsley, fennel (raw)' },
+        { group:'Hazelnuts', pct:'50-70%', risk:'high', protein:'Cor a 1 (PR-10)', foods:'hazelnut, especially raw' },
+        { group:'Soy (Gly m 4)', pct:'10-15%', risk:'moderate', protein:'Gly m 4 (PR-10)', foods:'soy milk, tofu (usually tolerated cooked)' },
+        { group:'Potato/Tomato', pct:'10-20%', risk:'low', protein:'Profilin', foods:'raw potato, raw tomato' }
+      ]
+    },
+    'Latex': {
+      foods: ['latex gloves (not food)','natural rubber products'],
+      crossReactions: [
+        { group:'Banana', pct:'40-50%', risk:'high', protein:'Chitinase, hevein-like domain', foods:'banana' },
+        { group:'Avocado', pct:'30-35%', risk:'high', protein:'Chitinase (Pers a 1)', foods:'avocado' },
+        { group:'Chestnut', pct:'25-30%', risk:'moderate', protein:'Cas s 5 (chitinase)', foods:'chestnut' },
+        { group:'Kiwi', pct:'20-25%', risk:'moderate', protein:'Act d 11 (chitinase)', foods:'kiwi fruit' },
+        { group:'Other Fruits', pct:'10-15%', risk:'low', protein:'Class I chitinase', foods:'papaya, mango, fig, passion fruit, tomato, bell pepper' }
+      ]
+    },
+    'Mustard': {
+      foods: ['mustard','mustard seeds','mustard powder','mustard greens'],
+      crossReactions: [
+        { group:'Other Brassicaceae', pct:'30-40%', risk:'moderate', protein:'2S albumin (Sin a 1)', foods:'rapeseed/canola, cabbage, broccoli, cauliflower' },
+        { group:'Tree Nuts', pct:'10-15%', risk:'low', protein:'2S albumin homology', foods:'walnut, hazelnut' },
+        { group:'Legumes', pct:'5-10%', risk:'low', protein:'nsLTP, 2S albumin', foods:'lentils, peanuts' }
+      ]
+    },
+    'Celery': {
+      foods: ['celery','celeriac','celery seed','celery salt'],
+      crossReactions: [
+        { group:'Birch Pollen', pct:'40-60%', risk:'high', protein:'Api g 1 (PR-10 / Bet v 1 homolog)', foods:'birch pollen (environmental cross-sensitivity)' },
+        { group:'Carrot', pct:'30-50%', risk:'moderate', protein:'PR-10 (Dau c 1)', foods:'carrots (celery-mugwort-spice syndrome)' },
+        { group:'Spices', pct:'20-40%', risk:'moderate', protein:'PR-10, nsLTP', foods:'anise, fennel, coriander, cumin (mugwort-related)' },
+        { group:'Mugwort Pollen', pct:'40-70%', risk:'high', protein:'Art v 1 homologs', foods:'mugwort (celery-mugwort-birch syndrome)' }
+      ]
+    },
+    'Lupin': {
+      foods: ['lupin flour','lupin seeds','lupin protein','lupin fiber'],
+      crossReactions: [
+        { group:'Peanut', pct:'15-25%', risk:'moderate', protein:'Conglutin (Lup an 1)', foods:'peanuts, peanut butter' },
+        { group:'Other Legumes', pct:'5-15%', risk:'low', protein:'Vicilin, legumin', foods:'lentils, chickpeas, soybeans' }
+      ]
+    }
+  };
+
+  /* Build food lookup for safety checker */
+  var foodLookup = {};
+  for (var allergen in allergenDB) {
+    var data = allergenDB[allergen];
+    for (var f = 0; f < data.foods.length; f++) {
+      var food = data.foods[f].toLowerCase();
+      if (!foodLookup[food]) foodLookup[food] = [];
+      foodLookup[food].push({ allergen: allergen, relation: 'primary', pct: '100%', risk: 'high' });
+    }
+    for (var c = 0; c < data.crossReactions.length; c++) {
+      var cr = data.crossReactions[c];
+      var crFoods = cr.foods.split(',');
+      for (var cf = 0; cf < crFoods.length; cf++) {
+        var cfName = crFoods[cf].trim().toLowerCase().replace(/\s*\(.*?\)\s*/g, '');
+        if (!cfName || cfName.length < 2) continue;
+        if (!foodLookup[cfName]) foodLookup[cfName] = [];
+        foodLookup[cfName].push({ allergen: allergen, relation: 'cross-reactive', pct: cr.pct, risk: cr.risk, protein: cr.protein });
+      }
+    }
+  }
+
+  var selected = {};
+
+  function buildChips() {
+    var container = document.getElementById('ac-chips');
+    var html = '';
+    for (var name in allergenDB) {
+      html += '<span class="allergen-chip' + (selected[name] ? ' selected' : '') + '" data-name="' + name + '">' + name + '</span>';
+    }
+    container.innerHTML = html;
+    var chips = container.querySelectorAll('.allergen-chip');
+    for (var i = 0; i < chips.length; i++) {
+      chips[i].addEventListener('click', function () {
+        var n = this.getAttribute('data-name');
+        selected[n] = !selected[n];
+        this.classList.toggle('selected');
+      });
+    }
+  }
+
+  function assess() {
+    var selectedList = [];
+    for (var s in selected) { if (selected[s]) selectedList.push(s); }
+    if (selectedList.length === 0) { alert('Please select at least one allergen group.'); return; }
+
+    var allCross = [];
+    var highRisk = 0, modRisk = 0, lowRisk = 0;
+
+    for (var i = 0; i < selectedList.length; i++) {
+      var allergen = selectedList[i];
+      var data = allergenDB[allergen];
+      if (!data) continue;
+      for (var c = 0; c < data.crossReactions.length; c++) {
+        var cr = data.crossReactions[c];
+        allCross.push({ source: allergen, group: cr.group, pct: cr.pct, risk: cr.risk, protein: cr.protein, foods: cr.foods });
+        if (cr.risk === 'high') highRisk++;
+        else if (cr.risk === 'moderate') modRisk++;
+        else lowRisk++;
+      }
+    }
+
+    /* Sort by risk */
+    var riskOrder = { high: 0, moderate: 1, low: 2 };
+    allCross.sort(function (a, b) { return (riskOrder[a.risk] || 3) - (riskOrder[b.risk] || 3); });
+
+    var summaryHtml = '<div class="nutr-card"><div class="nutr-val">' + selectedList.length + '</div><div class="nutr-label">Allergies Selected</div><div class="nutr-unit">allergen groups</div></div>';
+    summaryHtml += '<div class="nutr-card"><div class="nutr-val" style="color:var(--clr-danger);">' + highRisk + '</div><div class="nutr-label">High Risk</div><div class="nutr-unit">&gt;50% probability</div></div>';
+    summaryHtml += '<div class="nutr-card"><div class="nutr-val" style="color:var(--clr-accent);">' + modRisk + '</div><div class="nutr-label">Moderate Risk</div><div class="nutr-unit">15-50% probability</div></div>';
+    summaryHtml += '<div class="nutr-card"><div class="nutr-val" style="color:var(--clr-info);">' + lowRisk + '</div><div class="nutr-label">Low Risk</div><div class="nutr-unit">&lt;15% probability</div></div>';
+    document.getElementById('ac-summary').innerHTML = summaryHtml;
+
+    var detailHtml = '';
+    for (var d = 0; d < allCross.length; d++) {
+      var item = allCross[d];
+      var riskClass = 'risk-' + item.risk;
+      detailHtml += '<div class="cross-card ' + riskClass + '">';
+      detailHtml += '<h4>' + escapeHtml(item.group) + ' <span class="cross-pct">' + item.pct + '</span></h4>';
+      detailHtml += '<div style="font-size:0.82rem;margin-bottom:4px;">Because of your <strong>' + escapeHtml(item.source) + '</strong> allergy</div>';
+      detailHtml += '<div class="cross-foods">Foods: ' + escapeHtml(item.foods) + '</div>';
+      detailHtml += '<div class="cross-protein">Shared protein: ' + escapeHtml(item.protein) + '</div>';
+      detailHtml += '</div>';
+    }
+
+    if (allCross.length === 0) {
+      detailHtml = '<p style="color:var(--clr-success);font-weight:600;">No known cross-reactive food groups found for your selected allergies.</p>';
+    }
+
+    document.getElementById('ac-detail').innerHTML = detailHtml;
+    var box = document.getElementById('ac-results');
+    box.classList.add('visible'); box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function checkFood() {
+    var input = document.getElementById('ac-food-input').value.trim().toLowerCase();
+    if (!input) return;
+
+    var selectedList = [];
+    for (var s in selected) { if (selected[s]) selectedList.push(s); }
+
+    var results = [];
+
+    /* Search food lookup */
+    for (var food in foodLookup) {
+      if (food.indexOf(input) !== -1 || input.indexOf(food) !== -1) {
+        var entries = foodLookup[food];
+        for (var e = 0; e < entries.length; e++) {
+          var entry = entries[e];
+          if (selectedList.length === 0 || selectedList.indexOf(entry.allergen) !== -1) {
+            results.push({ food: food, allergen: entry.allergen, relation: entry.relation, pct: entry.pct, risk: entry.risk, protein: entry.protein || 'primary allergen' });
+          }
+        }
+      }
+    }
+
+    var container = document.getElementById('ac-food-result');
+    if (results.length === 0) {
+      if (selectedList.length > 0) {
+        container.innerHTML = '<div style="padding:12px;background:var(--clr-success-bg);border-radius:var(--radius-sm);border:1px solid #A7F3D0;"><strong style="color:var(--clr-success);">Likely Safe:</strong> "' + escapeHtml(input) + '" was not found in the cross-reactivity database for your selected allergies. However, always verify with your allergist before consuming new foods.</div>';
+      } else {
+        container.innerHTML = '<div style="padding:12px;background:var(--clr-info-bg);border-radius:var(--radius-sm);border:1px solid #93C5FD;"><strong style="color:var(--clr-info);">No Match Found:</strong> "' + escapeHtml(input) + '" was not found in the database. Select your allergies above for a personalized safety check.</div>';
+      }
+    } else {
+      var html = '<div style="padding:12px;background:var(--clr-danger-bg);border-radius:var(--radius-sm);border:1px solid #FCA5A5;"><strong style="color:var(--clr-danger);">Caution Required:</strong> "' + escapeHtml(input) + '" has potential cross-reactivity.</div>';
+      for (var r = 0; r < results.length; r++) {
+        var res = results[r];
+        html += '<div class="cross-card risk-' + res.risk + '" style="margin-top:8px;"><h4>' + escapeHtml(res.food) + ' &mdash; ' + escapeHtml(res.allergen) + ' (' + res.relation + ')</h4>';
+        html += '<div class="cross-pct">Probability: ' + res.pct + '</div>';
+        html += '<div class="cross-protein">Protein: ' + escapeHtml(res.protein) + '</div></div>';
+      }
+      container.innerHTML = html;
+    }
+  }
+
+  function escapeHtml(str) { var d = document.createElement('div'); d.appendChild(document.createTextNode(str)); return d.innerHTML; }
+
+  document.getElementById('ac-assess').addEventListener('click', assess);
+  document.getElementById('ac-clear').addEventListener('click', function () {
+    selected = {}; buildChips();
+    document.getElementById('ac-results').classList.remove('visible');
+    document.getElementById('ac-results').style.display = 'none';
+    document.getElementById('ac-food-result').innerHTML = '';
+  });
+  document.getElementById('ac-check').addEventListener('click', checkFood);
+  document.getElementById('ac-food-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); checkFood(); }
+  });
+
+  buildChips();
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/allergen-substitutes.html" style="color:#3b82f6;text-decoration:none;">Allergen-Free Ingredient Substitutes Calculator — Find Safe Alternatives</a></li>
+<li><a href="/research/glycemic-index-calculator.html" style="color:#3b82f6;text-decoration:none;">Glycemic Index Calculator - GI/GL with Meal Planning Optimization</a></li>
+<li><a href="/answers/cooking-measurement-converter.html" style="color:#3b82f6;text-decoration:none;">Cooking Measurement Converter - Ingredient-Specific Weights & Volumes</a></li>
+<li><a href="/answers/dietary-restriction-guide.html" style="color:#3b82f6;text-decoration:none;">Dietary Restriction Guide - Interactive Ingredient Checker & Substitutions</a></li>
+</ul>
+</section>
+
+</body>
+</html>

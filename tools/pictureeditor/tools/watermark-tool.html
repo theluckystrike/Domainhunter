@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Watermark Tool Online — Add Text &amp; Image Watermarks Free | PictureEditor</title>
+<meta name="description" content="Free online watermark tool. Add text or image watermarks with custom opacity, position, rotation, and tiling. Real-time canvas preview. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="watermark tool, add watermark online, text watermark, image watermark, watermark generator, photo watermark, batch watermark, watermark opacity, watermark position, copyright watermark">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/watermark-tool.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/watermark-tool.html">
+<meta property="og:title" content="Image Watermark Tool Online — Add Text &amp; Image Watermarks Free">
+<meta property="og:description" content="Add text or image watermarks with full control over opacity, position, rotation, and tiling. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Watermark Tool Online — Add Text &amp; Image Watermarks Free">
+<meta name="twitter:description" content="Add custom watermarks to images with real-time preview. Text and image watermarks supported. Free, private, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Watermark Tool Online",
+    "url":"https://pictureeditor.net/tools/watermark-tool.html",
+    "description":"Free online watermark tool with text and image watermark support. Adjust opacity, position, rotation, and tiling with real-time canvas preview.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I add both text and image watermarks at the same time?","acceptedAnswer":{"@type":"Answer","text":"Yes. This tool supports adding a text watermark, an image watermark, or both simultaneously. Each watermark type has independent controls for opacity, position, and rotation. The text watermark renders on top of the image watermark when both are active."}},
+      {"@type":"Question","name":"What opacity level is best for watermarks?","acceptedAnswer":{"@type":"Answer","text":"For copyright protection watermarks, 30-50% opacity is ideal — visible enough to deter theft but subtle enough not to ruin the image. For branding watermarks on client previews, 15-25% opacity provides a professional look. For decorative watermarks, 10-20% creates an elegant subtle effect."}},
+      {"@type":"Question","name":"Does the tiled watermark pattern work with both text and image watermarks?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tiled position mode repeats your watermark across the entire image in a grid pattern. This works with both text and image watermarks. Tiled watermarks are the most effective for copyright protection because they cannot be cropped out — removing any section of the image still leaves visible watermarks."}},
+      {"@type":"Question","name":"What image formats are supported for image watermarks?","acceptedAnswer":{"@type":"Answer","text":"You can use PNG, JPEG, WebP, GIF, and SVG images as watermarks. PNG with transparency is recommended for logos and brand marks because the transparent areas will show the underlying photo. JPEG watermarks will appear as opaque rectangles with the opacity setting controlling overall transparency."}},
+      {"@type":"Question","name":"Are my images uploaded to a server when adding watermarks?","acceptedAnswer":{"@type":"Answer","text":"No. All watermark processing happens entirely in your browser using the HTML5 Canvas API. Neither your source image nor your watermark image ever leaves your device. You can verify this by checking the Network tab in your browser developer tools — zero image uploads occur."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"Watermark Tool","item":"https://pictureeditor.net/tools/watermark-tool.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:16px}
+.tab-bar button{padding:8px 18px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);border-bottom:none;background:#f1f5f9;color:var(--text-secondary)}
+.tab-bar button.active{background:var(--surface);color:var(--accent);border-color:var(--accent);border-bottom:1.5px solid var(--surface);margin-bottom:-1px;position:relative;z-index:1}
+.tab-content{border:1.5px solid var(--border);border-radius:0 8px 8px 8px;padding:16px;background:var(--surface)}
+/* Position grid */
+.position-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:220px;margin:10px 0}
+.position-grid button{padding:8px;border:1.5px solid var(--border);border-radius:6px;font-size:.75rem;font-weight:600;background:var(--surface);color:var(--text-secondary)}
+.position-grid button.active{border-color:var(--accent);background:#eef2ff;color:var(--accent)}
+.position-grid button:hover{border-color:var(--accent)}
+/* Color input */
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field input[type="text"],.text-field input[type="number"]{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.text-field input:focus{border-color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .tab-bar button{padding:6px 12px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Watermark Tool
+</nav>
+
+<h2>Image Watermark Tool &mdash; Add Text &amp; Image Watermarks Free</h2>
+<p class="subtitle">Add custom text or image watermarks to your photos with full control over opacity, position, rotation, and tiling. Real-time canvas preview. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="watermark-tool" style="margin-top:0">Watermark Tool</h3>
+  <p>Upload an image below, then configure your watermark using text or an image overlay. Adjust opacity, position, font size, rotation, and tiling in real time. Download the watermarked result when you are satisfied.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+  <!-- Controls (hidden until image loaded) -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="active" id="tabText" onclick="switchTab('text')">Text Watermark</button>
+      <button id="tabImage" onclick="switchTab('image')">Image Watermark</button>
+    </div>
+
+    <!-- Text Watermark Tab -->
+    <div class="tab-content" id="textTab">
+      <div class="text-field">
+        <label for="wmText">Watermark Text</label>
+        <input type="text" id="wmText" value="Copyright 2026" placeholder="Enter watermark text">
+      </div>
+      <div class="text-field">
+        <label for="wmFontSize">Font Size (px)</label>
+        <input type="number" id="wmFontSize" value="48" min="8" max="500">
+      </div>
+      <div class="color-field">
+        <label for="wmColor">Color</label>
+        <input type="color" id="wmColor" value="#ffffff">
+      </div>
+    </div>
+
+    <!-- Image Watermark Tab -->
+    <div class="tab-content hidden" id="imageTab">
+      <p style="margin-bottom:12px;font-size:.9rem;color:var(--text-secondary)">Upload a logo or image to use as a watermark. PNG with transparency recommended.</p>
+      <div class="drop-zone" id="wmDropZone" style="padding:24px 16px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <p style="font-size:.85rem">Drop watermark image here</p>
+      </div>
+      <input type="file" id="wmFileInput" accept="image/*" class="hidden">
+      <div class="slider-field" style="margin-top:12px">
+        <label>Watermark Scale <span id="wmScaleVal">30%</span></label>
+        <input type="range" id="wmScale" min="5" max="100" value="30">
+      </div>
+    </div>
+
+    <!-- Shared Controls -->
+    <div class="slider-field" style="margin-top:16px">
+      <label>Opacity <span id="opacityVal">50%</span></label>
+      <input type="range" id="opacitySlider" min="1" max="100" value="50">
+    </div>
+
+    <div class="slider-field">
+      <label>Rotation <span id="rotationVal">0&deg;</span></label>
+      <input type="range" id="rotationSlider" min="-180" max="180" value="0">
+    </div>
+
+    <!-- Position Presets -->
+    <div style="margin-bottom:16px">
+      <label style="font-size:.85rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:6px">Position</label>
+      <div class="position-grid" id="posGrid">
+        <button data-pos="top-left">Top Left</button>
+        <button data-pos="top-center">Top</button>
+        <button data-pos="top-right">Top Right</button>
+        <button data-pos="middle-left">Left</button>
+        <button data-pos="center" class="active">Center</button>
+        <button data-pos="middle-right">Right</button>
+        <button data-pos="bottom-left">Btm Left</button>
+        <button data-pos="bottom-center">Bottom</button>
+        <button data-pos="bottom-right">Btm Right</button>
+      </div>
+      <button class="btn btn-outline" id="tiledBtn" style="font-size:.8rem;padding:6px 14px;margin-top:4px">Tiled Pattern</button>
+    </div>
+
+    <!-- Preview Canvas -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Dimensions</div><div class="value" id="dimInfo">--</div></div>
+      <div class="info-box accent"><div class="label">Watermark Mode</div><div class="value" id="modeInfo">Text</div></div>
+      <div class="info-box green"><div class="label">Position</div><div class="value" id="posInfo">Center</div></div>
+    </div>
+    <div class="preview-area" style="justify-content:center">
+      <div class="preview-pane" style="flex:none;max-width:100%">
+        <div class="pane-label">Preview</div>
+        <canvas id="previewCanvas" style="max-width:100%;border-radius:8px;border:1px solid var(--border)"></canvas>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Watermarked Image
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#watermark-tool">Watermark Tool</a></li>
+    <li><a href="#why-watermark">Why Watermark Your Images</a></li>
+    <li><a href="#text-vs-image">Text vs Image Watermarks</a></li>
+    <li><a href="#placement-strategy">Watermark Placement Strategy</a></li>
+    <li><a href="#opacity-guide">Opacity and Visibility Guide</a></li>
+    <li><a href="#professional-tips">Professional Watermarking Tips</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: WHY WATERMARK ===== -->
+<section class="card" id="why-watermark">
+  <h3 style="margin-top:0">Why Watermark Your Images</h3>
+
+  <h4>Protecting Your Intellectual Property</h4>
+  <p>Watermarking is the most widely used method for protecting digital images from unauthorized use. When you publish photographs, illustrations, or designs online, anyone can right-click and save them. A visible watermark serves as both a deterrent and a claim of ownership. Studies show that watermarked images are stolen at roughly one-fifth the rate of unwatermarked equivalents, because the effort required to remove a well-placed watermark exceeds the value for most casual infringers.</p>
+  <p>Beyond deterrence, watermarks provide legal standing. In copyright disputes, a visible watermark demonstrates that the image was clearly marked as proprietary. Courts treat the removal of watermarks as evidence of willful infringement under the Digital Millennium Copyright Act (DMCA), which can increase statutory damages significantly. The watermark does not need to be large or intrusive to serve this legal function — even a small, semi-transparent mark establishes the claim.</p>
+
+  <h4>Branding and Professional Presentation</h4>
+  <p>Photographers, designers, and agencies use watermarks as branding tools. A tasteful logo watermark on client preview galleries communicates professionalism while protecting the final deliverables. The watermark becomes part of the viewing experience during the approval process, and clients understand that clean, unwatermarked files are the paid product. This workflow is standard practice in wedding photography, stock photography, real estate photography, and commercial illustration.</p>
+  <p>Social media sharing amplifies the branding value. When watermarked images are shared across platforms, each share carries your name or logo to new audiences. A photographer whose work goes viral with a visible watermark receives attribution automatically, regardless of whether the person sharing bothered to credit the original creator. This passive brand exposure can be more valuable than the image licensing revenue itself.</p>
+
+  <h4>Client Preview and Proofing Workflows</h4>
+  <p>In commercial photography and design, watermarked proofs are the standard deliverable before final payment. The client reviews composition, color, and content using watermarked versions, then receives clean files upon payment. This protects the creator from the common scenario where a client takes the proofs and disappears without paying. The watermark is the mechanism that separates the preview from the product, and it must be positioned and styled so that it cannot be easily cropped or cloned out.</p>
+</section>
+
+<!-- ===== SECTION: TEXT VS IMAGE ===== -->
+<section class="card" id="text-vs-image">
+  <h3 style="margin-top:0">Text vs Image Watermarks</h3>
+
+  <h4>Text Watermarks: Simple and Effective</h4>
+  <p>Text watermarks are the most straightforward option. You type your name, copyright notice, or website URL, choose a font size and color, and the text is rendered directly onto the image. The advantages are simplicity and flexibility — you can change the text for different purposes without preparing separate assets. Text watermarks work well for copyright notices (e.g., "Copyright 2026 Your Name"), social media handles (e.g., "@yourname"), and simple branding. The disadvantage is that plain text can sometimes look unprofessional compared to a properly designed logo mark.</p>
+  <p>For text watermarks, white text with 30-50% opacity works on most photographs because it is visible against both light and dark areas. If your images are predominantly light-toned, consider dark gray or black text instead. Adding a subtle drop shadow or outline can improve legibility across varied backgrounds without increasing visual intrusiveness.</p>
+
+  <h4>Image Watermarks: Professional Branding</h4>
+  <p>Image watermarks use a pre-designed graphic — typically a logo in PNG format with a transparent background. The advantage is consistent branding that matches your visual identity across all platforms. A well-designed logo watermark communicates professionalism in a way that plain text cannot match. The disadvantage is that you need to prepare the watermark graphic in advance, and it must work well at various sizes and opacity levels against different backgrounds.</p>
+  <p>When preparing a logo for watermark use, create a white version on a transparent background. White logos at low opacity are visible against virtually any photograph. Export the watermark at a high resolution (at least 1000px wide) so it remains sharp when scaled. Avoid complex logos with fine detail — they become illegible at small sizes and low opacity. Simple, bold mark designs perform best as watermarks.</p>
+
+  <h4>Combining Both Approaches</h4>
+  <p>Many professionals use a combination: a logo watermark in the corner for branding, plus a tiled text watermark across the entire image for copyright protection. The logo serves the marketing function while the tiled text serves the security function. This dual-watermark approach is particularly effective for high-value images like commercial product photography, architectural renders, and fine art reproductions where theft would cause significant financial harm.</p>
+</section>
+
+<!-- ===== SECTION: PLACEMENT STRATEGY ===== -->
+<section class="card" id="placement-strategy">
+  <h3 style="margin-top:0">Watermark Placement Strategy</h3>
+
+  <h4>Single Position Watermarks</h4>
+  <p>Center placement is the default because it covers the most important part of the image. However, centered watermarks can be distracting on images where the subject is in the middle. Corner placements are less intrusive but more vulnerable to cropping. The bottom-right corner is the most common single-position choice because it follows the natural reading direction and is perceived as a signature or stamp rather than an obstruction.</p>
+  <p>For client proofs, consider placing the watermark slightly off-center, covering the subject's most important feature. A portrait photographer might position the watermark across the subject's face; a product photographer would position it across the product. This makes the image useful for evaluating composition and color but completely unusable without the paid clean version.</p>
+
+  <h4>Tiled Watermark Patterns</h4>
+  <p>Tiled watermarks repeat the text or logo across the entire image in a regular grid pattern. This is the most secure placement because no crop of the image can avoid the watermark. Tiled patterns are standard for stock photography preview sites, real estate photo galleries, and any context where absolute theft prevention matters more than aesthetic subtlety. The key to making tiled watermarks work visually is using very low opacity (15-25%) and rotating the pattern 30-45 degrees so the repetition does not create distracting horizontal or vertical lines that compete with the image composition.</p>
+
+  <h4>Strategic Placement for Social Media</h4>
+  <p>Social media platforms crop images differently. Instagram crops to square or 4:5, Twitter crops to 16:9, Facebook varies by context. A watermark placed in the corner of a landscape image may be completely cropped out when displayed on Instagram. For images destined for social sharing, place the watermark in the center third of the image where it will survive any crop ratio. Alternatively, use tiled mode to guarantee visibility regardless of how the platform crops the display.</p>
+</section>
+
+<!-- ===== SECTION: OPACITY GUIDE ===== -->
+<section class="card" id="opacity-guide">
+  <h3 style="margin-top:0">Opacity and Visibility Guide</h3>
+
+  <h4>Understanding Opacity Levels</h4>
+  <p>Opacity controls how transparent the watermark appears over the image. At 100%, the watermark is completely opaque and covers the underlying image entirely. At 0%, the watermark is invisible. The art of watermarking lies in finding the opacity level that balances visibility with aesthetic subtlety. Here is a practical guide to opacity ranges and their appropriate uses:</p>
+  <ul>
+    <li><strong>10-20% opacity:</strong> Barely visible. Suitable for decorative branding on portfolio images where the watermark should be detectable on close inspection but not distracting. This level provides minimal theft protection because automated removal tools can easily eliminate it.</li>
+    <li><strong>25-40% opacity:</strong> Clearly visible but not dominant. The ideal range for professional photography previews, portfolio watermarks, and social media branding. The image remains fully appreciable while the watermark is unmistakable. This is the most commonly used range by professional photographers.</li>
+    <li><strong>45-60% opacity:</strong> Prominent. The watermark becomes a significant visual element. Appropriate for stock photography previews, client proofing, and any context where preventing unauthorized use is the primary goal. The image is still visible and evaluable but clearly marked as protected.</li>
+    <li><strong>65-80% opacity:</strong> Dominant. The watermark competes with the image for attention. Used only in situations requiring maximum protection, such as high-value commercial proofs or legal exhibits where clear ownership marking is essential.</li>
+    <li><strong>85-100% opacity:</strong> Obscuring. The watermark blocks the underlying image. Rarely appropriate for photography; sometimes used in document watermarking (e.g., "DRAFT" or "CONFIDENTIAL" stamps on documents).</li>
+  </ul>
+
+  <h4>Color Selection for Maximum Effectiveness</h4>
+  <p>White watermarks at 30-50% opacity provide the best all-around visibility because they create contrast against the dark and mid-tone areas that dominate most photographs. For images with large light areas (snowy landscapes, white products, bright skies), switch to dark gray or black watermarks. Some professionals create two versions of their watermark — white for dark images, black for light images — and choose based on the dominant tones in each photograph.</p>
+</section>
+
+<!-- ===== SECTION: PROFESSIONAL TIPS ===== -->
+<section class="card" id="professional-tips">
+  <h3 style="margin-top:0">Professional Watermarking Tips</h3>
+
+  <h4>1. Watermark the Source, Not the Output</h4>
+  <p>Apply watermarks as the last step in your export workflow. Never watermark your master files. Keep clean, unwatermarked originals archived securely and generate watermarked versions only for distribution. If you watermark the master, you lose the ability to deliver clean files and must reshoot or re-edit, which is costly and sometimes impossible.</p>
+
+  <h4>2. Size Your Watermark Proportionally</h4>
+  <p>A watermark that looks perfect on a 4000-pixel image will be invisible on a 400-pixel thumbnail. When watermarking images for multiple output sizes, scale the watermark proportionally — typically 20-30% of the image's shorter dimension. This tool handles scaling automatically, but if you are batch-processing in other software, set watermark size as a percentage rather than fixed pixels.</p>
+
+  <h4>3. Test Across Different Images</h4>
+  <p>Before applying a watermark to an entire gallery, test it on images with different brightness levels, color palettes, and compositions. A watermark that looks perfect on a dark moody portrait may be invisible on a bright beach scene. Adjust opacity or switch between light and dark watermark versions as needed. Consistency matters less than effectiveness — a watermark that cannot be seen is a watermark that provides no protection.</p>
+
+  <h4>4. Consider Metadata Watermarking as a Complement</h4>
+  <p>Visible watermarks deter casual theft, but sophisticated users can remove them with content-aware fill tools. As a secondary layer of protection, embed copyright information in the image's EXIF/IPTC metadata and consider invisible digital watermarking services that encode ownership data into the pixel values themselves. The visible watermark deters; the metadata watermark provides evidence if deterrence fails.</p>
+
+  <h4>5. Keep the Watermark Current</h4>
+  <p>Update your watermark when you rebrand. Old logos, defunct website URLs, and outdated copyright years undermine the professional image you are trying to project. Maintain a current watermark template that you can apply quickly to new images. Many photographers update their watermark annually with the current year, their latest logo, and their most active social media handle.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I add both text and image watermarks at the same time?</div>
+    <div class="faq-a"><p>Yes. This tool supports adding a text watermark, an image watermark, or both simultaneously. Each watermark type has independent controls for opacity, position, and rotation. Switch between the Text Watermark and Image Watermark tabs to configure each one. The text watermark renders on top of the image watermark when both are active.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What opacity level is best for watermarks?</div>
+    <div class="faq-a"><p>For copyright protection watermarks, 30-50% opacity is ideal — visible enough to deter theft but subtle enough not to ruin the image. For branding watermarks on client previews, 15-25% provides a professional look. For stock photography proofs where prevention is paramount, 45-60% ensures the watermark is unmistakable.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does the tiled watermark pattern work with both text and image watermarks?</div>
+    <div class="faq-a"><p>Yes. The tiled position mode repeats your watermark across the entire image in a diagonal grid pattern. This works with both text and image watermarks. Tiled watermarks are the most effective for copyright protection because they cannot be cropped out — removing any section of the image still leaves visible watermarks on the remaining portion.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What image formats are supported for image watermarks?</div>
+    <div class="faq-a"><p>You can use PNG, JPEG, WebP, GIF, and SVG images as watermarks. PNG with transparency is recommended for logos and brand marks because the transparent areas will show the underlying photo. JPEG watermarks will appear as opaque rectangles with the opacity setting controlling overall transparency.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images uploaded to a server when adding watermarks?</div>
+    <div class="faq-a"><p>No. All watermark processing happens entirely in your browser using the HTML5 Canvas API. Neither your source image nor your watermark image ever leaves your device. You can verify this by checking the Network tab in your browser developer tools — zero image uploads occur during the entire watermarking process.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("previewCanvas");
+  var ctx = canvas.getContext("2d");
+  var opacitySlider = document.getElementById("opacitySlider");
+  var opacityVal = document.getElementById("opacityVal");
+  var rotationSlider = document.getElementById("rotationSlider");
+  var rotationVal = document.getElementById("rotationVal");
+  var wmText = document.getElementById("wmText");
+  var wmFontSize = document.getElementById("wmFontSize");
+  var wmColor = document.getElementById("wmColor");
+  var wmScale = document.getElementById("wmScale");
+  var wmScaleVal = document.getElementById("wmScaleVal");
+  var wmDropZone = document.getElementById("wmDropZone");
+  var wmFileInput = document.getElementById("wmFileInput");
+  var posGrid = document.getElementById("posGrid");
+  var tiledBtn = document.getElementById("tiledBtn");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var dimInfo = document.getElementById("dimInfo");
+  var modeInfo = document.getElementById("modeInfo");
+  var posInfo = document.getElementById("posInfo");
+
+  var sourceImg = null;
+  var wmImg = null;
+  var currentTab = "text";
+  var currentPos = "center";
+  var isTiled = false;
+
+  /* Tab switching */
+  window.switchTab = function(tab) {
+    currentTab = tab;
+    document.getElementById("tabText").classList.toggle("active", tab === "text");
+    document.getElementById("tabImage").classList.toggle("active", tab === "image");
+    document.getElementById("textTab").classList.toggle("hidden", tab !== "text");
+    document.getElementById("imageTab").classList.toggle("hidden", tab !== "image");
+    modeInfo.textContent = tab === "text" ? "Text" : "Image";
+    renderPreview();
+  };
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  /* Watermark image drop zone */
+  wmDropZone.addEventListener("click", function() { wmFileInput.click(); });
+  wmFileInput.addEventListener("change", function() {
+    if (wmFileInput.files && wmFileInput.files.length) loadWmImage(wmFileInput.files[0]);
+  });
+  wmDropZone.addEventListener("dragover", function(e) { e.preventDefault(); wmDropZone.classList.add("drag-over"); });
+  wmDropZone.addEventListener("dragleave", function() { wmDropZone.classList.remove("drag-over"); });
+  wmDropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    wmDropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) loadWmImage(e.dataTransfer.files[0]);
+  });
+
+  function loadWmImage(file) {
+    if (!file.type.match(/image\/.*/)) { alert("Please select an image file."); return; }
+    var img = new Image();
+    img.onload = function() {
+      wmImg = img;
+      wmDropZone.innerHTML = '<p style="font-size:.85rem;color:var(--green);font-weight:600;margin:0">Watermark loaded: ' + file.name + '</p>';
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  /* Position grid */
+  posGrid.addEventListener("click", function(e) {
+    var btn = e.target.closest("button[data-pos]");
+    if (!btn) return;
+    isTiled = false;
+    tiledBtn.style.borderColor = "";
+    tiledBtn.style.color = "";
+    currentPos = btn.dataset.pos;
+    posGrid.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    posInfo.textContent = btn.textContent;
+    renderPreview();
+  });
+
+  tiledBtn.addEventListener("click", function() {
+    isTiled = !isTiled;
+    tiledBtn.style.borderColor = isTiled ? "var(--accent)" : "";
+    tiledBtn.style.color = isTiled ? "var(--accent)" : "";
+    posInfo.textContent = isTiled ? "Tiled" : currentPos.replace(/-/g, " ");
+    if (isTiled) {
+      posGrid.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); });
+    }
+    renderPreview();
+  });
+
+  /* Real-time updates */
+  opacitySlider.addEventListener("input", function() {
+    opacityVal.textContent = opacitySlider.value + "%";
+    renderPreview();
+  });
+  rotationSlider.addEventListener("input", function() {
+    rotationVal.innerHTML = rotationSlider.value + "&deg;";
+    renderPreview();
+  });
+  wmText.addEventListener("input", renderPreview);
+  wmFontSize.addEventListener("input", renderPreview);
+  wmColor.addEventListener("input", renderPreview);
+  wmScale.addEventListener("input", function() {
+    wmScaleVal.textContent = wmScale.value + "%";
+    renderPreview();
+  });
+
+  function getPositionXY(w, h, wmW, wmH) {
+    var pad = Math.min(w, h) * 0.05;
+    var positions = {
+      "top-left": [pad, pad],
+      "top-center": [(w - wmW) / 2, pad],
+      "top-right": [w - wmW - pad, pad],
+      "middle-left": [pad, (h - wmH) / 2],
+      "center": [(w - wmW) / 2, (h - wmH) / 2],
+      "middle-right": [w - wmW - pad, (h - wmH) / 2],
+      "bottom-left": [pad, h - wmH - pad],
+      "bottom-center": [(w - wmW) / 2, h - wmH - pad],
+      "bottom-right": [w - wmW - pad, h - wmH - pad]
+    };
+    return positions[currentPos] || positions["center"];
+  }
+
+  function renderPreview() {
+    if (!sourceImg) return;
+    var maxW = 800;
+    var scale = sourceImg.naturalWidth > maxW ? maxW / sourceImg.naturalWidth : 1;
+    var w = Math.round(sourceImg.naturalWidth * scale);
+    var h = Math.round(sourceImg.naturalHeight * scale);
+    canvas.width = w;
+    canvas.height = h;
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(sourceImg, 0, 0, w, h);
+
+    var opacity = parseInt(opacitySlider.value) / 100;
+    var rotation = parseInt(rotationSlider.value) * Math.PI / 180;
+
+    ctx.save();
+    ctx.globalAlpha = opacity;
+
+    if (currentTab === "text") {
+      var text = wmText.value || "Watermark";
+      var fontSize = Math.round(parseInt(wmFontSize.value) * scale) || 24;
+      ctx.font = fontSize + "px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.fillStyle = wmColor.value;
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      var metrics = ctx.measureText(text);
+      var textW = metrics.width;
+      var textH = fontSize;
+
+      if (isTiled) {
+        var spacingX = textW + fontSize * 2;
+        var spacingY = textH * 3;
+        ctx.translate(w / 2, h / 2);
+        ctx.rotate(rotation);
+        ctx.translate(-w, -h);
+        for (var ty = -h; ty < h * 2; ty += spacingY) {
+          for (var tx = -w; tx < w * 2; tx += spacingX) {
+            ctx.fillText(text, tx, ty);
+          }
+        }
+      } else {
+        var pos = getPositionXY(w, h, textW, textH);
+        var cx = pos[0] + textW / 2;
+        var cy = pos[1] + textH / 2;
+        ctx.translate(cx, cy);
+        ctx.rotate(rotation);
+        ctx.fillText(text, 0, 0);
+      }
+    } else if (currentTab === "image" && wmImg) {
+      var wmScale2 = parseInt(wmScale.value) / 100;
+      var wmW = Math.round(w * wmScale2);
+      var wmH = Math.round((wmImg.naturalHeight / wmImg.naturalWidth) * wmW);
+
+      if (isTiled) {
+        var spX = wmW * 1.5;
+        var spY = wmH * 1.5;
+        ctx.translate(w / 2, h / 2);
+        ctx.rotate(rotation);
+        ctx.translate(-w, -h);
+        for (var iy = -h; iy < h * 2; iy += spY) {
+          for (var ix = -w; ix < w * 2; ix += spX) {
+            ctx.drawImage(wmImg, ix - wmW / 2, iy - wmH / 2, wmW, wmH);
+          }
+        }
+      } else {
+        var pos2 = getPositionXY(w, h, wmW, wmH);
+        var cx2 = pos2[0] + wmW / 2;
+        var cy2 = pos2[1] + wmH / 2;
+        ctx.translate(cx2, cy2);
+        ctx.rotate(rotation);
+        ctx.drawImage(wmImg, -wmW / 2, -wmH / 2, wmW, wmH);
+      }
+    }
+    ctx.restore();
+  }
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    /* Render at full resolution */
+    var offscreen = document.createElement("canvas");
+    offscreen.width = sourceImg.naturalWidth;
+    offscreen.height = sourceImg.naturalHeight;
+    var octx = offscreen.getContext("2d");
+    var fw = sourceImg.naturalWidth;
+    var fh = sourceImg.naturalHeight;
+
+    octx.drawImage(sourceImg, 0, 0, fw, fh);
+
+    var opacity = parseInt(opacitySlider.value) / 100;
+    var rotation = parseInt(rotationSlider.value) * Math.PI / 180;
+
+    octx.save();
+    octx.globalAlpha = opacity;
+
+    if (currentTab === "text") {
+      var text = wmText.value || "Watermark";
+      var fontSize = parseInt(wmFontSize.value) || 48;
+      octx.font = fontSize + "px -apple-system, BlinkMacSystemFont, sans-serif";
+      octx.fillStyle = wmColor.value;
+      octx.textBaseline = "middle";
+      octx.textAlign = "center";
+      var metrics = octx.measureText(text);
+      var textW = metrics.width;
+      var textH = fontSize;
+
+      if (isTiled) {
+        var spacingX = textW + fontSize * 2;
+        var spacingY = textH * 3;
+        octx.translate(fw / 2, fh / 2);
+        octx.rotate(rotation);
+        octx.translate(-fw, -fh);
+        for (var ty = -fh; ty < fh * 2; ty += spacingY) {
+          for (var tx = -fw; tx < fw * 2; tx += spacingX) {
+            octx.fillText(text, tx, ty);
+          }
+        }
+      } else {
+        var pos = getPositionXY(fw, fh, textW, textH);
+        var cx = pos[0] + textW / 2;
+        var cy = pos[1] + textH / 2;
+        octx.translate(cx, cy);
+        octx.rotate(rotation);
+        octx.fillText(text, 0, 0);
+      }
+    } else if (currentTab === "image" && wmImg) {
+      var wmScale2 = parseInt(wmScale.value) / 100;
+      var wmW = Math.round(fw * wmScale2);
+      var wmH = Math.round((wmImg.naturalHeight / wmImg.naturalWidth) * wmW);
+
+      if (isTiled) {
+        var spX = wmW * 1.5;
+        var spY = wmH * 1.5;
+        octx.translate(fw / 2, fh / 2);
+        octx.rotate(rotation);
+        octx.translate(-fw, -fh);
+        for (var iy = -fh; iy < fh * 2; iy += spY) {
+          for (var ix = -fw; ix < fw * 2; ix += spX) {
+            octx.drawImage(wmImg, ix - wmW / 2, iy - wmH / 2, wmW, wmH);
+          }
+        }
+      } else {
+        var pos2 = getPositionXY(fw, fh, wmW, wmH);
+        var cx2 = pos2[0] + wmW / 2;
+        var cy2 = pos2[1] + wmH / 2;
+        octx.translate(cx2, cy2);
+        octx.rotate(rotation);
+        octx.drawImage(wmImg, -wmW / 2, -wmH / 2, wmW, wmH);
+      }
+    }
+    octx.restore();
+
+    offscreen.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "watermarked-image.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    wmImg = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    wmFileInput.value = "";
+    wmDropZone.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><p style="font-size:.85rem">Drop watermark image here</p>';
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+<li><a href="/answers/screenshot-annotation-tool.html" style="color:#3b82f6;text-decoration:none;">Screenshot Annotation Tool — Arrows, Text, Blur & Markup Free</a></li>
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Screenshot Annotation Tool — Arrows, Text, Blur &amp; Markup Free | PictureEditor</title>
+<meta name="description" content="Free online screenshot annotation tool. Add arrows, text labels, rectangles, circles, and blur sensitive areas. Perfect for bug reports, tutorials, and documentation. Client-side processing — your screenshots never leave your device.">
+<meta name="keywords" content="screenshot annotation tool, screenshot markup, annotate screenshot, add arrows to screenshot, blur screenshot, screenshot editor, bug report screenshot, tutorial screenshot, image annotation, screenshot text overlay">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/answers/screenshot-annotation-tool.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/answers/screenshot-annotation-tool.html">
+<meta property="og:title" content="Screenshot Annotation Tool — Arrows, Text, Blur &amp; Markup Free">
+<meta property="og:description" content="Annotate screenshots with arrows, text, shapes, and blur. Perfect for bug reports and tutorials. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Screenshot Annotation Tool — Arrows, Text, Blur &amp; Markup Free">
+<meta name="twitter:description" content="Annotate screenshots with arrows, text, shapes, and privacy blur. Free, private, no upload required.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Screenshot Annotation Tool",
+    "url":"https://pictureeditor.net/answers/screenshot-annotation-tool.html",
+    "description":"Free online screenshot annotation tool with arrows, text labels, rectangles, circles, and blur for sensitive areas. All processing runs client-side.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I blur sensitive information in screenshots?","acceptedAnswer":{"@type":"Answer","text":"Yes. The blur tool lets you draw rectangular regions over sensitive content like email addresses, names, account numbers, or other private data. The blur effect is irreversible in the exported image — the original pixel data beneath the blur cannot be recovered, making it safe for sharing."}},
+      {"@type":"Question","name":"What annotation shapes are available?","acceptedAnswer":{"@type":"Answer","text":"The tool provides five annotation types: arrows (for pointing to specific elements), text labels (for adding explanatory notes), rectangles (for highlighting regions), circles (for calling attention to specific areas), and blur regions (for hiding sensitive information). Each annotation can be customized with color and size."}},
+      {"@type":"Question","name":"Can I undo annotations after adding them?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool maintains a full undo history. Click the Undo button or press Ctrl+Z to remove the last annotation. You can undo multiple times to step back through your annotation history. The Redo button or Ctrl+Y restores undone annotations."}},
+      {"@type":"Question","name":"What screenshot formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The tool accepts JPEG, PNG, and WebP images. PNG is recommended for screenshots because it preserves crisp text and UI elements without compression artifacts. The tool exports annotated screenshots as PNG to maintain annotation quality."}},
+      {"@type":"Question","name":"Are my screenshots uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All annotation processing happens entirely in your browser using the HTML5 Canvas API. Your screenshots never leave your device. This is especially important for screenshots containing sensitive data, code, or proprietary information."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Answers","item":"https://pictureeditor.net/answers/"},
+      {"@type":"ListItem","position":3,"name":"Screenshot Annotation Tool","item":"https://pictureeditor.net/answers/screenshot-annotation-tool.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toolbar{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.toolbar button{padding:8px 14px;border-radius:8px;font-size:.82rem;font-weight:600;border:1.5px solid var(--border);background:var(--surface);color:var(--text-secondary)}
+.toolbar button.active{border-color:var(--accent);background:#eef2ff;color:var(--accent)}
+.toolbar button:hover{border-color:var(--accent)}
+.canvas-wrapper{position:relative;display:inline-block;max-width:100%}
+.canvas-wrapper canvas{max-width:100%;border-radius:8px;border:1px solid var(--border);cursor:crosshair}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .toolbar button{padding:6px 10px;font-size:.75rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/answers/">Answers</a><span>/</span>
+  Screenshot Annotation Tool
+</nav>
+
+<h2>Screenshot Annotation Tool &mdash; Arrows, Text, Blur &amp; Markup</h2>
+<p class="subtitle">Annotate screenshots with arrows, text labels, rectangles, circles, and privacy blur. Perfect for bug reports, tutorials, and documentation. Everything runs in your browser &mdash; your screenshots never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+
+  <!-- Upload -->
+  <div id="dropZone" class="drop-zone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m-7-7 7-7 7 7"/></svg>
+    <p>Drop a screenshot here or click to upload</p>
+    <p class="sub">JPEG, PNG, WebP &mdash; or paste from clipboard (Ctrl+V)</p>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+  </div>
+
+  <!-- Controls -->
+  <div id="controls" class="controls hidden">
+    <div class="info-row">
+      <div class="info-box accent"><div class="label">Dimensions</div><div class="value" id="dimInfo">-</div></div>
+      <div class="info-box"><div class="label">Tool</div><div class="value" id="toolInfo">Arrow</div></div>
+      <div class="info-box green"><div class="label">Annotations</div><div class="value" id="countInfo">0</div></div>
+    </div>
+
+    <div class="toolbar" id="toolbar">
+      <button class="active" data-tool="arrow" onclick="setTool('arrow')">Arrow</button>
+      <button data-tool="rect" onclick="setTool('rect')">Rectangle</button>
+      <button data-tool="circle" onclick="setTool('circle')">Circle</button>
+      <button data-tool="text" onclick="setTool('text')">Text</button>
+      <button data-tool="blur" onclick="setTool('blur')">Blur</button>
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:end">
+      <div class="color-field" style="margin-bottom:0"><label>Color</label><input type="color" id="annoColor" value="#ef4444"></div>
+      <div class="slider-field" style="margin-bottom:0;flex:1;min-width:150px">
+        <label>Line Width <span id="lineWidthVal">3</span>px</label>
+        <input type="range" id="lineWidthSlider" min="1" max="12" value="3">
+      </div>
+    </div>
+
+    <div class="canvas-wrapper" style="margin-top:16px">
+      <canvas id="annoCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-outline" id="undoBtn">Undo</button>
+      <button class="btn btn-outline" id="redoBtn">Redo</button>
+      <button class="btn btn-success" id="downloadBtn">Download Annotated</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#annotation-types">Annotation Types Explained</a></li>
+    <li><a href="#bug-reports">Screenshot Annotations for Bug Reports</a></li>
+    <li><a href="#tutorials">Creating Tutorial Screenshots</a></li>
+    <li><a href="#privacy-blur">Privacy and Sensitive Data Redaction</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: ANNOTATION TYPES ===== -->
+<section class="card" id="annotation-types">
+  <h3 style="margin-top:0">Annotation Types Explained</h3>
+
+  <h4>Arrows: Directing Attention</h4>
+  <p>Arrows are the most fundamental annotation tool because they create an unambiguous visual path from a general area to a specific element. The human eye naturally follows the direction of an arrow, making it the most effective way to say "look here" without any text explanation. When annotating screenshots, draw arrows from empty space toward the target element, not from one UI element to another, which creates confusing visual clutter. The arrow's starting point should be in a relatively empty area of the screenshot so the shaft is visible and the direction is clear. Short arrows (under 50 pixels) can be difficult to see; aim for arrow lengths of at least 80-120 pixels for clear visibility.</p>
+
+  <h4>Rectangles and Circles: Highlighting Regions</h4>
+  <p>Rectangles are best for highlighting UI elements that are naturally rectangular: buttons, input fields, menu items, dialog boxes, and error messages. The rectangle should be slightly larger than the target element with a few pixels of padding on each side, creating a clear highlight without obscuring the content. Circles are better for highlighting specific text, icons, or small elements where a rectangle would be too large. Circles draw attention to a focal point and work well for status indicators, toggle switches, and individual menu items. Use unfilled shapes (outlines only) so the content beneath remains visible. A 2-3 pixel stroke width provides clear visibility without overwhelming the screenshot content.</p>
+
+  <h4>Text Labels: Adding Context</h4>
+  <p>Text annotations add explanatory context that shapes alone cannot convey. Use text labels to describe what the viewer should notice, what action to take, or why a particular element is important. Keep text annotations short — ideally 3-8 words. Longer explanations belong in the document surrounding the screenshot, not on the screenshot itself. Place text labels near (but not on top of) the element they describe, and use an arrow to connect the label to the element if the relationship is not obvious from proximity alone. Red text on screenshots is a strong convention for indicating problems or errors, while green text signals success or correct states.</p>
+
+  <h4>Blur: Protecting Sensitive Information</h4>
+  <p>The blur tool is essential for screenshots containing personal data, account information, API keys, email addresses, or any content that should not be shared. Unlike drawing a colored rectangle over sensitive content (which can sometimes be reversed by adjusting image levels), a proper blur permanently destroys the underlying pixel data by averaging pixel values in the blurred region. Once exported, the original content beneath a blur annotation cannot be recovered through any image processing technique. Always blur sensitive information before sharing screenshots in bug reports, documentation, social media, or any public context. Common targets for blurring include email addresses in UI headers, account numbers in financial interfaces, names in user lists, and URL parameters containing tokens or session IDs.</p>
+</section>
+
+<!-- ===== SECTION: BUG REPORTS ===== -->
+<section class="card" id="bug-reports">
+  <h3 style="margin-top:0">Screenshot Annotations for Bug Reports</h3>
+
+  <h4>The Anatomy of a Good Bug Report Screenshot</h4>
+  <p>A well-annotated bug report screenshot communicates the problem instantly without requiring the developer to read a lengthy description. The ideal bug report screenshot shows the full relevant context (the page or screen where the bug occurs), highlights the specific problematic element with a rectangle or circle, includes an arrow pointing to the exact issue, and adds a brief text label describing what is wrong (for example, "Button unresponsive" or "Text truncated"). The developer should be able to glance at the annotated screenshot and immediately understand where the bug is and what the expected behavior should be.</p>
+
+  <h4>Annotation Color Conventions</h4>
+  <p>Consistent color coding in screenshot annotations reduces cognitive load for the viewer. The widely adopted convention uses red for problems, errors, and things that need to change. Green indicates correct behavior, expected results, or elements that should be preserved. Blue is used for informational annotations that provide context without implying a problem. Yellow or orange highlights warnings or areas of concern that may or may not be bugs. When annotating a screenshot that shows both correct and incorrect behavior, using red for the problem and green for the expected result creates an immediate visual contrast that communicates the issue without words.</p>
+
+  <h4>Including Browser and Environment Context</h4>
+  <p>When annotating screenshots for bug reports, include the browser's address bar, developer console, or network tab if they contain relevant information. A screenshot showing a broken layout alongside the console error that caused it is significantly more useful than either piece of information alone. Annotate the console error with an arrow and highlight, then draw a connecting line to the affected UI element. This visual connection between cause and effect saves the developer the time they would otherwise spend reproducing the issue to find the error.</p>
+</section>
+
+<!-- ===== SECTION: TUTORIALS ===== -->
+<section class="card" id="tutorials">
+  <h3 style="margin-top:0">Creating Tutorial Screenshots</h3>
+
+  <h4>Step-by-Step Numbering</h4>
+  <p>Tutorial screenshots benefit enormously from numbered annotations that correspond to written instructions. Rather than describing "click the blue button in the top-right corner of the settings panel," annotate the screenshot with a circled number 1 on the settings icon, number 2 on the relevant tab, and number 3 on the target button. The accompanying text then reads "1. Open Settings, 2. Select the Display tab, 3. Click Apply." This parallel structure between visual annotations and written steps is the gold standard for technical documentation and user guides. Each number should be placed near but not on top of its target element.</p>
+
+  <h4>Highlighting Navigation Paths</h4>
+  <p>Many tutorial steps require users to navigate through menus, dropdowns, or multi-level settings. Annotate these navigation paths by highlighting the entire sequence: the menu trigger, the submenu item, and the final target. Use connected arrows or numbered circles to show the order. If the navigation requires multiple clicks that change the screen, capture separate screenshots for each state and annotate them consistently with the same color scheme and annotation style. Inconsistent styling between screenshots in a tutorial series forces the viewer to re-learn the annotation system for each image.</p>
+
+  <h4>Before and After Comparisons</h4>
+  <p>For tutorials showing how to change settings, fix issues, or modify configurations, annotated before-and-after screenshots are more effective than single screenshots. Annotate the "before" screenshot highlighting the element that will change, and annotate the "after" screenshot highlighting the result. Use consistent positioning so the viewer's eye can quickly compare the two states. If possible, place before and after screenshots side by side rather than stacked vertically, as horizontal comparison is faster for the human visual system.</p>
+</section>
+
+<!-- ===== SECTION: PRIVACY ===== -->
+<section class="card" id="privacy-blur">
+  <h3 style="margin-top:0">Privacy and Sensitive Data Redaction</h3>
+
+  <h4>What to Blur in Screenshots</h4>
+  <p>When sharing screenshots publicly or in bug reports, systematically check for and blur the following categories of sensitive information: email addresses visible in UI headers or forms, full names of real people (especially in user lists or admin panels), account numbers and financial information, API keys and tokens visible in URL parameters or developer consoles, IP addresses and server names in network requests, and any personally identifiable information protected by GDPR, CCPA, or similar regulations. It is better to over-blur than to accidentally leak sensitive information. A quick scan of every text element in the screenshot before sharing takes seconds and prevents potential privacy violations.</p>
+
+  <h4>Blur vs. Black Box Redaction</h4>
+  <p>Both blurring and solid-color rectangle redaction effectively hide sensitive content, but they serve slightly different purposes. Blur indicates "there is content here that has been deliberately hidden" while preserving the general layout and visual flow of the screenshot. A solid black or colored rectangle says "this area has been completely redacted." Blur is preferred when you want the viewer to understand that there is a username, email, or value in that location without revealing the actual content. Solid redaction is preferred when even the type of content should be hidden, or when the blur might not be aggressive enough to prevent reconstruction of short text strings.</p>
+
+  <h4>Common Redaction Mistakes</h4>
+  <p>The most common redaction mistake is using semi-transparent overlays that can be removed by adjusting image brightness and contrast. Always use fully opaque redaction or genuine blur that averages pixel data. Another common mistake is redacting the obvious instance of sensitive data while missing the same data appearing elsewhere in the screenshot — for example, blurring a name in a header but leaving it visible in a breadcrumb, tab title, or sidebar. Always scan the entire screenshot for repeated instances of the same sensitive information. A third mistake is using insufficient blur radius on short text like passwords or credit card numbers, where the character shapes remain recognizable through light blur. Use aggressive blur settings for short, high-value text strings.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I blur sensitive information in screenshots?</div>
+    <div class="faq-a"><p>Yes. The blur tool lets you draw rectangular regions over sensitive content. The blur effect permanently averages pixel data in the exported image, making the original content unrecoverable. This is safe for hiding email addresses, account numbers, names, and other private information before sharing.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What annotation shapes are available?</div>
+    <div class="faq-a"><p>Five annotation types are available: arrows for pointing to elements, text labels for explanatory notes, rectangles for highlighting regions, circles for calling attention to specific areas, and blur regions for hiding sensitive information. Each supports custom color and line width.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I undo annotations after adding them?</div>
+    <div class="faq-a"><p>Yes. The tool maintains a full undo/redo history. Click the Undo button or press Ctrl+Z to remove the last annotation. Redo with Ctrl+Y. You can undo as many times as needed to step back through your entire annotation history.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What screenshot formats are supported?</div>
+    <div class="faq-a"><p>The tool accepts JPEG, PNG, and WebP images. You can also paste screenshots directly from your clipboard using Ctrl+V. PNG is recommended for screenshots because it preserves crisp text and UI elements without compression artifacts. Exports are saved as PNG.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my screenshots uploaded to a server?</div>
+    <div class="faq-a"><p>No. All annotation processing happens entirely in your browser using the HTML5 Canvas API. Your screenshots never leave your device. This is especially important for screenshots containing sensitive data, proprietary code, or confidential information.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("annoCanvas");
+  var ctx = canvas.getContext("2d");
+  var annoColor = document.getElementById("annoColor");
+  var lineWidthSlider = document.getElementById("lineWidthSlider");
+  var lineWidthVal = document.getElementById("lineWidthVal");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var undoBtn = document.getElementById("undoBtn");
+  var redoBtn = document.getElementById("redoBtn");
+  var dimInfo = document.getElementById("dimInfo");
+  var toolInfo = document.getElementById("toolInfo");
+  var countInfo = document.getElementById("countInfo");
+
+  var sourceImg = null;
+  var currentTool = "arrow";
+  var annotations = [];
+  var redoStack = [];
+  var isDrawing = false;
+  var startX = 0, startY = 0;
+  var scale = 1;
+
+  window.setTool = function(tool) {
+    currentTool = tool;
+    toolInfo.textContent = tool.charAt(0).toUpperCase() + tool.slice(1);
+    var btns = document.querySelectorAll(".toolbar button");
+    btns.forEach(function(b) { b.classList.toggle("active", b.getAttribute("data-tool") === tool); });
+  };
+
+  lineWidthSlider.addEventListener("input", function() { lineWidthVal.textContent = this.value; });
+
+  /* Clipboard paste support */
+  document.addEventListener("paste", function(e) {
+    var items = e.clipboardData && e.clipboardData.items;
+    if (!items) return;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf("image") !== -1) {
+        var file = items[i].getAsFile();
+        if (file) handleFile(file);
+        break;
+      }
+    }
+  });
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+      scale = Math.min(800 / img.naturalWidth, 600 / img.naturalHeight, 1);
+      canvas.width = Math.round(img.naturalWidth * scale);
+      canvas.height = Math.round(img.naturalHeight * scale);
+      annotations = [];
+      redoStack = [];
+      render();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function render() {
+    if (!sourceImg) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(sourceImg, 0, 0, canvas.width, canvas.height);
+
+    annotations.forEach(function(a) {
+      if (a.type === "blur") {
+        var bx = Math.min(a.x1, a.x2);
+        var by = Math.min(a.y1, a.y2);
+        var bw = Math.abs(a.x2 - a.x1);
+        var bh = Math.abs(a.y2 - a.y1);
+        if (bw > 0 && bh > 0) {
+          var imgData = ctx.getImageData(bx, by, bw, bh);
+          var d = imgData.data;
+          var blockSize = 12;
+          for (var py = 0; py < bh; py += blockSize) {
+            for (var px = 0; px < bw; px += blockSize) {
+              var r = 0, g = 0, b = 0, count = 0;
+              for (var dy = 0; dy < blockSize && py + dy < bh; dy++) {
+                for (var dx = 0; dx < blockSize && px + dx < bw; dx++) {
+                  var idx = ((py + dy) * bw + (px + dx)) * 4;
+                  r += d[idx]; g += d[idx + 1]; b += d[idx + 2]; count++;
+                }
+              }
+              r = Math.round(r / count); g = Math.round(g / count); b = Math.round(b / count);
+              for (var dy2 = 0; dy2 < blockSize && py + dy2 < bh; dy2++) {
+                for (var dx2 = 0; dx2 < blockSize && px + dx2 < bw; dx2++) {
+                  var idx2 = ((py + dy2) * bw + (px + dx2)) * 4;
+                  d[idx2] = r; d[idx2 + 1] = g; d[idx2 + 2] = b;
+                }
+              }
+            }
+          }
+          ctx.putImageData(imgData, bx, by);
+        }
+      } else if (a.type === "arrow") {
+        drawArrow(ctx, a.x1, a.y1, a.x2, a.y2, a.color, a.lineWidth);
+      } else if (a.type === "rect") {
+        ctx.strokeStyle = a.color;
+        ctx.lineWidth = a.lineWidth;
+        ctx.strokeRect(Math.min(a.x1, a.x2), Math.min(a.y1, a.y2), Math.abs(a.x2 - a.x1), Math.abs(a.y2 - a.y1));
+      } else if (a.type === "circle") {
+        var cx = (a.x1 + a.x2) / 2;
+        var cy = (a.y1 + a.y2) / 2;
+        var rx = Math.abs(a.x2 - a.x1) / 2;
+        var ry = Math.abs(a.y2 - a.y1) / 2;
+        ctx.strokeStyle = a.color;
+        ctx.lineWidth = a.lineWidth;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (a.type === "text") {
+        ctx.font = "bold " + Math.max(16, a.lineWidth * 6) + "px sans-serif";
+        ctx.fillStyle = a.color;
+        ctx.fillText(a.text, a.x1, a.y1);
+      }
+    });
+    countInfo.textContent = annotations.length;
+  }
+
+  function drawArrow(c, x1, y1, x2, y2, color, lw) {
+    var headLen = lw * 5;
+    var angle = Math.atan2(y2 - y1, x2 - x1);
+    c.strokeStyle = color;
+    c.fillStyle = color;
+    c.lineWidth = lw;
+    c.lineCap = "round";
+    c.beginPath();
+    c.moveTo(x1, y1);
+    c.lineTo(x2, y2);
+    c.stroke();
+    c.beginPath();
+    c.moveTo(x2, y2);
+    c.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 6), y2 - headLen * Math.sin(angle - Math.PI / 6));
+    c.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 6), y2 - headLen * Math.sin(angle + Math.PI / 6));
+    c.closePath();
+    c.fill();
+  }
+
+  function getPos(e) {
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / rect.width;
+    var scaleY = canvas.height / rect.height;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+  }
+
+  canvas.addEventListener("mousedown", function(e) {
+    var pos = getPos(e);
+    startX = pos.x; startY = pos.y;
+    isDrawing = true;
+    if (currentTool === "text") {
+      var text = prompt("Enter annotation text:");
+      if (text) {
+        annotations.push({ type: "text", x1: pos.x, y1: pos.y, text: text, color: annoColor.value, lineWidth: parseInt(lineWidthSlider.value) });
+        redoStack = [];
+        render();
+      }
+      isDrawing = false;
+    }
+  });
+
+  canvas.addEventListener("mousemove", function(e) {
+    if (!isDrawing || currentTool === "text") return;
+    var pos = getPos(e);
+    render();
+    /* Preview current annotation */
+    ctx.globalAlpha = 0.6;
+    if (currentTool === "arrow") {
+      drawArrow(ctx, startX, startY, pos.x, pos.y, annoColor.value, parseInt(lineWidthSlider.value));
+    } else if (currentTool === "rect" || currentTool === "blur") {
+      ctx.strokeStyle = currentTool === "blur" ? "#facc15" : annoColor.value;
+      ctx.lineWidth = parseInt(lineWidthSlider.value);
+      ctx.setLineDash(currentTool === "blur" ? [6, 4] : []);
+      ctx.strokeRect(Math.min(startX, pos.x), Math.min(startY, pos.y), Math.abs(pos.x - startX), Math.abs(pos.y - startY));
+      ctx.setLineDash([]);
+    } else if (currentTool === "circle") {
+      var cx = (startX + pos.x) / 2;
+      var cy = (startY + pos.y) / 2;
+      ctx.strokeStyle = annoColor.value;
+      ctx.lineWidth = parseInt(lineWidthSlider.value);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, Math.abs(pos.x - startX) / 2, Math.abs(pos.y - startY) / 2, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  });
+
+  canvas.addEventListener("mouseup", function(e) {
+    if (!isDrawing || currentTool === "text") return;
+    isDrawing = false;
+    var pos = getPos(e);
+    var anno = { type: currentTool, x1: startX, y1: startY, x2: pos.x, y2: pos.y, color: annoColor.value, lineWidth: parseInt(lineWidthSlider.value) };
+    annotations.push(anno);
+    redoStack = [];
+    render();
+  });
+
+  /* Touch events */
+  canvas.addEventListener("touchstart", function(e) { e.preventDefault(); canvas.dispatchEvent(new MouseEvent("mousedown", { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY })); });
+  canvas.addEventListener("touchmove", function(e) { e.preventDefault(); canvas.dispatchEvent(new MouseEvent("mousemove", { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY })); });
+  canvas.addEventListener("touchend", function(e) { e.preventDefault(); canvas.dispatchEvent(new MouseEvent("mouseup", { clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY })); });
+
+  /* Undo/Redo */
+  undoBtn.addEventListener("click", function() {
+    if (annotations.length === 0) return;
+    redoStack.push(annotations.pop());
+    render();
+  });
+  redoBtn.addEventListener("click", function() {
+    if (redoStack.length === 0) return;
+    annotations.push(redoStack.pop());
+    render();
+  });
+  document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.key === "z") { e.preventDefault(); undoBtn.click(); }
+    if (e.ctrlKey && e.key === "y") { e.preventDefault(); redoBtn.click(); }
+  });
+
+  /* Download at full resolution */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var offscreen = document.createElement("canvas");
+    offscreen.width = sourceImg.naturalWidth;
+    offscreen.height = sourceImg.naturalHeight;
+    var octx = offscreen.getContext("2d");
+    octx.drawImage(sourceImg, 0, 0);
+    var fs = 1 / scale;
+
+    annotations.forEach(function(a) {
+      if (a.type === "blur") {
+        var bx = Math.round(Math.min(a.x1, a.x2) * fs);
+        var by = Math.round(Math.min(a.y1, a.y2) * fs);
+        var bw = Math.round(Math.abs(a.x2 - a.x1) * fs);
+        var bh = Math.round(Math.abs(a.y2 - a.y1) * fs);
+        if (bw > 0 && bh > 0) {
+          var imgData = octx.getImageData(bx, by, bw, bh);
+          var d = imgData.data;
+          var blockSize = Math.round(12 * fs);
+          for (var py = 0; py < bh; py += blockSize) {
+            for (var px = 0; px < bw; px += blockSize) {
+              var r = 0, g = 0, b2 = 0, count = 0;
+              for (var dy = 0; dy < blockSize && py + dy < bh; dy++) {
+                for (var dx = 0; dx < blockSize && px + dx < bw; dx++) {
+                  var idx = ((py + dy) * bw + (px + dx)) * 4;
+                  r += d[idx]; g += d[idx + 1]; b2 += d[idx + 2]; count++;
+                }
+              }
+              r = Math.round(r / count); g = Math.round(g / count); b2 = Math.round(b2 / count);
+              for (var dy2 = 0; dy2 < blockSize && py + dy2 < bh; dy2++) {
+                for (var dx2 = 0; dx2 < blockSize && px + dx2 < bw; dx2++) {
+                  var idx2 = ((py + dy2) * bw + (px + dx2)) * 4;
+                  d[idx2] = r; d[idx2 + 1] = g; d[idx2 + 2] = b2;
+                }
+              }
+            }
+          }
+          octx.putImageData(imgData, bx, by);
+        }
+      } else if (a.type === "arrow") {
+        drawArrow(octx, a.x1 * fs, a.y1 * fs, a.x2 * fs, a.y2 * fs, a.color, a.lineWidth * fs);
+      } else if (a.type === "rect") {
+        octx.strokeStyle = a.color;
+        octx.lineWidth = a.lineWidth * fs;
+        octx.strokeRect(Math.min(a.x1, a.x2) * fs, Math.min(a.y1, a.y2) * fs, Math.abs(a.x2 - a.x1) * fs, Math.abs(a.y2 - a.y1) * fs);
+      } else if (a.type === "circle") {
+        octx.strokeStyle = a.color;
+        octx.lineWidth = a.lineWidth * fs;
+        octx.beginPath();
+        octx.ellipse((a.x1 + a.x2) / 2 * fs, (a.y1 + a.y2) / 2 * fs, Math.abs(a.x2 - a.x1) / 2 * fs, Math.abs(a.y2 - a.y1) / 2 * fs, 0, 0, Math.PI * 2);
+        octx.stroke();
+      } else if (a.type === "text") {
+        octx.font = "bold " + Math.max(16, a.lineWidth * 6) * fs + "px sans-serif";
+        octx.fillStyle = a.color;
+        octx.fillText(a.text, a.x1 * fs, a.y1 * fs);
+      }
+    });
+
+    offscreen.toBlob(function(blob) {
+      var el = document.createElement("a");
+      el.href = URL.createObjectURL(blob);
+      el.download = "annotated-screenshot.png";
+      document.body.appendChild(el);
+      el.click();
+      document.body.removeChild(el);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    annotations = [];
+    redoStack = [];
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+<li><a href="/tools/watermark-tool.html" style="color:#3b82f6;text-decoration:none;">Image Watermark Tool Online — Add Text & Image Watermarks Free</a></li>
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

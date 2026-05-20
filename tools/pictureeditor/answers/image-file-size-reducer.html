@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image File Size Reducer — Quality vs Size Optimizer &amp; Format Comparison | PictureEditor</title>
+<meta name="description" content="Free online image file size reducer. Optimize quality vs size with real-time preview, format comparison (JPEG, WebP, PNG), target file size mode, and batch processing. Client-side — your images never leave your device.">
+<meta name="keywords" content="image file size reducer, reduce image size, compress image online, image optimizer, reduce photo size, image quality slider, JPEG vs WebP, image compression tool, target file size, batch image compression">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/answers/image-file-size-reducer.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/answers/image-file-size-reducer.html">
+<meta property="og:title" content="Image File Size Reducer — Quality vs Size Optimizer &amp; Format Comparison">
+<meta property="og:description" content="Reduce image file size with real-time quality preview. Compare JPEG, WebP, and PNG at same quality. Target size mode auto-finds optimal quality. Free, private.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image File Size Reducer — Quality vs Size Optimizer &amp; Format Comparison">
+<meta name="twitter:description" content="Optimize image file size with quality slider, format comparison, and target size mode. Free, private, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Image File Size Reducer — Quality vs Size Optimizer &amp; Format Comparison",
+    "url":"https://pictureeditor.net/answers/image-file-size-reducer.html",
+    "description":"Comprehensive guide and interactive tool for reducing image file size. Includes quality slider with real-time preview, format comparison across JPEG, WebP, and PNG, target file size mode, and batch processing.",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "image":"https://pictureeditor.net/og-image.png"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the best image format for reducing file size?","acceptedAnswer":{"@type":"Answer","text":"WebP typically produces the smallest files at equivalent visual quality. At quality level 80, WebP files are usually 25-35% smaller than JPEG and 80-90% smaller than PNG for photographic images. However, JPEG has near-universal compatibility, while WebP is supported by all modern browsers but may not work in older email clients or legacy applications. Choose WebP for web publishing and JPEG for maximum compatibility."}},
+      {"@type":"Question","name":"How much can I reduce an image's file size without visible quality loss?","acceptedAnswer":{"@type":"Answer","text":"Most photographs can be compressed to JPEG quality 75-85 or WebP quality 75-80 without any quality loss visible to the human eye on screen. This typically reduces file size by 60-80% compared to the uncompressed original. The exact threshold depends on image content — photos with large smooth areas like sky or skin tolerate more compression than images with fine detail like text, foliage, or hair."}},
+      {"@type":"Question","name":"What does the target file size mode do?","acceptedAnswer":{"@type":"Answer","text":"Target file size mode lets you specify your desired output size in kilobytes. The tool then automatically searches for the quality level that produces a file closest to your target size. This is useful when you have specific upload limits — for example, a website that requires images under 200 KB or an email attachment limit. The algorithm uses binary search to find the optimal quality level efficiently."}},
+      {"@type":"Question","name":"Can I reduce file sizes for multiple images at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. The batch mode allows you to upload multiple images and apply the same quality settings to all of them simultaneously. Each image is processed individually with its own size reduction statistics displayed. You can download all reduced images at once. Batch processing uses the same client-side technology as single image mode — no images are uploaded to any server."}},
+      {"@type":"Question","name":"Does reducing file size change the image dimensions?","acceptedAnswer":{"@type":"Answer","text":"No. This tool reduces file size through quality compression, not dimension reduction. Your image dimensions (width and height in pixels) remain exactly the same. The file size reduction comes from the compression algorithm discarding visual data that is imperceptible or barely perceptible to the human eye. If you also need to reduce pixel dimensions, use a resize tool in combination with this compression tool for maximum file size reduction."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Answers","item":"https://pictureeditor.net/answers/"},
+      {"@type":"ListItem","position":3,"name":"Image File Size Reducer","item":"https://pictureeditor.net/answers/image-file-size-reducer.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:16px}
+.tab-bar button{padding:8px 18px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);border-bottom:none;background:#f1f5f9;color:var(--text-secondary)}
+.tab-bar button.active{background:var(--surface);color:var(--accent);border-color:var(--accent);border-bottom:1.5px solid var(--surface);margin-bottom:-1px;position:relative;z-index:1}
+.tab-content{border:1.5px solid var(--border);border-radius:0 8px 8px 8px;padding:16px;background:var(--surface)}
+/* Color input */
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field input[type="text"],.text-field input[type="number"]{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.text-field input:focus{border-color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+/* Size-specific */
+.format-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.format-card{background:#f8fafc;border:1.5px solid var(--border);border-radius:8px;padding:14px;text-align:center;transition:.15s}
+.format-card.best{border-color:var(--green);background:#f0fdf4}
+.format-card .fmt-name{font-size:.8rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.03em}
+.format-card .fmt-size{font-size:1.3rem;font-weight:700;margin:6px 0}
+.format-card .fmt-reduction{font-size:.8rem;color:var(--green);font-weight:600}
+.batch-item{display:flex;align-items:center;gap:12px;padding:10px;background:#f8fafc;border-radius:8px;margin-bottom:8px;border:1px solid var(--border)}
+.batch-item img{width:48px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.batch-item .batch-info{flex:1;font-size:.85rem}
+.batch-item .batch-info strong{display:block;margin-bottom:2px}
+.batch-item .batch-reduction{font-size:.85rem;font-weight:700;color:var(--green);flex-shrink:0}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .tab-bar button{padding:6px 12px;font-size:.78rem}
+  .format-compare{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/answers/">Answers</a><span>/</span>
+  Image File Size Reducer
+</nav>
+
+<h2>Image File Size Reducer &mdash; Quality vs Size Optimizer</h2>
+<p class="subtitle">Reduce image file size with real-time quality preview. Compare JPEG, WebP, and PNG output at the same quality level. Use target file size mode to automatically find the optimal quality setting. Batch mode for multiple images. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="reducer-tool" style="margin-top:0">File Size Reducer</h3>
+  <p>Upload an image to see its current size. Adjust the quality slider to find the best balance between visual quality and file size. Compare format outputs and download the optimized result.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+  <!-- Controls -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="active" id="tabSingle" onclick="switchTab('single')">Single Image</button>
+      <button id="tabTarget" onclick="switchTab('target')">Target Size</button>
+      <button id="tabBatch" onclick="switchTab('batch')">Batch Mode</button>
+    </div>
+
+    <!-- Single Tab -->
+    <div class="tab-content" id="singleTab">
+      <div class="slider-field">
+        <label>Quality <span id="qualityVal">80%</span></label>
+        <input type="range" id="qualitySlider" min="1" max="100" value="80">
+      </div>
+      <div class="format-select">
+        <label for="formatSelect">Output Format</label>
+        <select id="formatSelect">
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/webp">WebP</option>
+          <option value="image/png">PNG</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Target Size Tab -->
+    <div class="tab-content hidden" id="targetTab">
+      <div class="text-field">
+        <label for="targetSize">Target File Size (KB)</label>
+        <input type="number" id="targetSize" value="200" min="10" max="50000" placeholder="e.g. 200">
+      </div>
+      <div class="format-select">
+        <label for="targetFormat">Output Format</label>
+        <select id="targetFormat">
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" id="findQualityBtn">Find Optimal Quality</button>
+      <p id="targetResult" style="margin-top:12px;font-size:.9rem;color:var(--text-secondary)"></p>
+    </div>
+
+    <!-- Batch Tab -->
+    <div class="tab-content hidden" id="batchTab">
+      <p style="font-size:.9rem;color:var(--text-secondary);margin-bottom:12px">Upload multiple images to compress them all at the same quality setting.</p>
+      <div class="drop-zone" id="batchDropZone" style="padding:24px 16px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:32px;height:32px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <p style="font-size:.85rem">Drop multiple images here</p>
+      </div>
+      <input type="file" id="batchInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+      <div class="slider-field" style="margin-top:12px">
+        <label>Batch Quality <span id="batchQualityVal">80%</span></label>
+        <input type="range" id="batchQuality" min="1" max="100" value="80">
+      </div>
+      <div id="batchResults"></div>
+      <button class="btn btn-success hidden" id="batchDownloadBtn" style="margin-top:12px">Download All</button>
+    </div>
+
+    <!-- Info Row -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Original Size</div><div class="value" id="origSizeInfo">--</div></div>
+      <div class="info-box accent"><div class="label">New Size</div><div class="value" id="newSizeInfo">--</div></div>
+      <div class="info-box green"><div class="label">Reduction</div><div class="value" id="reductionInfo">--</div></div>
+    </div>
+
+    <!-- Format Comparison -->
+    <div class="pane-label" style="font-size:.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;margin-bottom:8px;margin-top:16px">Format Comparison at Current Quality</div>
+    <div class="format-compare" id="formatCompare">
+      <div class="format-card" id="jpegCard">
+        <div class="fmt-name">JPEG</div>
+        <div class="fmt-size" id="jpegSize">--</div>
+        <div class="fmt-reduction" id="jpegReduction">--</div>
+      </div>
+      <div class="format-card" id="webpCard">
+        <div class="fmt-name">WebP</div>
+        <div class="fmt-size" id="webpSize">--</div>
+        <div class="fmt-reduction" id="webpReduction">--</div>
+      </div>
+      <div class="format-card" id="pngCard">
+        <div class="fmt-name">PNG</div>
+        <div class="fmt-size" id="pngSize">--</div>
+        <div class="fmt-reduction" id="pngReduction">--</div>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview-area" style="justify-content:center">
+      <div class="preview-pane" style="flex:none;max-width:100%">
+        <div class="pane-label">Preview</div>
+        <canvas id="previewCanvas" style="max-width:100%;border-radius:8px;border:1px solid var(--border)"></canvas>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Reduced Image
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#reducer-tool">File Size Reducer</a></li>
+    <li><a href="#why-reduce">Why Reducing File Size Matters</a></li>
+    <li><a href="#compression-explained">How Image Compression Works</a></li>
+    <li><a href="#format-guide">Format Comparison Guide</a></li>
+    <li><a href="#quality-thresholds">Quality Thresholds for Common Uses</a></li>
+    <li><a href="#optimization-strategies">Advanced Optimization Strategies</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: WHY REDUCE ===== -->
+<section class="card" id="why-reduce">
+  <h3 style="margin-top:0">Why Reducing File Size Matters</h3>
+
+  <h4>Page Load Speed and SEO</h4>
+  <p>Images account for approximately 50% of the average web page's total weight. A single unoptimized photograph can be 5-15 MB, while the same image compressed to quality 80 in WebP format might be only 200-400 KB — a reduction of over 95%. Google's Core Web Vitals explicitly measure Largest Contentful Paint (LCP), and oversized images are the most common cause of poor LCP scores. Every 100 milliseconds of additional load time reduces conversion rates by approximately 7% according to studies by Akamai and Google. Reducing your image file sizes is the single highest-impact performance optimization available on most websites, producing measurable improvements in search rankings, user engagement, and conversion metrics.</p>
+  <p>Search engines penalize slow-loading pages in their rankings. Google has confirmed that page speed is a ranking factor for both mobile and desktop search results. A page with 3 MB of unoptimized images loading over a 3G connection can take 10-15 seconds to become visually complete. The same page with properly compressed images loads in 2-3 seconds. This difference frequently determines whether a page ranks on the first page of search results or the second, which is the difference between being found and being invisible since fewer than 1% of searchers click through to the second page of results.</p>
+
+  <h4>Storage and Bandwidth Costs</h4>
+  <p>Cloud storage and CDN bandwidth are priced per gigabyte. A photography website serving 10,000 visitors per day with 20 unoptimized images per page consumes roughly 3 TB of bandwidth per month. Compressing those images by 75% reduces bandwidth to 750 GB — saving hundreds of dollars monthly on hosting costs alone. For e-commerce sites with thousands of product images, the cumulative savings from image optimization can reach thousands of dollars annually. These are recurring costs that compound over time, making image compression one of the most cost-effective infrastructure optimizations available.</p>
+
+  <h4>User Experience on Mobile Networks</h4>
+  <p>Mobile users on cellular connections experience significantly slower download speeds than desktop users on broadband. The median mobile connection speed globally is approximately 30 Mbps, but effective throughput varies wildly depending on congestion, signal strength, and carrier. A 5 MB image that downloads in under a second on broadband can take 4-5 seconds on a congested mobile connection. Users on limited data plans also appreciate smaller images that consume less of their monthly allowance. Optimizing images for file size is fundamentally an accessibility decision — it determines whether your content is usable by the majority of global internet users who access the web primarily through mobile devices on variable-quality connections.</p>
+</section>
+
+<!-- ===== SECTION: COMPRESSION EXPLAINED ===== -->
+<section class="card" id="compression-explained">
+  <h3 style="margin-top:0">How Image Compression Works</h3>
+
+  <h4>Lossy vs Lossless Compression</h4>
+  <p>Image compression falls into two categories. Lossy compression (JPEG, WebP lossy) permanently discards visual data that the algorithm determines is least perceptible to the human eye. This achieves dramatic file size reduction — typically 80-95% — by exploiting the limitations of human vision. Our eyes are more sensitive to brightness changes than color changes, so lossy algorithms compress color information more aggressively than luminance information. The trade-off is that the discarded data cannot be recovered, so repeated lossy compression degrades quality cumulatively.</p>
+  <p>Lossless compression (PNG, WebP lossless) reduces file size without discarding any visual data. The original image can be perfectly reconstructed from the compressed file. Lossless compression achieves smaller reductions — typically 20-50% — because it relies on mathematical patterns in the data rather than perceptual shortcuts. Lossless is essential for images where every pixel matters: screenshots with text, technical diagrams, medical imaging, and any image that will undergo further editing where accumulated lossy artifacts would compound.</p>
+
+  <h4>The Quality Scale Explained</h4>
+  <p>The quality slider in JPEG and WebP compression controls the aggressiveness of lossy compression. At quality 100, the algorithm discards minimal data and produces files only slightly smaller than the original. At quality 1, the algorithm discards nearly everything, producing tiny files with extreme visual artifacts. The relationship between quality and file size is non-linear — reducing quality from 100 to 80 often cuts file size by 60-70%, while reducing from 80 to 60 might only cut an additional 20-30%. This diminishing returns curve means the optimal quality setting is usually in the 70-85 range, where you capture most of the file size reduction with minimal visible quality loss.</p>
+
+  <h4>Block Artifacts and Quality Thresholds</h4>
+  <p>JPEG compression works by dividing the image into 8x8 pixel blocks and applying a mathematical transform (Discrete Cosine Transform) to each block independently. At low quality settings, the boundaries between these blocks become visible as a grid-like pattern called "block artifacts" or "JPEG artifacts." These artifacts appear first in smooth gradient areas like sky, skin, and out-of-focus backgrounds. The quality threshold where artifacts become noticeable depends on the image content and the viewing size. For web images viewed at normal screen size, quality 75-80 is typically the threshold below which artifacts become perceptible to attentive viewers.</p>
+</section>
+
+<!-- ===== SECTION: FORMAT GUIDE ===== -->
+<section class="card" id="format-guide">
+  <h3 style="margin-top:0">Format Comparison Guide</h3>
+
+  <h4>JPEG: Universal Compatibility</h4>
+  <p>JPEG is the most widely supported image format in existence. Every browser, email client, operating system, and image viewer supports JPEG. It excels at compressing photographic images with smooth tonal gradations. At quality 80, JPEG produces excellent results for photographs with file sizes typically 60-80% smaller than the uncompressed original. The disadvantages are no transparency support, no animation, and visible artifacts at low quality settings. For maximum compatibility across all devices and platforms, JPEG remains the safest choice despite being a format originally standardized in 1992.</p>
+
+  <h4>WebP: Best Size-to-Quality Ratio</h4>
+  <p>WebP, developed by Google, consistently produces smaller files than JPEG at equivalent visual quality. At the same perceived quality level, WebP files are typically 25-35% smaller than JPEG. WebP supports both lossy and lossless compression, transparency (alpha channel), and animation. All modern browsers support WebP — Chrome, Firefox, Safari, Edge, and Opera. The only remaining compatibility concerns are legacy email clients and very old mobile apps. For web publishing in 2026, WebP is the recommended default format because it delivers the best balance of quality, file size, and browser support.</p>
+
+  <h4>PNG: Lossless Precision</h4>
+  <p>PNG uses lossless compression exclusively, which means it preserves every pixel exactly. This makes PNG ideal for screenshots, text overlays, logos, icons, and any image with sharp edges between solid color areas. PNG also supports full alpha transparency, making it essential for images that need transparent backgrounds. However, PNG files are significantly larger than JPEG or WebP for photographic content — often 5-10 times larger. Using PNG for photographs is almost never appropriate unless you specifically need lossless quality preservation. The quality slider has no effect on PNG output because PNG does not support quality-based lossy compression.</p>
+</section>
+
+<!-- ===== SECTION: QUALITY THRESHOLDS ===== -->
+<section class="card" id="quality-thresholds">
+  <h3 style="margin-top:0">Quality Thresholds for Common Uses</h3>
+
+  <h4>Web Publishing: Quality 75-85</h4>
+  <p>For images displayed on websites at standard screen resolutions, quality 75-85 in JPEG or 70-80 in WebP is the optimal range. At these settings, compression artifacts are imperceptible to normal viewing at typical screen distances. Higher quality wastes bandwidth without visible benefit. Lower quality risks noticeable artifacts, especially in smooth gradient areas. If your image contains large areas of sky, water, or skin, err toward the higher end of this range. If the image is complex with lots of detail and texture, the lower end produces acceptable results because the visual complexity masks compression artifacts.</p>
+
+  <h4>Social Media: Quality 80-90</h4>
+  <p>Social media platforms apply their own compression when you upload images, so uploading heavily pre-compressed images results in double compression artifacts. Upload at quality 80-90 to give the platform's compressor clean data to work with. Instagram, Facebook, and Twitter all re-compress uploaded images, and starting from a heavily compressed source amplifies artifacts. Some social media managers upload at quality 95+ for this reason, but the marginal quality improvement rarely justifies the increased upload time, especially when uploading batches of dozens of images.</p>
+
+  <h4>Email Attachments: Quality 60-75</h4>
+  <p>Email attachments have practical size limits. Most email servers reject messages over 25 MB, and many corporate servers limit attachments to 10 MB. When sending photographs via email, quality 60-75 produces files small enough to attach multiple images without exceeding limits. The recipient is typically viewing the image in an email client at a fraction of the original resolution, so compression artifacts are not visible. If the recipient needs full-quality images, use a file sharing service instead of email attachments.</p>
+
+  <h4>Print: Quality 90-100</h4>
+  <p>Images destined for print should be compressed minimally or not at all. Print resolution is typically 300 DPI, which means every pixel is reproduced at a fine scale where compression artifacts become visible. Use quality 90-100 for print images, or use PNG/TIFF for lossless preservation. The larger file sizes are acceptable because print workflows do not face the same bandwidth constraints as web delivery. Print service providers often specify minimum quality requirements and will reject images that show visible compression artifacts when reproduced at print resolution.</p>
+</section>
+
+<!-- ===== SECTION: OPTIMIZATION STRATEGIES ===== -->
+<section class="card" id="optimization-strategies">
+  <h3 style="margin-top:0">Advanced Optimization Strategies</h3>
+
+  <h4>Responsive Image Sizing</h4>
+  <p>The most impactful optimization for web images is serving the correct dimensions. An image displayed at 400x300 pixels on screen does not need to be a 4000x3000 pixel file. Resizing to the display dimensions before compression can reduce file size by 90% or more before the quality slider even matters. Modern web practices use responsive images with srcset attributes to serve different sizes for different screen widths. Combine dimension optimization with quality compression for maximum file size reduction — first resize to the largest display size needed, then compress to quality 80 in WebP.</p>
+
+  <h4>Progressive JPEG Loading</h4>
+  <p>Progressive JPEGs store data in multiple passes that gradually increase in quality as they load. The browser displays a blurry full-image preview immediately and sharpens it as more data arrives. This perceived performance improvement makes the page feel faster even though the total file size is identical. Progressive encoding also tends to produce slightly smaller files for images larger than 10 KB. Most image optimization tools default to progressive encoding because the benefits are universal with no drawbacks. The Canvas API used by this tool produces baseline JPEGs; for progressive encoding, server-side tools like mozjpeg or squoosh provide this option.</p>
+
+  <h4>Combining Compression with Format Selection</h4>
+  <p>The optimal strategy uses the format comparison feature to identify the smallest output format at your desired quality level, then downloads in that format. For most photographs, WebP at quality 80 produces the smallest file. For images with large transparent areas, WebP with alpha channel is significantly smaller than PNG. For images that must be compatible with legacy systems, JPEG at quality 80 is the standard fallback. The format comparison in this tool runs all three conversions simultaneously so you can make an informed choice based on the actual file sizes for your specific image rather than relying on general guidelines.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best image format for reducing file size?</div>
+    <div class="faq-a"><p>WebP typically produces the smallest files at equivalent visual quality. At quality level 80, WebP files are usually 25-35% smaller than JPEG and 80-90% smaller than PNG for photographic images. However, JPEG has near-universal compatibility. Choose WebP for web publishing and JPEG for maximum compatibility with older systems and email clients.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much can I reduce an image's file size without visible quality loss?</div>
+    <div class="faq-a"><p>Most photographs can be compressed to JPEG quality 75-85 or WebP quality 75-80 without any quality loss visible to the human eye on screen. This typically reduces file size by 60-80% compared to the uncompressed original. The exact threshold depends on image content — smooth areas tolerate more compression than fine detail.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does the target file size mode do?</div>
+    <div class="faq-a"><p>Target file size mode lets you specify your desired output size in kilobytes. The tool then automatically searches for the quality level that produces a file closest to your target. This is useful when you have specific upload limits — for example, a website requiring images under 200 KB. The algorithm uses binary search to find the optimal quality level efficiently.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I reduce file sizes for multiple images at once?</div>
+    <div class="faq-a"><p>Yes. The batch mode allows you to upload multiple images and apply the same quality settings to all of them simultaneously. Each image is processed individually with its own size reduction statistics displayed. You can download all reduced images individually. Batch processing uses the same client-side technology — no images are uploaded to any server.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does reducing file size change the image dimensions?</div>
+    <div class="faq-a"><p>No. This tool reduces file size through quality compression only, not dimension reduction. Your image dimensions (width and height in pixels) remain exactly the same. The file size reduction comes entirely from the compression algorithm discarding visual data that is imperceptible to the human eye. Use a separate resize tool if you also need to reduce pixel dimensions.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var previewCanvas = document.getElementById("previewCanvas");
+  var ctx = previewCanvas.getContext("2d");
+  var qualitySlider = document.getElementById("qualitySlider");
+  var qualityVal = document.getElementById("qualityVal");
+  var formatSelect = document.getElementById("formatSelect");
+  var origSizeInfo = document.getElementById("origSizeInfo");
+  var newSizeInfo = document.getElementById("newSizeInfo");
+  var reductionInfo = document.getElementById("reductionInfo");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+
+  /* Format comparison */
+  var jpegSize = document.getElementById("jpegSize");
+  var webpSize = document.getElementById("webpSize");
+  var pngSize = document.getElementById("pngSize");
+  var jpegReduction = document.getElementById("jpegReduction");
+  var webpReduction = document.getElementById("webpReduction");
+  var pngReduction = document.getElementById("pngReduction");
+  var jpegCard = document.getElementById("jpegCard");
+  var webpCard = document.getElementById("webpCard");
+  var pngCard = document.getElementById("pngCard");
+
+  /* Target size */
+  var targetSize = document.getElementById("targetSize");
+  var targetFormat = document.getElementById("targetFormat");
+  var findQualityBtn = document.getElementById("findQualityBtn");
+  var targetResult = document.getElementById("targetResult");
+
+  /* Batch */
+  var batchDropZone = document.getElementById("batchDropZone");
+  var batchInput = document.getElementById("batchInput");
+  var batchQuality = document.getElementById("batchQuality");
+  var batchQualityVal = document.getElementById("batchQualityVal");
+  var batchResults = document.getElementById("batchResults");
+  var batchDownloadBtn = document.getElementById("batchDownloadBtn");
+
+  var sourceImg = null;
+  var originalSize = 0;
+  var currentTab = "single";
+  var batchImages = [];
+
+  /* Tab switching */
+  window.switchTab = function(tab) {
+    currentTab = tab;
+    document.getElementById("tabSingle").classList.toggle("active", tab === "single");
+    document.getElementById("tabTarget").classList.toggle("active", tab === "target");
+    document.getElementById("tabBatch").classList.toggle("active", tab === "batch");
+    document.getElementById("singleTab").classList.toggle("hidden", tab !== "single");
+    document.getElementById("targetTab").classList.toggle("hidden", tab !== "target");
+    document.getElementById("batchTab").classList.toggle("hidden", tab !== "batch");
+  };
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    originalSize = file.size;
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      origSizeInfo.textContent = formatBytes(originalSize);
+      renderPreview();
+      updateFormatComparison();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function formatBytes(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  function renderPreview() {
+    if (!sourceImg) return;
+    var maxW = 800;
+    var scale = sourceImg.naturalWidth > maxW ? maxW / sourceImg.naturalWidth : 1;
+    var w = Math.round(sourceImg.naturalWidth * scale);
+    var h = Math.round(sourceImg.naturalHeight * scale);
+    previewCanvas.width = w;
+    previewCanvas.height = h;
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(sourceImg, 0, 0, w, h);
+
+    /* Calculate new size */
+    var quality = parseInt(qualitySlider.value) / 100;
+    var format = formatSelect.value;
+    previewCanvas.toBlob(function(blob) {
+      if (blob) {
+        newSizeInfo.textContent = formatBytes(blob.size);
+        var reduction = ((1 - blob.size / originalSize) * 100);
+        reductionInfo.textContent = (reduction > 0 ? "-" : "+") + Math.abs(reduction).toFixed(1) + "%";
+      }
+    }, format, quality);
+  }
+
+  function updateFormatComparison() {
+    if (!sourceImg) return;
+    var tmpCanvas = document.createElement("canvas");
+    tmpCanvas.width = sourceImg.naturalWidth;
+    tmpCanvas.height = sourceImg.naturalHeight;
+    var tCtx = tmpCanvas.getContext("2d");
+    tCtx.drawImage(sourceImg, 0, 0);
+
+    var quality = parseInt(qualitySlider.value) / 100;
+    var sizes = {};
+
+    tmpCanvas.toBlob(function(blob) {
+      sizes.jpeg = blob ? blob.size : 0;
+      jpegSize.textContent = formatBytes(sizes.jpeg);
+      jpegReduction.textContent = "-" + ((1 - sizes.jpeg / originalSize) * 100).toFixed(1) + "%";
+      checkBest(sizes);
+    }, "image/jpeg", quality);
+
+    tmpCanvas.toBlob(function(blob) {
+      sizes.webp = blob ? blob.size : 0;
+      webpSize.textContent = formatBytes(sizes.webp);
+      webpReduction.textContent = "-" + ((1 - sizes.webp / originalSize) * 100).toFixed(1) + "%";
+      checkBest(sizes);
+    }, "image/webp", quality);
+
+    tmpCanvas.toBlob(function(blob) {
+      sizes.png = blob ? blob.size : 0;
+      pngSize.textContent = formatBytes(sizes.png);
+      var pngRed = ((1 - sizes.png / originalSize) * 100);
+      pngReduction.textContent = (pngRed > 0 ? "-" : "+") + Math.abs(pngRed).toFixed(1) + "%";
+      checkBest(sizes);
+    }, "image/png");
+  }
+
+  function checkBest(sizes) {
+    if (!sizes.jpeg || !sizes.webp || !sizes.png) return;
+    jpegCard.classList.remove("best");
+    webpCard.classList.remove("best");
+    pngCard.classList.remove("best");
+    var min = Math.min(sizes.jpeg, sizes.webp, sizes.png);
+    if (min === sizes.webp) webpCard.classList.add("best");
+    else if (min === sizes.jpeg) jpegCard.classList.add("best");
+    else pngCard.classList.add("best");
+  }
+
+  /* Slider event */
+  qualitySlider.addEventListener("input", function() {
+    qualityVal.textContent = qualitySlider.value + "%";
+    renderPreview();
+    updateFormatComparison();
+  });
+  formatSelect.addEventListener("change", function() { renderPreview(); });
+
+  /* Target size mode */
+  findQualityBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var target = parseInt(targetSize.value) * 1024;
+    var fmt = targetFormat.value;
+    var tmpCanvas = document.createElement("canvas");
+    tmpCanvas.width = sourceImg.naturalWidth;
+    tmpCanvas.height = sourceImg.naturalHeight;
+    var tCtx = tmpCanvas.getContext("2d");
+    tCtx.drawImage(sourceImg, 0, 0);
+
+    var lo = 1, hi = 100, bestQ = 80, bestSize = 0;
+    var iterations = 0;
+    var maxIter = 15;
+
+    function binarySearch() {
+      if (lo > hi || iterations >= maxIter) {
+        targetResult.textContent = "Optimal quality: " + bestQ + "% (file size: " + formatBytes(bestSize) + ")";
+        qualitySlider.value = bestQ;
+        qualityVal.textContent = bestQ + "%";
+        renderPreview();
+        updateFormatComparison();
+        return;
+      }
+      var mid = Math.floor((lo + hi) / 2);
+      iterations++;
+      tmpCanvas.toBlob(function(blob) {
+        var sz = blob ? blob.size : 0;
+        if (sz <= target) {
+          bestQ = mid;
+          bestSize = sz;
+          lo = mid + 1;
+        } else {
+          hi = mid - 1;
+        }
+        binarySearch();
+      }, fmt, mid / 100);
+    }
+    targetResult.textContent = "Searching...";
+    binarySearch();
+  });
+
+  /* Batch mode */
+  batchDropZone.addEventListener("click", function() { batchInput.click(); });
+  batchInput.addEventListener("change", function() {
+    if (batchInput.files && batchInput.files.length) handleBatchFiles(batchInput.files);
+  });
+  batchDropZone.addEventListener("dragover", function(e) { e.preventDefault(); batchDropZone.classList.add("drag-over"); });
+  batchDropZone.addEventListener("dragleave", function() { batchDropZone.classList.remove("drag-over"); });
+  batchDropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    batchDropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleBatchFiles(e.dataTransfer.files);
+  });
+
+  function handleBatchFiles(files) {
+    batchImages = [];
+    batchResults.innerHTML = "";
+    var loaded = 0;
+    for (var i = 0; i < files.length; i++) {
+      (function(file, idx) {
+        if (!file.type.match(/image\/(jpeg|png|webp)/)) { loaded++; return; }
+        var img = new Image();
+        img.onload = function() {
+          batchImages.push({img: img, name: file.name, origSize: file.size});
+          loaded++;
+          if (loaded >= files.length) processBatch();
+        };
+        img.src = URL.createObjectURL(file);
+      })(files[i], i);
+    }
+  }
+
+  function processBatch() {
+    batchResults.innerHTML = "";
+    var quality = parseInt(batchQuality.value) / 100;
+    batchImages.forEach(function(item, idx) {
+      var tmpCanvas = document.createElement("canvas");
+      tmpCanvas.width = item.img.naturalWidth;
+      tmpCanvas.height = item.img.naturalHeight;
+      var tCtx = tmpCanvas.getContext("2d");
+      tCtx.drawImage(item.img, 0, 0);
+
+      tmpCanvas.toBlob(function(blob) {
+        item.blob = blob;
+        var div = document.createElement("div");
+        div.className = "batch-item";
+
+        var thumb = document.createElement("img");
+        thumb.src = item.img.src;
+        div.appendChild(thumb);
+
+        var info = document.createElement("div");
+        info.className = "batch-info";
+        info.innerHTML = "<strong>" + item.name + "</strong>" + formatBytes(item.origSize) + " &rarr; " + formatBytes(blob.size);
+        div.appendChild(info);
+
+        var red = document.createElement("span");
+        red.className = "batch-reduction";
+        red.textContent = "-" + ((1 - blob.size / item.origSize) * 100).toFixed(1) + "%";
+        div.appendChild(red);
+
+        var dlBtn = document.createElement("button");
+        dlBtn.className = "btn btn-outline";
+        dlBtn.style.cssText = "font-size:.75rem;padding:4px 10px;flex-shrink:0";
+        dlBtn.textContent = "Download";
+        dlBtn.addEventListener("click", function() {
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = "reduced-" + item.name;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+        div.appendChild(dlBtn);
+
+        batchResults.appendChild(div);
+      }, "image/jpeg", quality);
+    });
+    batchDownloadBtn.classList.remove("hidden");
+  }
+
+  batchQuality.addEventListener("input", function() {
+    batchQualityVal.textContent = batchQuality.value + "%";
+    if (batchImages.length) processBatch();
+  });
+
+  batchDownloadBtn.addEventListener("click", function() {
+    batchImages.forEach(function(item) {
+      if (item.blob) {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(item.blob);
+        a.download = "reduced-" + item.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    });
+  });
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var offscreen = document.createElement("canvas");
+    offscreen.width = sourceImg.naturalWidth;
+    offscreen.height = sourceImg.naturalHeight;
+    var octx = offscreen.getContext("2d");
+    octx.drawImage(sourceImg, 0, 0, sourceImg.naturalWidth, sourceImg.naturalHeight);
+
+    var quality = parseInt(qualitySlider.value) / 100;
+    var format = formatSelect.value;
+    var ext = format === "image/webp" ? "webp" : format === "image/png" ? "png" : "jpg";
+
+    offscreen.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "reduced-image." + ext;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, format, quality);
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    originalSize = 0;
+    batchImages = [];
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    batchInput.value = "";
+    qualitySlider.value = 80;
+    qualityVal.textContent = "80%";
+    origSizeInfo.textContent = "--";
+    newSizeInfo.textContent = "--";
+    reductionInfo.textContent = "--";
+    jpegSize.textContent = "--"; webpSize.textContent = "--"; pngSize.textContent = "--";
+    jpegReduction.textContent = "--"; webpReduction.textContent = "--"; pngReduction.textContent = "--";
+    jpegCard.classList.remove("best"); webpCard.classList.remove("best"); pngCard.classList.remove("best");
+    batchResults.innerHTML = "";
+    batchDownloadBtn.classList.add("hidden");
+    targetResult.textContent = "";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+<li><a href="/guides/social-media-image-sizes.html" style="color:#3b82f6;text-decoration:none;">Social Media Image Sizes Guide 2026 — Auto-Crop Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>

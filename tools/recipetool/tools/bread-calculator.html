@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios | RecipeTool</title>
+<meta name="description" content="Free bread recipe calculator with hydration control and flour blend ratios. Auto-calculate flour, water, salt, and yeast for sandwich, sourdough, ciabatta, bagel, and pizza dough. Includes bulk ferment timer with temperature compensation.">
+<link rel="canonical" href="https://recipetool.net/tools/bread-calculator.html">
+<meta property="og:title" content="Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios">
+<meta property="og:description" content="Calculate precise bread recipes with flour blends, hydration control, and fermentation timing. Sandwich, sourdough, ciabatta, bagel, and pizza dough. Free and instant.">
+<meta property="og:url" content="https://recipetool.net/tools/bread-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios">
+<meta name="twitter:description" content="Calculate precise bread recipes with flour blends, hydration control, and fermentation timing. Free and instant.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Bread Recipe Calculator",
+      "description": "Free bread recipe calculator with hydration control and flour blend ratios. Auto-calculate flour, water, salt, and yeast for sandwich, sourdough, ciabatta, bagel, and pizza dough with bulk ferment timer and temperature compensation.",
+      "url": "https://recipetool.net/tools/bread-calculator.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "publisher": {"@type": "Organization", "name": "Recipe Tool", "url": "https://recipetool.net"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is baker's percentage and how does it work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Baker's percentage is a notation method where every ingredient is expressed as a percentage of the total flour weight. Flour is always 100%. If a recipe calls for 500g flour and 350g water, the hydration is 70% (350 divided by 500). This system makes it easy to scale recipes to any size while maintaining the same ratios. Salt is typically 2% and yeast ranges from 0.5% to 2% depending on the method. Baker's percentage is universal across professional bakeries worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What hydration should I use for different bread types?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hydration varies dramatically by bread style. Bagels use 55-60% for their dense, chewy texture. Sandwich bread works well at 60-65% for a soft, sliceable crumb. French bread and baguettes use 65-70%. Sourdough country loaves perform best at 72-78%. Ciabatta and focaccia push to 80-90% for their characteristic open, irregular crumb. Pizza dough ranges from 60-70% depending on style — Neapolitan uses about 60%, while Roman-style pizza al taglio can go up to 80%. Higher hydration creates more open crumb but requires more skill to handle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I blend different flours in bread baking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flour blending allows you to customize flavor, nutrition, and texture. Start by keeping at least 50-70% bread flour (or all-purpose) to maintain gluten structure, then add specialty flours for character. Whole wheat adds nuttiness but absorbs more water — increase hydration by 2-3% for every 10% whole wheat added. Rye flour creates a dense, tangy crumb and weakens gluten, so keep rye below 30% unless making a traditional rye bread. Spelt, einkorn, and kamut each bring unique flavors but require gentler mixing and slightly lower hydration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does temperature affect bulk fermentation time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Temperature is the most critical variable in fermentation timing. Yeast activity roughly doubles for every 15 degrees Fahrenheit (8 degrees Celsius) increase within the viable range of 40 to 95 degrees Fahrenheit. At 75 degrees Fahrenheit, a typical sourdough bulk fermentation takes 4-6 hours. At 65 degrees Fahrenheit, the same dough needs 8-12 hours. At 80 degrees Fahrenheit, it may finish in 3-4 hours. Professional bakers use desired dough temperature (DDT) calculations to hit their target fermentation window consistently, factoring in flour temperature, water temperature, ambient temperature, and friction from mixing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between instant yeast and sourdough starter in bread recipes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Instant yeast (also called rapid-rise or bread machine yeast) is a concentrated commercial strain of Saccharomyces cerevisiae that produces fast, predictable rises. Typical usage is 0.5-2% of flour weight, giving a bulk fermentation of 1-2 hours at room temperature. Sourdough starter is a wild culture of multiple yeast and bacteria strains maintained through regular feeding. It produces a more complex flavor profile with organic acids, requires 15-25% inoculation by flour weight, and typically needs 4-12 hours for bulk fermentation. Sourdough also improves shelf life, mineral bioavailability, and digestibility compared to commercial yeast breads."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://recipetool.net/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://recipetool.net/tools/"},
+        {"@type": "ListItem", "position": 3, "name": "Bread Calculator", "item": "https://recipetool.net/tools/bread-calculator.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.result-box{background:var(--warm);border-radius:8px;padding:1rem;text-align:center;margin:1rem 0}
+.result-box .value{font-size:1.8rem;font-weight:700;color:var(--primary-dark)}
+.result-box .label{font-size:.8rem;color:var(--text-light);margin-top:.25rem}
+.ref-table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+.ref-table th,.ref-table td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.ref-table th{background:var(--warm);color:var(--primary-dark);font-weight:600;font-size:.8rem;text-transform:uppercase}
+.ref-table tr:hover{background:var(--warm)}
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+.form-group{margin-bottom:.75rem}
+.form-group label{display:block;font-size:.8rem;color:var(--text-light);margin-bottom:.25rem;font-weight:500}
+.form-group select,.form-group input{width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.stage-bar{display:flex;gap:4px;margin:1rem 0}
+.stage-seg{flex:1;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:var(--white);transition:opacity .3s}
+.stage-seg.inactive{opacity:.3}
+.slider-group{margin:.75rem 0}
+.slider-group label{font-size:.8rem;color:var(--text-light);font-weight:500}
+.slider-group input[type=range]{width:100%;margin:.25rem 0;accent-color:var(--primary)}
+.slider-val{font-size:.85rem;font-weight:600;color:var(--primary-dark)}
+.timeline{position:relative;padding-left:24px;margin:1rem 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:.75rem;padding-left:16px}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--primary);border:2px solid var(--white);box-shadow:0 0 0 2px var(--primary)}
+.timeline-item.active::before{background:var(--success)}
+.timeline-item .time{font-weight:600;font-size:.85rem;color:var(--primary-dark)}
+.timeline-item .desc{font-size:.8rem;color:var(--text-light)}
+.blend-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;margin:.5rem 0}
+.blend-seg{display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:600;color:var(--white);transition:width .3s}
+.recipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.75rem 0}
+.recipe-item{background:var(--warm);border-radius:8px;padding:.6rem .8rem;display:flex;justify-content:space-between;align-items:center}
+.recipe-item .ing-name{font-size:.85rem;font-weight:500;color:var(--text)}
+.recipe-item .ing-amount{font-size:1rem;font-weight:700;color:var(--primary-dark)}
+@media(max-width:600px){
+.form-row{grid-template-columns:1fr}
+.ref-table{font-size:.75rem}
+.stage-seg{font-size:.6rem}
+.recipe-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Bread Recipe Calculator</h1>
+<p>Hydration control, flour blends &amp; fermentation timing for any bread style</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html">Unit Converter</a>
+<a href="/tools/fermentation-calculator.html">Fermentation</a>
+<a href="/tools/bread-calculator.html" class="active">Bread Calc</a>
+<a href="/guides/meal-prep-calculator.html">Meal Prep</a>
+<a href="/answers/cooking-substitutions.html">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== BREAD RECIPE CALCULATOR ===== -->
+<div class="card">
+<h2>Bread Recipe Calculator</h2>
+<p>Select your bread type, set the total dough weight, and this calculator will generate a complete recipe with precise ingredient weights using baker's percentages. Adjust hydration and flour blends to customize your loaf.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="bread-type">Bread Type</label>
+<select id="bread-type">
+<option value="sandwich">Sandwich Bread</option>
+<option value="sourdough">Sourdough Country Loaf</option>
+<option value="ciabatta">Ciabatta</option>
+<option value="bagel">Bagels</option>
+<option value="pizza">Pizza Dough</option>
+</select>
+</div>
+<div class="form-group">
+<label for="dough-weight">Total Dough Weight (g)</label>
+<input type="number" id="dough-weight" value="900" min="200" max="10000" step="50">
+</div>
+</div>
+<div class="slider-group">
+<label>Hydration: <span class="slider-val" id="hydration-val">65%</span></label>
+<input type="range" id="hydration-slider" min="50" max="95" value="65" step="1">
+</div>
+<div style="margin-top:.75rem">
+<button class="btn" onclick="calculateBread()">Calculate Recipe</button>
+</div>
+<div id="recipe-output" style="display:none">
+<div class="recipe-grid" id="recipe-grid"></div>
+<div class="result-box">
+<div class="value" id="recipe-summary"></div>
+<div class="label" id="recipe-detail"></div>
+</div>
+</div>
+</div>
+
+<!-- ===== FLOUR BLEND MIXER ===== -->
+<div class="card">
+<h2>Flour Blend Mixer</h2>
+<p>Customize your flour blend by adjusting the percentages below. The total must equal 100%. Specialty flours affect gluten strength, hydration requirements, and flavor profile. The blend bar below shows your current mix visually.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="flour-bread">Bread Flour (%)</label>
+<input type="number" id="flour-bread" value="100" min="0" max="100" step="5">
+</div>
+<div class="form-group">
+<label for="flour-wheat">Whole Wheat (%)</label>
+<input type="number" id="flour-wheat" value="0" min="0" max="100" step="5">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="flour-rye">Rye Flour (%)</label>
+<input type="number" id="flour-rye" value="0" min="0" max="100" step="5">
+</div>
+<div class="form-group">
+<label for="flour-spelt">Spelt / Other (%)</label>
+<input type="number" id="flour-spelt" value="0" min="0" max="100" step="5">
+</div>
+</div>
+<div class="blend-bar" id="blend-bar">
+<div class="blend-seg" id="seg-bread" style="width:100%;background:#e85d04">Bread 100%</div>
+<div class="blend-seg" id="seg-wheat" style="width:0%;background:#8d6e63"></div>
+<div class="blend-seg" id="seg-rye" style="width:0%;background:#6b5050"></div>
+<div class="blend-seg" id="seg-spelt" style="width:0%;background:#f48c06"></div>
+</div>
+<p id="blend-warning" style="color:var(--primary-dark);font-weight:600;display:none"></p>
+<div class="result-box" id="blend-result" style="display:none">
+<div class="value" id="blend-weights"></div>
+<div class="label" id="blend-detail"></div>
+</div>
+</div>
+
+<!-- ===== BULK FERMENT TIMER ===== -->
+<div class="card">
+<h2>Bulk Ferment Timer</h2>
+<p>Estimate your bulk fermentation time based on the leavening method and ambient temperature. Temperature is the single most important factor — even a few degrees dramatically change timing.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="leaven-type">Leavening Method</label>
+<select id="leaven-type">
+<option value="instant">Instant Yeast</option>
+<option value="active">Active Dry Yeast</option>
+<option value="sourdough-starter">Sourdough Starter</option>
+</select>
+</div>
+<div class="form-group">
+<label for="ferment-temp">Ambient Temperature</label>
+<div style="display:flex;gap:.5rem">
+<input type="number" id="ferment-temp" value="72" min="40" max="100" step="1" style="flex:1">
+<select id="ferment-temp-unit" style="width:auto;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+<option value="F">&deg;F</option>
+<option value="C">&deg;C</option>
+</select>
+</div>
+</div>
+</div>
+<div class="slider-group">
+<label>Starter / Yeast Amount: <span class="slider-val" id="leaven-pct-val">1.5%</span></label>
+<input type="range" id="leaven-pct" min="0.5" max="30" value="1.5" step="0.5">
+</div>
+<div style="margin-top:.75rem">
+<button class="btn" onclick="calculateFerment()">Estimate Ferment Time</button>
+</div>
+<div class="result-box" id="ferment-result" style="display:none">
+<div class="value" id="ferment-time"></div>
+<div class="label" id="ferment-label"></div>
+</div>
+<div id="ferment-stages" style="display:none">
+<div class="stage-bar" id="ferment-stage-bar"></div>
+<div class="timeline" id="ferment-timeline"></div>
+</div>
+</div>
+
+<!-- ===== REFERENCE TABLE ===== -->
+<div class="card">
+<h2>Bread Type Quick Reference</h2>
+<p>Standard baker's percentages for common bread styles. Hydration, salt, and yeast amounts are expressed as a percentage of total flour weight.</p>
+<table class="ref-table">
+<thead><tr><th>Bread Type</th><th>Hydration</th><th>Salt</th><th>Yeast / Starter</th><th>Fat</th></tr></thead>
+<tbody>
+<tr><td>Sandwich Bread</td><td>60-65%</td><td>2%</td><td>1.5% instant</td><td>3-5% butter</td></tr>
+<tr><td>Sourdough</td><td>72-78%</td><td>2%</td><td>20% starter</td><td>None</td></tr>
+<tr><td>Ciabatta</td><td>80-85%</td><td>2%</td><td>1% instant</td><td>2-3% olive oil</td></tr>
+<tr><td>Bagels</td><td>55-58%</td><td>2%</td><td>1% instant</td><td>None</td></tr>
+<tr><td>Pizza Dough</td><td>62-68%</td><td>2.5%</td><td>0.5% instant</td><td>2-3% olive oil</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>The Complete Guide to Bread Recipe Formulation</h2>
+<p>Bread baking is both an art and a science, and understanding how to formulate a recipe from scratch gives you the freedom to create exactly the loaf you want. Whether you are building a simple sandwich loaf for weekday toast or crafting a high-hydration ciabatta with an open, lacy crumb, the principles are the same: flour, water, salt, and leavening, combined in carefully balanced ratios.</p>
+
+<h3>Baker's Percentage: The Universal Language</h3>
+<p>Baker's percentage is the foundation of all bread formulation. In this system, every ingredient is expressed as a percentage of the total flour weight, with flour always set at 100 percent. This convention makes it trivially easy to scale a recipe up or down — if you know your percentages, you can calculate a recipe for one loaf or one hundred. A standard sourdough formula might read: flour 100 percent, water 75 percent, salt 2 percent, starter 20 percent. To make 900 grams of dough, you work backward from the total percentage (197 percent in this case) to find the flour weight, then multiply everything else accordingly.</p>
+<p>This system also makes it easy to compare recipes. When someone says their ciabatta is at 85 percent hydration, you immediately know this is a very wet, challenging dough. When a bagel recipe calls for 56 percent hydration, you know the dough will be stiff, dense, and satisfyingly chewy. Baker's percentage transcends language barriers and recipe formats — it is used in bakeries from Tokyo to Paris to San Francisco.</p>
+
+<h3>Hydration: The Key to Crumb Structure</h3>
+<p>Hydration is arguably the single most important variable in determining the character of your bread. Low-hydration doughs in the 55 to 62 percent range produce tight, uniform crumbs ideal for slicing and toasting — think bagels, pretzels, and dense sandwich loaves. Medium hydration between 63 and 72 percent covers the vast middle ground of everyday breads: French bread, pain de mie, rolls, and standard country loaves. High hydration from 73 to 85 percent creates the open, irregular crumb prized in artisan breads like ciabatta, focaccia, and rustic sourdough.</p>
+<p>Working with high-hydration doughs requires different techniques than standard bread making. You cannot knead a dough at 82 percent hydration on the counter the way you would a sandwich bread. Instead, bakers use stretch-and-fold techniques, coil folds, and lamination to build gluten strength gradually while preserving the delicate gas cell structure that creates those coveted large holes. The dough handling skills required for high-hydration baking are among the most rewarding to develop as a home baker.</p>
+
+<h3>Flour Selection and Blending</h3>
+<p>The type of flour you choose fundamentally shapes your bread. Bread flour, milled from hard red winter or spring wheat, contains 12 to 14 percent protein and develops strong, elastic gluten networks capable of trapping fermentation gases. All-purpose flour at 10 to 12 percent protein works for most breads but produces a slightly softer crumb. Whole wheat flour includes the bran and germ, adding fiber, flavor, and nutrition but also cutting through gluten strands with sharp bran particles — which is why 100 percent whole wheat breads are denser than white bread.</p>
+<p>Rye flour contains different proteins than wheat (secalin and gluelin rather than glutenin and gliadin) that do not form the same elastic gluten network. Rye-heavy doughs rely on pentosans — starch-like molecules that absorb many times their weight in water — to provide structure. This is why traditional rye breads have a dense, moist, almost gummy crumb compared to wheat bread. For beginners experimenting with rye, keeping it below 20 to 30 percent of the total flour and pairing it with strong bread flour will yield the best results.</p>
+<p>Spelt flour, an ancient relative of modern wheat, creates breads with a sweet, nutty flavor and tender crumb. Spelt gluten is more fragile than wheat gluten and breaks down quickly with overmixing, so gentle handling and reduced kneading times are essential. Einkorn, emmer, and kamut are other ancient grains gaining popularity in artisan baking, each bringing a distinctive flavor profile and nutritional characteristics to the finished loaf.</p>
+
+<h3>Leavening: Yeast vs. Sourdough Starter</h3>
+<p>Commercial yeast — whether instant, active dry, or fresh cake yeast — provides fast, reliable, and predictable leavening. Instant yeast at 1 to 2 percent of flour weight will raise a dough in 1 to 2 hours at room temperature. Active dry yeast requires proofing in warm water first and is used at slightly higher percentages (about 25 percent more than instant). Fresh cake yeast, used primarily by professional bakers, requires roughly three times the weight of instant yeast.</p>
+<p>Sourdough starter introduces a complex ecosystem of wild yeasts and lactic acid bacteria that produce carbon dioxide more slowly than commercial yeast but also generate organic acids (lactic and acetic) that contribute flavor complexity, improved shelf life, and health benefits including increased mineral bioavailability and reduced phytic acid. A typical sourdough inoculation of 15 to 25 percent by flour weight will produce a bulk fermentation time of 4 to 10 hours depending on temperature and starter activity. Many professional bakers use a preferment — a portion of the flour and water fermented with a small amount of yeast or starter hours or days before the final mix — to develop flavor while maintaining the convenience and speed of commercial yeast.</p>
+
+<h3>Salt: More Than Seasoning</h3>
+<p>Salt serves multiple critical functions in bread beyond flavor. It tightens the gluten network, making dough stronger and more elastic. It controls fermentation rate by inhibiting yeast activity — dough without salt ferments 30 to 50 percent faster and can easily over-proof. Salt also inhibits enzymatic activity that would otherwise break down the dough structure, and it contributes to crust color through its effect on the Maillard reaction. The standard salt percentage for bread is 1.8 to 2.2 percent of flour weight. Reducing salt below 1.5 percent produces noticeably bland bread with a weaker structure, while exceeding 2.5 percent makes bread taste overly salty and significantly slows fermentation.</p>
+
+<h3>Temperature Control: The Hidden Variable</h3>
+<p>Professional bakers obsess over dough temperature because it is the primary determinant of fermentation timing. The concept of Desired Dough Temperature (DDT) allows you to calculate exactly what water temperature to use to hit your target. For most bread, a DDT of 75 to 78 degrees Fahrenheit (24 to 26 degrees Celsius) produces a comfortable 3 to 4 hour bulk fermentation window. The formula is: water temperature equals DDT multiplied by the number of temperature factors, minus the sum of flour temperature, room temperature, and any friction factor from mixing. Controlling your DDT is the single biggest improvement you can make to your baking consistency.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What is baker's percentage and how does it work?</div>
+<div class="faq-a">Baker's percentage expresses every ingredient as a percentage of total flour weight, with flour always at 100%. If a recipe calls for 500g flour and 350g water, hydration is 70%. This makes scaling recipes easy while maintaining the same ratios. Salt is typically 2% and yeast ranges from 0.5-2% depending on method.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What hydration should I use for different bread types?</div>
+<div class="faq-a">Bagels use 55-60% for dense, chewy texture. Sandwich bread works at 60-65%. Sourdough country loaves perform best at 72-78%. Ciabatta pushes to 80-85%. Pizza ranges from 60-70% depending on style. Higher hydration creates more open crumb but requires more skill to handle.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do I blend different flours in bread baking?</div>
+<div class="faq-a">Keep at least 50-70% bread flour for gluten structure, then add specialty flours for character. Increase hydration by 2-3% for every 10% whole wheat added. Keep rye below 30% unless making traditional rye bread. Spelt and einkorn require gentler mixing.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How does temperature affect bulk fermentation time?</div>
+<div class="faq-a">Yeast activity roughly doubles for every 15&deg;F (8&deg;C) increase. At 75&deg;F, sourdough bulk takes 4-6 hours. At 65&deg;F, the same dough needs 8-12 hours. At 80&deg;F, it may finish in 3-4 hours. Use Desired Dough Temperature calculations for consistency.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What is the difference between instant yeast and sourdough starter?</div>
+<div class="faq-a">Instant yeast is a concentrated commercial strain providing fast, predictable rises at 0.5-2% of flour weight in 1-2 hours. Sourdough starter is a wild culture requiring 15-25% inoculation and 4-12 hours. Sourdough produces complex flavor, better shelf life, and improved mineral bioavailability.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== BREAD TYPE PRESETS ===== */
+const BREADS={
+sandwich:{name:"Sandwich Bread",hydration:63,salt:2,yeast:1.5,fat:3,fatName:"butter",leavenType:"instant",starterPct:0,enriched:true},
+sourdough:{name:"Sourdough Country Loaf",hydration:75,salt:2,yeast:0,fat:0,fatName:"",leavenType:"sourdough-starter",starterPct:20,enriched:false},
+ciabatta:{name:"Ciabatta",hydration:82,salt:2,yeast:1,fat:2,fatName:"olive oil",leavenType:"instant",starterPct:0,enriched:false},
+bagel:{name:"Bagels",hydration:56,salt:2,yeast:1,fat:0,fatName:"",leavenType:"instant",starterPct:0,enriched:false},
+pizza:{name:"Pizza Dough",hydration:65,salt:2.5,yeast:0.5,fat:2.5,fatName:"olive oil",leavenType:"instant",starterPct:0,enriched:false}
+};
+
+function calculateBread(){
+const type=document.getElementById('bread-type').value;
+const preset=BREADS[type];
+const totalWeight=parseFloat(document.getElementById('dough-weight').value)||900;
+const hydration=parseFloat(document.getElementById('hydration-slider').value);
+
+/* Get flour blend */
+const breadPct=parseFloat(document.getElementById('flour-bread').value)||0;
+const wheatPct=parseFloat(document.getElementById('flour-wheat').value)||0;
+const ryePct=parseFloat(document.getElementById('flour-rye').value)||0;
+const speltPct=parseFloat(document.getElementById('flour-spelt').value)||0;
+
+/* Baker's percentage total */
+let totalPct=100+hydration+preset.salt;
+if(preset.leavenType==='sourdough-starter'){
+totalPct+=preset.starterPct;
+}else{
+totalPct+=preset.yeast;
+}
+if(preset.fat>0) totalPct+=preset.fat;
+
+/* Calculate base flour weight */
+const flourWeight=totalWeight/(totalPct/100);
+const waterWeight=flourWeight*(hydration/100);
+const saltWeight=flourWeight*(preset.salt/100);
+
+let yeastWeight=0;
+let starterWeight=0;
+if(preset.leavenType==='sourdough-starter'){
+starterWeight=flourWeight*(preset.starterPct/100);
+}else{
+yeastWeight=flourWeight*(preset.yeast/100);
+}
+const fatWeight=preset.fat>0?flourWeight*(preset.fat/100):0;
+
+/* Flour blend weights */
+const totalBlend=breadPct+wheatPct+ryePct+speltPct;
+const blendNorm=totalBlend>0?totalBlend:100;
+const breadFlour=flourWeight*(breadPct/blendNorm);
+const wheatFlour=flourWeight*(wheatPct/blendNorm);
+const ryeFlour=flourWeight*(ryePct/blendNorm);
+const speltFlour=flourWeight*(speltPct/blendNorm);
+
+/* Build recipe grid */
+const grid=document.getElementById('recipe-grid');
+grid.innerHTML='';
+const items=[];
+if(breadPct>0||totalBlend===0) items.push({name:'Bread Flour',amount:Math.round(breadFlour)+'g'});
+if(wheatPct>0) items.push({name:'Whole Wheat',amount:Math.round(wheatFlour)+'g'});
+if(ryePct>0) items.push({name:'Rye Flour',amount:Math.round(ryeFlour)+'g'});
+if(speltPct>0) items.push({name:'Spelt Flour',amount:Math.round(speltFlour)+'g'});
+items.push({name:'Water',amount:Math.round(waterWeight)+'g'});
+items.push({name:'Salt',amount:saltWeight.toFixed(1)+'g'});
+if(starterWeight>0) items.push({name:'Sourdough Starter',amount:Math.round(starterWeight)+'g'});
+if(yeastWeight>0) items.push({name:'Instant Yeast',amount:yeastWeight.toFixed(1)+'g'});
+if(fatWeight>0) items.push({name:preset.fatName.charAt(0).toUpperCase()+preset.fatName.slice(1),amount:Math.round(fatWeight)+'g'});
+
+items.forEach(function(it){
+const div=document.createElement('div');
+div.className='recipe-item';
+div.innerHTML='<span class="ing-name">'+it.name+'</span><span class="ing-amount">'+it.amount+'</span>';
+grid.appendChild(div);
+});
+
+document.getElementById('recipe-summary').textContent=preset.name+' — '+Math.round(totalWeight)+'g';
+document.getElementById('recipe-detail').textContent=hydration+'% hydration | '+preset.salt+'% salt | Total flour: '+Math.round(flourWeight)+'g';
+document.getElementById('recipe-output').style.display='';
+
+/* Update blend display */
+updateBlendBar();
+}
+
+function updateBlendBar(){
+const b=parseFloat(document.getElementById('flour-bread').value)||0;
+const w=parseFloat(document.getElementById('flour-wheat').value)||0;
+const r=parseFloat(document.getElementById('flour-rye').value)||0;
+const s=parseFloat(document.getElementById('flour-spelt').value)||0;
+const total=b+w+r+s;
+const warn=document.getElementById('blend-warning');
+
+if(total===0){
+warn.style.display='block';
+warn.textContent='All flour fields are 0. Defaulting to 100% bread flour.';
+}else if(total!==100){
+warn.style.display='block';
+warn.textContent='Blend total is '+total+'% (should be 100%). Values will be normalized.';
+}else{
+warn.style.display='none';
+}
+
+const norm=total>0?total:100;
+const bPct=total>0?(b/norm*100):100;
+const wPct=total>0?(w/norm*100):0;
+const rPct=total>0?(r/norm*100):0;
+const sPct=total>0?(s/norm*100):0;
+
+document.getElementById('seg-bread').style.width=bPct+'%';
+document.getElementById('seg-bread').textContent=bPct>8?'Bread '+Math.round(bPct)+'%':'';
+document.getElementById('seg-wheat').style.width=wPct+'%';
+document.getElementById('seg-wheat').textContent=wPct>8?'WW '+Math.round(wPct)+'%':'';
+document.getElementById('seg-rye').style.width=rPct+'%';
+document.getElementById('seg-rye').textContent=rPct>8?'Rye '+Math.round(rPct)+'%':'';
+document.getElementById('seg-spelt').style.width=sPct+'%';
+document.getElementById('seg-spelt').textContent=sPct>8?'Spelt '+Math.round(sPct)+'%':'';
+
+/* Blend result */
+const flourWeight=parseFloat(document.getElementById('dough-weight').value)||900;
+const bp=BREADS[document.getElementById('bread-type').value];
+const hydration=parseFloat(document.getElementById('hydration-slider').value);
+let totalPctCalc=100+hydration+bp.salt+(bp.leavenType==='sourdough-starter'?bp.starterPct:bp.yeast)+(bp.fat||0);
+const fw=flourWeight/(totalPctCalc/100);
+
+if(total>0&&total!==100){
+document.getElementById('blend-weights').textContent='Normalized: Bread '+Math.round(fw*b/norm)+'g, WW '+Math.round(fw*w/norm)+'g, Rye '+Math.round(fw*r/norm)+'g, Spelt '+Math.round(fw*s/norm)+'g';
+document.getElementById('blend-detail').textContent='Auto-normalized from '+total+'% to 100%';
+document.getElementById('blend-result').style.display='';
+}else{
+document.getElementById('blend-result').style.display='none';
+}
+}
+
+/* ===== BULK FERMENT CALCULATOR ===== */
+const LEAVEN_DATA={
+'instant':{baseTempF:75,baseHrs:1.5,name:'Instant Yeast',pctBase:1.5,stages:[
+{name:'Mixing',pct:0,color:'#6b5050',desc:'Combine all ingredients. Knead 8-12 min until smooth.'},
+{name:'Early Rise',pct:20,color:'#e85d04',desc:'Dough relaxing. Gluten network forming. Gentle expansion begins.'},
+{name:'Active Rise',pct:50,color:'#f48c06',desc:'Visible volume increase. Dough springs back slowly when poked.'},
+{name:'Doubled',pct:80,color:'#4caf50',desc:'Dough has doubled in volume. Poke test: indent springs back slowly. Shape now.'},
+{name:'Over-proofed',pct:100,color:'#dc2f02',desc:'Dough collapses when poked. Excessively airy, may deflate during shaping.'}
+]},
+'active':{baseTempF:75,baseHrs:2,name:'Active Dry Yeast',pctBase:2,stages:[
+{name:'Proofing',pct:0,color:'#6b5050',desc:'Dissolve yeast in warm water (105-110F). Wait 5-10 min until foamy.'},
+{name:'Mixing',pct:5,color:'#e85d04',desc:'Combine proofed yeast with remaining ingredients. Knead until smooth.'},
+{name:'Rising',pct:40,color:'#f48c06',desc:'Slow steady expansion. Perform stretch and folds if desired.'},
+{name:'Doubled',pct:80,color:'#4caf50',desc:'Volume has doubled. Shape and move to final proof.'},
+{name:'Over-proofed',pct:100,color:'#dc2f02',desc:'Dough is slack and deflates easily. Too acidic for best flavor.'}
+]},
+'sourdough-starter':{baseTempF:76,baseHrs:5,name:'Sourdough Starter',pctBase:20,stages:[
+{name:'Mixing',pct:0,color:'#6b5050',desc:'Combine flour, water, and ripe starter. Autolyse 20-60 min. Add salt.'},
+{name:'Early Ferment',pct:15,color:'#e85d04',desc:'Gentle bubbling. Perform stretch and folds every 30 min (3-4 sets).'},
+{name:'Active Ferment',pct:45,color:'#f48c06',desc:'Volume increasing. Surface shows bubbles. 50%+ rise.'},
+{name:'Peak',pct:75,color:'#4caf50',desc:'Domed top, jiggly texture, 75% rise. Pre-shape now.'},
+{name:'Over-fermented',pct:100,color:'#dc2f02',desc:'Dough collapses, slack, overly acidic. Difficult to shape.'}
+]}
+};
+
+function calculateFerment(){
+const type=document.getElementById('leaven-type').value;
+const data=LEAVEN_DATA[type];
+let tempF=parseFloat(document.getElementById('ferment-temp').value)||72;
+const unit=document.getElementById('ferment-temp-unit').value;
+if(unit==='C') tempF=tempF*9/5+32;
+const pct=parseFloat(document.getElementById('leaven-pct').value)||data.pctBase;
+
+/* Temperature factor */
+const tempDiff=tempF-data.baseTempF;
+const tempFactor=Math.pow(2,-tempDiff/15);
+
+/* Inoculation factor */
+const pctFactor=data.pctBase/Math.max(pct,0.1);
+
+let totalHrs=data.baseHrs*tempFactor*pctFactor;
+totalHrs=Math.max(totalHrs,0.25);
+
+let timeStr;
+if(totalHrs>=24){
+timeStr=(totalHrs/24).toFixed(1)+' days';
+}else if(totalHrs>=1){
+const hrs=Math.floor(totalHrs);
+const mins=Math.round((totalHrs-hrs)*60);
+timeStr=hrs+'h '+mins+'m';
+}else{
+timeStr=Math.round(totalHrs*60)+' minutes';
+}
+
+document.getElementById('ferment-time').textContent=timeStr;
+const labels=[];
+labels.push(data.name+' at '+Math.round(tempF)+'°F ('+Math.round((tempF-32)*5/9)+'°C)');
+labels.push(pct+'% inoculation');
+if(tempF<65) labels.push('Cool — extended ferment');
+else if(tempF>85) labels.push('Warm — watch carefully for over-proofing');
+document.getElementById('ferment-label').textContent=labels.join(' | ');
+document.getElementById('ferment-result').style.display='';
+
+/* Build stages */
+const stagesDiv=document.getElementById('ferment-stages');
+stagesDiv.style.display='';
+const bar=document.getElementById('ferment-stage-bar');
+const timeline=document.getElementById('ferment-timeline');
+bar.innerHTML='';
+timeline.innerHTML='';
+
+data.stages.forEach(function(s,i){
+const seg=document.createElement('div');
+seg.className='stage-seg'+(i===0?' active':'');
+seg.style.background=s.color;
+seg.textContent=s.name;
+bar.appendChild(seg);
+
+const item=document.createElement('div');
+item.className='timeline-item'+(i===0?' active':'');
+const timeAtStage=totalHrs*(s.pct/100);
+let tStr;
+if(s.pct===0) tStr='Start';
+else if(timeAtStage>=1){
+const h=Math.floor(timeAtStage);
+const m=Math.round((timeAtStage-h)*60);
+tStr=h+'h '+m+'m';
+}else{
+tStr=Math.round(timeAtStage*60)+'m';
+}
+item.innerHTML='<div class="time">'+tStr+'</div><div class="desc"><strong>'+s.name+':</strong> '+s.desc+'</div>';
+timeline.appendChild(item);
+});
+}
+
+/* ===== UI UPDATES ===== */
+document.getElementById('hydration-slider').addEventListener('input',function(){
+document.getElementById('hydration-val').textContent=this.value+'%';
+calculateBread();
+});
+
+document.getElementById('bread-type').addEventListener('change',function(){
+const preset=BREADS[this.value];
+document.getElementById('hydration-slider').value=preset.hydration;
+document.getElementById('hydration-val').textContent=preset.hydration+'%';
+if(preset.leavenType==='sourdough-starter'){
+document.getElementById('leaven-type').value='sourdough-starter';
+document.getElementById('leaven-pct').value=preset.starterPct;
+document.getElementById('leaven-pct').max=50;
+document.getElementById('leaven-pct').step=1;
+document.getElementById('leaven-pct-val').textContent=preset.starterPct+'%';
+}else{
+document.getElementById('leaven-type').value='instant';
+document.getElementById('leaven-pct').value=preset.yeast;
+document.getElementById('leaven-pct').max=5;
+document.getElementById('leaven-pct').step=0.25;
+document.getElementById('leaven-pct-val').textContent=preset.yeast+'%';
+}
+calculateBread();
+});
+
+document.getElementById('leaven-type').addEventListener('change',function(){
+const data=LEAVEN_DATA[this.value];
+if(this.value==='sourdough-starter'){
+document.getElementById('leaven-pct').max=50;
+document.getElementById('leaven-pct').step=1;
+document.getElementById('leaven-pct').value=data.pctBase;
+}else{
+document.getElementById('leaven-pct').max=5;
+document.getElementById('leaven-pct').step=0.25;
+document.getElementById('leaven-pct').value=data.pctBase;
+}
+document.getElementById('leaven-pct-val').textContent=data.pctBase+'%';
+});
+
+document.getElementById('leaven-pct').addEventListener('input',function(){
+document.getElementById('leaven-pct-val').textContent=this.value+'%';
+});
+
+document.getElementById('dough-weight').addEventListener('input',calculateBread);
+
+['flour-bread','flour-wheat','flour-rye','flour-spelt'].forEach(function(id){
+document.getElementById(id).addEventListener('input',function(){
+updateBlendBar();
+calculateBread();
+});
+});
+
+/* FAQ accordion */
+function toggleFaq(el){
+el.classList.toggle('open');
+el.nextElementSibling.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+calculateBread();
+});
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/fermentation-calculator.html" style="color:#3b82f6;text-decoration:none;">Fermentation Calculator — Sourdough, Kombucha & Yogurt Timing</a></li>
+<li><a href="/tools/sourdough-calculator.html" style="color:#3b82f6;text-decoration:none;">Sourdough Starter Feeding Calculator with Timeline</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+<li><a href="/guides/food-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Cost Calculator — Food Cost Per Serving & Markup</a></li>
+</ul>
+</section>
+
+</body>
+</html>

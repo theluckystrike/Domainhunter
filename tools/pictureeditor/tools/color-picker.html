@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Picker &amp; Palette Extractor — Free Online Tool | PictureEditor</title>
+<meta name="description" content="Free online color picker with image palette extraction. Pick colors from a spectrum, extract dominant colors from photos, get HEX/RGB/HSL values, and generate color harmonies. Client-side — no upload needed.">
+<meta name="keywords" content="color picker, color palette extractor, image color picker, hex color picker, rgb color picker, hsl color picker, color harmony, complementary colors, extract colors from image, color wheel">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/color-picker.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/color-picker.html">
+<meta property="og:title" content="Color Picker &amp; Palette Extractor — Free Online Tool">
+<meta property="og:description" content="Pick colors from spectrum or images. Extract palettes, get HEX/RGB/HSL, generate harmonies. Free, private, no upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Picker &amp; Palette Extractor — Free Online Tool">
+<meta name="twitter:description" content="Advanced color picker with palette extraction from images. HEX, RGB, HSL. Free online tool.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Color Picker & Palette Extractor",
+    "url":"https://pictureeditor.net/tools/color-picker.html",
+    "description":"Free online color picker with image palette extraction, HEX/RGB/HSL conversion, and color harmony generation.",
+    "applicationCategory":"DesignApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is a HEX color code?","acceptedAnswer":{"@type":"Answer","text":"A HEX color code is a 6-character string preceded by # that represents a color using hexadecimal values. The first two characters represent red, the middle two green, and the last two blue. For example, #FF0000 is pure red and #6366F1 is indigo. HEX is the most common color format used in web design and CSS."}},
+      {"@type":"Question","name":"How do I extract colors from an image?","acceptedAnswer":{"@type":"Answer","text":"Upload an image to this tool and it will automatically analyze the pixel data to find the most dominant colors. The extraction uses frequency analysis to identify the 5-8 most prominent colors in the image, displayed as a clickable palette."}},
+      {"@type":"Question","name":"What are complementary colors?","acceptedAnswer":{"@type":"Answer","text":"Complementary colors sit directly opposite each other on the color wheel. They create maximum contrast when placed together. For example, red and cyan, blue and orange, or yellow and purple are complementary pairs. Designers use complementary colors to create visual impact and draw attention."}},
+      {"@type":"Question","name":"What is the difference between RGB and HSL?","acceptedAnswer":{"@type":"Answer","text":"RGB (Red, Green, Blue) defines colors by mixing light intensities from 0-255 for each channel. HSL (Hue, Saturation, Lightness) is more intuitive — hue is the color angle (0-360), saturation is intensity (0-100%), and lightness is brightness (0-100%). HSL makes it easier to find related colors by adjusting individual properties."}},
+      {"@type":"Question","name":"What is WCAG contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"WCAG (Web Content Accessibility Guidelines) contrast ratio measures the luminance difference between foreground and background colors. A ratio of 4.5:1 is required for normal text (AA level), and 7:1 for enhanced accessibility (AAA level). This ensures text is readable for users with visual impairments."}}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hidden{display:none!important}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Color picker specific */
+.picker-layout{display:flex;gap:20px;flex-wrap:wrap}
+.picker-left{flex:1;min-width:260px}
+.picker-right{flex:1;min-width:260px}
+.spectrum-canvas{width:100%;height:260px;border-radius:8px;cursor:crosshair;border:1px solid var(--border);display:block}
+.hue-bar{width:100%;height:24px;border-radius:6px;cursor:crosshair;margin-top:10px;border:1px solid var(--border);display:block}
+.color-preview{width:100%;height:80px;border-radius:8px;border:1px solid var(--border);margin-top:12px;transition:background .1s}
+.input-group{margin-top:12px}
+.input-group label{display:block;font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:.03em}
+.input-group .row{display:flex;gap:8px;margin-bottom:8px}
+.input-group input{flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;font-family:monospace;outline:none}
+.input-group input:focus{border-color:var(--accent)}
+.copy-btn{padding:8px 12px;background:var(--accent);color:#fff;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;border:none;white-space:nowrap}
+.copy-btn:hover{background:var(--accent-hover)}
+.copy-btn.copied{background:var(--green)}
+/* Palette */
+.palette-section{margin-top:20px}
+.palette-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.palette-swatch{width:56px;height:56px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:.15s;position:relative}
+.palette-swatch:hover{border-color:var(--accent);transform:scale(1.08)}
+.palette-swatch .tip{display:none;position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:.65rem;background:var(--text);color:#fff;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.palette-swatch:hover .tip{display:block}
+/* Harmony */
+.harmony-section{margin-top:20px}
+.harmony-row{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.harmony-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);min-width:100px}
+.harmony-swatch{width:40px;height:40px;border-radius:6px;cursor:pointer;border:1px solid var(--border)}
+.harmony-swatch:hover{border-color:var(--accent)}
+/* Image upload for extraction */
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:.9rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:36px;height:36px;color:var(--text-secondary)}
+.extracted-img{max-width:100%;max-height:250px;border-radius:8px;border:1px solid var(--border);margin-top:12px}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .picker-layout{flex-direction:column}
+  .harmony-row{flex-direction:column;align-items:flex-start}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/color-picker.html">Tools</a><span>/</span>
+  Color Picker
+</nav>
+
+<h2>Color Picker &amp; Palette Extractor</h2>
+<p class="subtitle">Pick colors from a spectrum, extract palettes from images, convert between HEX/RGB/HSL, and generate color harmonies. Everything runs in your browser — no uploads required.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="picker-tool" style="margin-top:0">Color Picker Tool</h3>
+
+  <div class="picker-layout">
+    <div class="picker-left">
+      <canvas class="spectrum-canvas" id="spectrumCanvas" width="400" height="260"></canvas>
+      <canvas class="hue-bar" id="hueBar" width="400" height="24"></canvas>
+      <div class="color-preview" id="colorPreview" style="background:#6366f1"></div>
+    </div>
+    <div class="picker-right">
+      <div class="input-group">
+        <label>HEX</label>
+        <div class="row">
+          <input type="text" id="hexInput" value="#6366F1" maxlength="7">
+          <button class="copy-btn" data-target="hexInput">Copy</button>
+        </div>
+        <label>RGB</label>
+        <div class="row">
+          <input type="number" id="rInput" value="99" min="0" max="255" style="width:70px">
+          <input type="number" id="gInput" value="102" min="0" max="255" style="width:70px">
+          <input type="number" id="bInput" value="241" min="0" max="255" style="width:70px">
+          <button class="copy-btn" data-copy="rgb">Copy</button>
+        </div>
+        <label>HSL</label>
+        <div class="row">
+          <input type="number" id="hInput" value="239" min="0" max="360" style="width:70px">
+          <input type="number" id="sInput" value="84" min="0" max="100" style="width:70px">
+          <input type="number" id="lInput" value="67" min="0" max="100" style="width:70px">
+          <button class="copy-btn" data-copy="hsl">Copy</button>
+        </div>
+      </div>
+
+      <!-- Harmony -->
+      <div class="harmony-section">
+        <h4 style="margin-top:16px;margin-bottom:10px">Color Harmonies</h4>
+        <div class="harmony-row"><span class="harmony-label">Complementary</span><div id="harmComp" style="display:flex;gap:6px"></div></div>
+        <div class="harmony-row"><span class="harmony-label">Triadic</span><div id="harmTriad" style="display:flex;gap:6px"></div></div>
+        <div class="harmony-row"><span class="harmony-label">Analogous</span><div id="harmAnalog" style="display:flex;gap:6px"></div></div>
+        <div class="harmony-row"><span class="harmony-label">Split-Comp.</span><div id="harmSplit" style="display:flex;gap:6px"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PALETTE EXTRACTION ===== -->
+<section class="card" id="extract-section">
+  <h3 style="margin-top:0">Extract Palette from Image</h3>
+  <p>Upload an image to extract its dominant colors. Click any swatch to load it into the picker above.</p>
+  <div class="drop-zone" id="imgDropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    <p>Drop an image or click to extract its color palette</p>
+    <p class="sub">Supports JPEG, PNG, WebP</p>
+  </div>
+  <input type="file" id="imgFileInput" accept="image/*" class="hidden">
+  <img id="extractedImg" class="extracted-img hidden" alt="Uploaded image for palette extraction">
+  <div class="palette-grid" id="paletteGrid"></div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#picker-tool">Color Picker Tool</a></li>
+    <li><a href="#extract-section">Palette Extraction</a></li>
+    <li><a href="#color-theory">Understanding Color Theory</a></li>
+    <li><a href="#color-spaces">Color Spaces: HEX, RGB, HSL Explained</a></li>
+    <li><a href="#web-colors">Web-Safe Colors and CSS</a></li>
+    <li><a href="#accessibility">Color Accessibility and Contrast</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== COLOR THEORY ===== -->
+<section class="card" id="color-theory">
+  <h3 style="margin-top:0">Understanding Color Theory</h3>
+
+  <h4>The Color Wheel</h4>
+  <p>The color wheel is the foundation of color theory, organizing hues in a circular arrangement that reveals relationships between colors. Primary colors (red, blue, yellow in traditional theory; red, green, blue in digital light) cannot be created by mixing other colors. Secondary colors are created by mixing two primaries: orange (red + yellow), green (blue + yellow), and purple (red + blue). Tertiary colors sit between primaries and secondaries, creating a continuous spectrum of twelve distinct hues.</p>
+  <p>In digital design, the color wheel is based on the HSL (Hue, Saturation, Lightness) model, where hue is represented as a degree from 0 to 360. Red sits at 0 degrees, green at 120, and blue at 240. This angular representation makes it straightforward to calculate color relationships mathematically — complementary colors are always 180 degrees apart, triadic colors are 120 degrees apart, and analogous colors are within 30 degrees of each other.</p>
+
+  <h4>Color Harmonies</h4>
+  <p>Color harmonies are combinations of colors that produce aesthetically pleasing results based on their positions on the color wheel. The four most useful harmonies for designers are:</p>
+  <ul>
+    <li><strong>Complementary:</strong> Two colors directly opposite on the wheel (180 degrees apart). Creates maximum contrast and visual energy. Use one color dominantly and the complement as an accent. Example: blue (#3B82F6) with orange (#F59E0B).</li>
+    <li><strong>Triadic:</strong> Three colors equally spaced at 120 degrees. Creates vibrant, balanced compositions. Works best when one color dominates and the other two serve as accents. Example: red, blue, yellow.</li>
+    <li><strong>Analogous:</strong> Three colors adjacent on the wheel (within 30 degrees). Creates harmonious, cohesive palettes that feel natural. Common in nature — think autumn leaves or ocean sunsets. Example: blue, blue-green, green.</li>
+    <li><strong>Split-Complementary:</strong> A base color plus the two colors adjacent to its complement. Provides strong contrast like complementary but with more nuance and less visual tension. Easier to work with than direct complementary for beginners.</li>
+  </ul>
+
+  <h4>Warm and Cool Colors</h4>
+  <p>Colors are divided into warm (reds, oranges, yellows) and cool (blues, greens, purples) categories based on the psychological associations they evoke. Warm colors advance visually and feel energetic, inviting, and attention-grabbing. Cool colors recede and feel calm, professional, and trustworthy. Most effective designs combine warm and cool colors strategically — warm for calls-to-action and key elements, cool for backgrounds and supporting content.</p>
+</section>
+
+<!-- ===== COLOR SPACES ===== -->
+<section class="card" id="color-spaces">
+  <h3 style="margin-top:0">Color Spaces: HEX, RGB, HSL Explained</h3>
+
+  <h4>HEX — The Web Standard</h4>
+  <p>Hexadecimal color codes are the most widely used color notation in web development and design tools. A HEX code consists of a hash symbol followed by six hexadecimal digits: two for red, two for green, two for blue. Each pair ranges from 00 (no intensity) to FF (full intensity, equivalent to 255 in decimal). For example, <code>#FF0000</code> is pure red, <code>#00FF00</code> is pure green, and <code>#FFFFFF</code> is white.</p>
+  <p>HEX codes can be shortened to three digits when each pair consists of repeated characters: <code>#FF6633</code> can be written as <code>#F63</code>. Modern CSS also supports 8-digit HEX codes where the last two digits specify alpha (opacity): <code>#6366F180</code> represents the accent indigo at 50% opacity. HEX is compact and universally supported, making it the default choice for CSS, SVG, and most design tools.</p>
+
+  <h4>RGB — Additive Color Mixing</h4>
+  <p>RGB (Red, Green, Blue) defines colors by specifying the intensity of three light channels, each ranging from 0 to 255. Screens emit light, so RGB is an additive model: combining all three channels at full intensity (255, 255, 255) produces white, while all channels at zero produces black. CSS syntax is <code>rgb(99, 102, 241)</code> or with alpha: <code>rgba(99, 102, 241, 0.5)</code>.</p>
+  <p>RGB is intuitive for understanding how screens produce color but less intuitive for color selection. Trying to find a "slightly lighter blue" by adjusting three independent values simultaneously is difficult. This is where HSL excels as a more human-friendly alternative.</p>
+
+  <h4>HSL — Human-Friendly Color Selection</h4>
+  <p>HSL (Hue, Saturation, Lightness) represents color in a way that maps to how humans think about color. Hue is the pure color on the wheel (0-360 degrees), saturation is the intensity or vibrancy (0-100%), and lightness is how light or dark the color is (0-100%). To make a color lighter, increase lightness. To make it more muted, decrease saturation. To shift the color, change the hue.</p>
+  <p>HSL is particularly powerful for creating color palettes. If your brand color is <code>hsl(239, 84%, 67%)</code>, you can generate lighter and darker variants by adjusting only the lightness value: <code>hsl(239, 84%, 85%)</code> for a light tint and <code>hsl(239, 84%, 35%)</code> for a dark shade. The hue and saturation remain constant, ensuring visual consistency across your palette.</p>
+</section>
+
+<!-- ===== WEB COLORS ===== -->
+<section class="card" id="web-colors">
+  <h3 style="margin-top:0">Web-Safe Colors and CSS</h3>
+
+  <h4>The History of Web-Safe Colors</h4>
+  <p>Web-safe colors are a historical artifact from the 1990s when most monitors could only display 256 colors. The 216 web-safe colors (6 levels each of R, G, B: 00, 33, 66, 99, CC, FF) guaranteed consistent display across all systems. In 2026, this limitation is irrelevant — modern displays support millions or billions of colors. However, web-safe colors remain useful as a constrained palette for designers who want to work within a deliberately limited color set.</p>
+
+  <h4>CSS Color Functions</h4>
+  <p>Modern CSS supports multiple color notations beyond HEX and RGB. The <code>hsl()</code> function accepts hue in degrees, saturation and lightness as percentages. CSS Color Level 4 introduced <code>lab()</code> and <code>lch()</code> for perceptually uniform color spaces, <code>oklch()</code> for improved lightness uniformity, and <code>color()</code> for accessing wider color gamuts like Display P3. The <code>color-mix()</code> function allows blending colors directly in CSS without preprocessors.</p>
+  <p>CSS named colors provide 148 predefined color keywords from <code>aliceblue</code> to <code>yellowgreen</code>. While convenient for prototyping, named colors are rarely used in production design systems because they do not align with typical brand palettes. The most useful named colors are the neutrals: <code>white</code>, <code>black</code>, <code>transparent</code>, and <code>currentColor</code> (which inherits the text color).</p>
+</section>
+
+<!-- ===== ACCESSIBILITY ===== -->
+<section class="card" id="accessibility">
+  <h3 style="margin-top:0">Color Accessibility and Contrast</h3>
+
+  <h4>WCAG Contrast Requirements</h4>
+  <p>The Web Content Accessibility Guidelines (WCAG) 2.1 specify minimum contrast ratios between text and its background to ensure readability for users with visual impairments, including color blindness and low vision. Level AA (the standard compliance target) requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (18px bold or 24px regular). Level AAA (enhanced) requires 7:1 for normal text and 4.5:1 for large text.</p>
+  <p>Contrast ratio is calculated from the relative luminance of two colors, ranging from 1:1 (identical colors) to 21:1 (black on white). Light gray text on a white background might look aesthetically minimal, but if the contrast ratio falls below 4.5:1, it fails accessibility requirements and is legally non-compliant in many jurisdictions. The relative luminance formula weights green more heavily than red or blue, matching how human vision perceives brightness.</p>
+
+  <h4>Color Blindness Considerations</h4>
+  <p>Approximately 8% of men and 0.5% of women have some form of color vision deficiency. The most common types are protanopia (reduced red sensitivity) and deuteranopia (reduced green sensitivity), which together affect about 6% of males. Designing with color blindness in mind means never relying on color alone to convey information. Error states should include icons or text in addition to red coloring. Charts should use patterns or labels alongside color coding.</p>
+  <p>When selecting colors for data visualization or UI elements, test your palette with color blindness simulators. Avoid pairing red and green as the sole differentiators. Blue and orange is a more universally distinguishable combination. High contrast between adjacent colors helps all users, not just those with color deficiencies.</p>
+
+  <h4>Practical Accessibility Tips</h4>
+  <ul>
+    <li><strong>Test early:</strong> Check contrast ratios during design, not after implementation. Tools like this color picker help you select accessible colors from the start.</li>
+    <li><strong>Use sufficient contrast:</strong> Aim for 7:1 (AAA) when possible. The difference between 4.5:1 and 7:1 is barely noticeable aesthetically but significantly improves readability.</li>
+    <li><strong>Avoid pure color reliance:</strong> Always supplement color with text, icons, patterns, or position to convey meaning.</li>
+    <li><strong>Consider dark mode:</strong> Users with light sensitivity often prefer dark themes. Ensure your color palette works in both light and dark contexts.</li>
+  </ul>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a HEX color code?</div>
+    <div class="faq-a"><p>A HEX color code is a 6-character string preceded by # that represents a color using hexadecimal values. The first two characters represent red, the middle two green, and the last two blue. For example, #FF0000 is pure red and #6366F1 is indigo. HEX is the most common color format used in web design and CSS.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I extract colors from an image?</div>
+    <div class="faq-a"><p>Upload an image to the palette extraction section of this tool. The tool analyzes every pixel using the Canvas API, groups similar colors together, and identifies the 5-8 most dominant colors. Click any extracted swatch to load it into the main color picker for further adjustment or to view its HEX, RGB, and HSL values.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What are complementary colors?</div>
+    <div class="faq-a"><p>Complementary colors sit directly opposite each other on the color wheel, 180 degrees apart. They create maximum contrast and visual energy when used together. Examples include red and cyan, blue and orange, and yellow and purple. In design, use one color as the dominant and its complement as a small accent for maximum impact.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the difference between RGB and HSL?</div>
+    <div class="faq-a"><p>RGB (Red, Green, Blue) defines colors by mixing light intensities from 0-255 for each channel. HSL (Hue, Saturation, Lightness) is more intuitive for humans: hue is the color angle (0-360 degrees), saturation is vibrancy (0-100%), and lightness is brightness (0-100%). HSL makes it much easier to create lighter/darker variations or find related colors.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is WCAG contrast ratio?</div>
+    <div class="faq-a"><p>WCAG contrast ratio measures the luminance difference between text and background colors. Level AA requires 4.5:1 for normal text and 3:1 for large text. Level AAA requires 7:1 and 4.5:1 respectively. These ratios ensure readability for users with visual impairments. You can check contrast by comparing any two colors in the picker.</p></div>
+  </div>
+</section>
+
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<script>
+(function() {
+  "use strict";
+
+  /* --- STATE --- */
+  var currentH = 239, currentS = 84, currentL = 67;
+
+  /* --- DOM --- */
+  var specCanvas = document.getElementById("spectrumCanvas");
+  var specCtx = specCanvas.getContext("2d");
+  var hueCanvas = document.getElementById("hueBar");
+  var hueCtx = hueCanvas.getContext("2d");
+  var preview = document.getElementById("colorPreview");
+  var hexIn = document.getElementById("hexInput");
+  var rIn = document.getElementById("rInput");
+  var gIn = document.getElementById("gInput");
+  var bIn = document.getElementById("bInput");
+  var hIn = document.getElementById("hInput");
+  var sIn = document.getElementById("sInput");
+  var lIn = document.getElementById("lInput");
+
+  /* --- DRAW HUE BAR --- */
+  function drawHueBar() {
+    var w = hueCanvas.width, h = hueCanvas.height;
+    var grad = hueCtx.createLinearGradient(0, 0, w, 0);
+    for (var i = 0; i <= 360; i += 30) {
+      grad.addColorStop(i / 360, "hsl(" + i + ",100%,50%)");
+    }
+    hueCtx.fillStyle = grad;
+    hueCtx.fillRect(0, 0, w, h);
+  }
+
+  /* --- DRAW SPECTRUM --- */
+  function drawSpectrum() {
+    var w = specCanvas.width, h = specCanvas.height;
+    specCtx.clearRect(0, 0, w, h);
+    // Base hue
+    specCtx.fillStyle = "hsl(" + currentH + ",100%,50%)";
+    specCtx.fillRect(0, 0, w, h);
+    // White gradient left to right
+    var gw = specCtx.createLinearGradient(0, 0, w, 0);
+    gw.addColorStop(0, "rgba(255,255,255,1)");
+    gw.addColorStop(1, "rgba(255,255,255,0)");
+    specCtx.fillStyle = gw;
+    specCtx.fillRect(0, 0, w, h);
+    // Black gradient top to bottom
+    var gb = specCtx.createLinearGradient(0, 0, 0, h);
+    gb.addColorStop(0, "rgba(0,0,0,0)");
+    gb.addColorStop(1, "rgba(0,0,0,1)");
+    specCtx.fillStyle = gb;
+    specCtx.fillRect(0, 0, w, h);
+  }
+
+  /* --- COLOR CONVERSION --- */
+  function hslToRgb(h, s, l) {
+    h /= 360; s /= 100; l /= 100;
+    var r, g, b;
+    if (s === 0) { r = g = b = l; }
+    else {
+      function hue2rgb(p, q, t) {
+        if (t < 0) t += 1; if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      }
+      var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      var p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1/3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1/3);
+    }
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+    if (max === min) { h = s = 0; }
+    else {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+        case g: h = ((b - r) / d + 2) / 6; break;
+        case b: h = ((r - g) / d + 4) / 6; break;
+      }
+    }
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+  }
+
+  function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+  }
+
+  function hexToRgb(hex) {
+    hex = hex.replace("#", "");
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    var n = parseInt(hex, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  /* --- UPDATE UI --- */
+  function updateFromHSL() {
+    var rgb = hslToRgb(currentH, currentS, currentL);
+    var hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
+    preview.style.background = hex;
+    hexIn.value = hex;
+    rIn.value = rgb[0]; gIn.value = rgb[1]; bIn.value = rgb[2];
+    hIn.value = currentH; sIn.value = currentS; lIn.value = currentL;
+    drawSpectrum();
+    updateHarmonies();
+  }
+
+  /* --- SPECTRUM INTERACTION --- */
+  var specDown = false;
+  function pickFromSpectrum(e) {
+    var rect = specCanvas.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    var y = (e.clientY - rect.top) / rect.height;
+    x = Math.max(0, Math.min(1, x));
+    y = Math.max(0, Math.min(1, y));
+    // Convert position to S/L. x=saturation, y=lightness (inverted)
+    currentS = Math.round(x * 100);
+    currentL = Math.round((1 - y) * 50 + (1 - x) * (1 - y) * 50);
+    // More accurate: use pixel color
+    var px = specCtx.getImageData(Math.round(x * (specCanvas.width - 1)), Math.round(y * (specCanvas.height - 1)), 1, 1).data;
+    var hsl = rgbToHsl(px[0], px[1], px[2]);
+    currentH = hsl[0] || currentH;
+    currentS = hsl[1];
+    currentL = hsl[2];
+    updateFromHSL();
+  }
+  specCanvas.addEventListener("mousedown", function(e) { specDown = true; pickFromSpectrum(e); });
+  document.addEventListener("mousemove", function(e) { if (specDown) pickFromSpectrum(e); });
+  document.addEventListener("mouseup", function() { specDown = false; });
+  specCanvas.addEventListener("touchstart", function(e) { e.preventDefault(); pickFromSpectrum(e.touches[0]); }, {passive:false});
+  specCanvas.addEventListener("touchmove", function(e) { e.preventDefault(); pickFromSpectrum(e.touches[0]); }, {passive:false});
+
+  /* --- HUE BAR INTERACTION --- */
+  var hueDown = false;
+  function pickHue(e) {
+    var rect = hueCanvas.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    x = Math.max(0, Math.min(1, x));
+    currentH = Math.round(x * 360);
+    updateFromHSL();
+  }
+  hueCanvas.addEventListener("mousedown", function(e) { hueDown = true; pickHue(e); });
+  document.addEventListener("mousemove", function(e) { if (hueDown) pickHue(e); });
+  document.addEventListener("mouseup", function() { hueDown = false; });
+  hueCanvas.addEventListener("touchstart", function(e) { e.preventDefault(); pickHue(e.touches[0]); }, {passive:false});
+  hueCanvas.addEventListener("touchmove", function(e) { e.preventDefault(); pickHue(e.touches[0]); }, {passive:false});
+
+  /* --- INPUT HANDLERS --- */
+  hexIn.addEventListener("input", function() {
+    var v = hexIn.value.trim();
+    if (/^#?[0-9a-fA-F]{6}$/.test(v)) {
+      var rgb = hexToRgb(v);
+      var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+      currentH = hsl[0]; currentS = hsl[1]; currentL = hsl[2];
+      updateFromHSL();
+    }
+  });
+
+  function onRGBInput() {
+    var r = parseInt(rIn.value) || 0, g = parseInt(gIn.value) || 0, b = parseInt(bIn.value) || 0;
+    r = Math.max(0, Math.min(255, r)); g = Math.max(0, Math.min(255, g)); b = Math.max(0, Math.min(255, b));
+    var hsl = rgbToHsl(r, g, b);
+    currentH = hsl[0]; currentS = hsl[1]; currentL = hsl[2];
+    updateFromHSL();
+  }
+  rIn.addEventListener("input", onRGBInput);
+  gIn.addEventListener("input", onRGBInput);
+  bIn.addEventListener("input", onRGBInput);
+
+  function onHSLInput() {
+    currentH = Math.max(0, Math.min(360, parseInt(hIn.value) || 0));
+    currentS = Math.max(0, Math.min(100, parseInt(sIn.value) || 0));
+    currentL = Math.max(0, Math.min(100, parseInt(lIn.value) || 0));
+    updateFromHSL();
+  }
+  hIn.addEventListener("input", onHSLInput);
+  sIn.addEventListener("input", onHSLInput);
+  lIn.addEventListener("input", onHSLInput);
+
+  /* --- COPY BUTTONS --- */
+  document.querySelectorAll(".copy-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var text;
+      if (btn.dataset.target) {
+        text = document.getElementById(btn.dataset.target).value;
+      } else if (btn.dataset.copy === "rgb") {
+        text = "rgb(" + rIn.value + ", " + gIn.value + ", " + bIn.value + ")";
+      } else if (btn.dataset.copy === "hsl") {
+        text = "hsl(" + hIn.value + ", " + sIn.value + "%, " + lIn.value + "%)";
+      }
+      if (text && navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+        btn.textContent = "Copied!";
+        btn.classList.add("copied");
+        setTimeout(function() { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1200);
+      }
+    });
+  });
+
+  /* --- HARMONIES --- */
+  function makeSwatches(container, colors) {
+    container.innerHTML = "";
+    colors.forEach(function(c) {
+      var hex = rgbToHex.apply(null, hslToRgb(c[0] % 360, c[1], c[2]));
+      var sw = document.createElement("div");
+      sw.className = "harmony-swatch";
+      sw.style.background = hex;
+      sw.title = hex;
+      sw.addEventListener("click", function() {
+        currentH = c[0] % 360; currentS = c[1]; currentL = c[2];
+        updateFromHSL();
+      });
+      container.appendChild(sw);
+    });
+  }
+
+  function updateHarmonies() {
+    var h = currentH, s = currentS, l = currentL;
+    makeSwatches(document.getElementById("harmComp"), [[h, s, l], [(h + 180) % 360, s, l]]);
+    makeSwatches(document.getElementById("harmTriad"), [[h, s, l], [(h + 120) % 360, s, l], [(h + 240) % 360, s, l]]);
+    makeSwatches(document.getElementById("harmAnalog"), [[(h - 30 + 360) % 360, s, l], [h, s, l], [(h + 30) % 360, s, l]]);
+    makeSwatches(document.getElementById("harmSplit"), [[h, s, l], [(h + 150) % 360, s, l], [(h + 210) % 360, s, l]]);
+  }
+
+  /* --- PALETTE EXTRACTION --- */
+  var imgDrop = document.getElementById("imgDropZone");
+  var imgFileIn = document.getElementById("imgFileInput");
+  var extractedImg = document.getElementById("extractedImg");
+  var paletteGrid = document.getElementById("paletteGrid");
+
+  imgDrop.addEventListener("click", function() { imgFileIn.click(); });
+  imgFileIn.addEventListener("change", function() {
+    if (imgFileIn.files && imgFileIn.files[0]) extractPalette(imgFileIn.files[0]);
+  });
+  imgDrop.addEventListener("dragover", function(e) { e.preventDefault(); imgDrop.classList.add("drag-over"); });
+  imgDrop.addEventListener("dragleave", function() { imgDrop.classList.remove("drag-over"); });
+  imgDrop.addEventListener("drop", function(e) {
+    e.preventDefault(); imgDrop.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) extractPalette(e.dataTransfer.files[0]);
+  });
+
+  function extractPalette(file) {
+    if (!file.type.startsWith("image/")) return;
+    var img = new Image();
+    img.onload = function() {
+      extractedImg.src = URL.createObjectURL(file);
+      extractedImg.classList.remove("hidden");
+      // Sample image at reduced size for speed
+      var canvas = document.createElement("canvas");
+      var size = 100;
+      canvas.width = size;
+      canvas.height = Math.round(size * (img.naturalHeight / img.naturalWidth));
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+      // Quantize colors into buckets
+      var buckets = {};
+      for (var i = 0; i < data.length; i += 4) {
+        var r = Math.round(data[i] / 32) * 32;
+        var g = Math.round(data[i+1] / 32) * 32;
+        var b = Math.round(data[i+2] / 32) * 32;
+        var key = r + "," + g + "," + b;
+        buckets[key] = (buckets[key] || 0) + 1;
+      }
+
+      // Sort by frequency, take top 8
+      var sorted = Object.keys(buckets).sort(function(a, b) { return buckets[b] - buckets[a]; });
+      var topColors = sorted.slice(0, 8);
+
+      paletteGrid.innerHTML = "";
+      topColors.forEach(function(key) {
+        var parts = key.split(",");
+        var hex = rgbToHex(parseInt(parts[0]), parseInt(parts[1]), parseInt(parts[2]));
+        var sw = document.createElement("div");
+        sw.className = "palette-swatch";
+        sw.style.background = hex;
+        sw.innerHTML = '<span class="tip">' + hex + '</span>';
+        sw.addEventListener("click", function() {
+          var rgb = hexToRgb(hex);
+          var hsl = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+          currentH = hsl[0]; currentS = hsl[1]; currentL = hsl[2];
+          updateFromHSL();
+          window.scrollTo({top: 0, behavior: "smooth"});
+        });
+        paletteGrid.appendChild(sw);
+      });
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  /* --- INIT --- */
+  drawHueBar();
+  drawSpectrum();
+  updateFromHSL();
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+<li><a href="/tools/favicon-generator.html" style="color:#3b82f6;text-decoration:none;">Favicon Generator Online — Create Multi-Size Favicons Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

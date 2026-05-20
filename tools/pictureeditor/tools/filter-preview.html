@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photo Filter Preview Online — Instagram-Style Filters &amp; Custom Builder Free | PictureEditor</title>
+<meta name="description" content="Free online photo filter preview tool. 12 Instagram-style preset filters plus a custom filter builder with brightness, contrast, saturation, hue-rotate, and blur sliders. Side-by-side before/after comparison. Client-side — your images never leave your device.">
+<meta name="keywords" content="photo filter, Instagram filter, image filter online, filter preview, custom filter builder, photo effects, image effects, brightness contrast, saturation filter, before after comparison">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/filter-preview.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/filter-preview.html">
+<meta property="og:title" content="Photo Filter Preview Online — Instagram-Style Filters &amp; Custom Builder Free">
+<meta property="og:description" content="Preview 12 preset photo filters and build custom effects with sliders. Side-by-side comparison. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photo Filter Preview Online — Instagram-Style Filters &amp; Custom Builder Free">
+<meta name="twitter:description" content="Apply Instagram-style filters with real-time preview. Custom filter builder with brightness, contrast, saturation controls. Free, private.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Photo Filter Preview Online",
+    "url":"https://pictureeditor.net/tools/filter-preview.html",
+    "description":"Free online photo filter preview tool with 12 Instagram-style presets and a custom filter builder. Adjust brightness, contrast, saturation, hue-rotate, and blur with real-time side-by-side before/after comparison.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with CSS Filter and Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What photo filters are available in this tool?","acceptedAnswer":{"@type":"Answer","text":"The tool includes 12 preset filters: Grayscale, Sepia, Vintage, Warm, Cool, High Contrast, Fade, Dramatic, Noir, Vivid, Muted, and Retro. Each preset applies a carefully tuned combination of brightness, contrast, saturation, hue-rotate, and blur values. You can also build fully custom filters using individual sliders for each parameter."}},
+      {"@type":"Question","name":"Can I compare the filtered image with the original?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool provides a side-by-side before/after view. The original image displays on the left and the filtered version on the right, both at the same size. This makes it easy to evaluate exactly how each filter or custom adjustment changes the image before you commit to downloading the result."}},
+      {"@type":"Question","name":"How does the custom filter builder work?","acceptedAnswer":{"@type":"Answer","text":"The custom filter builder provides five sliders: Brightness (0-200%), Contrast (0-200%), Saturation (0-200%), Hue Rotate (0-360 degrees), and Blur (0-20 pixels). Each slider adjusts its parameter in real time. You can start from any preset and fine-tune it using the sliders, or build a completely custom filter from scratch. The current CSS filter string is displayed so you can copy it for use in your own CSS code."}},
+      {"@type":"Question","name":"What image formats can I apply filters to?","acceptedAnswer":{"@type":"Answer","text":"You can upload JPEG, PNG, and WebP images up to 50 MB. The filtered result is exported as a PNG file to preserve maximum quality. All filter processing uses the HTML5 Canvas API and CSS filters, which work identically across all supported image formats regardless of the input type."}},
+      {"@type":"Question","name":"Are my images processed on a server?","acceptedAnswer":{"@type":"Answer","text":"No. All filter processing happens entirely in your browser using CSS filters and the HTML5 Canvas API. Your images never leave your device. The filters are applied as CSS filter properties on a canvas element, then the result is rendered to a downloadable image. No server communication occurs during the entire filtering process."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"Filter Preview","item":"https://pictureeditor.net/tools/filter-preview.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;margin-bottom:16px}
+.tab-bar button{padding:8px 18px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);border-bottom:none;background:#f1f5f9;color:var(--text-secondary)}
+.tab-bar button.active{background:var(--surface);color:var(--accent);border-color:var(--accent);border-bottom:1.5px solid var(--surface);margin-bottom:-1px;position:relative;z-index:1}
+.tab-content{border:1.5px solid var(--border);border-radius:0 8px 8px 8px;padding:16px;background:var(--surface)}
+/* Color input */
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field input[type="text"],.text-field input[type="number"]{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.text-field input:focus{border-color:var(--accent)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+/* Filter-specific */
+.filter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.filter-btn{padding:10px 6px;border:2px solid var(--border);border-radius:8px;background:var(--surface);text-align:center;font-size:.75rem;font-weight:600;color:var(--text-secondary);transition:.15s}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{border-color:var(--accent);background:#eef2ff;color:var(--accent)}
+.css-output{background:#f1f5f9;border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-family:monospace;font-size:.8rem;color:var(--text-secondary);word-break:break-all;margin:12px 0}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .tab-bar button{padding:6px 12px;font-size:.78rem}
+  .filter-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Filter Preview
+</nav>
+
+<h2>Photo Filter Preview &mdash; Instagram-Style Filters &amp; Custom Builder</h2>
+<p class="subtitle">Preview 12 preset photo filters instantly or build your own custom effects with brightness, contrast, saturation, hue-rotate, and blur sliders. Side-by-side before/after comparison. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+  <h3 id="filter-tool" style="margin-top:0">Filter Preview Tool</h3>
+  <p>Upload an image below, then choose a preset filter or switch to the custom builder to create your own effect. The before/after preview updates in real time. Download the filtered result when you are satisfied.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 50 MB</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+  <!-- Controls -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="active" id="tabPresets" onclick="switchTab('presets')">Preset Filters</button>
+      <button id="tabCustom" onclick="switchTab('custom')">Custom Builder</button>
+    </div>
+
+    <!-- Presets Tab -->
+    <div class="tab-content" id="presetsTab">
+      <div class="filter-grid" id="filterGrid">
+        <button class="filter-btn active" data-filter="none">Original</button>
+        <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+        <button class="filter-btn" data-filter="sepia">Sepia</button>
+        <button class="filter-btn" data-filter="vintage">Vintage</button>
+        <button class="filter-btn" data-filter="warm">Warm</button>
+        <button class="filter-btn" data-filter="cool">Cool</button>
+        <button class="filter-btn" data-filter="high-contrast">High Contrast</button>
+        <button class="filter-btn" data-filter="fade">Fade</button>
+        <button class="filter-btn" data-filter="dramatic">Dramatic</button>
+        <button class="filter-btn" data-filter="noir">Noir</button>
+        <button class="filter-btn" data-filter="vivid">Vivid</button>
+        <button class="filter-btn" data-filter="muted">Muted</button>
+        <button class="filter-btn" data-filter="retro">Retro</button>
+      </div>
+    </div>
+
+    <!-- Custom Tab -->
+    <div class="tab-content hidden" id="customTab">
+      <div class="slider-field">
+        <label>Brightness <span id="brightnessVal">100%</span></label>
+        <input type="range" id="brightnessSlider" min="0" max="200" value="100">
+      </div>
+      <div class="slider-field">
+        <label>Contrast <span id="contrastVal">100%</span></label>
+        <input type="range" id="contrastSlider" min="0" max="200" value="100">
+      </div>
+      <div class="slider-field">
+        <label>Saturation <span id="saturationVal">100%</span></label>
+        <input type="range" id="saturationSlider" min="0" max="200" value="100">
+      </div>
+      <div class="slider-field">
+        <label>Hue Rotate <span id="hueVal">0&deg;</span></label>
+        <input type="range" id="hueSlider" min="0" max="360" value="0">
+      </div>
+      <div class="slider-field">
+        <label>Blur <span id="blurVal">0px</span></label>
+        <input type="range" id="blurSlider" min="0" max="20" value="0">
+      </div>
+      <button class="btn btn-outline" id="resetFiltersBtn" style="font-size:.8rem;padding:6px 14px">Reset to Default</button>
+    </div>
+
+    <!-- CSS Output -->
+    <div class="css-output" id="cssOutput">filter: none;</div>
+
+    <!-- Info Row -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Dimensions</div><div class="value" id="dimInfo">--</div></div>
+      <div class="info-box accent"><div class="label">Active Filter</div><div class="value" id="filterInfo">Original</div></div>
+      <div class="info-box green"><div class="label">Mode</div><div class="value" id="modeInfo">Preset</div></div>
+    </div>
+
+    <!-- Before/After Preview -->
+    <div class="preview-area">
+      <div class="preview-pane">
+        <div class="pane-label">Original</div>
+        <canvas id="beforeCanvas"></canvas>
+      </div>
+      <div class="preview-pane">
+        <div class="pane-label">Filtered</div>
+        <canvas id="afterCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Filtered Image
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#filter-tool">Filter Preview Tool</a></li>
+    <li><a href="#understanding-filters">Understanding Photo Filters</a></li>
+    <li><a href="#preset-guide">Preset Filter Guide</a></li>
+    <li><a href="#custom-building">Building Custom Filters</a></li>
+    <li><a href="#filter-psychology">The Psychology of Photo Filters</a></li>
+    <li><a href="#professional-filtering">Professional Filtering Workflows</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: UNDERSTANDING FILTERS ===== -->
+<section class="card" id="understanding-filters">
+  <h3 style="margin-top:0">Understanding Photo Filters</h3>
+
+  <h4>What Filters Actually Do</h4>
+  <p>Photo filters are mathematical transformations applied to the color values of every pixel in an image. When you apply a "Warm" filter, the tool increases red and yellow channel values while slightly reducing blue channels. A "Grayscale" filter converts each pixel's RGB values to a single luminance value. Understanding these underlying mechanics helps you make informed decisions about which filter to apply and how to customize the effect for your specific image. Every filter is essentially a recipe of adjustments to five core properties: brightness, contrast, saturation, hue rotation, and blur.</p>
+  <p>Modern browsers implement these transformations through CSS filters and the Canvas API, which leverage hardware-accelerated graphics processing. This means filter operations that once required expensive desktop software and minutes of processing time now happen instantaneously in your browser. The real-time preview you see when adjusting sliders or clicking presets reflects the same GPU-accelerated pipeline that powers professional image editing, just exposed through a simpler, more accessible interface that anyone can use without training or software installation.</p>
+
+  <h4>Destructive vs Non-Destructive Editing</h4>
+  <p>Filters applied in this tool are non-destructive until you download. The original image data remains intact in memory while the filter is applied as a visual overlay during preview. You can switch between presets, adjust custom sliders, and return to the original at any time without quality loss. Only when you click download does the tool render the filter permanently onto a new image file. This workflow matches professional standards — always preserve the original and generate filtered versions as needed. If you want to try multiple filter variations, download each one separately rather than re-filtering an already-filtered image, which compounds adjustments and degrades quality.</p>
+
+  <h4>The Five Core Filter Properties</h4>
+  <p>Every filter in this tool — whether preset or custom — is built from five fundamental CSS filter functions. Brightness controls the overall lightness of the image, where 100% is unchanged, values below darken, and values above brighten. Contrast controls the difference between light and dark areas, where higher values create more dramatic tonal separation. Saturation controls color intensity, where 0% produces a completely desaturated grayscale image and values above 100% intensify all colors. Hue rotation shifts all colors around the color wheel by the specified number of degrees, transforming reds into greens, blues into yellows, and so on. Blur softens the image by averaging nearby pixels, useful for creating dreamy or soft-focus effects.</p>
+</section>
+
+<!-- ===== SECTION: PRESET GUIDE ===== -->
+<section class="card" id="preset-guide">
+  <h3 style="margin-top:0">Preset Filter Guide</h3>
+
+  <h4>Grayscale and Noir: Classic Black and White</h4>
+  <p>The Grayscale filter removes all color information, converting the image to shades of gray based on luminance values. This is the simplest and most dramatic transformation available. Black and white photography emphasizes form, texture, light, and shadow by eliminating the distraction of color. It works exceptionally well for portraits, architecture, street photography, and any image where the composition and tonal range are more compelling than the color palette. The Noir filter extends Grayscale by boosting contrast to create deep blacks and bright whites, emulating the high-contrast look of classic film noir cinematography and fine art darkroom printing.</p>
+
+  <h4>Sepia, Vintage, and Retro: Nostalgic Warmth</h4>
+  <p>Sepia applies the characteristic warm brown tone of early photographic prints. This filter immediately communicates age, history, and nostalgia. The Vintage filter builds on this by adding slight desaturation and reduced contrast, mimicking the look of faded prints that have aged naturally over decades. The Retro filter introduces a stronger color shift with boosted warm tones and slight hue rotation, creating the oversaturated, color-shifted look of 1970s consumer film stock. These three filters form a spectrum from subtle antique (Sepia) to pronounced throwback (Retro), each appropriate for different levels of nostalgic intent.</p>
+
+  <h4>Warm, Cool, Vivid, and Muted: Color Temperature and Intensity</h4>
+  <p>Warm and Cool filters adjust the color temperature of the image. Warm adds golden tones that suggest sunlight, firelight, or autumn, making skin tones glow and landscapes feel inviting. Cool shifts toward blue tones that suggest twilight, winter, or underwater scenes, creating a calm, detached mood. Vivid boosts both saturation and contrast simultaneously, making every color pop with maximum impact — ideal for food photography, tropical landscapes, and product images that need to grab attention in social media feeds. Muted does the opposite, reducing saturation and slightly lowering contrast to create a soft, understated palette popular in lifestyle and minimalist photography.</p>
+
+  <h4>High Contrast, Fade, and Dramatic: Tonal Manipulation</h4>
+  <p>High Contrast increases the contrast value significantly while keeping other parameters neutral, creating bold images with strong tonal separation. This filter works best on images with clear subjects and defined edges. Fade reduces both contrast and brightness slightly while increasing the black point, creating the washed-out look popular in contemporary editorial photography. The whites stay bright but the blacks become slightly gray, removing the heaviness from dark areas. Dramatic combines high contrast with slight desaturation, creating an intense, cinematic look that emphasizes mood and atmosphere over literal color representation. This filter is favored for landscape photography, urban scenes, and any image that benefits from heightened emotional impact.</p>
+</section>
+
+<!-- ===== SECTION: CUSTOM BUILDING ===== -->
+<section class="card" id="custom-building">
+  <h3 style="margin-top:0">Building Custom Filters</h3>
+
+  <h4>Starting from a Preset</h4>
+  <p>The most efficient way to create a custom filter is to start with the preset that is closest to your desired result, then switch to the Custom Builder tab and fine-tune the individual sliders. The sliders will reflect the values of the last applied preset, giving you a starting point rather than building from scratch. From there, you might increase saturation by 10%, reduce brightness by 5%, or add a slight hue rotation. These minor adjustments personalize the preset without requiring you to understand the complex interaction between all five filter parameters from zero.</p>
+
+  <h4>Understanding Parameter Interactions</h4>
+  <p>Filter parameters interact with each other in ways that are not always intuitive. Increasing contrast amplifies the effect of saturation adjustments. High brightness values wash out subtle hue rotations. Blur softens the visual impact of high contrast settings. Learning these interactions is the key to building effective custom filters. Start by adjusting one parameter at a time and observing the before/after comparison. Once you understand what each parameter does individually, you can predict how combinations will behave and build your signature look with confidence and efficiency.</p>
+
+  <h4>Copying the CSS Filter String</h4>
+  <p>The CSS output displayed below the sliders shows the exact CSS filter property value that produces the current effect. Web developers can copy this string directly into their stylesheets to apply the same filter to images on their websites. This makes the tool useful not just for image export but also as a visual CSS filter builder. Designers can experiment with filter combinations visually, find the perfect look, then implement it in CSS where the filter is applied dynamically without creating a separate modified image file. This approach is more efficient for web performance because the browser applies the filter during rendering rather than downloading a pre-filtered image.</p>
+</section>
+
+<!-- ===== SECTION: FILTER PSYCHOLOGY ===== -->
+<section class="card" id="filter-psychology">
+  <h3 style="margin-top:0">The Psychology of Photo Filters</h3>
+
+  <h4>Color Temperature and Emotional Response</h4>
+  <p>Warm-toned images trigger associations with comfort, intimacy, and positive emotions. Research in visual psychology shows that warm filters increase perceived attractiveness of portrait subjects, make food appear more appetizing, and make interior spaces feel more inviting. Cool-toned images trigger associations with professionalism, detachment, and calm contemplation. Understanding these associations helps you choose filters that reinforce rather than contradict the message your image is meant to convey. A warm filter on a corporate headshot communicates approachability. A cool filter on the same headshot communicates authority and competence.</p>
+
+  <h4>Saturation and Perceived Quality</h4>
+  <p>Moderately increased saturation is universally perceived as more appealing than both undersaturated and oversaturated images. This finding, replicated across multiple visual preference studies, explains why the most popular social media filters tend to boost saturation by 10-20% rather than dramatically altering it. Oversaturated images look artificial and untrustworthy, while undersaturated images look dull and unprofessional. The sweet spot varies by content — landscapes tolerate higher saturation than portraits, and product photography requires accurate color representation that limits saturation adjustments. The Vivid and Muted presets represent the extremes, while most other presets stay within the preferred moderate range.</p>
+
+  <h4>Consistency Creates Brand Identity</h4>
+  <p>The most successful social media accounts and websites use consistent filtering across all their images. This consistency creates a recognizable visual brand that followers identify instantly when scrolling. Building a custom filter that matches your brand's personality and applying it uniformly to all your images is one of the most effective low-effort branding strategies available. The custom builder in this tool lets you experiment until you find your signature look, and the CSS output makes it easy to document and replicate the exact settings across different editing sessions and publishing platforms.</p>
+</section>
+
+<!-- ===== SECTION: PROFESSIONAL FILTERING ===== -->
+<section class="card" id="professional-filtering">
+  <h3 style="margin-top:0">Professional Filtering Workflows</h3>
+
+  <h4>Batch Consistency Across Photo Sets</h4>
+  <p>When filtering a series of related images — such as a product lineup, event gallery, or portfolio collection — consistency is critical. Note the exact slider values or preset name you use for the first image and apply identical settings to all subsequent images in the set. Mismatched filtering across a photo series looks unprofessional and creates visual discord that distracts viewers from the content. The CSS output string serves as a portable recipe that documents your exact filter settings for replication across the entire image set.</p>
+
+  <h4>Platform-Specific Optimization</h4>
+  <p>Different platforms display images differently, and these display differences affect how filters appear to viewers. Instagram applies its own compression and color processing that can shift filter results slightly. LinkedIn displays images with lower saturation than the original. Twitter's compression reduces fine detail, making subtle filter effects invisible. When filtering images for specific platforms, apply the filter and then view the image at the resolution and color space the platform will use. Slightly exaggerating your filter effect compensates for platform compression, ensuring the final published version matches your intended look despite the processing pipeline it passes through.</p>
+
+  <h4>Combining Filters with Other Edits</h4>
+  <p>Filters work best as a finishing step after other editing is complete. Crop, straighten, and retouch your image first, then apply the filter. This order matters because filters interact with the tonal range and color distribution of the image. Cropping changes the distribution of light and dark areas, which changes how a contrast filter affects the image. Retouching skin tones before filtering ensures the filter preserves the corrected values rather than amplifying imperfections. Think of filtering as the final seasoning on a dish that is already properly prepared — it enhances what is already good rather than masking problems in the underlying image.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What photo filters are available in this tool?</div>
+    <div class="faq-a"><p>The tool includes 12 preset filters: Grayscale, Sepia, Vintage, Warm, Cool, High Contrast, Fade, Dramatic, Noir, Vivid, Muted, and Retro. Each preset applies a carefully tuned combination of brightness, contrast, saturation, hue-rotate, and blur values. You can also build fully custom filters using individual sliders for each parameter.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I compare the filtered image with the original?</div>
+    <div class="faq-a"><p>Yes. The tool provides a side-by-side before/after view. The original image displays on the left and the filtered version on the right, both at the same size. This makes it easy to evaluate exactly how each filter or custom adjustment changes the image before you commit to downloading the result.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the custom filter builder work?</div>
+    <div class="faq-a"><p>The custom filter builder provides five sliders: Brightness (0-200%), Contrast (0-200%), Saturation (0-200%), Hue Rotate (0-360 degrees), and Blur (0-20 pixels). Each slider adjusts its parameter in real time. You can start from any preset and fine-tune it, or build a custom filter from scratch. The current CSS filter string is displayed so you can copy it for use in your own code.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What image formats can I apply filters to?</div>
+    <div class="faq-a"><p>You can upload JPEG, PNG, and WebP images up to 50 MB. The filtered result is exported as a high-quality PNG file. All filter processing uses the HTML5 Canvas API and CSS filters, which work identically across all supported image formats regardless of the source format you upload.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images processed on a server?</div>
+    <div class="faq-a"><p>No. All filter processing happens entirely in your browser using CSS filters and the HTML5 Canvas API. Your images never leave your device. The filters are applied as CSS filter properties on a canvas element, then the result is rendered to a downloadable PNG. Zero server communication occurs during the entire process.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var filterGrid = document.getElementById("filterGrid");
+  var beforeCanvas = document.getElementById("beforeCanvas");
+  var afterCanvas = document.getElementById("afterCanvas");
+  var bCtx = beforeCanvas.getContext("2d");
+  var aCtx = afterCanvas.getContext("2d");
+  var cssOutput = document.getElementById("cssOutput");
+  var dimInfo = document.getElementById("dimInfo");
+  var filterInfo = document.getElementById("filterInfo");
+  var modeInfo = document.getElementById("modeInfo");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var resetFiltersBtn = document.getElementById("resetFiltersBtn");
+
+  var brightnessSlider = document.getElementById("brightnessSlider");
+  var contrastSlider = document.getElementById("contrastSlider");
+  var saturationSlider = document.getElementById("saturationSlider");
+  var hueSlider = document.getElementById("hueSlider");
+  var blurSlider = document.getElementById("blurSlider");
+  var brightnessVal = document.getElementById("brightnessVal");
+  var contrastVal = document.getElementById("contrastVal");
+  var saturationVal = document.getElementById("saturationVal");
+  var hueVal = document.getElementById("hueVal");
+  var blurVal = document.getElementById("blurVal");
+
+  var sourceImg = null;
+  var currentTab = "presets";
+  var currentFilter = "none";
+
+  var presets = {
+    "none":         {b:100, c:100, s:100, h:0, bl:0},
+    "grayscale":    {b:100, c:100, s:0,   h:0, bl:0},
+    "sepia":        {b:100, c:95,  s:30,  h:20, bl:0},
+    "vintage":      {b:105, c:85,  s:60,  h:15, bl:0},
+    "warm":         {b:105, c:105, s:115, h:10, bl:0},
+    "cool":         {b:100, c:105, s:90,  h:200, bl:0},
+    "high-contrast":{b:100, c:150, s:100, h:0, bl:0},
+    "fade":         {b:115, c:80,  s:80,  h:0, bl:0},
+    "dramatic":     {b:90,  c:140, s:80,  h:0, bl:0},
+    "noir":         {b:95,  c:160, s:0,   h:0, bl:0},
+    "vivid":        {b:105, c:130, s:160, h:0, bl:0},
+    "muted":        {b:105, c:90,  s:55,  h:0, bl:0},
+    "retro":        {b:110, c:90,  s:130, h:30, bl:0}
+  };
+
+  /* Tab switching */
+  window.switchTab = function(tab) {
+    currentTab = tab;
+    document.getElementById("tabPresets").classList.toggle("active", tab === "presets");
+    document.getElementById("tabCustom").classList.toggle("active", tab === "custom");
+    document.getElementById("presetsTab").classList.toggle("hidden", tab !== "presets");
+    document.getElementById("customTab").classList.toggle("hidden", tab !== "custom");
+    modeInfo.textContent = tab === "presets" ? "Preset" : "Custom";
+    if (tab === "custom") {
+      /* Sync sliders to current filter values */
+      var p = presets[currentFilter] || presets["none"];
+      brightnessSlider.value = p.b; brightnessVal.textContent = p.b + "%";
+      contrastSlider.value = p.c; contrastVal.textContent = p.c + "%";
+      saturationSlider.value = p.s; saturationVal.textContent = p.s + "%";
+      hueSlider.value = p.h; hueVal.innerHTML = p.h + "&deg;";
+      blurSlider.value = p.bl; blurVal.textContent = p.bl + "px";
+    }
+    renderPreview();
+  };
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  /* Filter selection */
+  filterGrid.addEventListener("click", function(e) {
+    var btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    currentFilter = btn.dataset.filter;
+    filterGrid.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    filterInfo.textContent = btn.textContent;
+    renderPreview();
+  });
+
+  function getFilterString() {
+    var b, c, s, h, bl;
+    if (currentTab === "presets") {
+      var p = presets[currentFilter] || presets["none"];
+      b = p.b; c = p.c; s = p.s; h = p.h; bl = p.bl;
+    } else {
+      b = parseInt(brightnessSlider.value);
+      c = parseInt(contrastSlider.value);
+      s = parseInt(saturationSlider.value);
+      h = parseInt(hueSlider.value);
+      bl = parseInt(blurSlider.value);
+    }
+    var parts = [];
+    if (b !== 100) parts.push("brightness(" + b + "%)");
+    if (c !== 100) parts.push("contrast(" + c + "%)");
+    if (s !== 100) parts.push("saturate(" + s + "%)");
+    if (h !== 0) parts.push("hue-rotate(" + h + "deg)");
+    if (bl !== 0) parts.push("blur(" + bl + "px)");
+    return parts.length ? parts.join(" ") : "none";
+  }
+
+  function renderPreview() {
+    if (!sourceImg) return;
+    var maxW = 420;
+    var scale = sourceImg.naturalWidth > maxW ? maxW / sourceImg.naturalWidth : 1;
+    var w = Math.round(sourceImg.naturalWidth * scale);
+    var h = Math.round(sourceImg.naturalHeight * scale);
+
+    /* Before */
+    beforeCanvas.width = w;
+    beforeCanvas.height = h;
+    bCtx.clearRect(0, 0, w, h);
+    bCtx.drawImage(sourceImg, 0, 0, w, h);
+
+    /* After */
+    afterCanvas.width = w;
+    afterCanvas.height = h;
+    aCtx.clearRect(0, 0, w, h);
+    var filterStr = getFilterString();
+    aCtx.filter = filterStr;
+    aCtx.drawImage(sourceImg, 0, 0, w, h);
+    aCtx.filter = "none";
+
+    cssOutput.textContent = "filter: " + filterStr + ";";
+  }
+
+  /* Slider events */
+  var sliders = [
+    {el: brightnessSlider, valEl: brightnessVal, suffix: "%"},
+    {el: contrastSlider, valEl: contrastVal, suffix: "%"},
+    {el: saturationSlider, valEl: saturationVal, suffix: "%"},
+    {el: hueSlider, valEl: hueVal, suffix: "\u00B0"},
+    {el: blurSlider, valEl: blurVal, suffix: "px"}
+  ];
+  sliders.forEach(function(s) {
+    s.el.addEventListener("input", function() {
+      s.valEl.textContent = s.el.value + s.suffix;
+      filterInfo.textContent = "Custom";
+      renderPreview();
+    });
+  });
+
+  resetFiltersBtn.addEventListener("click", function() {
+    brightnessSlider.value = 100; brightnessVal.textContent = "100%";
+    contrastSlider.value = 100; contrastVal.textContent = "100%";
+    saturationSlider.value = 100; saturationVal.textContent = "100%";
+    hueSlider.value = 0; hueVal.innerHTML = "0&deg;";
+    blurSlider.value = 0; blurVal.textContent = "0px";
+    filterInfo.textContent = "Default";
+    renderPreview();
+  });
+
+  /* Download */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var offscreen = document.createElement("canvas");
+    offscreen.width = sourceImg.naturalWidth;
+    offscreen.height = sourceImg.naturalHeight;
+    var octx = offscreen.getContext("2d");
+    octx.filter = getFilterString();
+    octx.drawImage(sourceImg, 0, 0, sourceImg.naturalWidth, sourceImg.naturalHeight);
+    octx.filter = "none";
+
+    offscreen.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "filtered-image.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    currentFilter = "none";
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    filterGrid.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+    filterGrid.querySelector('[data-filter="none"]').classList.add("active");
+    filterInfo.textContent = "Original";
+    brightnessSlider.value = 100; brightnessVal.textContent = "100%";
+    contrastSlider.value = 100; contrastVal.textContent = "100%";
+    saturationSlider.value = 100; saturationVal.textContent = "100%";
+    hueSlider.value = 0; hueVal.innerHTML = "0&deg;";
+    blurSlider.value = 0; blurVal.textContent = "0px";
+    cssOutput.textContent = "filter: none;";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+<li><a href="/tools/color-picker.html" style="color:#3b82f6;text-decoration:none;">Color Picker & Palette Extractor — Free Online Tool</a></li>
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+</ul>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide | PictureEditor</title>
+<meta name="description" content="Complete image format comparison: WebP vs AVIF vs PNG vs JPEG vs GIF vs SVG. Interactive file size estimator, quality comparison slider, and decision flowchart. Upload images to see estimated size in each format.">
+<meta name="keywords" content="image format comparison, webp vs jpeg, avif vs webp, png vs jpeg, best image format, image format guide, webp browser support, avif browser support, image file size comparison, which image format to use">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/guides/image-formats-comparison.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/guides/image-formats-comparison.html">
+<meta property="og:title" content="Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide">
+<meta property="og:description" content="Interactive image format comparison with file size estimator. WebP, AVIF, PNG, JPEG, GIF, SVG side by side.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide">
+<meta name="twitter:description" content="Compare image formats side by side. Upload to see estimated file sizes. Interactive decision flowchart.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Format Comparison Tool",
+    "url":"https://pictureeditor.net/guides/image-formats-comparison.html",
+    "description":"Interactive image format comparison tool with file size estimator and quality comparison slider.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Which image format has the smallest file size?","acceptedAnswer":{"@type":"Answer","text":"For photographs, AVIF produces the smallest files, followed by WebP, then JPEG. AVIF is typically 30-50% smaller than WebP and 50-70% smaller than JPEG at equivalent visual quality. For graphics with solid colors and text, SVG (for vector) and PNG (for raster) are most efficient."}},
+      {"@type":"Question","name":"Is WebP better than JPEG in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. WebP produces 25-35% smaller files than JPEG at equivalent quality, supports transparency and animation, and has over 99% browser support in 2026. The only reason to use JPEG is compatibility with legacy systems that do not support WebP."}},
+      {"@type":"Question","name":"Should I use AVIF or WebP?","acceptedAnswer":{"@type":"Answer","text":"AVIF offers 30-50% better compression than WebP but has lower browser support (93% vs 99%+) and significantly slower encoding speed. Use WebP as your default and offer AVIF as a progressive enhancement via the HTML picture element for browsers that support it."}},
+      {"@type":"Question","name":"When should I use PNG instead of JPEG?","acceptedAnswer":{"@type":"Answer","text":"Use PNG when you need lossless compression (screenshots, technical diagrams), transparency, or images with sharp edges and text. JPEG introduces visible artifacts around text and sharp edges. For photographs without transparency, JPEG or WebP are always more efficient than PNG."}},
+      {"@type":"Question","name":"Is GIF still relevant in 2026?","acceptedAnswer":{"@type":"Answer","text":"GIF is largely obsolete for new content. Animated WebP and AVIF produce dramatically smaller files than GIF with much better color depth. The only remaining use case for GIF is compatibility with very old messaging systems that do not support modern formats."}}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hidden{display:none!important}
+/* Table */
+.format-compare{width:100%;border-collapse:collapse;margin:16px 0}
+.format-compare th,.format-compare td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:.875rem}
+.format-compare th{background:#f1f5f9;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary);position:sticky;top:56px}
+.format-compare tr:hover{background:#f8fafc}
+.format-compare .good{color:var(--green);font-weight:600}
+.format-compare .ok{color:#eab308;font-weight:600}
+.format-compare .bad{color:#ef4444;font-weight:600}
+/* Drop zone */
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:40px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:.9rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:40px;height:40px;color:var(--text-secondary)}
+/* Size estimator results */
+.est-results{margin-top:16px}
+.est-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;background:#f8fafc}
+.est-row .fmt{font-weight:700;min-width:60px;font-size:.9rem}
+.est-row .bar-wrap{flex:1;height:20px;background:#e2e8f0;border-radius:4px;overflow:hidden;position:relative}
+.est-row .bar{height:100%;border-radius:4px;transition:width .5s ease}
+.est-row .size-label{font-size:.8rem;font-weight:600;min-width:80px;text-align:right}
+/* Quality comparison slider */
+.compare-wrap{position:relative;max-width:100%;overflow:hidden;border-radius:8px;border:1px solid var(--border);margin-top:12px;touch-action:none}
+.compare-wrap img{display:block;width:100%;max-height:400px;object-fit:contain}
+.compare-overlay{position:absolute;top:0;left:0;height:100%;overflow:hidden}
+.compare-overlay img{display:block;height:100%;width:auto;max-height:400px;object-fit:contain}
+.compare-slider{position:absolute;top:0;width:3px;height:100%;background:var(--accent);cursor:ew-resize;z-index:10}
+.compare-slider::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;background:var(--accent);border-radius:50%;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.compare-labels{display:flex;justify-content:space-between;padding:8px 12px;font-size:.8rem;font-weight:600;color:var(--text-secondary)}
+/* Flowchart */
+.flowchart{padding:20px;background:#f8fafc;border-radius:var(--radius);margin-top:16px}
+.flow-question{font-weight:700;font-size:1rem;margin-bottom:12px;text-align:center;color:var(--text)}
+.flow-options{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.flow-btn{padding:10px 24px;border:2px solid var(--border);border-radius:8px;font-size:.9rem;font-weight:600;background:var(--surface);cursor:pointer;transition:.15s}
+.flow-btn:hover{border-color:var(--accent);color:var(--accent);background:#eef2ff}
+.flow-result{text-align:center;padding:20px;background:var(--accent);color:#fff;border-radius:8px;font-size:1.1rem;font-weight:700;display:none}
+.flow-result.show{display:block}
+.flow-restart{margin-top:10px;text-align:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .format-compare{font-size:.8rem}
+  .format-compare th,.format-compare td{padding:8px 6px}
+  .est-row{flex-wrap:wrap}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/guides/image-formats-comparison.html">Guides</a><span>/</span>
+  Image Formats Comparison
+</nav>
+
+<h2>Image Formats Comparison — The Complete Guide (2026)</h2>
+<p class="subtitle">WebP vs AVIF vs PNG vs JPEG vs GIF vs SVG. Interactive comparison table, file size estimator, quality slider, and a decision flowchart to help you choose the right format every time.</p>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="card" id="comparison-table">
+  <h3 style="margin-top:0">Format Comparison Table</h3>
+  <div style="overflow-x:auto">
+  <table class="format-compare">
+    <thead>
+      <tr><th>Format</th><th>Compression</th><th>Quality</th><th>Browser Support</th><th>Animation</th><th>Transparency</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>JPEG</strong></td><td class="ok">Lossy only</td><td class="ok">Good</td><td class="good">100%</td><td class="bad">No</td><td class="bad">No</td><td>Photos, universal compat.</td></tr>
+      <tr><td><strong>WebP</strong></td><td class="good">Both</td><td class="good">Excellent</td><td class="good">99%+</td><td class="good">Yes</td><td class="good">Yes (8-bit)</td><td>General web images</td></tr>
+      <tr><td><strong>AVIF</strong></td><td class="good">Both</td><td class="good">Best</td><td class="ok">93%</td><td class="good">Yes</td><td class="good">Yes (8-bit)</td><td>Maximum compression</td></tr>
+      <tr><td><strong>PNG</strong></td><td class="ok">Lossless</td><td class="good">Lossless</td><td class="good">100%</td><td class="bad">No (APNG limited)</td><td class="good">Yes (8-bit)</td><td>Screenshots, logos, UI</td></tr>
+      <tr><td><strong>GIF</strong></td><td class="bad">LZW</td><td class="bad">256 colors</td><td class="good">100%</td><td class="good">Yes</td><td class="ok">1-bit only</td><td>Simple animations (legacy)</td></tr>
+      <tr><td><strong>SVG</strong></td><td class="good">Vector</td><td class="good">Infinite scale</td><td class="good">100%</td><td class="good">Yes (CSS/SMIL)</td><td class="good">Yes</td><td>Icons, logos, illustrations</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ===== FILE SIZE ESTIMATOR ===== -->
+<section class="card" id="size-estimator">
+  <h3 style="margin-top:0">File Size Estimator</h3>
+  <p>Upload an image to see estimated file sizes in each format. The tool converts your image using the Canvas API to generate real WebP, JPEG, and PNG sizes.</p>
+
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p>Drop an image to compare format sizes</p>
+    <p class="sub">Supports JPEG, PNG, WebP</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+  <div class="est-results hidden" id="estResults">
+    <div id="estRows"></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" id="resetBtn">Try Another Image</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUALITY COMPARISON ===== -->
+<section class="card" id="quality-comparison">
+  <h3 style="margin-top:0">Visual Quality Comparison</h3>
+  <p>Upload an image above to see a side-by-side quality comparison between JPEG (quality 60) and WebP (quality 60). Drag the slider to compare.</p>
+
+  <div class="compare-wrap hidden" id="compareWrap">
+    <img id="compareBase" alt="Base format comparison">
+    <div class="compare-overlay" id="compareOverlay">
+      <img id="compareTop" alt="Overlay format comparison">
+    </div>
+    <div class="compare-slider" id="compareSlider" style="left:50%"></div>
+  </div>
+  <div class="compare-labels hidden" id="compareLabels">
+    <span>JPEG (Q60)</span>
+    <span>WebP (Q60)</span>
+  </div>
+</section>
+
+<!-- ===== DECISION FLOWCHART ===== -->
+<section class="card" id="decision-flowchart">
+  <h3 style="margin-top:0">Which Format Should I Use?</h3>
+  <p>Answer a few questions to find the best format for your use case.</p>
+
+  <div class="flowchart" id="flowchart">
+    <div id="flowContent">
+      <div class="flow-question" id="flowQ">Is your image a photograph or complex artwork with gradients?</div>
+      <div class="flow-options" id="flowOpts">
+        <button class="flow-btn" data-next="q2yes">Yes, it is a photo</button>
+        <button class="flow-btn" data-next="q2no">No, it is a graphic/logo/icon</button>
+      </div>
+    </div>
+    <div class="flow-result" id="flowResult"></div>
+    <div class="flow-restart hidden" id="flowRestart">
+      <button class="btn btn-outline" id="restartFlow">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#comparison-table">Format Comparison Table</a></li>
+    <li><a href="#size-estimator">File Size Estimator Tool</a></li>
+    <li><a href="#quality-comparison">Visual Quality Comparison</a></li>
+    <li><a href="#decision-flowchart">Which Format Should I Use?</a></li>
+    <li><a href="#jpeg-deep-dive">JPEG Deep Dive</a></li>
+    <li><a href="#webp-deep-dive">WebP Deep Dive</a></li>
+    <li><a href="#avif-deep-dive">AVIF Deep Dive</a></li>
+    <li><a href="#png-deep-dive">PNG Deep Dive</a></li>
+    <li><a href="#gif-svg">GIF and SVG</a></li>
+    <li><a href="#browser-compat">Browser Compatibility (2026)</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== JPEG DEEP DIVE ===== -->
+<section class="card" id="jpeg-deep-dive">
+  <h3 style="margin-top:0">JPEG — The Universal Standard</h3>
+
+  <h4>How JPEG Encoding Works</h4>
+  <p>JPEG (Joint Photographic Experts Group) uses a multi-step lossy compression process. The image is first converted from RGB to YCbCr color space, separating brightness (luminance) from color (chrominance) information. The chrominance channels are typically downsampled to half resolution — called chroma subsampling (4:2:0) — exploiting the fact that human vision resolves brightness detail at much higher resolution than color detail. This single step reduces data by 50% with minimal visible impact.</p>
+  <p>Next, the image is divided into 8x8 pixel blocks, and each block undergoes a Discrete Cosine Transform (DCT) that converts spatial pixel values into frequency coefficients. Low-frequency coefficients represent gradual color changes; high-frequency coefficients represent fine detail and edges. The quantization step divides these coefficients by a quality-dependent matrix and rounds to integers, discarding high-frequency information that contributes little to perceived quality. Finally, Huffman entropy coding compresses the quantized coefficients into the final JPEG bitstream.</p>
+
+  <h4>JPEG Strengths and Weaknesses</h4>
+  <p>JPEG's primary strength is universal compatibility. Every device, browser, email client, and image viewer supports JPEG. Encoding and decoding are extremely fast due to decades of hardware optimization. For photographs at quality 80-90, JPEG produces excellent results. The weaknesses are the lack of transparency support, visible blocking artifacts at low quality settings (especially around text and sharp edges), and no lossless mode. JPEG also does not support animation.</p>
+</section>
+
+<!-- ===== WEBP DEEP DIVE ===== -->
+<section class="card" id="webp-deep-dive">
+  <h3 style="margin-top:0">WebP — The Recommended Default</h3>
+
+  <h4>WebP Architecture</h4>
+  <p>WebP was developed by Google and released in 2010. Its lossy mode is based on VP8 video compression, using block prediction, Walsh-Hadamard transform, and advanced entropy coding (boolean arithmetic coding) that outperforms JPEG's Huffman coding. WebP divides images into macro blocks of 16x16 pixels with 4x4 sub-blocks, using intra-frame prediction from neighboring blocks to reduce redundancy before transformation and quantization.</p>
+  <p>WebP's lossless mode uses a completely different algorithm based on spatial prediction, color space transforms, backward reference coding, and Huffman entropy coding — similar to PNG but with additional techniques that consistently produce smaller files. WebP also supports alpha channels (transparency) in both lossy and lossless modes, and animated sequences using the WebP container format.</p>
+
+  <h4>WebP vs JPEG: The Numbers</h4>
+  <p>Across independent benchmarks, WebP lossy consistently produces files 25-35% smaller than JPEG at equivalent SSIM (structural similarity) quality scores. At quality 75 (a common web setting), a 1920x1080 photograph might be 350 KB as JPEG and 240 KB as WebP — a 31% reduction with no perceptible quality difference. WebP lossless typically produces files 26% smaller than PNG. With browser support at 99.4% globally in 2026, WebP should be your default format for all web images.</p>
+</section>
+
+<!-- ===== AVIF DEEP DIVE ===== -->
+<section class="card" id="avif-deep-dive">
+  <h3 style="margin-top:0">AVIF — Maximum Compression</h3>
+
+  <h4>The AV1 Advantage</h4>
+  <p>AVIF (AV1 Image File Format) derives from the AV1 video codec developed by the Alliance for Open Media, which includes Google, Apple, Microsoft, Mozilla, Amazon, Netflix, and others. AV1 represents the state of the art in compression technology, using larger block sizes (up to 128x128), more prediction modes, and sophisticated loop filtering to achieve dramatic compression efficiency. AVIF inherits all of these advances for still images.</p>
+  <p>AVIF supports 8, 10, and 12-bit color depth, HDR (High Dynamic Range) with PQ and HLG transfer functions, wide color gamuts (BT.2020), film grain synthesis (encoding grain parameters rather than grain itself), and both lossy and lossless compression. It supports alpha transparency and can contain sequences for animation. The format specification is royalty-free, removing the licensing concerns that affected earlier formats like HEIC.</p>
+
+  <h4>AVIF Trade-offs</h4>
+  <p>AVIF's main limitation is encoding speed. Compressing a single image to AVIF takes 5-20x longer than WebP or JPEG, making it impractical for real-time client-side compression in this tool. Browser support reached 93% in early 2026, with Safari being the last major browser to add support. For production websites, the recommended approach is to use the HTML <code>&lt;picture&gt;</code> element to serve AVIF to supported browsers with WebP or JPEG as the fallback.</p>
+</section>
+
+<!-- ===== PNG DEEP DIVE ===== -->
+<section class="card" id="png-deep-dive">
+  <h3 style="margin-top:0">PNG — Lossless Precision</h3>
+
+  <h4>PNG Compression Mechanism</h4>
+  <p>PNG (Portable Network Graphics) uses a two-stage lossless compression process. First, a filtering step predicts each pixel based on its neighbors and stores only the difference (residual). PNG supports five filter types: None, Sub, Up, Average, and Paeth. The optimal filter is chosen per row to minimize residual values. Second, the filtered data is compressed using DEFLATE (the same algorithm used in ZIP files), which combines LZ77 dictionary coding with Huffman entropy coding.</p>
+  <p>Because PNG is lossless, the decompressed output is bit-for-bit identical to the original. This makes PNG ideal for any workflow where the image will undergo further processing — editing, compositing, or format conversion. PNG supports 8-bit and 16-bit color depths, full 8-bit alpha transparency, and indexed color (palette mode) for images with few colors.</p>
+
+  <h4>When PNG Wins</h4>
+  <p>PNG is the optimal format for screenshots, UI mockups, technical diagrams, images with text overlays, logos, and any graphic with sharp edges and solid colors. A screenshot of a code editor might be 100 KB as PNG but 250 KB as JPEG — and the JPEG version will have visible artifacts around the text characters. PNG also excels for images that need transparency with crisp edges, such as logo overlays on varying backgrounds.</p>
+</section>
+
+<!-- ===== GIF AND SVG ===== -->
+<section class="card" id="gif-svg">
+  <h3 style="margin-top:0">GIF and SVG</h3>
+
+  <h4>GIF — The Legacy Animation Format</h4>
+  <p>GIF (Graphics Interchange Format) dates to 1987 and supports animation, which kept it relevant long after its technical limitations became apparent. GIF is limited to 256 colors per frame, uses LZW lossless compression (which is less efficient than DEFLATE or modern alternatives), and supports only 1-bit transparency (fully transparent or fully opaque — no semi-transparency). An animated GIF is typically 5-10x larger than the equivalent animated WebP or AVIF.</p>
+  <p>In 2026, GIF remains supported everywhere but should be avoided for new content creation. Animated WebP produces files 60-80% smaller with full 8-bit transparency and 24-bit color. For sharing animated content, most platforms now prefer short videos (MP4/WebM) over GIF, which are dramatically more efficient — a 10MB GIF might be 500KB as an MP4 at higher quality.</p>
+
+  <h4>SVG — Scalable Vector Graphics</h4>
+  <p>SVG is fundamentally different from all other formats discussed here because it is a vector format — it describes images as mathematical shapes, paths, and text rather than pixel grids. This means SVG files can scale to any resolution without quality loss, making them ideal for logos, icons, illustrations, charts, and any graphic that consists of distinct shapes rather than continuous photographic tones.</p>
+  <p>SVG files are XML-based text documents, which means they can be edited with a text editor, styled with CSS, animated with JavaScript or CSS animations, and indexed by search engines. A logo that is 50 KB as PNG at 500px might be only 3 KB as SVG while looking perfectly crisp at any size from 16px to 16000px. For web development, SVG is the definitive format for all icon and logo assets.</p>
+</section>
+
+<!-- ===== BROWSER COMPAT ===== -->
+<section class="card" id="browser-compat">
+  <h3 style="margin-top:0">Browser Compatibility (2026)</h3>
+  <p>Browser support data as of May 2026, sourced from Can I Use global usage statistics:</p>
+  <ul>
+    <li><strong>JPEG:</strong> 100% — universally supported since the earliest graphical browsers.</li>
+    <li><strong>PNG:</strong> 100% — universally supported since IE 4 (1997) with full alpha since IE 7.</li>
+    <li><strong>GIF:</strong> 100% — universally supported including animation.</li>
+    <li><strong>SVG:</strong> 99%+ — universally supported in all modern browsers. IE 9+ for basic support.</li>
+    <li><strong>WebP:</strong> 99.4% — supported in Chrome 32+, Firefox 65+, Safari 14+, Edge 18+. The 0.6% without support consists of very old browser versions.</li>
+    <li><strong>AVIF:</strong> 93% — supported in Chrome 85+, Firefox 93+, Safari 16.4+. Opera and Samsung Internet also support it. The remaining 7% can be handled with a WebP or JPEG fallback using the <code>&lt;picture&gt;</code> element.</li>
+  </ul>
+
+  <h4>Progressive Enhancement Strategy</h4>
+  <p>The recommended approach for production websites is to serve the most efficient format each browser supports. Use the HTML <code>&lt;picture&gt;</code> element to specify AVIF as the first source, WebP as the second, and JPEG as the final fallback. The browser automatically selects the first format it supports. This ensures every visitor gets the smallest possible file while maintaining universal compatibility.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Which image format has the smallest file size?</div>
+    <div class="faq-a"><p>For photographs, AVIF produces the smallest files, followed by WebP, then JPEG. AVIF is typically 30-50% smaller than WebP. For graphics with solid colors, SVG (vector) or PNG (raster) can be extremely efficient. The best format depends on your content type and compatibility requirements.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is WebP better than JPEG in 2026?</div>
+    <div class="faq-a"><p>Yes, for virtually all use cases. WebP produces 25-35% smaller files at equivalent quality, supports transparency and animation, and has 99%+ browser support. JPEG's only remaining advantage is compatibility with legacy systems and email clients that have not been updated.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Should I use AVIF or WebP?</div>
+    <div class="faq-a"><p>Use both via the picture element. Serve AVIF to the 93% of browsers that support it for maximum compression, and WebP as the fallback for the rest. If you can only choose one, WebP is the safer default due to broader support. AVIF encoding is also significantly slower, which matters for client-side tools.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">When should I use PNG instead of JPEG?</div>
+    <div class="faq-a"><p>Use PNG for screenshots, text, logos, diagrams, UI elements, and anything with sharp edges or transparency. JPEG creates visible artifacts around text and edges. For photographs, JPEG or WebP are always more efficient. A simple rule: if the image was created on a computer (not a camera), PNG is usually the right choice.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is GIF still relevant in 2026?</div>
+    <div class="faq-a"><p>GIF is largely obsolete. Animated WebP produces 60-80% smaller files with better color depth and transparency. Short videos (MP4/WebM) are even more efficient for animation. GIF's only remaining niche is compatibility with messaging systems that have not updated their format support.</p></div>
+  </div>
+</section>
+
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<script>
+(function() {
+  "use strict";
+
+  /* ===== FILE SIZE ESTIMATOR ===== */
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var estResults = document.getElementById("estResults");
+  var estRows = document.getElementById("estRows");
+  var resetBtn = document.getElementById("resetBtn");
+  var compareWrap = document.getElementById("compareWrap");
+  var compareLabels = document.getElementById("compareLabels");
+  var compareBase = document.getElementById("compareBase");
+  var compareTop = document.getElementById("compareTop");
+  var compareSlider = document.getElementById("compareSlider");
+  var compareOverlay = document.getElementById("compareOverlay");
+
+  var loadedImage = null;
+
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files[0]) processImage(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault(); dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) processImage(e.dataTransfer.files[0]);
+  });
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  function processImage(file) {
+    if (!file.type.startsWith("image/")) return;
+    var img = new Image();
+    img.onload = function() {
+      loadedImage = img;
+      var canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      var formats = [
+        {name: "JPEG", mime: "image/jpeg", quality: 0.80, color: "#f59e0b"},
+        {name: "WebP", mime: "image/webp", quality: 0.80, color: "#22c55e"},
+        {name: "PNG", mime: "image/png", quality: undefined, color: "#3b82f6"}
+      ];
+
+      var sizes = {};
+      var pending = formats.length;
+      var origSize = file.size;
+
+      formats.forEach(function(fmt) {
+        canvas.toBlob(function(blob) {
+          sizes[fmt.name] = blob ? blob.size : 0;
+          pending--;
+          if (pending === 0) renderEstResults(sizes, origSize, formats);
+        }, fmt.mime, fmt.quality);
+      });
+
+      // Quality comparison: JPEG Q60 vs WebP Q60
+      canvas.toBlob(function(jpegBlob) {
+        if (!jpegBlob) return;
+        compareBase.src = URL.createObjectURL(jpegBlob);
+        canvas.toBlob(function(webpBlob) {
+          if (!webpBlob) return;
+          compareTop.src = URL.createObjectURL(webpBlob);
+          compareWrap.classList.remove("hidden");
+          compareLabels.classList.remove("hidden");
+          compareOverlay.style.width = "50%";
+          compareSlider.style.left = "50%";
+        }, "image/webp", 0.60);
+      }, "image/jpeg", 0.60);
+
+      dropZone.classList.add("hidden");
+      estResults.classList.remove("hidden");
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function renderEstResults(sizes, origSize, formats) {
+    estRows.innerHTML = "";
+    // Add original
+    var maxSize = origSize;
+    Object.keys(sizes).forEach(function(k) { if (sizes[k] > maxSize) maxSize = sizes[k]; });
+
+    var origRow = document.createElement("div");
+    origRow.className = "est-row";
+    origRow.innerHTML = '<div class="fmt">Original</div><div class="bar-wrap"><div class="bar" style="width:' + (origSize / maxSize * 100) + '%;background:#94a3b8"></div></div><div class="size-label">' + formatSize(origSize) + '</div>';
+    estRows.appendChild(origRow);
+
+    formats.forEach(function(fmt) {
+      var s = sizes[fmt.name] || 0;
+      var pct = maxSize > 0 ? (s / maxSize * 100) : 0;
+      var row = document.createElement("div");
+      row.className = "est-row";
+      row.innerHTML = '<div class="fmt">' + fmt.name + '</div><div class="bar-wrap"><div class="bar" style="width:' + pct + '%;background:' + fmt.color + '"></div></div><div class="size-label">' + formatSize(s) + '</div>';
+      estRows.appendChild(row);
+    });
+  }
+
+  resetBtn.addEventListener("click", function() {
+    estResults.classList.add("hidden");
+    compareWrap.classList.add("hidden");
+    compareLabels.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    loadedImage = null;
+  });
+
+  /* ===== QUALITY COMPARISON SLIDER ===== */
+  var sliderDown = false;
+  function moveSlider(e) {
+    var rect = compareWrap.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    x = Math.max(0, Math.min(1, x));
+    compareSlider.style.left = (x * 100) + "%";
+    compareOverlay.style.width = (x * 100) + "%";
+  }
+  compareSlider.addEventListener("mousedown", function(e) { e.preventDefault(); sliderDown = true; });
+  document.addEventListener("mousemove", function(e) { if (sliderDown) moveSlider(e); });
+  document.addEventListener("mouseup", function() { sliderDown = false; });
+  compareSlider.addEventListener("touchstart", function(e) { e.preventDefault(); sliderDown = true; }, {passive: false});
+  document.addEventListener("touchmove", function(e) { if (sliderDown) moveSlider(e.touches[0]); });
+  document.addEventListener("touchend", function() { sliderDown = false; });
+
+  /* ===== DECISION FLOWCHART ===== */
+  var flowQ = document.getElementById("flowQ");
+  var flowOpts = document.getElementById("flowOpts");
+  var flowResult = document.getElementById("flowResult");
+  var flowRestart = document.getElementById("flowRestart");
+  var flowContent = document.getElementById("flowContent");
+
+  var questions = {
+    start: {
+      q: "Is your image a photograph or complex artwork with gradients?",
+      opts: [
+        {text: "Yes, it is a photo", next: "q_photo_compat"},
+        {text: "No, it is a graphic/logo/icon", next: "q_graphic_type"}
+      ]
+    },
+    q_photo_compat: {
+      q: "Do you need maximum browser compatibility (email, legacy systems)?",
+      opts: [
+        {text: "Yes, universal compatibility", result: "Use JPEG at quality 80-85. It is supported everywhere and produces excellent results for photographs."},
+        {text: "No, modern browsers only", next: "q_photo_size"}
+      ]
+    },
+    q_photo_size: {
+      q: "Is minimizing file size your top priority?",
+      opts: [
+        {text: "Yes, smallest possible", result: "Use AVIF with WebP fallback via the <picture> element. AVIF achieves 30-50% smaller files than WebP with excellent quality."},
+        {text: "No, balanced approach", result: "Use WebP at quality 80. It produces 25-35% smaller files than JPEG with 99%+ browser support. The best all-around choice."}
+      ]
+    },
+    q_graphic_type: {
+      q: "Is your graphic scalable (logo, icon, illustration with shapes)?",
+      opts: [
+        {text: "Yes, it has distinct shapes", result: "Use SVG. Vector graphics scale perfectly to any size, produce tiny files, and can be styled with CSS. Export from Illustrator, Figma, or Inkscape."},
+        {text: "No, it is a raster image (screenshot, etc.)", next: "q_transparency"}
+      ]
+    },
+    q_transparency: {
+      q: "Do you need transparency?",
+      opts: [
+        {text: "Yes, transparency required", result: "Use PNG for crisp edges (logos, UI). Use WebP with alpha for photographs with transparency (smaller files). Avoid GIF (only 1-bit transparency)."},
+        {text: "No transparency needed", result: "Use PNG for screenshots and images with text or sharp edges. PNG preserves crisp detail that JPEG would blur with compression artifacts."}
+      ]
+    }
+  };
+
+  var currentStep = "start";
+
+  function renderFlow(step) {
+    currentStep = step;
+    var data = questions[step];
+    flowQ.textContent = data.q;
+    flowOpts.innerHTML = "";
+    flowResult.classList.remove("show");
+    flowResult.style.display = "none";
+    flowContent.style.display = "";
+    flowRestart.classList.add("hidden");
+
+    data.opts.forEach(function(opt) {
+      var btn = document.createElement("button");
+      btn.className = "flow-btn";
+      btn.textContent = opt.text;
+      btn.addEventListener("click", function() {
+        if (opt.result) {
+          flowContent.style.display = "none";
+          flowResult.innerHTML = opt.result;
+          flowResult.classList.add("show");
+          flowResult.style.display = "block";
+          flowRestart.classList.remove("hidden");
+        } else {
+          renderFlow(opt.next);
+        }
+      });
+      flowOpts.appendChild(btn);
+    });
+  }
+
+  document.getElementById("restartFlow").addEventListener("click", function() {
+    renderFlow("start");
+  });
+
+  renderFlow("start");
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+<li><a href="/guides/social-media-image-sizes.html" style="color:#3b82f6;text-decoration:none;">Social Media Image Sizes Guide 2026 — Auto-Crop Tool</a></li>
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

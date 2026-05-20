@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GIF Maker Online — Create GIFs from Image Sequence Free | PictureEditor</title>
+<meta name="description" content="Free online GIF maker. Create animated GIFs from an image sequence with custom frame timing, loop control, and size optimization. Upload multiple images and export as GIF. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="gif maker, create gif, gif from images, gif generator, animated gif, image to gif, gif creator, frame timing, gif loop, gif optimizer">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/gif-maker.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/gif-maker.html">
+<meta property="og:title" content="GIF Maker Online — Create GIFs from Image Sequence Free">
+<meta property="og:description" content="Create animated GIFs from image sequences with custom frame timing and loop control. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GIF Maker Online — Create GIFs from Image Sequence Free">
+<meta name="twitter:description" content="Create animated GIFs from image sequences with frame timing control. Free, private, no upload required.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"GIF Maker Online",
+    "url":"https://pictureeditor.net/tools/gif-maker.html",
+    "description":"Free online GIF maker. Create animated GIFs from image sequences with custom frame timing, loop control, and quality settings. All processing runs client-side.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How many images can I use to create a GIF?","acceptedAnswer":{"@type":"Answer","text":"You can upload up to 50 images per GIF. Each image becomes one frame in the animation. For smooth animations, 8-15 frames per second is ideal. More frames create smoother motion but larger file sizes. The tool processes all frames in your browser regardless of count."}},
+      {"@type":"Question","name":"Can I control the speed of individual frames?","acceptedAnswer":{"@type":"Answer","text":"Yes. The frame delay slider controls the timing between frames in milliseconds. The default is 100ms (10 frames per second). Lower values create faster animations, higher values create slower ones. You can adjust the global delay to affect all frames uniformly."}},
+      {"@type":"Question","name":"What happens if my images are different sizes?","acceptedAnswer":{"@type":"Answer","text":"The tool automatically resizes all frames to match the dimensions of the first uploaded image. Images larger than the first frame are center-cropped and scaled down. Images smaller than the first frame are centered on a transparent background. For best results, upload images with identical dimensions."}},
+      {"@type":"Question","name":"How can I reduce the GIF file size?","acceptedAnswer":{"@type":"Answer","text":"Reduce file size by lowering the output width (smaller dimensions mean fewer pixels per frame), increasing the frame delay (fewer frames needed for the same duration), and reducing the number of frames. A 320-pixel-wide GIF at 100ms delay with 10 frames typically produces files under 500KB."}},
+      {"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All GIF creation happens entirely in your browser. The image processing and GIF encoding run client-side using JavaScript. Your images never leave your device. The resulting GIF is generated locally and downloaded directly from your browser."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"GIF Maker","item":"https://pictureeditor.net/tools/gif-maker.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas,.preview-pane img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.frame-strip{display:flex;gap:8px;overflow-x:auto;padding:12px 0;margin:12px 0}
+.frame-strip .frame{flex-shrink:0;width:80px;height:80px;border-radius:8px;border:2px solid var(--border);overflow:hidden;position:relative;cursor:pointer}
+.frame-strip .frame img{width:100%;height:100%;object-fit:cover}
+.frame-strip .frame .frame-num{position:absolute;top:2px;left:2px;background:rgba(0,0,0,.7);color:#fff;font-size:.65rem;padding:1px 5px;border-radius:4px;font-weight:700}
+.frame-strip .frame .remove-frame{position:absolute;top:2px;right:2px;background:rgba(239,68,68,.9);color:#fff;font-size:.65rem;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;border:none}
+.progress-bar{width:100%;height:6px;background:#e2e8f0;border-radius:3px;margin:12px 0;overflow:hidden}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width .2s;width:0}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .frame-strip .frame{width:60px;height:60px}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  GIF Maker
+</nav>
+
+<h2>GIF Maker &mdash; Create GIFs from Image Sequences Free</h2>
+<p class="subtitle">Upload multiple images and create animated GIFs with custom frame timing, loop control, and size optimization. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+
+  <!-- Upload -->
+  <div id="dropZone" class="drop-zone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m-7-7 7-7 7 7"/></svg>
+    <p>Drop multiple images here or click to upload</p>
+    <p class="sub">JPEG, PNG, WebP &mdash; up to 50 frames, in order</p>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple style="display:none">
+  </div>
+
+  <!-- Controls -->
+  <div id="controls" class="controls hidden">
+    <div class="info-row">
+      <div class="info-box accent"><div class="label">Frames</div><div class="value" id="frameCount">0</div></div>
+      <div class="info-box"><div class="label">Output Size</div><div class="value" id="sizeInfo">480px</div></div>
+      <div class="info-box green"><div class="label">Duration</div><div class="value" id="durationInfo">0s</div></div>
+    </div>
+
+    <h4>Frame Strip</h4>
+    <div class="frame-strip" id="frameStrip"></div>
+
+    <button class="btn btn-outline" id="addMoreBtn" style="margin-bottom:16px">+ Add More Frames</button>
+    <input type="file" id="addMoreInput" accept="image/jpeg,image/png,image/webp" multiple style="display:none">
+
+    <div class="slider-field">
+      <label>Frame Delay <span id="delayVal">100</span>ms (<span id="fpsVal">10</span> fps)</label>
+      <input type="range" id="delaySlider" min="20" max="1000" value="100" step="10">
+    </div>
+
+    <div class="slider-field">
+      <label>Output Width <span id="widthVal">480</span>px</label>
+      <input type="range" id="widthSlider" min="120" max="800" value="480" step="10">
+    </div>
+
+    <div class="format-select">
+      <label>Loop</label>
+      <select id="loopSelect">
+        <option value="0">Loop Forever</option>
+        <option value="1">Play Once</option>
+        <option value="3">Loop 3 Times</option>
+        <option value="5">Loop 5 Times</option>
+      </select>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-pane">
+        <div class="pane-label">Preview (frame-by-frame)</div>
+        <canvas id="previewCanvas" width="480" height="360"></canvas>
+      </div>
+    </div>
+
+    <div class="progress-bar hidden" id="progressBar"><div class="fill" id="progressFill"></div></div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="previewBtn">Play Preview</button>
+      <button class="btn btn-success" id="generateBtn">Generate GIF</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+
+    <div id="resultArea" class="hidden" style="margin-top:20px;text-align:center">
+      <div class="pane-label">Generated GIF</div>
+      <img id="resultGif" style="max-width:100%;border-radius:8px;border:1px solid var(--border)">
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn btn-success" id="downloadGifBtn">Download GIF</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#gif-fundamentals">GIF Animation Fundamentals</a></li>
+    <li><a href="#frame-timing">Frame Timing and Animation Speed</a></li>
+    <li><a href="#optimization">GIF File Size Optimization</a></li>
+    <li><a href="#creative-uses">Creative Uses for Animated GIFs</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: FUNDAMENTALS ===== -->
+<section class="card" id="gif-fundamentals">
+  <h3 style="margin-top:0">GIF Animation Fundamentals</h3>
+
+  <h4>How Animated GIFs Work</h4>
+  <p>An animated GIF is a sequence of individual image frames stored in a single file, with metadata specifying the delay between each frame and how many times the animation should loop. When a browser or image viewer opens the file, it displays each frame in sequence with the specified timing, creating the illusion of motion. Unlike video formats that use inter-frame compression (storing only the differences between frames), GIF stores each frame as a complete image. This makes GIF files significantly larger than equivalent video files but guarantees universal compatibility — every browser, email client, messaging app, and social media platform can display animated GIFs without a video player.</p>
+
+  <h4>The 256-Color Limitation</h4>
+  <p>GIF uses an indexed color palette limited to 256 colors per frame. This limitation dates back to 1987 when the format was created and remains fundamental to how GIF works. For images with limited color ranges (graphics, logos, text animations, simple illustrations), 256 colors is sufficient and produces small, crisp files. For photographs and complex images with gradients, the 256-color limit forces dithering (adding noise patterns to simulate missing colors), which creates visible artifacts and increases file size. When creating GIFs from photographic content, reducing the output resolution helps minimize dithering artifacts by giving the encoder fewer pixels to approximate.</p>
+
+  <h4>GIF vs. Modern Alternatives</h4>
+  <p>Modern alternatives to GIF include WebP (animated), APNG (Animated PNG), and short-loop video formats like MP4 and WebM. WebP animated files are typically 30-50% smaller than equivalent GIFs with full-color support. APNG supports full 24-bit color with alpha transparency but has limited platform support. MP4 and WebM offer the best compression by orders of magnitude but require a video player and do not auto-play as seamlessly as GIFs in all contexts. Despite these superior alternatives, GIF remains the dominant format for short animations in messaging, email, and social media because of its universal support and cultural ubiquity. The word "GIF" itself has become synonymous with short animated content regardless of the actual format used.</p>
+</section>
+
+<!-- ===== SECTION: TIMING ===== -->
+<section class="card" id="frame-timing">
+  <h3 style="margin-top:0">Frame Timing and Animation Speed</h3>
+
+  <h4>Understanding Frame Delay</h4>
+  <p>Frame delay is measured in hundredths of a second (centiseconds) in the GIF specification, though this tool displays it in milliseconds for clarity. A 100ms delay means each frame displays for one-tenth of a second, producing 10 frames per second (fps). A 50ms delay produces 20 fps, and a 200ms delay produces 5 fps. Most browsers enforce a minimum delay of approximately 20ms; delays shorter than this are typically rounded up to 100ms to prevent CPU-intensive rapid frame changes. The sweet spot for most animations is 80-120ms (8-12 fps), which provides smooth-looking motion without requiring excessive frames.</p>
+
+  <h4>Frame Rate Guidelines by Content Type</h4>
+  <ul>
+    <li><strong>Simple transitions (5-8 fps, 125-200ms delay):</strong> Slideshow-style animations, text reveals, simple fades. Few frames needed, small file sizes.</li>
+    <li><strong>Standard animation (10-12 fps, 83-100ms delay):</strong> The default for most GIFs. Smooth enough for casual viewing, reasonable file sizes. Good for reaction GIFs, product demos, and UI animations.</li>
+    <li><strong>Smooth motion (15-20 fps, 50-67ms delay):</strong> Near-video smoothness, required for fast action like sports clips or smooth camera pans. File sizes increase substantially.</li>
+    <li><strong>Cinematic (24 fps, ~42ms delay):</strong> Film-quality frame rate. Rarely necessary for GIFs and produces very large files. Only justified for short, high-quality animations where smoothness is critical.</li>
+  </ul>
+
+  <h4>Loop Behavior</h4>
+  <p>GIF animations can loop infinitely, play a specific number of times, or play once and stop on the last frame. Infinite looping is the default and expected behavior for most GIFs, especially reaction GIFs and decorative animations. Play-once mode is useful for instructional animations where the viewer needs to see a sequence once and then study the final result. When creating tutorial GIFs, consider whether the viewer needs to see the full animation on repeat or whether a play-once GIF with a clear final state is more effective. Some platforms override the loop setting and always loop GIFs infinitely, so test on your target platform.</p>
+</section>
+
+<!-- ===== SECTION: OPTIMIZATION ===== -->
+<section class="card" id="optimization">
+  <h3 style="margin-top:0">GIF File Size Optimization</h3>
+
+  <h4>Resolution is the Biggest Factor</h4>
+  <p>GIF file size scales roughly with the square of the dimensions multiplied by the number of frames. A 480-pixel-wide GIF is approximately four times larger than a 240-pixel-wide GIF with the same content. For web use, 480 pixels wide is sufficient for most inline content, 320 pixels works for thumbnails and mobile, and 640 pixels is the maximum practical width before file sizes become unwieldy. Avoid creating GIFs wider than 800 pixels unless you have a specific reason — the file sizes become impractical for web delivery, often exceeding 5-10MB, which causes slow loading and excessive bandwidth consumption.</p>
+
+  <h4>Reducing Frame Count</h4>
+  <p>Every frame adds to the file size. A 2-second animation at 10 fps requires 20 frames, while the same animation at 5 fps requires only 10 frames and is roughly half the file size. The trick is finding the minimum frame rate that still conveys the motion effectively. For many animations, you can remove every other frame and the motion remains comprehensible, especially for simple transitions and UI demonstrations. If your source material is video, extract frames at a lower rate than the original video frame rate. Pulling every third or fourth frame from a 30fps video gives you an 8-10 fps GIF that looks smooth enough for most purposes.</p>
+
+  <h4>Color Reduction Strategies</h4>
+  <p>Reducing the color palette below 256 can significantly decrease file size. Many animations look acceptable with 128 or even 64 colors. Graphics, text animations, and simple illustrations can often work with as few as 32 colors. The key is testing: reduce colors until you notice visible quality degradation, then step back one level. Dithering (adding noise to simulate missing colors) can improve the appearance of reduced-color GIFs but increases file size because the noise patterns reduce the effectiveness of GIF's LZW compression. For minimum file size, use no dithering with the lowest acceptable color count.</p>
+
+  <h4>Content Design for Small Files</h4>
+  <p>GIF's LZW compression works best on images with large areas of flat, identical color. Animations with simple backgrounds, solid colors, and minimal detail compress dramatically better than photographic content. If you are creating original content specifically for GIF format, design with flat colors, limited gradients, and solid backgrounds. A well-designed animation with intentionally GIF-friendly graphics can be 3-5 times smaller than a GIF created from photographic frames at the same dimensions and frame count.</p>
+</section>
+
+<!-- ===== SECTION: CREATIVE USES ===== -->
+<section class="card" id="creative-uses">
+  <h3 style="margin-top:0">Creative Uses for Animated GIFs</h3>
+
+  <h4>Product Demos and Tutorials</h4>
+  <p>Short GIF animations are ideal for demonstrating product features, UI interactions, and step-by-step processes. Unlike video, GIFs auto-play silently in documentation, README files, pull requests, and support articles without requiring the user to click a play button. A 3-5 second GIF showing a button click, a menu interaction, or a configuration change communicates more effectively than paragraphs of written instructions. GitHub READMEs, Notion pages, and technical documentation benefit enormously from embedded GIF demonstrations that show exactly what the user should see and do.</p>
+
+  <h4>Social Media and Messaging</h4>
+  <p>GIF culture has become a fundamental part of digital communication. Reaction GIFs, meme animations, and expressive loops convey emotions and responses that text alone cannot capture. When creating GIFs for social media, keep them under 3 seconds for maximum impact, use a clear focal point that reads at small sizes, and ensure the loop point is seamless or intentionally abrupt for comedic effect. Platforms like Twitter, Discord, and Slack all support inline GIF display, making them the lowest-friction way to add visual expression to text conversations.</p>
+
+  <h4>Email Marketing</h4>
+  <p>Animated GIFs are one of the few animation formats supported across email clients. While most email clients block embedded video, virtually all of them display animated GIFs. Marketing emails use GIFs for product showcases, countdown timers, attention-getting header animations, and demonstrating interactive features that the recipient cannot interact with in the email itself. Keep email GIFs under 500KB to avoid slow loading on mobile connections, and always design with a strong first frame since some email clients display only the first frame as a static fallback.</p>
+
+  <h4>UI Prototyping and Bug Reports</h4>
+  <p>Developers and designers use GIF screen recordings extensively for sharing UI prototypes, reporting bugs, and demonstrating interactions. A GIF showing a bug in action is unambiguous — the developer can see exactly what happens, in what order, with what timing. Similarly, a GIF showing a proposed interaction design communicates the feel of an animation or transition in a way that static mockups cannot. Tools that capture screen regions as GIFs have become standard in software development workflows, and the ability to create GIFs from image sequences enables frame-perfect demonstrations where screen recording might miss details.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many images can I use to create a GIF?</div>
+    <div class="faq-a"><p>You can upload up to 50 images per GIF. Each image becomes one frame in the animation. For smooth animations at 10 fps, that gives you up to 5 seconds of animation. You can add more frames after the initial upload using the "Add More Frames" button.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I control the speed of individual frames?</div>
+    <div class="faq-a"><p>The frame delay slider sets a uniform delay for all frames. The default is 100ms (10 frames per second). Lower values create faster animations, higher values create slower ones. The delay range is 20ms to 1000ms, covering everything from rapid animation to slow slideshow presentations.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens if my images are different sizes?</div>
+    <div class="faq-a"><p>The tool automatically resizes all frames to match the first image's aspect ratio at the output width you specify. Images are center-cropped and scaled to fit. For best results, upload images with identical dimensions to avoid unexpected cropping of edges.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How can I reduce the GIF file size?</div>
+    <div class="faq-a"><p>The three most effective strategies are: reduce the output width (smaller dimensions = fewer pixels), increase the frame delay (slower animation = fewer frames needed), and reduce the total number of frames. A 320px wide GIF at 100ms delay with 10 frames typically produces files under 500KB.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images uploaded to a server?</div>
+    <div class="faq-a"><p>No. All GIF creation happens entirely in your browser using JavaScript. The image processing and GIF encoding run client-side. Your images never leave your device. The resulting GIF is generated locally and downloaded directly from your browser.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== GIF ENCODER (minimal LZW-based GIF encoder) ===== -->
+<script>
+/* Minimal GIF encoder — based on public domain GIF89a spec implementation */
+var GIFEncoder=function(){function e(e){this.width=e.width||320;this.height=e.height||240;this.delay=e.delay||100;this.loop=e.loop!==undefined?e.loop:0;this.quality=e.quality||10;this.frames=[];this.output=[]}e.prototype.addFrame=function(e){this.frames.push(e)};e.prototype.encode=function(){var t=this;var o=[];function w(){for(var i=0;i<arguments.length;i++)o.push(arguments[i])}function ws(s){for(var i=0;i<s.length;i++)o.push(s.charCodeAt(i))}function wl(v){w(v&255,v>>8&255)}
+ws("GIF89a");wl(t.width);wl(t.height);
+/* Build global color table from first frame */
+var pixels=t.frames[0];var palette=[];var pMap={};var idx=0;
+for(var i=0;i<pixels.length;i+=4){var key=pixels[i]+","+pixels[i+1]+","+pixels[i+2];if(!(key in pMap)){if(idx<256){pMap[key]=idx;palette.push(pixels[i],pixels[i+1],pixels[i+2]);idx++}}}
+while(palette.length<256*3){palette.push(0)}
+var palSize=256;var palBits=8;
+w(0x80|0x70|0x07);w(0);w(0);
+for(var p=0;p<palSize*3;p++)w(palette[p]);
+/* Netscape extension for looping */
+w(0x21,0xFF,0x0B);ws("NETSCAPE2.0");w(3,1);wl(t.loop);w(0);
+for(var f=0;f<t.frames.length;f++){var fd=t.frames[f];
+/* GCE */
+w(0x21,0xF9,4,0x00);wl(Math.round(t.delay/10));w(0,0);
+/* Image descriptor */
+w(0x2C);wl(0);wl(0);wl(t.width);wl(t.height);w(0);
+/* LZW encode */
+var minCode=palBits;w(minCode);
+var indexed=[];for(var px=0;px<fd.length;px+=4){var k2=fd[px]+","+fd[px+1]+","+fd[px+2];indexed.push(pMap[k2]!==undefined?pMap[k2]:0)}
+/* Simple sub-block LZW */
+var clearCode=1<<minCode;var eoiCode=clearCode+1;var codeSize=minCode+1;var nextCode=eoiCode+1;var table={};var buffer=[];var acc=0;var bits=0;
+function emit(code){acc|=code<<bits;bits+=codeSize;while(bits>=8){buffer.push(acc&255);acc>>=8;bits-=8}}
+emit(clearCode);
+var cur=String(indexed[0]);
+for(var ci=1;ci<indexed.length;ci++){var s=String(indexed[ci]);var cs=cur+","+s;if(cs in table){cur=cs}else{emit(cur.indexOf(",")>-1?table[cur]:parseInt(cur));if(nextCode<4096){table[cs]=nextCode++;if(nextCode>1<<codeSize&&codeSize<12)codeSize++}else{emit(clearCode);table={};nextCode=eoiCode+1;codeSize=minCode+1}cur=s}}
+emit(cur.indexOf(",")>-1?table[cur]:parseInt(cur));
+emit(eoiCode);
+if(bits>0)buffer.push(acc&255);
+/* Write sub-blocks */
+var pos=0;while(pos<buffer.length){var chunk=Math.min(255,buffer.length-pos);w(chunk);for(var bi=0;bi<chunk;bi++)w(buffer[pos++])}
+w(0);
+}
+w(0x3B);
+return new Uint8Array(o)};return e}();
+</script>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("previewCanvas");
+  var ctx = canvas.getContext("2d");
+  var frameStrip = document.getElementById("frameStrip");
+  var delaySlider = document.getElementById("delaySlider");
+  var delayVal = document.getElementById("delayVal");
+  var fpsVal = document.getElementById("fpsVal");
+  var widthSlider = document.getElementById("widthSlider");
+  var widthVal = document.getElementById("widthVal");
+  var loopSelect = document.getElementById("loopSelect");
+  var frameCount = document.getElementById("frameCount");
+  var sizeInfo = document.getElementById("sizeInfo");
+  var durationInfo = document.getElementById("durationInfo");
+  var previewBtn = document.getElementById("previewBtn");
+  var generateBtn = document.getElementById("generateBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var addMoreBtn = document.getElementById("addMoreBtn");
+  var addMoreInput = document.getElementById("addMoreInput");
+  var progressBar = document.getElementById("progressBar");
+  var progressFill = document.getElementById("progressFill");
+  var resultArea = document.getElementById("resultArea");
+  var resultGif = document.getElementById("resultGif");
+  var downloadGifBtn = document.getElementById("downloadGifBtn");
+
+  var frames = []; /* Array of Image objects */
+  var previewInterval = null;
+  var gifBlob = null;
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() { if (fileInput.files) loadFrames(fileInput.files); });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault(); dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files) loadFrames(e.dataTransfer.files);
+  });
+
+  addMoreBtn.addEventListener("click", function() { addMoreInput.click(); });
+  addMoreInput.addEventListener("change", function() { if (addMoreInput.files) loadFrames(addMoreInput.files); });
+
+  function loadFrames(fileList) {
+    var sorted = Array.from(fileList).filter(function(f) { return f.type.match(/image\/(jpeg|png|webp)/); });
+    if (sorted.length === 0) { alert("Please select JPEG, PNG, or WebP images."); return; }
+    var loaded = 0;
+    sorted.forEach(function(file) {
+      var img = new Image();
+      img.onload = function() {
+        frames.push(img);
+        loaded++;
+        if (loaded === sorted.length) {
+          dropZone.classList.add("hidden");
+          controls.classList.remove("hidden");
+          updateUI();
+          renderFrame(0);
+        }
+      };
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
+  function updateUI() {
+    frameCount.textContent = frames.length;
+    updateStrip();
+    updateDuration();
+  }
+
+  function updateStrip() {
+    frameStrip.innerHTML = "";
+    frames.forEach(function(img, i) {
+      var div = document.createElement("div");
+      div.className = "frame";
+      var preview = document.createElement("img");
+      preview.src = img.src;
+      var num = document.createElement("span");
+      num.className = "frame-num";
+      num.textContent = i + 1;
+      var removeBtn = document.createElement("button");
+      removeBtn.className = "remove-frame";
+      removeBtn.textContent = "x";
+      removeBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        frames.splice(i, 1);
+        if (frames.length === 0) { resetBtn.click(); return; }
+        updateUI();
+        renderFrame(0);
+      });
+      div.appendChild(preview);
+      div.appendChild(num);
+      div.appendChild(removeBtn);
+      div.addEventListener("click", function() { renderFrame(i); });
+      frameStrip.appendChild(div);
+    });
+  }
+
+  function updateDuration() {
+    var delay = parseInt(delaySlider.value);
+    var duration = (frames.length * delay / 1000).toFixed(1);
+    durationInfo.textContent = duration + "s";
+    frameCount.textContent = frames.length;
+  }
+
+  delaySlider.addEventListener("input", function() {
+    delayVal.textContent = this.value;
+    fpsVal.textContent = Math.round(1000 / parseInt(this.value));
+    updateDuration();
+  });
+  widthSlider.addEventListener("input", function() {
+    widthVal.textContent = this.value;
+    sizeInfo.textContent = this.value + "px";
+  });
+
+  function renderFrame(idx) {
+    if (!frames[idx]) return;
+    var img = frames[idx];
+    var outW = parseInt(widthSlider.value);
+    var ratio = img.naturalHeight / img.naturalWidth;
+    var outH = Math.round(outW * ratio);
+    canvas.width = outW;
+    canvas.height = outH;
+    ctx.drawImage(img, 0, 0, outW, outH);
+  }
+
+  /* Play preview */
+  previewBtn.addEventListener("click", function() {
+    if (previewInterval) {
+      clearInterval(previewInterval);
+      previewInterval = null;
+      previewBtn.textContent = "Play Preview";
+      return;
+    }
+    previewBtn.textContent = "Stop Preview";
+    var idx = 0;
+    renderFrame(0);
+    previewInterval = setInterval(function() {
+      idx = (idx + 1) % frames.length;
+      renderFrame(idx);
+    }, parseInt(delaySlider.value));
+  });
+
+  /* Generate GIF */
+  generateBtn.addEventListener("click", function() {
+    if (frames.length < 2) { alert("Please add at least 2 frames."); return; }
+    if (previewInterval) { clearInterval(previewInterval); previewInterval = null; previewBtn.textContent = "Play Preview"; }
+
+    var outW = parseInt(widthSlider.value);
+    var firstRatio = frames[0].naturalHeight / frames[0].naturalWidth;
+    var outH = Math.round(outW * firstRatio);
+
+    progressBar.classList.remove("hidden");
+    progressFill.style.width = "0%";
+
+    var encoder = new GIFEncoder({ width: outW, height: outH, delay: parseInt(delaySlider.value), loop: parseInt(loopSelect.value), quality: 10 });
+
+    var tempCanvas = document.createElement("canvas");
+    tempCanvas.width = outW;
+    tempCanvas.height = outH;
+    var tCtx = tempCanvas.getContext("2d");
+
+    for (var i = 0; i < frames.length; i++) {
+      tCtx.clearRect(0, 0, outW, outH);
+      tCtx.drawImage(frames[i], 0, 0, outW, outH);
+      var imgData = tCtx.getImageData(0, 0, outW, outH);
+      encoder.addFrame(imgData.data);
+      progressFill.style.width = Math.round((i + 1) / frames.length * 80) + "%";
+    }
+
+    var gifData = encoder.encode();
+    progressFill.style.width = "100%";
+
+    gifBlob = new Blob([gifData], { type: "image/gif" });
+    var url = URL.createObjectURL(gifBlob);
+    resultGif.src = url;
+    resultArea.classList.remove("hidden");
+
+    setTimeout(function() { progressBar.classList.add("hidden"); }, 500);
+  });
+
+  downloadGifBtn.addEventListener("click", function() {
+    if (!gifBlob) return;
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(gifBlob);
+    a.download = "animation.gif";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    if (previewInterval) { clearInterval(previewInterval); previewInterval = null; }
+    frames = [];
+    gifBlob = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    resultArea.classList.add("hidden");
+    fileInput.value = "";
+    addMoreInput.value = "";
+    frameStrip.innerHTML = "";
+    previewBtn.textContent = "Play Preview";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/color-picker.html" style="color:#3b82f6;text-decoration:none;">Color Picker & Palette Extractor — Free Online Tool</a></li>
+<li><a href="/tools/crop-tool.html" style="color:#3b82f6;text-decoration:none;">Crop Image Online Free — Social Media Presets & Aspect Ratios</a></li>
+</ul>
+</section>
+
+</body>
+</html>

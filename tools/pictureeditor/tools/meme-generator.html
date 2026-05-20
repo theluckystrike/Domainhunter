@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meme Generator Online — Add Text to Images Free | PictureEditor</title>
+<meta name="description" content="Free online meme generator. Add top and bottom text to any image with custom fonts, colors, and stroke. Choose from popular meme templates or upload your own. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="meme generator, meme maker, add text to image, meme creator, meme template, top text bottom text, impact font, meme text overlay, free meme tool, online meme maker">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/meme-generator.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/meme-generator.html">
+<meta property="og:title" content="Meme Generator Online — Add Text to Images Free">
+<meta property="og:description" content="Create memes with custom text, fonts, and colors. Upload your own image or pick a template. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meme Generator Online — Add Text to Images Free">
+<meta name="twitter:description" content="Create memes instantly with custom text overlays. Popular templates included. Free, private, no upload required.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Meme Generator Online",
+    "url":"https://pictureeditor.net/tools/meme-generator.html",
+    "description":"Free online meme generator with text overlay, custom fonts, popular templates, and stroke effects. All processing runs client-side.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can I use my own image instead of a template?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can upload any JPEG, PNG, or WebP image from your device to use as the meme base. Simply drag and drop or click the upload area. The tool works equally well with custom images and built-in templates."}},
+      {"@type":"Question","name":"What font options are available for meme text?","acceptedAnswer":{"@type":"Answer","text":"The tool includes Impact (the classic meme font), Arial Black, Comic Sans, and system sans-serif. Impact with white fill and black stroke is the standard meme typography, but you can customize the font, color, stroke width, and stroke color for any style."}},
+      {"@type":"Question","name":"Can I adjust the text position on the meme?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can place text at the top, center, or bottom of the image. Each text block has independent font size controls. The text automatically wraps within the image boundaries and you can control the vertical offset with the position slider."}},
+      {"@type":"Question","name":"What resolution is the downloaded meme?","acceptedAnswer":{"@type":"Answer","text":"The downloaded meme matches your source image resolution exactly. If you upload a 1920x1080 image, the output will be 1920x1080. The tool renders text at full resolution for crisp typography regardless of the preview size shown in your browser."}},
+      {"@type":"Question","name":"Are my images uploaded to any server?","acceptedAnswer":{"@type":"Answer","text":"No. All meme creation happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device. You can verify this by checking the Network tab in your browser developer tools — zero image uploads occur during the entire process."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},
+      {"@type":"ListItem","position":3,"name":"Meme Generator","item":"https://pictureeditor.net/tools/meme-generator.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.slider-field{margin-bottom:16px}
+.slider-field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.slider-field input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e2e8f0;outline:none}
+.slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:200px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field input[type="text"],.text-field input[type="number"]{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.text-field input:focus{border-color:var(--accent)}
+.color-field{margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.color-field label{font-size:.85rem;font-weight:600;color:var(--text-secondary)}
+.color-field input[type="color"]{width:36px;height:30px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+.template-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:16px 0}
+.template-grid .tmpl{border:2px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:.15s;position:relative;aspect-ratio:1;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--text-secondary);font-weight:600;text-align:center;padding:8px}
+.template-grid .tmpl:hover{border-color:var(--accent);transform:scale(1.03)}
+.template-grid .tmpl.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(99,102,241,.3)}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .template-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Meme Generator
+</nav>
+
+<h2>Meme Generator &mdash; Add Text to Images Free</h2>
+<p class="subtitle">Create memes with classic top-and-bottom text, custom fonts, stroke effects, and popular templates. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+
+  <!-- Upload -->
+  <div id="dropZone" class="drop-zone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m-7-7 7-7 7 7"/></svg>
+    <p>Drop an image here or click to upload</p>
+    <p class="sub">JPEG, PNG, WebP &mdash; or pick a template below</p>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+  </div>
+
+  <!-- Templates -->
+  <h4>Popular Templates</h4>
+  <div class="template-grid" id="templateGrid">
+    <div class="tmpl" data-tmpl="drake" onclick="loadTemplate(this)">Drake Approve</div>
+    <div class="tmpl" data-tmpl="distracted" onclick="loadTemplate(this)">Distracted BF</div>
+    <div class="tmpl" data-tmpl="brain" onclick="loadTemplate(this)">Expanding Brain</div>
+    <div class="tmpl" data-tmpl="change" onclick="loadTemplate(this)">Change My Mind</div>
+    <div class="tmpl" data-tmpl="buttons" onclick="loadTemplate(this)">Two Buttons</div>
+    <div class="tmpl" data-tmpl="disaster" onclick="loadTemplate(this)">Disaster Girl</div>
+    <div class="tmpl" data-tmpl="fine" onclick="loadTemplate(this)">This Is Fine</div>
+    <div class="tmpl" data-tmpl="exit" onclick="loadTemplate(this)">Exit Ramp</div>
+  </div>
+
+  <!-- Controls -->
+  <div id="controls" class="controls hidden">
+    <div class="info-row">
+      <div class="info-box accent"><div class="label">Dimensions</div><div class="value" id="dimInfo">-</div></div>
+      <div class="info-box"><div class="label">Font</div><div class="value" id="fontInfo">Impact</div></div>
+      <div class="info-box green"><div class="label">Position</div><div class="value" id="posInfo">Top + Bottom</div></div>
+    </div>
+
+    <div class="text-field">
+      <label for="topText">Top Text</label>
+      <input type="text" id="topText" placeholder="TOP TEXT" style="max-width:100%">
+    </div>
+    <div class="text-field">
+      <label for="bottomText">Bottom Text</label>
+      <input type="text" id="bottomText" placeholder="BOTTOM TEXT" style="max-width:100%">
+    </div>
+
+    <div class="slider-field">
+      <label>Font Size <span id="fontSizeVal">48</span>px</label>
+      <input type="range" id="fontSizeSlider" min="16" max="120" value="48">
+    </div>
+
+    <div class="slider-field">
+      <label>Stroke Width <span id="strokeVal">3</span>px</label>
+      <input type="range" id="strokeSlider" min="0" max="12" value="3">
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+      <div class="color-field"><label>Fill Color</label><input type="color" id="fillColor" value="#ffffff"></div>
+      <div class="color-field"><label>Stroke Color</label><input type="color" id="strokeColor" value="#000000"></div>
+    </div>
+
+    <div class="format-select">
+      <label>Font Family</label>
+      <select id="fontFamily">
+        <option value="Impact">Impact</option>
+        <option value="Arial Black">Arial Black</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+        <option value="sans-serif">Sans-Serif</option>
+      </select>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-pane">
+        <div class="pane-label">Preview</div>
+        <canvas id="previewCanvas" width="600" height="600"></canvas>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">Download Meme</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#meme-typography">Meme Typography: The Art of Impact Font</a></li>
+    <li><a href="#text-placement">Text Placement and Readability</a></li>
+    <li><a href="#template-guide">Template Selection Guide</a></li>
+    <li><a href="#advanced-techniques">Advanced Meme Creation Techniques</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: TYPOGRAPHY ===== -->
+<section class="card" id="meme-typography">
+  <h3 style="margin-top:0">Meme Typography: The Art of Impact Font</h3>
+
+  <h4>Why Impact Became the Standard</h4>
+  <p>Impact is the default meme font for a reason that goes back to early internet culture. In the mid-2000s, image macro generators on sites like Quickmeme and Memegenerator.net used Impact because it was universally available on Windows systems, had extremely thick letterforms that remained legible at small sizes, and its condensed width allowed longer text to fit without wrapping. The combination of all-caps white text with a thick black stroke became so ubiquitous that it became a visual shorthand for internet humor. Seeing Impact font on an image immediately signals that the content is meant to be comedic, even before reading the words.</p>
+  <p>The thick black stroke is essential, not decorative. Without stroke, white text disappears against bright backgrounds and black text vanishes against dark backgrounds. The stroke creates a guaranteed contrast boundary that makes the text legible against any background color, any photo subject, and any lighting condition. A stroke width of 2-4 pixels at standard meme resolutions (600-800 pixels wide) provides optimal readability without making the text look heavy-handed.</p>
+
+  <h4>When to Break the Impact Mold</h4>
+  <p>Modern memes have largely moved beyond the classic Impact style. Twitter memes, Reddit memes, and Instagram memes increasingly use clean sans-serif fonts (Helvetica, Arial) without stroke, placed above or below the image rather than overlaid on it. These newer formats read more like captions than traditional image macros. The tool supports both approaches. For classic memes, use Impact with stroke. For modern caption-style memes, use sans-serif with zero stroke and position the text as a header above the image. Comic Sans, while universally mocked, has genuine uses in ironic or deliberately low-effort meme formats where the font choice itself is part of the joke. Papyrus and Times New Roman memes exist in the same self-aware space.</p>
+
+  <h4>Font Size and Image Resolution</h4>
+  <p>Font size should scale with image resolution. A 48-pixel font looks perfect on a 600-pixel-wide image but tiny on a 1920-pixel image. As a general rule, the font size should be approximately 6-10% of the image height for top or bottom text. This ensures the text is large enough to read quickly on mobile screens while not overwhelming the image content. If your text is too long to fit in one line at the ideal size, shorten the text rather than shrinking the font. Short, punchy text makes better memes than long sentences forced into tiny type.</p>
+</section>
+
+<!-- ===== SECTION: TEXT PLACEMENT ===== -->
+<section class="card" id="text-placement">
+  <h3 style="margin-top:0">Text Placement and Readability</h3>
+
+  <h4>Top and Bottom Text Convention</h4>
+  <p>The top-and-bottom text format is the oldest and most recognizable meme layout. The top text sets up the joke or context, and the bottom text delivers the punchline. This format works because it mirrors the natural reading flow: your eye enters at the top, scans the image for context, and lands on the bottom for the payoff. Deviating from this structure by placing the setup at the bottom and punchline at the top confuses readers and weakens the comedic timing. When using this format, keep the top text shorter than the bottom text. One-word or two-word setups with a longer punchline create the best rhythm.</p>
+
+  <h4>Single Text Block Placement</h4>
+  <p>Not every meme needs both top and bottom text. Many effective memes use a single text block at either the top or bottom. Single-bottom-text memes work well when the image itself provides all the context needed, and the text serves as an unexpected caption or reaction. Single-top-text memes function like headlines, with the image serving as the punchline. If your meme idea only requires one line of text, resist the urge to add a second line just to fill the space. Empty space makes the existing text more impactful.</p>
+
+  <h4>Text Wrapping and Line Breaks</h4>
+  <p>Automatic text wrapping handles line breaks based on the font size and image width. However, automatic wrapping often breaks lines at awkward points that disrupt the joke's flow. For maximum comedic effect, control your line breaks manually by keeping text short enough to fit in one or two lines. If you must use longer text, test the wrapping at different font sizes to find a size where the line breaks fall at natural pauses. A poorly wrapped punchline that splits a key phrase across two lines can kill a joke entirely.</p>
+</section>
+
+<!-- ===== SECTION: TEMPLATE GUIDE ===== -->
+<section class="card" id="template-guide">
+  <h3 style="margin-top:0">Template Selection Guide</h3>
+
+  <h4>Reaction Templates</h4>
+  <p>Drake Approve (formally known as "Drakeposting") uses a two-panel format where the top panel shows Drake dismissing something and the bottom panel shows him approving an alternative. The humor comes from the contrast between the rejected option and the preferred option, often highlighting absurd or relatable preferences. This template works best when the rejected and approved options are closely related but one is unexpectedly preferred over the other. Distracted Boyfriend follows a similar comparison structure but adds a third element: the neglected current option personified by the girlfriend. This three-way dynamic allows for more complex jokes about abandoning something sensible for something flashy.</p>
+
+  <h4>Expanding Brain</h4>
+  <p>The Expanding Brain template shows progressively "enlightened" versions of an idea across three to five panels. The first panel shows the simplest or most common approach, and each subsequent panel shows an increasingly ridiculous or galaxy-brained alternative with correspondingly more elaborate brain imagery. The humor relies on escalation: each level must be more absurd than the last, with the final level being utterly ridiculous. This template is especially effective for technical humor, gaming culture, and any topic where there are multiple approaches of varying complexity.</p>
+
+  <h4>Change My Mind and This Is Fine</h4>
+  <p>Change My Mind is a template showing someone sitting at a table with a sign expressing an opinion, inviting debate. It works for stating controversial but defensible opinions, especially ones that the audience secretly agrees with. The template signals confidence and willingness to engage, making it effective for hot takes. This Is Fine, showing a dog sitting calmly in a burning room, is the quintessential "everything is falling apart but I am pretending it is okay" template. It works for relatable situations where someone is clearly in denial about a worsening situation. Both templates rely on the viewer identifying with the emotional state depicted.</p>
+
+  <h4>Custom Images as Templates</h4>
+  <p>The best memes often use original images rather than established templates. Screenshots from movies, TV shows, video games, and real-life situations make excellent meme bases when the facial expressions, body language, or situations depicted are universally relatable. When using custom images, ensure the subject's expression or action is clear and unambiguous. A blurry or confusing image requires too much context to be effective. The image should tell half the story on its own, with your text providing the other half.</p>
+</section>
+
+<!-- ===== SECTION: ADVANCED TECHNIQUES ===== -->
+<section class="card" id="advanced-techniques">
+  <h3 style="margin-top:0">Advanced Meme Creation Techniques</h3>
+
+  <h4>Color Psychology in Memes</h4>
+  <p>While white text with black stroke is the standard, color choices can enhance specific types of humor. Red text signals urgency, danger, or anger, making it effective for panicked or alarming meme text. Green text evokes 4chan greentext stories and carries connotations of awkward or cringe-worthy narratives. Yellow text against dark backgrounds creates a warning-sign aesthetic. Blue text reads as calm or corporate, useful for memes about workplace situations. Matching text color to the emotional tone of the joke adds a subtle layer that amplifies the humor even if viewers do not consciously notice it.</p>
+
+  <h4>Resolution and Platform Optimization</h4>
+  <p>Different platforms display memes at different sizes and aspect ratios. Instagram favors square images (1080x1080) or 4:5 portrait orientation. Twitter displays landscape images best, cropping tall images in the feed. Reddit is flexible but desktop users see images at larger sizes than mobile users. Discord displays images in a compact format where text must be large to remain legible. For maximum reach, create memes at 800x800 pixels or larger, which provides enough resolution for any platform without creating unnecessarily large file sizes. Always preview your meme at the size it will actually be displayed before sharing.</p>
+
+  <h4>Multi-Panel Memes</h4>
+  <p>Some of the most effective meme formats use multiple panels arranged in a grid. Four-panel comics, vertical story formats, and comparison grids require careful planning of text placement across each panel. When creating multi-panel memes with this tool, work with each panel as a separate image and combine them using a collage or grid tool. Alternatively, prepare your multi-panel template image in advance and add text to specific regions. The key is consistent font sizing across all panels so the text reads as a unified piece rather than disjointed fragments.</p>
+
+  <h4>Accessibility in Meme Creation</h4>
+  <p>Memes are inherently visual, but accessibility-conscious creators add alt text when posting to social media and ensure text contrast is sufficient for visually impaired users. A stroke width of at least 2 pixels ensures text remains readable even for users with reduced contrast sensitivity. Avoid relying solely on color to convey meaning in your meme text. Screen reader users benefit from descriptive alt text that explains both the image content and the text overlay, conveying the intended humor without requiring vision.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use my own image instead of a template?</div>
+    <div class="faq-a"><p>Yes. You can upload any JPEG, PNG, or WebP image from your device to use as the meme base. Simply drag and drop or click the upload area. The tool works equally well with custom uploads and the built-in template placeholders. Your uploaded image is processed entirely in your browser.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What font options are available for meme text?</div>
+    <div class="faq-a"><p>The tool includes Impact (the classic meme font), Arial Black, Comic Sans MS, and system sans-serif. Impact with white fill and black stroke is the standard meme typography, but you can customize the font family, fill color, stroke color, and stroke width for any style you prefer.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I adjust the text position on the meme?</div>
+    <div class="faq-a"><p>Yes. Text is placed at the top and bottom of the image by default, following the classic meme format. The font size slider controls how much vertical space the text occupies. Each text field (top and bottom) can be used independently, so you can create single-text memes by leaving one field empty.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What resolution is the downloaded meme?</div>
+    <div class="faq-a"><p>The downloaded meme matches your source image resolution exactly. If you upload a 1920x1080 image, the output will be 1920x1080. Template images generate at 800x800 pixels. The tool renders text at full resolution for crisp typography regardless of the preview size shown in your browser.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images uploaded to any server?</div>
+    <div class="faq-a"><p>No. All meme creation happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device. You can verify this by checking the Network tab in your browser developer tools — zero image uploads occur during the entire meme creation process.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("previewCanvas");
+  var ctx = canvas.getContext("2d");
+  var topText = document.getElementById("topText");
+  var bottomText = document.getElementById("bottomText");
+  var fontSizeSlider = document.getElementById("fontSizeSlider");
+  var fontSizeVal = document.getElementById("fontSizeVal");
+  var strokeSlider = document.getElementById("strokeSlider");
+  var strokeVal = document.getElementById("strokeVal");
+  var fillColor = document.getElementById("fillColor");
+  var strokeColor = document.getElementById("strokeColor");
+  var fontFamily = document.getElementById("fontFamily");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var dimInfo = document.getElementById("dimInfo");
+  var fontInfo = document.getElementById("fontInfo");
+
+  var sourceImg = null;
+
+  /* Template generation */
+  window.loadTemplate = function(el) {
+    var tmpls = document.querySelectorAll(".tmpl");
+    tmpls.forEach(function(t) { t.classList.remove("active"); });
+    el.classList.add("active");
+    var name = el.getAttribute("data-tmpl");
+    var tCanvas = document.createElement("canvas");
+    tCanvas.width = 800;
+    tCanvas.height = 800;
+    var tCtx = tCanvas.getContext("2d");
+
+    /* Generate placeholder template images */
+    var colors = {
+      drake: ["#ff6b6b", "#51cf66"],
+      distracted: ["#ffd43b", "#748ffc"],
+      brain: ["#e599f7", "#845ef7"],
+      change: ["#69db7c", "#4dabf7"],
+      buttons: ["#ff8787", "#ffa94d"],
+      disaster: ["#ffd8a8", "#e03131"],
+      fine: ["#ff922b", "#fa5252"],
+      exit: ["#38d9a9", "#7950f2"]
+    };
+    var c = colors[name] || ["#e2e8f0", "#94a3b8"];
+    var grad = tCtx.createLinearGradient(0, 0, 800, 800);
+    grad.addColorStop(0, c[0]);
+    grad.addColorStop(1, c[1]);
+    tCtx.fillStyle = grad;
+    tCtx.fillRect(0, 0, 800, 800);
+    tCtx.fillStyle = "rgba(255,255,255,0.3)";
+    tCtx.font = "bold 48px sans-serif";
+    tCtx.textAlign = "center";
+    tCtx.textBaseline = "middle";
+    tCtx.fillText(el.textContent, 400, 400);
+
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = "800x800";
+      renderPreview();
+    };
+    img.src = tCanvas.toDataURL();
+  };
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function wrapText(context, text, maxWidth) {
+    var words = text.split(" ");
+    var lines = [];
+    var currentLine = words[0] || "";
+    for (var i = 1; i < words.length; i++) {
+      var testLine = currentLine + " " + words[i];
+      if (context.measureText(testLine).width > maxWidth) {
+        lines.push(currentLine);
+        currentLine = words[i];
+      } else {
+        currentLine = testLine;
+      }
+    }
+    lines.push(currentLine);
+    return lines;
+  }
+
+  function drawMemeText(context, text, x, y, maxWidth, fontSize, isBottom) {
+    if (!text) return;
+    var lines = wrapText(context, text.toUpperCase(), maxWidth * 0.9);
+    var lineHeight = fontSize * 1.15;
+    var startY = isBottom ? y - (lines.length - 1) * lineHeight : y;
+    for (var i = 0; i < lines.length; i++) {
+      var ly = startY + i * lineHeight;
+      if (parseInt(strokeSlider.value) > 0) {
+        context.strokeText(lines[i], x, ly);
+      }
+      context.fillText(lines[i], x, ly);
+    }
+  }
+
+  function renderPreview() {
+    if (!sourceImg) return;
+    var w = sourceImg.naturalWidth;
+    var h = sourceImg.naturalHeight;
+    var scale = Math.min(600 / w, 600 / h, 1);
+    canvas.width = Math.round(w * scale);
+    canvas.height = Math.round(h * scale);
+
+    ctx.drawImage(sourceImg, 0, 0, canvas.width, canvas.height);
+
+    var fontSize = parseInt(fontSizeSlider.value) * scale;
+    var font = fontFamily.value;
+    ctx.font = "bold " + fontSize + "px " + font;
+    ctx.fillStyle = fillColor.value;
+    ctx.strokeStyle = strokeColor.value;
+    ctx.lineWidth = parseInt(strokeSlider.value) * scale;
+    ctx.lineJoin = "round";
+    ctx.miterLimit = 2;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+
+    drawMemeText(ctx, topText.value, canvas.width / 2, fontSize * 0.3, canvas.width, fontSize, false);
+
+    ctx.textBaseline = "bottom";
+    drawMemeText(ctx, bottomText.value, canvas.width / 2, canvas.height - fontSize * 0.3, canvas.width, fontSize, true);
+  }
+
+  /* Live updates */
+  topText.addEventListener("input", renderPreview);
+  bottomText.addEventListener("input", renderPreview);
+  fontSizeSlider.addEventListener("input", function() { fontSizeVal.textContent = this.value; renderPreview(); });
+  strokeSlider.addEventListener("input", function() { strokeVal.textContent = this.value; renderPreview(); });
+  fillColor.addEventListener("input", renderPreview);
+  strokeColor.addEventListener("input", renderPreview);
+  fontFamily.addEventListener("change", function() { fontInfo.textContent = this.value; renderPreview(); });
+
+  /* Download at full resolution */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var offscreen = document.createElement("canvas");
+    var fw = sourceImg.naturalWidth;
+    var fh = sourceImg.naturalHeight;
+    offscreen.width = fw;
+    offscreen.height = fh;
+    var octx = offscreen.getContext("2d");
+    octx.drawImage(sourceImg, 0, 0, fw, fh);
+
+    var fontSize = parseInt(fontSizeSlider.value) * (fw / 600);
+    var font = fontFamily.value;
+    octx.font = "bold " + fontSize + "px " + font;
+    octx.fillStyle = fillColor.value;
+    octx.strokeStyle = strokeColor.value;
+    octx.lineWidth = parseInt(strokeSlider.value) * (fw / 600);
+    octx.lineJoin = "round";
+    octx.miterLimit = 2;
+    octx.textAlign = "center";
+    octx.textBaseline = "top";
+
+    var topLines = wrapText(octx, (topText.value || "").toUpperCase(), fw * 0.9);
+    var lineH = fontSize * 1.15;
+    for (var i = 0; i < topLines.length; i++) {
+      var ty = fontSize * 0.3 + i * lineH;
+      if (parseInt(strokeSlider.value) > 0) octx.strokeText(topLines[i], fw / 2, ty);
+      octx.fillText(topLines[i], fw / 2, ty);
+    }
+
+    octx.textBaseline = "bottom";
+    var botLines = wrapText(octx, (bottomText.value || "").toUpperCase(), fw * 0.9);
+    for (var j = 0; j < botLines.length; j++) {
+      var by = fh - fontSize * 0.3 - (botLines.length - 1 - j) * lineH;
+      if (parseInt(strokeSlider.value) > 0) octx.strokeText(botLines[j], fw / 2, by);
+      octx.fillText(botLines[j], fw / 2, by);
+    }
+
+    offscreen.toBlob(function(blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "meme.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    topText.value = "";
+    bottomText.value = "";
+    document.querySelectorAll(".tmpl").forEach(function(t) { t.classList.remove("active"); });
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/favicon-generator.html" style="color:#3b82f6;text-decoration:none;">Favicon Generator Online — Create Multi-Size Favicons Free</a></li>
+<li><a href="/tools/background-remover.html" style="color:#3b82f6;text-decoration:none;">Background Remover Online — Remove Image Backgrounds Free</a></li>
+<li><a href="/tools/collage-maker.html" style="color:#3b82f6;text-decoration:none;">Photo Collage Builder Online — Drag-and-Drop Layouts Free</a></li>
+<li><a href="/tools/color-picker.html" style="color:#3b82f6;text-decoration:none;">Color Picker & Palette Extractor — Free Online Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>

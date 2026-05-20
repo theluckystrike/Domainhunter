@@ -263,5 +263,16 @@ let saved=localStorage.getItem('recipetool_mealplan');
 if(saved){try{plan=JSON.parse(saved)}catch(e){initPlan()}}
 renderGrid();
 </script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/meal-planning-template.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner — Auto Shopping List & Calorie Tracking</a></li>
+<li><a href="/guides/meal-prep-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Calculator — Weekly Planner & Shopping List Generator</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+<li><a href="/nutrition-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Calculator — Count Calories by Ingredients</a></li>
+</ul>
+</section>
+
 </body>
 </html>

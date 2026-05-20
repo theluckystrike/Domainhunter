@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sourdough Starter Feeding Calculator with Timeline | RecipeTool</title>
+<meta name="description" content="Free sourdough starter feeding calculator with visual timeline. Plan feeding schedules, calculate flour and water amounts, track starter maturity, and time your bake perfectly.">
+<link rel="canonical" href="https://recipetool.net/tools/sourdough-calculator.html">
+<meta property="og:title" content="Sourdough Starter Feeding Calculator with Timeline">
+<meta property="og:description" content="Plan sourdough starter feedings with a visual timeline. Calculate flour and water ratios, predict peak activity, and time your bake perfectly. Free, instant, no signup.">
+<meta property="og:url" content="https://recipetool.net/tools/sourdough-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sourdough Starter Feeding Calculator with Timeline">
+<meta name="twitter:description" content="Plan sourdough starter feedings with visual timeline. Calculate ratios, predict peak activity, time your bake. Free and instant.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Sourdough Starter Feeding Calculator",
+      "description": "Free sourdough starter feeding calculator with visual timeline. Plan feeding schedules, calculate flour and water amounts, track starter maturity, and time your bake perfectly.",
+      "url": "https://recipetool.net/tools/sourdough-calculator.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "publisher": {"@type": "Organization", "name": "Recipe Tool", "url": "https://recipetool.net"},
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How often should I feed my sourdough starter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A starter kept at room temperature should be fed once or twice daily, depending on ambient temperature and how quickly it peaks and falls. At 72-76 degrees Fahrenheit, once daily is usually sufficient. Above 78 degrees Fahrenheit, you may need to feed twice daily to prevent the starter from exhausting its food supply and becoming overly acidic. A refrigerated starter only needs feeding once a week. Take it out, discard all but 50 grams, feed it, let it sit at room temperature for 2-4 hours until you see activity, then refrigerate again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ratio should I feed my sourdough starter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common feeding ratio is 1:1:1 — equal parts starter, flour, and water by weight. For example, 50 grams starter plus 50 grams flour plus 50 grams water. If your starter is very active and peaks too quickly, increase to 1:2:2 or even 1:5:5 to give it more food and extend the time to peak. Higher ratios like 1:5:5 are useful for overnight builds when you want the starter to peak the next morning. Lower ratios like 1:1:1 produce a faster peak of 4-6 hours at room temperature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know when my starter is ready to bake with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A mature starter ready for baking should pass the float test — drop a teaspoon of starter into a glass of water and it should float. It should have doubled or tripled in volume since its last feeding, have a domed top (not yet collapsed), smell pleasantly yeasty and slightly tangy, and have a web-like bubbly structure when you pull it apart. The ideal time to use your starter is at or just before its peak — when it has reached maximum volume but has not yet started to collapse. This is when yeast activity is highest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use different flours for my sourdough starter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and the flour choice significantly affects fermentation speed and flavor. Whole wheat and rye flours ferment faster because they contain more nutrients, minerals, and wild yeast. A whole rye starter can peak in 3-4 hours at room temperature compared to 5-6 hours for all-purpose white flour. Many bakers maintain their starter with a mix, such as 50 percent all-purpose and 50 percent whole wheat, for a balance of predictability and vigor. Switching flours mid-maintenance is fine — the culture adapts within 2-3 feedings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do with sourdough discard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sourdough discard is the portion of starter removed before each feeding to maintain a manageable quantity. Rather than throwing it away, you can use it in pancakes, waffles, crackers, pizza dough, muffins, banana bread, and flatbreads. Discard adds tangy flavor and tender texture without requiring it to be at peak activity. You can accumulate discard in a jar in the refrigerator for up to a week. Unfed discard is more acidic and develops a stronger sour flavor over time, which works well in recipes where tanginess is desired."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://recipetool.net/"},
+        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://recipetool.net/tools/"},
+        {"@type": "ListItem", "position": 3, "name": "Sourdough Starter Calculator", "item": "https://recipetool.net/tools/sourdough-calculator.html"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+header h1{font-size:1.5rem;margin-bottom:.25rem}
+header p{opacity:.9;font-size:.9rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
+nav a:hover{background:var(--warm)}
+nav a.active{background:var(--warm-dark);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:1rem}
+.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
+.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
+.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
+.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
+.card li{margin-bottom:.35rem}
+.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--primary-dark)}
+.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
+.btn-outline:hover{background:var(--warm)}
+.result-box{background:var(--warm);border-radius:8px;padding:1rem;text-align:center;margin:1rem 0}
+.result-box .value{font-size:1.8rem;font-weight:700;color:var(--primary-dark)}
+.result-box .label{font-size:.8rem;color:var(--text-light);margin-top:.25rem}
+.ref-table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+.ref-table th,.ref-table td{padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border)}
+.ref-table th{background:var(--warm);color:var(--primary-dark);font-weight:600;font-size:.8rem;text-transform:uppercase}
+.ref-table tr:hover{background:var(--warm)}
+.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
+.faq-q.open::after{content:'-'}
+.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
+.faq-a.open{max-height:500px;padding-top:.5rem}
+footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary)}
+.form-group{margin-bottom:.75rem}
+.form-group label{display:block;font-size:.8rem;color:var(--text-light);margin-bottom:.25rem;font-weight:500}
+.form-group select,.form-group input{width:100%;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.timeline{position:relative;padding-left:24px;margin:1rem 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:.75rem;padding-left:16px}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--primary);border:2px solid var(--white);box-shadow:0 0 0 2px var(--primary)}
+.timeline-item.active::before{background:var(--success)}
+.timeline-item .time{font-weight:600;font-size:.85rem;color:var(--primary-dark)}
+.timeline-item .desc{font-size:.8rem;color:var(--text-light)}
+.feed-card{background:var(--warm);border-radius:8px;padding:.75rem;margin:.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.feed-card .feed-num{font-weight:700;color:var(--primary-dark);font-size:1rem;min-width:80px}
+.feed-card .feed-detail{font-size:.85rem;color:var(--text-light);flex:1}
+.feed-card .feed-time{font-size:.8rem;font-weight:600;color:var(--text);min-width:120px;text-align:right}
+.feed-card.peak{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:1px solid var(--success)}
+.progress-ring{width:120px;height:120px;margin:0 auto}
+.progress-ring circle{transition:stroke-dashoffset .5s ease}
+@media(max-width:600px){
+.form-row{grid-template-columns:1fr}
+.ref-table{font-size:.75rem}
+.feed-card{flex-direction:column;align-items:flex-start}
+.feed-card .feed-time{text-align:left}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Sourdough Starter Feeding Calculator</h1>
+<p>Plan feeding schedules, calculate ratios &amp; time your bake perfectly</p>
+</header>
+<nav>
+<a href="/">Recipe Calculator</a>
+<a href="/tools/unit-converter.html">Unit Converter</a>
+<a href="/tools/fermentation-calculator.html">Fermentation</a>
+<a href="/tools/sourdough-calculator.html" class="active">Sourdough</a>
+<a href="/answers/cooking-substitutions.html">Substitutions</a>
+</nav>
+<main>
+
+<!-- ===== FEEDING CALCULATOR ===== -->
+<div class="card">
+<h2>Starter Feeding Calculator</h2>
+<p>Enter your current starter amount and desired feeding ratio to calculate flour and water quantities. Adjust the temperature to estimate time to peak activity.</p>
+<div class="form-row">
+<div class="form-group">
+<label for="starter-amount">Current Starter Amount (g)</label>
+<input type="number" id="starter-amount" value="50" min="5" max="1000" step="5">
+</div>
+<div class="form-group">
+<label for="feed-ratio">Feeding Ratio (Starter : Flour : Water)</label>
+<select id="feed-ratio">
+<option value="1:1:1">1:1:1 (Standard)</option>
+<option value="1:2:2">1:2:2 (Extended)</option>
+<option value="1:3:3">1:3:3 (Long Overnight)</option>
+<option value="1:5:5">1:5:5 (Slow Build)</option>
+<option value="1:10:10">1:10:10 (Multi-Day Cold)</option>
+</select>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="flour-type">Flour Type</label>
+<select id="flour-type">
+<option value="ap">All-Purpose White</option>
+<option value="bread">Bread Flour</option>
+<option value="ww">Whole Wheat</option>
+<option value="rye">Whole Rye</option>
+<option value="mix">50/50 AP + Whole Wheat</option>
+</select>
+</div>
+<div class="form-group">
+<label for="ambient-temp">Ambient Temperature</label>
+<div style="display:flex;gap:.5rem">
+<input type="number" id="ambient-temp" value="72" min="40" max="110" step="1" style="flex:1">
+<select id="temp-unit" style="width:auto;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem">
+<option value="F">&deg;F</option>
+<option value="C">&deg;C</option>
+</select>
+</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="target-time">Target Bake Time (optional)</label>
+<input type="time" id="target-time" value="">
+</div>
+<div class="form-group">
+<label for="num-feeds">Number of Feedings to Plan</label>
+<select id="num-feeds">
+<option value="1">1 Feeding</option>
+<option value="2">2 Feedings</option>
+<option value="3" selected>3 Feedings (recommended)</option>
+<option value="5">5 Feedings (new starter)</option>
+</select>
+</div>
+</div>
+<div style="margin-top:.75rem">
+<button class="btn" onclick="calculateFeedings()">Calculate Feeding Schedule</button>
+<button class="btn btn-outline" onclick="resetForm()" style="margin-left:.5rem">Reset</button>
+</div>
+<div class="result-box" id="main-result" style="display:none">
+<div class="value" id="result-value"></div>
+<div class="label" id="result-label"></div>
+</div>
+</div>
+
+<!-- ===== FEEDING SCHEDULE TIMELINE ===== -->
+<div class="card" id="schedule-card" style="display:none">
+<h2>Feeding Schedule Timeline</h2>
+<p>Your personalized feeding plan with estimated peak times. The green-highlighted feeding is when your starter will be ready to use for baking.</p>
+<div id="feed-timeline"></div>
+<div class="result-box" id="bake-window" style="display:none">
+<div class="value" id="bake-time"></div>
+<div class="label">Optimal bake window — starter at peak activity</div>
+</div>
+</div>
+
+<!-- ===== STARTER MATURITY GAUGE ===== -->
+<div class="card" id="maturity-card" style="display:none">
+<h2>Starter Maturity Estimator</h2>
+<p>Based on your feeding ratio, flour type, and temperature, here is the estimated activity cycle of your starter after the final feeding.</p>
+<div style="text-align:center;margin:1rem 0">
+<svg class="progress-ring" viewBox="0 0 120 120">
+<circle cx="60" cy="60" r="50" stroke="#e0d0c0" stroke-width="10" fill="none"/>
+<circle id="maturity-arc" cx="60" cy="60" r="50" stroke="#e85d04" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314" transform="rotate(-90 60 60)"/>
+<text x="60" y="55" text-anchor="middle" font-size="18" font-weight="700" fill="#dc2f02" id="maturity-pct">0%</text>
+<text x="60" y="72" text-anchor="middle" font-size="10" fill="#6b5050" id="maturity-label">Activity</text>
+</svg>
+</div>
+<div id="maturity-stages" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem"></div>
+</div>
+
+<!-- ===== AMOUNTS TABLE ===== -->
+<div class="card" id="amounts-card" style="display:none">
+<h2>Feeding Amounts Summary</h2>
+<p>Exact weights for each feeding in your schedule. Keep a kitchen scale handy for best results.</p>
+<table class="ref-table" id="amounts-table">
+<thead><tr><th>Feeding</th><th>Starter (g)</th><th>Flour (g)</th><th>Water (g)</th><th>Total (g)</th></tr></thead>
+<tbody id="amounts-body"></tbody>
+</table>
+</div>
+
+<!-- ===== REFERENCE TABLE ===== -->
+<div class="card">
+<h2>Feeding Ratio Quick Reference</h2>
+<p>Approximate time to peak activity for common feeding ratios at various temperatures. Times assume a mature, healthy starter.</p>
+<table class="ref-table">
+<thead><tr><th>Ratio</th><th>65&deg;F / 18&deg;C</th><th>72&deg;F / 22&deg;C</th><th>78&deg;F / 26&deg;C</th><th>85&deg;F / 29&deg;C</th></tr></thead>
+<tbody>
+<tr><td>1:1:1</td><td>6-8 hrs</td><td>4-6 hrs</td><td>3-4 hrs</td><td>2-3 hrs</td></tr>
+<tr><td>1:2:2</td><td>8-12 hrs</td><td>6-8 hrs</td><td>4-6 hrs</td><td>3-4 hrs</td></tr>
+<tr><td>1:3:3</td><td>10-14 hrs</td><td>8-10 hrs</td><td>5-7 hrs</td><td>4-5 hrs</td></tr>
+<tr><td>1:5:5</td><td>14-18 hrs</td><td>10-14 hrs</td><td>8-10 hrs</td><td>6-8 hrs</td></tr>
+<tr><td>1:10:10</td><td>20-28 hrs</td><td>16-22 hrs</td><td>12-16 hrs</td><td>10-14 hrs</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ===== CONTENT SECTION ===== -->
+<div class="card">
+<h2>The Complete Guide to Sourdough Starter Maintenance</h2>
+<p>A sourdough starter is a living culture of wild yeast and lactic acid bacteria that you maintain through regular feedings of flour and water. This symbiotic colony is what gives sourdough bread its distinctive tang, open crumb structure, and superior keeping qualities compared to commercial yeast breads. Understanding how to feed and maintain your starter is the single most important skill in sourdough baking, because the health of your starter directly determines the quality of every loaf you produce.</p>
+
+<h3>Understanding Feeding Ratios</h3>
+<p>The feeding ratio expresses the proportion of existing starter to fresh flour and water. A 1:1:1 ratio means equal parts by weight of starter, flour, and water. If you retain 50 grams of starter, you add 50 grams of flour and 50 grams of water for a total of 150 grams. This standard ratio produces a predictable fermentation cycle of about 4 to 6 hours at room temperature before the starter reaches its peak — the point of maximum yeast activity and gas production.</p>
+<p>Higher ratios like 1:5:5 dramatically extend the time to peak because the small amount of existing culture must colonize a much larger quantity of fresh food. This is extremely useful for overnight builds: feed your starter at 10 PM with a 1:5:5 ratio at 68 degrees Fahrenheit, and it will peak around 8 to 10 AM the next morning, ready for you to mix your dough. The ratio acts as a time-control mechanism, giving you the ability to schedule your baking around your life rather than the other way around.</p>
+<p>Conversely, lower ratios like 2:1:1 — retaining more starter than you add food — produce very fast peaks of 2 to 3 hours. This is sometimes useful when you need a quick turnaround, but the resulting starter tends to be more acidic and less vigorous because the culture runs out of food quickly and spends more time in a depleted state.</p>
+
+<h3>Flour Choice and Fermentation Speed</h3>
+<p>The type of flour you feed your starter has a measurable impact on fermentation speed, flavor development, and culture health. Whole grain flours — particularly whole rye and whole wheat — contain the bran and germ, which provide significantly more minerals, enzymes, and microbial nutrients than refined white flour. A starter fed with whole rye flour will typically peak 30 to 40 percent faster than the same starter fed with all-purpose white flour.</p>
+<p>Many experienced bakers maintain their starter with a blend of flours to balance vigor with predictability. A 50/50 mix of all-purpose and whole wheat is a popular choice: the whole wheat component provides nutritional support for the culture while the all-purpose component moderates the fermentation speed for easier scheduling. Some bakers keep a small rye-fed starter for maximum vigor and build a levain with bread flour for their actual dough, getting the best of both worlds.</p>
+<p>Protein content also matters. Bread flour with 11 to 13 percent protein produces a stronger gluten network in the starter, which traps gas more efficiently and gives you a more dramatic rise. All-purpose flour at 9 to 11 percent protein creates a thinner, more pourable starter at the same hydration. Neither is inherently better — it depends on your recipe and preferences.</p>
+
+<h3>Temperature: The Timeline Controller</h3>
+<p>Temperature is the most powerful variable controlling your starter's activity cycle. At 72 degrees Fahrenheit (22 degrees Celsius), a standard room temperature in many homes, a 1:1:1 feeding typically peaks in 4 to 6 hours. Increase the temperature to 82 degrees Fahrenheit (28 degrees Celsius) and that same feeding peaks in 2.5 to 3.5 hours. Drop to 62 degrees Fahrenheit (17 degrees Celsius) and peak extends to 8 to 12 hours.</p>
+<p>This relationship follows an approximately exponential curve based on microbial metabolism rates. For every 15 degrees Fahrenheit increase within the viable range of 55 to 95 degrees Fahrenheit, fermentation speed roughly doubles. Smart bakers use this to their advantage: placing the starter in a warm oven with the light on, on top of the refrigerator, or in a proofing box to accelerate activity, or in a cool basement or wine fridge to slow it down.</p>
+<p>The viable range for sourdough cultures is approximately 40 to 95 degrees Fahrenheit (4 to 35 degrees Celsius). Below 40 degrees, activity becomes negligible — this is the principle behind refrigerator storage. Above 95 degrees, you risk killing the yeast population, leaving only the more heat-tolerant bacteria, which produces an excessively sour, flat starter.</p>
+
+<h3>Hydration and Starter Consistency</h3>
+<p>Starter hydration — the ratio of water to flour by weight — affects both fermentation dynamics and handling properties. A 100 percent hydration starter (equal parts flour and water) is the most common and produces a thick, pancake-batter consistency. This is the standard assumed by most recipes and feeding calculators, including this one. It ferments at a moderate rate and is easy to measure and incorporate into dough.</p>
+<p>Stiff starters at 50 to 65 percent hydration ferment more slowly, favor acetic acid production (vinegary tang), and are traditional in Italian baking for panettone and colomba. Liquid starters at 125 to 150 percent hydration ferment faster, favor lactic acid production (milder, yogurty tang), and are easier to pour and measure. Adjusting hydration gives you another tool for controlling both timing and flavor profile.</p>
+
+<h3>Signs of a Healthy Starter</h3>
+<p>A well-maintained starter should double or triple in volume within the expected timeframe after feeding, have a pleasant yeasty-tangy aroma (not acetone or nail-polish remover), show a web of bubbles throughout when viewed from the side of a clear container, and pass the float test at peak activity. The surface should dome upward at peak and then gradually flatten and begin to sink as the culture exhausts its food supply. Hooch — a layer of dark liquid on top — indicates the starter is hungry and needs feeding, but is not harmful. Simply stir it back in or pour it off and feed as usual.</p>
+
+<h3>Building a Levain vs. Feeding Your Starter</h3>
+<p>There is an important distinction between routine maintenance feedings and building a levain for baking. Your maintenance starter is the mother culture you keep alive indefinitely. A levain (also called a preferment or production starter) is a separate build made specifically for a bake, using a portion of your maintained starter as a seed. Many bakers take a small spoonful of their refrigerated starter, build a levain at the desired ratio and temperature to peak at the time they want to mix dough, and leave the mother culture undisturbed in the fridge. This approach minimizes waste, separates baking decisions from maintenance decisions, and lets you use different flours and hydrations for the levain without changing your mother culture.</p>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="card">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How often should I feed my sourdough starter?</div>
+<div class="faq-a">A starter at room temperature needs feeding once or twice daily depending on temperature. At 72-76&deg;F, once daily is usually fine. Above 78&deg;F, feed twice. A refrigerated starter only needs weekly feeding: discard all but 50g, feed, let sit 2-4 hours at room temp, then refrigerate.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What ratio should I feed my sourdough starter?</div>
+<div class="faq-a">The standard is 1:1:1 (equal parts starter, flour, water by weight). For overnight builds, use 1:5:5 to slow the peak. For quick turnarounds, 1:1:1 or even 2:1:1. Higher ratios = longer time to peak = more flexibility in scheduling your bake.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">How do I know when my starter is ready to bake with?</div>
+<div class="faq-a">Look for 2-3x volume increase, a domed top, bubbly web structure, pleasant yeasty-tangy aroma, and the float test (a teaspoon floats in water). Use it at or just before peak — maximum volume before it starts collapsing.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">Can I use different flours for my starter?</div>
+<div class="faq-a">Absolutely. Whole wheat and rye ferment 30-40% faster than white flour. A 50/50 AP + whole wheat blend is a popular balance of vigor and predictability. The culture adapts to new flours within 2-3 feedings.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">What should I do with sourdough discard?</div>
+<div class="faq-a">Use it in pancakes, waffles, crackers, pizza dough, muffins, banana bread, and flatbreads. Discard adds tangy flavor and tender texture. Accumulate it in a jar in the fridge for up to a week. It does not need to be at peak activity for these recipes.</div>
+</div>
+</div>
+
+</main>
+<footer>
+<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
+<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
+<p style="margin-top:8px;">
+<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
+<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
+<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
+<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
+</p>
+</footer>
+<script>
+/* ===== FEEDING DATA ===== */
+const FLOUR_SPEED={ap:1,bread:0.95,ww:0.7,rye:0.6,mix:0.82};
+const RATIO_MULT={"1:1:1":1,"1:2:2":1.6,"1:3:3":2.1,"1:5:5":2.8,"1:10:10":4.2};
+const BASE_PEAK_HRS=5; // at 72F, 1:1:1, AP flour
+
+function getTempF(){
+let t=parseFloat(document.getElementById('ambient-temp').value)||72;
+if(document.getElementById('temp-unit').value==='C') t=t*9/5+32;
+return t;
+}
+
+function peakHours(ratio,flour,tempF){
+const ratioMul=RATIO_MULT[ratio]||1;
+const flourMul=FLOUR_SPEED[flour]||1;
+const tempFactor=Math.pow(2,-(tempF-72)/15);
+return BASE_PEAK_HRS*ratioMul*flourMul*tempFactor;
+}
+
+function parseRatio(r){
+const parts=r.split(':').map(Number);
+return {starter:parts[0],flour:parts[1],water:parts[2]};
+}
+
+function calculateFeedings(){
+const starterG=parseFloat(document.getElementById('starter-amount').value)||50;
+const ratio=document.getElementById('feed-ratio').value;
+const flour=document.getElementById('flour-type').value;
+const tempF=getTempF();
+const numFeeds=parseInt(document.getElementById('num-feeds').value)||3;
+const targetTime=document.getElementById('target-time').value;
+
+const r=parseRatio(ratio);
+const peakH=peakHours(ratio,flour,tempF);
+const flourG=starterG*(r.flour/r.starter);
+const waterG=starterG*(r.water/r.starter);
+const totalG=starterG+flourG+waterG;
+
+/* Main result */
+document.getElementById('result-value').textContent=peakH.toFixed(1)+' hours to peak';
+document.getElementById('result-label').textContent=ratio+' ratio | '+document.getElementById('flour-type').selectedOptions[0].text+' | '+Math.round(tempF)+'\u00B0F ('+Math.round((tempF-32)*5/9)+'\u00B0C)';
+document.getElementById('main-result').style.display='';
+
+/* Build timeline */
+const scheduleCard=document.getElementById('schedule-card');
+scheduleCard.style.display='';
+const timeline=document.getElementById('feed-timeline');
+timeline.innerHTML='';
+
+let now=new Date();
+if(targetTime){
+const [h,m]=targetTime.split(':').map(Number);
+const bakeTarget=new Date(now);
+bakeTarget.setHours(h,m,0,0);
+if(bakeTarget<=now) bakeTarget.setDate(bakeTarget.getDate()+1);
+const totalFeedTime=peakH*numFeeds;
+now=new Date(bakeTarget.getTime()-totalFeedTime*3600000);
+}
+
+let currentStarter=starterG;
+let feedTimes=[];
+
+for(let i=0;i<numFeeds;i++){
+const feedTime=new Date(now.getTime()+i*peakH*3600000);
+const peakTime=new Date(feedTime.getTime()+peakH*3600000);
+const fG=currentStarter*(r.flour/r.starter);
+const wG=currentStarter*(r.water/r.starter);
+const tG=currentStarter+fG+wG;
+const isPeak=i===numFeeds-1;
+
+const card=document.createElement('div');
+card.className='feed-card'+(isPeak?' peak':'');
+card.innerHTML='<div class="feed-num">Feed #'+(i+1)+(isPeak?' (BAKE)':'')+'</div>'+
+'<div class="feed-detail">'+Math.round(currentStarter)+'g starter + '+Math.round(fG)+'g flour + '+Math.round(wG)+'g water = '+Math.round(tG)+'g total</div>'+
+'<div class="feed-time">'+formatTimeOfDay(feedTime)+' &rarr; Peak '+formatTimeOfDay(peakTime)+'</div>';
+timeline.appendChild(card);
+
+feedTimes.push({feed:feedTime,peak:peakTime,starter:currentStarter,flour:fG,water:wG,total:tG});
+currentStarter=starterG;
+}
+
+/* Bake window */
+if(feedTimes.length>0){
+const lastPeak=feedTimes[feedTimes.length-1].peak;
+document.getElementById('bake-time').textContent=formatTimeOfDay(lastPeak);
+document.getElementById('bake-window').style.display='';
+}
+
+/* Amounts table */
+document.getElementById('amounts-card').style.display='';
+const tbody=document.getElementById('amounts-body');
+tbody.innerHTML='';
+feedTimes.forEach((f,i)=>{
+const tr=document.createElement('tr');
+tr.innerHTML='<td>Feed #'+(i+1)+'</td><td>'+Math.round(f.starter)+'</td><td>'+Math.round(f.flour)+'</td><td>'+Math.round(f.water)+'</td><td>'+Math.round(f.total)+'</td>';
+tbody.appendChild(tr);
+});
+
+/* Maturity gauge */
+buildMaturityGauge(peakH);
+}
+
+function buildMaturityGauge(peakH){
+const card=document.getElementById('maturity-card');
+card.style.display='';
+const stages=[
+{name:'Fed',pct:0,time:'0h',color:'var(--border)'},
+{name:'Rising',pct:30,time:(peakH*0.3).toFixed(1)+'h',color:'var(--secondary)'},
+{name:'Active',pct:60,time:(peakH*0.6).toFixed(1)+'h',color:'var(--primary)'},
+{name:'Peak',pct:85,time:(peakH*0.85).toFixed(1)+'h',color:'var(--success)'},
+{name:'Falling',pct:100,time:peakH.toFixed(1)+'h',color:'var(--primary-dark)'},
+{name:'Hungry',pct:130,time:(peakH*1.5).toFixed(1)+'h',color:'#6b5050'}
+];
+/* Animate arc to 85% (peak) */
+const arc=document.getElementById('maturity-arc');
+const circumference=2*Math.PI*50;
+arc.style.strokeDasharray=circumference;
+arc.style.strokeDashoffset=circumference*(1-0.85);
+document.getElementById('maturity-pct').textContent='85%';
+document.getElementById('maturity-label').textContent='Peak at '+peakH.toFixed(1)+'h';
+
+const container=document.getElementById('maturity-stages');
+container.innerHTML='';
+stages.forEach(s=>{
+const div=document.createElement('div');
+div.style.cssText='background:var(--warm);border-radius:6px;padding:.4rem .6rem;font-size:.8rem';
+div.innerHTML='<strong style="color:'+s.color+'">'+s.name+'</strong><br><span style="color:var(--text-light)">~'+s.time+'</span>';
+container.appendChild(div);
+});
+}
+
+function formatTimeOfDay(d){
+return d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',hour12:true});
+}
+
+function resetForm(){
+document.getElementById('starter-amount').value=50;
+document.getElementById('feed-ratio').value='1:1:1';
+document.getElementById('flour-type').value='ap';
+document.getElementById('ambient-temp').value=72;
+document.getElementById('target-time').value='';
+document.getElementById('num-feeds').value='3';
+document.getElementById('main-result').style.display='none';
+document.getElementById('schedule-card').style.display='none';
+document.getElementById('amounts-card').style.display='none';
+document.getElementById('maturity-card').style.display='none';
+document.getElementById('bake-window').style.display='none';
+}
+
+function toggleFaq(el){
+el.classList.toggle('open');
+el.nextElementSibling.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded',()=>{calculateFeedings()});
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/bread-calculator.html" style="color:#3b82f6;text-decoration:none;">Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios</a></li>
+<li><a href="/tools/fermentation-calculator.html" style="color:#3b82f6;text-decoration:none;">Fermentation Calculator — Sourdough, Kombucha & Yogurt Timing</a></li>
+<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
+<li><a href="/guides/food-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Cost Calculator — Food Cost Per Serving & Markup</a></li>
+</ul>
+</section>
+
+</body>
+</html>

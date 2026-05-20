@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US to Metric Recipe Converter - Ingredient-Aware Unit Conversion | Ingredient Calculator</title>
+<meta name="description" content="Free US to metric recipe converter with ingredient-aware rounding. Paste any recipe to auto-convert cups, tablespoons, teaspoons, ounces, and Fahrenheit to grams, milliliters, and Celsius. Smart density-based conversion for accurate baking.">
+<meta name="keywords" content="recipe converter, US to metric, cups to grams, cups to ml, Fahrenheit to Celsius, ingredient converter, metric recipe conversion, baking converter, cooking unit converter, recipe translation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/recipe-converter-metric.html">
+<meta property="og:title" content="US to Metric Recipe Converter - Ingredient-Aware Unit Conversion">
+<meta property="og:description" content="Free recipe converter. Paste any recipe to auto-convert US measurements to metric with ingredient-specific density rounding.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/recipe-converter-metric.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="US to Metric Recipe Converter - Ingredient-Aware Unit Conversion">
+<meta name="twitter:description" content="Free recipe converter. Paste any recipe to auto-convert US measurements to metric with ingredient-specific density rounding.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "US to Metric Recipe Converter",
+  "url": "https://ingredientcalculator.com/tools/recipe-converter-metric.html",
+  "description": "Free US to metric recipe converter with ingredient-aware rounding. Auto-detects cups, tablespoons, teaspoons, ounces, and Fahrenheit, then converts to grams, milliliters, and Celsius using ingredient-specific densities.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Auto-detect US measurements in recipe text",
+    "Ingredient-specific density conversion",
+    "Smart rounding (nearest 5g dry, 5ml liquid)",
+    "Side-by-side before and after display",
+    "Copy converted recipe to clipboard",
+    "Fahrenheit to Celsius conversion"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do different ingredients convert from cups to grams differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cups measure volume, while grams measure weight. Different ingredients have different densities, meaning the same volume weighs different amounts. For example, 1 cup of all-purpose flour weighs about 125 grams, while 1 cup of granulated sugar weighs about 200 grams, and 1 cup of butter weighs about 227 grams. This converter uses a database of ingredient-specific densities to ensure accurate conversions rather than applying a single generic ratio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the smart rounding feature work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smart rounding adjusts converted measurements to practical kitchen-friendly numbers. Dry ingredients are rounded to the nearest 5 grams (for example, 127g becomes 125g), and liquid ingredients are rounded to the nearest 5 milliliters (for example, 118ml becomes 120ml). This makes measuring easier without significantly affecting recipe accuracy. The rounding difference is always within 2.5% of the original amount, which is well within normal kitchen measurement tolerance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it better to weigh ingredients in grams or measure in milliliters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For baking, weighing dry ingredients in grams with a digital kitchen scale is significantly more accurate than using volume measurements. A cup of flour can vary by 20-30% depending on how it is scooped and packed. Grams eliminate this variability entirely. For liquids, milliliters and grams are nearly interchangeable for water-based liquids (1ml of water equals 1 gram), but oils and syrups have different densities, so milliliters are preferred for liquids and grams for dry ingredients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert Fahrenheit oven temperatures to Celsius?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula is Celsius = (Fahrenheit minus 32) multiplied by 5/9. Common conversions include 325F = 165C, 350F = 175C, 375F = 190C, 400F = 200C, 425F = 220C, and 450F = 230C. This converter automatically detects Fahrenheit temperatures in your recipe text and converts them to Celsius. Most ovens outside the US use Celsius, and professional baking recipes worldwide use Celsius for precision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert metric recipes back to US measurements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This converter is designed specifically for US to metric conversion, which is the most common need since professional and international recipes increasingly use metric measurements. Converting metric back to US cups introduces accuracy loss because cup measurements are inherently less precise than gram measurements. If you need to work with US measurements, it is better to invest in a set of measuring cups and spoons rather than converting precise gram measurements back to volume."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ingredientcalculator.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "US to Metric Recipe Converter",
+      "item": "https://ingredientcalculator.com/tools/recipe-converter-metric.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px;
+  line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+.breadcrumb {
+  padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted);
+}
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel h2 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;
+}
+.panel .subtitle {
+  color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px;
+}
+
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success);
+}
+
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.result-table th, .result-table td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid #D1FAE5;
+}
+.result-table th {
+  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.result-table tr:last-child td { border-bottom: none; }
+
+.nutrition-result {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.nutr-card {
+  text-align: center; padding: 16px; background: var(--clr-surface-alt);
+  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
+}
+.nutr-card .nutr-val { font-size: 1.6rem; font-weight: 800; color: var(--clr-accent); }
+.nutr-card .nutr-label {
+  font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-top: 2px;
+}
+.nutr-card .nutr-unit { font-size: 0.8rem; color: var(--clr-text-muted); }
+
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+/* Side-by-side comparison */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.compare-col h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--clr-text-muted); margin-bottom: 8px; }
+.compare-col pre {
+  background: var(--clr-surface-alt); border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); padding: 12px; font-family: var(--font);
+  font-size: 0.88rem; white-space: pre-wrap; word-wrap: break-word;
+  line-height: 1.8; min-height: 120px; color: var(--clr-text);
+}
+.compare-col pre .converted { color: var(--clr-accent); font-weight: 600; }
+.compare-col pre .temp-converted { color: #7C3AED; font-weight: 600; }
+
+/* Conversion log */
+.conversion-log { margin-top: 16px; }
+.log-item {
+  display: flex; align-items: center; gap: 10px; padding: 8px 0;
+  border-bottom: 1px solid var(--clr-border); font-size: 0.88rem;
+}
+.log-item:last-child { border-bottom: none; }
+.log-arrow { color: var(--clr-accent); font-weight: 700; }
+.log-original { color: var(--clr-text-muted); min-width: 140px; }
+.log-result { font-weight: 600; }
+.log-ingredient { color: var(--clr-text-muted); font-size: 0.8rem; font-style: italic; }
+
+/* Copy feedback */
+.copy-feedback {
+  display: inline-block; margin-left: 8px; font-size: 0.82rem;
+  color: var(--clr-success); font-weight: 600; opacity: 0; transition: opacity 0.3s;
+}
+.copy-feedback.show { opacity: 1; }
+
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3, .form-row.cols-4 { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .panel { padding: 16px; }
+  nav { display: none; }
+}
+
+@media print {
+  header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/tools/recipe-converter-metric.html" class="active">Recipe Converter</a>
+      <a href="/guides/portion-control-guide.html">Portion Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>US to Metric Recipe Converter</span> &mdash; Ingredient-Aware Unit Conversion</h1>
+    <p>Paste any recipe to auto-detect US measurements and convert them to metric with ingredient-specific density calculations, smart rounding, and side-by-side comparison.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; US to Metric Recipe Converter
+  </div>
+
+  <section class="panel">
+    <h2>Convert Your Recipe</h2>
+    <p class="subtitle">Paste a recipe below. The converter auto-detects US measurements (cups, tablespoons, teaspoons, ounces, Fahrenheit) and converts them to metric equivalents using ingredient-specific densities.</p>
+
+    <div class="form-group" style="margin-bottom:16px;">
+      <label for="rc-input">Paste Recipe Text</label>
+      <textarea id="rc-input" rows="10" placeholder="Example:
+Preheat oven to 350&deg;F.
+Mix 2 cups all-purpose flour with 1 cup sugar.
+Add 1/2 cup butter, melted.
+Stir in 3/4 cup milk and 2 teaspoons vanilla extract.
+Fold in 1 cup chocolate chips.
+Bake for 25 minutes at 350&deg;F." aria-label="Paste your recipe here"></textarea>
+    </div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="rc-rounding">Rounding Mode</label>
+        <select id="rc-rounding">
+          <option value="smart">Smart Rounding (nearest 5g/5ml)</option>
+          <option value="precise">Precise (no rounding)</option>
+          <option value="round10">Round to nearest 10g/10ml</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rc-default-density">Default Ingredient Type</label>
+        <select id="rc-default-density">
+          <option value="dry">Dry (for unrecognized ingredients)</option>
+          <option value="liquid">Liquid (for unrecognized ingredients)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="rc-convert" aria-label="Convert recipe to metric">Convert to Metric</button>
+      <button class="btn btn-secondary" id="rc-clear" aria-label="Clear recipe">Clear</button>
+      <button class="btn btn-secondary" id="rc-sample" aria-label="Load sample recipe">Load Sample</button>
+    </div>
+
+    <!-- Results -->
+    <div class="result-box" id="rc-results" aria-live="polite">
+      <h3>Converted Recipe</h3>
+
+      <div class="nutrition-result" id="rc-summary">
+        <div class="nutr-card">
+          <div class="nutr-val" id="rc-count">0</div>
+          <div class="nutr-label">Conversions</div>
+          <div class="nutr-unit">detected</div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="rc-temp-count">0</div>
+          <div class="nutr-label">Temperatures</div>
+          <div class="nutr-unit">converted</div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="rc-ingredient-count">0</div>
+          <div class="nutr-label">Ingredients</div>
+          <div class="nutr-unit">identified</div>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-col">
+          <h4>Original (US)</h4>
+          <pre id="rc-original"></pre>
+        </div>
+        <div class="compare-col">
+          <h4>Converted (Metric)</h4>
+          <pre id="rc-converted"></pre>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <h3 style="color:var(--clr-accent);">Conversion Log</h3>
+        <div class="conversion-log" id="rc-log"></div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="rc-copy" aria-label="Copy converted recipe">Copy Converted Recipe</button>
+        <span class="copy-feedback" id="rc-copy-feedback">Copied!</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Recipe conversion guide">
+  <h2>The Complete Guide to Converting US Recipes to Metric</h2>
+
+  <p>Converting recipes between US customary and metric measurements is one of the most common challenges home bakers and cooks face. Whether you are following an American recipe in a European kitchen, or simply want the precision that metric measurements provide, understanding how to accurately convert between systems is essential for consistent results. This guide covers the science behind conversion, why ingredient density matters, and how to get perfect results every time.</p>
+
+  <h3>Why US and Metric Measurements Differ</h3>
+  <p>The United States is one of only three countries that has not officially adopted the metric system for everyday use. American recipes use a volume-based measurement system with cups, tablespoons, teaspoons, and fluid ounces, while most of the world uses weight-based metric measurements in grams and milliliters. The fundamental problem with volume-based measurements is that the same volume of different ingredients can have vastly different weights. One cup of sifted flour weighs significantly less than one cup of packed brown sugar, even though both fill the same measuring cup.</p>
+
+  <h3>Ingredient Density: The Key to Accurate Conversion</h3>
+  <p>When converting cups to grams, you cannot use a single conversion factor. Each ingredient has a unique density, which is the ratio of its weight to its volume. This converter maintains a database of common ingredient densities to ensure accuracy. For example, one cup of all-purpose flour weighs approximately 125 grams because flour is relatively light and airy. One cup of granulated sugar weighs about 200 grams because sugar crystals pack more densely. One cup of honey weighs approximately 340 grams because it is a dense, viscous liquid. Using a generic conversion factor would produce errors of 40% or more for many ingredients.</p>
+  <p>The density of an ingredient also changes based on how it is measured. Flour that is scooped directly from the bag is packed more tightly than flour that is spooned into a cup and leveled. Professional bakeries avoid this problem entirely by weighing all ingredients in grams, which is one reason why metric recipes produce more consistent results.</p>
+
+  <h3>Smart Rounding for Practical Cooking</h3>
+  <p>When you convert measurements mathematically, you often get awkward numbers. For example, one-third cup of flour converts to exactly 41.67 grams, which is impractical to measure. Smart rounding adjusts these numbers to the nearest practical increment. For dry ingredients, rounding to the nearest 5 grams (40g in this case) keeps things measurable while staying within the normal variance of kitchen measurement. For liquid ingredients, rounding to the nearest 5 milliliters serves the same purpose. The total rounding error across an entire recipe is typically less than 2%, which has no perceptible effect on the final dish.</p>
+
+  <h3>Temperature Conversion: Fahrenheit to Celsius</h3>
+  <p>Oven temperatures are another critical conversion point. American recipes use Fahrenheit, while most ovens outside the United States display Celsius. The conversion formula is straightforward: subtract 32 from the Fahrenheit temperature, then multiply by 5/9. However, common baking temperatures convert to awkward Celsius values, so experienced bakers typically round to the nearest 5 degrees Celsius. For example, 350 degrees Fahrenheit converts to 176.67 Celsius, which is universally rounded to 175 or 180 degrees Celsius. This converter handles these temperature conversions automatically when it detects Fahrenheit values in your recipe text.</p>
+
+  <h3>Common US to Metric Conversion Reference</h3>
+  <p>While this converter handles calculations automatically, knowing common conversions helps you develop intuition for metric baking. Standard volume conversions are: 1 cup equals 240 milliliters for liquids, 1 tablespoon equals 15 milliliters, and 1 teaspoon equals 5 milliliters. For weight, 1 ounce equals approximately 28.35 grams and 1 pound equals approximately 454 grams. Remember that these are exact for liquids with water-like density, but dry ingredients require density-specific conversion.</p>
+
+  <h3>Tips for Successful Metric Baking</h3>
+  <p>Once you start using metric measurements, you will likely never want to go back to cups and tablespoons. A digital kitchen scale that reads in grams is the single most impactful purchase for improving your baking consistency. Place your mixing bowl on the scale, zero it out (tare), add your ingredient to the target weight, tare again, and add the next ingredient. This method is faster than washing multiple measuring cups and far more accurate. For liquids, a measuring jug with milliliter markings provides the precision you need. When scaling recipes up or down, metric measurements make the math trivially easy compared to trying to calculate three-quarters of two-thirds of a cup.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Weigh, Don't Scoop</h3>
+      <p>Invest in a digital kitchen scale. Weighing ingredients in grams eliminates the 20-30% variation that comes from different scooping techniques with measuring cups.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Temperature Matters</h3>
+      <p>When converting oven temps, round Celsius to the nearest 5 degrees. Most ovens have 10-15 degree variance anyway, so precise decimal values are unnecessary.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Density Is Everything</h3>
+      <p>Never use a single cups-to-grams ratio for all ingredients. Flour, sugar, butter, and cocoa powder all have different densities requiring specific conversion factors.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Tare Between Adds</h3>
+      <p>Use the tare (zero) function on your scale between adding each ingredient to the same bowl. This speeds up measuring and reduces dishes to wash.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/recipe-converter-metric.html" style="color:var(--clr-accent);text-decoration:none;">Recipe Converter</a> &middot;
+      <a href="/guides/portion-control-guide.html" style="color:var(--clr-accent);text-decoration:none;">Portion Guide</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ---- Ingredient density database (grams per cup) ---- */
+  var densityDB = {
+    'all-purpose flour': { gPerCup: 125, type: 'dry' },
+    'flour': { gPerCup: 125, type: 'dry' },
+    'bread flour': { gPerCup: 130, type: 'dry' },
+    'cake flour': { gPerCup: 115, type: 'dry' },
+    'whole wheat flour': { gPerCup: 130, type: 'dry' },
+    'almond flour': { gPerCup: 96, type: 'dry' },
+    'coconut flour': { gPerCup: 128, type: 'dry' },
+    'granulated sugar': { gPerCup: 200, type: 'dry' },
+    'sugar': { gPerCup: 200, type: 'dry' },
+    'brown sugar': { gPerCup: 220, type: 'dry' },
+    'powdered sugar': { gPerCup: 120, type: 'dry' },
+    'confectioners sugar': { gPerCup: 120, type: 'dry' },
+    'butter': { gPerCup: 227, type: 'dry' },
+    'oil': { gPerCup: 218, type: 'liquid' },
+    'vegetable oil': { gPerCup: 218, type: 'liquid' },
+    'olive oil': { gPerCup: 216, type: 'liquid' },
+    'coconut oil': { gPerCup: 218, type: 'liquid' },
+    'milk': { gPerCup: 244, type: 'liquid' },
+    'whole milk': { gPerCup: 244, type: 'liquid' },
+    'buttermilk': { gPerCup: 245, type: 'liquid' },
+    'heavy cream': { gPerCup: 238, type: 'liquid' },
+    'cream': { gPerCup: 238, type: 'liquid' },
+    'sour cream': { gPerCup: 230, type: 'liquid' },
+    'yogurt': { gPerCup: 245, type: 'liquid' },
+    'water': { gPerCup: 240, type: 'liquid' },
+    'honey': { gPerCup: 340, type: 'liquid' },
+    'maple syrup': { gPerCup: 312, type: 'liquid' },
+    'molasses': { gPerCup: 328, type: 'liquid' },
+    'corn syrup': { gPerCup: 328, type: 'liquid' },
+    'cocoa powder': { gPerCup: 86, type: 'dry' },
+    'cocoa': { gPerCup: 86, type: 'dry' },
+    'chocolate chips': { gPerCup: 170, type: 'dry' },
+    'oats': { gPerCup: 90, type: 'dry' },
+    'rolled oats': { gPerCup: 90, type: 'dry' },
+    'rice': { gPerCup: 185, type: 'dry' },
+    'salt': { gPerCup: 288, type: 'dry' },
+    'baking powder': { gPerCup: 230, type: 'dry' },
+    'baking soda': { gPerCup: 220, type: 'dry' },
+    'cornstarch': { gPerCup: 128, type: 'dry' },
+    'vanilla extract': { gPerCup: 208, type: 'liquid' },
+    'vanilla': { gPerCup: 208, type: 'liquid' },
+    'peanut butter': { gPerCup: 258, type: 'dry' },
+    'cream cheese': { gPerCup: 232, type: 'dry' },
+    'ricotta': { gPerCup: 246, type: 'dry' },
+    'walnuts': { gPerCup: 120, type: 'dry' },
+    'pecans': { gPerCup: 110, type: 'dry' },
+    'almonds': { gPerCup: 143, type: 'dry' },
+    'raisins': { gPerCup: 165, type: 'dry' },
+    'shredded coconut': { gPerCup: 93, type: 'dry' },
+    'coconut': { gPerCup: 93, type: 'dry' },
+    'cornmeal': { gPerCup: 157, type: 'dry' },
+    'breadcrumbs': { gPerCup: 108, type: 'dry' },
+    'parmesan': { gPerCup: 100, type: 'dry' },
+    'cheddar': { gPerCup: 113, type: 'dry' },
+    'mozzarella': { gPerCup: 112, type: 'dry' },
+    'lemon juice': { gPerCup: 244, type: 'liquid' },
+    'orange juice': { gPerCup: 248, type: 'liquid' },
+    'applesauce': { gPerCup: 244, type: 'liquid' }
+  };
+
+  var defaultDensity = { dry: { gPerCup: 140, type: 'dry' }, liquid: { gPerCup: 240, type: 'liquid' } };
+
+  /* ---- Volume to ml conversion factors ---- */
+  var volumeToMl = {
+    'cup': 240, 'cups': 240,
+    'tablespoon': 15, 'tablespoons': 15, 'tbsp': 15,
+    'teaspoon': 5, 'teaspoons': 5, 'tsp': 5
+  };
+
+  /* ---- Fraction parsing ---- */
+  var fractionMap = {
+    '\u00BC': 0.25, '\u00BD': 0.5, '\u00BE': 0.75,
+    '\u2153': 0.333, '\u2154': 0.667, '\u2155': 0.2,
+    '\u2156': 0.4, '\u2157': 0.6, '\u2158': 0.8, '\u2159': 0.167, '\u215A': 0.833
+  };
+
+  function parseFraction(str) {
+    str = str.trim();
+    for (var uChar in fractionMap) {
+      if (str.indexOf(uChar) !== -1) {
+        var parts = str.split(uChar);
+        var whole = parts[0].trim() ? parseFloat(parts[0].trim()) : 0;
+        return whole + fractionMap[uChar];
+      }
+    }
+    if (str.indexOf('/') !== -1) {
+      var segments = str.split(/\s+/);
+      if (segments.length === 2 && segments[1].indexOf('/') !== -1) {
+        var fp = segments[1].split('/');
+        return parseFloat(segments[0]) + parseFloat(fp[0]) / parseFloat(fp[1]);
+      }
+      if (segments.length === 1 && segments[0].indexOf('/') !== -1) {
+        var fp2 = segments[0].split('/');
+        return parseFloat(fp2[0]) / parseFloat(fp2[1]);
+      }
+    }
+    return parseFloat(str);
+  }
+
+  /* ---- Find ingredient in line ---- */
+  function findIngredient(line) {
+    var lower = line.toLowerCase();
+    var bestMatch = null;
+    var bestLen = 0;
+    for (var name in densityDB) {
+      if (lower.indexOf(name) !== -1 && name.length > bestLen) {
+        bestMatch = name;
+        bestLen = name.length;
+      }
+    }
+    return bestMatch;
+  }
+
+  /* ---- Rounding ---- */
+  function smartRound(value, type, mode) {
+    if (mode === 'precise') return Math.round(value * 10) / 10;
+    var increment = mode === 'round10' ? 10 : 5;
+    return Math.round(value / increment) * increment;
+  }
+
+  /* ---- Main conversion ---- */
+  function convertRecipe() {
+    var input = document.getElementById('rc-input').value.trim();
+    if (!input) return;
+
+    var roundingMode = document.getElementById('rc-rounding').value;
+    var defaultType = document.getElementById('rc-default-density').value;
+
+    var lines = input.split('\n');
+    var convertedLines = [];
+    var logEntries = [];
+    var conversionCount = 0;
+    var tempCount = 0;
+    var ingredientSet = {};
+
+    /* Regex patterns */
+    var volumeRegex = /(\d+\s*\/\s*\d+|\d+\s+\d+\s*\/\s*\d+|\d+\.?\d*)\s*(cups?|tablespoons?|tbsp|teaspoons?|tsp)\b/gi;
+    var ozRegex = /(\d+\.?\d*)\s*(oz|ounces?)\b/gi;
+    var tempRegex = /(\d{3})\s*(?:degrees?\s*)?(?:\u00B0)?\s*F(?:ahrenheit)?\b/gi;
+    var lbRegex = /(\d+\.?\d*)\s*(lbs?|pounds?)\b/gi;
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var converted = line;
+      var ingredientName = findIngredient(line);
+      if (ingredientName) ingredientSet[ingredientName] = true;
+
+      /* Convert volume measurements */
+      converted = converted.replace(volumeRegex, function (match, qty, unit) {
+        var amount = parseFraction(qty);
+        if (isNaN(amount)) return match;
+
+        var unitLower = unit.toLowerCase();
+        var mlFactor = volumeToMl[unitLower] || volumeToMl[unitLower.replace(/s$/, '')] || 240;
+
+        var density = ingredientName ? densityDB[ingredientName] : defaultDensity[defaultType];
+        var totalMl = amount * mlFactor;
+        var isLiquid = density.type === 'liquid';
+
+        var result;
+        var resultUnit;
+        if (isLiquid) {
+          result = smartRound(totalMl, 'liquid', roundingMode);
+          resultUnit = 'ml';
+        } else {
+          var grams = totalMl * (density.gPerCup / 240);
+          result = smartRound(grams, 'dry', roundingMode);
+          resultUnit = 'g';
+        }
+
+        conversionCount++;
+        logEntries.push({
+          original: match.trim(),
+          result: result + resultUnit,
+          ingredient: ingredientName || 'unknown'
+        });
+
+        return result + resultUnit;
+      });
+
+      /* Convert ounces */
+      converted = converted.replace(ozRegex, function (match, qty) {
+        var amount = parseFloat(qty);
+        if (isNaN(amount)) return match;
+        var grams = smartRound(amount * 28.35, 'dry', roundingMode);
+        conversionCount++;
+        logEntries.push({ original: match.trim(), result: grams + 'g', ingredient: ingredientName || 'weight' });
+        return grams + 'g';
+      });
+
+      /* Convert pounds */
+      converted = converted.replace(lbRegex, function (match, qty) {
+        var amount = parseFloat(qty);
+        if (isNaN(amount)) return match;
+        var grams = smartRound(amount * 453.592, 'dry', roundingMode);
+        conversionCount++;
+        logEntries.push({ original: match.trim(), result: grams + 'g', ingredient: ingredientName || 'weight' });
+        return grams + 'g';
+      });
+
+      /* Convert temperatures */
+      converted = converted.replace(tempRegex, function (match, temp) {
+        var f = parseInt(temp, 10);
+        if (f < 200 || f > 550) return match;
+        var c = Math.round((f - 32) * 5 / 9 / 5) * 5;
+        tempCount++;
+        logEntries.push({ original: f + '\u00B0F', result: c + '\u00B0C', ingredient: 'temperature' });
+        return c + '\u00B0C';
+      });
+
+      convertedLines.push(converted);
+    }
+
+    /* Display results */
+    document.getElementById('rc-count').textContent = conversionCount;
+    document.getElementById('rc-temp-count').textContent = tempCount;
+    document.getElementById('rc-ingredient-count').textContent = Object.keys(ingredientSet).length;
+
+    document.getElementById('rc-original').textContent = input;
+    document.getElementById('rc-converted').textContent = convertedLines.join('\n');
+
+    /* Build log */
+    var logHtml = '';
+    for (var j = 0; j < logEntries.length; j++) {
+      var entry = logEntries[j];
+      logHtml += '<div class="log-item">' +
+        '<span class="log-original">' + escapeHtml(entry.original) + '</span>' +
+        '<span class="log-arrow">&rarr;</span>' +
+        '<span class="log-result">' + escapeHtml(entry.result) + '</span>' +
+        '<span class="log-ingredient">(' + escapeHtml(entry.ingredient) + ')</span>' +
+        '</div>';
+    }
+    document.getElementById('rc-log').innerHTML = logHtml;
+
+    var results = document.getElementById('rc-results');
+    results.classList.add('visible');
+    results.style.display = 'block';
+    results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  /* ---- Copy to clipboard ---- */
+  document.getElementById('rc-copy').addEventListener('click', function () {
+    var text = document.getElementById('rc-converted').textContent;
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { showCopyFeedback(); });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showCopyFeedback();
+    }
+  });
+
+  function showCopyFeedback() {
+    var fb = document.getElementById('rc-copy-feedback');
+    fb.classList.add('show');
+    setTimeout(function () { fb.classList.remove('show'); }, 2000);
+  }
+
+  /* ---- Load sample ---- */
+  document.getElementById('rc-sample').addEventListener('click', function () {
+    document.getElementById('rc-input').value =
+      'Classic Chocolate Chip Cookies\n\n' +
+      'Preheat oven to 375\u00B0F.\n\n' +
+      '2 1/4 cups all-purpose flour\n' +
+      '1 teaspoon baking soda\n' +
+      '1 teaspoon salt\n' +
+      '1 cup butter, softened\n' +
+      '3/4 cup granulated sugar\n' +
+      '3/4 cup brown sugar\n' +
+      '2 large eggs\n' +
+      '2 teaspoons vanilla extract\n' +
+      '2 cups chocolate chips\n\n' +
+      'Mix flour, baking soda, and salt. In another bowl, cream butter and sugars.\n' +
+      'Beat in eggs and vanilla. Gradually blend in flour mixture. Stir in chocolate chips.\n' +
+      'Drop by tablespoon onto ungreased baking sheets.\n' +
+      'Bake 9 to 11 minutes at 375\u00B0F or until golden brown.\n' +
+      'Makes about 5 dozen cookies.';
+  });
+
+  /* ---- Clear ---- */
+  document.getElementById('rc-clear').addEventListener('click', function () {
+    document.getElementById('rc-input').value = '';
+    document.getElementById('rc-results').classList.remove('visible');
+    document.getElementById('rc-results').style.display = 'none';
+  });
+
+  /* ---- Convert button ---- */
+  document.getElementById('rc-convert').addEventListener('click', convertRecipe);
+
+  /* Auto-convert on Ctrl+Enter */
+  document.getElementById('rc-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      convertRecipe();
+    }
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/recipe-converter.html" style="color:#3b82f6;text-decoration:none;">Recipe Unit Converter</a></li>
+<li><a href="/tools/recipe-nutrition-estimator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Estimator - Paste Any Recipe, Get Nutrition Facts</a></li>
+<li><a href="/answers/cooking-measurement-converter.html" style="color:#3b82f6;text-decoration:none;">Cooking Measurement Converter - Ingredient-Specific Weights & Volumes</a></li>
+<li><a href="/tools/baking-ratio-calculator.html" style="color:#3b82f6;text-decoration:none;">Baker's Percentage Calculator - Hydration Analysis & Bread Ratios</a></li>
+</ul>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glycemic Index Calculator - GI/GL with Meal Planning Optimization | Ingredient Calculator</title>
+<meta name="description" content="Free glycemic index calculator with glycemic load per serving, meal GL optimizer, traffic light system, daily GL tracker, and side-by-side food comparison. Build low-GI meals backed by a 50+ food database.">
+<meta name="keywords" content="glycemic index calculator, glycemic load calculator, GI calculator, GL calculator, low GI foods, blood sugar, meal planning GI, glycemic index database, diabetes meal planner, GI food list">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/research/glycemic-index-calculator.html">
+<meta property="og:title" content="Glycemic Index Calculator - GI/GL with Meal Planning Optimization">
+<meta property="og:description" content="Free GI/GL calculator. Search 50+ foods, build optimized meals, track daily glycemic load with traffic light indicators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ingredientcalculator.com/research/glycemic-index-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glycemic Index Calculator - GI/GL with Meal Planning Optimization">
+<meta name="twitter:description" content="Free GI/GL calculator. Search 50+ foods, build optimized meals, track daily glycemic load with traffic light indicators.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Glycemic Index Calculator - GI/GL with Meal Planning Optimization",
+  "url": "https://ingredientcalculator.com/research/glycemic-index-calculator.html",
+  "description": "Free glycemic index calculator with glycemic load per serving, meal GL optimizer, traffic light system, daily GL tracker, and side-by-side food comparison.",
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between glycemic index and glycemic load?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Glycemic Index (GI) measures how quickly a food raises blood sugar on a scale of 0 to 100, compared to pure glucose (GI = 100). However, GI does not account for portion size. Glycemic Load (GL) solves this by factoring in how many carbohydrates are in a typical serving. GL is calculated as GI multiplied by grams of carbs per serving divided by 100. For example, watermelon has a high GI of 76 but a low GL of 4 per serving because a typical portion contains only about 6 grams of carbs. This makes GL a more practical tool for meal planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is considered a low, medium, and high glycemic index?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Foods are classified into three GI categories: Low GI is 55 or below and includes most fruits, non-starchy vegetables, legumes, and whole grains like oats and barley. Medium GI is 56 to 69 and includes whole wheat bread, brown rice, sweet potatoes, and some tropical fruits. High GI is 70 or above and includes white bread, white rice, potatoes, sugary cereals, and most processed snacks. For glycemic load, Low GL is 10 or below, Medium GL is 11 to 19, and High GL is 20 or above per serving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does combining foods affect the overall glycemic response?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eating foods together significantly changes the glycemic response compared to eating them individually. Adding protein, fat, or fiber to a high-GI food slows down digestion and lowers the overall glycemic impact of the meal. For example, eating white bread alone produces a sharp blood sugar spike, but pairing it with peanut butter (which adds fat and protein) substantially reduces the spike. Vinegar, citrus juice, and fermented foods also lower the glycemic response of a meal. This is why the meal builder in this calculator shows the combined GL, which accounts for how foods interact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can glycemic index vary for the same food?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the GI of a food can vary based on several factors. Ripeness matters: a ripe banana has a higher GI (62) than a slightly green banana (42). Cooking method affects GI: al dente pasta has a lower GI than overcooked pasta, and cooled cooked potatoes have a lower GI than freshly cooked ones due to resistant starch formation. Processing increases GI: instant oats have a higher GI than steel-cut oats. Variety matters too: Basmati rice has a lower GI (58) than Jasmine rice (89). The values in this calculator represent averages from published research."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy daily glycemic load target?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research suggests that a daily glycemic load below 80 is considered low and is associated with reduced risk of type 2 diabetes, heart disease, and certain cancers. A daily GL between 80 and 120 is considered moderate, and above 120 is considered high. For people managing diabetes or insulin resistance, keeping daily GL below 80 is generally recommended. However, individual responses vary, and factors like physical activity level, body composition, and medication can influence optimal targets. This calculator's daily tracker helps you monitor your cumulative GL throughout the day."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Research",
+      "item": "https://ingredientcalculator.com/research/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Glycemic Index Calculator",
+      "item": "https://ingredientcalculator.com/research/glycemic-index-calculator.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px;
+  line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+.breadcrumb {
+  padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted);
+}
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel h2 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;
+}
+.panel .subtitle {
+  color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px;
+}
+
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-row.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success);
+}
+
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.result-table th, .result-table td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid #D1FAE5;
+}
+.result-table th {
+  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.result-table tr:last-child td { border-bottom: none; }
+
+.nutrition-result {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.nutr-card {
+  text-align: center; padding: 16px; background: var(--clr-surface-alt);
+  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
+}
+.nutr-card .nutr-val { font-size: 1.6rem; font-weight: 800; color: var(--clr-accent); }
+.nutr-card .nutr-label {
+  font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-top: 2px;
+}
+.nutr-card .nutr-unit { font-size: 0.8rem; color: var(--clr-text-muted); }
+
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+/* GI-specific styles */
+.gi-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 12px;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.gi-low { background: #ECFDF5; color: #059669; }
+.gi-medium { background: #FFFBEB; color: #D97706; }
+.gi-high { background: #FEF2F2; color: #DC2626; }
+
+.food-search-results {
+  border: 1px solid var(--clr-border); border-radius: var(--radius-sm);
+  max-height: 200px; overflow-y: auto; display: none; background: var(--clr-surface);
+  position: relative; z-index: 10;
+}
+.food-search-results.active { display: block; }
+.food-item {
+  padding: 8px 12px; cursor: pointer; display: flex;
+  justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--clr-border); font-size: 0.88rem;
+  transition: background var(--transition);
+}
+.food-item:hover { background: var(--clr-accent-light); }
+.food-item:last-child { border-bottom: none; }
+
+.meal-list { margin-top: 12px; }
+.meal-entry {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid var(--clr-border);
+  font-size: 0.88rem; gap: 8px;
+}
+.meal-entry:last-child { border-bottom: none; }
+.meal-entry-info { flex: 1; }
+.meal-entry-name { font-weight: 600; }
+.meal-entry-meta { color: var(--clr-text-muted); font-size: 0.8rem; }
+.meal-entry-remove {
+  background: none; border: none; color: var(--clr-danger);
+  cursor: pointer; font-size: 1.1rem; padding: 4px 8px;
+  border-radius: var(--radius-sm); transition: background var(--transition);
+}
+.meal-entry-remove:hover { background: #FEF2F2; }
+
+/* Daily tracker bar */
+.tracker-bar-bg {
+  height: 28px; background: var(--clr-surface-alt); border-radius: 14px;
+  border: 1px solid var(--clr-border); overflow: hidden; position: relative;
+  margin: 12px 0;
+}
+.tracker-bar-fill {
+  height: 100%; border-radius: 14px; transition: width 0.4s ease;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: #fff; min-width: 40px;
+}
+.tracker-zones {
+  display: flex; justify-content: space-between; font-size: 0.75rem;
+  color: var(--clr-text-muted); margin-top: 4px;
+}
+
+/* Compare panel */
+.compare-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+.compare-food-card {
+  background: var(--clr-surface-alt); border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); padding: 16px; text-align: center;
+}
+.compare-food-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.compare-stat { margin: 6px 0; font-size: 0.88rem; }
+.compare-stat strong { color: var(--clr-accent); }
+
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3, .form-row.cols-4 { grid-template-columns: 1fr; }
+  .compare-cards { grid-template-columns: 1fr; }
+  .panel { padding: 16px; }
+  nav { display: none; }
+}
+
+@media print {
+  header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/research/glycemic-index-calculator.html" class="active">GI Calculator</a>
+      <a href="/guides/portion-control-guide.html">Portion Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Glycemic Index Calculator</span> &mdash; GI/GL with Meal Planning Optimization</h1>
+    <p>Search 50+ foods by glycemic index, calculate glycemic load per serving, build optimized low-GI meals, and track your daily glycemic load with a visual traffic light system.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/research/">Research</a> &rsaquo; Glycemic Index Calculator
+  </div>
+
+  <!-- Panel 1: Food Search & GL Calculator -->
+  <section class="panel">
+    <h2>Food GI/GL Lookup</h2>
+    <p class="subtitle">Search the database to find glycemic index and glycemic load values for individual foods. GL = (GI x Carbs per serving) / 100.</p>
+
+    <div class="form-group" style="margin-bottom:8px;">
+      <label for="gi-search">Search Food</label>
+      <input type="text" id="gi-search" placeholder="Type a food name (e.g., banana, white rice, oatmeal)..." autocomplete="off" aria-label="Search food database">
+    </div>
+    <div class="food-search-results" id="gi-search-results" role="listbox" aria-label="Food search results"></div>
+
+    <div class="result-box" id="gi-food-result" aria-live="polite">
+      <h3 id="gi-food-name">Food Details</h3>
+      <div class="nutrition-result">
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-food-gi">--</div>
+          <div class="nutr-label">Glycemic Index</div>
+          <div class="nutr-unit" id="gi-food-gi-badge"></div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-food-gl">--</div>
+          <div class="nutr-label">Glycemic Load</div>
+          <div class="nutr-unit" id="gi-food-gl-badge"></div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-food-carbs">--</div>
+          <div class="nutr-label">Carbs</div>
+          <div class="nutr-unit">g / serving</div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-food-serving">--</div>
+          <div class="nutr-label">Serving</div>
+          <div class="nutr-unit" id="gi-food-serving-unit">g</div>
+        </div>
+      </div>
+      <div class="form-row cols-2" style="margin-top:16px;">
+        <div class="form-group">
+          <label for="gi-custom-serving">Custom Serving Size (g)</label>
+          <input type="number" id="gi-custom-serving" min="1" max="1000" step="1" placeholder="Enter custom serving" aria-label="Custom serving size">
+        </div>
+        <div class="form-group" style="justify-content:flex-end;">
+          <div class="btn-row" style="margin-top:0;">
+            <button class="btn btn-primary btn-sm" id="gi-recalc" aria-label="Recalculate GL with custom serving">Recalculate GL</button>
+            <button class="btn btn-primary btn-sm" id="gi-add-meal" aria-label="Add food to meal builder">Add to Meal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel 2: Meal Builder -->
+  <section class="panel">
+    <h2>Meal Builder</h2>
+    <p class="subtitle">Add foods to build a meal and see the combined glycemic load. Aim for a meal GL under 20 for optimal blood sugar control.</p>
+
+    <div class="meal-list" id="gi-meal-list">
+      <p style="color:var(--clr-text-muted);font-size:0.9rem;font-style:italic;" id="gi-meal-empty">No foods added yet. Search above and click "Add to Meal" to start building.</p>
+    </div>
+
+    <div class="result-box visible" id="gi-meal-summary" style="display:none;">
+      <h3>Meal Summary</h3>
+      <div class="nutrition-result">
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-meal-gl">0</div>
+          <div class="nutr-label">Total Meal GL</div>
+          <div class="nutr-unit" id="gi-meal-gl-badge"></div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-meal-carbs">0</div>
+          <div class="nutr-label">Total Carbs</div>
+          <div class="nutr-unit">grams</div>
+        </div>
+        <div class="nutr-card">
+          <div class="nutr-val" id="gi-meal-items">0</div>
+          <div class="nutr-label">Foods</div>
+          <div class="nutr-unit">in meal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" id="gi-clear-meal" aria-label="Clear meal builder">Clear Meal</button>
+      <button class="btn btn-primary btn-sm" id="gi-add-daily" aria-label="Add meal to daily tracker">Add Meal to Daily Tracker</button>
+    </div>
+  </section>
+
+  <!-- Panel 3: Daily GL Tracker -->
+  <section class="panel">
+    <h2>Daily GL Tracker</h2>
+    <p class="subtitle">Monitor your cumulative glycemic load throughout the day. A daily GL under 80 is considered low, 80-120 moderate, and above 120 high.</p>
+
+    <div style="margin-top:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <span style="font-size:0.85rem;font-weight:600;color:var(--clr-text-muted);">Daily GL: <strong id="gi-daily-total" style="color:var(--clr-accent);font-size:1.1rem;">0</strong></span>
+        <span class="gi-badge" id="gi-daily-badge" style="display:none;">LOW</span>
+      </div>
+      <div class="tracker-bar-bg">
+        <div class="tracker-bar-fill" id="gi-daily-bar" style="width:0%;background:var(--clr-success);"></div>
+      </div>
+      <div class="tracker-zones">
+        <span>0</span>
+        <span style="color:#059669;">Low (&lt;80)</span>
+        <span style="color:#D97706;">Moderate (80-120)</span>
+        <span style="color:#DC2626;">High (&gt;120)</span>
+        <span>160+</span>
+      </div>
+    </div>
+
+    <div class="meal-list" id="gi-daily-list">
+      <p style="color:var(--clr-text-muted);font-size:0.9rem;font-style:italic;" id="gi-daily-empty">No meals tracked today. Build a meal above and add it to this tracker.</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" id="gi-clear-daily" aria-label="Reset daily tracker">Reset Day</button>
+    </div>
+  </section>
+
+  <!-- Panel 4: Food Comparison -->
+  <section class="panel">
+    <h2>Compare Foods</h2>
+    <p class="subtitle">Select two foods to compare their glycemic index, glycemic load, and carb content side by side.</p>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="gi-compare-a">Food A</label>
+        <select id="gi-compare-a" aria-label="Select first food to compare"></select>
+      </div>
+      <div class="form-group">
+        <label for="gi-compare-b">Food B</label>
+        <select id="gi-compare-b" aria-label="Select second food to compare"></select>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:8px;">
+      <button class="btn btn-primary btn-sm" id="gi-compare-btn" aria-label="Compare selected foods">Compare</button>
+    </div>
+
+    <div class="compare-cards" id="gi-compare-result" style="display:none;">
+      <div class="compare-food-card" id="gi-compare-card-a"></div>
+      <div class="compare-food-card" id="gi-compare-card-b"></div>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Glycemic index guide">
+  <h2>The Complete Guide to Glycemic Index and Glycemic Load</h2>
+
+  <p>Understanding glycemic index (GI) and glycemic load (GL) is one of the most practical approaches to managing blood sugar levels, controlling energy throughout the day, and reducing the risk of chronic diseases. Whether you are managing diabetes, trying to lose weight, or simply want to make smarter food choices, knowing how different foods affect your blood sugar gives you a powerful decision-making tool. This guide explains the science behind GI and GL, how to use them for meal planning, and why some high-GI foods are not as bad as they seem.</p>
+
+  <h3>The Science Behind Glycemic Index</h3>
+  <p>The glycemic index was developed in 1981 by Dr. David Jenkins at the University of Toronto as a way to classify how quickly different carbohydrate-containing foods raise blood glucose levels. The GI scale runs from 0 to 100, where pure glucose (or white bread in some systems) is assigned a value of 100 as the reference food. When you eat a food, your body breaks down the carbohydrates into glucose, which enters the bloodstream and raises blood sugar. High-GI foods cause a rapid, sharp rise in blood sugar followed by a steep decline, while low-GI foods produce a gradual, sustained rise and a gentle return to baseline.</p>
+
+  <h3>Why Glycemic Load Matters More Than GI Alone</h3>
+  <p>Glycemic index has a significant limitation: it measures the blood sugar response to a fixed amount of carbohydrate (typically 50 grams), not a typical serving size. This can be misleading because some foods with high GI values contain very few carbohydrates per serving. Watermelon is the classic example, with a high GI of 76 but only about 6 grams of carbs per 120-gram serving, giving it a glycemic load of just 4, which is very low. Glycemic load was created by researchers at Harvard to address this limitation. The formula is simple: GL = (GI x grams of carbohydrate per serving) / 100. This makes GL a far more useful metric for real-world meal planning.</p>
+
+  <h3>Factors That Affect Glycemic Response</h3>
+  <p>The glycemic index of a food is not fixed. Multiple factors influence how quickly your body converts a food's carbohydrates into blood glucose. Cooking duration and method matter significantly: al dente pasta has a GI of about 46, while overcooked pasta can reach 60 or higher. Ripeness affects fruit: a green banana has a GI around 42, while a very ripe banana can reach 62. Processing increases GI dramatically: steel-cut oats (GI 52) versus instant oats (GI 79). Temperature also plays a role: cooling cooked starches like rice and potatoes creates resistant starch, which lowers the effective GI. Finally, food combinations matter: adding protein, fat, or acidic foods (vinegar, lemon juice) to a meal significantly reduces the overall glycemic response.</p>
+
+  <h3>Building Low-GI Meals for Better Health</h3>
+  <p>The most effective strategy for managing glycemic response is not to avoid all high-GI foods, but to combine foods strategically. A meal that includes protein, healthy fat, and fiber alongside carbohydrates will have a much lower glycemic impact than carbohydrates eaten alone. For example, a piece of white bread alone has a high GI, but spread with avocado and topped with an egg, the meal's glycemic impact is dramatically reduced. The meal builder in this calculator helps you visualize how combining different foods affects the total glycemic load of your meal.</p>
+
+  <h3>Daily Glycemic Load Targets</h3>
+  <p>Research from the Harvard School of Public Health and multiple meta-analyses suggests that total daily glycemic load is more predictive of health outcomes than individual food choices. A daily GL below 80 is considered low and is associated with a 20-25% reduced risk of type 2 diabetes and cardiovascular disease. A daily GL between 80 and 120 is moderate, and above 120 is considered high. For active individuals who burn more glucose through exercise, a slightly higher daily GL is acceptable. Sedentary individuals and those managing insulin resistance benefit most from keeping daily GL in the low range.</p>
+
+  <h3>GI and GL for Weight Management</h3>
+  <p>Multiple clinical trials have shown that low-GI diets produce similar or slightly better weight loss compared to conventional low-fat diets, with the added benefit of improved satiety and blood sugar stability. When blood sugar remains stable, you experience fewer energy crashes and cravings. Low-GI diets are also associated with lower levels of C-reactive protein, a marker of inflammation, and better preservation of lean muscle mass during weight loss. The most sustainable approach is not to count GI points obsessively but to make simple swaps: choose whole grains over refined grains, eat fruit instead of fruit juice, pair carbohydrates with protein and fat, and prioritize vegetables and legumes as your primary carbohydrate sources.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Pair, Don't Avoid</h3>
+      <p>Instead of eliminating high-GI foods, pair them with protein, fat, or fiber. A baked potato with chicken and salad has a lower glycemic impact than the potato alone.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; GL Over GI</h3>
+      <p>Glycemic load accounts for serving size, making it more practical than GI alone. A food with high GI but low carbs per serving (like watermelon) has a low GL.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Cook and Cool</h3>
+      <p>Cooking and then cooling starchy foods like rice, pasta, and potatoes creates resistant starch, effectively lowering the glycemic response by up to 20-30%.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Track Daily GL</h3>
+      <p>Individual food GI matters less than your total daily glycemic load. Keep daily GL under 80 for optimal blood sugar control and disease risk reduction.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/research/glycemic-index-calculator.html" style="color:var(--clr-accent);text-decoration:none;">GI Calculator</a> &middot;
+      <a href="/guides/portion-control-guide.html" style="color:var(--clr-accent);text-decoration:none;">Portion Guide</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ---- Food GI Database (50+ items) ---- */
+  var foods = [
+    { name: 'White Bread', gi: 75, carbs: 49, serving: 100, category: 'Grains' },
+    { name: 'Whole Wheat Bread', gi: 69, carbs: 41, serving: 100, category: 'Grains' },
+    { name: 'Sourdough Bread', gi: 54, carbs: 44, serving: 100, category: 'Grains' },
+    { name: 'White Rice', gi: 73, carbs: 28, serving: 150, category: 'Grains' },
+    { name: 'Brown Rice', gi: 68, carbs: 23, serving: 150, category: 'Grains' },
+    { name: 'Basmati Rice', gi: 58, carbs: 25, serving: 150, category: 'Grains' },
+    { name: 'Jasmine Rice', gi: 89, carbs: 28, serving: 150, category: 'Grains' },
+    { name: 'Oatmeal (rolled oats)', gi: 55, carbs: 27, serving: 250, category: 'Grains' },
+    { name: 'Instant Oatmeal', gi: 79, carbs: 26, serving: 250, category: 'Grains' },
+    { name: 'Steel-Cut Oats', gi: 52, carbs: 27, serving: 250, category: 'Grains' },
+    { name: 'Spaghetti (al dente)', gi: 46, carbs: 31, serving: 180, category: 'Grains' },
+    { name: 'Spaghetti (overcooked)', gi: 64, carbs: 31, serving: 180, category: 'Grains' },
+    { name: 'Cornflakes', gi: 81, carbs: 26, serving: 30, category: 'Grains' },
+    { name: 'Quinoa', gi: 53, carbs: 21, serving: 150, category: 'Grains' },
+    { name: 'Couscous', gi: 65, carbs: 23, serving: 150, category: 'Grains' },
+    { name: 'Potato (baked)', gi: 78, carbs: 21, serving: 150, category: 'Vegetables' },
+    { name: 'Sweet Potato', gi: 63, carbs: 20, serving: 150, category: 'Vegetables' },
+    { name: 'Corn', gi: 52, carbs: 19, serving: 150, category: 'Vegetables' },
+    { name: 'Green Peas', gi: 48, carbs: 14, serving: 80, category: 'Vegetables' },
+    { name: 'Carrots (boiled)', gi: 39, carbs: 6, serving: 80, category: 'Vegetables' },
+    { name: 'Pumpkin', gi: 75, carbs: 4, serving: 80, category: 'Vegetables' },
+    { name: 'Beetroot', gi: 64, carbs: 10, serving: 80, category: 'Vegetables' },
+    { name: 'Banana (ripe)', gi: 62, carbs: 23, serving: 120, category: 'Fruits' },
+    { name: 'Banana (slightly green)', gi: 42, carbs: 23, serving: 120, category: 'Fruits' },
+    { name: 'Apple', gi: 36, carbs: 14, serving: 120, category: 'Fruits' },
+    { name: 'Orange', gi: 43, carbs: 11, serving: 120, category: 'Fruits' },
+    { name: 'Grapes', gi: 59, carbs: 18, serving: 120, category: 'Fruits' },
+    { name: 'Watermelon', gi: 76, carbs: 6, serving: 120, category: 'Fruits' },
+    { name: 'Mango', gi: 51, carbs: 15, serving: 120, category: 'Fruits' },
+    { name: 'Pineapple', gi: 59, carbs: 13, serving: 120, category: 'Fruits' },
+    { name: 'Strawberries', gi: 41, carbs: 8, serving: 120, category: 'Fruits' },
+    { name: 'Blueberries', gi: 53, carbs: 14, serving: 120, category: 'Fruits' },
+    { name: 'Dates (dried)', gi: 42, carbs: 75, serving: 60, category: 'Fruits' },
+    { name: 'Raisins', gi: 64, carbs: 79, serving: 60, category: 'Fruits' },
+    { name: 'Kidney Beans', gi: 24, carbs: 22, serving: 150, category: 'Legumes' },
+    { name: 'Lentils', gi: 32, carbs: 20, serving: 150, category: 'Legumes' },
+    { name: 'Chickpeas', gi: 28, carbs: 27, serving: 150, category: 'Legumes' },
+    { name: 'Black Beans', gi: 30, carbs: 23, serving: 150, category: 'Legumes' },
+    { name: 'Soybeans', gi: 16, carbs: 6, serving: 150, category: 'Legumes' },
+    { name: 'Milk (whole)', gi: 27, carbs: 5, serving: 250, category: 'Dairy' },
+    { name: 'Milk (skim)', gi: 32, carbs: 5, serving: 250, category: 'Dairy' },
+    { name: 'Yogurt (plain)', gi: 36, carbs: 7, serving: 200, category: 'Dairy' },
+    { name: 'Yogurt (fruit, sweetened)', gi: 41, carbs: 19, serving: 200, category: 'Dairy' },
+    { name: 'Ice Cream', gi: 51, carbs: 24, serving: 100, category: 'Dairy' },
+    { name: 'Glucose', gi: 100, carbs: 100, serving: 10, category: 'Sugars' },
+    { name: 'Sucrose (table sugar)', gi: 65, carbs: 100, serving: 10, category: 'Sugars' },
+    { name: 'Fructose', gi: 15, carbs: 100, serving: 10, category: 'Sugars' },
+    { name: 'Honey', gi: 61, carbs: 82, serving: 25, category: 'Sugars' },
+    { name: 'Maple Syrup', gi: 54, carbs: 67, serving: 25, category: 'Sugars' },
+    { name: 'Popcorn', gi: 65, carbs: 11, serving: 20, category: 'Snacks' },
+    { name: 'Rice Cakes', gi: 82, carbs: 7, serving: 9, category: 'Snacks' },
+    { name: 'Pretzels', gi: 83, carbs: 22, serving: 30, category: 'Snacks' },
+    { name: 'Chocolate (dark 70%)', gi: 23, carbs: 33, serving: 40, category: 'Snacks' },
+    { name: 'Granola Bar', gi: 61, carbs: 26, serving: 40, category: 'Snacks' },
+    { name: 'Pizza (cheese)', gi: 60, carbs: 33, serving: 100, category: 'Mixed' },
+    { name: 'French Fries', gi: 63, carbs: 29, serving: 100, category: 'Mixed' }
+  ];
+
+  /* Pre-calculate GL for each food at default serving */
+  foods.forEach(function (f) {
+    f.gl = Math.round(f.gi * f.carbs / 100 * 10) / 10;
+  });
+
+  /* ---- Utility functions ---- */
+  function giBadge(gi) {
+    if (gi <= 55) return '<span class="gi-badge gi-low">Low GI</span>';
+    if (gi <= 69) return '<span class="gi-badge gi-medium">Medium GI</span>';
+    return '<span class="gi-badge gi-high">High GI</span>';
+  }
+  function glBadge(gl) {
+    if (gl <= 10) return '<span class="gi-badge gi-low">Low GL</span>';
+    if (gl <= 19) return '<span class="gi-badge gi-medium">Medium GL</span>';
+    return '<span class="gi-badge gi-high">High GL</span>';
+  }
+
+  /* ---- Food Search ---- */
+  var searchInput = document.getElementById('gi-search');
+  var searchResults = document.getElementById('gi-search-results');
+  var selectedFood = null;
+
+  searchInput.addEventListener('input', function () {
+    var query = this.value.trim().toLowerCase();
+    if (query.length < 2) {
+      searchResults.classList.remove('active');
+      return;
+    }
+    var matches = foods.filter(function (f) {
+      return f.name.toLowerCase().indexOf(query) !== -1 || f.category.toLowerCase().indexOf(query) !== -1;
+    }).slice(0, 10);
+
+    if (matches.length === 0) {
+      searchResults.classList.remove('active');
+      return;
+    }
+
+    var html = '';
+    matches.forEach(function (f) {
+      html += '<div class="food-item" data-name="' + f.name + '" role="option">' +
+        '<span>' + f.name + ' <small style="color:var(--clr-text-muted);">(' + f.category + ')</small></span>' +
+        '<span>' + giBadge(f.gi) + '</span>' +
+        '</div>';
+    });
+    searchResults.innerHTML = html;
+    searchResults.classList.add('active');
+
+    searchResults.querySelectorAll('.food-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        selectFood(item.getAttribute('data-name'));
+      });
+    });
+  });
+
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') searchResults.classList.remove('active');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!searchResults.contains(e.target) && e.target !== searchInput) {
+      searchResults.classList.remove('active');
+    }
+  });
+
+  function selectFood(name) {
+    selectedFood = foods.find(function (f) { return f.name === name; });
+    if (!selectedFood) return;
+
+    searchInput.value = selectedFood.name;
+    searchResults.classList.remove('active');
+
+    document.getElementById('gi-food-name').textContent = selectedFood.name + ' (' + selectedFood.category + ')';
+    document.getElementById('gi-food-gi').textContent = selectedFood.gi;
+    document.getElementById('gi-food-gi-badge').innerHTML = giBadge(selectedFood.gi);
+    document.getElementById('gi-food-gl').textContent = selectedFood.gl;
+    document.getElementById('gi-food-gl-badge').innerHTML = glBadge(selectedFood.gl);
+    document.getElementById('gi-food-carbs').textContent = selectedFood.carbs;
+    document.getElementById('gi-food-serving').textContent = selectedFood.serving;
+    document.getElementById('gi-custom-serving').value = selectedFood.serving;
+
+    var result = document.getElementById('gi-food-result');
+    result.classList.add('visible');
+    result.style.display = 'block';
+  }
+
+  /* Recalculate with custom serving */
+  document.getElementById('gi-recalc').addEventListener('click', function () {
+    if (!selectedFood) return;
+    var customServing = parseFloat(document.getElementById('gi-custom-serving').value);
+    if (isNaN(customServing) || customServing <= 0) return;
+
+    var ratio = customServing / selectedFood.serving;
+    var adjustedCarbs = Math.round(selectedFood.carbs * ratio * 10) / 10;
+    var adjustedGL = Math.round(selectedFood.gi * adjustedCarbs / 100 * 10) / 10;
+
+    document.getElementById('gi-food-gl').textContent = adjustedGL;
+    document.getElementById('gi-food-gl-badge').innerHTML = glBadge(adjustedGL);
+    document.getElementById('gi-food-carbs').textContent = adjustedCarbs;
+    document.getElementById('gi-food-serving').textContent = customServing;
+  });
+
+  /* ---- Meal Builder ---- */
+  var mealItems = [];
+
+  document.getElementById('gi-add-meal').addEventListener('click', function () {
+    if (!selectedFood) return;
+    var customServing = parseFloat(document.getElementById('gi-custom-serving').value) || selectedFood.serving;
+    var ratio = customServing / selectedFood.serving;
+    var carbsActual = Math.round(selectedFood.carbs * ratio * 10) / 10;
+    var glActual = Math.round(selectedFood.gi * carbsActual / 100 * 10) / 10;
+
+    mealItems.push({
+      name: selectedFood.name,
+      gi: selectedFood.gi,
+      carbs: carbsActual,
+      gl: glActual,
+      serving: customServing
+    });
+
+    renderMeal();
+  });
+
+  function renderMeal() {
+    var container = document.getElementById('gi-meal-list');
+    var emptyMsg = document.getElementById('gi-meal-empty');
+    var summary = document.getElementById('gi-meal-summary');
+
+    if (mealItems.length === 0) {
+      emptyMsg.style.display = 'block';
+      summary.style.display = 'none';
+      container.innerHTML = '';
+      container.appendChild(emptyMsg);
+      return;
+    }
+
+    emptyMsg.style.display = 'none';
+    var html = '';
+    var totalGL = 0;
+    var totalCarbs = 0;
+
+    mealItems.forEach(function (item, idx) {
+      totalGL += item.gl;
+      totalCarbs += item.carbs;
+      html += '<div class="meal-entry">' +
+        '<div class="meal-entry-info">' +
+        '<div class="meal-entry-name">' + item.name + '</div>' +
+        '<div class="meal-entry-meta">Serving: ' + item.serving + 'g | GI: ' + item.gi + ' | Carbs: ' + item.carbs + 'g | GL: ' + item.gl + '</div>' +
+        '</div>' +
+        '<button class="meal-entry-remove" data-idx="' + idx + '" aria-label="Remove ' + item.name + '">&times;</button>' +
+        '</div>';
+    });
+
+    container.innerHTML = html;
+
+    totalGL = Math.round(totalGL * 10) / 10;
+    totalCarbs = Math.round(totalCarbs * 10) / 10;
+
+    document.getElementById('gi-meal-gl').textContent = totalGL;
+    document.getElementById('gi-meal-gl-badge').innerHTML = glBadge(totalGL);
+    document.getElementById('gi-meal-carbs').textContent = totalCarbs;
+    document.getElementById('gi-meal-items').textContent = mealItems.length;
+
+    summary.style.display = 'block';
+    summary.classList.add('visible');
+
+    container.querySelectorAll('.meal-entry-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        mealItems.splice(parseInt(btn.getAttribute('data-idx'), 10), 1);
+        renderMeal();
+      });
+    });
+  }
+
+  document.getElementById('gi-clear-meal').addEventListener('click', function () {
+    mealItems = [];
+    renderMeal();
+  });
+
+  /* ---- Daily Tracker ---- */
+  var dailyMeals = [];
+
+  document.getElementById('gi-add-daily').addEventListener('click', function () {
+    if (mealItems.length === 0) return;
+    var totalGL = 0;
+    var totalCarbs = 0;
+    var names = [];
+    mealItems.forEach(function (item) {
+      totalGL += item.gl;
+      totalCarbs += item.carbs;
+      names.push(item.name);
+    });
+
+    dailyMeals.push({
+      names: names,
+      gl: Math.round(totalGL * 10) / 10,
+      carbs: Math.round(totalCarbs * 10) / 10,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    });
+
+    mealItems = [];
+    renderMeal();
+    renderDaily();
+  });
+
+  function renderDaily() {
+    var container = document.getElementById('gi-daily-list');
+    var emptyMsg = document.getElementById('gi-daily-empty');
+    var totalGL = 0;
+
+    if (dailyMeals.length === 0) {
+      emptyMsg.style.display = 'block';
+      container.innerHTML = '';
+      container.appendChild(emptyMsg);
+      updateDailyBar(0);
+      return;
+    }
+
+    emptyMsg.style.display = 'none';
+    var html = '';
+    dailyMeals.forEach(function (meal, idx) {
+      totalGL += meal.gl;
+      html += '<div class="meal-entry">' +
+        '<div class="meal-entry-info">' +
+        '<div class="meal-entry-name">Meal ' + (idx + 1) + ' (' + meal.time + ')</div>' +
+        '<div class="meal-entry-meta">' + meal.names.join(', ') + ' | GL: ' + meal.gl + ' | Carbs: ' + meal.carbs + 'g</div>' +
+        '</div>' +
+        glBadge(meal.gl) +
+        '</div>';
+    });
+    container.innerHTML = html;
+    updateDailyBar(Math.round(totalGL * 10) / 10);
+  }
+
+  function updateDailyBar(totalGL) {
+    document.getElementById('gi-daily-total').textContent = totalGL;
+    var bar = document.getElementById('gi-daily-bar');
+    var pct = Math.min(totalGL / 160 * 100, 100);
+    bar.style.width = pct + '%';
+
+    var badge = document.getElementById('gi-daily-badge');
+    badge.style.display = 'inline-block';
+
+    if (totalGL <= 80) {
+      bar.style.background = '#059669';
+      badge.className = 'gi-badge gi-low';
+      badge.textContent = 'LOW';
+    } else if (totalGL <= 120) {
+      bar.style.background = '#D97706';
+      badge.className = 'gi-badge gi-medium';
+      badge.textContent = 'MODERATE';
+    } else {
+      bar.style.background = '#DC2626';
+      badge.className = 'gi-badge gi-high';
+      badge.textContent = 'HIGH';
+    }
+    if (totalGL === 0) badge.style.display = 'none';
+  }
+
+  document.getElementById('gi-clear-daily').addEventListener('click', function () {
+    dailyMeals = [];
+    renderDaily();
+  });
+
+  /* ---- Food Comparison ---- */
+  var selectA = document.getElementById('gi-compare-a');
+  var selectB = document.getElementById('gi-compare-b');
+
+  foods.forEach(function (f, idx) {
+    var optA = document.createElement('option');
+    optA.value = idx;
+    optA.textContent = f.name + ' (' + f.category + ')';
+    selectA.appendChild(optA);
+
+    var optB = document.createElement('option');
+    optB.value = idx;
+    optB.textContent = f.name + ' (' + f.category + ')';
+    selectB.appendChild(optB);
+  });
+  if (foods.length > 1) selectB.value = '1';
+
+  document.getElementById('gi-compare-btn').addEventListener('click', function () {
+    var fA = foods[parseInt(selectA.value, 10)];
+    var fB = foods[parseInt(selectB.value, 10)];
+    if (!fA || !fB) return;
+
+    function buildCard(f) {
+      return '<h4>' + f.name + '</h4>' +
+        '<div class="compare-stat">GI: <strong>' + f.gi + '</strong> ' + giBadge(f.gi) + '</div>' +
+        '<div class="compare-stat">GL per serving: <strong>' + f.gl + '</strong> ' + glBadge(f.gl) + '</div>' +
+        '<div class="compare-stat">Carbs: <strong>' + f.carbs + 'g</strong> per ' + f.serving + 'g serving</div>' +
+        '<div class="compare-stat">Category: <strong>' + f.category + '</strong></div>';
+    }
+
+    document.getElementById('gi-compare-card-a').innerHTML = buildCard(fA);
+    document.getElementById('gi-compare-card-b').innerHTML = buildCard(fB);
+    document.getElementById('gi-compare-result').style.display = 'grid';
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/meal-prep-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Cost Calculator - Homemade vs Delivery vs Meal Kit</a></li>
+<li><a href="/serving-size-calculator.html" style="color:#3b82f6;text-decoration:none;">Serving Size Calculator</a></li>
+<li><a href="/tools/baking-ratio-calculator.html" style="color:#3b82f6;text-decoration:none;">Baker's Percentage Calculator - Hydration Analysis & Bread Ratios</a></li>
+<li><a href="/tools/macro-calculator.html" style="color:#3b82f6;text-decoration:none;">Macronutrient Calculator - Daily Macro Targets & Meal Plan</a></li>
+</ul>
+</section>
+
+</body>
+</html>

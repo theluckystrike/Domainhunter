@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photo Editing Workflow Guide — 8-Step Process Builder with Before/After | PictureEditor</title>
+<meta name="description" content="Complete photo editing workflow guide with interactive 8-step process builder. Drag to reorder steps, before/after comparison slider, and exportable checklist. Learn the optimal order for crop, exposure, contrast, color, sharpening, noise reduction, export, and resize.">
+<meta name="keywords" content="photo editing workflow, photo editing steps, photo editing process, editing order, crop exposure contrast, before after comparison, photo editing guide, image editing workflow, photo retouching steps, editing checklist">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/guides/photo-editing-workflow.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/guides/photo-editing-workflow.html">
+<meta property="og:title" content="Photo Editing Workflow Guide — 8-Step Process Builder with Before/After">
+<meta property="og:description" content="Build your optimal photo editing workflow. 8 steps, drag-to-reorder, before/after slider, exportable checklist. Free interactive guide.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photo Editing Workflow Guide — 8-Step Process Builder with Before/After">
+<meta name="twitter:description" content="Build your photo editing workflow with 8 draggable steps. Before/after comparison. Export as checklist.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Photo Editing Workflow Guide — 8-Step Process Builder with Before/After",
+    "url":"https://pictureeditor.net/guides/photo-editing-workflow.html",
+    "description":"Complete photo editing workflow guide with interactive 8-step process builder, drag-to-reorder, before/after comparison slider, and exportable checklist.",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "image":"https://pictureeditor.net/og/photo-editing-workflow.png"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the correct order for photo editing steps?","acceptedAnswer":{"@type":"Answer","text":"The widely recommended order is: (1) Crop and straighten, (2) Exposure/brightness, (3) Contrast, (4) Color/white balance, (5) Sharpening, (6) Noise reduction, (7) Export format selection, (8) Resize for output. This order works because early steps (crop, exposure) affect the data available for later steps (sharpening, noise). Cropping first removes unwanted areas so later adjustments process only the final composition."}},
+      {"@type":"Question","name":"Why should I crop before adjusting exposure?","acceptedAnswer":{"@type":"Answer","text":"Cropping first removes unwanted bright or dark areas that can skew your exposure assessment. If you have a bright sky in the frame that you plan to crop out, adjusting exposure first would cause you to underexpose the subject to compensate for the sky. By cropping first, your exposure adjustment targets only the pixels that will appear in the final image."}},
+      {"@type":"Question","name":"Should sharpening come before or after noise reduction?","acceptedAnswer":{"@type":"Answer","text":"Sharpening should come before noise reduction in most workflows. Sharpening amplifies both detail and noise, so applying noise reduction afterward cleans up the amplified noise while preserving the sharpened detail. If you reduce noise first and then sharpen, the sharpening can re-introduce noise patterns. Some professionals reverse this order for very noisy images, but sharpening-first is the standard recommendation."}},
+      {"@type":"Question","name":"Can I reorder the editing steps for different types of photos?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. The 8-step order provided is a general-purpose workflow, but different genres benefit from different orderings. Portrait photographers often prioritize color and skin tone correction before contrast. Landscape photographers may prioritize exposure recovery for dynamic range. Use the drag-to-reorder feature in the workflow builder to create custom orderings for your specific needs."}},
+      {"@type":"Question","name":"Why is resize the last step in the workflow?","acceptedAnswer":{"@type":"Answer","text":"Resizing should always be the final step because it permanently changes the pixel dimensions. All editing operations (exposure, contrast, sharpening, noise reduction) produce better results when working with the maximum available pixel data. Resizing down first would throw away detail that those operations need. Additionally, you may need multiple output sizes from the same edited image — resize last lets you export at any dimension from a single high-resolution edit."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Guides","item":"https://pictureeditor.net/guides/"},
+      {"@type":"ListItem","position":3,"name":"Photo Editing Workflow","item":"https://pictureeditor.net/guides/photo-editing-workflow.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.hidden{display:none!important}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Workflow builder */
+.wf-list{list-style:none;margin:0;padding:0;counter-reset:wf-step}
+.wf-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#f8fafc;border:1.5px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:grab;user-select:none;transition:border-color .15s,box-shadow .15s}
+.wf-item:active{cursor:grabbing}
+.wf-item.dragging{opacity:.4;border-color:var(--accent)}
+.wf-item.drag-over{border-color:var(--accent);box-shadow:0 0 0 2px rgba(99,102,241,.2)}
+.wf-item .wf-num{counter-increment:wf-step;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
+.wf-item .wf-num::before{content:counter(wf-step)}
+.wf-item .wf-grip{color:var(--text-secondary);flex-shrink:0;font-size:1.1rem;line-height:1}
+.wf-item .wf-name{font-weight:600;font-size:.95rem;flex:1}
+.wf-item .wf-desc{font-size:.8rem;color:var(--text-secondary);flex:2;min-width:150px}
+.wf-item .wf-check{width:20px;height:20px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+.wf-item .wf-check.checked{background:var(--green);border-color:var(--green);color:#fff}
+/* Before/After slider */
+.ba-container{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--border);max-width:100%;margin:16px 0;touch-action:none;user-select:none}
+.ba-container canvas{display:block;width:100%;height:auto}
+.ba-slider{position:absolute;top:0;bottom:0;width:3px;background:var(--accent);cursor:ew-resize;z-index:2}
+.ba-slider::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.ba-label{position:absolute;top:8px;padding:3px 10px;border-radius:6px;font-size:.75rem;font-weight:600;color:#fff;z-index:1;pointer-events:none}
+.ba-label.before{left:8px;background:rgba(0,0,0,.5)}
+.ba-label.after{right:8px;background:rgba(99,102,241,.8)}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .wf-item .wf-desc{display:none}
+  .wf-item{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/guides/">Guides</a><span>/</span>
+  Photo Editing Workflow
+</nav>
+
+<h2>Photo Editing Workflow Guide &mdash; 8-Step Process Builder</h2>
+<p class="subtitle">Build your optimal photo editing workflow with an interactive 8-step process builder. Drag to reorder steps, use the before/after comparison slider, and export your workflow as a reusable checklist.</p>
+
+<!-- ===== WORKFLOW BUILDER ===== -->
+<section class="card" id="workflow-builder">
+  <h3 id="builder-tool" style="margin-top:0">Workflow Builder</h3>
+  <p>Drag the steps below to reorder them into your preferred editing workflow. Check off each step as you complete it. When you are satisfied with the order, export the workflow as a text checklist you can save or print.</p>
+
+  <ul class="wf-list" id="wfList">
+    <li class="wf-item" data-step="crop" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Crop &amp; Straighten</span>
+      <span class="wf-desc">Remove unwanted edges, fix horizon, set composition</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="exposure" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Exposure / Brightness</span>
+      <span class="wf-desc">Set overall brightness, recover highlights and shadows</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="contrast" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Contrast</span>
+      <span class="wf-desc">Increase tonal separation, add depth and punch</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="color" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Color / White Balance</span>
+      <span class="wf-desc">Correct color temperature, adjust saturation and vibrance</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="sharpening" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Sharpening</span>
+      <span class="wf-desc">Enhance edge definition and fine detail clarity</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="noise" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Noise Reduction</span>
+      <span class="wf-desc">Reduce grain from high ISO while preserving detail</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="export" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Export Format</span>
+      <span class="wf-desc">Choose JPEG, PNG, or WebP with appropriate quality</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+    <li class="wf-item" data-step="resize" draggable="true">
+      <span class="wf-grip">&#9776;</span>
+      <span class="wf-num"></span>
+      <span class="wf-name">Resize</span>
+      <span class="wf-desc">Scale to final output dimensions for web, print, or social</span>
+      <span class="wf-check" onclick="this.classList.toggle('checked')">&#10003;</span>
+    </li>
+  </ul>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" id="exportBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Export Checklist
+    </button>
+    <button class="btn btn-outline" id="resetOrder">Reset to Default Order</button>
+  </div>
+</section>
+
+<!-- ===== BEFORE/AFTER COMPARISON ===== -->
+<section class="card" id="comparison-section">
+  <h3 id="before-after" style="margin-top:0">Before / After Comparison</h3>
+  <p>Drag the slider left and right to compare an unedited image with the fully edited result. This demonstrates the cumulative effect of all eight workflow steps applied in sequence. The "before" side shows the original camera output; the "after" side shows the same image after crop, exposure, contrast, color, sharpening, noise reduction, format optimization, and resize.</p>
+
+  <div class="ba-container" id="baContainer">
+    <canvas id="baCanvas"></canvas>
+    <div class="ba-slider" id="baSlider" style="left:50%"></div>
+    <div class="ba-label before">Before</div>
+    <div class="ba-label after">After</div>
+  </div>
+  <p style="font-size:.85rem;color:var(--text-secondary);margin-top:8px">Sample demonstration using a generated gradient image. Upload your own images to the <a href="/">PictureEditor</a> to create real before/after comparisons.</p>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#builder-tool">Workflow Builder</a></li>
+    <li><a href="#before-after">Before / After Comparison</a></li>
+    <li><a href="#step-1-crop">Step 1: Crop and Straighten</a></li>
+    <li><a href="#step-2-exposure">Step 2: Exposure and Brightness</a></li>
+    <li><a href="#step-3-contrast">Step 3: Contrast</a></li>
+    <li><a href="#step-4-color">Step 4: Color and White Balance</a></li>
+    <li><a href="#step-5-sharpening">Step 5: Sharpening</a></li>
+    <li><a href="#step-6-noise">Step 6: Noise Reduction</a></li>
+    <li><a href="#step-7-export">Step 7: Export Format</a></li>
+    <li><a href="#step-8-resize">Step 8: Resize for Output</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== STEP 1: CROP ===== -->
+<section class="card" id="step-1-crop">
+  <h3 style="margin-top:0">Step 1: Crop and Straighten</h3>
+
+  <h4>Why Cropping Comes First</h4>
+  <p>Cropping is the first step because it defines what the final image will contain. Every subsequent adjustment — exposure, contrast, color — should be optimized for the pixels that will actually appear in the final output. If you adjust exposure first and then crop out a bright area, your exposure correction will be wrong for the remaining composition. By cropping first, you eliminate distracting elements, fix composition, and ensure that all subsequent edits are calibrated to the final frame.</p>
+  <p>Straightening falls into the same step because it often involves a slight crop to remove the rotated corners. A horizon that is even two degrees off creates a subconscious sense of unease in the viewer. Use your editor's straighten tool with grid overlays to align horizons, vertical buildings, and architectural lines. This takes seconds but dramatically improves the professional feel of the image.</p>
+
+  <h4>Composition Guidelines During Cropping</h4>
+  <p>Apply the rule of thirds by positioning key subjects at the intersection points of a 3x3 grid. Check for distracting elements at the edges — branches, partial objects, bright spots — that draw the eye away from the subject. Consider the final aspect ratio: 4:3 for general photography, 16:9 for cinematic or web headers, 1:1 for social media profiles, 4:5 for Instagram portraits. The aspect ratio choice affects composition, so commit to it at this stage rather than cropping again later.</p>
+</section>
+
+<!-- ===== STEP 2: EXPOSURE ===== -->
+<section class="card" id="step-2-exposure">
+  <h3 style="margin-top:0">Step 2: Exposure and Brightness</h3>
+
+  <h4>Setting the Foundation</h4>
+  <p>Exposure adjustment establishes the overall brightness of the image and is the foundation for all subsequent tonal work. If the exposure is wrong, contrast adjustments will push the image further in the wrong direction. Start by evaluating the histogram — a well-exposed image typically has data spread across the full tonal range without clipping at either extreme. If the histogram is bunched to the left, the image is underexposed and needs positive exposure compensation. If bunched to the right, it is overexposed and needs negative compensation.</p>
+  <p>Modern raw processors separate exposure into multiple sub-controls: overall exposure, highlights, shadows, whites, and blacks. The recommended approach is to set overall exposure first to get the midtones correct, then recover highlights (reduce to bring back blown-out sky detail) and open shadows (increase to reveal detail in dark areas). This technique maximizes the dynamic range visible in the final image without creating the flat, washed-out look that comes from pushing these sliders too far.</p>
+</section>
+
+<!-- ===== STEP 3: CONTRAST ===== -->
+<section class="card" id="step-3-contrast">
+  <h3 style="margin-top:0">Step 3: Contrast</h3>
+
+  <h4>Adding Depth and Dimension</h4>
+  <p>Contrast is the difference between the lightest and darkest tones in the image. Increasing contrast makes lights lighter and darks darker, creating a more dynamic and three-dimensional feel. Decreasing contrast flattens the tonal range for a matte, filmic look. Contrast adjustment comes after exposure because it modifies the tonal distribution that exposure established — getting contrast right requires exposure to be correct first.</p>
+  <p>Beyond the basic contrast slider, use the tone curve for more precise control. An S-curve — slightly lifting the shadows and compressing the highlights — is the most common and effective contrast enhancement. The steeper the S-curve, the more pronounced the contrast. For a natural look, keep the curve subtle. For dramatic impact, use a steeper curve. The tone curve gives you independent control over shadow contrast and highlight contrast, which the basic contrast slider does not.</p>
+</section>
+
+<!-- ===== STEP 4: COLOR ===== -->
+<section class="card" id="step-4-color">
+  <h3 style="margin-top:0">Step 4: Color and White Balance</h3>
+
+  <h4>Correcting and Enhancing Color</h4>
+  <p>White balance correction ensures that neutral tones (whites, grays) appear neutral rather than tinted by the ambient light color. Indoor tungsten lighting adds orange; fluorescent adds green; shade adds blue. Start by using the white balance eyedropper on a known neutral area — a white shirt, a gray card, a concrete surface. This single click corrects the overall color cast. Then fine-tune the temperature (warm/cool) and tint (green/magenta) sliders to match your creative intent.</p>
+  <p>After white balance, adjust saturation (the intensity of all colors equally) and vibrance (the intensity of muted colors, leaving already-saturated colors relatively untouched). Vibrance is generally more useful than saturation because it prevents already-vivid colors from becoming garish. For portraits, keep vibrance moderate (+10 to +20) to avoid unnatural skin tones. For landscapes, higher vibrance (+20 to +40) can enhance sky blues and foliage greens without clipping. Color comes after contrast because contrast changes affect perceived color saturation — increasing contrast also increases apparent color intensity.</p>
+</section>
+
+<!-- ===== STEP 5: SHARPENING ===== -->
+<section class="card" id="step-5-sharpening">
+  <h3 style="margin-top:0">Step 5: Sharpening</h3>
+
+  <h4>Enhancing Detail and Edge Definition</h4>
+  <p>Sharpening increases the contrast along edges, making detail appear crisper and more defined. All digital images benefit from some sharpening because the camera's sensor and anti-aliasing filter introduce inherent softness. Sharpening does not add detail that is not there — it enhances the perceived definition of existing detail by increasing micro-contrast at edge boundaries.</p>
+  <p>Most sharpening tools offer three parameters: amount (how much contrast to add at edges), radius (how many pixels around each edge are affected), and masking (which areas of the image receive sharpening). For general photography, start with amount 40-60, radius 0.8-1.2, and masking 20-40. Increase masking for portraits to prevent skin texture from being over-sharpened. View the image at 100% zoom when adjusting sharpening — it is impossible to evaluate sharpening accuracy at reduced zoom levels.</p>
+</section>
+
+<!-- ===== STEP 6: NOISE ===== -->
+<section class="card" id="step-6-noise">
+  <h3 style="margin-top:0">Step 6: Noise Reduction</h3>
+
+  <h4>Cleaning Up Digital Grain</h4>
+  <p>Noise appears as random grain in digital photos, particularly in images shot at high ISO settings or with long exposures. Noise reduction smooths this grain while attempting to preserve actual detail. There are two types: luminance noise (random brightness variation) and color noise (random color speckles). Color noise is always objectionable and should be removed aggressively. Luminance noise can sometimes add a pleasant film-like texture, so reduce it more conservatively.</p>
+  <p>Noise reduction comes after sharpening in this workflow because sharpening amplifies noise. By reducing noise after sharpening, you clean up the amplified grain while preserving the sharpened edges. The key is balance — too much noise reduction creates a plastic, waxy look that destroys fine texture (skin pores, fabric weave, foliage detail). Start with the minimum amount that makes the noise unobtrusive at the final output size, and accept that some noise is better than over-processed smoothness.</p>
+</section>
+
+<!-- ===== STEP 7: EXPORT ===== -->
+<section class="card" id="step-7-export">
+  <h3 style="margin-top:0">Step 7: Export Format Selection</h3>
+
+  <h4>Choosing the Right Format</h4>
+  <p>The export format determines how your edited image is encoded for its final use. JPEG is the universal default for photographs — every device and platform supports it, and its lossy compression produces excellent quality-to-size ratios at quality 80-90. WebP is the modern alternative, producing files 25-35% smaller than JPEG at equivalent quality, with over 99% browser support in 2026. PNG should only be used when you need lossless quality or transparency.</p>
+  <p>Quality settings matter enormously at this stage. Exporting a beautifully edited image at quality 50 will introduce compression artifacts that undo your careful sharpening and noise reduction work. For web publishing, quality 80-85 in JPEG or WebP preserves virtually all visible detail while keeping file sizes reasonable. For print, export at quality 95-100 or use TIFF for zero compression loss. For archival, keep the original raw file alongside your edited export.</p>
+</section>
+
+<!-- ===== STEP 8: RESIZE ===== -->
+<section class="card" id="step-8-resize">
+  <h3 style="margin-top:0">Step 8: Resize for Output</h3>
+
+  <h4>Matching Pixels to Purpose</h4>
+  <p>Resizing is the final step because it permanently changes the pixel dimensions. All previous edits benefit from working with the maximum available pixel data. Resize reduces the image to match its display context: 2000px wide for full-width web images, 1200px for blog posts, 1080px for Instagram, 400-600px for thumbnails. Resize down always — never resize up, as enlarging a digital image creates blurry artifacts that cannot be recovered.</p>
+  <p>After resizing, you may need a final round of output sharpening specifically calibrated for the new dimensions. An image that looked sharp at 4000px wide may appear slightly soft after being reduced to 1200px because the downsample algorithm averages pixel values. A subtle sharpen (amount 20-30, radius 0.3) after resize restores crispness at the new size. This output sharpening is separate from the detail sharpening in step 5 and should be much gentler.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the correct order for photo editing steps?</div>
+    <div class="faq-a"><p>The recommended order is: (1) Crop and straighten, (2) Exposure/brightness, (3) Contrast, (4) Color/white balance, (5) Sharpening, (6) Noise reduction, (7) Export format, (8) Resize. This order works because early steps affect data available for later steps. Cropping first removes unwanted areas so all adjustments target only the final composition. Sharpening before noise reduction lets you clean up amplified noise. Resizing last preserves maximum data for all edits.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why should I crop before adjusting exposure?</div>
+    <div class="faq-a"><p>Cropping first removes unwanted bright or dark areas that skew exposure assessment. If a bright sky will be cropped out, adjusting exposure beforehand would cause you to underexpose the subject to compensate. By cropping first, exposure targets only the pixels in the final image, producing more accurate results.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Should sharpening come before or after noise reduction?</div>
+    <div class="faq-a"><p>Sharpening should come before noise reduction in most workflows. Sharpening amplifies both detail and noise, so applying noise reduction afterward cleans up amplified noise while preserving sharpened edges. Reversing this order can re-introduce noise patterns. Some professionals reverse it for extremely noisy images, but sharpening-first is the standard recommendation.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I reorder the editing steps for different types of photos?</div>
+    <div class="faq-a"><p>Absolutely. The 8-step order is a general-purpose starting point, but different genres benefit from different orderings. Portrait photographers often prioritize color and skin tone before contrast. Landscape photographers may prioritize exposure recovery for dynamic range. Use the drag-to-reorder builder above to create and export custom orderings for your specific needs.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why is resize the last step in the workflow?</div>
+    <div class="faq-a"><p>Resizing permanently changes pixel dimensions. All editing operations produce better results with maximum pixel data. Resizing early throws away detail that sharpening and noise reduction need. Additionally, you may need multiple output sizes from the same edit — keeping resize last lets you export at any dimension from a single high-resolution edit.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  /* === DRAG-TO-REORDER WORKFLOW === */
+  var wfList = document.getElementById("wfList");
+  var dragItem = null;
+
+  wfList.addEventListener("dragstart", function(e) {
+    dragItem = e.target.closest(".wf-item");
+    if (!dragItem) return;
+    dragItem.classList.add("dragging");
+    e.dataTransfer.effectAllowed = "move";
+  });
+
+  wfList.addEventListener("dragend", function() {
+    if (dragItem) dragItem.classList.remove("dragging");
+    dragItem = null;
+    wfList.querySelectorAll(".wf-item").forEach(function(item) {
+      item.classList.remove("drag-over");
+    });
+  });
+
+  wfList.addEventListener("dragover", function(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    var target = e.target.closest(".wf-item");
+    if (!target || target === dragItem) return;
+    wfList.querySelectorAll(".wf-item").forEach(function(item) {
+      item.classList.remove("drag-over");
+    });
+    target.classList.add("drag-over");
+
+    var rect = target.getBoundingClientRect();
+    var midY = rect.top + rect.height / 2;
+    if (e.clientY < midY) {
+      wfList.insertBefore(dragItem, target);
+    } else {
+      wfList.insertBefore(dragItem, target.nextSibling);
+    }
+  });
+
+  /* Touch support for mobile drag */
+  var touchItem = null;
+  var touchClone = null;
+  var touchStartY = 0;
+
+  wfList.addEventListener("touchstart", function(e) {
+    var item = e.target.closest(".wf-item");
+    if (!item) return;
+    touchItem = item;
+    touchStartY = e.touches[0].clientY;
+    touchItem.classList.add("dragging");
+  }, { passive: true });
+
+  wfList.addEventListener("touchmove", function(e) {
+    if (!touchItem) return;
+    e.preventDefault();
+    var touchY = e.touches[0].clientY;
+    var items = Array.from(wfList.querySelectorAll(".wf-item"));
+    for (var i = 0; i < items.length; i++) {
+      if (items[i] === touchItem) continue;
+      var rect = items[i].getBoundingClientRect();
+      var mid = rect.top + rect.height / 2;
+      if (touchY < mid && touchItem.compareDocumentPosition(items[i]) & 4) {
+        wfList.insertBefore(touchItem, items[i]);
+        break;
+      } else if (touchY > mid && touchItem.compareDocumentPosition(items[i]) & 2) {
+        wfList.insertBefore(touchItem, items[i].nextSibling);
+        break;
+      }
+    }
+  }, { passive: false });
+
+  wfList.addEventListener("touchend", function() {
+    if (touchItem) touchItem.classList.remove("dragging");
+    touchItem = null;
+  });
+
+  /* Reset to default order */
+  var defaultOrder = ["crop", "exposure", "contrast", "color", "sharpening", "noise", "export", "resize"];
+  document.getElementById("resetOrder").addEventListener("click", function() {
+    var items = Array.from(wfList.querySelectorAll(".wf-item"));
+    defaultOrder.forEach(function(step) {
+      var item = items.find(function(el) { return el.dataset.step === step; });
+      if (item) wfList.appendChild(item);
+    });
+    /* Uncheck all */
+    wfList.querySelectorAll(".wf-check").forEach(function(c) { c.classList.remove("checked"); });
+  });
+
+  /* Export checklist */
+  document.getElementById("exportBtn").addEventListener("click", function() {
+    var items = wfList.querySelectorAll(".wf-item");
+    var lines = ["PHOTO EDITING WORKFLOW CHECKLIST", "Generated from PictureEditor.net", ""];
+    items.forEach(function(item, i) {
+      var name = item.querySelector(".wf-name").textContent;
+      var desc = item.querySelector(".wf-desc").textContent;
+      var checked = item.querySelector(".wf-check").classList.contains("checked");
+      lines.push((i + 1) + ". [" + (checked ? "x" : " ") + "] " + name);
+      lines.push("   " + desc);
+      lines.push("");
+    });
+    lines.push("---");
+    lines.push("https://pictureeditor.net/guides/photo-editing-workflow.html");
+
+    var blob = new Blob([lines.join("\n")], { type: "text/plain" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "photo-editing-workflow.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  /* === BEFORE/AFTER COMPARISON SLIDER === */
+  var baContainer = document.getElementById("baContainer");
+  var baCanvas = document.getElementById("baCanvas");
+  var baSlider = document.getElementById("baSlider");
+  var bactx = baCanvas.getContext("2d");
+
+  /* Generate sample before/after images */
+  var sampleW = 800, sampleH = 400;
+  baCanvas.width = sampleW;
+  baCanvas.height = sampleH;
+
+  /* "Before" - dull, slightly blue-tinted landscape */
+  var beforeData = bactx.createImageData(sampleW, sampleH);
+  var afterData = bactx.createImageData(sampleW, sampleH);
+
+  for (var y = 0; y < sampleH; y++) {
+    for (var x = 0; x < sampleW; x++) {
+      var idx = (y * sampleW + x) * 4;
+      var skyRatio = 1 - (y / sampleH);
+      var groundRatio = y / sampleH;
+
+      /* Before: flat, blue-tinted, low contrast */
+      var bR = Math.round(120 + skyRatio * 40 + Math.sin(x * 0.02) * 10);
+      var bG = Math.round(130 + skyRatio * 50 + Math.cos(y * 0.03) * 8);
+      var bB = Math.round(150 + skyRatio * 60 + Math.sin(x * 0.01 + y * 0.01) * 12);
+      beforeData.data[idx] = bR;
+      beforeData.data[idx + 1] = bG;
+      beforeData.data[idx + 2] = bB;
+      beforeData.data[idx + 3] = 255;
+
+      /* After: vivid, warm, high contrast */
+      var aR = Math.min(255, Math.round(80 + skyRatio * 120 + groundRatio * 60 + Math.sin(x * 0.02) * 20));
+      var aG = Math.min(255, Math.round(100 + skyRatio * 100 + groundRatio * 80 + Math.cos(y * 0.03) * 15));
+      var aB = Math.min(255, Math.round(60 + skyRatio * 140 + Math.sin(x * 0.01 + y * 0.01) * 18));
+      afterData.data[idx] = aR;
+      afterData.data[idx + 1] = aG;
+      afterData.data[idx + 2] = aB;
+      afterData.data[idx + 3] = 255;
+    }
+  }
+
+  function renderBA(splitRatio) {
+    var splitX = Math.round(sampleW * splitRatio);
+    /* Draw before on left */
+    bactx.putImageData(beforeData, 0, 0, 0, 0, splitX, sampleH);
+    /* Draw after on right */
+    bactx.putImageData(afterData, 0, 0, splitX, 0, sampleW - splitX, sampleH);
+    baSlider.style.left = (splitRatio * 100) + "%";
+  }
+
+  renderBA(0.5);
+
+  var isDragging = false;
+
+  function startDrag(e) {
+    isDragging = true;
+    moveDrag(e);
+  }
+
+  function moveDrag(e) {
+    if (!isDragging) return;
+    var rect = baContainer.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var ratio = (clientX - rect.left) / rect.width;
+    ratio = Math.max(0.02, Math.min(0.98, ratio));
+    renderBA(ratio);
+  }
+
+  function endDrag() { isDragging = false; }
+
+  baSlider.addEventListener("mousedown", startDrag);
+  baContainer.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", moveDrag);
+  document.addEventListener("mouseup", endDrag);
+  baSlider.addEventListener("touchstart", startDrag, { passive: true });
+  baContainer.addEventListener("touchstart", startDrag, { passive: true });
+  document.addEventListener("touchmove", moveDrag, { passive: true });
+  document.addEventListener("touchend", endDrag);
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/batch-rename-photos.html" style="color:#3b82f6;text-decoration:none;">Batch Photo Renamer Online — EXIF Data Extraction & Pattern Builder Free</a></li>
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+<li><a href="/guides/social-media-image-sizes.html" style="color:#3b82f6;text-decoration:none;">Social Media Image Sizes Guide 2026 — Auto-Crop Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>

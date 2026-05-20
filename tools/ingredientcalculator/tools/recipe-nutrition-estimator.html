@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Nutrition Estimator - Paste Any Recipe, Get Nutrition Facts | Ingredient Calculator</title>
+<meta name="description" content="Free recipe nutrition estimator. Paste any recipe to get estimated calories, protein, carbs, fat, fiber, and sodium per serving. Auto-detects ingredients and quantities with a built-in USDA nutrition database.">
+<meta name="keywords" content="recipe nutrition calculator, recipe calorie counter, nutrition estimator, recipe analyzer, macro calculator, calories per serving, nutrition facts generator, recipe nutrition breakdown, food calorie calculator, meal nutrition">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/recipe-nutrition-estimator.html">
+<meta property="og:title" content="Recipe Nutrition Estimator - Paste Any Recipe, Get Nutrition Facts">
+<meta property="og:description" content="Free recipe nutrition estimator. Paste any recipe to get estimated calories, protein, carbs, fat, fiber, and sodium per serving.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/recipe-nutrition-estimator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Nutrition Estimator - Paste Any Recipe, Get Nutrition Facts">
+<meta name="twitter:description" content="Free recipe nutrition estimator. Paste any recipe to get estimated calories, protein, carbs, fat, fiber, and sodium per serving.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Recipe Nutrition Estimator",
+  "url": "https://ingredientcalculator.com/tools/recipe-nutrition-estimator.html",
+  "description": "Free recipe nutrition estimator. Paste any recipe to get estimated calories, protein, carbs, fat, fiber, and sodium per serving. Auto-detects ingredients and quantities with a built-in USDA nutrition database.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Auto-detect ingredients from recipe text",
+    "Estimate calories, protein, carbs, fat, fiber, sodium",
+    "Per-serving and total nutrition breakdown",
+    "Ingredient-by-ingredient nutrition detail",
+    "Copy nutrition label to clipboard",
+    "Built-in database of 80+ common ingredients"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is this recipe nutrition estimator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This estimator provides approximations based on USDA average nutrition data for common ingredients. Accuracy depends on several factors including the specific brand of ingredients used, exact preparation methods, and how precisely ingredients are measured. For most home cooking purposes, estimates are within 10 to 20 percent of actual values. The tool is designed for general meal planning and dietary awareness rather than clinical nutrition management. For medical dietary needs, consult a registered dietitian who can provide precise calculations based on your specific ingredients and preparation methods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cooking change the nutrition content of food?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, cooking affects nutrition in several ways. Heat-sensitive vitamins like vitamin C and some B vitamins decrease during cooking, with losses ranging from 15 to 55 percent depending on the method and duration. However, cooking can also increase the bioavailability of certain nutrients. Lycopene in tomatoes becomes more accessible after cooking, and the protein in eggs is more digestible when cooked. Fat content changes when cooking with added oils or when fat renders out of meats. This estimator uses raw ingredient values for consistency, which is the standard approach for recipe nutrition analysis. The calorie content remains relatively stable through cooking since calories represent chemical energy that is not destroyed by heat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do different nutrition calculators give different results for the same recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Variations between nutrition calculators stem from several sources. Different databases may use different reference entries for the same ingredient. For example, one database might use nutrition data for conventional chicken breast while another uses organic chicken breast. Brand-specific products like yogurt, bread, or cereal vary significantly in nutrition. The assumed weight per volume measurement differs between databases, so one cup of flour might be calculated as 120 grams in one tool and 130 grams in another. Additionally, some calculators account for cooking losses while others use raw values. For the most consistent results, use the same calculator for all your recipe comparisons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate nutrition per serving from a whole recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate per-serving nutrition, first determine the total nutrition for the entire recipe by summing the contribution of each ingredient. Then divide each nutritional value by the number of servings. The challenging part is defining what constitutes a serving. For baked goods, this is straightforward since you can count individual items like cookies or muffins. For dishes like casseroles, soups, or stews, you need to decide on a serving size. Common approaches include dividing by the number of people the recipe is intended to feed, measuring the total volume and dividing into equal portions, or weighing the finished dish and defining a serving as a specific weight in grams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I count the calories in cooking oil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is one of the most common questions in recipe nutrition analysis, and the answer depends on the cooking method. When oil is used as an ingredient that remains in the dish, such as in salad dressings, marinades that cling to food, or batter, you should count all of it. When oil is used for sauteing or pan-frying, some oil remains in the pan and is not consumed, so counting about 50 to 70 percent is reasonable. For deep frying, food absorbs varying amounts of oil depending on its surface area, coating, and cooking time, but a common estimate is that fried foods absorb 8 to 25 percent of the frying oil by weight. This estimator includes all oil listed in the recipe, so you may want to reduce oil calories by 30 to 50 percent for sauteed or stir-fried dishes."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://ingredientcalculator.com/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Recipe Nutrition Estimator",
+      "item": "https://ingredientcalculator.com/tools/recipe-nutrition-estimator.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px;
+  line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+.breadcrumb {
+  padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted);
+}
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel h2 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;
+}
+.panel .subtitle {
+  color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px;
+}
+
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success);
+}
+
+.result-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.result-table th, .result-table td {
+  text-align: left; padding: 8px 10px;
+  border-bottom: 1px solid #D1FAE5;
+}
+.result-table th {
+  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.result-table tr:last-child td { border-bottom: none; }
+
+.nutrition-result {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.nutr-card {
+  text-align: center; padding: 16px; background: var(--clr-surface-alt);
+  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
+}
+.nutr-card .nutr-val { font-size: 1.6rem; font-weight: 800; color: var(--clr-accent); }
+.nutr-card .nutr-label {
+  font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-top: 2px;
+}
+.nutr-card .nutr-unit { font-size: 0.8rem; color: var(--clr-text-muted); }
+
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+.copy-feedback {
+  display: inline-block; margin-left: 8px; font-size: 0.82rem;
+  color: var(--clr-success); font-weight: 600; opacity: 0; transition: opacity 0.3s;
+}
+.copy-feedback.show { opacity: 1; }
+
+.ingredient-detail { margin-top: 16px; }
+.ing-row { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--clr-border); font-size: 0.88rem; flex-wrap: wrap; }
+.ing-row:last-child { border-bottom: none; }
+.ing-name { flex: 1; min-width: 140px; font-weight: 600; }
+.ing-qty { width: 100px; color: var(--clr-text-muted); }
+.ing-cal { width: 70px; text-align: right; font-weight: 700; color: var(--clr-accent); }
+.ing-macro { width: 180px; text-align: right; font-size: 0.8rem; color: var(--clr-text-muted); }
+.unrecognized { color: var(--clr-danger); font-style: italic; }
+
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+  .panel { padding: 16px; }
+  nav { display: none; }
+  .ing-macro { width: 100%; text-align: left; padding-left: 0; }
+}
+
+@media print {
+  header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/tools/recipe-nutrition-estimator.html" class="active">Nutrition Estimator</a>
+      <a href="/tools/recipe-converter-metric.html">Recipe Converter</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Recipe Nutrition Estimator</span> &mdash; Paste Any Recipe, Get Nutrition Facts</h1>
+    <p>Paste a complete recipe to instantly estimate total and per-serving calories, protein, carbohydrates, fat, fiber, and sodium using our built-in USDA nutrition database of 80+ ingredients.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Recipe Nutrition Estimator
+  </div>
+
+  <section class="panel">
+    <h2>Analyze Your Recipe</h2>
+    <p class="subtitle">Paste a recipe with ingredient quantities below. The estimator will auto-detect ingredients and calculate nutrition per ingredient and per serving.</p>
+
+    <div class="form-group" style="margin-bottom:16px;">
+      <label for="rn-input">Paste Recipe Ingredients</label>
+      <textarea id="rn-input" rows="10" placeholder="Example:
+2 cups all-purpose flour
+1 cup granulated sugar
+1/2 cup butter, melted
+2 large eggs
+1 cup whole milk
+2 teaspoons vanilla extract
+1 teaspoon baking powder
+1/2 teaspoon salt
+1 cup chocolate chips" aria-label="Paste your recipe ingredients here"></textarea>
+    </div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="rn-servings">Number of Servings</label>
+        <input type="number" id="rn-servings" value="8" min="1" max="100">
+      </div>
+      <div class="form-group">
+        <label for="rn-name">Recipe Name (optional)</label>
+        <input type="text" id="rn-name" placeholder="e.g., Chocolate Chip Muffins">
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="rn-analyze" aria-label="Analyze recipe nutrition">Analyze Nutrition</button>
+      <button class="btn btn-secondary" id="rn-clear" aria-label="Clear recipe">Clear</button>
+      <button class="btn btn-secondary" id="rn-sample" aria-label="Load sample recipe">Load Sample</button>
+    </div>
+
+    <div class="result-box" id="rn-results" aria-live="polite">
+      <h3 id="rn-title">Nutrition Estimate</h3>
+
+      <div class="nutrition-result" id="rn-summary"></div>
+
+      <div class="ingredient-detail" id="rn-detail">
+        <h3 style="color:var(--clr-accent);margin-top:16px;">Ingredient Breakdown</h3>
+        <div id="rn-ingredients"></div>
+      </div>
+
+      <div id="rn-unrecognized" style="margin-top:12px;"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="rn-copy" aria-label="Copy nutrition summary">Copy Summary</button>
+        <span class="copy-feedback" id="rn-copy-feedback">Copied!</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Recipe nutrition guide">
+  <h2>Understanding Recipe Nutrition Analysis</h2>
+
+  <p>Knowing the nutritional content of your home-cooked meals is valuable for anyone managing their diet, whether for weight management, athletic performance, medical conditions like diabetes, or simply wanting to eat more mindfully. Unlike packaged foods that come with nutrition facts labels, homemade meals require calculation from individual ingredients. This guide explains the principles behind recipe nutrition analysis, common sources of error, and how to use the data effectively for better health outcomes.</p>
+
+  <h3>How Recipe Nutrition Calculation Works</h3>
+  <p>Recipe nutrition analysis follows a straightforward process. First, each ingredient in the recipe is identified along with its quantity. The quantity is converted to a standard weight in grams using density data specific to each ingredient, since volume measurements like cups and tablespoons represent different weights for different foods. Once the weight of each ingredient is known, nutritional values per 100 grams from a reference database (such as the USDA FoodData Central) are multiplied by the actual weight used. The contributions from all ingredients are summed to get total recipe nutrition, which is then divided by the number of servings. This process is simple in principle but complex in practice because of the vast variety of food items and the imprecision inherent in volume-based measurements.</p>
+
+  <h3>The Six Key Nutrients Explained</h3>
+  <p>Calories represent the total energy content of food. Your body needs a certain number of calories daily to maintain basic functions and support physical activity. Consuming more than you burn leads to weight gain, and less leads to weight loss. Protein is essential for building and repairing tissues, making enzymes and hormones, and supporting immune function. The recommended intake for most adults is 0.8 grams per kilogram of body weight, though active individuals and older adults may benefit from 1.2 to 2.0 grams per kilogram. Carbohydrates are your body's primary energy source, particularly for the brain and during high-intensity exercise. Fiber, a type of carbohydrate, supports digestive health and helps regulate blood sugar. Most adults should aim for 25 to 38 grams of fiber per day. Fat serves as concentrated energy storage, protects organs, enables absorption of fat-soluble vitamins, and provides essential fatty acids. Sodium, while necessary for fluid balance and nerve function, is consumed in excess by most people, contributing to hypertension and cardiovascular disease risk.</p>
+
+  <h3>Sources of Error in Recipe Nutrition Estimates</h3>
+  <p>Several factors affect the accuracy of any recipe nutrition calculator. Volume measurement variability is the largest source of error. One cup of flour can weigh between 110 and 150 grams depending on whether it is spooned and leveled, scooped directly, or sifted. This 36 percent range significantly impacts calorie and carbohydrate calculations. Ingredient brand variation adds another layer of uncertainty. Two different brands of yogurt can differ by 50 percent in fat content and 30 percent in sugar. Cooking method effects also matter. Boiling vegetables in water leaches water-soluble vitamins, grilling meat causes fat to drip away, and frying adds oil absorption. Preparation technique variations like removing skin from chicken or trimming fat from meat change the nutritional profile. Finally, natural variation in produce means that the vitamin C content of two oranges from different orchards can differ substantially.</p>
+
+  <h3>Using Nutrition Data for Meal Planning</h3>
+  <p>The most effective use of recipe nutrition estimates is relative comparison rather than absolute precision. Compare different versions of a recipe to see how substitutions affect nutrition. Swap whole milk for skim milk and observe the fat reduction. Replace half the flour with whole wheat flour and note the fiber increase. Use the per-serving data to balance your daily intake across meals. If lunch was high in carbohydrates, plan a dinner with more protein and vegetables. Track patterns over weeks rather than obsessing over individual meal numbers. Consistent small improvements in dietary quality compound into significant health benefits over time.</p>
+
+  <h3>Practical Tips for More Accurate Results</h3>
+  <p>To get the most reliable estimates from this tool, use weight measurements in grams whenever possible rather than volume measurements. If you use cups and tablespoons, be consistent in your measuring technique, spooning dry ingredients into the cup and leveling with a straight edge rather than scooping and packing. List each ingredient on a separate line with its quantity for best auto-detection results. Be specific about ingredient types, since whole milk, skim milk, and almond milk have very different nutritional profiles. When a recipe calls for an ingredient that may be partially discarded during cooking, like rendering bacon fat or draining pasta water with starch, note that the calculator assumes all listed ingredients are consumed.</p>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Weigh for Accuracy</h3>
+      <p>Using a kitchen scale eliminates the 20-40% error range from volume measurements. Weigh ingredients in grams for the most reliable nutrition estimates.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Be Specific</h3>
+      <p>Write "whole milk" instead of just "milk" and "brown sugar" instead of "sugar" to get more accurate nutrition data from the ingredient database.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Compare, Don't Obsess</h3>
+      <p>Use nutrition estimates to compare recipe variations and track patterns, not as exact measurements. Consistent direction matters more than precise numbers.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Account for Cooking</h3>
+      <p>Remember that cooking methods change nutrition. Frying adds calories from oil absorption, while grilling or roasting may reduce fat as it renders out.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/recipe-converter-metric.html" style="color:var(--clr-accent);text-decoration:none;">Recipe Converter</a> &middot;
+      <a href="/tools/recipe-nutrition-estimator.html" style="color:var(--clr-accent);text-decoration:none;">Nutrition Estimator</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ---- Nutrition DB: per 100g values ---- */
+  var nutritionDB = {
+    'all-purpose flour': { cal:364, protein:10.3, carbs:76.3, fat:1.0, fiber:2.7, sodium:2, gPerCup:125 },
+    'flour': { cal:364, protein:10.3, carbs:76.3, fat:1.0, fiber:2.7, sodium:2, gPerCup:125 },
+    'bread flour': { cal:361, protein:12.0, carbs:72.5, fat:1.7, fiber:2.4, sodium:2, gPerCup:130 },
+    'whole wheat flour': { cal:340, protein:13.2, carbs:72.0, fat:2.5, fiber:10.7, sodium:2, gPerCup:130 },
+    'cake flour': { cal:362, protein:8.0, carbs:78.0, fat:0.8, fiber:1.7, sodium:2, gPerCup:115 },
+    'almond flour': { cal:571, protein:21.2, carbs:19.7, fat:50.6, fiber:10.4, sodium:1, gPerCup:96 },
+    'granulated sugar': { cal:387, protein:0, carbs:100, fat:0, fiber:0, sodium:0, gPerCup:200 },
+    'sugar': { cal:387, protein:0, carbs:100, fat:0, fiber:0, sodium:0, gPerCup:200 },
+    'brown sugar': { cal:380, protein:0, carbs:98.1, fat:0, fiber:0, sodium:28, gPerCup:220 },
+    'powdered sugar': { cal:389, protein:0, carbs:99.8, fat:0, fiber:0, sodium:0, gPerCup:120 },
+    'butter': { cal:717, protein:0.9, carbs:0.1, fat:81.1, fiber:0, sodium:11, gPerCup:227 },
+    'oil': { cal:884, protein:0, carbs:0, fat:100, fiber:0, sodium:0, gPerCup:218 },
+    'vegetable oil': { cal:884, protein:0, carbs:0, fat:100, fiber:0, sodium:0, gPerCup:218 },
+    'olive oil': { cal:884, protein:0, carbs:0, fat:100, fiber:0, sodium:2, gPerCup:216 },
+    'coconut oil': { cal:862, protein:0, carbs:0, fat:100, fiber:0, sodium:0, gPerCup:218 },
+    'milk': { cal:61, protein:3.2, carbs:4.8, fat:3.3, fiber:0, sodium:43, gPerCup:244 },
+    'whole milk': { cal:61, protein:3.2, carbs:4.8, fat:3.3, fiber:0, sodium:43, gPerCup:244 },
+    'skim milk': { cal:34, protein:3.4, carbs:5.0, fat:0.1, fiber:0, sodium:42, gPerCup:245 },
+    'buttermilk': { cal:40, protein:3.3, carbs:4.8, fat:0.9, fiber:0, sodium:105, gPerCup:245 },
+    'heavy cream': { cal:340, protein:2.1, carbs:2.8, fat:36.1, fiber:0, sodium:38, gPerCup:238 },
+    'cream': { cal:340, protein:2.1, carbs:2.8, fat:36.1, fiber:0, sodium:38, gPerCup:238 },
+    'sour cream': { cal:198, protein:2.4, carbs:4.6, fat:19.4, fiber:0, sodium:53, gPerCup:230 },
+    'yogurt': { cal:63, protein:5.3, carbs:7.0, fat:1.6, fiber:0, sodium:70, gPerCup:245 },
+    'greek yogurt': { cal:97, protein:9.0, carbs:3.6, fat:5.0, fiber:0, sodium:47, gPerCup:245 },
+    'cream cheese': { cal:342, protein:5.9, carbs:5.5, fat:34.2, fiber:0, sodium:321, gPerCup:232 },
+    'egg': { cal:155, protein:12.6, carbs:1.1, fat:10.6, fiber:0, sodium:124, gPerUnit:50 },
+    'eggs': { cal:155, protein:12.6, carbs:1.1, fat:10.6, fiber:0, sodium:124, gPerUnit:50 },
+    'water': { cal:0, protein:0, carbs:0, fat:0, fiber:0, sodium:0, gPerCup:240 },
+    'honey': { cal:304, protein:0.3, carbs:82.4, fat:0, fiber:0.2, sodium:4, gPerCup:340 },
+    'maple syrup': { cal:260, protein:0, carbs:67.0, fat:0.1, fiber:0, sodium:12, gPerCup:312 },
+    'cocoa powder': { cal:228, protein:19.6, carbs:57.9, fat:13.7, fiber:33.2, sodium:21, gPerCup:86 },
+    'chocolate chips': { cal:502, protein:5.5, carbs:60.5, fat:30.6, fiber:5.9, sodium:10, gPerCup:170 },
+    'baking powder': { cal:53, protein:0, carbs:27.7, fat:0, fiber:0, sodium:10600, gPerCup:230 },
+    'baking soda': { cal:0, protein:0, carbs:0, fat:0, fiber:0, sodium:27360, gPerCup:220 },
+    'salt': { cal:0, protein:0, carbs:0, fat:0, fiber:0, sodium:38758, gPerCup:288 },
+    'vanilla extract': { cal:288, protein:0.1, carbs:12.7, fat:0.1, fiber:0, sodium:9, gPerCup:208 },
+    'vanilla': { cal:288, protein:0.1, carbs:12.7, fat:0.1, fiber:0, sodium:9, gPerCup:208 },
+    'oats': { cal:389, protein:16.9, carbs:66.3, fat:6.9, fiber:10.6, sodium:2, gPerCup:90 },
+    'rolled oats': { cal:389, protein:16.9, carbs:66.3, fat:6.9, fiber:10.6, sodium:2, gPerCup:90 },
+    'rice': { cal:365, protein:7.1, carbs:80, fat:0.7, fiber:1.3, sodium:5, gPerCup:185 },
+    'brown rice': { cal:370, protein:7.9, carbs:77.2, fat:2.9, fiber:3.5, sodium:7, gPerCup:185 },
+    'peanut butter': { cal:588, protein:25.1, carbs:20.0, fat:50.4, fiber:6.0, sodium:459, gPerCup:258 },
+    'chicken breast': { cal:165, protein:31.0, carbs:0, fat:3.6, fiber:0, sodium:74, gPerUnit:170 },
+    'chicken': { cal:165, protein:31.0, carbs:0, fat:3.6, fiber:0, sodium:74, gPerUnit:170 },
+    'ground beef': { cal:254, protein:17.2, carbs:0, fat:20.0, fiber:0, sodium:66, gPerUnit:113 },
+    'beef': { cal:254, protein:17.2, carbs:0, fat:20.0, fiber:0, sodium:66, gPerUnit:113 },
+    'salmon': { cal:208, protein:20.4, carbs:0, fat:13.4, fiber:0, sodium:59, gPerUnit:85 },
+    'shrimp': { cal:85, protein:20.1, carbs:0.2, fat:0.5, fiber:0, sodium:566, gPerCup:150 },
+    'bacon': { cal:541, protein:37.0, carbs:1.4, fat:42.0, fiber:0, sodium:1717, gPerUnit:8 },
+    'cheddar': { cal:403, protein:24.9, carbs:1.3, fat:33.1, fiber:0, sodium:621, gPerCup:113 },
+    'mozzarella': { cal:280, protein:27.5, carbs:3.1, fat:17.1, fiber:0, sodium:627, gPerCup:112 },
+    'parmesan': { cal:431, protein:38.5, carbs:4.1, fat:28.6, fiber:0, sodium:1602, gPerCup:100 },
+    'walnuts': { cal:654, protein:15.2, carbs:13.7, fat:65.2, fiber:6.7, sodium:2, gPerCup:120 },
+    'almonds': { cal:579, protein:21.2, carbs:21.7, fat:49.9, fiber:12.2, sodium:1, gPerCup:143 },
+    'pecans': { cal:691, protein:9.2, carbs:13.9, fat:72.0, fiber:9.6, sodium:0, gPerCup:110 },
+    'coconut': { cal:354, protein:3.3, carbs:15.2, fat:33.5, fiber:9.0, sodium:20, gPerCup:93 },
+    'raisins': { cal:299, protein:3.1, carbs:79.2, fat:0.5, fiber:3.7, sodium:11, gPerCup:165 },
+    'banana': { cal:89, protein:1.1, carbs:22.8, fat:0.3, fiber:2.6, sodium:1, gPerUnit:118 },
+    'apple': { cal:52, protein:0.3, carbs:13.8, fat:0.2, fiber:2.4, sodium:1, gPerUnit:182 },
+    'lemon juice': { cal:22, protein:0.4, carbs:6.9, fat:0.2, fiber:0.3, sodium:1, gPerCup:244 },
+    'orange juice': { cal:45, protein:0.7, carbs:10.4, fat:0.2, fiber:0.2, sodium:1, gPerCup:248 },
+    'spinach': { cal:23, protein:2.9, carbs:3.6, fat:0.4, fiber:2.2, sodium:79, gPerCup:30 },
+    'broccoli': { cal:34, protein:2.8, carbs:6.6, fat:0.4, fiber:2.6, sodium:33, gPerCup:91 },
+    'onion': { cal:40, protein:1.1, carbs:9.3, fat:0.1, fiber:1.7, sodium:4, gPerUnit:150 },
+    'garlic': { cal:149, protein:6.4, carbs:33.1, fat:0.5, fiber:2.1, sodium:17, gPerUnit:3 },
+    'tomato': { cal:18, protein:0.9, carbs:3.9, fat:0.2, fiber:1.2, sodium:5, gPerUnit:123 },
+    'potato': { cal:77, protein:2.0, carbs:17.5, fat:0.1, fiber:2.2, sodium:6, gPerUnit:150 },
+    'carrot': { cal:41, protein:0.9, carbs:9.6, fat:0.2, fiber:2.8, sodium:69, gPerUnit:72 },
+    'avocado': { cal:160, protein:2.0, carbs:8.5, fat:14.7, fiber:6.7, sodium:7, gPerUnit:150 },
+    'cornstarch': { cal:381, protein:0.3, carbs:91.3, fat:0.1, fiber:0.9, sodium:9, gPerCup:128 },
+    'breadcrumbs': { cal:395, protein:13.4, carbs:71.9, fat:5.3, fiber:4.5, sodium:732, gPerCup:108 },
+    'cornmeal': { cal:362, protein:8.1, carbs:76.9, fat:3.6, fiber:7.3, sodium:7, gPerCup:157 },
+    'lentils': { cal:116, protein:9.0, carbs:20.1, fat:0.4, fiber:7.9, sodium:2, gPerCup:198 },
+    'black beans': { cal:132, protein:8.9, carbs:23.7, fat:0.5, fiber:8.7, sodium:1, gPerCup:172 },
+    'chickpeas': { cal:164, protein:8.9, carbs:27.4, fat:2.6, fiber:7.6, sodium:7, gPerCup:164 },
+    'tofu': { cal:76, protein:8.1, carbs:1.9, fat:4.8, fiber:0.3, sodium:7, gPerCup:252 }
+  };
+
+  var volumeToMl = { 'cup':240, 'cups':240, 'tablespoon':15, 'tablespoons':15, 'tbsp':15, 'teaspoon':5, 'teaspoons':5, 'tsp':5 };
+
+  function parseFraction(str) {
+    str = str.trim();
+    var fractionMap = {'\u00BC':0.25,'\u00BD':0.5,'\u00BE':0.75,'\u2153':0.333,'\u2154':0.667};
+    for (var c in fractionMap) { if (str.indexOf(c) !== -1) { var p = str.split(c); return (p[0].trim() ? parseFloat(p[0]) : 0) + fractionMap[c]; } }
+    if (str.indexOf('/') !== -1) {
+      var segs = str.split(/\s+/);
+      if (segs.length === 2 && segs[1].indexOf('/') !== -1) { var fp = segs[1].split('/'); return parseFloat(segs[0]) + parseFloat(fp[0]) / parseFloat(fp[1]); }
+      if (segs.length === 1 && segs[0].indexOf('/') !== -1) { var fp2 = segs[0].split('/'); return parseFloat(fp2[0]) / parseFloat(fp2[1]); }
+    }
+    return parseFloat(str);
+  }
+
+  function findIngredient(line) {
+    var lower = line.toLowerCase();
+    var best = null, bestLen = 0;
+    for (var name in nutritionDB) {
+      if (lower.indexOf(name) !== -1 && name.length > bestLen) { best = name; bestLen = name.length; }
+    }
+    return best;
+  }
+
+  function getGrams(qty, unit, ingredient) {
+    var db = nutritionDB[ingredient];
+    if (!db) return qty * 100;
+    var unitLower = unit ? unit.toLowerCase() : '';
+
+    /* Unit-based (e.g., eggs, banana) */
+    if (!unit || unitLower === 'large' || unitLower === 'medium' || unitLower === 'small') {
+      if (db.gPerUnit) return qty * db.gPerUnit;
+      return qty * 100;
+    }
+
+    /* Oz / lb */
+    if (unitLower === 'oz' || unitLower === 'ounce' || unitLower === 'ounces') return qty * 28.35;
+    if (unitLower === 'lb' || unitLower === 'lbs' || unitLower === 'pound' || unitLower === 'pounds') return qty * 453.6;
+    if (unitLower === 'g' || unitLower === 'grams' || unitLower === 'gram') return qty;
+    if (unitLower === 'kg') return qty * 1000;
+
+    /* Volume */
+    var ml = volumeToMl[unitLower] || volumeToMl[unitLower.replace(/s$/, '')];
+    if (ml && db.gPerCup) {
+      return qty * ml * (db.gPerCup / 240);
+    }
+
+    return qty * 100;
+  }
+
+  function analyzeRecipe() {
+    var input = document.getElementById('rn-input').value.trim();
+    if (!input) return;
+    var servings = parseInt(document.getElementById('rn-servings').value, 10) || 1;
+    var recipeName = document.getElementById('rn-name').value.trim() || 'Your Recipe';
+
+    var lines = input.split('\n');
+    var results = [];
+    var unrecognized = [];
+    var totals = { cal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0 };
+
+    var qtyRegex = /^(\d+\s*\/\s*\d+|\d+\s+\d+\s*\/\s*\d+|\d+\.?\d*)\s*(cups?|tablespoons?|tbsp|teaspoons?|tsp|oz|ounces?|lbs?|pounds?|g|grams?|kg|large|medium|small)?\s+/i;
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].trim();
+      if (!line || line.length < 3) continue;
+
+      var ingredient = findIngredient(line);
+      var match = line.match(qtyRegex);
+      var qty = 1, unit = '';
+
+      if (match) {
+        qty = parseFraction(match[1]);
+        unit = match[2] || '';
+      }
+
+      if (ingredient && !isNaN(qty)) {
+        var db = nutritionDB[ingredient];
+        var grams = getGrams(qty, unit, ingredient);
+        var factor = grams / 100;
+
+        var nutr = {
+          name: ingredient,
+          qty: qty + (unit ? ' ' + unit : ''),
+          grams: Math.round(grams),
+          cal: Math.round(db.cal * factor),
+          protein: Math.round(db.protein * factor * 10) / 10,
+          carbs: Math.round(db.carbs * factor * 10) / 10,
+          fat: Math.round(db.fat * factor * 10) / 10,
+          fiber: Math.round(db.fiber * factor * 10) / 10,
+          sodium: Math.round(db.sodium * factor)
+        };
+
+        totals.cal += nutr.cal;
+        totals.protein += nutr.protein;
+        totals.carbs += nutr.carbs;
+        totals.fat += nutr.fat;
+        totals.fiber += nutr.fiber;
+        totals.sodium += nutr.sodium;
+
+        results.push(nutr);
+      } else if (line.length > 3) {
+        unrecognized.push(line);
+      }
+    }
+
+    /* Display summary */
+    document.getElementById('rn-title').textContent = recipeName + ' - Nutrition Estimate';
+    var summaryHtml = '';
+    var perServing = [
+      { label: 'Calories', val: Math.round(totals.cal / servings), unit: 'per serving' },
+      { label: 'Protein', val: Math.round(totals.protein / servings * 10) / 10, unit: 'g' },
+      { label: 'Carbs', val: Math.round(totals.carbs / servings * 10) / 10, unit: 'g' },
+      { label: 'Fat', val: Math.round(totals.fat / servings * 10) / 10, unit: 'g' },
+      { label: 'Fiber', val: Math.round(totals.fiber / servings * 10) / 10, unit: 'g' },
+      { label: 'Sodium', val: Math.round(totals.sodium / servings), unit: 'mg' }
+    ];
+    for (var s = 0; s < perServing.length; s++) {
+      summaryHtml += '<div class="nutr-card"><div class="nutr-val">' + perServing[s].val + '</div><div class="nutr-label">' + perServing[s].label + '</div><div class="nutr-unit">' + perServing[s].unit + '</div></div>';
+    }
+    document.getElementById('rn-summary').innerHTML = summaryHtml;
+
+    /* Display ingredient breakdown */
+    var detailHtml = '<div class="ing-row" style="font-weight:700;border-bottom:2px solid var(--clr-accent-light);"><div class="ing-name">Ingredient</div><div class="ing-qty">Amount</div><div class="ing-cal">Cal</div><div class="ing-macro">P / C / F / Fiber (g)</div></div>';
+    for (var r = 0; r < results.length; r++) {
+      var row = results[r];
+      detailHtml += '<div class="ing-row"><div class="ing-name">' + escapeHtml(row.name) + '</div><div class="ing-qty">' + escapeHtml(row.qty) + ' (' + row.grams + 'g)</div><div class="ing-cal">' + row.cal + '</div><div class="ing-macro">' + row.protein + ' / ' + row.carbs + ' / ' + row.fat + ' / ' + row.fiber + '</div></div>';
+    }
+    detailHtml += '<div class="ing-row" style="font-weight:700;border-top:2px solid var(--clr-accent);background:var(--clr-accent-light);border-radius:var(--radius-sm);padding:10px 8px;"><div class="ing-name">TOTAL (' + servings + ' servings)</div><div class="ing-qty">' + results.length + ' items</div><div class="ing-cal">' + Math.round(totals.cal) + '</div><div class="ing-macro">' + Math.round(totals.protein*10)/10 + ' / ' + Math.round(totals.carbs*10)/10 + ' / ' + Math.round(totals.fat*10)/10 + ' / ' + Math.round(totals.fiber*10)/10 + '</div></div>';
+    document.getElementById('rn-ingredients').innerHTML = detailHtml;
+
+    /* Display unrecognized */
+    if (unrecognized.length > 0) {
+      document.getElementById('rn-unrecognized').innerHTML = '<p class="unrecognized" style="font-size:0.85rem;margin-top:8px;">Not recognized (' + unrecognized.length + '): ' + unrecognized.map(function(u){return escapeHtml(u);}).join(', ') + '. These items are excluded from the total.</p>';
+    } else {
+      document.getElementById('rn-unrecognized').innerHTML = '';
+    }
+
+    var box = document.getElementById('rn-results');
+    box.classList.add('visible');
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function escapeHtml(str) {
+    var d = document.createElement('div'); d.appendChild(document.createTextNode(str)); return d.innerHTML;
+  }
+
+  /* Copy */
+  document.getElementById('rn-copy').addEventListener('click', function () {
+    var cards = document.querySelectorAll('#rn-summary .nutr-card');
+    var text = document.getElementById('rn-title').textContent + '\n';
+    for (var i = 0; i < cards.length; i++) {
+      text += cards[i].querySelector('.nutr-label').textContent + ': ' + cards[i].querySelector('.nutr-val').textContent + ' ' + cards[i].querySelector('.nutr-unit').textContent + '\n';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showFeedback(); });
+    } else {
+      var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showFeedback();
+    }
+  });
+
+  function showFeedback() {
+    var fb = document.getElementById('rn-copy-feedback');
+    fb.classList.add('show'); setTimeout(function(){ fb.classList.remove('show'); }, 2000);
+  }
+
+  /* Sample */
+  document.getElementById('rn-sample').addEventListener('click', function () {
+    document.getElementById('rn-input').value = '2 cups all-purpose flour\n1 cup granulated sugar\n1/2 cup butter, melted\n2 large eggs\n1 cup whole milk\n2 teaspoons vanilla extract\n1 teaspoon baking powder\n1/2 teaspoon salt\n1 cup chocolate chips';
+    document.getElementById('rn-name').value = 'Chocolate Chip Muffins';
+    document.getElementById('rn-servings').value = '12';
+  });
+
+  /* Clear */
+  document.getElementById('rn-clear').addEventListener('click', function () {
+    document.getElementById('rn-input').value = '';
+    document.getElementById('rn-name').value = '';
+    document.getElementById('rn-results').classList.remove('visible');
+    document.getElementById('rn-results').style.display = 'none';
+  });
+
+  /* Analyze */
+  document.getElementById('rn-analyze').addEventListener('click', analyzeRecipe);
+  document.getElementById('rn-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); analyzeRecipe(); }
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/tools/recipe-converter-metric.html" style="color:#3b82f6;text-decoration:none;">US to Metric Recipe Converter - Ingredient-Aware Unit Conversion</a></li>
+<li><a href="/recipe-converter.html" style="color:#3b82f6;text-decoration:none;">Recipe Unit Converter</a></li>
+<li><a href="/tools/baking-ratio-calculator.html" style="color:#3b82f6;text-decoration:none;">Baker's Percentage Calculator - Hydration Analysis & Bread Ratios</a></li>
+<li><a href="/tools/macro-calculator.html" style="color:#3b82f6;text-decoration:none;">Macronutrient Calculator - Daily Macro Targets & Meal Plan</a></li>
+</ul>
+</section>
+
+</body>
+</html>

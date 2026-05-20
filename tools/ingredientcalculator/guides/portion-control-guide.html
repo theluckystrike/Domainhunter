@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portion Size Guide - Visual Serving Sizes &amp; Calorie Estimator | Ingredient Calculator</title>
+<meta name="description" content="Free interactive portion size guide with visual comparisons. Deck of cards = 3oz meat, tennis ball = 1 cup. Calorie estimator per portion, meal plate builder with protein, carbs, and vegetable zones.">
+<meta name="keywords" content="portion size guide, serving size chart, portion control, visual portion sizes, calorie per serving, meal plate builder, food portion comparison, serving size estimator, portion calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/guides/portion-control-guide.html">
+<meta property="og:title" content="Portion Size Guide - Visual Serving Sizes &amp; Calorie Estimator">
+<meta property="og:description" content="Free interactive portion guide. Visual comparisons, calorie estimation per portion, and a meal plate builder.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ingredientcalculator.com/guides/portion-control-guide.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portion Size Guide - Visual Serving Sizes &amp; Calorie Estimator">
+<meta name="twitter:description" content="Free interactive portion guide with visual comparisons, calorie estimation, and a meal plate builder.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Portion Size Guide: Visual Serving Sizes & Calorie Estimation",
+  "description": "Complete interactive portion size guide with visual comparisons using everyday objects, calorie estimation per portion, and a drag-and-drop meal plate builder.",
+  "author": {
+    "@type": "Person",
+    "name": "Michael Lip"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ingredient Calculator",
+    "url": "https://ingredientcalculator.com"
+  },
+  "datePublished": "2026-05-25",
+  "dateModified": "2026-05-25",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ingredientcalculator.com/guides/portion-control-guide.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a serving size and a portion size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A serving size is a standardized amount defined by food manufacturers or regulatory agencies like the FDA, listed on nutrition labels. A portion size is the amount you actually choose to eat, which may be larger or smaller than the official serving size. For example, the FDA serving size for cooked pasta is 1 cup, but many people eat 2 to 3 cups in a single portion. Understanding this distinction is critical for accurate calorie tracking because nutrition label values are per serving, not per portion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I estimate portion sizes without a scale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can use everyday objects as visual references: a deck of playing cards is approximately 3 ounces of meat or fish; a tennis ball equals about 1 cup of fruit, vegetables, or cereal; your cupped hand holds roughly half a cup of grains or pasta; your thumb tip is about 1 teaspoon (good for oils and butter); a golf ball approximates 2 tablespoons of nut butter; and your fist is roughly 1 cup. While not as precise as weighing, these visual guides are typically accurate within 15 to 20 percent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the ideal plate look like for portion control?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The USDA MyPlate and many dietitians recommend dividing your plate into sections: half the plate should be vegetables and fruits (emphasizing non-starchy vegetables), one quarter should be lean protein (chicken, fish, tofu, beans), and one quarter should be complex carbohydrates (brown rice, whole wheat pasta, sweet potato). Add a small serving of healthy fat like olive oil or avocado, and a serving of dairy or calcium-rich alternative on the side. This visual approach naturally controls portions without counting every calorie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do restaurant portions seem so much larger than recommended servings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Restaurant portions have increased dramatically over the past 50 years. A typical restaurant pasta dish is 3 to 4 times the USDA serving size, and a restaurant steak is often 8 to 16 ounces versus the recommended 3 to 4 ounce serving. This portion inflation is driven by perceived value — customers expect generous plates for the price. Research shows that when given larger portions, people eat 30 percent more without feeling more satisfied. Strategies include boxing half your meal immediately, sharing entrees, or ordering appetizer-sized portions as your main dish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many calories should each meal contain for weight loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a typical weight-loss diet of 1500 to 1800 calories per day, a common distribution is 350 to 450 calories for breakfast, 400 to 500 calories for lunch, 450 to 600 calories for dinner, and 100 to 200 calories for 1 to 2 snacks. However, the total daily intake matters more than the per-meal distribution. Some people prefer larger meals and no snacks, while others prefer smaller, more frequent meals. The key is finding a pattern that keeps you satisfied and adherent. Use the plate builder tool above to construct balanced meals that hit your calorie targets naturally."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ingredientcalculator.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://ingredientcalculator.com/guides/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Portion Size Guide",
+      "item": "https://ingredientcalculator.com/guides/portion-control-guide.html"
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-success-bg: #ECFDF5;
+  --clr-info: #0284C7;
+  --clr-info-bg: #F0F9FF;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--clr-accent); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  z-index: 1000; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+header {
+  background: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 16px 0;
+  position: sticky; top: 0; z-index: 100;
+}
+header .container {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+}
+.logo-icon {
+  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
+}
+
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
+  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
+nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
+
+.ad-zone { text-align: center; padding: 12px 0; min-height: 20px; }
+
+.hero {
+  text-align: center; padding: 48px 16px 32px;
+  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
+}
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800; color: var(--clr-text); margin-bottom: 12px; line-height: 1.2;
+}
+.hero h1 span { color: var(--clr-accent); }
+.hero p {
+  font-size: 1.1rem; color: var(--clr-text-muted);
+  max-width: 640px; margin: 0 auto;
+}
+
+.breadcrumb { padding: 12px 0; font-size: 0.85rem; color: var(--clr-text-muted); }
+.breadcrumb a { color: var(--clr-accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border); border-radius: var(--radius);
+  padding: 24px; margin: 24px auto;
+  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
+}
+.panel h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+.panel .subtitle { color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: var(--clr-text-muted); text-transform: uppercase;
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm); font-family: var(--font);
+  font-size: 0.95rem; background: var(--clr-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--clr-text);
+}
+input:focus, select:focus {
+  outline: none; border-color: var(--clr-border-focus);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
+}
+
+.form-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { display: flex; flex-direction: column; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
+  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: all var(--transition); text-decoration: none;
+}
+.btn-primary { background: var(--clr-accent); color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
+.btn-secondary {
+  background: var(--clr-surface-alt); color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover { background: var(--clr-border); }
+.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+
+.result-box {
+  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
+  display: none;
+}
+.result-box.visible { display: block; }
+.result-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success); }
+
+.info-section { max-width: 900px; margin: 40px auto; padding: 0 16px; }
+.info-section h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.info-section h3 { font-size: 1.15rem; font-weight: 700; margin: 24px 0 8px; }
+.info-section p, .info-section li {
+  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
+}
+.info-section ul, .info-section ol { padding-left: 20px; margin: 8px 0; }
+.info-section li { margin-bottom: 4px; }
+.info-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 20px;
+}
+.info-card {
+  background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 20px;
+}
+.info-card h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.info-card p { font-size: 0.9rem; }
+
+/* Visual portion cards */
+.portion-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; margin-top: 16px;
+}
+.portion-card {
+  background: var(--clr-surface-alt); border: 1px solid var(--clr-border);
+  border-radius: var(--radius); padding: 16px; text-align: center;
+  transition: box-shadow var(--transition); cursor: pointer;
+}
+.portion-card:hover { box-shadow: 0 4px 12px var(--clr-shadow); }
+.portion-card.selected { border-color: var(--clr-accent); background: var(--clr-accent-bg); }
+.portion-icon { font-size: 2.5rem; margin-bottom: 8px; display: block; }
+.portion-object { font-weight: 700; font-size: 0.95rem; color: var(--clr-accent); }
+.portion-equals { font-size: 0.85rem; color: var(--clr-text-muted); margin: 4px 0; }
+.portion-food { font-weight: 600; font-size: 0.9rem; }
+.portion-cal { font-size: 0.82rem; color: var(--clr-text-muted); margin-top: 4px; }
+
+/* Plate builder */
+.plate-container { display: flex; flex-direction: column; align-items: center; margin: 24px 0; }
+.plate {
+  width: 320px; height: 320px; border-radius: 50%; border: 4px solid var(--clr-border);
+  position: relative; overflow: hidden; background: var(--clr-surface);
+  box-shadow: 0 4px 16px var(--clr-shadow);
+}
+.plate-zone {
+  position: absolute; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--clr-text-muted);
+  cursor: pointer; transition: all var(--transition);
+  border: 2px dashed transparent;
+}
+.plate-zone:hover, .plate-zone.drag-over { border-color: var(--clr-accent); }
+.plate-zone.filled { border-color: transparent; }
+.plate-zone .zone-label { pointer-events: none; }
+.plate-zone .zone-food { font-size: 0.8rem; color: var(--clr-accent); font-weight: 700; pointer-events: none; margin-top: 2px; }
+
+/* Half circle left = vegetables */
+.zone-veg {
+  top: 0; left: 0; width: 50%; height: 100%;
+  border-radius: 160px 0 0 160px;
+  background: #ECFDF5;
+  border-right: 2px solid var(--clr-border);
+}
+/* Top right = protein */
+.zone-protein {
+  top: 0; right: 0; width: 50%; height: 50%;
+  border-radius: 0 160px 0 0;
+  background: #FFF1F2;
+  border-bottom: 2px solid var(--clr-border);
+}
+/* Bottom right = carbs */
+.zone-carbs {
+  bottom: 0; right: 0; width: 50%; height: 50%;
+  border-radius: 0 0 160px 0;
+  background: var(--clr-accent-bg);
+}
+
+/* Food palette */
+.food-palette { margin-top: 16px; }
+.food-palette h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+.food-items { display: flex; flex-wrap: wrap; gap: 8px; }
+.food-item {
+  padding: 6px 14px; background: var(--clr-surface); border: 1px solid var(--clr-border);
+  border-radius: 20px; font-size: 0.82rem; font-weight: 600; cursor: grab;
+  transition: all var(--transition); user-select: none;
+}
+.food-item:hover { border-color: var(--clr-accent); background: var(--clr-accent-light); }
+.food-item:active { cursor: grabbing; }
+.food-item[data-type="protein"] { border-left: 3px solid #F43F5E; }
+.food-item[data-type="carbs"] { border-left: 3px solid var(--clr-accent); }
+.food-item[data-type="veg"] { border-left: 3px solid var(--clr-success); }
+
+/* Plate totals */
+.plate-totals {
+  margin-top: 16px; padding: 16px; background: var(--clr-surface-alt);
+  border: 1px solid var(--clr-border); border-radius: var(--radius-sm);
+  text-align: center; width: 100%; max-width: 400px;
+}
+.plate-totals .total-val { font-size: 1.4rem; font-weight: 800; color: var(--clr-accent); }
+.plate-totals .total-label { font-size: 0.8rem; color: var(--clr-text-muted); }
+
+/* Calorie estimator */
+.cal-estimator { margin-top: 20px; }
+.cal-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px; margin-top: 12px;
+}
+.cal-card {
+  text-align: center; padding: 12px; background: var(--clr-surface-alt);
+  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
+}
+.cal-card .cal-val { font-size: 1.3rem; font-weight: 800; color: var(--clr-accent); }
+.cal-card .cal-label { font-size: 0.75rem; color: var(--clr-text-muted); text-transform: uppercase; }
+
+footer {
+  text-align: center; padding: 32px 16px;
+  border-top: 1px solid var(--clr-border); margin-top: 40px;
+  color: var(--clr-text-muted); font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+  .portion-grid { grid-template-columns: 1fr; }
+  .plate { width: 260px; height: 260px; }
+  .panel { padding: 16px; }
+  nav { display: none; }
+}
+
+@media print {
+  header, footer, .hero, .ad-zone, .btn-row, nav { display: none !important; }
+  .panel { border: none; box-shadow: none; }
+  .result-box { display: block !important; }
+}
+
+:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.panel { animation: fadeIn 0.25s ease; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="container">
+    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
+      <span class="logo-icon" aria-hidden="true">&#9878;</span>
+      IngredientCalculator
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/tools/macro-calculator.html">Macro Calculator</a>
+      <a href="/tools/baking-ratio-calculator.html">Baker's %</a>
+      <a href="/guides/portion-control-guide.html" class="active">Portion Guide</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Introduction">
+  <div class="container">
+    <h1><span>Portion Size Guide</span> &mdash; Visual Serving Sizes &amp; Calorie Estimator</h1>
+    <p>Learn to estimate portion sizes using everyday objects, calculate calories per portion, and build balanced meals with our interactive plate builder. No measuring tools required.</p>
+  </div>
+</section>
+
+<main id="main-content" class="container">
+  <div class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; Portion Size Guide
+  </div>
+
+  <!-- Section 1: Visual Portions -->
+  <section class="panel">
+    <h2>Visual Portion Comparisons</h2>
+    <p class="subtitle">Click any card to see detailed calorie information. Each visual comparison is based on USDA standard serving sizes.</p>
+
+    <div class="portion-grid" id="pg-cards"></div>
+
+    <div class="result-box" id="pg-detail" aria-live="polite">
+      <h3 id="pg-detail-title">Portion Details</h3>
+      <div class="cal-grid" id="pg-detail-grid"></div>
+      <p id="pg-detail-tip" style="margin-top:12px;font-size:0.85rem;color:var(--clr-text-muted);"></p>
+    </div>
+  </section>
+
+  <!-- Section 2: Calorie Estimator -->
+  <section class="panel">
+    <h2>Quick Calorie Estimator</h2>
+    <p class="subtitle">Select a food category and portion count to estimate calories for your meal.</p>
+
+    <div class="form-row cols-3">
+      <div class="form-group">
+        <label for="ce-food">Food</label>
+        <select id="ce-food" aria-label="Select food"></select>
+      </div>
+      <div class="form-group">
+        <label for="ce-portions">Number of Portions</label>
+        <input type="number" id="ce-portions" min="0.25" max="10" step="0.25" value="1" aria-label="Number of portions">
+      </div>
+      <div class="form-group">
+        <label for="ce-size">Portion Size</label>
+        <select id="ce-size" aria-label="Portion size">
+          <option value="0.5">Small (half serving)</option>
+          <option value="1" selected>Standard (1 serving)</option>
+          <option value="1.5">Large (1.5 servings)</option>
+          <option value="2">Extra Large (2 servings)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="ce-calc" aria-label="Estimate calories">Estimate Calories</button>
+    </div>
+
+    <div class="result-box" id="ce-results" aria-live="polite">
+      <h3>Calorie Estimate</h3>
+      <div class="cal-grid">
+        <div class="cal-card">
+          <div class="cal-val" id="ce-total-cal">0</div>
+          <div class="cal-label">Total Calories</div>
+        </div>
+        <div class="cal-card">
+          <div class="cal-val" id="ce-protein">0g</div>
+          <div class="cal-label">Protein</div>
+        </div>
+        <div class="cal-card">
+          <div class="cal-val" id="ce-carbs">0g</div>
+          <div class="cal-label">Carbs</div>
+        </div>
+        <div class="cal-card">
+          <div class="cal-val" id="ce-fat">0g</div>
+          <div class="cal-label">Fat</div>
+        </div>
+      </div>
+      <p id="ce-context" style="margin-top:12px;font-size:0.85rem;color:var(--clr-text-muted);"></p>
+    </div>
+  </section>
+
+  <!-- Section 3: Plate Builder -->
+  <section class="panel">
+    <h2>Meal Plate Builder</h2>
+    <p class="subtitle">Click foods from the palette below, then click a zone on the plate to place them. Build a balanced meal and see total calories.</p>
+
+    <div class="plate-container">
+      <div class="plate" id="pb-plate" aria-label="Meal plate with three zones">
+        <div class="plate-zone zone-veg" id="zone-veg" data-zone="veg">
+          <span class="zone-label">Vegetables &amp; Fruits</span>
+          <span class="zone-food" id="zone-veg-food">Click to add</span>
+        </div>
+        <div class="plate-zone zone-protein" id="zone-protein" data-zone="protein">
+          <span class="zone-label">Protein</span>
+          <span class="zone-food" id="zone-protein-food">Click to add</span>
+        </div>
+        <div class="plate-zone zone-carbs" id="zone-carbs" data-zone="carbs">
+          <span class="zone-label">Carbs &amp; Grains</span>
+          <span class="zone-food" id="zone-carbs-food">Click to add</span>
+        </div>
+      </div>
+
+      <div class="plate-totals" id="pb-totals">
+        <div class="total-val" id="pb-total-cal">0 kcal</div>
+        <div class="total-label">Estimated Meal Total</div>
+        <div style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:0.82rem;">
+          <span>P: <strong id="pb-total-p">0</strong>g</span>
+          <span>C: <strong id="pb-total-c">0</strong>g</span>
+          <span>F: <strong id="pb-total-f">0</strong>g</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-palette">
+      <h3 style="color:var(--clr-success);margin-bottom:4px;">Vegetables &amp; Fruits</h3>
+      <div class="food-items" id="palette-veg"></div>
+
+      <h3 style="color:#F43F5E;margin-top:12px;margin-bottom:4px;">Protein</h3>
+      <div class="food-items" id="palette-protein"></div>
+
+      <h3 style="color:var(--clr-accent);margin-top:12px;margin-bottom:4px;">Carbs &amp; Grains</h3>
+      <div class="food-items" id="palette-carbs"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="pb-clear" aria-label="Clear plate">Clear Plate</button>
+    </div>
+  </section>
+
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+</main>
+
+<section class="info-section" aria-label="Portion control guide content">
+  <h2>The Complete Guide to Portion Control</h2>
+
+  <p>Portion control is arguably the most important skill for managing body weight, yet it is one of the least understood aspects of nutrition. In a world of supersized meals, bottomless drinks, and family-style servings, most people have lost touch with what a standard portion actually looks like. Research published in the American Journal of Clinical Nutrition found that Americans consistently underestimate their calorie intake by 30 to 50 percent, with portion misjudgment being the primary driver. Learning to accurately gauge portion sizes &mdash; without obsessively weighing every morsel &mdash; can close this gap and transform your relationship with food.</p>
+
+  <h3>The Science of Portion Distortion</h3>
+  <p>Portion sizes in the United States have increased dramatically since the 1970s. A typical bagel has grown from 3 inches to 6 inches in diameter (from 140 to 350 calories). A standard soda has gone from 6.5 ounces to 20 ounces. A plate of spaghetti at a restaurant serves 3 to 4 cups of pasta when the USDA serving is just 1 cup. This phenomenon, known as "portion distortion," has reshaped our perception of normal amounts of food.</p>
+  <p>Brian Wansink's research at the Cornell Food and Brand Lab demonstrated that when people are served larger portions, they eat 20 to 30 percent more without realizing it and without reporting greater satisfaction. The implication is profound: your eyes and stomach are poor judges of appropriate quantity. External cues &mdash; plate size, package size, serving spoon size &mdash; drive consumption more than hunger signals do.</p>
+
+  <h3>Using Visual Anchors for Everyday Estimation</h3>
+  <p>The most practical approach to portion control does not require carrying a food scale everywhere. Instead, it uses objects you already know as visual anchors. Here are the most reliable comparisons, backed by USDA measurements:</p>
+  <ul>
+    <li><strong>Deck of cards (3 oz / 85g)</strong> &mdash; One standard serving of cooked meat, poultry, or fish. This is the appropriate amount of chicken breast, steak, or salmon for a single meal. Most restaurant servings are 2 to 3 times this size.</li>
+    <li><strong>Tennis ball (1 cup / 240ml)</strong> &mdash; One serving of raw vegetables, fruit, cereal, or yogurt. Visualize a tennis ball when portioning rice, pasta, or salad greens.</li>
+    <li><strong>Computer mouse (1 medium potato / 150g)</strong> &mdash; A single serving of baked potato. Restaurant baked potatoes are typically 2 to 3 times this size, adding 200 to 400 extra calories before toppings.</li>
+    <li><strong>Golf ball (2 tbsp / 30g)</strong> &mdash; One serving of nut butter, salad dressing, hummus, or cream cheese. This is one of the most commonly over-portioned items. Two tablespoons of peanut butter is 190 calories; people routinely use 3 to 4 tablespoons without noticing.</li>
+    <li><strong>Thumb tip (1 tsp / 5ml)</strong> &mdash; One serving of butter, oil, or mayonnaise. At 40 to 45 calories per teaspoon, these small additions compound quickly when unmeasured.</li>
+    <li><strong>Cupped hand (1/2 cup / 120ml)</strong> &mdash; One serving of cooked grains, pasta, or ice cream. Your own hand is always available as a measuring reference, and it naturally scales with your body size.</li>
+    <li><strong>Two cupped hands (1 cup)</strong> &mdash; One serving of leafy greens or popcorn. Because these foods are low in calorie density, the serving size is larger.</li>
+    <li><strong>Fist (1 cup / 240ml)</strong> &mdash; An alternative to the tennis ball for quick estimation. Your closed fist approximates one cup of most foods.</li>
+  </ul>
+
+  <h3>The Balanced Plate Method</h3>
+  <p>Rather than counting every calorie, many nutrition professionals recommend the balanced plate method for sustainable portion control. This approach, endorsed by the USDA MyPlate guidelines and the Harvard Healthy Eating Plate, divides your plate into three visual zones:</p>
+  <ul>
+    <li><strong>Half the plate: Vegetables and fruits.</strong> Fill 50% of your plate with non-starchy vegetables (broccoli, spinach, peppers, tomatoes) and a small amount of fruit. These foods are high in volume, fiber, vitamins, and water while being low in calories &mdash; the perfect combination for feeling satisfied without overeating.</li>
+    <li><strong>One quarter: Lean protein.</strong> Fill 25% of your plate with a deck-of-cards-sized portion of chicken, fish, tofu, beans, or eggs. Protein is the most satiating macronutrient and supports muscle maintenance during caloric restriction.</li>
+    <li><strong>One quarter: Complex carbohydrates.</strong> Fill 25% of your plate with a cupped-hand serving of brown rice, sweet potato, whole wheat pasta, or quinoa. Choose whole grains over refined for sustained energy and fiber content.</li>
+  </ul>
+  <p>This simple visual framework naturally limits calorie intake to 400 to 600 calories per meal for most standard-sized plates (9 to 10 inches). Using a smaller plate (8 inches) further reduces portions by 20 to 25 percent without any conscious restriction, leveraging the same psychological biases that normally cause overeating.</p>
+
+  <h3>Practical Portion Control Strategies</h3>
+  <p>Beyond visual estimation, these evidence-based strategies help control portions in real-world situations:</p>
+  <ul>
+    <li><strong>Pre-plate your food.</strong> Serve yourself in the kitchen rather than placing serving dishes on the table. When food is within arm's reach, people serve themselves 20% more over the course of a meal.</li>
+    <li><strong>Use smaller plates and bowls.</strong> The Delboeuf illusion makes food on a smaller plate look more generous. Switching from a 12-inch to a 10-inch plate reduces average intake by 22%.</li>
+    <li><strong>Eat slowly and pause.</strong> It takes approximately 20 minutes for satiety signals to travel from your stomach to your brain. Eating slowly gives your body time to register fullness before you overconsume.</li>
+    <li><strong>Pre-portion snacks.</strong> Never eat directly from the package. Pour a single serving into a bowl and put the package away. People eat 50% more from large packages than from single-serving containers.</li>
+    <li><strong>Start with vegetables.</strong> Beginning your meal with a salad or vegetable soup has been shown to reduce total meal calories by 12% because the fiber and water create early satiety signals.</li>
+  </ul>
+
+  <div class="info-grid">
+    <article class="info-card">
+      <h3>&#9878; Visual Anchors Work</h3>
+      <p>Studies show that people trained in visual portion estimation improve their accuracy by 60% compared to those who guess without references. Practice with these comparisons daily.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Plate Size Matters</h3>
+      <p>Switching from a 12-inch plate to a 10-inch plate reduces calories by 22% without conscious effort. The Delboeuf illusion makes the same portion look more satisfying.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Protein First</h3>
+      <p>Eating protein at the start of a meal slows gastric emptying and triggers satiety hormones (CCK, PYY, GLP-1) earlier. This naturally reduces total meal calories.</p>
+    </article>
+    <article class="info-card">
+      <h3>&#9878; Calorie Density</h3>
+      <p>Vegetables average 25 cal/cup while nuts average 800 cal/cup. Understanding calorie density lets you eat large, satisfying volumes while controlling total energy intake.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
+    <p style="margin-top:8px;">
+      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/baking-ratio-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Baker's %</a> &middot;
+      <a href="/guides/portion-control-guide.html" style="color:var(--clr-accent);text-decoration:none;">Portion Guide</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+
+  /* ============================================================
+     PORTION COMPARISON DATA
+     ============================================================ */
+  var portions = [
+    { icon: '\uD83C\uDCCF', object: 'Deck of Cards', serving: '3 oz / 85g', food: 'Meat, Poultry, or Fish', cal: 165, protein: 26, carbs: 0, fat: 6, tip: 'One deck of cards equals one standard serving of cooked meat. A restaurant steak is usually 8-16 oz, which is 3 to 5 servings.' },
+    { icon: '\uD83C\uDFBE', object: 'Tennis Ball', serving: '1 cup / 240ml', food: 'Fruit, Vegetables, or Cereal', cal: 60, protein: 2, carbs: 15, fat: 0, tip: 'One tennis ball of fruit is about 60 calories. One tennis ball of cooked rice is about 200 calories. The same volume has very different calorie counts depending on density.' },
+    { icon: '\uD83E\uDDBE', object: 'Computer Mouse', serving: '1 medium / 150g', food: 'Baked Potato', cal: 130, protein: 3, carbs: 30, fat: 0, tip: 'A plain medium potato is only 130 calories. But add 2 tbsp butter (200 cal), sour cream (60 cal), and cheese (110 cal) and it becomes a 500-calorie side dish.' },
+    { icon: '\u26F3', object: 'Golf Ball', serving: '2 tbsp / 30g', food: 'Nut Butter or Dressing', cal: 190, protein: 7, carbs: 7, fat: 16, tip: 'Two tablespoons of peanut butter is just a golf ball. Most people use 3-4 tablespoons, unknowingly doubling the calories to 380.' },
+    { icon: '\uD83D\uDC4D', object: 'Thumb Tip', serving: '1 tsp / 5ml', food: 'Butter, Oil, or Mayo', cal: 40, protein: 0, carbs: 0, fat: 5, tip: 'One teaspoon of oil or butter is only 40 calories, but a tablespoon (3x) is 120 calories. Cooking oils are the most calorie-dense foods in your kitchen.' },
+    { icon: '\uD83E\uDD1C', object: 'Cupped Hand', serving: '1/2 cup / 120ml', food: 'Cooked Rice, Pasta, or Ice Cream', cal: 110, protein: 2, carbs: 24, fat: 1, tip: 'A half cup of cooked pasta is one serving. The typical plate of pasta at a restaurant is 3-4 cups, or 6-8 servings, totaling 660-880 calories before sauce.' },
+    { icon: '\u270A', object: 'Closed Fist', serving: '1 cup / 240ml', food: 'Soup, Yogurt, or Cereal', cal: 150, protein: 5, carbs: 20, fat: 5, tip: 'Your fist is always with you as a measuring tool. It naturally scales with body size, making it a personalized portion reference.' },
+    { icon: '\uD83C\uDFB2', object: 'Pair of Dice', serving: '1.5 oz / 42g', food: 'Hard Cheese', cal: 170, protein: 10, carbs: 1, fat: 14, tip: 'Two dice equal one serving of cheese. Cheese boards at parties offer far more than this, and each extra serving adds 170 calories of fat-dense food.' }
+  ];
+
+  /* ---- Render portion cards ---- */
+  var cardsContainer = document.getElementById('pg-cards');
+  var detailBox = document.getElementById('pg-detail');
+  var detailTitle = document.getElementById('pg-detail-title');
+  var detailGrid = document.getElementById('pg-detail-grid');
+  var detailTip = document.getElementById('pg-detail-tip');
+
+  for (var i = 0; i < portions.length; i++) {
+    (function (p, idx) {
+      var card = document.createElement('div');
+      card.className = 'portion-card';
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', p.object + ' equals ' + p.serving + ' of ' + p.food);
+      card.innerHTML =
+        '<span class="portion-icon">' + p.icon + '</span>' +
+        '<div class="portion-object">' + p.object + '</div>' +
+        '<div class="portion-equals">= ' + p.serving + '</div>' +
+        '<div class="portion-food">' + p.food + '</div>' +
+        '<div class="portion-cal">~' + p.cal + ' cal per serving</div>';
+
+      card.addEventListener('click', function () {
+        document.querySelectorAll('.portion-card').forEach(function (c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        showDetail(p);
+      });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+      cardsContainer.appendChild(card);
+    })(portions[i], i);
+  }
+
+  function showDetail(p) {
+    detailTitle.textContent = p.object + ' = ' + p.serving + ' of ' + p.food;
+    detailGrid.innerHTML =
+      '<div class="cal-card"><div class="cal-val">' + p.cal + '</div><div class="cal-label">Calories</div></div>' +
+      '<div class="cal-card"><div class="cal-val">' + p.protein + 'g</div><div class="cal-label">Protein</div></div>' +
+      '<div class="cal-card"><div class="cal-val">' + p.carbs + 'g</div><div class="cal-label">Carbs</div></div>' +
+      '<div class="cal-card"><div class="cal-val">' + p.fat + 'g</div><div class="cal-label">Fat</div></div>';
+    detailTip.textContent = p.tip;
+    detailBox.classList.add('visible');
+    detailBox.style.display = 'block';
+    detailBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* ============================================================
+     CALORIE ESTIMATOR
+     ============================================================ */
+  var foods = [
+    { name: 'Chicken Breast (grilled)', cal: 165, protein: 31, carbs: 0, fat: 3.6, serving: '3 oz' },
+    { name: 'Salmon Fillet', cal: 208, protein: 20, carbs: 0, fat: 13, serving: '3 oz' },
+    { name: 'Ground Beef (80/20)', cal: 230, protein: 17, carbs: 0, fat: 18, serving: '3 oz' },
+    { name: 'Eggs (2 large)', cal: 155, protein: 13, carbs: 1, fat: 11, serving: '2 eggs' },
+    { name: 'Tofu (firm)', cal: 76, protein: 8, carbs: 2, fat: 5, serving: '3 oz' },
+    { name: 'Brown Rice (cooked)', cal: 216, protein: 5, carbs: 45, fat: 2, serving: '1 cup' },
+    { name: 'White Pasta (cooked)', cal: 220, protein: 8, carbs: 43, fat: 1, serving: '1 cup' },
+    { name: 'Sweet Potato', cal: 103, protein: 2, carbs: 24, fat: 0, serving: '1 medium' },
+    { name: 'Whole Wheat Bread', cal: 70, protein: 4, carbs: 12, fat: 1, serving: '1 slice' },
+    { name: 'Quinoa (cooked)', cal: 222, protein: 8, carbs: 39, fat: 4, serving: '1 cup' },
+    { name: 'Broccoli (steamed)', cal: 55, protein: 4, carbs: 11, fat: 1, serving: '1 cup' },
+    { name: 'Mixed Salad Greens', cal: 10, protein: 1, carbs: 2, fat: 0, serving: '1 cup' },
+    { name: 'Avocado', cal: 240, protein: 3, carbs: 13, fat: 22, serving: '1 whole' },
+    { name: 'Banana', cal: 105, protein: 1, carbs: 27, fat: 0, serving: '1 medium' },
+    { name: 'Greek Yogurt (plain)', cal: 100, protein: 17, carbs: 6, fat: 1, serving: '6 oz' },
+    { name: 'Almonds', cal: 160, protein: 6, carbs: 6, fat: 14, serving: '1 oz (23 nuts)' },
+    { name: 'Cheddar Cheese', cal: 113, protein: 7, carbs: 0, fat: 9, serving: '1 oz' },
+    { name: 'Olive Oil', cal: 120, protein: 0, carbs: 0, fat: 14, serving: '1 tbsp' },
+    { name: 'Peanut Butter', cal: 190, protein: 7, carbs: 7, fat: 16, serving: '2 tbsp' },
+    { name: 'Apple', cal: 95, protein: 0, carbs: 25, fat: 0, serving: '1 medium' }
+  ];
+
+  var foodSelect = document.getElementById('ce-food');
+  for (var f = 0; f < foods.length; f++) {
+    var opt = document.createElement('option');
+    opt.value = f;
+    opt.textContent = foods[f].name + ' (' + foods[f].serving + ')';
+    foodSelect.appendChild(opt);
+  }
+
+  document.getElementById('ce-calc').addEventListener('click', function () {
+    var idx = parseInt(foodSelect.value, 10);
+    var portionCount = parseFloat(document.getElementById('ce-portions').value) || 1;
+    var sizeMultiplier = parseFloat(document.getElementById('ce-size').value) || 1;
+    if (idx < 0 || idx >= foods.length) return;
+
+    var fd = foods[idx];
+    var mult = portionCount * sizeMultiplier;
+    var totalCal = Math.round(fd.cal * mult);
+    var totalP = Math.round(fd.protein * mult);
+    var totalC = Math.round(fd.carbs * mult);
+    var totalF = Math.round(fd.fat * mult);
+
+    document.getElementById('ce-total-cal').textContent = totalCal;
+    document.getElementById('ce-protein').textContent = totalP + 'g';
+    document.getElementById('ce-carbs').textContent = totalC + 'g';
+    document.getElementById('ce-fat').textContent = totalF + 'g';
+
+    var pctOf2000 = ((totalCal / 2000) * 100).toFixed(1);
+    document.getElementById('ce-context').textContent =
+      totalCal + ' calories is ' + pctOf2000 + '% of a standard 2,000 calorie daily diet. ' +
+      'That is equivalent to ' + Math.round(totalCal / 100) + ' minutes of brisk walking to burn off.';
+
+    var results = document.getElementById('ce-results');
+    results.classList.add('visible');
+    results.style.display = 'block';
+  });
+
+  /* ============================================================
+     PLATE BUILDER
+     ============================================================ */
+  var plateFoods = {
+    veg: [
+      { name: 'Broccoli (1 cup)', cal: 55, protein: 4, carbs: 11, fat: 1 },
+      { name: 'Mixed Greens (2 cups)', cal: 20, protein: 2, carbs: 4, fat: 0 },
+      { name: 'Roasted Peppers (1 cup)', cal: 46, protein: 1, carbs: 9, fat: 1 },
+      { name: 'Steamed Carrots (1 cup)', cal: 55, protein: 1, carbs: 13, fat: 0 },
+      { name: 'Green Beans (1 cup)', cal: 44, protein: 2, carbs: 10, fat: 0 },
+      { name: 'Tomato Salad (1 cup)', cal: 32, protein: 2, carbs: 7, fat: 0 },
+      { name: 'Sauteed Spinach (1 cup)', cal: 41, protein: 5, carbs: 7, fat: 1 },
+      { name: 'Apple Slices (1 medium)', cal: 95, protein: 0, carbs: 25, fat: 0 }
+    ],
+    protein: [
+      { name: 'Grilled Chicken (3 oz)', cal: 165, protein: 31, carbs: 0, fat: 4 },
+      { name: 'Baked Salmon (3 oz)', cal: 208, protein: 20, carbs: 0, fat: 13 },
+      { name: 'Lean Steak (3 oz)', cal: 180, protein: 26, carbs: 0, fat: 8 },
+      { name: 'Firm Tofu (4 oz)', cal: 88, protein: 10, carbs: 2, fat: 5 },
+      { name: 'Black Beans (1/2 cup)', cal: 114, protein: 8, carbs: 20, fat: 1 },
+      { name: 'Hard-Boiled Eggs (2)', cal: 155, protein: 13, carbs: 1, fat: 11 },
+      { name: 'Shrimp (3 oz)', cal: 84, protein: 18, carbs: 0, fat: 1 },
+      { name: 'Turkey Breast (3 oz)', cal: 135, protein: 25, carbs: 0, fat: 3 }
+    ],
+    carbs: [
+      { name: 'Brown Rice (1/2 cup)', cal: 108, protein: 3, carbs: 22, fat: 1 },
+      { name: 'Sweet Potato (1 small)', cal: 103, protein: 2, carbs: 24, fat: 0 },
+      { name: 'Quinoa (1/2 cup)', cal: 111, protein: 4, carbs: 20, fat: 2 },
+      { name: 'Whole Wheat Bread (1 slice)', cal: 70, protein: 4, carbs: 12, fat: 1 },
+      { name: 'Couscous (1/2 cup)', cal: 88, protein: 3, carbs: 18, fat: 0 },
+      { name: 'Roasted Potatoes (1/2 cup)', cal: 108, protein: 2, carbs: 20, fat: 3 },
+      { name: 'Corn on the Cob (1 ear)', cal: 90, protein: 3, carbs: 19, fat: 1 },
+      { name: 'Whole Wheat Pasta (1/2 cup)', cal: 87, protein: 4, carbs: 19, fat: 0 }
+    ]
+  };
+
+  var plateState = { veg: null, protein: null, carbs: null };
+  var selectedFood = null;
+  var selectedZone = null;
+
+  /* Render palettes */
+  function renderPalettes() {
+    var types = ['veg', 'protein', 'carbs'];
+    for (var t = 0; t < types.length; t++) {
+      var type = types[t];
+      var container = document.getElementById('palette-' + type);
+      container.innerHTML = '';
+      var items = plateFoods[type];
+      for (var j = 0; j < items.length; j++) {
+        (function (item, foodType) {
+          var el = document.createElement('div');
+          el.className = 'food-item';
+          el.setAttribute('data-type', foodType);
+          el.setAttribute('tabindex', '0');
+          el.setAttribute('role', 'button');
+          el.textContent = item.name + ' (' + item.cal + ' cal)';
+          el.addEventListener('click', function () {
+            document.querySelectorAll('.food-item').forEach(function (fi) {
+              fi.style.background = ''; fi.style.borderColor = '';
+            });
+            el.style.background = 'var(--clr-accent-light)';
+            el.style.borderColor = 'var(--clr-accent)';
+            selectedFood = { item: item, type: foodType };
+          });
+          el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+          });
+          container.appendChild(el);
+        })(items[j], type);
+      }
+    }
+  }
+  renderPalettes();
+
+  /* Zone click handlers */
+  var zones = document.querySelectorAll('.plate-zone');
+  zones.forEach(function (zone) {
+    zone.addEventListener('click', function () {
+      var zoneType = zone.getAttribute('data-zone');
+      if (selectedFood) {
+        /* Place food regardless of type match, for flexibility */
+        plateState[zoneType] = selectedFood.item;
+        zone.querySelector('.zone-food').textContent = selectedFood.item.name;
+        zone.classList.add('filled');
+        /* Clear selection */
+        document.querySelectorAll('.food-item').forEach(function (fi) {
+          fi.style.background = ''; fi.style.borderColor = '';
+        });
+        selectedFood = null;
+        updatePlateTotals();
+      }
+    });
+  });
+
+  function updatePlateTotals() {
+    var totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
+    var keys = ['veg', 'protein', 'carbs'];
+    for (var k = 0; k < keys.length; k++) {
+      var f = plateState[keys[k]];
+      if (f) {
+        totalCal += f.cal;
+        totalP += f.protein;
+        totalC += f.carbs;
+        totalF += f.fat;
+      }
+    }
+    document.getElementById('pb-total-cal').textContent = totalCal + ' kcal';
+    document.getElementById('pb-total-p').textContent = totalP;
+    document.getElementById('pb-total-c').textContent = totalC;
+    document.getElementById('pb-total-f').textContent = totalF;
+  }
+
+  document.getElementById('pb-clear').addEventListener('click', function () {
+    plateState = { veg: null, protein: null, carbs: null };
+    zones.forEach(function (z) {
+      z.querySelector('.zone-food').textContent = 'Click to add';
+      z.classList.remove('filled');
+    });
+    document.querySelectorAll('.food-item').forEach(function (fi) {
+      fi.style.background = ''; fi.style.borderColor = '';
+    });
+    selectedFood = null;
+    updatePlateTotals();
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/dietary-restriction-guide.html" style="color:#3b82f6;text-decoration:none;">Dietary Restriction Guide - Interactive Ingredient Checker & Substitutions</a></li>
+<li><a href="/guides/meal-prep-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Cost Calculator - Homemade vs Delivery vs Meal Kit</a></li>
+<li><a href="/allergen-substitutes.html" style="color:#3b82f6;text-decoration:none;">Allergen-Free Ingredient Substitutes Calculator — Find Safe Alternatives</a></li>
+<li><a href="/answers/cooking-measurement-converter.html" style="color:#3b82f6;text-decoration:none;">Cooking Measurement Converter - Ingredient-Specific Weights & Volumes</a></li>
+</ul>
+</section>
+
+</body>
+</html>

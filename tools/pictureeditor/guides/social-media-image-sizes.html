@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Media Image Sizes Guide 2026 — Auto-Crop Tool | PictureEditor</title>
+<meta name="description" content="Complete guide to social media image sizes for every platform in 2026. Instagram, Facebook, Twitter/X, LinkedIn, TikTok, YouTube, and Pinterest dimensions with built-in auto-cropper. Resize images to exact platform specifications instantly.">
+<meta name="keywords" content="social media image sizes, instagram image size, facebook cover photo size, twitter image dimensions, linkedin banner size, tiktok dimensions, youtube thumbnail size, pinterest pin size, social media crop tool, image resizer social media">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/guides/social-media-image-sizes.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/guides/social-media-image-sizes.html">
+<meta property="og:title" content="Social Media Image Sizes Guide 2026 — Auto-Crop Tool">
+<meta property="og:description" content="Every social media platform image size in one place with a built-in auto-cropper. Resize images to exact specs instantly.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Social Media Image Sizes Guide 2026 — Auto-Crop Tool">
+<meta name="twitter:description" content="Complete social media image size reference with built-in cropping tool. All platforms, all formats, updated for 2026.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Social Media Image Size Auto-Cropper",
+    "url":"https://pictureeditor.net/guides/social-media-image-sizes.html",
+    "description":"Complete social media image size guide with built-in auto-cropper. Resize images to exact platform specifications for Instagram, Facebook, Twitter/X, LinkedIn, TikTok, YouTube, and Pinterest.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the best image size for Instagram posts in 2026?","acceptedAnswer":{"@type":"Answer","text":"Instagram supports three post aspect ratios: square (1080x1080), portrait (1080x1350, 4:5 ratio), and landscape (1080x566, 1.91:1 ratio). Portrait 1080x1350 gets the most screen real estate in the feed and is recommended for maximum engagement. All images should be at least 1080 pixels wide for sharp display."}},
+      {"@type":"Question","name":"What size should a YouTube thumbnail be?","acceptedAnswer":{"@type":"Answer","text":"YouTube thumbnails should be 1280x720 pixels (16:9 aspect ratio) with a minimum width of 640 pixels. The file must be under 2MB and in JPG, GIF, or PNG format. Use high contrast, large text, and expressive faces for maximum click-through rate."}},
+      {"@type":"Question","name":"Does uploading the wrong image size affect quality?","acceptedAnswer":{"@type":"Answer","text":"Yes. If you upload an image smaller than the platform's recommended size, it will be upscaled and appear blurry. If the aspect ratio does not match, the platform will auto-crop, potentially cutting off important content. Always upload at the exact recommended dimensions for the sharpest results."}},
+      {"@type":"Question","name":"What image format should I use for social media?","acceptedAnswer":{"@type":"Answer","text":"JPEG is best for photographs due to smaller file sizes. PNG is best for graphics with text, logos, or transparency. Most platforms accept both. Keep file sizes under 5MB for fast loading and avoid quality loss from excessive compression."}},
+      {"@type":"Question","name":"Are my images uploaded to a server when using the auto-cropper?","acceptedAnswer":{"@type":"Answer","text":"No. The auto-cropper runs entirely in your browser using the HTML5 Canvas API. Your images are processed locally and never transmitted to any server. The cropped result is downloaded directly from your browser."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Guides","item":"https://pictureeditor.net/guides/"},
+      {"@type":"ListItem","position":3,"name":"Social Media Image Sizes","item":"https://pictureeditor.net/guides/social-media-image-sizes.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.format-select{margin-bottom:16px}
+.format-select label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.format-select select{width:100%;max-width:300px;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none}
+.format-select select:focus{border-color:var(--accent)}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.size-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+.size-table th{background:#f1f5f9;padding:10px 12px;text-align:left;font-weight:700;font-size:.78rem;text-transform:uppercase;color:var(--text-secondary);border-bottom:2px solid var(--border)}
+.size-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.size-table tr:hover{background:#f8fafc}
+.size-table .dim{font-weight:700;color:var(--accent);white-space:nowrap}
+.platform-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:700;color:#fff;margin-right:4px}
+.platform-tag.ig{background:#E1306C}
+.platform-tag.fb{background:#1877F2}
+.platform-tag.tw{background:#1DA1F2}
+.platform-tag.li{background:#0A66C2}
+.platform-tag.tt{background:#000}
+.platform-tag.yt{background:#FF0000}
+.platform-tag.pi{background:#E60023}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .size-table{font-size:.78rem}
+  .size-table th,.size-table td{padding:6px 8px}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/guides/">Guides</a><span>/</span>
+  Social Media Image Sizes
+</nav>
+
+<h2>Social Media Image Sizes 2026 &mdash; Complete Guide with Auto-Cropper</h2>
+<p class="subtitle">Every image dimension for every platform in one place. Upload any image and crop it to the exact size needed for Instagram, Facebook, Twitter/X, LinkedIn, TikTok, YouTube, and Pinterest. All processing runs in your browser.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+
+  <!-- Upload -->
+  <div id="dropZone" class="drop-zone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m-7-7 7-7 7 7"/></svg>
+    <p>Drop an image here or click to upload</p>
+    <p class="sub">JPEG, PNG, WebP &mdash; then choose a platform preset</p>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+  </div>
+
+  <!-- Controls -->
+  <div id="controls" class="controls hidden">
+    <div class="info-row">
+      <div class="info-box accent"><div class="label">Original Size</div><div class="value" id="dimInfo">-</div></div>
+      <div class="info-box"><div class="label">Target Size</div><div class="value" id="targetInfo">1080x1080</div></div>
+      <div class="info-box green"><div class="label">Platform</div><div class="value" id="platformInfo">Instagram</div></div>
+    </div>
+
+    <div class="format-select">
+      <label for="presetSelect">Choose Platform &amp; Format</label>
+      <select id="presetSelect">
+        <optgroup label="Instagram">
+          <option value="1080,1080,Instagram Post (Square)">Post — Square (1080x1080)</option>
+          <option value="1080,1350,Instagram Post (Portrait)">Post — Portrait (1080x1350)</option>
+          <option value="1080,566,Instagram Post (Landscape)">Post — Landscape (1080x566)</option>
+          <option value="1080,1920,Instagram Story / Reel">Story / Reel (1080x1920)</option>
+          <option value="320,320,Instagram Profile Photo">Profile Photo (320x320)</option>
+        </optgroup>
+        <optgroup label="Facebook">
+          <option value="1200,630,Facebook Shared Image">Shared Image (1200x630)</option>
+          <option value="820,312,Facebook Cover Photo">Cover Photo (820x312)</option>
+          <option value="1080,1080,Facebook Story">Story (1080x1920)</option>
+          <option value="170,170,Facebook Profile Photo">Profile Photo (170x170)</option>
+        </optgroup>
+        <optgroup label="Twitter / X">
+          <option value="1600,900,Twitter/X Post Image">Post Image (1600x900)</option>
+          <option value="1500,500,Twitter/X Header">Header (1500x500)</option>
+          <option value="400,400,Twitter/X Profile Photo">Profile Photo (400x400)</option>
+        </optgroup>
+        <optgroup label="LinkedIn">
+          <option value="1200,627,LinkedIn Post Image">Post Image (1200x627)</option>
+          <option value="1584,396,LinkedIn Cover Photo">Cover Photo (1584x396)</option>
+          <option value="400,400,LinkedIn Profile Photo">Profile Photo (400x400)</option>
+        </optgroup>
+        <optgroup label="TikTok">
+          <option value="1080,1920,TikTok Video Cover">Video Cover (1080x1920)</option>
+          <option value="200,200,TikTok Profile Photo">Profile Photo (200x200)</option>
+        </optgroup>
+        <optgroup label="YouTube">
+          <option value="1280,720,YouTube Thumbnail">Thumbnail (1280x720)</option>
+          <option value="2560,1440,YouTube Channel Banner">Channel Banner (2560x1440)</option>
+          <option value="800,800,YouTube Profile Photo">Profile Photo (800x800)</option>
+        </optgroup>
+        <optgroup label="Pinterest">
+          <option value="1000,1500,Pinterest Pin">Standard Pin (1000x1500)</option>
+          <option value="1000,2100,Pinterest Long Pin">Long Pin (1000x2100)</option>
+          <option value="800,450,Pinterest Board Cover">Board Cover (800x450)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-pane">
+        <div class="pane-label">Cropped Preview</div>
+        <canvas id="previewCanvas" width="600" height="600"></canvas>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-success" id="downloadBtn">Download Cropped Image</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#instagram-sizes">Instagram Image Sizes</a></li>
+    <li><a href="#facebook-sizes">Facebook Image Sizes</a></li>
+    <li><a href="#twitter-sizes">Twitter/X Image Sizes</a></li>
+    <li><a href="#other-platforms">LinkedIn, TikTok, YouTube, and Pinterest</a></li>
+    <li><a href="#optimization-tips">Image Optimization Tips for Social Media</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: INSTAGRAM ===== -->
+<section class="card" id="instagram-sizes">
+  <h3 style="margin-top:0">Instagram Image Sizes</h3>
+
+  <table class="size-table">
+    <thead><tr><th>Format</th><th>Dimensions</th><th>Aspect Ratio</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="platform-tag ig">IG</span> Post (Square)</td><td class="dim">1080x1080</td><td>1:1</td><td>Classic Instagram format, reliable engagement</td></tr>
+      <tr><td><span class="platform-tag ig">IG</span> Post (Portrait)</td><td class="dim">1080x1350</td><td>4:5</td><td>Maximum feed real estate, highest engagement</td></tr>
+      <tr><td><span class="platform-tag ig">IG</span> Post (Landscape)</td><td class="dim">1080x566</td><td>1.91:1</td><td>Panoramic views, less feed space</td></tr>
+      <tr><td><span class="platform-tag ig">IG</span> Story / Reel</td><td class="dim">1080x1920</td><td>9:16</td><td>Full-screen vertical, also used for Reels</td></tr>
+      <tr><td><span class="platform-tag ig">IG</span> Profile Photo</td><td class="dim">320x320</td><td>1:1</td><td>Displayed as circle, keep content centered</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Instagram Feed Strategy</h4>
+  <p>Instagram displays images at 1080 pixels wide in the feed, regardless of the original upload size. Images smaller than 1080 pixels will be upscaled and appear blurry, while images larger than 1080 pixels will be downscaled (which is fine). The 4:5 portrait format (1080x1350) occupies the most vertical screen space in the feed, making it the best choice for engagement. A portrait post takes up approximately 30% more screen area than a square post, giving your content more visual dominance as users scroll. For carousel posts, maintain consistent dimensions across all slides to avoid jarring aspect ratio changes between swipes.</p>
+
+  <h4>Stories and Reels Dimensions</h4>
+  <p>Stories and Reels use the 9:16 vertical format at 1080x1920 pixels. This fills the entire phone screen edge to edge. When designing story images, keep critical content within the center 1080x1420 area, because the top 200 pixels are partially obscured by the username bar and the bottom 300 pixels can be covered by swipe-up links, stickers, and engagement UI elements. Text and key visual elements should never extend into these danger zones, or they will be partially hidden by platform UI overlays on viewers' devices.</p>
+</section>
+
+<!-- ===== SECTION: FACEBOOK ===== -->
+<section class="card" id="facebook-sizes">
+  <h3 style="margin-top:0">Facebook Image Sizes</h3>
+
+  <table class="size-table">
+    <thead><tr><th>Format</th><th>Dimensions</th><th>Aspect Ratio</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="platform-tag fb">FB</span> Shared Image</td><td class="dim">1200x630</td><td>1.91:1</td><td>Link previews and shared photos</td></tr>
+      <tr><td><span class="platform-tag fb">FB</span> Cover Photo</td><td class="dim">820x312</td><td>2.63:1</td><td>Desktop display, crops on mobile</td></tr>
+      <tr><td><span class="platform-tag fb">FB</span> Story</td><td class="dim">1080x1920</td><td>9:16</td><td>Full-screen vertical format</td></tr>
+      <tr><td><span class="platform-tag fb">FB</span> Profile Photo</td><td class="dim">170x170</td><td>1:1</td><td>Displayed as circle on desktop</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Facebook Shared Images and Link Previews</h4>
+  <p>When you share a link on Facebook, the Open Graph image displays at 1200x630 pixels (1.91:1 aspect ratio). This is the same aspect ratio used by Twitter cards and LinkedIn link previews, making 1200x630 the single most versatile social media image size. If you can only create one social sharing image, make it 1200x630 and it will work acceptably across Facebook, Twitter/X, and LinkedIn. Images smaller than 600x315 will display as tiny thumbnails rather than large-format previews, dramatically reducing click-through rates. Always ensure your OG images meet the minimum size to trigger the large preview format.</p>
+
+  <h4>Cover Photo Responsive Behavior</h4>
+  <p>Facebook cover photos present a unique challenge because they display at different crops on desktop (820x312) and mobile (640x360). The safe zone where content is visible on both devices is approximately the center 640x312 area. Avoid placing critical text, logos, or calls to action near the edges, as they will be cropped on one device or the other. Design your cover photo with the understanding that different viewers will see slightly different crops depending on their device and browser window size.</p>
+</section>
+
+<!-- ===== SECTION: TWITTER ===== -->
+<section class="card" id="twitter-sizes">
+  <h3 style="margin-top:0">Twitter/X Image Sizes</h3>
+
+  <table class="size-table">
+    <thead><tr><th>Format</th><th>Dimensions</th><th>Aspect Ratio</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><span class="platform-tag tw">X</span> Post Image</td><td class="dim">1600x900</td><td>16:9</td><td>Maximum quality in-feed display</td></tr>
+      <tr><td><span class="platform-tag tw">X</span> Header</td><td class="dim">1500x500</td><td>3:1</td><td>Profile banner, crops on mobile</td></tr>
+      <tr><td><span class="platform-tag tw">X</span> Profile Photo</td><td class="dim">400x400</td><td>1:1</td><td>Displayed as circle</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Twitter/X Feed Image Display</h4>
+  <p>Twitter/X displays images in the feed with a 16:9 crop by default. Images with different aspect ratios are center-cropped to fit the 16:9 preview window. When a user clicks to expand, they see the full image. This means the most important content in your image should be centered within the 16:9 safe zone, even if your full image has a different aspect ratio. For photographs, this is usually fine since subjects tend to be centered. For infographics or images with text at the edges, the automatic crop can cut off critical information. Upload at exactly 1600x900 or 1200x675 to guarantee your entire image displays without cropping in the feed.</p>
+
+  <h4>Twitter Card Images</h4>
+  <p>When sharing links, Twitter displays the Open Graph image as a card. Summary cards use a small square thumbnail, while summary_large_image cards use the full 1.91:1 aspect ratio at 1200x628 pixels. The large image card provides significantly more visual impact and higher click-through rates. Specify the twitter:card meta tag as "summary_large_image" in your HTML to enable the larger format. The image must be at least 300x157 pixels and no larger than 4096x4096, but 1200x628 is the optimal target size.</p>
+</section>
+
+<!-- ===== SECTION: OTHER PLATFORMS ===== -->
+<section class="card" id="other-platforms">
+  <h3 style="margin-top:0">LinkedIn, TikTok, YouTube, and Pinterest</h3>
+
+  <h4>LinkedIn</h4>
+  <p>LinkedIn post images display best at 1200x627 pixels (1.91:1 aspect ratio). Company page cover photos are 1584x396 pixels. LinkedIn is a professional platform where image quality signals credibility. Blurry or poorly-cropped images undermine professional authority more on LinkedIn than on any other platform. For shared articles, the link preview image (1200x627) is pulled from the page's Open Graph tags. Document carousels (PDF uploads) should use 1080x1080 or 1080x1350 slides for optimal display in the feed.</p>
+
+  <h4>TikTok</h4>
+  <p>TikTok content is primarily video, but the video cover image (displayed in your profile grid) is 1080x1920 pixels in 9:16 format. This cover image is the first impression viewers get when browsing your profile, so it should clearly communicate the video's content. Profile photos are 200x200 pixels displayed as circles. TikTok photo carousels (a newer format) use vertical images at 1080x1920 for maximum screen coverage.</p>
+
+  <h4>YouTube</h4>
+  <p>YouTube thumbnails are critically important for click-through rate and should be 1280x720 pixels (16:9). The best thumbnails use high contrast, large faces with expressive emotions, bold text with 3-4 words maximum, and bright colors that stand out in a grid of competing thumbnails. Channel banners are 2560x1440 pixels but display at dramatically different crops across TV (full size), desktop (2560x423), tablet, and mobile. The safe area for text and logos is the center 1546x423 pixels, which is visible on all devices.</p>
+
+  <h4>Pinterest</h4>
+  <p>Pinterest strongly favors vertical images. Standard pins at 1000x1500 (2:3 aspect ratio) perform well, but long pins at 1000x2100 (or even taller) get more screen space and higher engagement. Pinterest's feed is a masonry layout where taller pins dominate visually. However, extremely tall pins (beyond 1:3 ratio) are truncated in the feed with a "see more" overlay. The sweet spot is 2:3 to 1:2.5 aspect ratio. Board covers display at 800x450 pixels and should clearly represent the board's theme with bold, recognizable imagery.</p>
+</section>
+
+<!-- ===== SECTION: OPTIMIZATION ===== -->
+<section class="card" id="optimization-tips">
+  <h3 style="margin-top:0">Image Optimization Tips for Social Media</h3>
+
+  <h4>Format Selection</h4>
+  <p>JPEG is the best format for photographs on social media due to its superior compression-to-quality ratio. A well-compressed JPEG at quality 80-85% produces files 3-5 times smaller than PNG with virtually imperceptible quality loss for photographic content. PNG should be used for graphics with sharp text, logos, screenshots, or images requiring transparency. WebP offers better compression than both JPEG and PNG, and most social platforms now accept it, but JPEG remains the safest universal choice. Avoid uploading TIFF, BMP, or RAW files — platforms will reject them or recompress them aggressively.</p>
+
+  <h4>Color Space Considerations</h4>
+  <p>Upload images in sRGB color space. Social media platforms display images in sRGB, and images in Adobe RGB or ProPhoto RGB color spaces will be converted automatically, often resulting in washed-out or shifted colors. If you edit in a wide color space, convert to sRGB as the final step before uploading. This is especially important for product photography where accurate color representation directly affects customer expectations and satisfaction.</p>
+
+  <h4>Compression Before Upload</h4>
+  <p>Every social platform re-compresses uploaded images using their own algorithms. Facebook's compression is notoriously aggressive, often reducing quality visibly on images with fine gradients or text. To minimize double-compression artifacts, upload at the highest quality your file size allows. For Facebook, images under 100KB sometimes receive less aggressive re-compression. For Instagram, PNG uploads sometimes preserve quality better than JPEG because Instagram's compression pipeline handles PNG input more carefully. Test both formats with your specific image content to determine which produces better results after the platform's processing.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best image size for Instagram posts in 2026?</div>
+    <div class="faq-a"><p>Portrait format at 1080x1350 pixels (4:5 aspect ratio) gets the most screen real estate in the feed and is recommended for maximum engagement. Square 1080x1080 remains a reliable classic. All images should be at least 1080 pixels wide for sharp display on modern devices.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What size should a YouTube thumbnail be?</div>
+    <div class="faq-a"><p>YouTube thumbnails should be 1280x720 pixels (16:9 aspect ratio) with a minimum width of 640 pixels. The file must be under 2MB in JPG, GIF, or PNG format. Use high contrast, large text, and expressive faces for maximum click-through rate.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does uploading the wrong image size affect quality?</div>
+    <div class="faq-a"><p>Yes. Images smaller than the platform's recommended size will be upscaled and appear blurry. Images with non-matching aspect ratios will be auto-cropped, potentially cutting off important content. Always upload at the exact recommended dimensions for the sharpest, most predictable results.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What image format should I use for social media?</div>
+    <div class="faq-a"><p>JPEG is best for photographs due to smaller file sizes and excellent quality. PNG is best for graphics with text, logos, or transparency. Most platforms accept both. Keep file sizes under 5MB for fast uploading and avoid visible quality loss from excessive pre-compression.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images uploaded to a server when using the auto-cropper?</div>
+    <div class="faq-a"><p>No. The auto-cropper runs entirely in your browser using the HTML5 Canvas API. Your images are processed locally and never transmitted to any server. The cropped result is generated and downloaded directly from your browser with zero network requests.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("previewCanvas");
+  var ctx = canvas.getContext("2d");
+  var presetSelect = document.getElementById("presetSelect");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var dimInfo = document.getElementById("dimInfo");
+  var targetInfo = document.getElementById("targetInfo");
+  var platformInfo = document.getElementById("platformInfo");
+
+  var sourceImg = null;
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+      renderPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function getPreset() {
+    var parts = presetSelect.value.split(",");
+    return { w: parseInt(parts[0]), h: parseInt(parts[1]), name: parts[2] };
+  }
+
+  function renderPreview() {
+    if (!sourceImg) return;
+    var preset = getPreset();
+    targetInfo.textContent = preset.w + "x" + preset.h;
+    var platform = preset.name.split(" ")[0];
+    platformInfo.textContent = platform;
+
+    /* Center crop to target aspect ratio */
+    var srcW = sourceImg.naturalWidth;
+    var srcH = sourceImg.naturalHeight;
+    var targetRatio = preset.w / preset.h;
+    var srcRatio = srcW / srcH;
+
+    var cropW, cropH, cropX, cropY;
+    if (srcRatio > targetRatio) {
+      cropH = srcH;
+      cropW = Math.round(srcH * targetRatio);
+      cropX = Math.round((srcW - cropW) / 2);
+      cropY = 0;
+    } else {
+      cropW = srcW;
+      cropH = Math.round(srcW / targetRatio);
+      cropX = 0;
+      cropY = Math.round((srcH - cropH) / 2);
+    }
+
+    /* Scale preview to fit */
+    var maxW = 600;
+    var scale = Math.min(maxW / preset.w, maxW / preset.h, 1);
+    canvas.width = Math.round(preset.w * scale);
+    canvas.height = Math.round(preset.h * scale);
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(sourceImg, cropX, cropY, cropW, cropH, 0, 0, canvas.width, canvas.height);
+  }
+
+  presetSelect.addEventListener("change", renderPreview);
+
+  /* Download at full target resolution */
+  downloadBtn.addEventListener("click", function() {
+    if (!sourceImg) return;
+    var preset = getPreset();
+    var srcW = sourceImg.naturalWidth;
+    var srcH = sourceImg.naturalHeight;
+    var targetRatio = preset.w / preset.h;
+    var srcRatio = srcW / srcH;
+
+    var cropW, cropH, cropX, cropY;
+    if (srcRatio > targetRatio) {
+      cropH = srcH;
+      cropW = Math.round(srcH * targetRatio);
+      cropX = Math.round((srcW - cropW) / 2);
+      cropY = 0;
+    } else {
+      cropW = srcW;
+      cropH = Math.round(srcW / targetRatio);
+      cropX = 0;
+      cropY = Math.round((srcH - cropH) / 2);
+    }
+
+    var offscreen = document.createElement("canvas");
+    offscreen.width = preset.w;
+    offscreen.height = preset.h;
+    var octx = offscreen.getContext("2d");
+    octx.imageSmoothingEnabled = true;
+    octx.imageSmoothingQuality = "high";
+    octx.drawImage(sourceImg, cropX, cropY, cropW, cropH, 0, 0, preset.w, preset.h);
+
+    offscreen.toBlob(function(blob) {
+      var safeName = preset.name.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = safeName + "-" + preset.w + "x" + preset.h + ".png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, "image/png");
+  });
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+</ul>
+</section>
+
+</body>
+</html>

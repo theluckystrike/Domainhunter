@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Accessibility Checker — Alt Text Generator &amp; Contrast Checker | PictureEditor</title>
+<meta name="description" content="Free image accessibility checker. Generate alt text suggestions, analyze color contrast ratios against WCAG standards, and check text readability on images. Ensure your web images meet accessibility requirements. Client-side processing.">
+<meta name="keywords" content="image accessibility checker, alt text generator, contrast checker, WCAG contrast, color contrast ratio, image alt text, web accessibility, ADA compliance, image accessibility audit, contrast analyzer">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/research/image-accessibility-checker.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/research/image-accessibility-checker.html">
+<meta property="og:title" content="Image Accessibility Checker — Alt Text Generator &amp; Contrast Checker">
+<meta property="og:description" content="Check image accessibility with alt text suggestions and WCAG contrast analysis. Free, private, no server upload.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-25">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image Accessibility Checker — Alt Text Generator &amp; Contrast Checker">
+<meta name="twitter:description" content="Analyze image accessibility with contrast checking and alt text guidance. Free, private, no upload required.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Accessibility Checker",
+    "url":"https://pictureeditor.net/research/image-accessibility-checker.html",
+    "description":"Free image accessibility checker with alt text guidance, WCAG contrast ratio analysis, dominant color extraction, and text readability scoring. All processing runs client-side.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"Picture Editor","url":"https://pictureeditor.net"},
+    "datePublished":"2026-05-25",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What WCAG contrast ratio is required for text on images?","acceptedAnswer":{"@type":"Answer","text":"WCAG 2.1 Level AA requires a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text (18px+ or 14px+ bold). Level AAA requires 7:1 for normal text and 4.5:1 for large text. These ratios apply to text overlaid on images, meaning the text color must have sufficient contrast against the image region behind it."}},
+      {"@type":"Question","name":"How do I write good alt text for images?","acceptedAnswer":{"@type":"Answer","text":"Good alt text is concise (under 125 characters), describes the image content and function, avoids starting with 'image of' or 'picture of', and conveys the same information a sighted user would get. For decorative images, use an empty alt attribute (alt=''). For complex images like charts, provide a longer description in the surrounding text."}},
+      {"@type":"Question","name":"What is the difference between decorative and informative images?","acceptedAnswer":{"@type":"Answer","text":"Informative images convey content or functionality that would be lost if the image were removed. They need descriptive alt text. Decorative images are purely visual embellishments that add no information — backgrounds, borders, spacers, and purely aesthetic photos. Decorative images should have empty alt text (alt='') so screen readers skip them entirely."}},
+      {"@type":"Question","name":"How does the contrast checker analyze my image?","acceptedAnswer":{"@type":"Answer","text":"The tool extracts dominant colors from your image using pixel sampling and k-means clustering. It then calculates the WCAG contrast ratio between each color pair and against common text colors (white and black). This helps you determine whether text overlaid on the image will be readable and which text colors will provide sufficient contrast."}},
+      {"@type":"Question","name":"Are my images uploaded to a server for analysis?","acceptedAnswer":{"@type":"Answer","text":"No. All accessibility analysis happens entirely in your browser using the HTML5 Canvas API and JavaScript. Your images never leave your device. Color extraction, contrast calculation, and all other analysis runs locally with zero server communication."}}
+    ]
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},
+      {"@type":"ListItem","position":2,"name":"Research","item":"https://pictureeditor.net/research/"},
+      {"@type":"ListItem","position":3,"name":"Image Accessibility Checker","item":"https://pictureeditor.net/research/image-accessibility-checker.html"}
+    ]
+  }
+]
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;--bg:#f8f9fa;--surface:#fff;--border:#e2e8f0;--text:#1e293b;--text-secondary:#64748b;--header-bg:#1e1b4b;--radius:10px;--shadow:0 1px 3px rgba(0,0,0,.08)}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+.header{background:var(--header-bg);color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.2);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:#eef2ff}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#94a3b8;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+.controls{margin-top:20px}
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:#f1f5f9;border-radius:8px;text-align:center}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.15rem;font-weight:700;margin-top:4px}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:var(--accent)}
+.info-box.red .value{color:#ef4444}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.text-field{margin-bottom:16px}
+.text-field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.text-field textarea{width:100%;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none;resize:vertical;min-height:60px;font-family:inherit}
+.text-field textarea:focus{border-color:var(--accent)}
+.color-swatches{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.swatch{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface);min-width:140px}
+.swatch .color-circle{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);flex-shrink:0}
+.swatch .color-info{font-size:.78rem}
+.swatch .color-hex{font-weight:700;font-size:.85rem}
+.swatch .color-pct{color:var(--text-secondary)}
+.contrast-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+.contrast-table th{background:#f1f5f9;padding:8px 10px;text-align:left;font-weight:700;font-size:.75rem;text-transform:uppercase;color:var(--text-secondary);border-bottom:2px solid var(--border)}
+.contrast-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.contrast-table .pass{color:var(--green);font-weight:700}
+.contrast-table .fail{color:#ef4444;font-weight:700}
+.contrast-table .ratio{font-weight:700}
+.preview-area{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.preview-pane{flex:1;min-width:200px;text-align:center}
+.preview-pane canvas{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.preview-pane .pane-label{font-size:.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase}
+.alt-suggestions{margin:16px 0;padding:16px;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:var(--radius)}
+.alt-suggestions h4{margin-top:0;color:var(--green)}
+.alt-suggestions .suggestion{padding:8px 12px;background:var(--surface);border-radius:6px;margin:8px 0;font-size:.88rem;border:1px solid #d1fae5;cursor:pointer}
+.alt-suggestions .suggestion:hover{border-color:var(--accent);background:#eef2ff}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:#f1f5f9;border-radius:var(--radius);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+.footer{background:var(--header-bg);color:rgba(255,255,255,.7);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px}
+.footer a{color:rgba(255,255,255,.9)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+@media(max-width:600px){
+  .preview-area{flex-direction:column}
+  .info-row{flex-direction:column}
+  .header nav{display:none}
+  h2{font-size:1.4rem}
+  .color-swatches{flex-direction:column}
+  .contrast-table{font-size:.78rem}
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/research/">Research</a><span>/</span>
+  Image Accessibility Checker
+</nav>
+
+<h2>Image Accessibility Checker &mdash; Alt Text &amp; Contrast Analysis</h2>
+<p class="subtitle">Analyze your images for web accessibility. Extract dominant colors, check WCAG contrast ratios, get alt text guidance, and verify text readability. Everything runs in your browser &mdash; your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="tool-section">
+
+  <!-- Upload -->
+  <div id="dropZone" class="drop-zone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14m-7-7 7-7 7 7"/></svg>
+    <p>Drop an image here or click to upload</p>
+    <p class="sub">JPEG, PNG, WebP &mdash; analyze for accessibility</p>
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+  </div>
+
+  <!-- Controls -->
+  <div id="controls" class="controls hidden">
+    <div class="info-row">
+      <div class="info-box accent"><div class="label">Dimensions</div><div class="value" id="dimInfo">-</div></div>
+      <div class="info-box"><div class="label">Dominant Colors</div><div class="value" id="colorCount">-</div></div>
+      <div class="info-box" id="contrastBox"><div class="label">Best Contrast</div><div class="value" id="bestContrast">-</div></div>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-pane">
+        <div class="pane-label">Image Preview</div>
+        <canvas id="previewCanvas" width="400" height="300"></canvas>
+      </div>
+    </div>
+
+    <h4>Dominant Colors</h4>
+    <div class="color-swatches" id="swatches"></div>
+
+    <h4>Contrast Ratios (WCAG 2.1)</h4>
+    <table class="contrast-table" id="contrastTable">
+      <thead><tr><th>Background</th><th>Text Color</th><th>Ratio</th><th>AA Normal</th><th>AA Large</th><th>AAA Normal</th></tr></thead>
+      <tbody id="contrastBody"></tbody>
+    </table>
+
+    <h4>Alt Text Guidance</h4>
+    <div class="alt-suggestions" id="altSuggestions">
+      <h4>Alt Text Suggestions</h4>
+      <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:8px">Click a suggestion to copy it, or write your own below:</p>
+      <div id="suggestionList"></div>
+    </div>
+
+    <div class="text-field">
+      <label for="altTextInput">Your Alt Text</label>
+      <textarea id="altTextInput" placeholder="Describe this image for screen reader users..."></textarea>
+      <div style="font-size:.78rem;color:var(--text-secondary);margin-top:4px"><span id="charCount">0</span>/125 characters (recommended max)</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="copyAltBtn">Copy Alt Text</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#alt-text-guide">Writing Effective Alt Text</a></li>
+    <li><a href="#contrast-standards">WCAG Contrast Standards Explained</a></li>
+    <li><a href="#image-categories">Image Categories and Accessibility Requirements</a></li>
+    <li><a href="#testing-workflow">Accessibility Testing Workflow</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== SECTION: ALT TEXT ===== -->
+<section class="card" id="alt-text-guide">
+  <h3 style="margin-top:0">Writing Effective Alt Text</h3>
+
+  <h4>The Purpose of Alt Text</h4>
+  <p>Alt text (alternative text) serves as a textual replacement for images when images cannot be displayed or perceived. Screen readers announce alt text to blind and visually impaired users, search engines use alt text to understand image content for indexing, and browsers display alt text when images fail to load. Good alt text conveys the same information and function that a sighted user would get from viewing the image. It answers the question: "If I removed this image and replaced it with only this text, would the reader lose any important information?" If the answer is no, your alt text is working correctly.</p>
+
+  <h4>Alt Text Best Practices</h4>
+  <ul>
+    <li><strong>Be concise:</strong> Keep alt text under 125 characters. Screen readers may truncate or awkwardly break longer descriptions. If more detail is needed, use a visible caption or longdesc attribute.</li>
+    <li><strong>Be specific:</strong> "Dog" is less useful than "Golden retriever puppy sitting on a red cushion." Describe what makes the image meaningful in its context.</li>
+    <li><strong>Avoid redundancy:</strong> Do not start with "Image of" or "Photo of" — screen readers already announce that the element is an image. Starting with "Image of" forces the user to hear "Image: Image of..." which is redundant.</li>
+    <li><strong>Describe function for interactive images:</strong> If an image is a link or button, describe the action, not the image. A magnifying glass icon that triggers search should have alt="Search", not alt="magnifying glass icon."</li>
+    <li><strong>Use empty alt for decorative images:</strong> Purely decorative images (backgrounds, borders, spacers) should have alt="" (empty, not missing) so screen readers skip them entirely. Missing the alt attribute entirely is an accessibility error.</li>
+  </ul>
+
+  <h4>Context Determines Alt Text</h4>
+  <p>The same image requires different alt text depending on its context and purpose. A photo of a dog on a veterinary website's homepage might need alt="Healthy golden retriever during wellness checkup" because the health context is relevant. The same photo on a pet adoption page might need alt="Max, 2-year-old golden retriever available for adoption" because the specific identity matters. On a photography portfolio, it might need alt="Studio portrait with dramatic side lighting and shallow depth of field" because the photographic technique is the point. Always write alt text for the specific context, not as a generic image description.</p>
+</section>
+
+<!-- ===== SECTION: CONTRAST ===== -->
+<section class="card" id="contrast-standards">
+  <h3 style="margin-top:0">WCAG Contrast Standards Explained</h3>
+
+  <h4>Understanding Contrast Ratios</h4>
+  <p>WCAG (Web Content Accessibility Guidelines) defines contrast as the ratio of relative luminance between two colors, expressed as a ratio from 1:1 (no contrast, identical colors) to 21:1 (maximum contrast, black against white). The formula accounts for the human eye's sensitivity to different wavelengths: green contributes more to perceived brightness than red, which contributes more than blue. A contrast ratio of 4.5:1 means the lighter color is 4.5 times more luminous than the darker color. This threshold was chosen because it compensates for the contrast sensitivity loss that comes with moderately low visual acuity (approximately 20/40 vision), which affects a large percentage of the population including many people who do not consider themselves visually impaired.</p>
+
+  <h4>WCAG Level AA Requirements</h4>
+  <p>Level AA is the standard most websites target and is legally required in many jurisdictions. For normal text (under 18px or under 14px bold), the minimum contrast ratio is 4.5:1. For large text (18px and above, or 14px and above when bold), the minimum is 3:1. Large text has a lower requirement because its larger character strokes are easier to perceive at lower contrast. These requirements apply to text on all backgrounds, including text overlaid on images. When text is placed on a photographic background, the contrast must be sufficient against every part of the image the text overlaps, which often requires a semi-transparent overlay or text shadow to guarantee contrast regardless of the underlying image content.</p>
+
+  <h4>WCAG Level AAA Requirements</h4>
+  <p>Level AAA is the highest level of accessibility conformance and requires 7:1 contrast for normal text and 4.5:1 for large text. While AAA is not legally required in most contexts, it provides a significantly better experience for users with low vision, color vision deficiencies, and anyone viewing content in challenging lighting conditions (bright sunlight, dim rooms). Many organizations target AAA for their primary text content while accepting AA for secondary and UI elements. Achieving AAA often means using near-black text on near-white backgrounds, which fortunately aligns with the most readable typography patterns anyway.</p>
+
+  <h4>Contrast for Non-Text Elements</h4>
+  <p>WCAG 2.1 introduced Success Criterion 1.4.11 (Non-text Contrast), which requires graphical elements and UI components to have at least 3:1 contrast against adjacent colors. This applies to icons, chart elements, form field borders, focus indicators, and any visual element that conveys information. For images with text overlays, this means not just the text itself but also any icons, buttons, or UI elements placed on the image must meet contrast requirements against the image background.</p>
+</section>
+
+<!-- ===== SECTION: IMAGE CATEGORIES ===== -->
+<section class="card" id="image-categories">
+  <h3 style="margin-top:0">Image Categories and Accessibility Requirements</h3>
+
+  <h4>Informative Images</h4>
+  <p>Informative images convey information that supplements the surrounding text. Examples include photographs illustrating an article, icons indicating status or action, and diagrams explaining a concept. These images need descriptive alt text that conveys their informational content. The alt text should not repeat information already provided in adjacent text but should add the visual information that would otherwise be lost for non-sighted users. A product photo needs alt text describing the product's appearance. A status icon needs alt text stating the status. An illustrative photo needs alt text describing what the illustration shows.</p>
+
+  <h4>Functional Images</h4>
+  <p>Functional images serve as links, buttons, or interactive controls. Their alt text must describe the function (what happens when activated), not the image appearance. A shopping cart icon that links to the cart page needs alt="Shopping cart (3 items)", not alt="cart icon." A logo that links to the homepage needs alt="Company Name - Home", not alt="company logo." If a functional image contains both an icon and visible text, the alt text should match the visible text to avoid confusion between what sighted and non-sighted users perceive.</p>
+
+  <h4>Complex Images (Charts, Graphs, Diagrams)</h4>
+  <p>Complex images like charts, infographics, and technical diagrams cannot be adequately described in the 125-character alt text limit. These require a two-part approach: a brief alt text summary (e.g., alt="Bar chart showing quarterly revenue growth") plus a detailed description in the surrounding text or linked via a longdesc attribute. The detailed description should convey all the data and relationships shown in the image. For charts, this means listing the data points. For diagrams, this means describing the structure and relationships. An alternative approach is providing the same data in an accessible format like an HTML table alongside the chart.</p>
+
+  <h4>Decorative Images</h4>
+  <p>Decorative images add visual appeal without conveying information. Background textures, ornamental borders, stock photos used as visual filler, and icons that duplicate adjacent text are all decorative. These must have empty alt text (alt="") so screen readers skip them. Misidentifying a decorative image as informative and writing alt text for it clutters the screen reader experience with irrelevant descriptions. Conversely, misidentifying an informative image as decorative and using empty alt text creates an information gap for non-sighted users. The decision point is simple: if removing the image would cause any loss of information or function, it is informative and needs alt text.</p>
+</section>
+
+<!-- ===== SECTION: TESTING ===== -->
+<section class="card" id="testing-workflow">
+  <h3 style="margin-top:0">Accessibility Testing Workflow</h3>
+
+  <h4>Automated Testing Limitations</h4>
+  <p>Automated tools can detect missing alt attributes, measure contrast ratios, and flag images without accessible names. However, automated tools cannot evaluate whether alt text is appropriate, meaningful, or accurate. They can tell you that alt text exists but not whether it describes the right information for the context. Human review is essential for alt text quality. The recommended workflow is to use automated tools to catch structural issues (missing alts, insufficient contrast) and then manually review a representative sample of images to verify alt text quality, decorative vs. informative classification, and context-appropriate descriptions.</p>
+
+  <h4>Screen Reader Testing</h4>
+  <p>The most effective way to evaluate image accessibility is to navigate your site using a screen reader and listen to how images are announced. On Windows, use NVDA (free) or JAWS. On macOS, use the built-in VoiceOver (activated with Cmd+F5). On mobile, use TalkBack (Android) or VoiceOver (iOS). Navigate to each image and listen to the announcement. Does the alt text make sense without seeing the image? Does it convey the necessary information? Does it avoid unnecessary verbosity? Screen reader testing reveals problems that automated tools miss, like alt text that is technically present but meaningless (alt="image1.jpg") or decorative images with distracting alt text.</p>
+
+  <h4>Contrast Verification in Context</h4>
+  <p>Contrast ratios calculated against a single background color may not reflect real-world readability when text is placed on photographic backgrounds. An image might have an average color that passes contrast checks while having localized areas (bright highlights, dark shadows) where specific text characters become unreadable. Always verify contrast visually with text overlaid on the actual image at the actual display size. Use semi-transparent overlays, text shadows, or background bars behind text to guarantee consistent contrast regardless of the image content beneath. A 50% opacity black overlay behind white text guarantees at least 4.5:1 contrast on any image.</p>
+
+  <h4>Documentation and Maintenance</h4>
+  <p>Image accessibility requires ongoing maintenance. When images are updated, their alt text must be reviewed and potentially updated. When page context changes, previously appropriate alt text may become misleading. Establish a process for reviewing image accessibility when content is published or updated. Include alt text review in your content publishing checklist alongside spell-checking and link verification. For sites with large image libraries, maintain a spreadsheet or CMS field tracking each image's accessibility classification (decorative, informative, functional, complex) and its current alt text.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What WCAG contrast ratio is required for text on images?</div>
+    <div class="faq-a"><p>WCAG 2.1 Level AA requires 4.5:1 for normal text and 3:1 for large text (18px+ or 14px+ bold). Level AAA requires 7:1 for normal text and 4.5:1 for large text. When text is overlaid on images, contrast must be sufficient against every region the text covers, not just the average color.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I write good alt text for images?</div>
+    <div class="faq-a"><p>Keep it under 125 characters, describe the image content and function relevant to its context, avoid starting with "image of" or "photo of", and use empty alt (alt="") for purely decorative images. The alt text should convey the same information a sighted user gets from viewing the image.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the difference between decorative and informative images?</div>
+    <div class="faq-a"><p>Informative images convey content that would be lost if removed. They need descriptive alt text. Decorative images are visual embellishments that add no information — they should have empty alt text (alt="") so screen readers skip them. The test: would removing this image cause any loss of information?</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the contrast checker analyze my image?</div>
+    <div class="faq-a"><p>The tool samples pixels across your image, groups similar colors using a clustering algorithm, and extracts the dominant colors. It then calculates WCAG contrast ratios between each dominant color and standard text colors (white and black) to determine optimal text placement and color choices.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my images uploaded to a server for analysis?</div>
+    <div class="faq-a"><p>No. All accessibility analysis runs entirely in your browser using the Canvas API and JavaScript. Color extraction, contrast calculation, and image analysis happen locally with zero server communication. Your images never leave your device.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 25, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/guides/resize-image-online.html">Resize Guide</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var canvas = document.getElementById("previewCanvas");
+  var ctx = canvas.getContext("2d");
+  var dimInfo = document.getElementById("dimInfo");
+  var colorCountEl = document.getElementById("colorCount");
+  var bestContrast = document.getElementById("bestContrast");
+  var contrastBox = document.getElementById("contrastBox");
+  var swatchesEl = document.getElementById("swatches");
+  var contrastBody = document.getElementById("contrastBody");
+  var suggestionList = document.getElementById("suggestionList");
+  var altTextInput = document.getElementById("altTextInput");
+  var charCount = document.getElementById("charCount");
+  var copyAltBtn = document.getElementById("copyAltBtn");
+  var resetBtn = document.getElementById("resetBtn");
+
+  var sourceImg = null;
+
+  /* Drop zone events */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault();
+    dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+
+  altTextInput.addEventListener("input", function() {
+    charCount.textContent = this.value.length;
+    charCount.style.color = this.value.length > 125 ? "#ef4444" : "var(--text-secondary)";
+  });
+
+  copyAltBtn.addEventListener("click", function() {
+    if (altTextInput.value) {
+      navigator.clipboard.writeText(altTextInput.value).then(function() {
+        copyAltBtn.textContent = "Copied!";
+        setTimeout(function() { copyAltBtn.textContent = "Copy Alt Text"; }, 1500);
+      });
+    }
+  });
+
+  function handleFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    var img = new Image();
+    img.onload = function() {
+      sourceImg = img;
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      dimInfo.textContent = img.naturalWidth + "x" + img.naturalHeight;
+
+      var scale = Math.min(400 / img.naturalWidth, 300 / img.naturalHeight, 1);
+      canvas.width = Math.round(img.naturalWidth * scale);
+      canvas.height = Math.round(img.naturalHeight * scale);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      analyzeImage(file.name);
+    };
+    img.src = URL.createObjectURL(file);
+  }
+
+  function analyzeImage(fileName) {
+    /* Extract dominant colors via pixel sampling */
+    var sampleCanvas = document.createElement("canvas");
+    var sw = Math.min(sourceImg.naturalWidth, 100);
+    var sh = Math.min(sourceImg.naturalHeight, 100);
+    sampleCanvas.width = sw;
+    sampleCanvas.height = sh;
+    var sCtx = sampleCanvas.getContext("2d");
+    sCtx.drawImage(sourceImg, 0, 0, sw, sh);
+    var data = sCtx.getImageData(0, 0, sw, sh).data;
+
+    /* Simple k-means clustering for dominant colors */
+    var pixels = [];
+    for (var i = 0; i < data.length; i += 4) {
+      pixels.push([data[i], data[i + 1], data[i + 2]]);
+    }
+
+    var k = 5;
+    var centers = [];
+    for (var c = 0; c < k; c++) {
+      centers.push(pixels[Math.floor(Math.random() * pixels.length)].slice());
+    }
+
+    /* Run 10 iterations of k-means */
+    for (var iter = 0; iter < 10; iter++) {
+      var clusters = [];
+      for (var ci = 0; ci < k; ci++) clusters.push([]);
+      pixels.forEach(function(px) {
+        var minDist = Infinity;
+        var closest = 0;
+        for (var j = 0; j < k; j++) {
+          var d = Math.pow(px[0] - centers[j][0], 2) + Math.pow(px[1] - centers[j][1], 2) + Math.pow(px[2] - centers[j][2], 2);
+          if (d < minDist) { minDist = d; closest = j; }
+        }
+        clusters[closest].push(px);
+      });
+      for (var ci2 = 0; ci2 < k; ci2++) {
+        if (clusters[ci2].length === 0) continue;
+        var sum = [0, 0, 0];
+        clusters[ci2].forEach(function(px) { sum[0] += px[0]; sum[1] += px[1]; sum[2] += px[2]; });
+        centers[ci2] = [Math.round(sum[0] / clusters[ci2].length), Math.round(sum[1] / clusters[ci2].length), Math.round(sum[2] / clusters[ci2].length)];
+      }
+    }
+
+    /* Count cluster sizes for percentage */
+    var clusterSizes = [];
+    for (var ci3 = 0; ci3 < k; ci3++) clusterSizes.push(0);
+    pixels.forEach(function(px) {
+      var minD = Infinity, cl = 0;
+      for (var j = 0; j < k; j++) {
+        var d = Math.pow(px[0] - centers[j][0], 2) + Math.pow(px[1] - centers[j][1], 2) + Math.pow(px[2] - centers[j][2], 2);
+        if (d < minD) { minD = d; cl = j; }
+      }
+      clusterSizes[cl]++;
+    });
+
+    /* Sort by size, merge similar */
+    var colors = centers.map(function(c, i) {
+      return { r: c[0], g: c[1], b: c[2], pct: Math.round(clusterSizes[i] / pixels.length * 100) };
+    }).sort(function(a, b) { return b.pct - a.pct; });
+
+    colorCountEl.textContent = colors.length;
+    renderSwatches(colors);
+    renderContrastTable(colors);
+    generateAltSuggestions(fileName, colors);
+  }
+
+  function toHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+
+  function luminance(r, g, b) {
+    var rs = r / 255, gs = g / 255, bs = b / 255;
+    rs = rs <= 0.03928 ? rs / 12.92 : Math.pow((rs + 0.055) / 1.055, 2.4);
+    gs = gs <= 0.03928 ? gs / 12.92 : Math.pow((gs + 0.055) / 1.055, 2.4);
+    bs = bs <= 0.03928 ? bs / 12.92 : Math.pow((bs + 0.055) / 1.055, 2.4);
+    return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+  }
+
+  function contrastRatio(l1, l2) {
+    var lighter = Math.max(l1, l2);
+    var darker = Math.min(l1, l2);
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  function renderSwatches(colors) {
+    swatchesEl.innerHTML = "";
+    colors.forEach(function(c) {
+      var div = document.createElement("div");
+      div.className = "swatch";
+      div.innerHTML = '<div class="color-circle" style="background:' + toHex(c.r, c.g, c.b) + '"></div>' +
+        '<div class="color-info"><div class="color-hex">' + toHex(c.r, c.g, c.b).toUpperCase() + '</div>' +
+        '<div class="color-pct">' + c.pct + '% of image</div></div>';
+      swatchesEl.appendChild(div);
+    });
+  }
+
+  function renderContrastTable(colors) {
+    contrastBody.innerHTML = "";
+    var textColors = [
+      { name: "White (#FFFFFF)", r: 255, g: 255, b: 255 },
+      { name: "Black (#000000)", r: 0, g: 0, b: 0 }
+    ];
+
+    var best = 0;
+    colors.forEach(function(bg) {
+      textColors.forEach(function(tc) {
+        var bgL = luminance(bg.r, bg.g, bg.b);
+        var tcL = luminance(tc.r, tc.g, tc.b);
+        var ratio = contrastRatio(bgL, tcL);
+        if (ratio > best) best = ratio;
+
+        var tr = document.createElement("tr");
+        var passFail = function(threshold) { return ratio >= threshold ? '<span class="pass">Pass</span>' : '<span class="fail">Fail</span>'; };
+        tr.innerHTML = '<td><span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:' + toHex(bg.r, bg.g, bg.b) + ';border:1px solid var(--border);vertical-align:middle;margin-right:6px"></span>' + toHex(bg.r, bg.g, bg.b).toUpperCase() + ' (' + bg.pct + '%)</td>' +
+          '<td>' + tc.name + '</td>' +
+          '<td class="ratio">' + ratio.toFixed(2) + ':1</td>' +
+          '<td>' + passFail(4.5) + '</td>' +
+          '<td>' + passFail(3) + '</td>' +
+          '<td>' + passFail(7) + '</td>';
+        contrastBody.appendChild(tr);
+      });
+    });
+
+    bestContrast.textContent = best.toFixed(1) + ":1";
+    contrastBox.className = best >= 4.5 ? "info-box green" : best >= 3 ? "info-box accent" : "info-box red";
+  }
+
+  function generateAltSuggestions(fileName, colors) {
+    suggestionList.innerHTML = "";
+    var baseName = fileName.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ").replace(/\s+/g, " ").trim();
+
+    /* Determine dominant color description */
+    var mainColor = colors[0];
+    var colorName = getColorName(mainColor.r, mainColor.g, mainColor.b);
+
+    var suggestions = [
+      "Photograph with predominantly " + colorName + " tones",
+      baseName ? baseName.charAt(0).toUpperCase() + baseName.slice(1) : "Descriptive image content",
+      "Visual content featuring " + colorName + " and " + (colors[1] ? getColorName(colors[1].r, colors[1].g, colors[1].b) : "neutral") + " colors",
+      "[Describe the subject and action in context of your page]"
+    ];
+
+    suggestions.forEach(function(s) {
+      var div = document.createElement("div");
+      div.className = "suggestion";
+      div.textContent = s;
+      div.addEventListener("click", function() {
+        altTextInput.value = s;
+        charCount.textContent = s.length;
+      });
+      suggestionList.appendChild(div);
+    });
+  }
+
+  function getColorName(r, g, b) {
+    var hsl = rgbToHsl(r, g, b);
+    var h = hsl[0], s = hsl[1], l = hsl[2];
+    if (l < 15) return "dark/black";
+    if (l > 85) return "light/white";
+    if (s < 15) return l > 50 ? "light gray" : "dark gray";
+    if (h < 15 || h >= 345) return "red";
+    if (h < 45) return "orange";
+    if (h < 65) return "yellow";
+    if (h < 170) return "green";
+    if (h < 200) return "cyan";
+    if (h < 260) return "blue";
+    if (h < 290) return "purple";
+    if (h < 345) return "pink";
+    return "neutral";
+  }
+
+  function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h = 0, s = 0, l = (max + min) / 2;
+    if (max !== min) {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+      else if (max === g) h = ((b - r) / d + 2) / 6;
+      else h = ((r - g) / d + 4) / 6;
+    }
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+  }
+
+  /* Reset */
+  resetBtn.addEventListener("click", function() {
+    sourceImg = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    altTextInput.value = "";
+    charCount.textContent = "0";
+  });
+
+})();
+</script>
+
+<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px;">
+<li><a href="/answers/image-file-size-reducer.html" style="color:#3b82f6;text-decoration:none;">Image File Size Reducer — Quality vs Size Optimizer & Format Comparison</a></li>
+<li><a href="/answers/image-resolution-calculator.html" style="color:#3b82f6;text-decoration:none;">Image Resolution Calculator — DPI/PPI & Print Size Estimator Free</a></li>
+<li><a href="/guides/image-formats-comparison.html" style="color:#3b82f6;text-decoration:none;">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/guides/resize-image-online.html" style="color:#3b82f6;text-decoration:none;">Resize Image Online Free — Social Media Size Guide & Tool</a></li>
+</ul>
+</section>
+
+</body>
+</html>
