@@ -40,6 +40,10 @@ from config.constants import (
     AUTHORITY_DATAFORSEO_BATCH_SIZE,
     AUTHORITY_DATAFORSEO_BULK_COST,
     AUTHORITY_KILL_THRESHOLD,
+    AUTHORITY_MAJESTIC_AUTO_PASS,
+    AUTHORITY_MAJESTIC_CSV,
+    AUTHORITY_MAJESTIC_DECAY_END,
+    AUTHORITY_MAJESTIC_DECAY_START,
     AUTHORITY_OPR_AUTO_PASS,
     AUTHORITY_OPR_BATCH_SIZE,
     AUTHORITY_PASS_THRESHOLD,
@@ -101,6 +105,71 @@ def _normalize_dataforseo(rank: int) -> float:
     return min(rank / AUTHORITY_DATAFORSEO_MAX_RANK, 1.0)
 
 
+def _normalize_majestic(rank: int) -> float:
+    """Normalize Majestic Million rank to 0.0-1.0. Lower rank = higher score."""
+    if rank <= 0:
+        return 0.0
+    if rank <= AUTHORITY_MAJESTIC_DECAY_START:
+        return 1.0
+    if rank >= AUTHORITY_MAJESTIC_DECAY_END:
+        return 0.1  # Still in Million = minimum 0.1 (never zero)
+    span = AUTHORITY_MAJESTIC_DECAY_END - AUTHORITY_MAJESTIC_DECAY_START
+    return max(0.1, 1.0 - ((rank - AUTHORITY_MAJESTIC_DECAY_START) / span))
+
+
+# ---------------------------------------------------------------------------
+# Majestic Million local CSV lookup
+# ---------------------------------------------------------------------------
+_MAJESTIC_DATA: dict[str, tuple[int, int]] = {}  # domain -> (rank, refsubnets)
+_MAJESTIC_LOADED: bool = False
+
+
+def _load_majestic_million() -> dict[str, tuple[int, int]]:
+    """Load Majestic Million CSV into memory. Cached after first call."""
+    global _MAJESTIC_LOADED  # noqa: PLW0603
+    if _MAJESTIC_LOADED:
+        return _MAJESTIC_DATA
+
+    csv_path = _PROJECT_ROOT / AUTHORITY_MAJESTIC_CSV
+    if not csv_path.exists():
+        _LOG.warning("Majestic Million CSV not found: %s", csv_path)
+        _MAJESTIC_LOADED = True
+        return _MAJESTIC_DATA
+
+    import csv
+    with open(csv_path, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            domain = row.get("Domain", "").strip().lower()
+            if not domain:
+                continue
+            try:
+                rank = int(row.get("GlobalRank", 0))
+                refsubnets = int(row.get("RefSubNets", 0))
+                _MAJESTIC_DATA[domain] = (rank, refsubnets)
+            except (ValueError, TypeError):
+                continue
+
+    _MAJESTIC_LOADED = True
+    _LOG.info("majestic_million_loaded", extra={"domains": len(_MAJESTIC_DATA)})
+    return _MAJESTIC_DATA
+
+
+def _majestic_lookup(domain: str) -> tuple[int, int] | None:
+    """Look up domain in Majestic Million. Returns (rank, refsubnets) or None."""
+    data = _load_majestic_million()
+    if not data:
+        return None
+
+    # Try exact match, then without www
+    result = data.get(domain.lower())
+    if result is None and domain.startswith("www."):
+        result = data.get(domain[4:].lower())
+    if result is None and not domain.startswith("www."):
+        result = data.get(f"www.{domain}".lower())
+    return result
+
+
 # ---------------------------------------------------------------------------
 # Layer 0: Local lookups (instant, $0)
 # ---------------------------------------------------------------------------
@@ -139,6 +208,23 @@ def run_layer_0(
             value=0.0, normalized=0.0, detail="Tranco client not available",
         ))
 
+    # Majestic Million check (local CSV, $0, instant)
+    majestic_rank: int | None = None
+    majestic_result = _majestic_lookup(domain)
+    if majestic_result is not None:
+        majestic_rank, refsubnets = majestic_result
+        norm = _normalize_majestic(majestic_rank)
+        checks.append(build_authority_check(
+            source="majestic", layer=0, status="PASS",
+            value=float(majestic_rank), normalized=norm,
+            detail=f"Majestic rank {majestic_rank:,} ({refsubnets} RefSubNets)",
+        ))
+    else:
+        checks.append(build_authority_check(
+            source="majestic", layer=0, status="FAIL",
+            value=0.0, normalized=0.0, detail="Not in Majestic Million",
+        ))
+
     # CommonCrawl check
     if cc_analyzer is not None:
         try:
@@ -164,6 +250,16 @@ def run_layer_0(
     # Short-circuit: Tranco top 100K = guaranteed authority
     if tranco_rank is not None and tranco_rank <= AUTHORITY_TRANCO_AUTO_PASS:
         return checks, True, f"Tranco rank {tranco_rank} (top {AUTHORITY_TRANCO_AUTO_PASS:,})"
+
+    # Short-circuit: Majestic Million = has real backlinks (survives site death)
+    # CRITICAL for expired domain hunting — Tranco/OPR decay when site dies,
+    # but Majestic tracks inbound links which persist on OTHER people's sites.
+    if majestic_rank is not None and majestic_rank <= AUTHORITY_MAJESTIC_AUTO_PASS:
+        refsubnets = majestic_result[1] if majestic_result else 0
+        return checks, True, (
+            f"Majestic rank {majestic_rank:,} ({refsubnets} RefSubNets) — "
+            f"confirmed backlink authority"
+        )
 
     return checks, False, ""
 

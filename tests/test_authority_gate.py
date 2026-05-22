@@ -31,6 +31,8 @@ from scripts.authority_gate import (
     _normalize_wayback,
     _normalize_cc,
     _normalize_dataforseo,
+    _normalize_majestic,
+    _majestic_lookup,
     run_layer_0,
     run_layer_1,
     run_layer_2,
@@ -40,6 +42,7 @@ from scripts.authority_gate import (
 )
 from config.constants import (
     AUTHORITY_TRANCO_AUTO_PASS,
+    AUTHORITY_MAJESTIC_AUTO_PASS,
     AUTHORITY_OPR_AUTO_PASS,
     AUTHORITY_KILL_THRESHOLD,
     AUTHORITY_PASS_THRESHOLD,
@@ -182,6 +185,17 @@ class TestNormalization:
     def test_wayback_zero(self) -> None:
         assert _normalize_wayback(0) == 0.0
 
+    def test_majestic_top_rank(self) -> None:
+        assert _normalize_majestic(1) == 1.0
+
+    def test_majestic_bottom_rank(self) -> None:
+        # Bottom of Majestic Million still gets minimum 0.1
+        score = _normalize_majestic(999_999)
+        assert score >= 0.1
+
+    def test_majestic_not_ranked(self) -> None:
+        assert _normalize_majestic(0) == 0.0
+
 
 # ===========================================================================
 # 4. Layer 0 tests (3)
@@ -197,14 +211,36 @@ class TestLayer0:
     def test_tranco_not_ranked(self) -> None:
         tranco = MagicMock()
         tranco.is_ranked.return_value = None
-        checks, short, reason = run_layer_0("example.com", tranco_client=tranco)
+        with patch("scripts.authority_gate._majestic_lookup", return_value=None):
+            checks, short, reason = run_layer_0("no-tranco.com", tranco_client=tranco)
         assert short is False
         assert any(c.source == "tranco" and c.status == "FAIL" for c in checks)
 
     def test_no_clients(self) -> None:
-        checks, short, reason = run_layer_0("example.com")
+        with patch("scripts.authority_gate._majestic_lookup", return_value=None):
+            checks, short, reason = run_layer_0("example.com")
         assert short is False
-        assert all(c.status == "SKIP" for c in checks)
+        # tranco=SKIP, majestic=FAIL, commoncrawl=SKIP
+        assert any(c.source == "tranco" and c.status == "SKIP" for c in checks)
+        assert any(c.source == "majestic" and c.status == "FAIL" for c in checks)
+
+    def test_majestic_auto_pass(self) -> None:
+        """Domain in Majestic Million should auto-pass even with no Tranco."""
+        tranco = MagicMock()
+        tranco.is_ranked.return_value = None  # not in Tranco
+        with patch("scripts.authority_gate._majestic_lookup", return_value=(760_000, 283)):
+            checks, short, reason = run_layer_0("ghostautonomy.com", tranco_client=tranco)
+        assert short is True
+        assert "Majestic" in reason
+        assert "283 RefSubNets" in reason
+
+    def test_majestic_not_in_million(self) -> None:
+        """Domain NOT in Majestic Million should not auto-pass."""
+        tranco = MagicMock()
+        tranco.is_ranked.return_value = None
+        with patch("scripts.authority_gate._majestic_lookup", return_value=None):
+            checks, short, reason = run_layer_0("junk-domain.com", tranco_client=tranco)
+        assert short is False
 
 
 # ===========================================================================
@@ -314,12 +350,13 @@ class TestEvaluateDomain:
         wayback = AsyncMock()
         wayback.get_snapshot_count.return_value = 0
 
-        result = asyncio.get_event_loop().run_until_complete(
-            evaluate_domain(
-                "junk-domain-123.com", settings,
-                tranco_client=tranco, opr_client=opr, wayback_client=wayback,
+        with patch("scripts.authority_gate._majestic_lookup", return_value=None):
+            result = asyncio.get_event_loop().run_until_complete(
+                evaluate_domain(
+                    "junk-domain-123.com", settings,
+                    tranco_client=tranco, opr_client=opr, wayback_client=wayback,
+                )
             )
-        )
         assert result.short_circuited is True
         assert "dead domain" in result.short_circuit_reason
 
@@ -362,15 +399,17 @@ class TestEvaluateDomain:
         wayback.get_snapshot_count.return_value = 30
 
         dfs = AsyncMock()
-        dfs.bulk_ranks.return_value = {"example.com": 400}
+        dfs.bulk_ranks.return_value = {"no-majestic.com": 400}
 
-        result = asyncio.get_event_loop().run_until_complete(
-            evaluate_domain(
-                "example.com", settings,
-                tranco_client=tranco, opr_client=opr,
-                wayback_client=wayback, dataforseo_client=dfs,
+        # Mock majestic to return None so it doesn't short-circuit
+        with patch("scripts.authority_gate._majestic_lookup", return_value=None):
+            result = asyncio.get_event_loop().run_until_complete(
+                evaluate_domain(
+                    "no-majestic.com", settings,
+                    tranco_client=tranco, opr_client=opr,
+                    wayback_client=wayback, dataforseo_client=dfs,
+                )
             )
-        )
         assert result.short_circuited is False
         assert result.composite_score > 0
         assert result.dr_estimate > 0
@@ -429,6 +468,7 @@ class TestCompositeScoring:
     def test_all_pass(self) -> None:
         checks = [
             build_authority_check("tranco", 0, "PASS", 1000.0, 1.0),
+            build_authority_check("majestic", 0, "PASS", 50000.0, 0.9),
             build_authority_check("commoncrawl", 0, "PASS", 50.0, 0.5),
             build_authority_check("openpagerank", 1, "PASS", 5.0, 0.5),
             build_authority_check("wayback", 1, "PASS", 30.0, 0.6),
@@ -443,6 +483,7 @@ class TestCompositeScoring:
     def test_all_fail(self) -> None:
         checks = [
             build_authority_check("tranco", 0, "FAIL", 0.0, 0.0),
+            build_authority_check("majestic", 0, "FAIL", 0.0, 0.0),
             build_authority_check("commoncrawl", 0, "FAIL", 0.0, 0.0),
             build_authority_check("openpagerank", 1, "FAIL", 0.0, 0.0),
             build_authority_check("wayback", 1, "FAIL", 0.0, 0.0),

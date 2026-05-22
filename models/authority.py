@@ -15,7 +15,7 @@ from typing import Final
 
 # Valid source identifiers
 VALID_SOURCES: Final[tuple[str, ...]] = (
-    "tranco", "commoncrawl", "openpagerank", "wayback",
+    "tranco", "majestic", "commoncrawl", "openpagerank", "wayback",
     "wikipedia", "dataforseo", "gname",
 )
 

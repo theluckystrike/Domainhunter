@@ -292,18 +292,22 @@ LANE_A_DEFAULT_MAX_RESULTS: Final[int] = 50
 # ---------------------------------------------------------------------------
 
 # Composite scoring weights (sum to 1.0)
+# CRITICAL: Majestic has highest weight because it measures BACKLINKS,
+# which survive site death. Tranco/OPR measure active traffic/crawls,
+# which decay to 0 on expired domains — the exact domains we hunt.
 AUTHORITY_GATE_WEIGHTS: Final[MappingProxyType[str, float]] = MappingProxyType({
-    "tranco": 0.20,
-    "openpagerank": 0.20,
-    "dataforseo": 0.20,
+    "majestic": 0.25,
+    "tranco": 0.10,
+    "openpagerank": 0.10,
+    "dataforseo": 0.15,
     "wayback": 0.15,
-    "commoncrawl": 0.10,
+    "commoncrawl": 0.05,
     "wikipedia": 0.10,
-    "gname": 0.05,
+    "gname": 0.10,
 })
 
 # Layer definitions
-AUTHORITY_LAYER_0_SOURCES: Final[tuple[str, ...]] = ("tranco", "commoncrawl")
+AUTHORITY_LAYER_0_SOURCES: Final[tuple[str, ...]] = ("tranco", "majestic", "commoncrawl")
 AUTHORITY_LAYER_1_SOURCES: Final[tuple[str, ...]] = (
     "openpagerank", "wayback", "wikipedia",
 )
@@ -311,6 +315,7 @@ AUTHORITY_LAYER_2_SOURCES: Final[tuple[str, ...]] = ("dataforseo", "gname")
 
 # Short-circuit thresholds
 AUTHORITY_TRANCO_AUTO_PASS: Final[int] = 100_000
+AUTHORITY_MAJESTIC_AUTO_PASS: Final[int] = 1_000_000  # In Majestic Million = AUTO-PASS
 AUTHORITY_OPR_AUTO_PASS: Final[float] = 5.0
 AUTHORITY_KILL_THRESHOLD: Final[float] = 5.0
 AUTHORITY_PASS_THRESHOLD: Final[float] = 15.0
@@ -320,7 +325,12 @@ AUTHORITY_WAYBACK_MAX_SNAPSHOTS: Final[int] = 50
 AUTHORITY_CC_MAX_INDEGREE: Final[int] = 100
 AUTHORITY_TRANCO_DECAY_START: Final[int] = 10_000
 AUTHORITY_TRANCO_DECAY_END: Final[int] = 1_000_000
+AUTHORITY_MAJESTIC_DECAY_START: Final[int] = 100_000
+AUTHORITY_MAJESTIC_DECAY_END: Final[int] = 1_000_000
 AUTHORITY_DATAFORSEO_MAX_RANK: Final[int] = 1000
+
+# Majestic Million CSV path (relative to project root)
+AUTHORITY_MAJESTIC_CSV: Final[str] = "data/majestic_million.csv"
 
 # Rate limits (requests per second, conservative)
 AUTHORITY_RATE_OPR: Final[float] = 2.5
