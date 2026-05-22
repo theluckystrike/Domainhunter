@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  REVENANT Daily Pipeline — macOS launchd configuration
+
+  Runs the full domain hunting pipeline at 06:00 UTC daily (13:00 +07 Vietnam).
+
+  Installation:
+    cp config/launchd/com.revenant.daily-pipeline.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.revenant.daily-pipeline.plist
+
+  Uninstall:
+    launchctl unload ~/Library/LaunchAgents/com.revenant.daily-pipeline.plist
+    rm ~/Library/LaunchAgents/com.revenant.daily-pipeline.plist
+
+  Manual trigger:
+    launchctl start com.revenant.daily-pipeline
+
+  Check status:
+    launchctl list | grep revenant
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.revenant.daily-pipeline</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/mike/Desktop/domainhunter/scripts/daily_pipeline.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/mike/Desktop/domainhunter</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>PYTHONPATH</key>
+        <string>/Users/mike/Desktop/domainhunter</string>
+    </dict>
+
+    <!-- 06:00 UTC daily = 13:00 +07 Vietnam time -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>6</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/mike/Desktop/domainhunter/logs/launchd_pipeline.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/mike/Desktop/domainhunter/logs/launchd_pipeline.log</string>
+
+    <!-- One-shot: do not keep alive, do not restart on failure -->
+    <key>KeepAlive</key>
+    <false/>
+
+    <!-- Do not run immediately on load -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <!-- 30 minute timeout (1800 seconds) — pipeline rarely exceeds 10 min -->
+    <key>TimeOut</key>
+    <integer>1800</integer>
+</dict>
+</plist>

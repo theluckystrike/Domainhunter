@@ -36,6 +36,13 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Final, List, Optional, Tuple
 
+# Project root must be on sys.path before importing local clients
+_PROJECT_ROOT_INIT: Path = Path(__file__).resolve().parent.parent
+if str(_PROJECT_ROOT_INIT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT_INIT))
+
+from clients.ntfy_client import send_alert as ntfy_alert
+
 # ── Constants (immutable) ──────────────────────────────────────────────
 PROJECT_ROOT: Final[Path] = Path(__file__).resolve().parent.parent
 SCRIPTS_DIR: Final[Path] = PROJECT_ROOT / "scripts"
@@ -207,9 +214,21 @@ def run_task(task: ScheduledTask, logger: logging.Logger, env: dict) -> int:
         return result.returncode
     except subprocess.TimeoutExpired:
         logger.error("TIMEOUT [%s]: killed after %ds", task.name, task.timeout)
+        ntfy_alert(
+            title=f"Daemon TIMEOUT: {task.name}",
+            message=f"Task killed after {task.timeout}s\nScript: {task.script}",
+            priority="high",
+            tags="rotating_light,stopwatch",
+        )
         return 1
     except Exception as exc:
         logger.error("FAIL [%s]: %s", task.name, exc)
+        ntfy_alert(
+            title=f"Daemon ERROR: {task.name}",
+            message=f"Task failed: {exc}\nScript: {task.script}",
+            priority="high",
+            tags="rotating_light,x",
+        )
         return 1
 
 
@@ -346,6 +365,14 @@ def daemon_loop(logger: logging.Logger) -> None:
     logger.info("Tick interval: %ds", TICK_INTERVAL)
     for task in TASKS:
         logger.info("  Task: %s (script=%s)", task.name, task.script)
+
+    # ntfy: notify on daemon (re)start so you know it's alive
+    ntfy_alert(
+        title="Domain Hunter daemon started",
+        message=f"pid={os.getpid()} | {len(TASKS)} tasks scheduled",
+        priority="default",
+        tags="white_check_mark,gear",
+    )
 
     # Run critical monitor immediately on start
     for task in TASKS:

@@ -30,6 +30,12 @@ from clients.google_cse import (
 from clients.moz_apify import MozApifyClient, MozApifyError
 from clients.reddit_search import RedditSearchClient, RedditSearchError
 from clients.wayback import WaybackClient, WaybackError
+from clients.gname_client import (
+    GnameClient,
+    GnameError,
+    GnameAuthError,
+    GnameBackorderError,
+)
 from clients.namebright_client import (
     NameBrightClient,
     NameBrightError,
@@ -37,9 +43,16 @@ from clients.namebright_client import (
     NameBrightRateLimitError,
     NameBrightNotFoundError,
 )
+from clients.ntfy_client import send_alert as ntfy_send_alert, send_domain_alert as ntfy_send_domain_alert
+from clients.openpagerank import OpenPageRankClient, OpenPageRankError
+from clients.tranco_client import TrancoClient, TrancoError
+from clients.wikipedia_client import WikipediaClient, WikipediaError
 from clients.whoisfreaks import WhoisFreaksClient, WhoisFreaksError
 
 __all__: list[str] = [
+    # ntfy push notifications
+    "ntfy_send_alert",
+    "ntfy_send_domain_alert",
     # Clients
     "WhoisFreaksClient",
     "CatchDomsClient",
@@ -52,6 +65,7 @@ __all__: list[str] = [
     "RedditSearchClient",
     "AnthropicClient",
     "NameBrightClient",
+    "GnameClient",
     # Errors
     "WhoisFreaksError",
     "CatchDomsError",
@@ -70,4 +84,14 @@ __all__: list[str] = [
     "NameBrightAuthError",
     "NameBrightRateLimitError",
     "NameBrightNotFoundError",
+    "GnameError",
+    "GnameAuthError",
+    "GnameBackorderError",
+    # Authority Gate clients
+    "OpenPageRankClient",
+    "OpenPageRankError",
+    "TrancoClient",
+    "TrancoError",
+    "WikipediaClient",
+    "WikipediaError",
 ]

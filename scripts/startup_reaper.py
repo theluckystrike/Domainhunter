@@ -1196,7 +1196,7 @@ def _fetch_editorial_sources(
     domains: list[str], login: str, password: str,
 ) -> dict[str, tuple[str, ...]]:
     """Fetch referring domains per target, return editorial sources found."""
-    assert isinstance(domains, list) and len(domains) <= 200
+    assert isinstance(domains, list) and len(domains) <= 1500
     if not login or not password:
         return {}
     from base64 import b64encode

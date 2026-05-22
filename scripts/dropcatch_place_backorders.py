@@ -59,7 +59,7 @@ DropCatch API credentials not configured. To set up:
   4. Log into DropCatch.com with NameBright credentials at least once
   5. Add to .env:
        DROPCATCH_CLIENT_ID=accountname:appname
-       DROPCATCH_CLIENT_SECRET=your_secret_here
+       DROPCATCH_API_SECRET=your_secret_here
 """
 
 # ---------------------------------------------------------------------------

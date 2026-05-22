@@ -1,41 +1,69 @@
-# Sprint 29 Plan — First Acquisitions
-**Date:** 2026-05-16 | **Budget:** ~$22 (2 registrations) + $0.10 API | **Agents:** 10
+# Sprint 46 — MARKET VALIDATION + AUCTION EDGE RESEARCH
+**Date:** 2026-05-22 | **Status:** COMPLETE | **Agents:** 15/15 + 40/40 DONE | **Tests:** 1,043
 
-## Objective
-First domain acquisitions in project history. Register top 2 Kaggle domains via Dynadot API ($25 balance = 2 × $10.99). Prepare cytheris.com catch. Fix daemon persistence. Wire DropCatch API.
+## Mission
+1. Run widest possible scan across all data sources to find candidates
+2. Research DropCatch auction mechanics — if everything auctions, strategy must pivot
+3. watmm.com drops **17:45 UTC TODAY** — result determines entire strategy
 
-## Phase 1 — Execute (Critical)
-| # | Agent | Priority | Cost |
-|---|-------|----------|------|
-| 1 | Register Top Kaggle Domains (2) | CRITICAL | ~$22 |
-| 2 | cytheris.com Emergency Prep | CRITICAL | $0.00 |
-| 3 | Daemon Persistence (Reboot Survival) | CRITICAL | $0.00 |
-| 4 | DropCatch API Integration | CRITICAL | $0.00 |
+## Critical Context
+- buffalo-technology.com backorder **ALREADY PLACED** (DR 56, both platforms)
+- encognitive.com: **$175 proxy bid placed, winning at $65**
+- watmm.com + buffalo-technology.com drop at 17:45 UTC TODAY
+- Tests: **1,043 passing** (+81 from validation wave)
 
-## Phase 2 — Expand
-| # | Agent | Priority | Cost |
-|---|-------|----------|------|
-| 5 | Portfolio Tracker | HIGH | $0.00 |
-| 6 | Watch List Enrichment | HIGH | $0.10 |
-| 7 | Tier S Final Prep | HIGH | $0.00 |
+---
 
-## Phase 3 — Polish + Report
-| # | Agent | Priority | Cost |
-|---|-------|----------|------|
-| 8 | 43 Domains Full Analysis | MEDIUM | $0.00 |
-| 9 | ingredientcalculator.com Check | MEDIUM | $0.00 |
-| 10 | Sprint Report + Dashboard | MEDIUM | $0.00 |
+## Batch 1 — Wave 1: 15 Parallel Agents
 
-## Human Actions (Parallel)
-- [x] NameBright account creation (in progress)
-- [x] DropCatch ID verification (in progress)
-- Dynadot balance: $25 sufficient for 2 registrations
-- Daemon Login Items: manual step
+| # | Agent | Deliverable | Status |
+|---|-------|-------------|--------|
+| 1 | watmm-catch-monitor | API pre-drop status check | DONE ✓ |
+| 2 | dropcatch-auction-rules | Auction mechanics research | DONE ✓ |
+| 3 | dropcatch-bid-api | Bid endpoint API docs | DONE ✓ |
+| 4 | pipeline-scan | Maximum coverage scan (690K+ domains) | DONE ✓ |
+| 5 | dropcatch-auction-xref | 1,425 auctions cross-referenced | DONE ✓ |
+| 6 | alt-feeds-research | 6 sources: Gname, Dynadot, NameSilo, Whoxy, CatchDoms, Verisign | DONE ✓ |
+| 7 | sweet-spot-analysis | DR 25-39 hypothesis tested | DONE ✓ |
+| 8 | historical-prices | 50 completed DropCatch sales | DONE ✓ |
+| 9 | auction-sniper | dropcatch_auction_sniper.py (799 lines, 36 tests) | DONE ✓ |
+| 10 | market-validation-js | Dashboard data file | DONE ✓ |
+| 11 | market-validation-html | Dashboard tab integration | DONE ✓ |
+| 12 | buffalo-registrar | Total Web Solutions = CLEAN DROP confirmed | DONE ✓ |
+| 13 | encognitive-auction | $175 proxy bid placed, winning | DONE ✓ |
+| 14 | test-suite | 962 tests passing (+61) | DONE ✓ |
+| 15 | strategy-framework | 3 options + 10 open decisions | DONE ✓ |
 
-## Success Criteria
-1. 2 domains REGISTERED (first acquisitions!)
-2. cytheris.com dossier + catch strategy
-3. Daemon survives reboot
-4. DropCatch API integrated (awaiting credentials)
-5. Portfolio tracker created
-6. 352+ tests passing
+## Batch 2 — Integration (after Wave 1)
+
+| # | Deliverable | Status |
+|---|-------------|--------|
+| 2.1 | Strategy decision document compiled | DONE ✓ |
+| 2.2 | Dashboard updated (MV tab + data) | DONE ✓ |
+| 2.3 | Comprehensive report → ~/Desktop | DONE ✓ |
+| 2.4 | Registrar list updated (3 new entries) | DONE ✓ |
+
+## Batch 3 — 40-Agent Validation Wave
+
+| Group | Agents | Focus | Status |
+|-------|--------|-------|--------|
+| A | 1-8 | Raw data analysis (bidders, prices, competition, temporal) | 8/8 DONE ✓ |
+| B | 9-12 | API expansion (6,746 full pull, bid histories, CSVs, account history) | 4/4 DONE ✓ |
+| C | 13-22 | External validation (NamePros, DomainGang, Reddit, academic, 10 sources) | 10/10 DONE ✓ |
+| D | 23-28 | Business model (breakeven, simulation, DR ROI, cost comparison, scale) | 6/6 DONE ✓ |
+| E | 29-40 | Infrastructure (dashboard, scripts, strategy, tests, 30-day plan) | 12/12 DONE ✓ |
+
+**Key findings:**
+- 95.6% of 6,746 Dropped auctions have ZERO bidders (full API pull)
+- Acquisition cost confirmed: $59-$67 (not $100-$200)
+- Breakeven: 13% flip rate at $500 avg flip
+- Revenue: still $0 — flip thesis unproven
+
+## Reports
+- Wave 1: `~/Desktop/domainhunter-sprint46-report-2026-05-22.md`
+- Validation: `~/Desktop/domainhunter-sprint46-validation-report-2026-05-22.md`
+- Data: `data/validation/` (52 files)
+
+## Next: 30-Day Kill-or-Scale Sprint (May 22 - Jun 22)
+- See `data/validation/EXECUTIVE_SUMMARY.md`
+- See `data/validation/30_day_action_plan.md`

@@ -95,6 +95,14 @@
       "priority": "high"
     },
     {
+      "date": "2026-05-19",
+      "domain": "decoder.com",
+      "event": "countdown_7_days",
+      "action": "daily_rdap_check_active",
+      "priority": "critical",
+      "notes": "decoder.com: 7 days to expiry. Daily RDAP check active."
+    },
+    {
       "date": "2026-05-22",
       "domain": "bestdevtools.com",
       "event": "expires",
@@ -102,11 +110,27 @@
       "priority": "high"
     },
     {
+      "date": "2026-05-22",
+      "domain": "decoder.com",
+      "event": "countdown_4_days",
+      "action": "check_for_last_minute_renewal_signals",
+      "priority": "critical",
+      "notes": "decoder.com: 4 days to expiry. Check for last-minute renewal signals."
+    },
+    {
       "date": "2026-05-24",
       "domain": "devhub.io",
       "event": "follow_up_deadline",
       "action": "final_follow_up_if_no_response",
       "priority": "high"
+    },
+    {
+      "date": "2026-05-26",
+      "domain": "decoder.com",
+      "event": "expiry_day_zero",
+      "action": "monitor_epp_status_change",
+      "priority": "critical",
+      "notes": "decoder.com EXPIRES. Day 0. Monitor EPP status change."
     },
     {
       "date": "2026-05-26",
@@ -161,6 +185,14 @@
     },
     {
       "date": "2026-06-15",
+      "domain": "decoder.com",
+      "event": "godaddy_auction_watch_start",
+      "action": "check_godaddy_auctions_daily",
+      "priority": "critical",
+      "notes": "Start checking GoDaddy Auctions daily for decoder.com listing"
+    },
+    {
+      "date": "2026-06-15",
       "domain": "mortgagecalc.com",
       "event": "expires",
       "action": "skip",
@@ -173,6 +205,15 @@
       "event": "pending_delete_est",
       "action": "dropcatch_snapnames_catch",
       "priority": "critical"
+    },
+    {
+      "date": "2026-06-21",
+      "domain": "decoder.com",
+      "event": "godaddy_auction_likely_starts",
+      "action": "CHECK_AND_BID",
+      "priority": "critical",
+      "notes": "decoder.com GoDaddy Auction likely starts. CHECK AND BID. Max $500.",
+      "max_bid": 500
     },
     {
       "date": "2026-06-26",

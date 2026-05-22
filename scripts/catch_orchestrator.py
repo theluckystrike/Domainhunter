@@ -234,7 +234,7 @@ def check_dropcatch_platform(settings: Settings) -> PlatformStatus:
             name="DropCatch",
             available=False,
             status_text="[SKIP] No credentials",
-            detail="Set DROPCATCH_CLIENT_ID and DROPCATCH_CLIENT_SECRET",
+            detail="Set DROPCATCH_CLIENT_ID and DROPCATCH_API_SECRET",
         )
 
     # Try authenticating

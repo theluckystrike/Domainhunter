@@ -433,9 +433,20 @@ def _extract_message_backorder(data: dict[str, Any]) -> str:
 
 
 def _extract_backorder_list(data: dict[str, Any]) -> list[str]:
-    """Parse list of backorder domains from API response."""
+    """Parse list of backorder domains from API response.
+
+    Handles two response structures:
+      - Direct: {"BackorderList": [...]}
+      - Nested: {"BackorderRequestListResponse": {"BackorderRequestList": [...]}}
+    """
     assert isinstance(data, dict), "data must be a dict"
-    items: Any = data.get("BackorderList", data.get("backorder_list", []))
+    # Try direct keys first
+    items: Any = data.get("BackorderList", data.get("backorder_list"))
+    # Try nested response wrapper (actual API format)
+    if items is None:
+        wrapper: Any = data.get("BackorderRequestListResponse", {})
+        if isinstance(wrapper, dict):
+            items = wrapper.get("BackorderRequestList", wrapper.get("backorder_request_list"))
     if not isinstance(items, list):
         items = []
     domains: list[str] = []
@@ -443,7 +454,7 @@ def _extract_backorder_list(data: dict[str, Any]) -> list[str]:
         if idx >= 1000:  # bounded loop
             break
         if isinstance(item, dict):
-            domain: str = str(item.get("Domain", item.get("domain", "")))
+            domain: str = str(item.get("DomainName", item.get("Domain", item.get("domain", ""))))
             if domain:
                 domains.append(domain)
         elif isinstance(item, str) and item:

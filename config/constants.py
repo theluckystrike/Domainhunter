@@ -251,3 +251,85 @@ REGISTRAR_GRACE_PERIODS: Final[MappingProxyType] = MappingProxyType({
     "Namecheap": 62,
     "default": 75,
 })
+
+# ---------------------------------------------------------------------------
+# Two-Lane Pipeline — Competition Predictor Constants (Sprint 46 validated)
+# Derived from 6,746 DropCatch Dropped auctions analysis
+# ---------------------------------------------------------------------------
+COMPETITION_BASE_SCORE: Final[float] = 0.50
+
+# Word count impact on auction competition (higher = less contested)
+COMPETITION_WORD_SCORES: Final[MappingProxyType[int, float]] = MappingProxyType({
+    1: -0.25,   # single-word .com = 7.8 avg bidders
+    2: 0.05,    # two-word = 7.0 avg bidders
+    3: 0.20,    # three-word = 1.5 avg bidders
+    4: 0.30,    # four+ words = 0.9 avg bidders
+})
+
+# Length impact: (min_chars, max_chars, score_delta)
+COMPETITION_LENGTH_SCORES: Final[tuple[tuple[int, int, float], ...]] = (
+    (0, 5, -0.30),    # <=5 chars: 11.2 avg bidders, 3.7% low-comp
+    (6, 8, -0.05),    # 6-8 chars: 7.1 avg bidders
+    (9, 12, 0.0),     # 9-12 chars: 6.6 avg bidders (baseline)
+    (13, 15, 0.10),   # 13-15 chars: 2.4 avg bidders, 47.4% low-comp
+    (16, 99, 0.15),   # 16+ chars: 1.6 avg bidders
+)
+
+COMPETITION_HYPHEN_BONUS: Final[float] = 0.15   # 4.4x less competition
+COMPETITION_NUMBER_BONUS: Final[float] = 0.05   # 2x less competition
+COMPETITION_ORG_PENALTY: Final[float] = -0.20   # .org = no flip market
+COMPETITION_NET_BONUS: Final[float] = 0.10      # .net = less competitive
+
+# Lane A (Sweet Spot Catcher) thresholds
+LANE_A_DR_MIN: Final[int] = 20
+LANE_A_DR_MAX: Final[int] = 34
+LANE_A_MIN_COMPETITION: Final[float] = 0.40
+LANE_A_MAX_SPAM: Final[float] = 0.30
+LANE_A_DEFAULT_MAX_RESULTS: Final[int] = 50
+
+# ---------------------------------------------------------------------------
+# Authority Gate — 3-Layer Domain Authority Verification
+# ---------------------------------------------------------------------------
+
+# Composite scoring weights (sum to 1.0)
+AUTHORITY_GATE_WEIGHTS: Final[MappingProxyType[str, float]] = MappingProxyType({
+    "tranco": 0.20,
+    "openpagerank": 0.20,
+    "dataforseo": 0.20,
+    "wayback": 0.15,
+    "commoncrawl": 0.10,
+    "wikipedia": 0.10,
+    "gname": 0.05,
+})
+
+# Layer definitions
+AUTHORITY_LAYER_0_SOURCES: Final[tuple[str, ...]] = ("tranco", "commoncrawl")
+AUTHORITY_LAYER_1_SOURCES: Final[tuple[str, ...]] = (
+    "openpagerank", "wayback", "wikipedia",
+)
+AUTHORITY_LAYER_2_SOURCES: Final[tuple[str, ...]] = ("dataforseo", "gname")
+
+# Short-circuit thresholds
+AUTHORITY_TRANCO_AUTO_PASS: Final[int] = 100_000
+AUTHORITY_OPR_AUTO_PASS: Final[float] = 5.0
+AUTHORITY_KILL_THRESHOLD: Final[float] = 5.0
+AUTHORITY_PASS_THRESHOLD: Final[float] = 15.0
+
+# Normalization parameters
+AUTHORITY_WAYBACK_MAX_SNAPSHOTS: Final[int] = 50
+AUTHORITY_CC_MAX_INDEGREE: Final[int] = 100
+AUTHORITY_TRANCO_DECAY_START: Final[int] = 10_000
+AUTHORITY_TRANCO_DECAY_END: Final[int] = 1_000_000
+AUTHORITY_DATAFORSEO_MAX_RANK: Final[int] = 1000
+
+# Rate limits (requests per second, conservative)
+AUTHORITY_RATE_OPR: Final[float] = 2.5
+AUTHORITY_RATE_WIKIPEDIA: Final[float] = 3.0
+AUTHORITY_RATE_WAYBACK: Final[float] = 1.0
+
+# Batch sizes
+AUTHORITY_OPR_BATCH_SIZE: Final[int] = 100
+AUTHORITY_DATAFORSEO_BATCH_SIZE: Final[int] = 1000
+
+# Cost tracking
+AUTHORITY_DATAFORSEO_BULK_COST: Final[float] = 0.02

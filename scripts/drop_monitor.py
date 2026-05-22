@@ -39,6 +39,7 @@ if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 import structlog
+from clients.ntfy_client import send_alert as ntfy_alert, send_domain_alert as ntfy_domain_alert
 
 # ── Constants (immutable) ─────────────────────────────────────────────
 MAX_DOMAINS: Final[int] = 100
@@ -53,6 +54,17 @@ DYNADOT_BACKORDER_URL: Final[str] = "https://api.dynadot.com/api3.json"
 TIERS_ALL: Final[tuple[str, ...]] = ("critical", "high", "medium", "low")
 TIERS_CRITICAL: Final[tuple[str, ...]] = ("critical",)
 TIERS_HIGH: Final[tuple[str, ...]] = ("critical", "high")
+
+# Dynadot retry queue: domains waiting for pendingDelete to trigger backorder
+RETRY_QUEUE_PATH: Final[Path] = Path(__file__).parent.parent / "data" / "dynadot_retry_queue.json"
+MAX_RETRY_QUEUE: Final[int] = 200
+
+# Retry queue domain states
+RETRY_STATE_WAITING: Final[str] = "WAITING_PENDING_DELETE"
+RETRY_STATE_PLACED: Final[str] = "DYNADOT_PLACED"
+RETRY_STATE_CAUGHT: Final[str] = "CAUGHT"
+RETRY_STATE_MISSED: Final[str] = "MISSED"
+RETRY_STATE_RENEWED: Final[str] = "RENEWED"
 
 # Multi-platform backorder URLs (Sprint 28)
 DROPCATCH_URL_TEMPLATE: Final[str] = "https://www.dropcatch.com/snap/listing/{domain}"
@@ -169,6 +181,104 @@ def load_config(config_path: Path) -> tuple[MonitoredDomain, ...]:
     assert len(domains) > 0, "No domains loaded from config"
     assert len(domains) <= MAX_DOMAINS, f"Exceeds {MAX_DOMAINS} domain limit"
     return tuple(domains)
+
+
+# ── Dynadot Retry Queue ──────────────────────────────────────────────
+@dataclass(frozen=True)
+class RetryQueueEntry:
+    """Immutable entry in the Dynadot retry queue."""
+    domain: str
+    state: str
+    added_at: str
+    last_checked: str
+    backorder_placed_at: str
+    catch_platform: str
+    catch_cost: float
+
+    def __post_init__(self) -> None:
+        assert self.domain and "." in self.domain, f"Invalid domain: {self.domain}"
+        assert self.state in (
+            RETRY_STATE_WAITING, RETRY_STATE_PLACED,
+            RETRY_STATE_CAUGHT, RETRY_STATE_MISSED, RETRY_STATE_RENEWED,
+        ), f"Invalid state: {self.state}"
+
+
+def load_retry_queue(queue_path: Path) -> list[dict[str, Any]]:
+    """Load Dynadot retry queue from JSON file.
+
+    Creates the file with an empty queue if it does not exist.
+    Returns a mutable list of entry dicts (not frozen dataclasses)
+    so callers can update state fields in-place.
+    """
+    assert isinstance(queue_path, Path), "queue_path must be a Path"
+
+    if not queue_path.exists():
+        _create_empty_retry_queue(queue_path)
+        return []
+
+    try:
+        with open(queue_path, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+    except (json.JSONDecodeError, OSError) as exc:
+        logger.error("retry_queue_load_failed", path=str(queue_path), error=str(exc))
+        return []
+
+    entries = data.get("queue", [])
+    assert isinstance(entries, list), "queue must be a list"
+    # Bounded: never return more than MAX_RETRY_QUEUE entries
+    return entries[:MAX_RETRY_QUEUE]
+
+
+def _create_empty_retry_queue(queue_path: Path) -> None:
+    """Create an empty retry queue JSON file."""
+    assert isinstance(queue_path, Path), "queue_path must be a Path"
+
+    queue_path.parent.mkdir(parents=True, exist_ok=True)
+    data: dict[str, Any] = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "description": "Dynadot retry queue -- domains waiting for pendingDelete to auto-backorder",
+        "queue": [],
+    }
+    with open(queue_path, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, indent=2)
+    logger.info("retry_queue_created", path=str(queue_path))
+
+
+def save_retry_queue(queue_path: Path, entries: list[dict[str, Any]]) -> bool:
+    """Persist retry queue entries back to JSON file.
+
+    Returns True on success, False on write error.
+    """
+    assert isinstance(queue_path, Path), "queue_path must be a Path"
+    assert isinstance(entries, list), "entries must be a list"
+    assert len(entries) <= MAX_RETRY_QUEUE, f"Exceeds {MAX_RETRY_QUEUE} limit"
+
+    data: dict[str, Any] = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "description": "Dynadot retry queue -- domains waiting for pendingDelete to auto-backorder",
+        "queue": entries,
+    }
+    try:
+        queue_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(queue_path, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=2)
+        logger.info("retry_queue_saved", count=len(entries))
+        return True
+    except OSError as exc:
+        logger.error("retry_queue_save_failed", error=str(exc))
+        return False
+
+
+def _find_retry_entry(entries: list[dict[str, Any]], domain: str) -> dict[str, Any] | None:
+    """Find a retry queue entry by domain name (case-insensitive)."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+    assert isinstance(entries, list), "entries must be a list"
+    for idx, entry in enumerate(entries):
+        if idx >= MAX_RETRY_QUEUE:
+            break
+        if entry.get("domain", "").lower() == domain.lower():
+            return entry
+    return None
 
 
 # ── Database ──────────────────────────────────────────────────────────
@@ -765,6 +875,13 @@ def _handle_domain_drop(domain: str, dry_run: bool) -> str:
 
     msg = f"DOMAIN DROPPED: {domain} -- check catch platforms!"
     send_desktop_notification("Domain Hunter - DROP ALERT", msg)
+    # ntfy: domain dropped with no backorder — urgent mobile push
+    ntfy_domain_alert(
+        domain=domain,
+        event="available (DROPPED)",
+        urgency="DROPPED — register NOW",
+        tier="critical",
+    )
     logger.warning("domain_dropped_no_backorder", domain=domain)
     return f"DROP ALERT (no backorder confirmation): {msg}"
 
@@ -916,7 +1033,18 @@ def alert_on_transition(entry: MonitoredDomain, transition: DropTransition,
                 urgency=transition.urgency)
     print(f"\n  *** {msg}")
 
-    # Travel-proof notification dispatch
+    # ntfy: send immediately for all non-trivial EPP transitions
+    dc_url = DROPCATCH_URL_TEMPLATE.format(domain=entry.domain)
+    ntfy_domain_alert(
+        domain=entry.domain,
+        event=f"{transition.previous_status} -> {transition.current_status}",
+        urgency=transition.urgency,
+        tier=entry.tier,
+        price=float(entry.max_bid),
+        action_url=dc_url,
+    )
+
+    # Travel-proof notification dispatch (notify.py — email + ntfy via config)
     _dispatch_drop_notification(entry, transition)
 
     action_parts: list[str] = []
@@ -952,6 +1080,337 @@ def alert_on_transition(entry: MonitoredDomain, transition: DropTransition,
         action_parts.append("Slack sent")
 
     return "; ".join(action_parts) if action_parts else "logged"
+
+
+# ── Dynadot PendingDelete Auto-Trigger ────────────────────────────────
+def _trigger_dynadot_backorder(domain: str, dry_run: bool) -> str:
+    """Place Dynadot backorder when domain enters pendingDelete.
+
+    Called automatically when RDAP detects pendingDelete for a domain
+    in the retry queue. Returns action description string.
+    """
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+    assert isinstance(dry_run, bool), "dry_run must be bool"
+
+    api_key = os.environ.get(DYNADOT_API_KEY_ENV, "")
+    if not api_key:
+        logger.warning("dynadot_trigger_no_key", domain=domain)
+        return "SKIPPED: no DYNADOT_API_KEY"
+
+    if dry_run:
+        logger.info("dynadot_trigger_dry_run", domain=domain)
+        return f"DRY-RUN: would place Dynadot backorder for {domain}"
+
+    try:
+        params = f"key={api_key}&command=add_backorder_request&domain={domain}"
+        url = f"{DYNADOT_BACKORDER_URL}?{params}"
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=RDAP_TIMEOUT) as resp:
+            body = resp.read().decode("utf-8")
+            result = json.loads(body)
+            bo_resp = result.get("AddBackorderRequestResponse", {})
+            status = bo_resp.get("Status", "unknown")
+            logger.info("dynadot_backorder_triggered", domain=domain, status=status)
+            return f"Dynadot backorder triggered: {status}"
+    except Exception as exc:
+        logger.error("dynadot_trigger_failed", domain=domain, error=str(exc))
+        return f"DYNADOT TRIGGER FAILED: {exc}"
+
+
+def _notify_backorder_placed(domain: str) -> None:
+    """Send ntfy notification when Dynadot backorder is auto-placed."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    ntfy_alert(
+        title=f"DYNADOT BACKORDER PLACED: {domain}",
+        message=(
+            f"DYNADOT BACKORDER PLACED: {domain} now in pendingDelete "
+            f"(5 days to deletion)\n"
+            f"Domain: {domain}\n"
+            f"Action: Dynadot auto-backorder triggered by RDAP monitor"
+        ),
+        priority="high",
+        tags="rotating_light,money_with_wings",
+    )
+
+
+def _notify_catch_result(domain: str, caught: bool, platform: str, cost: float) -> None:
+    """Send ntfy notification for catch result (caught or missed)."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+    assert isinstance(caught, bool), "caught must be bool"
+
+    if caught:
+        ntfy_alert(
+            title=f"CAUGHT: {domain} via {platform}",
+            message=(
+                f"Domain CAUGHT: {domain}\n"
+                f"Platform: {platform}\n"
+                f"Cost: ${cost:.2f}\n"
+                f"Action: Run post_catch_executor.py"
+            ),
+            priority="urgent",
+            tags="tada,money_with_wings",
+        )
+    else:
+        ntfy_alert(
+            title=f"MISSED: {domain} -- not caught on any platform",
+            message=(
+                f"Domain MISSED: {domain}\n"
+                f"Checked: Dynadot, DropCatch\n"
+                f"Status: Domain dropped but not caught on any platform"
+            ),
+            priority="high",
+            tags="x,domain",
+        )
+
+
+def _check_dynadot_catch(domain: str) -> tuple[bool, float]:
+    """Check if Dynadot caught the domain. Returns (caught, cost).
+
+    Uses Dynadot search API to check if domain is now in our account.
+    """
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    api_key = os.environ.get(DYNADOT_API_KEY_ENV, "")
+    if not api_key:
+        return (False, 0.0)
+
+    try:
+        params = f"key={api_key}&command=domain_info&domain={domain}"
+        url = f"{DYNADOT_BACKORDER_URL}?{params}"
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=RDAP_TIMEOUT) as resp:
+            body = resp.read().decode("utf-8")
+            result = json.loads(body)
+            info_resp = result.get("DomainInfoResponse", {})
+            status_str = str(info_resp.get("Status", "")).lower()
+            if status_str == "success":
+                return (True, 10.99)  # Dynadot backorder price
+    except Exception as exc:
+        logger.warning("dynadot_catch_check_failed", domain=domain, error=str(exc))
+    return (False, 0.0)
+
+
+def _check_dropcatch_catch(domain: str) -> tuple[bool, float]:
+    """Check if DropCatch caught the domain. Returns (caught, cost)."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    try:
+        from config.settings import Settings
+        settings = Settings()
+        client_id = settings.dropcatch_client_id or ""
+        client_secret = settings.dropcatch_api_secret or ""
+        if not client_id or not client_secret:
+            return (False, 0.0)
+        from clients.dropcatch_client import DropCatchClient
+        client = DropCatchClient(client_id, client_secret)
+        backorders = client.list_backorders()
+        client.close()
+        for bo in backorders.backorders[:100]:
+            if bo.domain.lower() == domain.lower() and bo.status.lower() in ("won", "caught"):
+                return (True, bo.price)
+    except Exception as exc:
+        logger.warning("dropcatch_catch_check_failed", domain=domain, error=str(exc))
+    return (False, 0.0)
+
+
+def check_catch_result(domain: str) -> tuple[str, str, float]:
+    """Check all platforms for catch result after domain drops.
+
+    Returns (state, platform, cost):
+      - ("CAUGHT", "dynadot", 10.99)
+      - ("CAUGHT", "dropcatch", 59.00)
+      - ("MISSED", "", 0.0)
+    """
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    caught, cost = _check_dynadot_catch(domain)
+    if caught:
+        return (RETRY_STATE_CAUGHT, "dynadot", cost)
+
+    caught, cost = _check_dropcatch_catch(domain)
+    if caught:
+        return (RETRY_STATE_CAUGHT, "dropcatch", cost)
+
+    return (RETRY_STATE_MISSED, "", 0.0)
+
+
+def process_retry_queue(conn: sqlite3.Connection, dry_run: bool) -> list[DropTransition]:
+    """Process Dynadot retry queue: check RDAP for each waiting domain.
+
+    For each entry in WAITING_PENDING_DELETE state:
+      - Query RDAP for current status
+      - If pendingDelete: place Dynadot backorder, update to DYNADOT_PLACED
+      - If renewed (active/ok): update to RENEWED
+    For each entry in DYNADOT_PLACED state:
+      - If available/not_found: check catch result, update to CAUGHT or MISSED
+      - If renewed (active/ok): update to RENEWED
+
+    Returns list of DropTransitions detected during processing.
+    """
+    assert conn is not None, "Connection required"
+    assert isinstance(dry_run, bool), "dry_run must be bool"
+
+    entries = load_retry_queue(RETRY_QUEUE_PATH)
+    if not entries:
+        return []
+
+    transitions: list[DropTransition] = []
+    modified = False
+
+    for idx, entry in enumerate(entries):
+        if idx >= MAX_RETRY_QUEUE:
+            break
+        state = entry.get("state", "")
+        domain = entry.get("domain", "")
+        if not domain or "." not in domain:
+            continue
+
+        if state == RETRY_STATE_WAITING:
+            tr = _process_waiting_entry(conn, entry, dry_run)
+            if tr is not None:
+                transitions.append(tr)
+                modified = True
+        elif state == RETRY_STATE_PLACED:
+            tr = _process_placed_entry(conn, entry, dry_run)
+            if tr is not None:
+                transitions.append(tr)
+                modified = True
+
+    if modified:
+        save_retry_queue(RETRY_QUEUE_PATH, entries)
+
+    return transitions
+
+
+def _process_waiting_entry(
+    conn: sqlite3.Connection, entry: dict[str, Any], dry_run: bool,
+) -> DropTransition | None:
+    """Process a WAITING_PENDING_DELETE entry: check RDAP and trigger backorder."""
+    assert isinstance(entry, dict), "entry must be a dict"
+    domain = entry["domain"]
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    result = query_rdap(domain)
+    entry["last_checked"] = now_iso
+    prev_status = entry.get("last_epp_status", "")
+
+    if result.epp_status == "error":
+        return None
+
+    entry["last_epp_status"] = result.epp_status
+
+    if result.epp_status == "pendingDelete":
+        return _handle_pending_delete_trigger(entry, domain, prev_status, dry_run, now_iso)
+
+    if result.epp_status in ("active", "ok"):
+        entry["state"] = RETRY_STATE_RENEWED
+        logger.info("retry_domain_renewed", domain=domain)
+        return DropTransition(
+            domain=domain, previous_status=prev_status or "unknown",
+            current_status=result.epp_status,
+            urgency="RENEWED -- domain owner renewed during watch",
+            action_taken="state -> RENEWED",
+        )
+
+    return None
+
+
+def _handle_pending_delete_trigger(
+    entry: dict[str, Any], domain: str, prev_status: str,
+    dry_run: bool, now_iso: str,
+) -> DropTransition:
+    """Handle pendingDelete detection: place backorder, notify, update state."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    action = _trigger_dynadot_backorder(domain, dry_run)
+    entry["state"] = RETRY_STATE_PLACED
+    entry["backorder_placed_at"] = now_iso
+
+    if not dry_run:
+        _notify_backorder_placed(domain)
+
+    logger.info("retry_pending_delete_triggered", domain=domain, action=action)
+    return DropTransition(
+        domain=domain, previous_status=prev_status or "unknown",
+        current_status="pendingDelete",
+        urgency="IMMEDIATE -- pendingDelete, Dynadot backorder placed",
+        action_taken=action,
+    )
+
+
+def _process_placed_entry(
+    conn: sqlite3.Connection, entry: dict[str, Any], dry_run: bool,
+) -> DropTransition | None:
+    """Process a DYNADOT_PLACED entry: check for drop or renewal."""
+    assert isinstance(entry, dict), "entry must be a dict"
+    domain = entry["domain"]
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    result = query_rdap(domain)
+    entry["last_checked"] = now_iso
+    prev_status = entry.get("last_epp_status", "pendingDelete")
+
+    if result.epp_status == "error":
+        return None
+
+    entry["last_epp_status"] = result.epp_status
+
+    # Domain dropped: check catch result
+    if result.epp_status in ("available", "not_found"):
+        return _handle_drop_catch_check(entry, domain, prev_status, dry_run)
+
+    # Domain renewed during pendingDelete (rare but possible)
+    if result.epp_status in ("active", "ok"):
+        entry["state"] = RETRY_STATE_RENEWED
+        logger.info("retry_domain_renewed_after_placed", domain=domain)
+        return DropTransition(
+            domain=domain, previous_status=prev_status,
+            current_status=result.epp_status,
+            urgency="RENEWED -- domain renewed during pendingDelete",
+            action_taken="state -> RENEWED",
+        )
+
+    return None
+
+
+def _handle_drop_catch_check(
+    entry: dict[str, Any], domain: str, prev_status: str, dry_run: bool,
+) -> DropTransition:
+    """Check catch platforms after domain drops. Update state and notify."""
+    assert domain and "." in domain, f"Invalid domain: {domain}"
+
+    if dry_run:
+        entry["state"] = RETRY_STATE_MISSED
+        return DropTransition(
+            domain=domain, previous_status=prev_status,
+            current_status="available",
+            urgency="DROPPED -- dry-run, skipped catch check",
+            action_taken="DRY-RUN: would check catch platforms",
+        )
+
+    state, platform, cost = check_catch_result(domain)
+    entry["state"] = state
+    entry["catch_platform"] = platform
+    entry["catch_cost"] = cost
+
+    _notify_catch_result(domain, state == RETRY_STATE_CAUGHT, platform, cost)
+
+    if state == RETRY_STATE_CAUGHT:
+        action = f"CAUGHT via {platform} at ${cost:.2f}"
+        urgency = f"CAUGHT -- {platform} ${cost:.2f}"
+    else:
+        action = "MISSED on all platforms"
+        urgency = "MISSED -- not caught on any platform"
+
+    logger.info("retry_catch_result", domain=domain, state=state,
+                platform=platform, cost=cost)
+
+    return DropTransition(
+        domain=domain, previous_status=prev_status,
+        current_status="available",
+        urgency=urgency, action_taken=action,
+    )
 
 
 # ── Main Orchestrator ─────────────────────────────────────────────────
@@ -1027,6 +1486,17 @@ def run_monitor(tiers: tuple[str, ...], dry_run: bool = False,
         transition = _check_single(conn, entry, dry_run)
         if transition is not None:
             transitions.append(transition)
+
+    # Process Dynadot retry queue (domains waiting for pendingDelete)
+    if not single_domain:
+        print("\n" + "-" * 64)
+        print("Dynadot Retry Queue:")
+        retry_transitions = process_retry_queue(conn, dry_run)
+        transitions.extend(retry_transitions)
+        if retry_transitions:
+            print(f"  {len(retry_transitions)} retry queue transition(s)")
+        else:
+            print("  No retry queue transitions")
 
     # Summary
     _print_summary(transitions)

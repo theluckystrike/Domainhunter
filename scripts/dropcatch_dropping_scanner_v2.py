@@ -742,7 +742,7 @@ def run_scan(days: int | None) -> ScanResult:
         "DROPCATCH_CLIENT_ID not set in .env"
     )
     assert len(settings.dropcatch_api_secret) > 0, (
-        "DROPCATCH_CLIENT_SECRET not set in .env"
+        "DROPCATCH_API_SECRET not set in .env"
     )
 
     scan_label = _DAYS_OUT_LABEL.get(

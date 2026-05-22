@@ -2,10 +2,73 @@
   "active_targets": {
     "critical": [
       {
+        "domain": "decoder.com",
+        "etv": 0,
+        "max_bid": 0,
+        "reaper_score": 0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-05-26T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-08-11",
+        "action": "SKIP_AUCTION",
+        "notes": "Sprint 36 DOWNGRADED: SKIP AUCTION. Expected $5K-$100K. HugeDomains bots auto-bid to ~$500 alone. $500 ceiling not competitive. Comparable sales: footage.com $300K, bagel.com $500K, durable.com $125K. MONITOR RESULT ONLY as price intelligence. GoDaddy Auction ~Jun 21. 30-year dictionary .com, only 120 bl / 71 RD (keyword value, not SEO authority).",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$100K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "taskplanner.com",
+        "etv": 0,
+        "max_bid": 200,
+        "reaper_score": 0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-05-27T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-08-12",
+        "action": "BACKORDER",
+        "notes": "Sprint 36 DOWNGRADED: keyword value only. WEAKEST backlink profile of all verified targets (39 bl, 36 RD, zero notable links). No .edu, .gov, or editorial authority. DR 1-5. Catch for keyword compound value only. Flip target $300-$1,500. GoDaddy Auction ~Jun 22, Closeout ~Jul 2 ($32). Max bid $200.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "bside.com",
+        "etv": 0,
+        "max_bid": 500,
+        "reaper_score": 0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-23T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-09-01",
+        "action": "BID_AUCTION",
+        "notes": "Sprint 36 UPGRADED to TOP TARGET. 27,345 bl / 3,123 RD — MASSIVELY underestimated. .edu links: Johns Hopkins (pages.jh.edu), UCLA (international.ucla.edu), Ball State (bsu.edu). DR likely 40-60+. Was estimated DR 10-30. Flip target $5K-$25K. GoDaddy Auction ~Jul 19, Closeout ~Jul 29 ($32). Max bid $500.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
         "domain": "cytheris.com",
         "etv": 0,
         "max_bid": 150,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "GoDaddy.com, LLC",
         "expiry_date": "2026-06-04T16:24:53Z",
         "epp_statuses": [
@@ -15,7 +78,11 @@
           "client update prohibited"
         ],
         "drop_est": "2026-06-30",
-        "notes": "Cytheris SA, $45.7M biotech (liquidated 2013), clientRenewProhibited, DNS DEAD, GoDaddy auction route ~Jun 30, 24yr domain age, TM LIKELY CLEAR"
+        "notes": "Cytheris SA, $45.7M biotech (liquidated 2013), clientRenewProhibited, DNS DEAD, GoDaddy auction route ~Jun 30, 24yr domain age, TM LIKELY CLEAR",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "olive.com",
@@ -31,13 +98,17 @@
           "client update prohibited"
         ],
         "drop_est": "TBD",
-        "notes": "Olive AI, $902M funded, reaper=82.5, clientRenewProhibited, expires 2027-11-21"
+        "notes": "Olive AI, $902M funded, reaper=82.5, clientRenewProhibited, expires 2027-11-21",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$50K+",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
       },
       {
         "domain": "infarm.com",
         "etv": 0,
         "max_bid": 59,
-        "reaper_score": 81.0,
+        "reaper_score": 81,
         "registrar": "GoDaddy.com, LLC",
         "expiry_date": "2027-02-18T05:00:00Z",
         "epp_statuses": [
@@ -47,7 +118,11 @@
           "client update prohibited"
         ],
         "drop_est": "TBD",
-        "notes": "Infarm, $500M funded, reaper=81.0, dry_run, Returns 403 from Cloudflare = domain held but site blocked. Re-emerged as Infarm"
+        "notes": "Infarm, $500M funded, reaper=81.0, dry_run, Returns 403 from Cloudflare = domain held but site blocked. Re-emerged as Infarm",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
       },
       {
         "domain": "veev.com",
@@ -63,7 +138,11 @@
           "client update prohibited"
         ],
         "drop_est": "TBD",
-        "notes": "Veev, $600M funded, reaper=75.8, dry_run, WordPress site still loads. $1B+ peak valuation. Premium 4-letter .com."
+        "notes": "Veev, $600M funded, reaper=75.8, dry_run, WordPress site still loads. $1B+ peak valuation. Premium 4-letter .com.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$50K+",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
       },
       {
         "domain": "ambri.com",
@@ -79,13 +158,17 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Ambri, $223M funded, reaper=75.2, dry_run, WordPress site still running. Bill Gates-backed. Asset sale completed to investo"
+        "notes": "Ambri, $223M funded, reaper=75.2, dry_run, WordPress site still running. Bill Gates-backed. Asset sale completed to investo",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
       },
       {
         "domain": "guerrameats.com",
         "etv": 11376,
-        "max_bid": 200,
-        "reaper_score": 0.0,
+        "max_bid": 0,
+        "reaper_score": 0,
         "registrar": "Squarespace Domains II LLC",
         "expiry_date": "2027-04-07T02:36:43Z",
         "epp_statuses": [
@@ -93,37 +176,280 @@
           "client hold",
           "client transfer prohibited"
         ],
-        "drop_est": "2026-06-26",
-        "notes": "clientHold + DNS DEAD, dropping ~Jun 26"
+        "drop_est": "CANCELLED",
+        "action": "REMOVED",
+        "notes": "Sprint 38 CONFIRMED RENEWED. Verisign WHOIS: Registry Expiry 2027-04-07 (renewed from 2026). Updated 2026-04-07 = renewed exactly on expiry date. Owner paid. NOT DROPPING. Removed from catch pipeline. sunnyray.org promoted to FIRST BLOOD."
       },
       {
         "domain": "sunnyray.org",
         "etv": 2842,
         "max_bid": 100,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "Tucows Domains Inc.",
         "expiry_date": "2027-04-11T09:19:44.317Z",
         "epp_statuses": [
           "auto renew period"
         ],
         "drop_est": "2026-06-30",
-        "notes": "autoRenewPeriod, dropping ~Jun 30"
+        "notes": "autoRenewPeriod, dropping ~Jun 30",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$32",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER",
+        "competition_note": "Near-zero auction competition for .org. Dynadot viable (~30% catch rate)."
       },
       {
         "domain": "globalgeopark.org",
         "etv": 626,
         "max_bid": 400,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "Tucows Domains Inc.",
         "expiry_date": "2027-04-11T02:12:38.271Z",
         "epp_statuses": [
           "auto renew period"
         ],
         "drop_est": "2026-07-01",
-        "notes": "autoRenewPeriod, dropping ~Jul 1"
+        "action": "BACKORDER_OR_DIRECT_REG",
+        "notes": "Sprint 36 UPGRADED — BEST $10.99 AUTO-CATCH IN PIPELINE. 28,557 bl / 1,173 RD. Wikipedia editorial link (en.wikipedia.org), .gov.uk (torbay.gov.uk), PubMed (pmc.ncbi.nlm.nih.gov), academia.edu. DR likely 40-55. Was estimated DR 10-25. autoRenewPeriod at Tucows, drop ~Jul 1. Catch cost $10.99. Flip target $3K-$15K. Max bid $400.",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$32",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER",
+        "competition_note": "Near-zero auction competition for .org. Dynadot viable (~30% catch rate)."
+      },
+      {
+        "domain": "daqri.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 75.2,
+        "tier": "CRITICAL",
+        "funding_usd": 200000000,
+        "sector": "hardware",
+        "referring_domains": 1671,
+        "dofollow": 5244,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-07-16",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "AUCTION_SNIPE",
+        "max_bid": 300,
+        "notes": "Sprint 39 THE FIND. $200M AR hardware (dead 2019). 1,671 RD, 79% dofollow. Auction ~Aug 12. SNIPE $300 max.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "swaptree.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 71.2,
+        "tier": "CRITICAL",
+        "funding_usd": 11300000,
+        "sector": "curated web",
+        "referring_domains": 1018,
+        "dofollow": 7942,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-16",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "DEAD",
+        "max_bid": 0,
+        "notes": "DEAD 2026-05-20: Listed on Afternic for $50,000. Was estimated $2K-$10K. Budget kill — aftermarket price 25x our estimate.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "N/A",
+        "recommended_strategy": "NONE"
+      },
+      {
+        "domain": "pandodaily.com",
+        "added": "2026-05-19",
+        "sprint": "S40",
+        "source": "sprint39_scored",
+        "v3_score": 0,
+        "tier": "CRITICAL",
+        "funding_usd": 2500000,
+        "sector": "media",
+        "referring_domains": 4587,
+        "backlinks": 153790,
+        "dofollow_pct": 84,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-11-14",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "AUCTION_SNIPE",
+        "max_bid": 500,
+        "notes": "Sprint 41 VALIDATED PR7. PandoDaily tech press (Sarah Lacy). Dead/sold to BuySellAds 2019. 4,587 RD (StatMoz 4,781 = 4% match), 153K BL, 84% dofollow. Google PageRank 7 = major publication level. DR upgrade: 50-65 → 60-70+. WOT Trust 91/100. #1 target confirmed. Auction ~Dec 10.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$500-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "videologygroup.com",
+        "added": "2026-05-19",
+        "sprint": "S40",
+        "source": "deepseek_s40",
+        "tier": "KILLED",
+        "funding_usd": 200000000,
+        "sector": "adtech",
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-05-23",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "SKIP",
+        "max_bid": 0,
+        "notes": "Sprint 41 KILLED. PR0 + noindex/nofollow meta tags. Authority deliberately stripped. Zero SEO value despite $200M funding."
+      },
+      {
+        "domain": "rocketfuel.com",
+        "added": "2026-05-19",
+        "sprint": "S40",
+        "source": "deepseek_s40",
+        "tier": "CRITICAL",
+        "funding_usd": 300000000,
+        "sector": "adtech",
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-25",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "AUCTION_SNIPE",
+        "max_bid": 500,
+        "notes": "Sprint 41 TIER 0 BLOCKBUSTER. VALIDATED: PR6, Alexa #24,969, 155K monthly visitors, 29yr domain (1997-06-26). NASDAQ:FUEL $300M adtech DSP. Acquired by Sizmek 2017 for $145M, Sizmek bankrupt 2019. cPanel default page + SSL cert mismatch = parked/abandoned. clientRenewProhibited. GoDaddy auction ~Jul 21. Max bid $500.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$500-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "dogvacay.com",
+        "added": "2026-05-19",
+        "sprint": "S40",
+        "source": "deepseek_s40",
+        "tier": "KILLED",
+        "funding_usd": 47000000,
+        "sector": "pet_tech",
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-09-02",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "SKIP",
+        "max_bid": 0,
+        "notes": "Sprint 41 KILLED. Rover.com owns it and actively extracts SEO value via 301 redirects. Full DogVacay homepage still live with Rover banner. PR5. NOT dropping."
       }
     ],
     "high": [
+      {
+        "domain": "streamelements.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 0,
+        "registrar": "Cloudflare, Inc.",
+        "expiry_date": "2026-10-10T23:57:47Z",
+        "epp_statuses": [
+          "client transfer prohibited"
+        ],
+        "drop_est": "2027-02-15",
+        "action": "WATCH_ACQUISITION",
+        "notes": "NEW 2026-05-20: StreamElements $111M funded (SoftBank $100M Series B). 30-day wind-down announced May 15. Staff 200→72. Acquisition talks (Rumble). Only clientTransferProhibited at Cloudflare (minimal protection). If acquisition fails, grace Nov 2026, drop ~Feb 2027. $15K-$50K value. 11yr platform, massive creator community backlinks.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$5K-$50K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_IF_DROPS",
+        "added": "2026-05-20",
+        "source": "startup_reaper_day3",
+        "funding_usd": 111000000,
+        "sector": "Creator Economy / Livestreaming"
+      },
+      {
+        "domain": "biolex.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 36.5,
+        "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+        "expiry_date": "2026-12-18T05:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2027-02-28",
+        "action": "CLOSEOUT",
+        "notes": "Sprint 38 NEW. Biolex Therapeutics, $172M funded biotech (dissolved). 28yr domain. clientRenewProhibited on GoDaddy/Uniregistry. NS: Spaceship.net (parking). Expiry Dec 18 2026 = SOONEST REAPER FIND. GoDaddy Auction ~Jan 13 2027, Closeout ~Jan 24 2027. Clean 6-letter biotech brand. No backlink data (DataForSEO gap).",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "ironnet.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 38.2,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-04-20T11:59:59Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2027-07-01",
+        "action": "CLOSEOUT",
+        "notes": "Sprint 38 NEW. IronNet Cybersecurity, $100M funded, Chapter 7 bankruptcy. 26yr domain. clientRenewProhibited on GoDaddy. NS: GoDaddy parking. Founded by Keith Alexander (ex-NSA director). Cybersecurity brand. No backlink data (DataForSEO gap).",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "dunzo.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 35.8,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2028-01-26T19:14:11Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2028-04-10",
+        "action": "MONITOR",
+        "notes": "Sprint 38 NEW. Dunzo, $400M funded Indian delivery startup. 20yr domain. clientRenewProhibited on GoDaddy. NS: BigRock.in (Indian hosting). 5-letter brandable .com. Expiry Jan 2028 = 20 months out. Long watch. No backlink data (DataForSEO gap).",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
       {
         "domain": "runningtide.com",
         "etv": 0,
@@ -138,7 +464,11 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Running Tide, $54M funded, reaper=68.2, dry_run, Domain completely unresolvable (no response HTTP or HTTPS). Registered on GoDadd"
+        "notes": "Running Tide, $54M funded, reaper=68.2, dry_run, Domain completely unresolvable (no response HTTP or HTTPS). Registered on GoDadd",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "cerebras.net",
@@ -149,7 +479,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Cerebras Systems, $720M funded, reaper=62.5, clientRenewProhibited, expires 2035-04-16"
+        "notes": "Cerebras Systems, $720M funded, reaper=62.5, clientRenewProhibited, expires 2035-04-16",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$50",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER"
       },
       {
         "domain": "datarobot.com",
@@ -160,7 +494,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "DataRobot, $1.0B funded, reaper=62.5, clientRenewProhibited, expires 2029-06-28"
+        "notes": "DataRobot, $1.0B funded, reaper=62.5, clientRenewProhibited, expires 2029-06-28",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "noogata.com",
@@ -176,18 +514,26 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Noogata, $28M funded, reaper=61.5, dry_run, Returns 405 Method Not Allowed = likely parked or minimal server. Recently shut "
+        "notes": "Noogata, $28M funded, reaper=61.5, dry_run, Returns 405 Method Not Allowed = likely parked or minimal server. Recently shut ",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "peartherapeutics.com",
         "etv": 0,
         "max_bid": 300,
-        "reaper_score": 61.0,
+        "reaper_score": 61,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Pear Therapeutics, $400M funded, reaper=61.0, clientRenewProhibited, expires 2026-09-13"
+        "notes": "Pear Therapeutics, $400M funded, reaper=61.0, clientRenewProhibited, expires 2026-09-13",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "CLOSEOUT_WATCH"
       },
       {
         "domain": "inscripta.com",
@@ -198,18 +544,26 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Inscripta, $260M funded, reaper=60.5, clientRenewProhibited, expires 2028-01-01"
+        "notes": "Inscripta, $260M funded, reaper=60.5, clientRenewProhibited, expires 2028-01-01",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "motional.com",
         "etv": 0,
         "max_bid": 300,
-        "reaper_score": 60.0,
+        "reaper_score": 60,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Motional, $4.0B funded, reaper=60.0, clientRenewProhibited, expires 2026-10-07"
+        "notes": "Motional, $4.0B funded, reaper=60.0, clientRenewProhibited, expires 2026-10-07",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "katerra.com",
@@ -220,7 +574,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Katerra, $2.0B funded, reaper=59.5, clientRenewProhibited, expires 2027-03-27"
+        "notes": "Katerra, $2.0B funded, reaper=59.5, clientRenewProhibited, expires 2027-03-27",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "kintsugi.com",
@@ -236,18 +594,26 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Kintsugi (Mental Health), $30M funded, reaper=59.2, dry_run, Redirects to DomainEasy.com buy page = ACTIVELY FOR SALE. Health/mental health n"
+        "notes": "Kintsugi (Mental Health), $30M funded, reaper=59.2, dry_run, Redirects to DomainEasy.com buy page = ACTIVELY FOR SALE. Health/mental health n",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "quantumscape.com",
         "etv": 0,
         "max_bid": 300,
-        "reaper_score": 59.0,
+        "reaper_score": 59,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "QuantumScape, $1.5B funded, reaper=59.0, clientRenewProhibited, expires 2027-04-30"
+        "notes": "QuantumScape, $1.5B funded, reaper=59.0, clientRenewProhibited, expires 2027-04-30",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "brandless.com",
@@ -258,7 +624,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Brandless, $300M funded, reaper=58.5, clientRenewProhibited, expires 2027-01-03"
+        "notes": "Brandless, $300M funded, reaper=58.5, clientRenewProhibited, expires 2027-01-03",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "thredup.com",
@@ -269,7 +639,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "ThredUp, $300M funded, reaper=58.5, clientRenewProhibited, expires 2026-10-16"
+        "notes": "ThredUp, $300M funded, reaper=58.5, clientRenewProhibited, expires 2026-10-16",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "scififoods.com",
@@ -285,7 +659,11 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "SCiFi Foods, $30M funded, reaper=57.2, dry_run, Shows Payment required - DEPLOYMENT_DISABLED on Vercel = hosting unpaid. clien"
+        "notes": "SCiFi Foods, $30M funded, reaper=57.2, dry_run, Shows Payment required - DEPLOYMENT_DISABLED on Vercel = hosting unpaid. clien",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "ionicmaterials.com",
@@ -301,7 +679,11 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Ionic Materials, $65M funded, reaper=57.2, dry_run, HTTPS fails, HTTP returns 409 Conflict = server misconfigured/abandoned. Domain "
+        "notes": "Ionic Materials, $65M funded, reaper=57.2, dry_run, HTTPS fails, HTTP returns 409 Conflict = server misconfigured/abandoned. Domain ",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "CLOSEOUT_WATCH"
       },
       {
         "domain": "tally.com",
@@ -312,13 +694,17 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Tally, $92M funded, reaper=56.5, clientRenewProhibited, expires 2026-07-07"
+        "notes": "Tally, $92M funded, reaper=56.5, clientRenewProhibited, expires 2026-07-07",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$50K+",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
       },
       {
         "domain": "ghostautonomy.com",
         "etv": 1428,
         "max_bid": 200,
-        "reaper_score": 55.6,
+        "reaper_score": 69.5,
         "registrar": "Wild West Domains, LLC",
         "expiry_date": "2026-06-07T00:53:13Z",
         "epp_statuses": [
@@ -328,7 +714,54 @@
           "client update prohibited"
         ],
         "drop_est": "2026-08-06",
-        "notes": "$220M funded, DA 52, TM ABANDONED, UDRP-proof, expires 2026-06-07, registrar WildWest/GoDaddy, pendingDelete ~Aug 2026"
+        "action": "AUCTION_SNIPE",
+        "auction_strategy": {
+          "method": "snipe_last_30min",
+          "max_bid": 200,
+          "auction_start": "~2026-07-03",
+          "auction_end": "~2026-07-12",
+          "snipe_window": "last 30 minutes of Jul 12",
+          "scenarios": {
+            "zero_bids": {
+              "cost": "$48 ($25 bid + $23 renewal)",
+              "outcome": "WIN — cheaper than closeout"
+            },
+            "casual_bidders": {
+              "cost": "$73-173 ($50-150 bid + $23)",
+              "outcome": "WIN — worth it for DR 35"
+            },
+            "serious_bidder": {
+              "cost": "$0",
+              "outcome": "LOSS — let go at $200+"
+            },
+            "closeout_fallback": {
+              "cost": "$28-34",
+              "outcome": "WIN — unlikely but possible"
+            }
+          },
+          "backup": "DropCatch backorder $59 stays armed at day 77+"
+        },
+        "verified_seo": {
+          "dr": 35,
+          "referring_domains": 881,
+          "total_backlinks": 1400,
+          "dofollow_pct": 84,
+          "editorial_dofollow": [
+            "SiliconANGLE (DR 72)",
+            "Silicon Republic (DR 55)"
+          ],
+          "editorial_probable": [
+            "TechCrunch (DR 93, 6 articles)"
+          ],
+          "editorial_nofollow": [
+            "Crunchbase (DR 90)"
+          ]
+        },
+        "notes": "Sprint 38 UPGRADED: AUCTION SNIPE $200 max. DR 35, 881 linking websites, 84% dofollow = CONFIRMED real authority. SiliconANGLE + Silicon Republic dofollow CONFIRMED. TechCrunch 6 articles (probable dofollow). Too visible for closeout-only — DomCop/ExpiredDomains scanners WILL see 881 RD. Snipe last 30min of ~Jul 12 auction. If 0 bids: win at ~$48 (cheaper than closeout). If >$200: let go. $220M funded (OpenAI Startup Fund), TM ABANDONED, UDRP-proof. BUILD candidate: AI agents content hub. Conservative flip $2-5K. Build value $5-15K/mo in 12-18mo.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "vineventures.com",
@@ -339,7 +772,11 @@
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "Vine Ventures, $150M funded, reaper=55.5, clientRenewProhibited, expires 2026-08-25"
+        "notes": "Vine Ventures, $150M funded, reaper=55.5, clientRenewProhibited, expires 2026-08-25",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "fiskerinc.com",
@@ -354,8 +791,12 @@
           "client transfer prohibited",
           "client update prohibited"
         ],
-        "drop_est": "TBD",
-        "notes": "Fisker, $1.5B funded, reaper=54.4, clientRenewProhibited, expires 2026-09-21"
+        "drop_est": "2027-01-06",
+        "notes": "TIER A UPGRADE 2026-05-20: Site now shows 'Under Maintenance' Next.js page = ABANDONED. Fisker $1B+ funded, fully liquidated Chapter 11. Bankruptcy trustee managing. clientRenewProhibited. GoDaddy auction likely ~Oct 2026, closeout ~Nov 2026, drop ~Jan 2027. $5K-$25K value.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "northvolt.com",
@@ -371,7 +812,11 @@
           "client update prohibited"
         ],
         "drop_est": "TBD",
-        "notes": "Northvolt, $13000M funded, reaper=54.4, dry_run, Active website still running during Chapter 11 proceedings. Massive DR from $13B"
+        "notes": "Northvolt, $13000M funded, reaper=54.4, dry_run, Active website still running during Chapter 11 proceedings. Massive DR from $13B",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       },
       {
         "domain": "radpowerbikes.com",
@@ -387,13 +832,17 @@
           "client update prohibited"
         ],
         "drop_est": "",
-        "notes": "Rad Power Bikes, $325M funded, reaper=52.7, dry_run, Active website, in Chapter 11, seeking sale. Domain part of bankruptcy estate. $"
+        "notes": "Rad Power Bikes, $325M funded, reaper=52.7, dry_run, Active website, in Chapter 11, seeking sale. Domain part of bankruptcy estate. $",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "CLOSEOUT_WATCH"
       },
       {
         "domain": "goodglammgroup.com",
         "etv": 0,
         "max_bid": 100,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "GoDaddy.com, LLC",
         "expiry_date": "2026-07-06T18:20:52Z",
         "epp_statuses": [
@@ -403,24 +852,32 @@
           "client update prohibited"
         ],
         "drop_est": "2026-07-06",
-        "notes": "clientRenewProhibited, Jul 6"
+        "notes": "clientRenewProhibited, Jul 6",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "CLOSEOUT_WATCH"
       },
       {
         "domain": "sendy.co",
         "etv": 3179,
         "max_bid": 150,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "2026-07-16",
-        "notes": "clientRenewProhibited, Jul 16"
+        "notes": "clientRenewProhibited, Jul 16",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$50",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER"
       },
       {
         "domain": "readingfoundation.org",
         "etv": 7207,
         "max_bid": 200,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "GoDaddy.com, LLC",
         "expiry_date": "2026-07-30T04:00:00Z",
         "epp_statuses": [
@@ -430,7 +887,826 @@
           "client update prohibited"
         ],
         "drop_est": "2026-07-30",
-        "notes": "clientRenewProhibited, Jul 30"
+        "notes": "clientRenewProhibited, Jul 30",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$32",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER",
+        "competition_note": "Near-zero auction competition for .org. Dynadot viable (~30% catch rate)."
+      },
+      {
+        "domain": "jokr.com",
+        "etv": 0,
+        "max_bid": 0,
+        "reaper_score": 36.7,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-15T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "CANCELLED",
+        "action": "DEAD",
+        "notes": "DEAD 2026-05-20: Confirmed ACTIVE — company not dropping domain. JOKR operates in Brazil as DAKI brand. $800M valuation (Series D Sep 2023). Wix site LIVE at jokr.com. All protective locks. Will renew."
+      },
+      {
+        "domain": "fileshare.com",
+        "etv": 0,
+        "max_bid": 200,
+        "reaper_score": 0,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-06-29T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-09-14",
+        "action": "BACKORDER",
+        "notes": "Sprint 36: thin despite premium keyword. 124 bl / 51 RD — surprisingly weak for a 25-year dictionary compound .com. Notable: .gov.in + .edu.au but likely incidental. DR 5-15. Value is keyword premium only (not link equity). Flip target $500-$3K. GoDaddy Auction ~Jul 25, Closeout ~Aug 4. Max bid $200.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "canoo.com",
+        "etv": 0,
+        "max_bid": 200,
+        "reaper_score": 38,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-09-15T00:00:00Z",
+        "epp_statuses": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "drop_est": "2026-12-01",
+        "notes": "$600M funded EV startup. Chapter 7 bankrupt. clientRenewProhibited confirmed Sprint 34. PROMOTED from watch_list.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "flirtey.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 77.5,
+        "tier": "GHOST_CLASS",
+        "funding_usd": 20000000,
+        "sector": "logistics",
+        "referring_domains": 1186,
+        "dofollow": 93610,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-08-01 01:09:09 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Flirtey (shut down). Score 77.5.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "bitesquad.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 76.7,
+        "tier": "GHOST_CLASS",
+        "funding_usd": 20000000,
+        "sector": "food",
+        "referring_domains": 1798,
+        "dofollow": 87731,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-02-28 21:40:29 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Bite Squad. Score 76.7.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "ayasdi.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 76.2,
+        "tier": "GHOST_CLASS",
+        "funding_usd": 100000000,
+        "sector": "ai",
+        "referring_domains": 1006,
+        "dofollow": 4107,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-04-09 19:52:08 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Ayasdi. Score 76.2.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "alice.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 74.5,
+        "tier": "CRITICAL",
+        "funding_usd": 27900000,
+        "sector": "ecommerce",
+        "referring_domains": 1820,
+        "dofollow": 12258,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-10-05 01:00:00 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Alice.com. Score 74.5.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$50K+",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "mgemi.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 74.2,
+        "tier": "CRITICAL",
+        "funding_usd": 40000000,
+        "sector": "ecommerce",
+        "referring_domains": 1758,
+        "dofollow": 10527,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-06-23 12:36:08 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. M.Gemi. Score 74.2.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "eons.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 73.9,
+        "tier": "CRITICAL",
+        "funding_usd": 32000000,
+        "sector": "social network media",
+        "referring_domains": 1691,
+        "dofollow": 22231,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-11-12 03:00:00 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Eons. Score 73.9.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$5K-$50K+",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "bensonhill.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 72.7,
+        "tier": "CRITICAL",
+        "funding_usd": 600000000,
+        "sector": "climate",
+        "referring_domains": 953,
+        "dofollow": 3177,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2028-03-22 02:39:29 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Benson Hill. Score 72.7.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "kariusdx.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 72.7,
+        "tier": "CRITICAL",
+        "funding_usd": 200000000,
+        "sector": "healthcare",
+        "referring_domains": 678,
+        "dofollow": 1394,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2032-09-30 12:14:45 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Karius. Score 72.7.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "searchme.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 72.6,
+        "tier": "CRITICAL",
+        "funding_usd": 46900000,
+        "sector": "visual search",
+        "referring_domains": 1470,
+        "dofollow": 10573,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-10-25 12:41:10 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. SearchMe. Score 72.6.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "kitchenunited.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 72.3,
+        "tier": "CRITICAL",
+        "funding_usd": 100000000,
+        "sector": "food",
+        "referring_domains": 951,
+        "dofollow": 2166,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-11-01 09:59:59 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "DEAD",
+        "max_bid": 0,
+        "notes": "RENEWED 2026-05-20: expiry moved from 2026-11-01 to 2027-11-01. Dead target.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "N/A",
+        "recommended_strategy": "NONE"
+      },
+      {
+        "domain": "guruji.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 72.2,
+        "tier": "CRITICAL",
+        "funding_usd": 15000000,
+        "sector": "search",
+        "referring_domains": 701,
+        "dofollow": 30223,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2032-01-16 17:22:29 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Guruji. Score 72.2.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "vectorcityracers.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 71.4,
+        "tier": "CRITICAL",
+        "funding_usd": 4000000,
+        "sector": "gaming",
+        "referring_domains": 861,
+        "dofollow": 36228,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-02-22 01:57:47 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Vector City Racers. Score 71.4.",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "CLOSEOUT_WATCH"
+      },
+      {
+        "domain": "turvo.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 71.3,
+        "tier": "CRITICAL",
+        "funding_usd": 100000000,
+        "sector": "logistics",
+        "referring_domains": 944,
+        "dofollow": 2251,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2029-09-25 09:18:19 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Turvo. Score 71.3.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "globalthermostat.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 71.2,
+        "tier": "CRITICAL",
+        "funding_usd": 50000000,
+        "sector": "climate",
+        "referring_domains": 896,
+        "dofollow": 1182,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-02-21 14:47:53 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Global Thermostat. Score 71.2.",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "CLOSEOUT_WATCH"
+      },
+      {
+        "domain": "boston-power.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 70.8,
+        "tier": "CRITICAL",
+        "funding_usd": 100000000,
+        "sector": "climate",
+        "referring_domains": 413,
+        "dofollow": 9263,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-11-04 01:54:55 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Boston-Power. Score 70.8.",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$50",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER"
+      },
+      {
+        "domain": "velib.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 70.5,
+        "tier": "CRITICAL",
+        "funding_usd": 50000000,
+        "sector": "mobility",
+        "referring_domains": 1012,
+        "dofollow": 6005,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-09-04 20:06:59 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Vélib'. Score 70.5.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "placeblogger.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 70.4,
+        "tier": "CRITICAL",
+        "funding_usd": 5000000,
+        "sector": "curated web",
+        "referring_domains": 830,
+        "dofollow": 12846,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-08-18 00:26:56 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. PlaceBlogger. Score 70.4.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "ants.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 70.3,
+        "tier": "CRITICAL",
+        "funding_usd": 28300000,
+        "sector": "saas",
+        "referring_domains": 993,
+        "dofollow": 3231,
+        "registrar": "GoDaddy Online Services Cayman Islands Ltd.",
+        "expiry_date": "2031-11-11 14:37:39 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. ANTs Software. Score 70.3.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "utterz.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 70.3,
+        "tier": "CRITICAL",
+        "funding_usd": 4000000,
+        "sector": "audio",
+        "referring_domains": 857,
+        "dofollow": 43082,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-04-06 13:07:49 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Utterz. Score 70.3.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "quanergy.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 70.3,
+        "tier": "CRITICAL",
+        "funding_usd": 200000000,
+        "sector": "hardware",
+        "referring_domains": 826,
+        "dofollow": 1936,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2033-10-17 00:05:15 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Quanergy Systems. Score 70.3.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "avegant.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 70.1,
+        "tier": "CRITICAL",
+        "funding_usd": 50000000,
+        "sector": "hardware",
+        "referring_domains": 1236,
+        "dofollow": 1921,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-08-30 12:46:34 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "DEAD",
+        "max_bid": 0,
+        "notes": "RENEWED 2026-05-20: expiry moved from 2026-08-30 to 2027-08-30. Dead target.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "N/A",
+        "recommended_strategy": "NONE"
+      },
+      {
+        "domain": "ausra.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 70,
+        "tier": "CRITICAL",
+        "funding_usd": 123300000,
+        "sector": "solar",
+        "referring_domains": 510,
+        "dofollow": 3629,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-05-19 15:49:25 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Ausra. Score 70.0.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "zagster.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 69.8,
+        "tier": "CRITICAL",
+        "funding_usd": 20000000,
+        "sector": "mobility",
+        "referring_domains": 1009,
+        "dofollow": 2041,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-03-01 01:34:13 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Zagster. Score 69.8.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "homeward.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 69.6,
+        "tier": "CRITICAL",
+        "funding_usd": 150000000,
+        "sector": "real_estate",
+        "referring_domains": 709,
+        "dofollow": 2296,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2028-05-12 01:00:00 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Homeward. Score 69.6.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "sema4.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 69.6,
+        "tier": "CRITICAL",
+        "funding_usd": 300000000,
+        "sector": "healthcare",
+        "referring_domains": 589,
+        "dofollow": 1192,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2026-07-28 01:00:00 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Sema4. Score 69.6.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "shots.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 69.3,
+        "tier": "CRITICAL",
+        "funding_usd": 11000000,
+        "sector": "social",
+        "referring_domains": 685,
+        "dofollow": 4062,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2028-08-01 15:08:05 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. Shots. Score 69.3.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "blackbuck.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "deepseek",
+        "v3_score": 69.2,
+        "tier": "CRITICAL",
+        "funding_usd": 200000000,
+        "sector": "logistics",
+        "referring_domains": 671,
+        "dofollow": 1217,
+        "registrar": "GoDaddy.com, LLC",
+        "expiry_date": "2027-09-03 14:15:57 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. BlackBuck. Score 69.2.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "sourcelabs.com",
+        "added": "2026-05-18",
+        "sprint": "S39",
+        "source": "kaggle",
+        "v3_score": 68.9,
+        "tier": "CRITICAL",
+        "funding_usd": 7000000,
+        "sector": "tech field support",
+        "referring_domains": 859,
+        "dofollow": 4426,
+        "registrar": "Wild West Domains, LLC",
+        "expiry_date": "2026-08-02 18:49:39 +00:00",
+        "epp_codes": [
+          "client delete prohibited",
+          "client renew prohibited",
+          "client transfer prohibited",
+          "client update prohibited"
+        ],
+        "action": "MONITOR",
+        "max_bid": 200,
+        "notes": "Sprint 39 discovery. SourceLabs. Score 68.9.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       }
     ],
     "medium": [
@@ -438,78 +1714,192 @@
         "domain": "imageeditor.net",
         "etv": 246,
         "max_bid": 200,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
-        "expiry_date": "",
+        "expiry_date": "2026-09-20T00:00:00Z",
         "epp_statuses": [],
-        "drop_est": "",
-        "notes": "clientRenewProhibited, Nov 2026"
+        "drop_est": "2026-09-20",
+        "notes": "clientRenewProhibited. CORRECTED: Sep 2026 (was Nov 2026). Sprint 34 RDAP confirmed.",
+        "competition_tier": "MINIMAL",
+        "expected_auction_price": "$5-$50",
+        "budget_status": "OVER_BUDGETED",
+        "recommended_strategy": "DYNADOT_BACKORDER"
       },
       {
         "domain": "bestdevtools.com",
         "etv": 0,
-        "max_bid": 59,
-        "reaper_score": 0.0,
-        "registrar": "unknown",
-        "expiry_date": "",
-        "epp_statuses": [],
+        "max_bid": 0,
+        "reaper_score": 0,
+        "registrar": "1API GmbH",
+        "expiry_date": "2027-05-22T13:55:23Z",
+        "epp_statuses": [
+          "client transfer prohibited"
+        ],
         "drop_est": "",
-        "notes": "DNS DEAD, May 22"
-      },
-      {
-        "domain": "taskplanner.com",
-        "etv": 0,
-        "max_bid": 59,
-        "reaper_score": 0.0,
-        "registrar": "unknown",
-        "expiry_date": "",
-        "epp_statuses": [],
-        "drop_est": "",
-        "notes": "clientRenewProhibited, May 27"
+        "action": "DEAD",
+        "notes": "RENEWED May 17 2026. Expiry pushed to 2027-05-22. RDAP confirmed 2026-05-19. REMOVE FROM PIPELINE."
       },
       {
         "domain": "codehelper.com",
         "etv": 0,
         "max_bid": 59,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "clientRenewProhibited, Jul 17"
+        "notes": "clientRenewProhibited, Jul 17",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "codeanalyzer.com",
         "etv": 0,
         "max_bid": 59,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "clientRenewProhibited, Jul 20"
+        "notes": "clientRenewProhibited, Jul 20",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "fileconverter.com",
         "etv": 0,
         "max_bid": 59,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "clientRenewProhibited, Jun 20"
+        "notes": "clientRenewProhibited, Jun 20",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
       },
       {
         "domain": "cookingtool.com",
         "etv": 0,
         "max_bid": 59,
-        "reaper_score": 0.0,
+        "reaper_score": 0,
         "registrar": "unknown",
         "expiry_date": "",
         "epp_statuses": [],
         "drop_est": "",
-        "notes": "clientRenewProhibited, Jul 17"
+        "notes": "clientRenewProhibited, Jul 17",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "hyrecar.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 27.9,
+        "registrar": "unknown",
+        "expiry_date": "2026-06-23T00:00:00Z",
+        "epp_statuses": [
+          "client transfer prohibited"
+        ],
+        "drop_est": "2026-06-23",
+        "notes": "HyreCar, $50M funded. Sprint 35 addition. Expires Jun 23. clientTransferProhibited (locked, no drop signal yet). Monitor.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$2K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
+      },
+      {
+        "domain": "appiabio.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 30.6,
+        "registrar": "unknown",
+        "expiry_date": "2026-07-01T00:00:00Z",
+        "epp_statuses": [
+          "client renew prohibited"
+        ],
+        "drop_est": "2026-07-01",
+        "notes": "Appia Bio, $52M funded. Sprint 35 addition. Expires Jul 1. clientRenewProhibited = WILL DROP. Backorder candidate.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "tritiumcharging.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 33.1,
+        "registrar": "unknown",
+        "expiry_date": "2026-07-11T00:00:00Z",
+        "epp_statuses": [
+          "client transfer prohibited"
+        ],
+        "drop_est": "2026-07-11",
+        "notes": "Tritium, $200M funded EV charging. Sprint 35 addition. Expires Jul 11. clientTransferProhibited. Long compound domain.",
+        "competition_tier": "LOW",
+        "expected_auction_price": "$12-$100",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "CLOSEOUT_WATCH"
+      },
+      {
+        "domain": "aspirefg.com",
+        "etv": 0,
+        "max_bid": 59,
+        "reaper_score": 28.6,
+        "registrar": "unknown",
+        "expiry_date": "2026-07-06T00:00:00Z",
+        "epp_statuses": [
+          "client renew prohibited"
+        ],
+        "drop_est": "2026-07-06",
+        "notes": "Aspire Food Group, $42M funded. Sprint 35 addition. Expires Jul 6. clientRenewProhibited = WILL DROP.",
+        "competition_tier": "MODERATE",
+        "expected_auction_price": "$50-$500",
+        "budget_status": "ADEQUATE",
+        "recommended_strategy": "PROXY_BID_AT_5MIN"
+      },
+      {
+        "domain": "beepi.com",
+        "etv": 0,
+        "max_bid": 100,
+        "reaper_score": 36.5,
+        "registrar": "unknown",
+        "expiry_date": "2026-08-25T00:00:00Z",
+        "epp_statuses": [
+          "client renew prohibited"
+        ],
+        "drop_est": "2026-08-25",
+        "notes": "Beepi, $148M funded used car marketplace. Sprint 35 addition. Expires Aug 25. clientRenewProhibited. 5-letter brandable .com.",
+        "competition_tier": "EXTREME",
+        "expected_auction_price": "$2K-$20K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "BACKORDER_ONLY"
+      },
+      {
+        "domain": "proterra.com",
+        "etv": 0,
+        "max_bid": 100,
+        "reaper_score": 32.2,
+        "registrar": "unknown",
+        "expiry_date": "2026-08-09T00:00:00Z",
+        "epp_statuses": [
+          "client transfer prohibited"
+        ],
+        "drop_est": "2026-08-09",
+        "notes": "Proterra, $1B funded EV bus maker (Chapter 11 2023). Sprint 35 addition. Expires Aug 9. clientTransferProhibited.",
+        "competition_tier": "HIGH",
+        "expected_auction_price": "$200-$5K",
+        "budget_status": "UNDER_BUDGETED",
+        "recommended_strategy": "PROXY_BID_OR_BACKORDER"
       }
     ],
     "low": []
@@ -519,19 +1909,27 @@
       "domain": "arrival.com",
       "classification": "MAYBE",
       "reason": "Active (Name.com), expiry 2026-12-03. Company dead (NASDAQ delisted). Origin connection timeout = server down. Premium one-word .com. Reaper 77.0. Watch for clientRenewProhibited transition.",
-      "reaper_score": 77.0,
+      "reaper_score": 77,
       "registrar": "Name.com, Inc.",
       "expiry_date": "2026-12-03T19:44:47Z",
-      "notes": "Arrival, $1.0B funded, reaper=77.0, dry_run, expires "
+      "notes": "Arrival, $1.0B funded, reaper=77.0, dry_run, expires ",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$500-$10K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "mindstrong.com",
-      "classification": "MAYBE",
-      "reason": "Expiry 2027-02-08 (9mo). No drop signal yet. Watch for transition.",
-      "reaper_score": 63.0,
+      "classification": "CONFIRMED_ACTIVE",
+      "reason": "Sprint 35 RDAP: WHOIS updated 2026-05-15. Domain on Cloudflare (104.18.x). Expired SSL but actively held. SonderMind acquired tech assets Mar 2023. Expires 2027-02-08. NOT DROPPING.",
+      "reaper_score": 63,
       "registrar": "Amazon Registrar, Inc.",
       "expiry_date": "2027-02-08T00:32:59Z",
-      "notes": "Mindstrong, $160M funded, reaper=63.0, dry_run, HTTP redirects to HTTPS but HTTPS doesn't resolve = SSL expired/broken. Domain r"
+      "notes": "REMOVED FROM WATCH Sprint 35. WHOIS updated May 15 2026. clientTransferProhibited = recently locked after transfer. Domain investor or SonderMind holds it.",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "pandion.com",
@@ -540,7 +1938,11 @@
       "reaper_score": 62.8,
       "registrar": "Cloudflare, Inc.",
       "expiry_date": "2027-03-22T04:00:00Z",
-      "notes": "Pandion, $125M funded, reaper=62.8, dry_run, HTTPS times out but HTTP returns 301 via nginx. Domain registered on Cloudflare,"
+      "notes": "Pandion, $125M funded, reaper=62.8, dry_run, HTTPS times out but HTTP returns 301 via nginx. Domain registered on Cloudflare,",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$200-$5K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "cushion.ai",
@@ -549,7 +1951,11 @@
       "reaper_score": 61.2,
       "registrar": "101domain GRS Limited",
       "expiry_date": "2026-10-28T02:11:52Z",
-      "notes": "Cushion, $21M funded, reaper=61.2, dry_run, Redirects to www.cushion.ai. May have been acquired by Lending Club. Domain appe"
+      "notes": "Cushion, $21M funded, reaper=61.2, dry_run, Redirects to www.cushion.ai. May have been acquired by Lending Club. Domain appe",
+      "competition_tier": "MINIMAL",
+      "expected_auction_price": "$5-$50",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "DYNADOT_BACKORDER"
     },
     {
       "domain": "maas.global",
@@ -558,25 +1964,37 @@
       "reaper_score": 54.2,
       "registrar": "Gandi SAS",
       "expiry_date": "2027-03-01T19:49:31.24Z",
-      "notes": "MaaS Global (Whim), $162M funded, reaper=54.2, dry_run, Domain completely unresolvable. Toyota, Mitsubishi, BP Ventures backed. Finnish "
+      "notes": "MaaS Global (Whim), $162M funded, reaper=54.2, dry_run, Domain completely unresolvable. Toyota, Mitsubishi, BP Ventures backed. Finnish ",
+      "competition_tier": "MINIMAL",
+      "expected_auction_price": "$5-$50",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "DYNADOT_BACKORDER"
     },
     {
       "domain": "universalhydrogen.com",
       "classification": "MAYBE",
       "reason": "Expiry 2027-02-16 (9mo). No drop signal yet. Watch for transition.",
-      "reaper_score": 54.0,
+      "reaper_score": 54,
       "registrar": "Name.com, Inc.",
       "expiry_date": "2027-02-16T20:36:58Z",
-      "notes": "Universal Hydrogen, $100M funded, reaper=54.0, dry_run, Shows parking page (Parking/1.0 server). Domain parked but registered through Fe"
+      "notes": "Universal Hydrogen, $100M funded, reaper=54.0, dry_run, Shows parking page (Parking/1.0 server). Domain parked but registered through Fe",
+      "competition_tier": "LOW",
+      "expected_auction_price": "$12-$100",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "CLOSEOUT_WATCH"
     },
     {
       "domain": "eaze.com",
-      "classification": "MAYBE",
-      "reason": "Expiry 2026-12-12 (7mo). No drop signal yet. Watch for transition.",
+      "classification": "CONFIRMED_ACTIVE",
+      "reason": "Sprint 35 RDAP: WHOIS updated 2026-05-14. Jim Clark (Netscape) bought assets for $56M Aug 2024. New Eaze Inc launched Jan 2025 with 1,100 employees, 57+ stores. LIVE BUSINESS. NOT DROPPING.",
       "reaper_score": 49.7,
       "registrar": "Amazon Registrar, Inc.",
       "expiry_date": "2026-12-12T05:00:00Z",
-      "notes": "Eaze, $250M funded, reaper=49.7, dry_run, Shows Cloudflare challenge page = active but protected. Reopened under new owner"
+      "notes": "REMOVED FROM WATCH Sprint 35. Live cannabis delivery business. AWS Route 53 nameservers. CloudFront CDN. Will be renewed.",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$5K-$50K+",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "ubiquitousenergy.com",
@@ -585,43 +2003,51 @@
       "reaper_score": 42.1,
       "registrar": "Moniker Online Services LLC",
       "expiry_date": "2026-12-19T18:48:39Z",
-      "notes": "Ubiquitous Energy, $70M funded, reaper=42.1, dry_run, HTTP returns 405 Method Not Allowed = likely parked. On Moniker registrar. Expir"
+      "notes": "Ubiquitous Energy, $70M funded, reaper=42.1, dry_run, HTTP returns 405 Method Not Allowed = likely parked. On Moniker registrar. Expir",
+      "competition_tier": "LOW",
+      "expected_auction_price": "$12-$100",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "CLOSEOUT_WATCH"
     },
     {
       "domain": "codeparrot.ai",
       "classification": "MAYBE",
       "reason": "No RDAP data available. Manual check required.",
-      "reaper_score": 0.0,
+      "reaper_score": 0,
       "registrar": "unknown",
       "expiry_date": "",
-      "notes": "Dead AI startup, Dec 2026"
-    },
-    {
-      "domain": "canoo.com",
-      "classification": "MAYBE",
-      "reason": "No RDAP data available. Manual check required.",
-      "reaper_score": 0.0,
-      "registrar": "unknown",
-      "expiry_date": "",
-      "notes": "Chapter 7, monitor only"
+      "notes": "Dead AI startup, Dec 2026",
+      "competition_tier": "MINIMAL",
+      "expected_auction_price": "$5-$50",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "DYNADOT_BACKORDER"
     },
     {
       "domain": "quibi.com",
       "classification": "MAYBE",
       "reason": "No RDAP data available. Manual check required.",
-      "reaper_score": 0.0,
+      "reaper_score": 0,
       "registrar": "unknown",
       "expiry_date": "",
-      "notes": "$1.75B startup, monitor only"
+      "notes": "$1.75B startup, monitor only",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$5K-$50K+",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "recroom.com",
       "classification": "MAYBE",
-      "reason": "No RDAP data available. Manual check required.",
-      "reaper_score": 0.0,
-      "registrar": "unknown",
-      "expiry_date": "",
-      "notes": "Expires 2029, NOT dropping"
+      "reason": "CONFIRMED DEAD Jun 1, 2026. $294M funded, 150M+ users, $3.5B peak valuation. 24yr domain. But registered to 2029 at Squarespace with clientDeleteProhibited. Asset liquidation possible.",
+      "reaper_score": 0,
+      "registrar": "Squarespace Domains II LLC",
+      "expiry_date": "2029-11-28T07:12:01Z",
+      "epp_statuses": ["client delete prohibited", "client transfer prohibited"],
+      "notes": "UPDATED 2026-05-20: Servers shut down Jun 1. Creator rewards stopped May 18. Domain is most valuable remaining asset ($25K-$100K). Watch for asset liquidation announcements. NO REGISTRAR DROP until 2029.",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$25K-$100K (private sale)",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "MONITOR_ASSET_SALE"
     },
     {
       "domain": "irl.com",
@@ -630,16 +2056,24 @@
       "reaper_score": 75.5,
       "registrar": "MarkMonitor Inc.",
       "expiry_date": "2027-05-11T04:00:00Z",
-      "notes": "IRL, $200M funded, reaper=75.5, dry_run, expires "
+      "notes": "IRL, $200M funded, reaper=75.5, dry_run, expires ",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$10K-$100K+",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "convoy.com",
       "classification": "UNCATCHABLE",
       "reason": "SafeNames registrar + 6 lock statuses incl. 3 server-side. Registered through 2028-10. Assets acquired by Flexport.",
-      "reaper_score": 73.0,
+      "reaper_score": 73,
       "registrar": "SafeNames Ltd.",
       "expiry_date": "2028-10-31T10:36:20Z",
-      "notes": "Convoy, $1000M funded, reaper=73.0, dry_run, Active site on Cloudflare. Assets acquired by Flexport for $16M. Bezos and Gates"
+      "notes": "Convoy, $1000M funded, reaper=73.0, dry_run, Active site on Cloudflare. Assets acquired by Flexport for $16M. Bezos and Gates",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$500-$10K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "stenn.com",
@@ -648,7 +2082,11 @@
       "reaper_score": 69.8,
       "registrar": "NameCheap, Inc.",
       "expiry_date": "2027-04-27T03:50:29Z",
-      "notes": "Stenn, $700M funded, reaper=69.8, dry_run, Website still active. In administration with legal proceedings. Domain likely pa"
+      "notes": "Stenn, $700M funded, reaper=69.8, dry_run, Website still active. In administration with legal proceedings. Domain likely pa",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$2K-$20K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "easyknock.com",
@@ -657,16 +2095,24 @@
       "reaper_score": 68.5,
       "registrar": "Cloudflare, Inc.",
       "expiry_date": "2028-01-12T19:07:55Z",
-      "notes": "EasyKnock, $455M funded, reaper=68.5, dry_run, Shows Google-hosted static page. Domain on Cloudflare, registered through 2028. "
+      "notes": "EasyKnock, $455M funded, reaper=68.5, dry_run, Shows Google-hosted static page. Domain on Cloudflare, registered through 2028. ",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "zume.com",
       "classification": "UNCATCHABLE",
       "reason": "No drop signals. Registrar: Network Solutions, LLC. Registered with no clear path to catch.",
-      "reaper_score": 66.0,
+      "reaper_score": 66,
       "registrar": "Network Solutions, LLC",
       "expiry_date": "2027-05-28T18:19:47Z",
-      "notes": "Zume, $445M funded, reaper=66.0, dry_run, Shows Wix 404 error page with noindex. Domain on Wix but no site configured = ab"
+      "notes": "Zume, $445M funded, reaper=66.0, dry_run, Shows Wix 404 error page with noindex. Domain on Wix but no site configured = ab",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$5K-$50K+",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "synapsefi.com",
@@ -675,7 +2121,11 @@
       "reaper_score": 65.2,
       "registrar": "NameCheap, Inc.",
       "expiry_date": "2032-10-07T02:04:04Z",
-      "notes": "Synapse Financial, $50M funded, reaper=65.2, dry_run, Domain does not resolve at all (no HTTP/HTTPS response). Registered through 2032"
+      "notes": "Synapse Financial, $50M funded, reaper=65.2, dry_run, Domain does not resolve at all (no HTTP/HTTPS response). Registered through 2032",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "hermd.com",
@@ -684,25 +2134,37 @@
       "reaper_score": 62.5,
       "registrar": "GoDaddy.com, LLC",
       "expiry_date": "2027-03-07T20:35:30Z",
-      "notes": "HerMD, $36M funded, reaper=62.5, dry_run, Active website. Acquired and relaunched as virtual-only platform."
+      "notes": "HerMD, $36M funded, reaper=62.5. Sprint 34: clientRenewProhibited CONFIRMED despite UNCATCHABLE. RE-EVALUATE if site goes down.",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$2K-$20K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "bench.co",
       "classification": "UNCATCHABLE",
       "reason": "Acquired by Employer.com. Active business under new ownership. RDAP 404 = .co ccTLD RDAP limitation, NOT availability.",
-      "reaper_score": 60.0,
+      "reaper_score": 60,
       "registrar": "unknown",
       "expiry_date": "",
-      "notes": "Bench, $113M funded, reaper=60.0, dry_run, Acquired by Employer.com. Active website serving customers under new ownership."
+      "notes": "Bench, $113M funded, reaper=60.0, dry_run, Acquired by Employer.com. Active website serving customers under new ownership.",
+      "competition_tier": "MINIMAL",
+      "expected_auction_price": "$5-$50",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "DYNADOT_BACKORDER"
     },
     {
       "domain": "moxionpower.com",
       "classification": "UNCATCHABLE",
       "reason": "Assets acquired (redirects to viridiparente.com). Registered through 2032-11. Domain controlled by acquirer.",
-      "reaper_score": 60.0,
+      "reaper_score": 60,
       "registrar": "Squarespace Domains II LLC",
       "expiry_date": "2032-11-27T00:39:28Z",
-      "notes": "Moxion Power, $110M funded, reaper=60.0, dry_run, Redirects to viridiparente.com/moxion-inquire/ = assets acquired. Domain control"
+      "notes": "Moxion Power, $110M funded, reaper=60.0, dry_run, Redirects to viridiparente.com/moxion-inquire/ = assets acquired. Domain control",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "tally.co",
@@ -711,7 +2173,11 @@
       "reaper_score": 59.8,
       "registrar": "unknown",
       "expiry_date": "",
-      "notes": "Tally, $172M funded, reaper=59.8, dry_run, tally.co redirects to www.tally.co which appears to be a different company (form"
+      "notes": "Tally, $172M funded, reaper=59.8, dry_run, tally.co redirects to www.tally.co which appears to be a different company (form",
+      "competition_tier": "MINIMAL",
+      "expected_auction_price": "$5-$50",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "DYNADOT_BACKORDER"
     },
     {
       "domain": "capway.com",
@@ -720,7 +2186,11 @@
       "reaper_score": 57.8,
       "registrar": "Domain.com - Network Solutions, LLC",
       "expiry_date": "2027-12-15T05:00:00Z",
-      "notes": "CapWay, $800000 funded, reaper=57.8, dry_run, Shows shutdown/thank you page. Only raised $800K so lower DR estimate. YC Summer"
+      "notes": "CapWay, $800000 funded, reaper=57.8, dry_run, Shows shutdown/thank you page. Only raised $800K so lower DR estimate. YC Summer",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$200-$2K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "humane.com",
@@ -729,7 +2199,11 @@
       "reaper_score": 56.5,
       "registrar": "NameCheap, Inc.",
       "expiry_date": "2032-09-19T04:00:00Z",
-      "notes": "Humane, $241M funded, reaper=56.5, dry_run, expires "
+      "notes": "Humane, $241M funded, reaper=56.5, dry_run, expires ",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$500-$10K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "allplants.com",
@@ -738,7 +2212,11 @@
       "reaper_score": 52.2,
       "registrar": "unknown",
       "expiry_date": "",
-      "notes": "Allplants, $81M funded, reaper=52.2, dry_run, Acquired by Ella Mills in Feb 2025. Active website."
+      "notes": "Allplants, $81M funded, reaper=52.2, dry_run, Acquired by Ella Mills in Feb 2025. Active website.",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "wyre.com",
@@ -747,16 +2225,24 @@
       "reaper_score": 51.8,
       "registrar": "GKG.Net, Inc.",
       "expiry_date": "2027-05-21T04:00:00Z",
-      "notes": "Wyre, $50M funded, reaper=51.8, dry_run, Shows private for-sale message: starting bid is $500,000. Premium 4-letter .co"
+      "notes": "Wyre, $50M funded, reaper=51.8, dry_run, Shows private for-sale message: starting bid is $500,000. Premium 4-letter .co",
+      "competition_tier": "EXTREME",
+      "expected_auction_price": "$5K-$50K+",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "BACKORDER_ONLY"
     },
     {
       "domain": "plastiq.com",
       "classification": "UNCATCHABLE",
       "reason": "Acquired by Priority Technology Holdings. Active WordPress site under new ownership.",
-      "reaper_score": 50.0,
+      "reaper_score": 50,
       "registrar": "GoDaddy.com, LLC",
       "expiry_date": "2027-03-16T21:10:44Z",
-      "notes": "Plastiq, $220M funded, reaper=50.0, dry_run, Active WordPress site. Acquired by Priority Technology Holdings. Domain in use."
+      "notes": "Plastiq, $220M funded, reaper=50.0. Sprint 34: clientRenewProhibited CONFIRMED despite UNCATCHABLE. RE-EVALUATE if site goes down.",
+      "competition_tier": "HIGH",
+      "expected_auction_price": "$200-$5K",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_OR_BACKORDER"
     },
     {
       "domain": "themessenger.com",
@@ -765,7 +2251,11 @@
       "reaper_score": 36.2,
       "registrar": "GoDaddy.com, LLC",
       "expiry_date": "2033-01-11T23:32:37Z",
-      "notes": "The Messenger, $50M funded, reaper=36.2, dry_run, Shows static shutdown page. Domain registered through 2033 = not expiring soon. "
+      "notes": "The Messenger, $50M funded, reaper=36.2, dry_run, Shows static shutdown page. Domain registered through 2033 = not expiring soon. ",
+      "competition_tier": "MODERATE",
+      "expected_auction_price": "$50-$500",
+      "budget_status": "UNDER_BUDGETED",
+      "recommended_strategy": "PROXY_BID_AT_5MIN"
     },
     {
       "domain": "boweryfarming.com",
@@ -775,12 +2265,58 @@
       "registrar": "Spaceship, Inc.",
       "expiry_date": "2027-08-02T18:27:26Z",
       "notes": "Bowery Farming, $700M funded, reaper=71.5, dry_run, expires "
+    },
+    {
+      "domain": "spirit.com",
+      "classification": "BANKRUPTCY_AUCTION",
+      "reason": "Spirit Airlines ceased ops May 2, 2026. Chapter 7 wind-down. 32yr dictionary .com ($500K-$2M). Will sell via bankruptcy court, NOT registrar drop. PACER monitoring.",
+      "reaper_score": 0,
+      "registrar": "GoDaddy.com, LLC",
+      "expiry_date": "2029-03-21T04:00:00Z",
+      "epp_statuses": ["client delete prohibited", "client renew prohibited", "client transfer prohibited", "client update prohibited"],
+      "notes": "NEW 2026-05-20: Ultra-premium 32yr dictionary .com. Redirects to spiritrestructuring.com. $4B peak market cap. Astronomical airline/travel backlinks. WAY over budget. Monitor bankruptcy filings only.",
+      "added": "2026-05-20",
+      "source": "startup_reaper_day3"
+    },
+    {
+      "domain": "getdelve.com",
+      "classification": "MAYBE",
+      "reason": "Delve $32M YC W23, expelled from YC Apr 3 2026 (fake SOC 2 audits). Expires Dec 2026 at NameCheap. get-prefix lowers value ($500-$3K). Scandal backlinks from TechCrunch.",
+      "reaper_score": 0,
+      "registrar": "NameCheap, Inc.",
+      "expiry_date": "2026-12-06T20:19:45Z",
+      "epp_statuses": ["client transfer prohibited"],
+      "notes": "NEW 2026-05-20: Low value but cheap catch. If company dies, drop ~Mar 2027. Scandal press backlinks for SEO arbitrage.",
+      "added": "2026-05-20",
+      "source": "startup_reaper_day3",
+      "funding_usd": 32000000,
+      "sector": "Compliance SaaS"
     }
   ],
   "summary": {
-    "total_domains": 67,
-    "catchable": 38,
-    "watch_list_count": 29,
-    "generated_at": "2026-05-15T00:00:00+00:00"
-  }
+    "total_domains": 76,
+    "catchable": 46,
+    "watch_list_count": 31,
+    "generated_at": "2026-05-20T00:00:00+00:00",
+    "sprint_41_changes": "Added streamelements.com(HIGH, $111M dying, Oct 2026 expiry), spirit.com(WATCH, bankruptcy auction $500K+), getdelve.com(WATCH, $32M YC expelled). Upgraded fiskerinc.com notes (Under Maintenance confirmed). Updated recroom.com RDAP (Squarespace, 2029 expiry, confirmed dead Jun 1). Killed swaptree.com ($50K Afternic) + jokr.com (active company).",
+    "sprint_34_changes": "Added decoder.com(CRIT), taskplanner.com(CRIT), bside.com(CRIT), jokr.com(HIGH), fileshare.com(HIGH), canoo.com(HIGH). Promoted canoo from watch. Corrected imageeditor.net date. hermd+plastiq clientRenewProhibited confirmed.",
+    "sprint_36_changes": "7 backlink profiles verified via DataForSEO. UPGRADES: bside.com -> TOP TARGET (27,345 bl, 3,123 RD, .edu links Hopkins/UCLA/Ball State, DR 40-60+). globalgeopark.org -> BEST $10.99 CATCH (28,557 bl, 1,173 RD, Wikipedia+.gov.uk+PubMed, DR 40-55). ghostautonomy.com -> CONFIRMED #1 CLOSEOUT (2,029 RD, 3.7x estimate, DR 30-50). DOWNGRADES: decoder.com -> SKIP AUCTION (max_bid $500 not competitive, expected $5K-$100K). taskplanner.com -> keyword-only (39 bl, 36 RD, zero authority). fileshare.com -> thin despite premium keyword (124 bl, 51 RD). post_catch_playbooks.json created.",
+    "priority_tiers_sprint36": {
+      "tier_s_top_targets": [
+        "bside.com",
+        "globalgeopark.org"
+      ],
+      "tier_a_confirmed": [
+        "ghostautonomy.com"
+      ],
+      "tier_b_keyword_plays": [
+        "taskplanner.com",
+        "fileshare.com"
+      ],
+      "monitor_only": [
+        "decoder.com"
+      ]
+    }
+  },
+  "last_updated": "2026-05-20 12:00 UTC"
 }

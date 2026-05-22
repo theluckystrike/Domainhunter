@@ -42,6 +42,7 @@ if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 import structlog
+from clients.ntfy_client import send_domain_alert as ntfy_domain_alert
 
 # ── Constants ─────────────────────────────────────────────────────────
 INVENTORY_BASE_URL: Final[str] = "https://inventory.auctions.godaddy.com/"
@@ -660,6 +661,16 @@ def send_alert(result: MonitorResult) -> None:
         )
         priority = "critical"
         dispatch_alert(subject, body, priority=priority)
+
+        # ntfy: direct mobile push for every inventory match
+        ntfy_domain_alert(
+            domain=domain,
+            event=f"GoDaddy {source} MATCH",
+            urgency=f"Bids: {listing.get('bid_count', 0)} | Ends: {listing.get('end_time', 'N/A')[:10]}",
+            tier="critical",
+            price=price,
+            action_url=action_url,
+        )
 
     # Legacy Slack webhook (kept for backward compatibility)
     webhook_url = os.environ.get("DOMAIN_HUNTER_SLACK_WEBHOOK")

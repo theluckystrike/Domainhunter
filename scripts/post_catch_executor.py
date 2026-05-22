@@ -183,7 +183,7 @@ def _step_dns_namebright(domain: str, landing_ip: str, dry_run: bool) -> str:
         from config.settings import Settings
         settings = Settings()
         client_id = settings.dropcatch_client_id
-        client_secret = settings.dropcatch_client_secret
+        client_secret = settings.dropcatch_api_secret
         if not client_id or not client_secret:
             return "ERROR: No DropCatch/NameBright credentials. Set DNS manually."
 

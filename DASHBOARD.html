@@ -2,554 +2,1869 @@
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>REVENANT Command Center</title>
-<style>:root {
+<style>
+:root {
   --bg: #0a0e17; --bg2: #111827; --bg3: #1e293b; --border: #334155;
   --text: #e2e8f0; --dim: #94a3b8; --accent: #38bdf8;
   --green: #4ade80; --red: #f87171; --orange: #fb923c;
   --yellow: #facc15; --purple: #a78bfa; --cyan: #22d3ee; --pink: #f472b6;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
 body { background: var(--bg); color: var(--text); font-family: 'SF Mono','Fira Code','Cascadia Code',monospace; font-size: 13px; line-height: 1.6; }
 a { color: var(--accent); text-decoration: none; }
 .header { background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #16213e 100%); border-bottom: 2px solid var(--accent); padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; }
 .header h1 { font-size: 24px; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; }
 .header .meta { color: var(--dim); font-size: 12px; text-align: right; }
 .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-.hero-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
-.fin-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.hero-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; align-items: stretch; }
+.fin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
 .tab-bar { display: flex; gap: 4px; margin-bottom: 20px; flex-wrap: wrap; }
 .tab-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--dim); padding: 8px 16px; cursor: pointer; border-radius: 4px 4px 0 0; font-family: inherit; font-size: 12px; transition: all 0.2s; }
 .tab-btn:hover { color: var(--text); border-color: var(--accent); }
 .tab-btn.active { background: var(--bg2); color: var(--accent); border-color: var(--accent); border-bottom-color: var(--bg2); }
 .panel { display: none; }
 .panel.active { display: block; }
-.panel.active .panel { display: block; }
-.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
-.stat-label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-.stat-value { font-size: 28px; font-weight: 700; }
-.stat-sub { font-size: 11px; color: var(--dim); margin-top: 6px; }
-.fin-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 14px; text-align: center; }
-.fin-label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; }
-.fin-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 110px; }
+.stat-label { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+.stat-value { font-size: 28px; font-weight: 700; line-height: 1.1; }
+.stat-sub { font-size: 10px; color: var(--dim); margin-top: 6px; line-height: 1.3; }
+.fin-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 12px; text-align: center; overflow: hidden; }
+.fin-label { font-size: 10px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; }
+.fin-value { font-size: 20px; font-weight: 700; margin-top: 4px; word-break: break-word; }
 section.panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 16px; }
 section.panel h2 { font-size: 16px; color: var(--accent); margin-bottom: 16px; letter-spacing: 1px; }
 section.panel h3 { font-size: 14px; color: var(--text); margin: 16px 0 10px; }
-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
-th { text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 12px; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 12px; table-layout: auto; }
+th { text-align: left; padding: 6px 8px; border-bottom: 2px solid var(--border); color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: default; white-space: nowrap; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--accent); }
+th.sorted-asc::after { content: ' ▲'; color: var(--accent); }
+th.sorted-desc::after { content: ' ▼'; color: var(--accent); }
+td { padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 12px; word-break: break-word; }
+td.nowrap { white-space: nowrap; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.col-detail { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.col-action { max-width: 280px; }
+.col-action .action-detail { display: block; font-size: 11px; color: var(--dim); max-height: 2.4em; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; margin-top: 2px; }
 tr:hover { background: rgba(56,189,248,0.05); }
+tr.tier-critical td { border-left: 3px solid var(--red); }
+tr.tier-high td { border-left: 3px solid var(--orange); }
+tr.tier-medium td { border-left: 3px solid var(--yellow); }
+tr.tier-watch td { border-left: 3px solid var(--dim); }
+tr.tier-dead td { border-left: 3px solid var(--border); opacity: 0.5; }
 .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
 .badge-green { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid var(--green); }
 .badge-red { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid var(--red); }
 .badge-yellow { background: rgba(250,204,21,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
 .badge-orange { background: rgba(251,146,60,0.15); color: var(--orange); border: 1px solid var(--orange); }
 .badge-dim { background: rgba(148,163,184,0.1); color: var(--dim); border: 1px solid var(--border); }
+.badge-cyan { background: rgba(34,211,238,0.15); color: var(--cyan); border: 1px solid var(--cyan); }
+.badge-purple { background: rgba(167,139,250,0.15); color: var(--purple); border: 1px solid var(--purple); }
 .alert { padding: 10px 16px; border-radius: 6px; margin-bottom: 8px; font-size: 12px; }
 .alert-red { background: rgba(248,113,113,0.1); border-left: 3px solid var(--red); color: var(--red); }
 .alert-yellow { background: rgba(250,204,21,0.1); border-left: 3px solid var(--yellow); color: var(--yellow); }
 .alert-green { background: rgba(74,222,128,0.1); border-left: 3px solid var(--green); color: var(--green); }
 .alert-cyan { background: rgba(34,211,238,0.1); border-left: 3px solid var(--cyan); color: var(--cyan); }
+.alert-orange { background: rgba(251,146,60,0.1); border-left: 3px solid var(--orange); color: var(--orange); }
 .red { color: var(--red); } .green { color: var(--green); } .yellow { color: var(--yellow); }
 .orange { color: var(--orange); } .cyan { color: var(--cyan); } .accent { color: var(--accent); }
-.dim { color: var(--dim); }
-.funnel { margin: 16px 0; }
+.dim { color: var(--dim); } .purple { color: var(--purple); }
+.filter-bar { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.filter-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--dim); padding: 4px 12px; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 11px; transition: all 0.2s; }
+.filter-btn:hover { color: var(--text); border-color: var(--accent); }
+.filter-btn.active { background: rgba(56,189,248,0.15); color: var(--accent); border-color: var(--accent); }
 .funnel-stage { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-.funnel-bar { background: linear-gradient(90deg, var(--accent), var(--cyan)); height: 24px; border-radius: 4px; min-width: 4px; transition: width 0.5s; }
-.funnel-bar.whale { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+.funnel-bar { height: 24px; border-radius: 4px; min-width: 4px; transition: width 0.5s; }
 .funnel-stage span { font-size: 12px; white-space: nowrap; }
-tr.whale td { background: rgba(251,146,60,0.08); }
-tr.urgency-red td { border-left: 3px solid var(--red); }
-tr.urgency-yellow td { border-left: 3px solid var(--yellow); }
-tr.urgency-green td { border-left: 3px solid var(--green); }
-.timeline { position: relative; padding-left: 24px; margin: 16px 0; }
-.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border); }
-.timeline-item { position: relative; margin-bottom: 14px; }
-.timeline-item::before { content: ''; position: absolute; left: -20px; top: 6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
-.timeline-item.complete::before { background: var(--green); border-color: var(--green); }
-.timeline-item.current::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 8px var(--accent); }
-.timeline-item .sprint-label { color: var(--accent); font-weight: bold; font-size: 13px; }
-.timeline-item .sprint-desc { color: var(--dim); font-size: 12px; margin-top: 2px; }</style>
+.no-data { padding: 40px; text-align: center; color: var(--dim); font-style: italic; }
+.edge-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 16px; }
+.edge-card .stat-label { margin-bottom: 8px; }
+.edge-card p { font-size: 13px; margin: 0; }
+footer { text-align: center; padding: 20px; color: var(--dim); font-size: 11px; border-top: 1px solid var(--border); margin-top: 20px; }
+@media (max-width: 900px) {
+  .hero-grid, .fin-grid { grid-template-columns: repeat(2, 1fr); }
+  .two-col, .three-col { grid-template-columns: 1fr; }
+}
+</style>
 </head><body>
+
 <div class="header">
   <h1>REVENANT</h1>
-  <div class="meta">Command Center<br>2026-05-17 | Sprint 33 | <span style="color:#4ade80;font-weight:bold">MONITORING MODE</span><br>Domain Hunter v5.4 | <a href="PIPELINE-IMPROVEMENT-DASHBOARD.html" style="color:#38bdf8">Pipeline Dashboard &rarr;</a></div>
+  <div class="meta" id="header-meta">Command Center<br>Loading...</div>
 </div>
+
 <div class="container">
-<div class="hero-grid">
-  <div class="stat-card">
-    <div class="stat-label">PIPELINE STATUS</div>
-    <div class="stat-value green">HEALTHY</div>
-    <div class="stat-sub">Sprint 33 | MONITORING MODE | NameBright + DropCatch + GoDaddy: ALL LIVE + FUNDED</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">BUDGET REMAINING</div>
-    <div class="stat-value accent">$343.04</div>
-    <div class="stat-sub">57.2% of $600 &bull; 5 domains &bull; $256.96 deployed &bull; NB: $121.25 &bull; DY: $78.24</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">DOMAINS OWNED</div>
-    <div class="stat-value cyan">5</div>
-    <div class="stat-sub">31 sprints &bull; 2 listed (Afternic + Dan.com) &bull; 41 available</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">KAGGLE VALIDATED</div>
-    <div class="stat-value orange">41</div>
-    <div class="stat-sub">43 confirmed &rarr; 2 ACQUIRED &rarr; 41 remaining &bull; 25 on watch</div>
-  </div>
+<div id="hero-cards" class="hero-grid"></div>
+<div class="tab-bar" id="tabbar">
+  <button class="tab-btn" data-tab="overview">Overview</button>
+  <button class="tab-btn" data-tab="pipeline">Pipeline</button>
+  <button class="tab-btn" data-tab="portfolio">Portfolio</button>
+  <button class="tab-btn" data-tab="buynow">BUY NOW</button>
+  <button class="tab-btn" data-tab="competition">Competition</button>
+  <button class="tab-btn" data-tab="financials">Financials</button>
+  <button class="tab-btn" data-tab="lessons">Lessons &amp; Strategy</button>
+  <button class="tab-btn" data-tab="strategy">Strategy</button>
+  <button class="tab-btn" data-tab="actions">Actions</button>
+  <button class="tab-btn" data-tab="scanner">Scanner</button>
+  <button class="tab-btn" data-tab="backorders">Backorders</button>
+  <button class="tab-btn" data-tab="auction">Auction</button>
+  <button class="tab-btn" data-tab="market-validation">Market Validation</button>
+  <button class="tab-btn" data-tab="auction-intel">Auction Intel</button>
+  <button class="tab-btn" data-tab="roi-engine">ROI Engine</button>
+  <button class="tab-btn" data-tab="authority-gate">Authority Gate</button>
+  <button class="tab-btn" data-tab="timeline">Timeline</button>
 </div>
-<div class="tab-bar"><button class="tab-btn" data-tab="overview">Overview</button><button class="tab-btn" data-tab="portfolio">Portfolio</button><button class="tab-btn" data-tab="pipeline">Pipeline</button><button class="tab-btn" data-tab="candidates">Candidates</button><button class="tab-btn" data-tab="watchlist">Watchlist</button><button class="tab-btn" data-tab="whales">Whales</button><button class="tab-btn" data-tab="financials">Financials</button><button class="tab-btn" data-tab="startups">Startups</button><button class="tab-btn" data-tab="infra">Infrastructure</button></div>
-<section class="panel active" id="tab-overview"><section class="panel"><h2>Critical Alerts — Sprint 33: Monitoring Mode (18 Days)</h2>
-<div class="alert alert-green">NAMEBRIGHT: FUNDED &check; Balance: $121.25. Supports 2 DropCatch backorders ($59/ea). OAuth2 LIVE. 6/6 checks GREEN.</div>
-<div class="alert alert-green">DYNADOT: FUNDED &check; Balance: $78.24. Supports 7 backorders at $10.99 each. Ready for pendingDelete catches.</div>
-<div class="alert alert-green">DROPCATCH API: LIVE &check; Auth works. Backorders rejected: <code>NoDroppingDomain</code> &mdash; domains must enter pendingDelete before DropCatch accepts. Re-run ~5 days before each drop date.</div>
-<div class="alert alert-cyan">CATCH ORCHESTRATOR: LIVE-TESTED &check; 8 targets attempted. All return <code>NoDroppingDomain</code> (DC) / <code>not found</code> (DY). Expected &mdash; domains 40-81 days from drop. Parser fixed for v2 API (lowercase keys). Re-run Jun 21+.</div>
-<div class="alert alert-green">NTFY PUSH: LIVE &check; Mobile notifications via ntfy.sh. Topic: domainhunter-revenant-alerts. Install ntfy app + subscribe.</div>
-<div class="alert alert-green">RDAP: 8/8 TARGETS STABLE &check; All EPP statuses confirmed. Zero surprise renewals. Next critical date: May 26 (sunnyray/globalgeopark).</div>
-<div class="alert alert-cyan">STRATEGY: GoDaddy Closeout = PRIMARY ($28-34). DropCatch = BACKUP ($59). Dynadot = INSURANCE ($10.99).</div>
-<div class="alert alert-yellow">GoDaddy ID VERIFICATION: NOT FOUND. Security page only has 2FA/password. Passport upload location unclear &mdash; check account.godaddy.com &rarr; Profile or bidder verification email. Deadline: May 28.</div>
-<div class="alert alert-yellow">SMS ALERTS: OFF. Enable at auctions.godaddy.com/beta/settings for &ldquo;outbid&rdquo; + &ldquo;ending in 1hr&rdquo; notifications.</div>
-<div class="alert alert-yellow">URGENT: cytheris.com EXPIRES JUN 4 &mdash; 18 days. GoDaddy Auction ~Jun 30, Closeout ~Jul 10</div>
-<div class="alert alert-yellow">URGENT: ghostautonomy.com EXPIRES JUN 7 &mdash; 21 days. GoDaddy Auction ~Jul 3, Closeout ~Jul 13</div>
-<div class="alert alert-yellow">WATCH: sunnyray.org + globalgeopark.org autoRenew deadline ~May 26. Daily RDAP checks starting May 24.</div>
-<div class="alert alert-green">FOR-SALE PAGES: 4 landing pages generated &check; viryd.com ($2,500), neovistainc.com ($1,500), pictureeditor.net ($500), recipetool.net ($300)</div>
-<div class="alert alert-green">CATCH CALENDAR: 73-day timeline published &check; reports/catch_calendar.html (25 events, mobile-friendly)</div>
-<div class="alert alert-green">DAEMON HEALTHY: PID 40365, heartbeat current, 37 domains monitored, KeepAlive active</div>
+
+<!-- TAB: OVERVIEW -->
+<section class="panel" id="tab-overview">
+  <h2>Overview</h2>
+  <div id="overview-alerts"></div>
+  <h3>Scanner Summary</h3>
+  <div id="overview-scanner"></div>
+  <h3>Next Events</h3>
+  <div id="overview-timeline"></div>
 </section>
-<section class="panel"><h2>Catch Window Countdown</h2>
-<h3 style="margin-top:16px">18 days to first expiry. 40 days to first blood. All 3 catch platforms ARMED.</h3>
-<table><thead><tr><th>Days</th><th>Date</th><th>Domain</th><th>Event</th><th>Cost</th><th>Status</th></tr></thead>
-<tbody>
-<tr class="urgency-red"><td><strong>18</strong></td><td>Jun 4</td><td>cytheris.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
-<tr class="urgency-red"><td><strong>21</strong></td><td>Jun 7</td><td>ghostautonomy.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
-<tr class="urgency-yellow"><td><strong>37</strong></td><td>Jun 23</td><td>bside.com</td><td>EXPIRES</td><td>--</td><td><span class="badge badge-yellow">MONITORING</span></td></tr>
-<tr><td>44</td><td>~Jun 30</td><td>cytheris.com</td><td>GD AUCTION</td><td>$50 max</td><td><span class="badge badge-dim">WAITING</span></td></tr>
-<tr><td>47</td><td>~Jul 3</td><td>ghostautonomy.com</td><td>GD AUCTION</td><td>$200 max</td><td><span class="badge badge-dim">WAITING</span></td></tr>
-<tr style="background:rgba(74,222,128,0.1)"><td><strong>54</strong></td><td>~Jul 10</td><td>cytheris.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
-<tr style="background:rgba(74,222,128,0.1)"><td><strong>57</strong></td><td>~Jul 13</td><td>ghostautonomy.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
-<tr><td>63</td><td>~Jul 19</td><td>bside.com</td><td>GD AUCTION</td><td>$500 max</td><td><span class="badge badge-yellow">NEED ID</span></td></tr>
-<tr style="background:rgba(74,222,128,0.1)"><td><strong>73</strong></td><td>~Jul 29</td><td>bside.com</td><td>CLOSEOUT</td><td><strong>$32</strong></td><td><span class="badge badge-green">TARGET</span></td></tr>
-</tbody></table>
-</section>
-<section class="panel"><h2>Sprint History</h2>
-<div class="timeline">
-  <div class="timeline-item complete"><div class="sprint-label">Sprints 1-3: Foundation + RADIOGRAPH</div><div class="sprint-desc">Built initial scanner. Harvested 2.3M GoDaddy domains. Domain classifier + appraiser. DataForSEO chosen ($0.01/lookup).</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 4-5: Registration + DataForSEO</div><div class="sprint-desc">3 domains registered ($34.18): ingredientcalculator.com, pictureeditor.net, recipetool.net. Bulk ETV scanning live.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 6-8: Infrastructure + Dead Startups</div><div class="sprint-desc">recipetool.net deployed. Dead startup tracking: 42 US + 78 international candidates. Territory-based scanning.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--orange)">Sprint 9: devhub.io Lesson</div><div class="sprint-desc">devhub.io ($500 offer) debunked &mdash; ethereum.org backlink FALSE. SAVED $970. 5-point verification protocol born.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 10: Automation</div><div class="sprint-desc">daily_hunter.py (2,998 LOC). 5 data sources automated. DropCatch account created.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--red)">Sprint 12: GoDaddy Price Trap</div><div class="sprint-desc">$3,605 SAVED: GoDaddy has 4 marketplaces with conflated prices. Price verification gate added.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 13-14: Backorder + ETV Reality</div><div class="sprint-desc">NameJet = SnapNames discovery. Crown jewels debunked: decoder.com = $0 ETV. SAVED $488.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--red)">Sprint 15-16: olive.com Trap + clientRenewProhibited BUSTED</div><div class="sprint-desc">olive.com entity misidentification SAVED $500K+. 67.5% of renewProhibited domains still active. HTTP verification mandatory.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 17-18: Refinement</div><div class="sprint-desc">SnapNames ETV scan. guerrameats.com confirmed #1 target. Final verification pass.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 19: Production Pipeline</div><div class="sprint-desc">3,109 LOC shipped: RDAP/WHOIS drop monitor, DropCatch CSV scanner, Dynadot backorder tool, alert formatter. 700K DropCatch CSV scanned.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 20-22: Kaggle + RDAP Engine</div><div class="sprint-desc">Kaggle expired domains dataset integrated. 500 domains RDAP-probed. 53 CATCHABLE identified. Funnel: 500 &rarr; 279 registered &rarr; 53 catchable (10.6%).</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 23-25: Watchlist + Dossiers</div><div class="sprint-desc">25-domain RDAP-enriched watch list built. cytheris.com ($45.7M biotech) dossier. ghostautonomy.com ($220M, TM CLEAR) battle plan. Dead startup deep-dive.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 26-27: Drop Calendar + Daemon</div><div class="sprint-desc">Drop countdown calendar operational. Daemon scheduler built. Daily digest emails. guerrameats.com $11,376/mo ETV confirmed FIRST BLOOD target.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label">Sprint 28: DropCatch API + Portfolio Tracker</div><div class="sprint-desc">DropCatch v2 API client wired. Portfolio tracker module. Dynadot API registration flow. Budget: $565.02 remaining, 3 domains owned.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 29: First Acquisitions &mdash; 10/10 SUCCESS</div><div class="sprint-desc"><strong>MILESTONE:</strong> viryd.com ($10.99) + neovistainc.com ($10.99) registered via Dynadot API. 5 domains, $56.16 invested. Daemon persistence FIXED. DropCatch API wired. bside.com PROMOTED TO CRITICAL. 352/352 tests.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--accent)">Sprint 30: Trust But Verify</div><div class="sprint-desc"><strong>VALIDATED:</strong> Full pipeline live run (269&rarr;228&rarr;71&rarr;153 scored). Bug 8 fixed. RDAP intel corrected +44 days. viryd.com + neovistainc.com listed on Afternic. $0.00 spent.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 31: GoDaddy Strategy + Full Setup</div><div class="sprint-desc"><strong>COMPLETE:</strong> GoDaddy Auctions ACTIVE (membership already existed). Watchlist: cytheris.com + ghostautonomy.com + bside.com with daily email alerts. Inventory monitor deployed (2M+ domains/scan). Strategy shift: Closeout ($28-34) is PRIMARY, DropCatch ($59+) = last resort. Remaining: ID verification + API key + enable SMS alerts. viryd.com + neovistainc.com on Afternic + Dan.com &check;.</div></div>
-  <div class="timeline-item complete"><div class="sprint-label" style="color:var(--green)">Sprint 32: Catch Mode Armed</div><div class="sprint-desc"><strong>ALL 3 PLATFORMS LIVE:</strong> NameBright API LIVE. DropCatch API LIVE (separate auth). Catch Orchestrator built. NameBright client 787 LOC. 431 tests. 4,379 LOC added.</div></div>
-  <div class="timeline-item current"><div class="sprint-label" style="color:var(--cyan)">Sprint 33: Close the Gaps + Live Test</div><div class="sprint-desc"><strong>LIVE ORCHESTRATOR RUN:</strong> 8 targets attempted on DropCatch + Dynadot. ALL returned <code>NoDroppingDomain</code> &mdash; both platforms require pendingDelete status (expected, domains 40-81 days early). DropCatch parser fixed (v2 API lowercase keys). sendy.co: .co TLD not supported by DropCatch. Accounts funded: NB $121.25, DY $78.24. 434 tests. Re-run backorders ~5 days before each drop date.</div></div>
-</div>
-</section></section>
-<section class="panel" id="tab-portfolio">
-<h2>Domain Portfolio <span class="dim">(5 domains, $56.16 invested)</span></h2>
-<table><thead><tr><th>Domain</th><th>Cost</th><th>Strategy</th><th>Est. Value</th><th>Deploy</th><th>Status</th></tr></thead>
-<tbody><tr>
-  <td><strong>ingredientcalculator.com</strong></td><td>$10.46</td><td>DEVELOP</td><td>--</td>
-  <td><span class="badge badge-green">LIVE 6/6</span></td><td>all pages deployed, 1 indexed</td>
-</tr><tr>
-  <td><strong>pictureeditor.net</strong></td><td>$11.86</td><td>FLIP</td><td>$500-$2K</td>
-  <td><span class="badge badge-green">LIVE</span></td><td>unlisted</td>
-</tr><tr>
-  <td><strong>recipetool.net</strong></td><td>$11.86</td><td>DEVELOP</td><td>--</td>
-  <td><span class="badge badge-dim">--</span></td><td>unlisted</td>
-</tr><tr style="background: rgba(74,222,128,0.08);">
-  <td><strong>viryd.com</strong> <span class="badge badge-green">NEW</span></td><td>$10.99</td><td>FLIP</td><td>$1K-$10K</td>
-  <td><span class="badge badge-green">LISTED</span></td><td>Afternic $2,500 + Dan.com &check;</td>
-</tr><tr style="background: rgba(74,222,128,0.08);">
-  <td><strong>neovistainc.com</strong> <span class="badge badge-green">NEW</span></td><td>$10.99</td><td>FLIP</td><td>$500-$5K</td>
-  <td><span class="badge badge-green">LISTED</span></td><td>Afternic $1,500 + Dan.com &check;</td>
-</tr></tbody></table>
-<div class="stat-sub" style="margin-top:8px">Total invested: $56.16 &bull; Est. portfolio value: $2K-$17K &bull; DNS: Cloudflare (greg.ns + janet.ns)</div></section>
+
+<!-- TAB: PIPELINE -->
 <section class="panel" id="tab-pipeline">
-<h2>Pipeline Performance <span class="dim">(Sprint 31 — Startup Reaper + Kaggle)</span></h2>
-<h3>Startup Reaper (Sprint 30 live run)</h3>
-<div class="funnel">
-  <div class="funnel-stage"><div class="funnel-bar" style="width:100%">&nbsp;</div><span>Harvested: 269 startups (existing data files)</span></div>
-  <div class="funnel-stage"><div class="funnel-bar" style="width:84.8%">&nbsp;</div><span>Resolved: 228 domains (84.8%)</span></div>
-  <div class="funnel-stage"><div class="funnel-bar whale" style="width:26.4%">&nbsp;</div><span>Drop signals: 71 (26.4% of resolved) &mdash; live RDAP</span></div>
-  <div class="funnel-stage"><div class="funnel-bar" style="width:56.9%; background: linear-gradient(90deg, var(--green), var(--cyan));">&nbsp;</div><span>Scored &ge;25: 153 (16 medium, 137 low) &mdash; top: infarm.com 38.9</span></div>
-</div>
-<h3>Kaggle RDAP Funnel</h3>
-<div class="funnel">
-  <div class="funnel-stage"><div class="funnel-bar" style="width:100%">&nbsp;</div><span>Kaggle RDAP Probed: 500</span></div>
-  <div class="funnel-stage"><div class="funnel-bar" style="width:55.8%">&nbsp;</div><span>Registered: 279 (55.8%)</span></div>
-  <div class="funnel-stage"><div class="funnel-bar whale" style="width:33.2%">&nbsp;</div><span>Maybe (delete+renew prohibited): 166 (33.2%)</span></div>
-  <div class="funnel-stage"><div class="funnel-bar" style="width:10.6%; background: linear-gradient(90deg, var(--green), var(--cyan));">&nbsp;</div><span>CATCHABLE: 53 (10.6%) &mdash; 52 RDAP 404 + 1 redemptionPeriod</span></div>
-</div>
-<h3>Drop Countdown <span class="dim">(GoDaddy: expire &rarr; D26 auction &rarr; D36 closeout &rarr; D77 drop | DropCatch: $59 backup at D77)</span></h3>
-<table><thead><tr><th>Date</th><th>Event</th><th>Action</th><th>Cost</th></tr></thead><tbody>
-  <tr class="urgency-red"><td>Jun 4</td><td>cytheris.com EXPIRES</td><td>Monitor. Enters grace period (Day 0)</td><td>--</td></tr>
-  <tr class="urgency-red"><td>Jun 7</td><td>ghostautonomy.com EXPIRES</td><td>Monitor. DA 52, TM CLEAR (Day 0)</td><td>--</td></tr>
-  <tr class="urgency-yellow"><td>Jun 23</td><td>bside.com EXPIRES</td><td>5-char dictionary .com (Day 0)</td><td>--</td></tr>
-  <tr style="background:rgba(56,189,248,0.08)"><td><strong>~Jun 30</strong></td><td>cytheris.com GoDaddy AUCTION STARTS</td><td>Watch. Bid if no competition (min $12)</td><td>$12+</td></tr>
-  <tr><td>Jun 30</td><td>sunnyray.org pendingDelete</td><td>Tucows direct catch (no GoDaddy auction)</td><td>$10.99</td></tr>
-  <tr><td>Jul 1</td><td>globalgeopark.org pendingDelete</td><td>Tucows direct catch</td><td>$10.99</td></tr>
-  <tr style="background:rgba(56,189,248,0.08)"><td><strong>~Jul 3</strong></td><td>ghostautonomy.com GoDaddy AUCTION STARTS</td><td>Watch/bid. Max bid $200</td><td>$12-200</td></tr>
-  <tr style="background:rgba(74,222,128,0.12)"><td><strong>~Jul 10</strong></td><td>cytheris.com CLOSEOUT STARTS ($9)</td><td><strong>BUY at closeout Day 1</strong> (safest)</td><td><strong>$32</strong></td></tr>
-  <tr style="background:rgba(74,222,128,0.12)"><td><strong>~Jul 13</strong></td><td>ghostautonomy.com CLOSEOUT STARTS ($9)</td><td><strong>BUY at closeout Day 1</strong> (safest)</td><td><strong>$32</strong></td></tr>
-  <tr><td>~Jul 14</td><td>cytheris.com closeout Day 5 ($5)</td><td>LAST CHANCE cheapest ($28 total)</td><td>$28</td></tr>
-  <tr><td>~Jul 17</td><td>ghostautonomy.com closeout Day 5 ($5)</td><td>LAST CHANCE cheapest ($28 total)</td><td>$28</td></tr>
-  <tr style="background:rgba(56,189,248,0.08)"><td><strong>~Jul 19</strong></td><td>bside.com GoDaddy AUCTION STARTS</td><td>Competitive — 5-char .com may get bids</td><td>$12-500</td></tr>
-  <tr><td>~Jul 29</td><td>bside.com CLOSEOUT (if no bids)</td><td>Buy if available ($9)</td><td>$32</td></tr>
-  <tr class="urgency-dim"><td>~Aug 20</td><td>cytheris.com DROPS (if GD pipeline fails)</td><td>DropCatch backup. LAST RESORT.</td><td>$59+</td></tr>
-  <tr class="urgency-dim"><td>~Aug 23</td><td>ghostautonomy.com DROPS</td><td>DropCatch backup. LAST RESORT.</td><td>$59+</td></tr>
-  <tr class="urgency-dim"><td>~Sep 1</td><td>bside.com DROPS</td><td>DropCatch backup if closeout missed</td><td>$59+</td></tr>
-  <tr><td>Nov 17</td><td>ohai.com EXPIRES</td><td>Long-term watch, 4-char .com</td><td>--</td></tr>
-</tbody></table>
-<h3>Health Check</h3>
-<table><thead><tr><th>Component</th><th>Status</th><th>Notes</th></tr></thead><tbody>
-  <tr><td>Tests</td><td><span class="badge badge-green">434/434</span></td><td>+3 new DropCatch v2 parser tests. All passing.</td></tr>
-  <tr><td>Scripts</td><td><span class="badge badge-green">43/43</span></td><td>+deploy_landing_page.py. All importable.</td></tr>
-  <tr><td>Data Files</td><td><span class="badge badge-green">145/145</span></td><td>Valid JSON</td></tr>
-  <tr><td>Daemon Scheduler</td><td><span class="badge badge-green">PID 40365</span></td><td>LaunchAgent + KeepAlive + Homebrew python. Heartbeat current. 37 domains monitored.</td></tr>
-  <tr><td>NameBright API</td><td><span class="badge badge-green">FUNDED</span></td><td>OAuth2 auth (201 Created). Balance: $121.25 (covers 2 catches at $59). 2 domains: b2berp.com, Dismissticket.com. 787 LOC client, 12 endpoints.</td></tr>
-  <tr><td>DropCatch API</td><td><span class="badge badge-green">LIVE</span></td><td>Separate auth: api.dropcatch.com/Authorize (JSON body, returns {token}). Backorders, auctions, bids all working. Live: MyPhotos.com $2,905.</td></tr>
-  <tr><td>Catch Orchestrator</td><td><span class="badge badge-green">LIVE-TESTED</span></td><td>8 targets attempted. All <code>NoDroppingDomain</code> (expected — 40-81 days early). Parser fixed for v2 API. Re-run ~5 days before each drop.</td></tr>
-  <tr><td>Dynadot API</td><td><span class="badge badge-green">FUNDED</span></td><td>$78.24 balance. Backorders only accepted during pendingDelete (5-day window). 7 backorders ready.</td></tr>
-  <tr><td>Portfolio Tracker</td><td><span class="badge badge-green">ACTIVE</span></td><td>5 domains (Dynadot) + 2 domains (NameBright), $56.10 invested. 2 listed (Afternic + Dan.com).</td></tr>
-  <tr><td>Marketplace</td><td><span class="badge badge-green">LIVE</span></td><td>viryd.com $2,500 + neovistainc.com $1,500 on Afternic + Dan.com</td></tr>
-  <tr><td>Daily Digest</td><td><span class="badge badge-green">ACTIVE</span></td><td>09:00 daily, portfolio summary included</td></tr>
-</tbody></table></section>
-<section class="panel" id="tab-candidates">
-<h2>Recent Candidates <span class="dim">(2026-05-08)</span></h2>
-<table><thead><tr><th>Domain</th><th>DA</th><th>Source</th><th>Niche</th><th>Notes</th></tr></thead>
-<tbody><tr class="">
-  <td><strong>cookmaster.net</strong></td><td>22</td><td>expired_domains_net</td>
-  <td>cooking</td><td class="dim"> [ETV: $103/mo, kw=113, top10=3]</td>
-</tr><tr class="">
-  <td><strong>devtoolkit.io</strong></td><td>45</td><td>expired_domains_net</td>
-  <td>tech</td><td class="dim"> [PRICE MISMATCH: claimed=$9.99 vs verified=$1540.00 (gd_aft</td>
-</tr><tr class="whale">
-  <td><strong>healthguide.org</strong></td><td>28</td><td>expired_domains_net</td>
-  <td>health</td><td class="dim"> [ETV: $1032/mo, kw=42, top10=32] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>fittrack.com</strong></td><td>31</td><td>expired_domains_net</td>
-  <td>fitness</td><td class="dim"> [ETV: $1110/mo, kw=120, top10=10] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>codeforge.dev</strong></td><td>19</td><td>expired_domains_net</td>
-  <td>tech</td><td class="dim"> [ETV: $1849/mo, kw=359, top10=49] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>mealplanner.com</strong></td><td>42</td><td>expired_domains_net</td>
-  <td>cooking</td><td class="dim"> [ETV: $1590/mo, kw=100, top10=40] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>budgetwise.com</strong></td><td>25</td><td>expired_domains_net</td>
-  <td>finance</td><td class="dim"> [ETV: $1395/mo, kw=405, top10=45] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>gardenhelper.net</strong></td><td>17</td><td>expired_domains_net</td>
-  <td>tools</td><td class="dim"> [ETV: $1728/mo, kw=238, top10=28] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>nutritrack.com</strong></td><td>29</td><td>domcop</td>
-  <td>unknown</td><td class="dim"> [ETV: $1283/mo, kw=293, top10=33] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>codebench.io</strong></td><td>41</td><td>domcop</td>
-  <td>tech</td><td class="dim"> [ETV: $1634/mo, kw=144, top10=34] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>wellnessapp.org</strong></td><td>23</td><td>domcop</td>
-  <td>health</td><td class="dim"> [ETV: $1930/mo, kw=440, top10=30] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>smartrecipe.com</strong></td><td>33</td><td>domcop</td>
-  <td>cooking</td><td class="dim"> [ETV: $1091/mo, kw=101, top10=41] [WHALE-ETV]</td>
-</tr><tr class="">
-  <td><strong>devdocs.net</strong></td><td>37</td><td>domcop</td>
-  <td>tech</td><td class="dim"> [ETV: $881/mo, kw=391, top10=31]</td>
-</tr><tr class="whale">
-  <td><strong>fitjournal.com</strong></td><td>20</td><td>domcop</td>
-  <td>fitness</td><td class="dim"> [ETV: $1222/mo, kw=232, top10=22] [WHALE-ETV]</td>
-</tr><tr class="">
-  <td><strong>investsmart.net</strong></td><td>26</td><td>domcop</td>
-  <td>finance</td><td class="dim"> [ETV: $859/mo, kw=369, top10=9]</td>
-</tr><tr class="">
-  <td><strong>learncode.org</strong></td><td>44</td><td>domcop</td>
-  <td>tech</td><td class="dim"> [ETV: $639/mo, kw=149, top10=39]</td>
-</tr><tr class="">
-  <td><strong>mealkit.io</strong></td><td>18</td><td>domcop</td>
-  <td>cooking</td><td class="dim"> [ETV: $912/mo, kw=422, top10=12]</td>
-</tr><tr class="whale">
-  <td><strong>travelguide.app</strong></td><td>15</td><td>domcop</td>
-  <td>travel</td><td class="dim"> [ETV: $1271/mo, kw=281, top10=21] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>quickmeal.com</strong></td><td>16</td><td>godaddy_closeouts</td>
-  <td>cooking</td><td class="dim">closeout auction [ETV: $1560/mo, kw=70, top10=10] [WHALE-ETV</td>
-</tr><tr class="">
-  <td><strong>devportal.net</strong></td><td>27</td><td>godaddy_closeouts</td>
-  <td>tech</td><td class="dim">closeout auction [ETV: $927/mo, kw=437, top10=27]</td>
-</tr><tr class="">
-  <td><strong>healthblog.org</strong></td><td>21</td><td>godaddy_closeouts</td>
-  <td>health</td><td class="dim">closeout auction [ETV: $148/mo, kw=158, top10=48]</td>
-</tr><tr class="whale">
-  <td><strong>toolmaker.com</strong></td><td>34</td><td>godaddy_closeouts</td>
-  <td>tools</td><td class="dim">closeout auction [ETV: $1559/mo, kw=69, top10=9] [WHALE-ETV]</td>
-</tr><tr class="whale">
-  <td><strong>recipefinder.net</strong></td><td>19</td><td>godaddy_closeouts</td>
-  <td>cooking</td><td class="dim">closeout auction [ETV: $1789/mo, kw=299, top10=39] [WHALE-ET</td>
-</tr><tr class="">
-  <td><strong>financeapp.io</strong></td><td>30</td><td>godaddy_closeouts</td>
-  <td>tech</td><td class="dim">closeout auction [ETV: $332/mo, kw=342, top10=32]</td>
-</tr><tr class="whale">
-  <td><strong>buildtools.com</strong></td><td>24</td><td>godaddy_closeouts</td>
-  <td>tech</td><td class="dim">closeout auction [ETV: $1530/mo, kw=40, top10=30] [WHALE-ETV</td>
-</tr><tr class="whale">
-  <td><strong>yogaguide.org</strong></td><td>18</td><td>godaddy_closeouts</td>
-  <td>fitness</td><td class="dim">closeout auction [ETV: $1499/mo, kw=509, top10=49] [WHALE-ET</td>
-</tr><tr class="whale">
-  <td><strong>ghostautonomy.com</strong></td><td>52</td><td>tech_shutdowns</td>
-  <td>unknown</td><td class="dim">Autonomous driving startup, shut down 2024 [ETV: $1428/mo, k</td>
-</tr><tr class="">
-  <td><strong>codestream.io</strong></td><td>39</td><td>tech_shutdowns</td>
-  <td>tech</td><td class="dim">Dev tools, acquired and sunset [ETV: $568/mo, kw=78, top10=1</td>
-</tr><tr class="whale">
-  <td><strong>mealprep.ai</strong></td><td>22</td><td>tech_shutdowns</td>
-  <td>cooking</td><td class="dim">AI meal planning, ran out of funding [ETV: $1297/mo, kw=307,</td>
-</tr><tr class="">
-  <td><strong>trackfit.com</strong></td><td>27</td><td>tech_shutdowns</td>
-  <td>tools</td><td class="dim">Fitness tracker startup, pivoted away [ETV: $224/mo, kw=234,</td>
-</tr><tr class="whale">
-  <td><strong>freshpantry.com</strong></td><td>32</td><td>catchdoms_apify</td>
-  <td>software</td><td class="dim">platform=dropcatch quality=45 [ETV: $1769/mo, kw=279, top10=</td>
-</tr><tr class="">
-  <td><strong>codesnippets.io</strong></td><td>48</td><td>catchdoms_apify</td>
-  <td>tech</td><td class="dim">platform=namejet quality=62 [PRICE MISMATCH: claimed=$9.99 v</td>
-</tr><tr class="">
-  <td><strong>fitnesslog.net</strong></td><td>21</td><td>catchdoms_apify</td>
-  <td>fitness</td><td class="dim">platform=snapnames quality=38 [ETV: $907/mo, kw=417, top10=7</td>
-</tr><tr class="">
-  <td><strong>budgettracker.org</strong></td><td>27</td><td>catchdoms_apify</td>
-  <td>finance</td><td class="dim">platform=godaddy_auctions quality=41 [ETV: $122/mo, kw=132, </td>
-</tr><tr class="">
-  <td><strong>herbalgarden.com</strong></td><td>35</td><td>catchdoms_apify</td>
-  <td>software</td><td class="dim">platform=dynadot quality=55 [ETV: $771/mo, kw=281, top10=21]</td>
-</tr><tr class="">
-  <td><strong>devworkflow.io</strong></td><td>44</td><td>catchdoms_apify</td>
-  <td>software</td><td class="dim">platform=dropcatch quality=70 [PRICE MISMATCH: claimed=$9.99</td>
-</tr><tr class="">
-  <td><strong>mealprepguide.com</strong></td><td>18</td><td>catchdoms_apify</td>
-  <td>cooking</td><td class="dim">platform=porkbun quality=33 [ETV: $120/mo, kw=130, top10=20]</td>
-</tr></tbody></table></section>
-<section class="panel" id="tab-watchlist">
-<h2>Watchlist &amp; Backorders</h2>
-<h3>Tier S — GoDaddy Closeout Targets ($28-34 each) <span class="dim">(Sprint 31 strategy shift)</span></h3>
-<table><thead><tr><th>Domain</th><th>ETV</th><th>DA</th><th>Expiry</th><th>GD Auction</th><th>GD Closeout</th><th>Strategy</th></tr></thead>
-<tbody><tr class="urgency-red">
-  <td><strong>cytheris.com</strong></td><td>--</td><td>--</td>
-  <td><span class="badge badge-red">Jun 4</span></td><td>~Jun 30</td>
-  <td><span class="badge badge-green">~Jul 10 ($9)</span></td><td>$45.7M biotech. BUY at closeout Day 1 ($32 total). GoDaddy registrar.</td>
-</tr><tr class="urgency-red">
-  <td><strong>ghostautonomy.com</strong></td><td>$1,428</td><td>52</td>
-  <td><span class="badge badge-red">Jun 7</span></td><td>~Jul 3</td>
-  <td><span class="badge badge-green">~Jul 13 ($9)</span></td><td>$220M funded, TM CLEAR. BUY at closeout or bid max $200. Wild West/GoDaddy.</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>bside.com</strong></td><td>--</td><td>--</td>
-  <td><span class="badge badge-yellow">Jun 23</span></td><td>~Jul 19</td>
-  <td><span class="badge badge-yellow">~Jul 29</span></td><td>5-char dictionary .com. May get bids in auction. Max bid $500.</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>guerrameats.com</strong></td><td>$11,376/mo</td><td>28</td>
-  <td>Apr 2027</td><td>TBD</td>
-  <td>TBD</td><td><strong>clientHold</strong> (DNS dead). Squarespace &rarr; feeds GoDaddy Auctions too.</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>sunnyray.org</strong></td><td>$2,842/mo</td><td>36</td>
-  <td>Apr 2027</td><td colspan="2"><span class="badge badge-green">NO AUCTION</span></td><td>Tucows .org — drops direct, no GoDaddy pipeline. $10.99 catch.</td>
-</tr><tr class="urgency-dim">
-  <td><strong>globalgeopark.org</strong></td><td>$470/mo</td><td>49</td>
-  <td>Apr 2027</td><td colspan="2"><span class="badge badge-green">NO AUCTION</span></td><td>Tucows .org — drops direct. 627 referring domains.</td>
-</tr></tbody></table>
-<h3>Tier A — GoDaddy Auction Bids (if closeout scooped)</h3>
-<table><thead><tr><th>Domain</th><th>ETV</th><th>DA</th><th>Auction</th><th>Max Bid</th><th>Strategy</th></tr></thead>
-<tbody><tr class="urgency-red">
-  <td><strong>ghostautonomy.com</strong></td><td>$1,428</td><td>52</td>
-  <td><span class="badge badge-red">~Jul 3</span></td><td>$200</td>
-  <td>TM CLEAR. Primary: closeout $32. If bid war: max $200. DropCatch $59 backup at Day 77.</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>bside.com</strong></td><td>--</td><td>--</td>
-  <td><span class="badge badge-yellow">~Jul 19</span></td><td>$500</td>
-  <td>5-char dictionary .com. Likely competitive. May not reach closeout.</td>
-</tr><tr class="urgency-dim">
-  <td><strong>fiskerinc.com</strong></td><td>$3,200</td><td>41</td>
-  <td><span class="badge badge-dim">Sep 2026</span></td><td>$0</td>
-  <td>TRADEMARK BLOCKED (personal name) — DO NOT BID</td>
-</tr></tbody></table>
-<h3>Watch List (RDAP-enriched — 25 total, updated Sprint 31)</h3>
-<table><thead><tr><th>Domain</th><th>Funding</th><th>Expiry</th><th>Signal</th></tr></thead>
-<tbody><tr class="urgency-red">
-  <td><strong>cytheris.com</strong></td><td>$45.7M</td><td><span class="badge badge-red">Jun 4</span></td><td>Biotech, dossier complete, GoDaddy closeout $5-$12</td>
-</tr><tr class="urgency-red">
-  <td><strong>bside.com</strong></td><td>$7.3M</td><td><span class="badge badge-red">Jun 23</span></td><td>PROMOTED TO CRITICAL: 5-char dictionary .com, $5K-$25K</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>5g.com</strong></td><td>--</td><td><span class="badge badge-yellow">TBD</span></td><td>2-character .com, extremely rare</td>
-</tr><tr class="urgency-yellow">
-  <td><strong>ohai.com</strong></td><td>--</td><td><span class="badge badge-yellow">Nov 17</span></td><td>PROMOTED TO HIGH: 4-char .com, $2K-$10K</td>
-</tr></tbody></table>
-<h3>Long-Term Watchlist</h3>
-<table><thead><tr><th>Domain</th><th>Expiry</th><th>Days</th><th>Max Bid</th><th>Signal</th></tr></thead>
-<tbody><tr class="urgency-dim">
-  <td><strong>decoder.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>500</td><td>30-year single-word .com dictionary domain. clientRenewProhibited</td>
-</tr><tr class="urgency-dim">
-  <td><strong>gamepicker.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>200</td><td>26-year domain. Afternic NS confirms for-sale. clientRenewProhibited</td>
-</tr><tr class="urgency-dim">
-  <td><strong>bestdevtools.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>200</td><td>—</td>
-</tr><tr class="urgency-dim">
-  <td><strong>taskplanner.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>75</td><td>—</td>
-</tr><tr class="urgency-dim">
-  <td><strong>sushifaq.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>75</td><td>26-year-old sushi FAQ site (since 2000). clientRenewProhibited</td>
-</tr><tr class="urgency-dim">
-  <td><strong>cookingtool.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>50</td><td>22-year domain. NameFind NS = GoDaddy aftermarket</td>
-</tr><tr class="urgency-dim">
-  <td><strong>fileconverter.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>75</td><td>24-year domain. High search volume keyword. GoDaddy forsale</td>
-</tr><tr class="urgency-dim">
-  <td><strong>fileshare.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>75</td><td>25-year domain. Venture.com marketplace listing</td>
-</tr><tr class="urgency-dim">
-  <td><strong>beautifier.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>—</td><td>23yr single-word .com. Sav.com registrar. GiantPanda NS (parked)</td>
-</tr><tr class="urgency-dim">
-  <td><strong>debtcalc.com</strong></td><td>—</td>
-  <td><span class="badge badge-dim">999d</span></td>
-  <td>—</td><td>24yr finance keyword domain. Afternic NS (for-sale)</td>
-</tr></tbody></table>
-<h3>Kaggle Validated — Top 3 by Funding (43 Available for Direct Registration)</h3>
-<table><thead><tr><th>Domain</th><th>Funding</th><th>Status</th><th>Score</th></tr></thead>
-<tbody><tr class="whale">
-  <td><strong>officialvirtualdj.com</strong></td><td>$170.6M</td><td><span class="badge badge-green">AVAILABLE</span> (Dynadot confirmed)</td><td>66.8</td>
-</tr><tr class="whale">
-  <td><strong>neovistainc.com</strong></td><td>$130M</td><td><span class="badge badge-green">ACQUIRED</span> Sprint 29 ($10.99)</td><td>74.0</td>
-</tr><tr class="whale">
-  <td><strong>c8-inc.com</strong></td><td>$64M</td><td><span class="badge badge-green">AVAILABLE</span> (Dynadot confirmed)</td><td>66.8</td>
-</tr></tbody></table>
-<div class="stat-sub" style="margin-top:8px">53 CATCHABLE &rarr; 43 confirmed available (2 now ACQUIRED) &rarr; 41 remaining &bull; 15 HIGH / 29 MEDIUM tier &bull; Next: encoate.com + kolorific.com</div></section>
-<section class="panel" id="tab-whales">
-<h2>Crown Jewels</h2>
-<table><thead><tr><th>Domain</th><th>Est. Value</th><th>Age</th><th>Notes</th></tr></thead>
-<tbody><tr><td><strong>decoder.com</strong></td><td>$10,000-$100,000+</td><td>—</td><td>Single-word .com dictionary domain. 30 years old. clientRenewProhibited. AWS nam</td></tr><tr><td><strong>gamepicker.com</strong></td><td>$2,000-$25,000</td><td>—</td><td>26-year domain with clientRenewProhibited. Afternic NS confirms for-sale listing</td></tr><tr><td><strong>beautifier.com</strong></td><td>$10,000-$100,000+</td><td>—</td><td>Single-word .com, 23 years old. GiantPanda NS = parked. No renewProhibited signa</td></tr></tbody></table>
-<h2 style="margin-top:2rem">Whale Monitor</h2>
-<table><thead><tr><th>Domain</th><th>ETV</th><th>DR</th><th>Expiry</th><th>Est. Value</th></tr></thead>
-<tbody><tr><td><strong>builder.ai</strong></td><td>$0/mo</td><td>68</td><td>2026-06-04</td><td>$50,000-200,000</td></tr><tr><td><strong>canoo.com</strong></td><td>$0/mo</td><td>55</td><td>2026-09-15</td><td>$20,000-75,000</td></tr><tr><td><strong>reviewer.com</strong></td><td>$0/mo</td><td>None</td><td>2026-07-23</td><td>$10,000-100,000+</td></tr><tr><td><strong>jawbone.com</strong></td><td>$0/mo</td><td>65</td><td>2026-06-12</td><td>$10,000-50,000</td></tr><tr><td><strong>fitocracy.com</strong></td><td>$0/mo</td><td>3</td><td>2026-09-07</td><td>$200-500</td></tr></tbody></table>
+  <h2>Pipeline</h2>
+  <div id="pipeline-filters" class="filter-bar"></div>
+  <div id="pipeline-table"></div>
 </section>
+
+<!-- TAB: PORTFOLIO -->
+<section class="panel" id="tab-portfolio">
+  <h2>Portfolio</h2>
+  <div id="portfolio-summary" class="fin-grid"></div>
+  <div id="portfolio-table"></div>
+</section>
+
+<!-- TAB: BUY NOW -->
+<section class="panel" id="tab-buynow">
+  <h2>BUY NOW &mdash; Closeout Opportunities</h2>
+  <div class="alert alert-green" style="margin-bottom:12px"><strong>Data Source:</strong> All metrics from GoDaddy Inventory Protocol feed (Majestic TF/CF/BL + Semrush AS/RD/BL). Click domain names to open GoDaddy auction page.</div>
+  <div class="alert alert-orange" style="margin-bottom:12px"><strong>PROXY BID WARNING:</strong> GoDaddy closeouts use proxy bidding. Every manual raise feeds the opponent's hidden max. Evidence: prolificprogrammer $1&rarr;$6&rarr;$11&rarr;$21, 3 bids 2 bidders. Only BuyNow closeouts ($5-$11 fixed price) and T-305s API proxy bids are viable. See <strong>Auction tab</strong> for the automated dual-path system.</div>
+  <div id="closeout-summary" class="fin-grid"></div>
+  <div class="filter-bar" id="closeout-filters">
+    <button class="filter-btn active" data-closeout-filter="all">All</button>
+    <button class="filter-btn" data-closeout-filter="fleet">FLEET</button>
+    <button class="filter-btn" data-closeout-filter="buy">BUY</button>
+    <button class="filter-btn" data-closeout-filter="budget">Under $12</button>
+    <button class="filter-btn" data-closeout-filter="niche">Has Niche</button>
+  </div>
+  <div id="closeout-table"></div>
+</section>
+
+<!-- TAB: COMPETITION -->
+<section class="panel" id="tab-competition">
+  <h2>Competition Intel</h2>
+  <div id="competition-stats" class="fin-grid"></div>
+  <h3>Key Players</h3>
+  <div id="competition-players"></div>
+  <h3>GoDaddy Pipeline (77-Day Journey)</h3>
+  <div id="competition-pipeline"></div>
+  <h3>Proxy Mechanics</h3>
+  <div id="competition-proxy"></div>
+  <h3>Our Edge</h3>
+  <div id="competition-edge" class="three-col"></div>
+</section>
+
+<!-- TAB: FINANCIALS -->
 <section class="panel" id="tab-financials">
-<h2>Financial Overview</h2>
-<div class="fin-grid">
-  <div class="fin-card"><div class="fin-label">Total Budget</div><div class="fin-value">$600.00</div></div>
-  <div class="fin-card"><div class="fin-label">Spent</div><div class="fin-value red">$256.96</div></div>
-  <div class="fin-card"><div class="fin-label">Remaining</div><div class="fin-value green">$343.04</div></div>
-  <div class="fin-card"><div class="fin-label">Portfolio</div><div class="fin-value cyan">5 domains</div></div>
+  <h2>Financials</h2>
+  <div id="fin-summary" class="fin-grid"></div>
+  <h3>Account Balances</h3>
+  <div id="fin-accounts"></div>
+  <h3>Portfolio Breakdown</h3>
+  <div id="fin-portfolio"></div>
+  <h3>Projection Scenarios</h3>
+  <div id="fin-projections"></div>
+</section>
+
+<!-- TAB: LESSONS -->
+<section class="panel" id="tab-lessons">
+  <h2>Lessons &amp; Strategy</h2>
+  <div id="lessons-bottom-line"></div>
+  <h3>Hard Truths</h3>
+  <div id="lessons-truths"></div>
+  <div class="two-col" style="margin-top:16px">
+    <div><h3>What Works</h3><div id="lessons-works"></div></div>
+    <div><h3>What Doesn't Work</h3><div id="lessons-doesnt"></div></div>
+  </div>
+  <h3>Revised Playbook</h3>
+  <div id="lessons-playbook"></div>
+  <h3>Pipeline Attrition</h3>
+  <div id="lessons-attrition"></div>
+  <h3>Competitive Landscape</h3>
+  <div id="lessons-landscape"></div>
+  <h3>Our Edge</h3>
+  <div id="lessons-edge" class="three-col"></div>
+</section>
+
+<!-- TAB: STRATEGY -->
+<section class="panel" id="tab-strategy">
+  <h2>Two-Lane Strategy</h2>
+  <div id="strategy-assessment"></div>
+  <div id="strategy-lanes" class="two-col"></div>
+  <h3>Niche Definitions</h3>
+  <div id="strategy-niches"></div>
+  <h3>Whale Targets</h3>
+  <div id="strategy-whales"></div>
+  <h3>Build Score Criteria</h3>
+  <div id="strategy-criteria"></div>
+  <h3>Confirmed Working</h3>
+  <div id="strategy-working"></div>
+  <h3>Needs Change</h3>
+  <div id="strategy-changes"></div>
+  <h3>Automation Path</h3>
+  <div id="strategy-automation"></div>
+  <h3>Milestones</h3>
+  <div id="strategy-milestones"></div>
+</section>
+
+<!-- TAB: ACTIONS -->
+<section class="panel" id="tab-actions">
+  <h2>Human Action Center</h2>
+  <div id="actions-summary" class="fin-grid"></div>
+  <h3>Blocking Actions (DO NOW)</h3>
+  <div id="actions-blocking"></div>
+  <h3>Scheduled Actions</h3>
+  <div id="actions-scheduled"></div>
+  <h3>Completed</h3>
+  <div id="actions-completed"></div>
+  <h3>Contingency Plans</h3>
+  <div id="actions-contingency"></div>
+</section>
+
+<!-- TAB: SCANNER -->
+<section class="panel" id="tab-scanner">
+  <h2>Scanner</h2>
+  <div id="scanner-summary" class="fin-grid"></div>
+  <div id="scanner-niche-strategy"></div>
+  <h3>Latest RDAP Changes</h3>
+  <div id="scanner-rdap"></div>
+  <h3>Top Closeout Opportunities</h3>
+  <div id="scanner-closeouts"></div>
+  <h3>Long-tail Drops</h3>
+  <div id="scanner-longtail"></div>
+  <h3>Killed Domains</h3>
+  <div id="scanner-killed"></div>
+  <h3 style="color:var(--green)">Live Pipeline Run (Sprint 43)</h3>
+  <div id="scanner-live-poc"></div>
+  <h3>API Health</h3>
+  <div id="scanner-api"></div>
+  <h3>Platform Status</h3>
+  <div id="scanner-platforms" class="fin-grid"></div>
+  <h3>Pipeline Automation</h3>
+  <div id="scanner-automation"></div>
+  <h3>Scan History</h3>
+  <div id="scanner-history"></div>
+</section>
+
+<!-- TAB: BACKORDERS -->
+<section class="panel" id="tab-backorders">
+  <h2>Backorder Placements</h2>
+  <div id="backorders-summary" class="fin-grid"></div>
+  <h3>Quality Ranking (Ahrefs Verified)</h3>
+  <div id="backorders-ranking"></div>
+  <h3>Active Backorders</h3>
+  <div id="backorders-active"></div>
+  <h3>Platform Status</h3>
+  <div id="backorders-platforms" class="two-col"></div>
+  <h3>Ahrefs Verified (New Candidates)</h3>
+  <div id="backorders-verified"></div>
+  <h3>Rejected (Not Backordered)</h3>
+  <div id="backorders-rejected"></div>
+  <h3>Placement History</h3>
+  <div id="backorders-history"></div>
+</section>
+
+<!-- TAB: AUCTION LIFECYCLE -->
+<section class="panel" id="tab-auction">
+  <h2>Auction Lifecycle &mdash; Dual-Path System</h2>
+  <div class="alert alert-cyan" style="margin-bottom:12px">
+    <strong>Strategy:</strong> Path A = API proxy bid at T-305s (outside 5-min anti-snipe window). Path B = Backorder via Dynadot ($10.99) + DropCatch ($59) after auction fails. Both paths are automated; manual bids are a losing strategy.
+  </div>
+  <div id="auction-summary" class="fin-grid"></div>
+  <div class="alert alert-orange" style="margin:12px 0">
+    <strong>WHY MANUAL BIDDING FAILS:</strong> GoDaddy closeouts use proxy bidding. Bidder sets hidden max. Your bid auto-loses up to their ceiling. Every raise feeds the proxy. Evidence: prolificprogrammer $1&rarr;$21 in 3 bids. <strong>Only T-305s API proxy bid or post-auction backorder works.</strong>
+  </div>
+  <h3 style="margin-top:16px">State Machine</h3>
+  <pre style="background:var(--bg3);padding:12px;border-radius:4px;font-size:11px;overflow-x:auto;color:var(--dim)">
+SCANNING &rarr; VALIDATED &rarr; SNIPE_QUEUED &rarr; SNIPING &rarr; <span style="color:var(--green)">WON</span> (terminal)
+                                           &darr;
+                                    LOST &rarr; BACKORDER_QUEUED &rarr; BACKORDER_ACTIVE &rarr; <span style="color:var(--green)">CAUGHT</span> (terminal)
+                                           &darr;                                     &darr;
+                              API_BLOCKED &rarr;&uarr;                              <span style="color:var(--red)">MISSED</span> (terminal)
+                              EXPIRED &rarr;&rarr;&rarr;&uarr;
+  </pre>
+  <h3 style="margin-top:16px">Domain Lifecycle</h3>
+  <div id="auction-table"></div>
+  <h3 style="margin-top:16px">Event Log (Last 20)</h3>
+  <div id="auction-events"></div>
+</section>
+
+<!-- TAB: MARKET VALIDATION -->
+<section class="panel" id="tab-market-validation">
+  <h2>Market Validation — Does the Pipeline Catch Domains?</h2>
+  <div id="mv-thesis" style="margin-bottom:16px"></div>
+  <div id="mv-summary" class="fin-grid" style="margin-bottom:16px"></div>
+  <h3>Catch Attempt Results</h3>
+  <div id="mv-results"></div>
+  <h3>DR vs Auction Probability</h3>
+  <div id="mv-dr-chart"></div>
+  <h3>Strategy Options</h3>
+  <div id="mv-strategy"></div>
+  <h3>Pipeline ROI</h3>
+  <div id="mv-roi"></div>
+  <h3>Open Questions</h3>
+  <div id="mv-questions"></div>
+</section>
+
+<!-- TAB: AUCTION INTEL -->
+<section class="panel" id="tab-auction-intel">
+  <h2>Auction Intelligence &mdash; DropCatch Statistical Analysis</h2>
+  <div id="ai-key-finding"></div>
+  <h3>Price Statistics</h3>
+  <div id="ai-price-stats" class="fin-grid"></div>
+  <h3>Bidder Distribution</h3>
+  <div id="ai-bidder-chart"></div>
+  <h3>Auction Type Breakdown</h3>
+  <div id="ai-type-breakdown"></div>
+  <h3>Our Auction Positions</h3>
+  <div id="ai-positions"></div>
+</section>
+
+<!-- TAB: ROI ENGINE -->
+<section class="panel" id="tab-roi-engine">
+  <h2>ROI Engine &mdash; Pipeline Intelligence</h2>
+  <div id="roi-headline"></div>
+  <h3>The Funnel</h3>
+  <div id="roi-funnel"></div>
+  <h3>Competition Profile</h3>
+  <div id="roi-competition"></div>
+  <h3>DR-Segmented ROI</h3>
+  <div id="roi-dr-table"></div>
+  <h3>Breakeven Matrix</h3>
+  <div id="roi-breakeven"></div>
+  <h3>Two-Lane Strategy</h3>
+  <div id="roi-lanes" class="two-col"></div>
+  <h3>Sweet Spot Profile</h3>
+  <div id="roi-sweetspot"></div>
+  <h3>12-Month Projections</h3>
+  <div id="roi-projections"></div>
+  <h3>Feed Sources</h3>
+  <div id="roi-feeds"></div>
+  <h3>The 10 Rules</h3>
+  <div id="roi-rules" class="two-col"></div>
+  <h3>Kill Signals</h3>
+  <div id="roi-kills"></div>
+</section>
+
+<!-- TAB: AUTHORITY GATE -->
+<section class="panel" id="tab-authority-gate">
+  <h2>Authority Gate &mdash; 3-Layer Domain Authority Verification</h2>
+  <div class="alert alert-green" style="margin-bottom:12px"><strong>Sprint 47:</strong> Automated DR filtering deployed. Replaces manual Ahrefs checks ($499/mo) with 7-source composite scoring at $0-1/month. 43 tests passing.</div>
+  <div id="ag-summary" class="fin-grid"></div>
+  <h3>Architecture</h3>
+  <div id="ag-layers"></div>
+  <h3>Source Status</h3>
+  <div id="ag-sources"></div>
+  <h3>Composite Weights</h3>
+  <div id="ag-weights" class="fin-grid"></div>
+  <h3>Cost Comparison</h3>
+  <div id="ag-costs"></div>
+  <h3>Today's Impact</h3>
+  <div id="ag-impact"></div>
+  <h3>Scan Results</h3>
+  <div id="ag-scan-results"></div>
+</section>
+
+<!-- TAB: TIMELINE -->
+<section class="panel" id="tab-timeline">
+  <h2>Timeline</h2>
+  <div id="timeline-table"></div>
+</section>
+
+<footer>Data-driven dashboard v7.0. Update data files in <code>data/dashboard/*.js</code>, not this HTML.</footer>
 </div>
-<h3>Cost Breakdown</h3>
-<table><thead><tr><th>Category</th><th>Amount</th><th>% of Budget</th></tr></thead><tbody>
-  <tr><td>Domain Registrations (5)</td><td>$56.16</td><td>9.4%</td></tr>
-  <tr><td>API Costs (DataForSEO + DeepSeek)</td><td>$0.80</td><td>0.1%</td></tr>
-  <tr><td>Sprint 29: viryd.com</td><td>$10.99</td><td>1.8%</td></tr>
-  <tr><td>Sprint 29: neovistainc.com</td><td>$10.99</td><td>1.8%</td></tr>
-  <tr><td>GoDaddy Auctions Membership</td><td class="green">$0 (already active)</td><td>0%</td></tr>
-  <tr><td>GoDaddy Closeout Budget (3 domains)</td><td class="accent">$96 max</td><td>16%</td></tr>
-  <tr><td>NameBright/DropCatch Balance</td><td class="green">$121.25</td><td>20.2%</td></tr>
-  <tr><td>Dynadot Balance</td><td class="green">$78.24</td><td>13.0%</td></tr>
-  <tr><td>Afternic + Dan.com Listings</td><td class="green">$4,000 (BIN total)</td><td>--</td></tr>
-  <tr><td>Pending GoDaddy Closeout Buys (3)</td><td class="accent">~$84-96</td><td>--</td></tr>
-</tbody></table></section>
-<section class="panel" id="tab-startups">
-<h2>Dead Startups Tracker <span class="dim">(RDAP verified Sprint 31)</span></h2>
-<div class="stat-sub" style="margin-bottom:1rem">Top 10 reaper domains &bull; 153 scored &bull; 16 medium tier &bull; Pipeline validated Sprint 30</div>
-<h3>Reaper Top 10 (Live RDAP, Sprint 30)</h3>
-<table><thead><tr><th>#</th><th>Domain</th><th>Score</th><th>Funding</th><th>EPP Status</th><th>Sector</th></tr></thead>
-<tbody>
-<tr class="urgency-yellow"><td>1</td><td><strong>infarm.com</strong></td><td>38.9</td><td>$500M</td><td>clientRenewProhibited</td><td>cleantech</td></tr>
-<tr class="urgency-yellow"><td>2</td><td><strong>canoo.com</strong></td><td>38.0</td><td>$600M</td><td>clientRenewProhibited</td><td>cleantech</td></tr>
-<tr><td>3</td><td><strong>ambri.com</strong></td><td>36.7</td><td>$223M</td><td>clientRenewProhibited</td><td>cleantech</td></tr>
-<tr><td>4</td><td><strong>byjus.com</strong></td><td>36.7</td><td>$5.5B</td><td>client transfer prohibited</td><td>edtech</td></tr>
-<tr><td>5</td><td><strong>getir.com</strong></td><td>36.7</td><td>$1.8B</td><td>clientRenewProhibited</td><td>logistics</td></tr>
-<tr><td>6</td><td><strong>jokr.com</strong></td><td>36.7</td><td>$400M</td><td>clientRenewProhibited</td><td>logistics</td></tr>
-<tr><td>7</td><td><strong>northvolt.com</strong></td><td>36.7</td><td>$13.0B</td><td>clientRenewProhibited</td><td>cleantech</td></tr>
-<tr><td>8</td><td><strong>olive.com</strong></td><td>36.7</td><td>$902M</td><td>clientRenewProhibited</td><td>healthtech</td></tr>
-<tr><td>9</td><td><strong>quibi.com</strong></td><td>36.7</td><td>$1.75B</td><td>clientRenewProhibited</td><td>other</td></tr>
-<tr><td>10</td><td><strong>veev.com</strong></td><td>36.7</td><td>$600M</td><td>clientRenewProhibited</td><td>other</td></tr>
-</tbody></table>
-<div class="stat-sub" style="margin-top:4px">Note: DA/backlink scores = 0 (DataForSEO enrichment skipped in --sources existing mode). Full run with enrichment costs $0.12.</div>
-<h3>Active Drop Targets (RDAP verified May 17)</h3>
-<table><thead><tr><th>Domain</th><th>Expiry</th><th>Drop Signal</th><th>Est. Drop</th><th>Backorder</th><th>Notes</th></tr></thead>
-<tbody>
-<tr class="urgency-red"><td><strong>cytheris.com</strong></td><td>Jun 4</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 13</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>$45.7M biotech, GoDaddy. NoDroppingDomain. Closeout PRIMARY ($32). Re-run DC ~Aug 8.</td></tr>
-<tr class="urgency-red"><td><strong>ghostautonomy.com</strong></td><td>Jun 7</td><td><span class="badge badge-red">EXPIRING</span></td><td>~Aug 16</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>$220M funded, TM CLEAR. NoDroppingDomain. Re-run DC ~Aug 11.</td></tr>
-<tr class="urgency-yellow"><td><strong>bside.com</strong></td><td>Jun 23</td><td><span class="badge badge-yellow">WATCHING</span></td><td>~Sep 1</td><td><span class="badge badge-yellow">DC: TOO EARLY</span></td><td>5-char dictionary .com, $5K-$25K. Re-run DC ~Aug 27.</td></tr>
-<tr class="urgency-yellow"><td><strong>guerrameats.com</strong></td><td>Apr 2027</td><td><span class="badge badge-orange">clientHold</span></td><td>Uncertain</td><td><span class="badge badge-dim">--</span></td><td>$11,376/mo ETV. DNS dead. Strongest signal but long expiry.</td></tr>
-<tr class="urgency-dim"><td><strong>olive.com</strong></td><td>Nov 2027</td><td><span class="badge badge-dim">NOT DROPPING</span></td><td>--</td><td>--</td><td>$902M funded. Renewed to Nov 2027. DNSMadeEasy = active management.</td></tr>
-<tr class="urgency-dim"><td><strong>infarm.com</strong></td><td>Feb 2027</td><td><span class="badge badge-dim">NOT DROPPING</span></td><td>--</td><td>--</td><td>$500M funded. Recently modified Apr 29, 2026. Renewed to Feb 2027.</td></tr>
-</tbody></table></section>
-<section class="panel" id="tab-infra">
-<h2>Infrastructure</h2>
-<div class="fin-grid">
-  <div class="fin-card"><div class="fin-label">Tests</div><div class="fin-value green">434/434</div></div>
-  <div class="fin-card"><div class="fin-label">Scripts</div><div class="fin-value green">43/43</div></div>
-  <div class="fin-card"><div class="fin-label">Catch Platforms</div><div class="fin-value green">3/3 LIVE</div></div>
-  <div class="fin-card"><div class="fin-label">Connectivity</div><div class="fin-value green">6/6 GREEN</div></div>
-</div>
-<h3>Pipeline Agents</h3>
-<table><thead><tr><th>Stage</th><th>Agent</th><th>Target Kill Rate</th><th>Status</th></tr></thead><tbody>
-  <tr><td>1</td><td>SCOUT</td><td>95-97%</td><td><span class="badge badge-green">Ready</span></td></tr>
-  <tr><td>2</td><td>SENTINEL</td><td>85-90%</td><td><span class="badge badge-green">Ready</span></td></tr>
-  <tr><td>3</td><td>ARCHIVIST</td><td>~75%</td><td><span class="badge badge-green">Ready</span></td></tr>
-  <tr><td>4</td><td>SPECTRE</td><td>~50%</td><td><span class="badge badge-green">Ready</span></td></tr>
-  <tr><td>5</td><td>ORACLE</td><td>~40%</td><td><span class="badge badge-green">Ready</span></td></tr>
-  <tr><td>—</td><td>RADIOGRAPH</td><td>—</td><td><span class="badge badge-green">Ready</span></td></tr>
-</tbody></table>
-<h3>API Integrations</h3>
-<table><thead><tr><th>Service</th><th>Rate Limit</th><th>Timeout</th><th>Used By</th></tr></thead><tbody>
-  <tr><td>WhoisFreaks</td><td>2 req/s</td><td>30s</td><td>SCOUT</td></tr>
-  <tr><td>CatchDoms</td><td>—</td><td>15s</td><td>SCOUT</td></tr>
-  <tr><td>DataForSEO</td><td>5 req/s</td><td>20-60s</td><td>SENTINEL</td></tr>
-  <tr><td>Google CSE</td><td>95/day</td><td>10s</td><td>SENTINEL</td></tr>
-  <tr><td>Moz (Apify)</td><td>—</td><td>120s</td><td>SENTINEL</td></tr>
-  <tr><td>Wayback CDX</td><td>1 req/s</td><td>30s</td><td>ARCHIVIST</td></tr>
-  <tr><td>GitHub API</td><td>10 req/s</td><td>10s</td><td>SPECTRE</td></tr>
-  <tr><td>Reddit (PRAW)</td><td>1 req/s</td><td>10s</td><td>SPECTRE</td></tr>
-  <tr><td>Claude API</td><td>—</td><td>—</td><td>SPECTRE + ORACLE</td></tr>
-  <tr><td>DeepSeek</td><td>5 req/s</td><td>60s</td><td>Classifier</td></tr>
-  <tr><td><strong>NameBright Domain API</strong></td><td>30/30s</td><td>30s</td><td><span class="badge badge-green">LIVE</span> OAuth2 (201 Created). 787 LOC client, 12 endpoints. Balance: $0.00. Account: b2berp.com, Dismissticket.com. IP whitelisted: 1.55.43.6</td></tr>
-  <tr><td><strong>DropCatch v2</strong></td><td>30/30s</td><td>30s</td><td><span class="badge badge-green">LIVE</span> Separate auth: api.dropcatch.com/Authorize (JSON, {token}). Backorders + auctions + bids. 524 LOC client. Live auction feed accessible.</td></tr>
-  <tr><td><strong>GoDaddy Auctions</strong></td><td>60/min</td><td>60s</td><td><span class="badge badge-green">ACTIVE</span> Membership confirmed. Watchlist: 3 domains. Daily email ON. ID verify: PENDING.</td></tr>
-  <tr><td>GoDaddy Inventory</td><td>No limit</td><td>60s</td><td><span class="badge badge-green">DEPLOYED</span> godaddy_monitor.py — daily check of 6 inventory files (no auth needed)</td></tr>
-  <tr><td>Dynadot</td><td>10 req/min</td><td>30s</td><td><span class="badge badge-green">FUNDED</span> Balance: $78.24. 7 backorders at $10.99. Accepts only during pendingDelete (5-day window). Insurance tier.</td></tr>
-</tbody></table></section>
-</div>
-<script>document.addEventListener('DOMContentLoaded', function() {
+
+<!-- DATA FILES -->
+<script src="data/dashboard/meta.js"></script>
+<script src="data/dashboard/pipeline.js"></script>
+<script src="data/dashboard/portfolio.js"></script>
+<script src="data/dashboard/closeouts.js"></script>
+<script src="data/dashboard/competition.js"></script>
+<script src="data/dashboard/timeline.js"></script>
+<script src="data/dashboard/alerts.js"></script>
+<script src="data/dashboard/financials.js"></script>
+<script src="data/dashboard/lessons.js"></script>
+<script src="data/dashboard/scanner.js"></script>
+<script src="data/dashboard/api_health.js"></script>
+<script src="data/dashboard/actions.js"></script>
+<script src="data/dashboard/strategy.js"></script>
+<script src="data/dashboard/backorders.js"></script>
+<script src="data/dashboard/auction_lifecycle.js"></script>
+<script src="data/dashboard/market_validation.js"></script>
+<script src="data/dashboard/auction_statistics.js"></script>
+<script src="data/dashboard/roi_engine.js"></script>
+<script src="data/dashboard/authority_gate.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // ── Helpers ──
+  var TODAY = new Date(); TODAY.setHours(0,0,0,0);
+  function esc(s) { if (s == null) return ''; var d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; }
+  function $(id) { return document.getElementById(id); }
+  function daysAway(dateStr) {
+    if (!dateStr) return null;
+    var d = new Date(dateStr); d.setHours(0,0,0,0);
+    return Math.round((d - TODAY) / 86400000);
+  }
+  function fmtMoney(n) { return typeof n === 'number' ? '$' + n.toLocaleString('en-US', {minimumFractionDigits: n % 1 ? 2 : 0}) : esc(n); }
+  function badgeFor(text, color) { return '<span class="badge badge-' + (color || 'dim') + '">' + esc(text) + '</span>'; }
+  function tierBadge(tier) {
+    var m = {critical:'red',high:'orange',medium:'yellow',watch:'dim',dead:'dim'};
+    return badgeFor(tier.toUpperCase(), m[tier] || 'dim');
+  }
+  function statusBadge(s) {
+    if (!s) return '';
+    var sl = s.toLowerCase();
+    if (sl === 'done' || sl === 'working' || sl === 'winning' || sl === 'auto') return badgeFor(s, 'green');
+    if (sl === 'pending' || sl === 'watch' || sl === 'partial' || sl === 'untested') return badgeFor(s, 'yellow');
+    if (sl === 'critical' || sl === 'dead' || sl === 'depleted' || sl === 'restricted') return badgeFor(s, 'red');
+    if (sl === 'monitor' || sl === 'decision') return badgeFor(s, 'cyan');
+    if (sl === 'skip') return badgeFor(s, 'dim');
+    return badgeFor(s, 'dim');
+  }
+  function urgencyColor(days) {
+    if (days === null) return '';
+    if (days <= 3) return 'red';
+    if (days <= 14) return 'orange';
+    if (days <= 30) return 'yellow';
+    return 'dim';
+  }
+  function apiStatusBadge(s) {
+    var m = {working:'green',partial:'orange',dead:'red',depleted:'red',restricted:'red',blocked:'red',untested:'yellow'};
+    return badgeFor(s.toUpperCase(), m[s] || 'dim');
+  }
+
+  // ── Tab switching ──
   var btns = document.querySelectorAll('.tab-btn');
-  var panels = document.querySelectorAll('.panel[id]');
+  var panels = document.querySelectorAll('.panel[id^="tab-"]');
   btns.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var target = btn.getAttribute('data-tab');
       btns.forEach(function(b) { b.classList.remove('active'); });
       panels.forEach(function(p) { p.classList.remove('active'); });
       btn.classList.add('active');
-      var el = document.getElementById('tab-' + target);
+      var el = $('tab-' + btn.getAttribute('data-tab'));
       if (el) el.classList.add('active');
     });
   });
+
+  // ── Header + Hero ──
+  function renderHeader() {
+    var m = window.DH_META || {};
+    $('header-meta').innerHTML = 'Command Center<br>' + esc(m.date || 'N/A') + ' | Sprint ' + (m.sprint||'?') + ' Day ' + (m.sprint_day||'?') + '<br>Domain Hunter v7.0 (data-driven)';
+    var bo = m.active_backorders || {};
+    var boCount = (bo.dynadot||[]).length + (bo.dropcatch||[]).length;
+    var cards = [
+      {label:'Pipeline',value:esc(m.pipeline_status||'UNKNOWN'),color:'cyan',pulse:true,sub:(m.pipeline_detail ? esc(m.pipeline_detail) : 'Sprint '+(m.sprint||'?'))},
+      {label:'Budget',value:fmtMoney(m.budget_remaining||0),color:m.budget_remaining>1000?'green':'yellow',sub:(m.tests_passing||0)+' tests | Scan: '+(m.last_scan||'N/A')},
+      {label:'Portfolio',value:m.domains_owned||0,color:'cyan',sub:fmtMoney(m.total_invested||0)+' in | '+fmtMoney(m.total_revenue||0)+' out'},
+      {label:'Backorders',value:boCount||m.catch_targets||0,color:boCount>0?'green':'red',sub:(m.killed_targets||0)+' killed | '+(m.catch_targets||0)+' targets'}
+    ];
+    $('hero-cards').innerHTML = cards.map(function(c) {
+      return '<div class="stat-card"><div class="stat-label">'+c.label+'</div><div class="stat-value '+c.color+'"'+(c.pulse?' style="animation:pulse 1s infinite"':'')+'>'+c.value+'</div><div class="stat-sub">'+c.sub+'</div></div>';
+    }).join('');
+  }
+
+  // ── Overview ──
+  function renderOverview() {
+    var alerts = window.DH_ALERTS || [];
+    if (!alerts.length) { $('overview-alerts').innerHTML = '<div class="no-data">No alerts loaded</div>'; }
+    else {
+      $('overview-alerts').innerHTML = alerts.map(function(a) {
+        var cls = 'alert-' + (a.type || 'cyan');
+        return '<div class="alert '+cls+'"><strong>'+esc(a.title||'')+'</strong> '+esc(a.body||'')+'</div>';
+      }).join('');
+    }
+    // Scanner summary
+    var sc = window.DH_SCANNER || {};
+    if (sc.last_scan) {
+      var rdap = sc.rdap || {};
+      var cl = sc.closeout || {};
+      var ns = sc.niche_strategy || {};
+      var poc = sc.live_poc || {};
+      $('overview-scanner').innerHTML = '<div class="fin-grid">' +
+        '<div class="fin-card"><div class="fin-label">Last Scan</div><div class="fin-value accent">'+esc(sc.last_scan)+'</div></div>' +
+        '<div class="fin-card"><div class="fin-label">RDAP Checked</div><div class="fin-value cyan">'+(rdap.checked||0)+'</div></div>' +
+        '<div class="fin-card"><div class="fin-label">Whales Found</div><div class="fin-value green">'+(cl.whales||0)+'</div></div>' +
+        '<div class="fin-card"><div class="fin-label">CLEAN_DROP</div><div class="fin-value green">'+(poc.clean_drop||0)+' / '+(poc.com_da20_plus||0)+'</div></div>' +
+        '</div>' +
+        (poc.total_records ? '<div class="alert alert-green" style="margin-top:8px"><strong>PIPELINE LIVE:</strong> '+(poc.total_records||0).toLocaleString()+' records → '+(poc.com_da20_plus||0)+' DA≥20 → '+(poc.clean_drop||0)+' CLEAN_DROP ('+poc.clean_drop_pct+'%). Both backorder APIs confirmed.'+(poc.age_filter_rejected ? ' Age filter rejected: <strong>'+poc.age_filter_rejected+'</strong>.' : '')+'</div>' : '') +
+        (ns.top_niche ? '<div class="alert alert-cyan" style="margin-top:4px"><strong>'+esc(ns.top_niche)+'</strong> leads at '+ns.imp_per_page+' imp/page — '+esc(ns.recommendation)+'</div>' : '');
+    } else { $('overview-scanner').innerHTML = '<div class="no-data">Scanner data not loaded</div>'; }
+    // Mini timeline
+    var tl = (window.DH_TIMELINE || []).slice(0, 7);
+    if (!tl.length) { $('overview-timeline').innerHTML = '<div class="no-data">Timeline data not loaded</div>'; return; }
+    var h = '<table><thead><tr><th>Date</th><th>Days</th><th>Domain</th><th>Event</th><th>Status</th></tr></thead><tbody>';
+    tl.forEach(function(e) {
+      var da = daysAway(e.date);
+      var uc = urgencyColor(da);
+      h += '<tr><td class="'+uc+'">'+esc(e.date)+'</td><td class="'+uc+'">'+(da !== null ? da + 'd' : '-')+'</td><td><strong>'+esc(e.domain)+'</strong></td><td>'+esc(e.event)+'</td><td>'+statusBadge(e.status)+'</td></tr>';
+    });
+    $('overview-timeline').innerHTML = h + '</tbody></table>';
+  }
+
+  // ── Pipeline ──
+  var pipelineSortCol = null, pipelineSortAsc = true, pipelineFilter = 'all';
+  function renderPipeline() {
+    var data = window.DH_PIPELINE || [];
+    if (!data.length) { $('pipeline-table').innerHTML = '<div class="no-data">Pipeline data not loaded</div>'; return; }
+    // Filters
+    var tiers = ['all','critical','high','medium','watch','dead'];
+    $('pipeline-filters').innerHTML = tiers.map(function(t) {
+      return '<button class="filter-btn'+(pipelineFilter===t?' active':'')+'" data-filter="'+t+'">'+t.charAt(0).toUpperCase()+t.slice(1)+'</button>';
+    }).join('');
+    $('pipeline-filters').querySelectorAll('.filter-btn').forEach(function(b) {
+      b.addEventListener('click', function() {
+        pipelineFilter = b.getAttribute('data-filter');
+        renderPipeline();
+      });
+    });
+    // Filter
+    var filtered = pipelineFilter === 'all' ? data : data.filter(function(d) { return d.tier === pipelineFilter; });
+    // Sort
+    if (pipelineSortCol) {
+      filtered = filtered.slice().sort(function(a, b) {
+        var va = a[pipelineSortCol], vb = b[pipelineSortCol];
+        if (va == null) va = ''; if (vb == null) vb = '';
+        if (typeof va === 'string') va = va.toLowerCase();
+        if (typeof vb === 'string') vb = vb.toLowerCase();
+        if (va < vb) return pipelineSortAsc ? -1 : 1;
+        if (va > vb) return pipelineSortAsc ? 1 : -1;
+        return 0;
+      });
+    }
+    var cols = [
+      {key:'domain',label:'Domain'},{key:'tier',label:'Tier'},{key:'action',label:'Action'},
+      {key:'max_bid',label:'Max Bid'},{key:'registrar',label:'Registrar'},{key:'expiry_date',label:'Expiry'},
+      {key:'drop_est',label:'Drop Est'},{key:'competition_tier',label:'Competition'},{key:'score',label:'Score'}
+    ];
+    var h = '<div class="table-scroll"><table><thead><tr>';
+    cols.forEach(function(c) {
+      var cls = 'sortable' + (pipelineSortCol === c.key ? (pipelineSortAsc ? ' sorted-asc' : ' sorted-desc') : '');
+      h += '<th class="'+cls+'" data-col="'+c.key+'">'+c.label+'</th>';
+    });
+    h += '<th>Notes</th></tr></thead><tbody>';
+    filtered.forEach(function(d) {
+      var tierClass = 'tier-' + (d.tier || 'watch');
+      var m = d.metrics || {};
+      h += '<tr class="'+tierClass+'">';
+      h += '<td style="white-space:nowrap"><strong>'+esc(d.domain)+'</strong></td>';
+      h += '<td>'+tierBadge(d.tier||'watch')+'</td>';
+      h += '<td>'+badgeFor(d.action||'-', d.action==='KILLED'?'red':d.action==='SKIP_AUCTION'?'dim':'cyan')+'</td>';
+      h += '<td class="nowrap">'+(d.max_bid ? fmtMoney(d.max_bid) : '-')+'</td>';
+      h += '<td class="dim nowrap" style="max-width:100px;overflow:hidden;text-overflow:ellipsis">'+esc((d.registrar||'').replace(/\.com, LLC/g,''))+'</td>';
+      h += '<td class="nowrap">'+esc(d.expiry_date ? d.expiry_date.substring(0,10) : '-')+'</td>';
+      h += '<td class="nowrap">'+esc(d.drop_est ? d.drop_est.substring(0,10) : '-')+'</td>';
+      h += '<td>'+badgeFor(d.competition_tier||'-',{EXTREME:'red',HIGH:'orange',MODERATE:'yellow',LOW:'green',NONE:'green'}[d.competition_tier]||'dim')+'</td>';
+      h += '<td class="nowrap">'+(d.score||'-')+'</td>';
+      h += '<td class="col-detail dim" title="'+esc(d.notes||'')+'">'+esc((d.notes||'').substring(0,60))+'</td>';
+      h += '</tr>';
+    });
+    h += '</tbody></table></div>';
+    h += '<div class="dim" style="font-size:11px;margin-top:4px">Showing '+filtered.length+' of '+data.length+' domains</div>';
+    $('pipeline-table').innerHTML = h;
+    // Sort handlers
+    $('pipeline-table').querySelectorAll('th.sortable').forEach(function(th) {
+      th.addEventListener('click', function() {
+        var col = th.getAttribute('data-col');
+        if (pipelineSortCol === col) pipelineSortAsc = !pipelineSortAsc;
+        else { pipelineSortCol = col; pipelineSortAsc = true; }
+        renderPipeline();
+      });
+    });
+  }
+
+  // ── Portfolio ──
+  function renderPortfolio() {
+    var data = window.DH_PORTFOLIO;
+    if (!data || !data.length) { $('portfolio-table').innerHTML = '<div class="no-data">Portfolio data not loaded</div>'; return; }
+    var totalCost = 0, totalListed = 0;
+    data.forEach(function(d) { totalCost += d.cost || 0; totalListed += d.listed_price || 0; });
+    $('portfolio-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Total Invested</div><div class="fin-value red">'+fmtMoney(totalCost)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Listed Value</div><div class="fin-value green">'+fmtMoney(totalListed)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Unrealized P/L</div><div class="fin-value '+(totalListed-totalCost>=0?'green':'red')+'">'+fmtMoney(totalListed-totalCost)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Domains</div><div class="fin-value cyan">'+data.length+'</div></div>';
+    var h = '<table><thead><tr><th>Domain</th><th>Cost</th><th>Listed</th><th>Platforms</th><th>Strategy</th><th>Status</th><th>Impressions</th><th>Inquiries</th></tr></thead><tbody>';
+    data.forEach(function(d) {
+      var plat = Array.isArray(d.platforms) ? d.platforms.join(', ') : (d.platforms || '-');
+      h += '<tr><td><strong>'+esc(d.domain)+'</strong></td><td>'+fmtMoney(d.cost)+'</td><td>'+(d.listed_price?fmtMoney(d.listed_price):'-')+'</td><td class="dim">'+esc(plat)+'</td><td>'+badgeFor(d.strategy||'-','cyan')+'</td><td>'+esc(d.status)+'</td><td>'+(d.impressions||0)+'</td><td>'+(d.inquiries||0)+'</td></tr>';
+    });
+    $('portfolio-table').innerHTML = h + '</tbody></table>';
+  }
+
+  // ── BUY NOW (Closeouts) ──
+  var _closeoutFilter = 'all';
+  function renderCloseouts() {
+    var data = window.DH_CLOSEOUTS || {};
+    var ops = data.top_opportunities || [];
+    $('closeout-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Scan Date</div><div class="fin-value accent">'+esc(data.scan_date||'N/A')+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Total Closeouts</div><div class="fin-value cyan">'+(data.total_closeouts||0).toLocaleString()+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Quality Filtered</div><div class="fin-value yellow">'+(data.quality_filtered||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">BUY Rated</div><div class="fin-value green">'+(data.buy_rated||0)+'</div></div>';
+    if (!ops.length) { $('closeout-table').innerHTML = '<div class="no-data">No closeout data</div>'; return; }
+    // Apply filter
+    var shown = ops.filter(function(d) {
+      if (_closeoutFilter === 'fleet') return d.verdict === 'FLEET' || d.build_class === 'FLEET';
+      if (_closeoutFilter === 'buy') return d.verdict === 'BUY';
+      if (_closeoutFilter === 'budget') return d.price <= 12;
+      if (_closeoutFilter === 'niche') return d.niche && d.niche.length > 0;
+      return true;
+    }).slice(0, 50);
+    var h = '<div class="table-scroll"><table><thead><tr>';
+    h += '<th class="sortable" data-sort="domain">Domain</th>';
+    h += '<th class="sortable" data-sort="price">Price</th>';
+    h += '<th class="sortable" data-sort="tf">TF</th>';
+    h += '<th class="sortable" data-sort="rd">RD</th>';
+    h += '<th>TF/CF</th>';
+    h += '<th class="sortable" data-sort="age">Age</th>';
+    h += '<th>Niche</th>';
+    h += '<th class="sortable" data-sort="build_score">Score</th>';
+    h += '<th>Verdict</th>';
+    h += '<th>Ends</th>';
+    h += '<th>Action</th>';
+    h += '</tr></thead><tbody>';
+    shown.forEach(function(d) {
+      var vc = d.verdict === 'BUILD' ? 'green' : (d.verdict === 'FLEET' ? 'cyan' : (d.verdict === 'BUY' ? 'green' : 'yellow'));
+      var tfClass = d.tf >= 25 ? 'green' : (d.tf >= 20 ? 'yellow' : (d.tf >= 15 ? 'accent' : 'dim'));
+      var rdClass = d.rd >= 500 ? 'green' : (d.rd >= 200 ? 'yellow' : (d.rd >= 100 ? 'accent' : 'dim'));
+      var gdLink = d.godaddy_link || ('https://auctions.godaddy.com/trpItemListing.aspx?miession=searchresult&domain=' + d.domain);
+      var endTime = d.auction_end ? d.auction_end.split('T')[1].substring(0,5) : '—';
+      var nicheStr = d.niche ? d.niche : '';
+      var actionLabel = d.price <= 12 ? 'BUY NOW' : 'BID';
+      var actionColor = d.price <= 12 ? 'green' : 'orange';
+      h += '<tr class="tier-'+(d.verdict==='BUILD'?'critical':(d.verdict==='FLEET'?'high':'medium'))+'">';
+      h += '<td><a href="'+esc(gdLink)+'" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">'+esc(d.domain)+'</a></td>';
+      h += '<td class="'+(d.price<=11?'green':'')+'">'+fmtMoney(d.price)+'</td>';
+      h += '<td class="'+tfClass+'">'+d.tf+'</td>';
+      h += '<td class="'+rdClass+'">'+(d.rd||0).toLocaleString()+'</td>';
+      h += '<td class="dim">'+(d.tfcf_ratio||'—')+'</td>';
+      h += '<td>'+(d.age||'—')+'y</td>';
+      h += '<td>'+(nicheStr ? badgeFor(nicheStr,'cyan') : '<span class="dim">—</span>')+'</td>';
+      h += '<td class="'+(d.build_score>=65?'green':(d.build_score>=40?'yellow':'dim'))+'">'+(d.build_score||'—')+'</td>';
+      h += '<td>'+badgeFor(d.verdict||'—',vc)+'</td>';
+      h += '<td class="dim">'+endTime+'</td>';
+      h += '<td><a href="'+esc(gdLink)+'" target="_blank" rel="noopener" class="badge badge-'+actionColor+'" style="cursor:pointer;text-decoration:none">'+actionLabel+'</a></td>';
+      h += '</tr>';
+    });
+    $('closeout-table').innerHTML = h + '</tbody></table></div>';
+    // Bind filter buttons
+    var filterBtns = document.querySelectorAll('[data-closeout-filter]');
+    filterBtns.forEach(function(btn) {
+      btn.onclick = function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        _closeoutFilter = btn.getAttribute('data-closeout-filter');
+        renderCloseouts();
+      };
+    });
+  }
+
+  // ── Competition ──
+  function renderCompetition() {
+    var data = window.DH_COMPETITION || {};
+    var hs = data.headline_stats || {};
+    $('competition-stats').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Zero Bid Rate</div><div class="fin-value green">'+(hs.zero_bid_rate||0)+'%</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Bot Ceiling</div><div class="fin-value orange">'+fmtMoney(hs.bot_ceiling_usd||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Daily Drops (Uncaught)</div><div class="fin-value cyan">'+(hs.daily_drops_uncaught||0).toLocaleString()+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Daily Closeouts</div><div class="fin-value accent">'+(hs.daily_closeouts||0).toLocaleString()+'</div></div>';
+    // Players
+    var players = data.key_players || [];
+    if (players.length) {
+      var h = '<div class="table-scroll"><table><thead><tr><th>Player</th><th>Type</th><th>Win%</th><th>Ceiling</th><th>Detail</th><th>Weakness</th></tr></thead><tbody>';
+      players.forEach(function(p) {
+        h += '<tr><td class="nowrap"><strong>'+esc(p.name)+'</strong></td><td>'+badgeFor(p.type||'-','cyan')+'</td><td class="nowrap">'+(p.win_rate?p.win_rate+'%':'-')+'</td><td class="nowrap">'+(p.ceiling_usd?fmtMoney(p.ceiling_usd):'-')+'</td><td class="col-detail dim" title="'+esc(p.detail||'')+'">'+esc(p.detail||'')+'</td><td class="col-detail yellow" title="'+esc(p.weakness||'')+'">'+esc(p.weakness||'')+'</td></tr>';
+      });
+      $('competition-players').innerHTML = h + '</tbody></table></div>';
+    } else { $('competition-players').innerHTML = '<div class="no-data">No player data</div>'; }
+    // Pipeline visual
+    var gp = data.godaddy_pipeline || {};
+    var stages = gp.stages || [];
+    if (stages.length) {
+      var maxDays = 30;
+      var ph = '<div style="margin-bottom:8px" class="dim">'+esc(gp.description||'')+'</div>';
+      stages.forEach(function(s) {
+        var w = Math.max(4, (s.days / maxDays) * 100);
+        var colors = ['var(--red)','var(--orange)','var(--green)','var(--yellow)','var(--cyan)','var(--accent)'];
+        var ci = stages.indexOf(s) % colors.length;
+        ph += '<div class="funnel-stage"><span style="width:130px">'+esc(s.name)+'</span><div class="funnel-bar" style="width:'+w+'%;background:'+colors[ci]+'"></div><span class="dim">'+s.days+'d &mdash; '+esc(s.detail)+'</span></div>';
+      });
+      $('competition-pipeline').innerHTML = ph;
+    }
+    // Proxy
+    var pm = data.proxy_mechanics || {};
+    if (pm.how_it_works) {
+      $('competition-proxy').innerHTML =
+        '<div class="alert alert-red"><strong>How it works:</strong> '+esc(pm.how_it_works)+'</div>' +
+        '<div class="alert alert-orange"><strong>Soft close:</strong> '+esc(pm.soft_close)+'</div>' +
+        '<div class="alert alert-yellow"><strong>Implication:</strong> '+esc(pm.implication)+'</div>' +
+        '<div class="alert alert-cyan"><strong>Evidence:</strong> '+esc(pm.evidence)+'</div>';
+    }
+    // Edge
+    var edges = data.our_edge || [];
+    $('competition-edge').innerHTML = edges.map(function(e) {
+      return '<div class="edge-card"><div class="stat-label" style="color:var(--green)">'+esc(e.name)+'</div><p>'+esc(e.detail)+'</p></div>';
+    }).join('');
+  }
+
+  // ── Financials ──
+  function renderFinancials() {
+    var f = window.DH_FINANCIALS || {};
+    var b = f.budget || {};
+    var accts = b.accounts || {};
+    $('fin-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Total Invested</div><div class="fin-value red">'+fmtMoney(f.total_invested||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Revenue</div><div class="fin-value '+(f.total_revenue>0?'green':'dim')+'">'+fmtMoney(f.total_revenue||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">P/L</div><div class="fin-value '+((f.total_profit||0)>=0?'green':'red')+'">'+fmtMoney(f.total_profit||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Budget Remaining</div><div class="fin-value green">'+fmtMoney(b.remaining||0)+'</div></div>';
+    // Accounts
+    var ah = '<table><thead><tr><th>Account</th><th>Balance</th><th>Purpose</th></tr></thead><tbody>';
+    Object.keys(accts).forEach(function(k) {
+      var a = accts[k];
+      var bal = a.balance;
+      var bc = bal > 0 ? 'green' : (bal < 0 ? 'red' : 'dim');
+      ah += '<tr><td><strong>'+esc(k)+'</strong></td><td class="'+bc+'">'+fmtMoney(bal)+'</td><td class="dim">'+esc(a.purpose)+'</td></tr>';
+    });
+    $('fin-accounts').innerHTML = ah + '</tbody></table>';
+    // Portfolio
+    var acq = f.acquisitions || [];
+    if (acq.length) {
+      var ph = '<table><thead><tr><th>Domain</th><th>Date</th><th>Cost</th><th>Source</th></tr></thead><tbody>';
+      acq.forEach(function(a) {
+        ph += '<tr><td><strong>'+esc(a.domain)+'</strong></td><td>'+esc(a.date)+'</td><td>'+fmtMoney(a.cost)+'</td><td class="dim">'+esc(a.source)+'</td></tr>';
+      });
+      $('fin-portfolio').innerHTML = ph + '</tbody></table>';
+    }
+    // Projections
+    var proj = f.projections || {};
+    if (proj.note) {
+      var prh = '<div class="alert alert-yellow" style="margin-bottom:12px">'+esc(proj.note)+'</div>';
+      prh += '<table><thead><tr><th>Scenario</th><th>Weekly Buy</th><th>Avg Cost</th><th>Weekly Spend</th><th>Avg Flip</th><th>Hit Rate</th><th>Monthly Profit</th></tr></thead><tbody>';
+      ['conservative','moderate','aggressive'].forEach(function(k) {
+        var p = proj[k]; if (!p) return;
+        prh += '<tr><td><strong>'+esc(p.name)+'</strong></td><td>'+p.weekly_buy+'</td><td>'+fmtMoney(p.avg_cost)+'</td><td>'+fmtMoney(p.weekly_spend)+'</td><td>'+fmtMoney(p.avg_flip)+'</td><td>'+(p.hit_rate*100)+'%</td><td class="'+(p.monthly_profit>0?'green':'red')+'">'+fmtMoney(p.monthly_profit)+'</td></tr>';
+      });
+      $('fin-projections').innerHTML = prh + '</tbody></table>';
+    }
+  }
+
+  // ── Lessons ──
+  function renderLessons() {
+    var L = window.DH_LESSONS || {};
+    // Bottom line
+    if (L.bottom_line) {
+      $('lessons-bottom-line').innerHTML = '<div class="alert alert-red" style="font-size:13px;margin-bottom:16px"><strong>BOTTOM LINE:</strong> '+esc(L.bottom_line)+'</div>';
+    }
+    // Hard truths
+    var ht = L.hard_truths || L.hardTruths || [];
+    if (ht.length) {
+      var h = '<table><thead><tr><th>#</th><th>Truth</th><th>Evidence</th><th>Implication</th></tr></thead><tbody>';
+      ht.forEach(function(t) {
+        var rc = t.color || 'dim';
+        h += '<tr style="border-left:3px solid var(--'+rc+')"><td class="'+rc+'"><strong>'+t.num+'</strong></td><td><strong>'+esc(t.truth)+'</strong></td><td class="dim">'+esc(t.evidence)+'</td><td class="'+rc+'">'+esc(t.implication)+'</td></tr>';
+      });
+      $('lessons-truths').innerHTML = h + '</tbody></table>';
+    }
+    // Works
+    var works = L.works || [];
+    if (works.length) {
+      var wh = '<table><tbody>';
+      works.forEach(function(w) {
+        var label = typeof w === 'string' ? w : w.label;
+        var detail = typeof w === 'string' ? '' : (w.detail || '');
+        wh += '<tr><td><span class="green">+</span> <strong>'+esc(label)+'</strong></td>'+(detail?'<td class="dim">'+esc(detail)+'</td>':'')+'</tr>';
+      });
+      $('lessons-works').innerHTML = wh + '</tbody></table>';
+    }
+    // Doesn't work
+    var dw = L.doesnt_work || L.doesntWork || [];
+    if (dw.length) {
+      var dwh = '<table><tbody>';
+      dw.forEach(function(w) {
+        var label = typeof w === 'string' ? w : w.label;
+        var detail = typeof w === 'string' ? '' : (w.detail || '');
+        dwh += '<tr><td><span class="red">-</span> <strong>'+esc(label)+'</strong></td>'+(detail?'<td class="dim">'+esc(detail)+'</td>':'')+'</tr>';
+      });
+      $('lessons-doesnt').innerHTML = dwh + '</tbody></table>';
+    }
+    // Playbook
+    var pb = L.playbook || L.revisedPlaybook || [];
+    if (pb.length) {
+      var ph = '<table><thead><tr><th>Priority</th><th>Strategy</th><th>Cost</th><th>ROI</th><th>How</th></tr></thead><tbody>';
+      pb.forEach(function(p) {
+        ph += '<tr><td class="accent"><strong>'+(p.priority != null ? 'P'+p.priority : (p.step||'-'))+'</strong></td><td><strong>'+esc(p.strategy || p.action)+'</strong></td><td>'+esc(p.cost||'-')+'</td><td class="green">'+esc(p.roi||'-')+'</td><td class="dim">'+esc(p.how || p.detail || '')+'</td></tr>';
+      });
+      $('lessons-playbook').innerHTML = ph + '</tbody></table>';
+    }
+    // Attrition
+    var att = L.attrition || [];
+    if (att.length) {
+      var ah = '<table><thead><tr><th>Domain</th><th>What Happened</th><th>Category</th><th>Lesson</th></tr></thead><tbody>';
+      att.forEach(function(a) {
+        var cc = a.category && a.category.indexOf('RENEWED')>=0 ? 'orange' : (a.category && a.category.indexOf('SOLD')>=0 ? 'red' : 'yellow');
+        ah += '<tr><td>'+esc(a.domain)+'</td><td class="dim">'+esc(a.what_happened)+'</td><td>'+badgeFor(a.category||'-',cc)+'</td><td class="dim">'+esc(a.lesson)+'</td></tr>';
+      });
+      if (L.attrition_rates) {
+        ah += '</tbody></table><div class="alert alert-yellow" style="margin-top:8px"><strong>Attrition rates:</strong> ~'+L.attrition_rates.renewed+'% renewed, ~'+L.attrition_rates.sold_at_auction+'% sold at auction, ~'+L.attrition_rates.killed_validation+'% killed in validation. Only ~'+L.attrition_rates.survives_to_action+'% survive to action.</div>';
+      } else { ah += '</tbody></table>'; }
+      $('lessons-attrition').innerHTML = ah;
+    }
+    // Landscape
+    var ls = L.landscape || L.competitiveLandscape || [];
+    if (ls.length) {
+      var lh = '<table><thead><tr><th>Player</th><th>Advantage</th><th>Weakness</th><th>Our Edge</th></tr></thead><tbody>';
+      ls.forEach(function(l) {
+        lh += '<tr><td><strong>'+esc(l.player || l.segment)+'</strong></td><td class="dim">'+esc(l.advantage || l.players || '')+'</td><td class="yellow">'+esc(l.weakness || '')+'</td><td class="green">'+esc(l.our_edge || l.ourChance || '')+'</td></tr>';
+      });
+      $('lessons-landscape').innerHTML = lh + '</tbody></table>';
+    }
+    // Edge
+    var edges = L.edge || L.ourEdge || [];
+    if (edges.length) {
+      $('lessons-edge').innerHTML = edges.map(function(e) {
+        return '<div class="edge-card"><div class="stat-label" style="color:var(--green)">'+esc(e.name || e.title)+'</div><p>'+esc(e.detail || e.desc || '')+'</p></div>';
+      }).join('');
+    }
+  }
+
+  // ── Actions ──
+  function renderActions() {
+    var A = window.DH_ACTIONS || {};
+    var bl = A.blocking || [];
+    var sc = A.scheduled || [];
+    var co = A.completed || [];
+    var cont = A.contingency || [];
+    $('actions-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Blocking</div><div class="fin-value red">'+bl.length+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Scheduled</div><div class="fin-value orange">'+sc.length+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Completed</div><div class="fin-value green">'+co.length+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Contingency</div><div class="fin-value cyan">'+cont.length+'</div></div>';
+    // Blocking
+    if (bl.length) {
+      var h = '<div class="table-scroll"><table><thead><tr><th style="width:32px">#</th><th style="width:64px">Priority</th><th>Action</th><th style="width:52px">Effort</th><th style="width:80px">Category</th><th style="width:64px">Status</th></tr></thead><tbody>';
+      bl.forEach(function(a) {
+        var pc = a.priority === 'critical' ? 'red' : (a.priority === 'high' ? 'orange' : 'yellow');
+        h += '<tr style="background:rgba(248,113,113,0.08)"><td class="nowrap">'+a.id+'</td><td>'+badgeFor(a.priority||'-',pc)+'</td><td class="col-action"><strong>'+esc(a.action)+'</strong><span class="action-detail" title="'+esc(a.detail||'')+'">'+esc(a.detail||'')+'</span></td><td class="nowrap">'+esc(a.effort||'-')+'</td><td class="nowrap">'+esc(a.category||'-')+'</td><td>'+statusBadge(a.status)+'</td></tr>';
+      });
+      $('actions-blocking').innerHTML = h + '</tbody></table></div>';
+    } else { $('actions-blocking').innerHTML = '<div class="no-data">No blocking actions</div>'; }
+    // Scheduled
+    if (sc.length) {
+      var sh = '<div class="table-scroll"><table><thead><tr><th style="width:32px">#</th><th>Action</th><th>Detail</th><th style="width:90px">Date</th><th style="width:64px">Status</th></tr></thead><tbody>';
+      sc.forEach(function(a) {
+        sh += '<tr><td class="nowrap">'+a.id+'</td><td style="white-space:nowrap"><strong>'+esc(a.action)+'</strong></td><td class="col-detail dim" title="'+esc(a.detail||'')+'">'+esc(a.detail)+'</td><td class="nowrap">'+esc(a.date||'-')+'</td><td>'+statusBadge(a.status)+'</td></tr>';
+      });
+      $('actions-scheduled').innerHTML = sh + '</tbody></table></div>';
+    }
+    // Completed
+    if (co.length) {
+      var ch = '<div class="table-scroll"><table><thead><tr><th>Action</th><th>Detail</th><th style="width:90px">Date</th><th style="width:64px">Status</th></tr></thead><tbody>';
+      co.forEach(function(a) {
+        ch += '<tr><td style="white-space:nowrap"><strong>'+esc(a.action)+'</strong></td><td class="col-detail dim" title="'+esc(a.detail||'')+'">'+esc(a.detail||'')+'</td><td class="nowrap">'+esc(a.date||'-')+'</td><td>'+statusBadge(a.status)+'</td></tr>';
+      });
+      $('actions-completed').innerHTML = ch + '</tbody></table></div>';
+    }
+    // Contingency
+    if (cont.length) {
+      var cth = '<table><thead><tr><th>Scenario</th><th>Response</th><th>Priority</th></tr></thead><tbody>';
+      cont.forEach(function(c) {
+        cth += '<tr><td><strong>'+esc(c.scenario)+'</strong></td><td class="dim">'+esc(c.response)+'</td><td>'+statusBadge(c.priority)+'</td></tr>';
+      });
+      $('actions-contingency').innerHTML = cth + '</tbody></table>';
+    }
+  }
+
+  // ── Scanner ──
+  function renderScanner() {
+    var S = window.DH_SCANNER || {};
+    var rdap = S.rdap || {};
+    var cl = S.closeout || {};
+    var ts = S.tests || {};
+    var lt = S.longtail || {};
+    var ns = S.niche_strategy || {};
+    var dc = S.dropcatch || {};
+    var dy = S.dynadot || {};
+    // Summary cards (8 cards)
+    $('scanner-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Last Scan</div><div class="fin-value accent">'+esc(S.last_scan||'N/A')+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">RDAP Checked</div><div class="fin-value cyan">'+(rdap.checked||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Whales Found</div><div class="fin-value green">'+(cl.whales||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Buy Rated</div><div class="fin-value green">'+(cl.buy_rated||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Closeouts Scanned</div><div class="fin-value accent">'+(cl.total||0).toLocaleString()+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Long-tail Candidates</div><div class="fin-value cyan">'+(lt.candidates||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Niche Matched</div><div class="fin-value purple">'+(lt.niche_matched||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Tests Passing</div><div class="fin-value green">'+(ts.passing||0)+'</div></div>';
+    // Niche strategy alert
+    if (ns.top_niche) {
+      $('scanner-niche-strategy').innerHTML = '<div class="alert alert-green" style="margin:12px 0"><strong>NICHE STRATEGY:</strong> '+esc(ns.top_niche)+' leads at '+ns.imp_per_page+' imp/page ('+esc(ns.vs_aiml)+'). '+esc(ns.recommendation)+'</div>';
+    }
+    // RDAP changes
+    var results = rdap.results || [];
+    if (results.length) {
+      var rh = '<table><thead><tr><th>Domain</th><th>Status</th></tr></thead><tbody>';
+      results.forEach(function(r) {
+        var ch = r.change || '';
+        var cls = 'cyan';
+        if (ch.indexOf('RENEWED') >= 0) cls = 'orange';
+        else if (ch.indexOf('autoRenew') >= 0) cls = 'yellow';
+        else if (ch.indexOf('DEAD') >= 0) cls = 'dim';
+        else if (ch.indexOf('#1 TARGET') >= 0) cls = 'green';
+        rh += '<tr><td><strong>'+esc(r.domain)+'</strong></td><td class="'+cls+'">'+esc(ch)+'</td></tr>';
+      });
+      $('scanner-rdap').innerHTML = rh + '</tbody></table>';
+    } else { $('scanner-rdap').innerHTML = '<div class="no-data">No RDAP data</div>'; }
+    // Top closeouts (with refs + note columns)
+    var top10 = cl.top_10 || [];
+    if (top10.length) {
+      var ch = '<table><thead><tr><th>Domain</th><th>Price</th><th>Score</th><th>RD</th><th>TF</th><th>Verdict</th><th>Refs</th><th>Note</th></tr></thead><tbody>';
+      top10.forEach(function(d) {
+        var vc = d.verdict === 'WHALE' ? 'purple' : (d.verdict === 'VERIFIED BUY' ? 'green' : 'cyan');
+        ch += '<tr><td><strong>'+esc(d.domain)+'</strong></td><td>'+fmtMoney(d.price)+'</td><td>'+d.score+'</td><td>'+(d.rd||'-')+'</td><td class="'+(d.tf>=25?'green':'yellow')+'">'+(d.tf||'-')+'</td><td>'+badgeFor(d.verdict||'-',vc)+'</td><td class="dim" style="max-width:180px">'+esc(d.refs||'—')+'</td><td class="dim" style="max-width:220px">'+esc(d.note||'')+'</td></tr>';
+      });
+      $('scanner-closeouts').innerHTML = ch + '</tbody></table>';
+    }
+    // Long-tail drops
+    var picks = lt.top_picks || [];
+    if (picks.length) {
+      var lh = '<div class="alert alert-cyan" style="margin-bottom:8px"><strong>Sources:</strong> '+((lt.dropcatch_total||0).toLocaleString())+' DropCatch + '+((lt.godaddy_closeout_total||0).toLocaleString())+' GoDaddy closeouts = '+(lt.candidates||0)+' candidates after filtering. '+((lt.niche_matched||0))+' niche matched.</div>';
+      lh += '<table><thead><tr><th>Domain</th><th>RD</th><th>Drop Date</th><th>Source</th><th>Niche</th></tr></thead><tbody>';
+      picks.forEach(function(p) {
+        lh += '<tr><td><strong>'+esc(p.domain)+'</strong></td><td>'+(p.rd||'-')+'</td><td>'+esc(p.drop||'-')+'</td><td>'+badgeFor(p.source||'-','dim')+'</td><td>'+(p.niche ? badgeFor(p.niche,'purple') : '—')+'</td></tr>';
+      });
+      $('scanner-longtail').innerHTML = lh + '</tbody></table>';
+    } else { $('scanner-longtail').innerHTML = '<div class="no-data">No long-tail data</div>'; }
+    // Killed domains
+    var killed = S.killed || [];
+    if (killed.length) {
+      var kh = '<table><thead><tr><th>Domain</th><th>Reason</th></tr></thead><tbody>';
+      killed.forEach(function(k) {
+        var cls = 'red';
+        if (k.reason && k.reason.indexOf('RENEWED') >= 0) cls = 'orange';
+        if (k.reason && k.reason.indexOf('FALSE POSITIVE') >= 0) cls = 'yellow';
+        kh += '<tr><td><strong class="red">'+esc(k.domain)+'</strong></td><td class="'+cls+'">'+esc(k.reason)+'</td></tr>';
+      });
+      $('scanner-killed').innerHTML = kh + '</tbody></table>';
+    } else { $('scanner-killed').innerHTML = '<div class="no-data">No killed domains</div>'; }
+    // API health
+    var apis = window.DH_API_HEALTH || [];
+    if (apis.length) {
+      var ah = '<table><thead><tr><th>Service</th><th>Status</th><th>Detail</th><th>Cost</th></tr></thead><tbody>';
+      apis.forEach(function(a) {
+        ah += '<tr><td><strong>'+esc(a.name)+'</strong></td><td>'+apiStatusBadge(a.status)+'</td><td class="dim" style="max-width:400px">'+esc(a.detail)+'</td><td>'+esc(a.cost||'-')+'</td></tr>';
+      });
+      $('scanner-api').innerHTML = ah + '</tbody></table>';
+    } else { $('scanner-api').innerHTML = '<div class="no-data">API health data not loaded</div>'; }
+    // Live POC section
+    var poc = S.live_poc || {};
+    if (poc.total_records) {
+      var pocHtml = '<div class="fin-grid" style="margin-bottom:8px">' +
+        '<div class="fin-card"><div class="fin-label">Records Processed</div><div class="fin-value accent">'+(poc.total_records||0).toLocaleString()+'</div></div>' +
+        '<div class="fin-card"><div class="fin-label">DA≥20 (.com)</div><div class="fin-value cyan">'+(poc.com_da20_plus||0)+'</div></div>' +
+        '<div class="fin-card"><div class="fin-label">CLEAN_DROP</div><div class="fin-value green">'+(poc.clean_drop||0)+' ('+poc.clean_drop_pct+'%)</div></div>' +
+        '<div class="fin-card"><div class="fin-label">GoDaddy Pipeline</div><div class="fin-value orange">'+(poc.godaddy_pipeline||0)+' ('+poc.godaddy_pipeline_pct+'%)</div></div>' +
+        '</div>';
+      if (poc.age_filter_rejected != null || poc.age_filter_passed != null) {
+        pocHtml += '<div class="fin-grid" style="margin-bottom:8px">' +
+          '<div class="fin-card"><div class="fin-label">Age Filter Passed</div><div class="fin-value green">'+(poc.age_filter_passed||0)+'</div></div>' +
+          '<div class="fin-card"><div class="fin-label">Age Filter Rejected</div><div class="fin-value red">'+(poc.age_filter_rejected||0)+'</div></div>' +
+          (poc.legitimate_candidates != null ? '<div class="fin-card"><div class="fin-label">Legit Candidates</div><div class="fin-value cyan">'+(poc.legitimate_candidates||0)+'</div></div>' : '') +
+          (poc.spam_batch_detected != null ? '<div class="fin-card"><div class="fin-label">Spam Batch Detected</div><div class="fin-value orange">'+(poc.spam_batch_detected||0)+'</div></div>' : '') +
+          '</div>';
+      }
+      if (poc.warning) {
+        pocHtml += '<div class="alert alert-orange" style="margin:8px 0"><strong>WARNING:</strong> '+esc(poc.warning)+'</div>';
+      }
+      if (poc.top_clean_drops && poc.top_clean_drops.length) {
+        pocHtml += '<table><thead><tr><th>Domain</th><th>DA</th><th>Registrar</th><th>Drop Date</th><th>Age</th><th>Status</th></tr></thead><tbody>';
+        poc.top_clean_drops.forEach(function(d) {
+          pocHtml += '<tr><td><strong>'+esc(d.domain)+'</strong></td><td class="green">'+(d.da||'-')+'</td><td>'+badgeFor(d.registrar||'-','cyan')+'</td><td>'+esc(d.drop||'-')+'</td><td>'+(d.age_yr != null ? d.age_yr+'y' : '-')+'</td><td>'+statusBadge(d.status||'-')+'</td></tr>';
+        });
+        pocHtml += '</tbody></table>';
+      }
+      pocHtml += '<div class="dim" style="font-size:11px;margin-top:4px">'+poc.rdap_queries+' RDAP queries in '+poc.runtime_min+' min. Dominant: '+esc(poc.dominant_registrar||'N/A')+'</div>';
+      $('scanner-live-poc').innerHTML = pocHtml;
+    } else { $('scanner-live-poc').innerHTML = '<div class="no-data">No live pipeline run data yet. Run: <code>python scripts/clean_drop_live_run.py</code></div>'; }
+    // Platform status (Dynadot + DropCatch)
+    var dcStatus = dc.status || 'N/A';
+    var dcColor = dcStatus.indexOf('LIVE') >= 0 ? 'green' : 'orange';
+    var dyStatus = dy.status || 'N/A';
+    var dyColor = dyStatus.indexOf('LIVE') >= 0 ? 'green' : 'orange';
+    var dcBackorders = dc.active_backorders ? dc.active_backorders.length : (dc.backorders||0);
+    var dyBackorders = dy.active_backorders ? dy.active_backorders.length : (dy.backorders||0);
+    $('scanner-platforms').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Dynadot Balance</div><div class="fin-value '+(dy.balance>50?'green':'yellow')+'">'+fmtMoney(dy.balance||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Dynadot Backorders</div><div class="fin-value cyan">'+dyBackorders+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">DropCatch</div><div class="fin-value '+dcColor+'">'+badgeFor(dcColor==='green'?'LIVE':'PENDING',dcColor)+' <span class="dim" style="font-size:11px">('+dcBackorders+' backorders)</span></div></div>' +
+      '<div class="fin-card"><div class="fin-label">Dynadot API</div><div class="fin-value '+dyColor+'">'+badgeFor(dyColor==='green'?'LIVE':'PENDING',dyColor)+'</div></div>';
+    // Pipeline automation
+    var pa = S.pipeline_automation || {};
+    if (pa.script) {
+      $('scanner-automation').innerHTML = '<div class="alert alert-green" style="margin:4px 0">' +
+        '<strong>DAILY PIPELINE:</strong> '+esc(pa.script)+' ('+pa.steps+' steps). Schedule: '+esc(pa.schedule||'N/A')+'. ' +
+        'Status: <strong>'+esc(pa.status||'N/A')+'</strong>. ' +
+        'Install: <code>launchctl load '+esc(pa.plist||'')+'</code></div>';
+    } else { $('scanner-automation').innerHTML = '<div class="no-data">No automation configured</div>'; }
+    // Scan history (from scanner data if available)
+    var su = S.startups || {};
+    if (su.new_found) {
+      $('scanner-history').innerHTML = '<div class="alert alert-cyan"><strong>Startup Reaper:</strong> '+su.new_found+' new dead startups found. '+su.watchlist_additions+' added to watchlist.</div>';
+    }
+  }
+
+  // ── Backorders ──
+  function renderBackorders() {
+    var B = window.DH_BACKORDERS || {};
+    var s = B.summary || {};
+    var placements = B.placements || [];
+    var plat = B.platforms || {};
+    var rejected = B.rejected || [];
+    var history = B.history || [];
+    // Summary cards
+    $('backorders-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Domains</div><div class="fin-value cyan">'+(s.total_domains||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Placements</div><div class="fin-value accent">'+(s.total_placements||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Platforms</div><div class="fin-value green">'+(s.platforms_active||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Max Exposure</div><div class="fin-value orange">'+fmtMoney(s.max_exposure||0)+'</div></div>';
+    // Ranking section
+    var ranking = B.ranking || [];
+    if (ranking.length) {
+      var rk = '';
+      ranking.forEach(function(r) {
+        var qc = r.verdict.indexOf('EXCELLENT')>=0 ? 'green' : (r.verdict.indexOf('CLEAN')>=0 ? 'cyan' : (r.verdict.indexOf('TOXIC')>=0 ? 'red' : 'yellow'));
+        rk += '<div class="alert alert-'+qc+'" style="display:flex;align-items:center;gap:12px"><span class="badge badge-'+qc+'" style="font-size:16px;min-width:28px;text-align:center">#'+r.rank+'</span><strong>'+esc(r.domain)+'</strong> <span class="badge badge-'+(r.dr>=50?'green':(r.dr>=30?'yellow':'dim'))+'">DR '+r.dr+'</span> <span class="dim" style="flex:1">'+esc(r.verdict)+'</span></div>';
+      });
+      $('backorders-ranking').innerHTML = rk;
+    } else { $('backorders-ranking').innerHTML = '<div class="no-data">No ranking data</div>'; }
+    // Active backorders table
+    if (!placements.length) { $('backorders-active').innerHTML = '<div class="no-data">No backorders placed</div>'; }
+    else {
+      var h = '<div class="table-scroll"><table><thead><tr>';
+      h += '<th>Domain</th><th>DR</th><th>Quality</th><th>Age</th><th>BL</th><th>LW</th>';
+      h += '<th>Drop</th><th>Status</th><th>Dyn</th><th>DC</th><th>Exposure</th>';
+      h += '</tr></thead><tbody>';
+      placements.forEach(function(p) {
+        var a = p.ahrefs || {};
+        var statusColor = (p.status||'').indexOf('TODAY')>=0 ? 'red' : ((p.status||'').indexOf('AUCTION')>=0 ? 'orange' : 'cyan');
+        var qc = p.quality==='EXCELLENT'?'green':(p.quality==='CLEAN'?'cyan':(p.quality==='TOXIC'?'red':'yellow'));
+        var drColor = (a.dr||0)>=50?'green':((a.dr||0)>=30?'yellow':'dim');
+        var dynBadge = p.dynadot && p.dynadot.placed ? badgeFor('$'+p.dynadot.cost.toFixed(2), p.dynadot.status==='confirmed'?'green':(p.dynadot.status==='missed'?'red':'yellow')) : badgeFor('—','dim');
+        var dcBadge = p.dropcatch && p.dropcatch.placed ? badgeFor('$'+p.dropcatch.cost.toFixed(2), p.dropcatch.status==='confirmed'?'green':(p.dropcatch.status==='auction'?'orange':'yellow')) : badgeFor('—','dim');
+        var blStr = a.backlinks ? (a.backlinks >= 1000000 ? (a.backlinks/1000000).toFixed(1)+'M' : (a.backlinks >= 1000 ? (a.backlinks/1000).toFixed(0)+'K' : a.backlinks)) : '-';
+        var lwStr = a.linking_websites ? (a.linking_websites >= 1000 ? (a.linking_websites/1000).toFixed(1)+'K' : a.linking_websites) : '-';
+        h += '<tr>';
+        h += '<td class="nowrap"><strong>'+esc(p.domain)+'</strong></td>';
+        h += '<td class="'+drColor+'" style="font-weight:700">'+(a.dr!=null?a.dr:'-')+'</td>';
+        h += '<td>'+badgeFor(p.quality||'-',qc)+'</td>';
+        h += '<td class="nowrap dim">'+esc(p.age||'-')+'</td>';
+        h += '<td class="dim">'+blStr+(a.dofollow_pct?' <span style="font-size:10px">('+a.dofollow_pct+'%df)</span>':'')+'</td>';
+        h += '<td class="dim">'+lwStr+'</td>';
+        h += '<td class="nowrap">'+esc(p.drop_date||'-')+'<br><span class="dim" style="font-size:10px">'+esc(p.drop_time||'')+'</span></td>';
+        h += '<td>'+badgeFor(p.status||'-',statusColor)+'</td>';
+        h += '<td>'+dynBadge+'</td>';
+        h += '<td>'+dcBadge+'</td>';
+        h += '<td class="orange nowrap">'+fmtMoney(p.max_exposure||0)+'</td>';
+        h += '</tr>';
+        // Quality notes row
+        if (p.quality_notes) {
+          h += '<tr><td colspan="11" class="dim" style="padding:2px 8px 8px 24px;font-size:11px;border-bottom:1px solid var(--border)">'+esc(p.quality_notes)+'</td></tr>';
+        }
+        // Spam signals
+        if (p.spam_signals && p.spam_signals.length) {
+          var ss = p.spam_signals.map(function(s){return '<span class="badge badge-red" style="margin:1px">'+esc(s)+'</span>';}).join(' ');
+          h += '<tr><td colspan="11" style="padding:2px 8px 6px 24px;border-bottom:1px solid var(--border)">'+ss+'</td></tr>';
+        }
+      });
+      h += '</tbody></table></div>';
+      $('backorders-active').innerHTML = h;
+    }
+    // Ahrefs verified candidates
+    var verified = B.ahrefs_verified || [];
+    if (verified.length) {
+      var vh = '<div class="table-scroll"><table><thead><tr><th>Domain</th><th>DR</th><th>Backlinks</th><th>DF%</th><th>LW</th><th>LW DF%</th><th>Quality</th><th>Status</th><th>Action</th></tr></thead><tbody>';
+      verified.forEach(function(v) {
+        var qc = v.quality==='EXCELLENT'?'green':(v.quality==='CLEAN'?'cyan':(v.quality==='REJECTED'?'red':(v.quality==='TOXIC'?'red':'yellow')));
+        var drColor = (v.dr||0)>=50?'green':((v.dr||0)>=30?'yellow':'dim');
+        var sc = v.status==='AWAITING_BACKORDER'?'orange':(v.status==='KILLED'?'red':'dim');
+        var blStr = v.backlinks ? (v.backlinks>=1000?(v.backlinks/1000).toFixed(0)+'K':v.backlinks) : '-';
+        vh += '<tr>';
+        vh += '<td class="nowrap"><strong>'+esc(v.domain)+'</strong></td>';
+        vh += '<td class="'+drColor+'" style="font-weight:700">'+(v.dr!=null?v.dr:'-')+'</td>';
+        vh += '<td class="dim">'+blStr+'</td>';
+        vh += '<td class="dim">'+(v.dofollow_pct!=null?v.dofollow_pct+'%':'-')+'</td>';
+        vh += '<td class="dim">'+(v.linking_websites||'-')+'</td>';
+        vh += '<td class="dim">'+(v.lw_dofollow_pct!=null?v.lw_dofollow_pct+'%':'-')+'</td>';
+        vh += '<td>'+badgeFor(v.quality||'-',qc)+'</td>';
+        vh += '<td>'+badgeFor(v.status||'-',sc)+'</td>';
+        vh += '<td class="col-detail dim" title="'+esc(v.action||'')+'">'+esc(v.action||'-')+'</td>';
+        vh += '</tr>';
+        if (v.key_links) { vh += '<tr><td colspan="9" class="dim" style="padding:2px 8px 8px 24px;font-size:11px">'+esc(v.key_links)+'</td></tr>'; }
+      });
+      vh += '</tbody></table></div>';
+      $('backorders-verified').innerHTML = vh;
+    } else { $('backorders-verified').innerHTML = '<div class="no-data">No new candidates verified</div>'; }
+    // Platform status cards
+    var platHtml = '';
+    ['dynadot','dropcatch'].forEach(function(key) {
+      var p = plat[key]; if (!p) return;
+      var color = (p.api_status||'').indexOf('LIVE')>=0 ? 'green' : 'orange';
+      var bos = (p.active_backorders||[]);
+      platHtml += '<div class="edge-card">' +
+        '<div class="stat-label" style="color:var(--'+color+')">'+key.toUpperCase()+' '+badgeFor(p.api_status||'?',color)+'</div>' +
+        '<table style="margin-top:8px"><tbody>' +
+        '<tr><td class="dim">Balance</td><td>'+(typeof p.balance==='number'?fmtMoney(p.balance):esc(p.balance||'-'))+'</td></tr>' +
+        '<tr><td class="dim">Cost / Backorder</td><td>'+fmtMoney(p.cost_per_backorder||0)+'</td></tr>' +
+        '<tr><td class="dim">Active</td><td class="cyan">'+bos.length+'</td></tr>' +
+        '<tr><td class="dim">Exposure</td><td class="orange">'+fmtMoney(p.total_exposure||0)+'</td></tr>' +
+        '<tr><td class="dim">Method</td><td class="dim" style="font-size:11px">'+esc(p.catch_method||'-')+'</td></tr>' +
+        '</tbody></table>' +
+        (bos.length ? '<div style="margin-top:6px;font-size:11px">'+bos.map(function(d){return badgeFor(d,'cyan');}).join(' ')+'</div>' : '') +
+        (p.notes ? '<div class="dim" style="margin-top:6px;font-size:11px">'+esc(p.notes)+'</div>' : '') +
+        '</div>';
+    });
+    $('backorders-platforms').innerHTML = platHtml;
+    // Rejected
+    if (rejected.length) {
+      var rh = '<div class="table-scroll"><table><thead><tr><th>Domain</th><th>RefSN</th><th>Registered</th><th>Reason</th></tr></thead><tbody>';
+      rejected.forEach(function(r) {
+        var rc = (r.reason||'').indexOf('Adult')>=0 ? 'red' : 'yellow';
+        rh += '<tr><td class="nowrap"><strong class="dim">'+esc(r.domain)+'</strong></td><td>'+(r.refsubnets||'-')+'</td><td class="nowrap dim">'+esc(r.registered||'-')+'</td><td class="'+rc+'">'+esc(r.reason||'-')+'</td></tr>';
+      });
+      $('backorders-rejected').innerHTML = rh + '</tbody></table></div>';
+    } else { $('backorders-rejected').innerHTML = '<div class="no-data">None rejected</div>'; }
+    // History
+    if (history.length) {
+      var hh = '<div class="table-scroll"><table><thead><tr><th>Date</th><th>Domain</th><th>Action</th><th>Platforms</th><th>Result</th></tr></thead><tbody>';
+      history.forEach(function(e) {
+        hh += '<tr><td class="nowrap">'+esc(e.date)+'</td><td class="nowrap"><strong>'+esc(e.domain)+'</strong></td><td>'+esc(e.action)+'</td><td class="dim">'+esc(e.platforms)+'</td><td>'+esc(e.result)+'</td></tr>';
+      });
+      $('backorders-history').innerHTML = hh + '</tbody></table></div>';
+    } else { $('backorders-history').innerHTML = '<div class="no-data">No history</div>'; }
+  }
+
+  // ── Auction Lifecycle ──
+  function renderAuction() {
+    var data = window.DH_AUCTION_LIFECYCLE || {};
+    var summary = data.summary || {};
+    var domains = data.domains || [];
+    var events = data.events || [];
+    // Summary cards
+    $('auction-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Snipe Queued</div><div class="fin-value cyan">'+(summary.snipe_queued||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Backorder Active</div><div class="fin-value orange">'+(summary.backorder_active||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Won</div><div class="fin-value green">'+(summary.won||0)+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">API Status</div><div class="fin-value '+(summary.api_status==='WORKING'?'green':'red')+'">'+(summary.api_status||'BLOCKED')+'</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Total Tracked</div><div class="fin-value accent">'+(summary.total||0)+'</div></div>';
+    // Lifecycle table
+    if (!domains.length) { $('auction-table').innerHTML = '<div class="no-data">No domains in auction lifecycle. Run: <code>python scripts/auction_orchestrator.py --ingest data/godaddy_scan_*.json</code></div>'; }
+    else {
+      var h = '<table><thead><tr><th>Domain</th><th>State</th><th>Auction End</th><th>Price</th><th>Auth</th><th>Snipe</th><th>Dyn</th><th>DC</th><th>Path</th></tr></thead><tbody>';
+      domains.forEach(function(d) {
+        var sc = d.state||'';
+        var stateColor = sc==='WON'||sc==='CAUGHT'?'green':(sc==='LOST'||sc==='MISSED'||sc==='API_BLOCKED'?'red':(sc==='SNIPE_QUEUED'||sc==='SNIPING'?'cyan':(sc==='BACKORDER_ACTIVE'||sc==='BACKORDER_QUEUED'?'orange':'dim')));
+        var path = (d.backorder_dynadot||d.backorder_dropcatch) ? 'B' : (sc.indexOf('SNIPE')>=0||sc==='SNIPING'?'A':'—');
+        var endStr = d.auction_end_utc ? d.auction_end_utc.substring(0,16).replace('T',' ') : '—';
+        h += '<tr>';
+        h += '<td><strong>'+esc(d.domain)+'</strong></td>';
+        h += '<td>'+badgeFor(sc,stateColor)+'</td>';
+        h += '<td class="dim">'+endStr+'</td>';
+        h += '<td>'+fmtMoney(d.current_price||0)+'</td>';
+        h += '<td class="'+(d.authority_score>=40?'green':(d.authority_score>=20?'yellow':'dim'))+'">'+(d.authority_score||0).toFixed(0)+'</td>';
+        h += '<td class="dim">'+esc(d.snipe_result||'—')+'</td>';
+        h += '<td>'+(d.backorder_dynadot?badgeFor('Y','green'):badgeFor('-','dim'))+'</td>';
+        h += '<td>'+(d.backorder_dropcatch?badgeFor('Y','green'):badgeFor('-','dim'))+'</td>';
+        h += '<td>'+badgeFor('Path '+path, path==='A'?'cyan':(path==='B'?'orange':'dim'))+'</td>';
+        h += '</tr>';
+      });
+      $('auction-table').innerHTML = h + '</tbody></table>';
+    }
+    // Events log
+    if (!events.length) { $('auction-events').innerHTML = '<div class="no-data">No events yet</div>'; }
+    else {
+      var eh = '<table><thead><tr><th>Time</th><th>Domain</th><th>From</th><th>To</th><th>Event</th><th>Details</th></tr></thead><tbody>';
+      events.slice(0,20).forEach(function(e) {
+        var ts = e.timestamp ? e.timestamp.substring(0,16).replace('T',' ') : '—';
+        eh += '<tr><td class="dim">'+ts+'</td><td><strong>'+esc(e.domain)+'</strong></td><td>'+badgeFor(e.from_state||'—','dim')+'</td><td>'+badgeFor(e.to_state||'—','accent')+'</td><td>'+esc(e.event||'')+'</td><td class="dim" style="max-width:200px">'+esc(e.details||'')+'</td></tr>';
+      });
+      $('auction-events').innerHTML = eh + '</tbody></table>';
+    }
+  }
+
+  // ── Timeline ──
+  function renderTimeline() {
+    var data = window.DH_TIMELINE || [];
+    if (!data.length) { $('timeline-table').innerHTML = '<div class="no-data">Timeline data not loaded</div>'; return; }
+    // Dedupe and limit to reasonable count
+    var shown = data.slice(0, 100);
+    var h = '<table><thead><tr><th>Date</th><th>Days Away</th><th>Domain</th><th>Event</th><th>Action</th><th>Cost</th><th>Status</th></tr></thead><tbody>';
+    var lastDate = '';
+    shown.forEach(function(e) {
+      var da = daysAway(e.date);
+      var uc = urgencyColor(da);
+      var dateStr = e.date ? e.date.substring(0, 10) : '-';
+      var showDate = dateStr !== lastDate;
+      lastDate = dateStr;
+      // Quiet period marker
+      if (showDate && da !== null && da > 30) {
+        // skip quiet period for now
+      }
+      h += '<tr class="'+(da !== null && da <= 3 ? 'tier-critical' : (da !== null && da <= 14 ? 'tier-high' : ''))+'">';
+      h += '<td class="'+uc+'"'+(showDate?'':' style="color:transparent"')+'>'+esc(dateStr)+'</td>';
+      h += '<td class="'+uc+'" style="font-weight:700">'+(da !== null ? (da <= 0 ? 'PAST' : da + 'd') : '-')+'</td>';
+      h += '<td><strong>'+esc(e.domain)+'</strong></td>';
+      h += '<td>'+esc(e.event)+'</td>';
+      h += '<td class="col-detail dim" title="'+esc(e.action||'')+'">'+esc(e.action)+'</td>';
+      h += '<td>'+(e.cost ? (typeof e.cost === 'number' ? fmtMoney(e.cost) : esc(e.cost)) : '-')+'</td>';
+      h += '<td>'+statusBadge(e.status)+'</td>';
+      h += '</tr>';
+    });
+    h += '</tbody></table>';
+    h += '<div class="dim" style="font-size:11px;margin-top:4px">Showing '+shown.length+' of '+data.length+' events. Days calculated from '+TODAY.toISOString().substring(0,10)+'.</div>';
+    $('timeline-table').innerHTML = h;
+  }
+
+  // ── Strategy helpers ──
+  function renderStrategyLanes(S) {
+    var lanes = S.lanes || [];
+    if (!lanes.length) return;
+    $('strategy-lanes').innerHTML = lanes.map(function(l) {
+      return '<div class="edge-card"><div class="stat-label" style="color:var(--accent)">Lane '+(l.id||'?')+': '+esc(l.name)+'</div>' +
+        '<p>'+esc(l.description||'')+'</p>' +
+        '<table style="margin-top:10px"><tbody>' +
+        '<tr><td class="dim">Cost Range</td><td>'+esc(l.cost_range||'-')+'</td></tr>' +
+        '<tr><td class="dim">Target / Month</td><td class="cyan">'+(l.target_per_month||'-')+'</td></tr>' +
+        '<tr><td class="dim">ROI Estimate</td><td class="green">'+esc(l.roi_estimate||'-')+'</td></tr>' +
+        '</tbody></table></div>';
+    }).join('');
+  }
+  function renderStrategyWhales(S) {
+    var w = S.whale_targets || [];
+    if (!w.length) { $('strategy-whales').innerHTML = '<div class="no-data">No whale targets</div>'; return; }
+    var h = '<div class="table-scroll"><table><thead><tr><th>Domain</th><th>Tier</th><th>Sector</th><th>Expiry</th><th>Drop Est</th><th>Action</th><th>Notes</th></tr></thead><tbody>';
+    w.forEach(function(t) {
+      var tierColor = t.tier === 'critical' ? 'red' : (t.tier === 'high' ? 'orange' : 'cyan');
+      var actionColor = (t.action === 'STACKED_BACKORDER' || t.action === 'AUCTION_SNIPE') ? 'green' : (t.action === 'MONITOR' ? 'cyan' : (t.action === 'BID_AUCTION' ? 'orange' : 'dim'));
+      h += '<tr><td class="nowrap"><strong>'+esc(t.domain)+'</strong></td><td>'+badgeFor(t.tier||'-',tierColor)+'</td><td class="nowrap">'+esc(t.sector||'-')+'</td><td class="nowrap">'+esc(t.expiry_date?t.expiry_date.substring(0,10):'-')+'</td><td class="nowrap">'+esc(t.drop_est?t.drop_est.substring(0,10):'-')+'</td><td>'+badgeFor(t.action||'-',actionColor)+'</td><td class="col-detail dim" title="'+esc(t.notes||'')+'">'+esc(t.notes||'-')+'</td></tr>';
+    });
+    $('strategy-whales').innerHTML = h + '</tbody></table></div>';
+  }
+  function renderStrategyTables(S) {
+    // Niches
+    var niches = S.niches || [];
+    if (niches.length) {
+      var nh = '<table><thead><tr><th>Niche</th><th>Keywords</th><th>Domains Matched</th></tr></thead><tbody>';
+      niches.forEach(function(n) {
+        var kw = Array.isArray(n.keywords) ? n.keywords.join(', ') : (n.keywords || '-');
+        nh += '<tr><td><strong>'+esc(n.name)+'</strong></td><td class="dim">'+esc(kw)+'</td><td class="cyan">'+(n.domains_matched != null ? n.domains_matched : '-')+'</td></tr>';
+      });
+      $('strategy-niches').innerHTML = nh + '</tbody></table>';
+    }
+    // Build score criteria
+    var cr = S.build_score_criteria || [];
+    $('strategy-criteria').innerHTML = cr.map(function(c) {
+      return '<div class="alert alert-cyan">'+esc(typeof c === 'string' ? c : c.label || c.name || '')+(c.weight ? ' <strong>(weight: '+c.weight+')</strong>' : '')+'</div>';
+    }).join('') || '<div class="no-data">No criteria defined</div>';
+    // Confirmed working
+    var cw = S.confirmed_working || [];
+    $('strategy-working').innerHTML = cw.map(function(w) {
+      return '<div class="alert alert-green">'+esc(typeof w === 'string' ? w : w.label || '')+'</div>';
+    }).join('') || '<div class="no-data">No data</div>';
+    // Needs change
+    var nc = S.needs_change || [];
+    $('strategy-changes').innerHTML = nc.map(function(c) {
+      return '<div class="alert alert-yellow">'+esc(typeof c === 'string' ? c : c.label || '')+'</div>';
+    }).join('') || '<div class="no-data">No data</div>';
+    // Automation path
+    var ap = S.automation_path || [];
+    if (ap.length) {
+      var ah = '<table><thead><tr><th>#</th><th>Step</th><th>Detail</th><th>Status</th></tr></thead><tbody>';
+      ap.forEach(function(a, i) {
+        ah += '<tr><td class="accent"><strong>'+(a.step || i+1)+'</strong></td><td><strong>'+esc(a.name||a.label||'')+'</strong></td><td class="dim">'+esc(a.detail||'')+'</td><td>'+statusBadge(a.status)+'</td></tr>';
+      });
+      $('strategy-automation').innerHTML = ah + '</tbody></table>';
+    }
+    // Milestones
+    var ms = S.milestones || [];
+    if (ms.length) {
+      var mh = '<table><thead><tr><th>Date</th><th>Target</th><th>Status</th></tr></thead><tbody>';
+      ms.forEach(function(m) {
+        var da = daysAway(m.date);
+        var uc = urgencyColor(da);
+        mh += '<tr><td class="'+uc+'">'+esc(m.date||'-')+'</td><td>'+esc(m.target||m.label||'')+'</td><td>'+statusBadge(m.status)+'</td></tr>';
+      });
+      $('strategy-milestones').innerHTML = mh + '</tbody></table>';
+    }
+  }
+  function renderStrategy() {
+    var S = window.DH_STRATEGY;
+    if (!S) { $('strategy-assessment').innerHTML = '<div class="no-data">Data not loaded</div>'; return; }
+    if (S.honest_assessment) {
+      $('strategy-assessment').innerHTML = '<div class="alert alert-cyan" style="font-size:13px;margin-bottom:16px"><strong>HONEST ASSESSMENT:</strong> '+esc(S.honest_assessment)+'</div>';
+    }
+    renderStrategyLanes(S);
+    renderStrategyWhales(S);
+    renderStrategyTables(S);
+  }
+
+  // ── Market Validation ──
+  function renderMVResultsTable(results) {
+    var h = '<div class="table-scroll"><table><thead><tr>';
+    h += '<th>Domain</th><th>DR</th><th>Age</th><th>Result</th><th>Platform</th><th>Bidders</th><th>Price</th><th>Cost</th><th>Lesson</th>';
+    h += '</tr></thead><tbody>';
+    results.forEach(function(r) {
+      var rc = r.result === 'CLEAN_CATCH' ? 'green' : (r.result === 'AUCTION' ? 'orange' : (r.result === 'CANCELLED' ? 'red' : 'cyan'));
+      var drColor = (r.dr || 0) >= 50 ? 'green' : ((r.dr || 0) >= 30 ? 'yellow' : 'dim');
+      h += '<tr>';
+      h += '<td class="nowrap"><strong>' + esc(r.domain) + '</strong></td>';
+      h += '<td class="' + drColor + '" style="font-weight:700">' + (r.dr || '-') + '</td>';
+      h += '<td class="dim">' + esc(r.age || '-') + '</td>';
+      h += '<td>' + badgeFor(r.result || '-', rc) + '</td>';
+      h += '<td class="dim">' + esc(r.catch_platform || '-') + '</td>';
+      h += '<td>' + (r.auction_bidders != null ? r.auction_bidders : '-') + '</td>';
+      h += '<td class="orange">' + (r.auction_current_price != null ? fmtMoney(r.auction_current_price) : '-') + '</td>';
+      h += '<td>' + fmtMoney(r.backorder_cost || 0) + '</td>';
+      h += '<td class="col-detail dim" title="' + esc(r.lesson || '') + '">' + esc(r.lesson || '-') + '</td>';
+      h += '</tr>';
+    });
+    h += '</tbody></table></div>';
+    return h;
+  }
+
+  function renderMVDrChart(dra) {
+    var dh = '<div class="table-scroll"><table><thead><tr><th>DR Range</th><th>Auction %</th><th>Samples</th><th>Avg Price</th><th>Avg Bidders</th><th>Notes</th></tr></thead><tbody>';
+    dra.forEach(function(d) {
+      var pct = d.auction_pct != null ? d.auction_pct + '%' : 'No data';
+      var pc = d.auction_pct != null ? (d.auction_pct >= 80 ? 'red' : (d.auction_pct >= 50 ? 'orange' : 'green')) : 'dim';
+      dh += '<tr><td class="nowrap"><strong>' + esc(d.dr_range) + '</strong></td>';
+      dh += '<td class="' + pc + '" style="font-weight:700">' + pct + '</td>';
+      dh += '<td class="dim">' + (d.sample_size || 0) + '</td>';
+      dh += '<td>' + (d.avg_price != null ? fmtMoney(d.avg_price) : '-') + '</td>';
+      dh += '<td>' + (d.avg_bidders != null ? d.avg_bidders : '-') + '</td>';
+      dh += '<td class="dim">' + esc(d.note || '') + '</td></tr>';
+    });
+    dh += '</tbody></table></div>';
+    return dh;
+  }
+
+  function renderMVStrategyOptions(opts) {
+    var sh = '';
+    opts.forEach(function(o) {
+      sh += '<div class="edge-card" style="margin-bottom:10px">';
+      sh += '<div class="stat-label" style="color:var(--accent)">Option ' + esc(o.id) + ': ' + esc(o.name) + '</div>';
+      sh += '<p class="dim" style="margin:6px 0">' + esc(o.description) + '</p>';
+      sh += '<table><tbody>';
+      sh += '<tr><td class="dim">Monthly Spend</td><td class="orange">' + esc(o.monthly_spend || '-') + '</td></tr>';
+      sh += '<tr><td class="dim">Expected Catches</td><td class="cyan">' + esc(o.expected_catches || '-') + '</td></tr>';
+      sh += '<tr><td class="dim">Expected Value</td><td class="green">' + esc(o.expected_value || '-') + '</td></tr>';
+      sh += '<tr><td class="dim">Requires</td><td class="yellow">' + esc(o.requires || '-') + '</td></tr>';
+      sh += '</tbody></table></div>';
+    });
+    return sh;
+  }
+
+  function renderMarketValidation() {
+    var MV = window.DH_MARKET_VALIDATION || {};
+    if (!MV.catch_results) {
+      $('mv-thesis').innerHTML = '<div class="no-data">Market validation data not loaded</div>';
+      return;
+    }
+    // Thesis status banner
+    var tc = MV.thesis_status === 'GREEN' ? 'green' : (MV.thesis_status === 'RED' ? 'red' : 'yellow');
+    $('mv-thesis').innerHTML = '<div class="alert alert-' + tc + '"><strong>' + esc(MV.thesis_label || '') + '</strong><br><span class="dim">' + esc(MV.thesis_detail || '') + '</span></div>';
+    // Summary cards
+    var results = MV.catch_results || [];
+    var pending = results.filter(function(r){return r.result==='PENDING'}).length;
+    var auctions = results.filter(function(r){return r.result==='AUCTION'}).length;
+    var clean = results.filter(function(r){return r.result==='CLEAN_CATCH'}).length;
+    var cancelled = results.filter(function(r){return r.result==='CANCELLED'}).length;
+    $('mv-summary').innerHTML =
+      '<div class="fin-card"><div class="fin-label">Total Attempts</div><div class="fin-value accent">' + results.length + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Pending</div><div class="fin-value cyan">' + pending + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Auctions</div><div class="fin-value orange">' + auctions + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Clean Catches</div><div class="fin-value green">' + clean + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Cancelled</div><div class="fin-value red">' + cancelled + '</div></div>';
+    // Catch results table
+    $('mv-results').innerHTML = renderMVResultsTable(results);
+    // DR vs Auction chart
+    var dra = MV.dr_auction_probability || [];
+    if (dra.length) { $('mv-dr-chart').innerHTML = renderMVDrChart(dra); }
+    // Strategy options
+    var opts = MV.strategy_options || [];
+    if (opts.length) { $('mv-strategy').innerHTML = renderMVStrategyOptions(opts); }
+    // ROI calculator
+    var roi = MV.pipeline_roi || {};
+    $('mv-roi').innerHTML = '<div class="alert alert-' + (roi.monthly_profit > 0 ? 'green' : 'red') + '">' +
+      '<strong>Monthly Model:</strong> ' + fmtMoney(roi.monthly_backorder_spend || 0) + '/mo spend | ' +
+      ((roi.estimated_catch_rate || 0) * 100).toFixed(0) + '% catch rate | ' +
+      fmtMoney(roi.avg_acquisition_cost || 0) + ' avg cost | ' +
+      fmtMoney(roi.avg_flip_value || 0) + ' avg flip<br>' +
+      '<span class="dim">' + esc(roi.note || '') + '</span></div>';
+    // Open questions
+    var qs = MV.open_questions || [];
+    $('mv-questions').innerHTML = qs.map(function(q) {
+      return '<div class="alert alert-yellow">' + esc(q) + '</div>';
+    }).join('');
+  }
+
+  // ── Auction Intelligence ──
+  function renderAuctionKeyFinding(stats) {
+    var el = $('ai-key-finding');
+    if (!stats || !stats.key_finding) { el.innerHTML = ''; return; }
+    var bd = stats.bidder_distribution || {};
+    var dr = bd.dropped_only || {};
+    var total = (stats.by_type && stats.by_type.Dropped) ? stats.by_type.Dropped.count : 0;
+    var zeroOne = (dr.zero || 0) + (dr.one || 0);
+    var pct = total > 0 ? ((zeroOne / total) * 100).toFixed(1) : '?';
+    el.innerHTML =
+      '<div class="alert alert-green" style="font-size:15px;margin-bottom:16px;padding:16px 20px">' +
+      '<strong style="font-size:18px;display:block;margin-bottom:6px">' + esc(pct) + '% of Dropped auctions have 0-1 bidders</strong>' +
+      esc(stats.key_finding) +
+      (stats.confidence_level ? '<br><span class="dim" style="font-size:11px">Confidence: ' + esc(stats.confidence_level) + ' (' + (stats.confidence_interval ? stats.confidence_interval[0].toFixed(1) + '%-' + stats.confidence_interval[1].toFixed(1) + '%' : 'N/A') + ') | Sample: ' + (stats.validation_sample_size || 0) + ' auctions</span>' : '') +
+      '</div>';
+  }
+
+  function renderAuctionPriceStats(stats) {
+    var el = $('ai-price-stats');
+    if (!stats || !stats.price_stats) { el.innerHTML = '<div class="no-data">No price data</div>'; return; }
+    var d = stats.price_stats.dropped || {};
+    el.innerHTML =
+      '<div class="fin-card"><div class="fin-label">Dropped Min</div><div class="fin-value green">' + fmtMoney(d.min || 0) + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Dropped Median</div><div class="fin-value cyan">' + fmtMoney(d.median || 0) + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Dropped Mean</div><div class="fin-value accent">' + fmtMoney(d.mean || 0) + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Dropped Max</div><div class="fin-value red">' + fmtMoney(d.max || 0) + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">At $59 Floor</div><div class="fin-value orange">' + (d.at_59 || 0) + ' (' + (d.pct_at_59 || 0) + '%)</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Total Auctions</div><div class="fin-value dim">' + (stats.total_auctions || 0).toLocaleString() + '</div></div>';
+  }
+
+  function renderAuctionBidderChart(stats) {
+    var el = $('ai-bidder-chart');
+    if (!stats || !stats.bidder_distribution) { el.innerHTML = '<div class="no-data">No bidder data</div>'; return; }
+    var bd = stats.bidder_distribution;
+    var labels = ['zero', 'one', 'two_three', 'four_five', 'six_ten', 'eleven_plus'];
+    var display = ['0 bidders', '1 bidder', '2-3 bidders', '4-5 bidders', '6-10 bidders', '11+ bidders'];
+    var allData = bd.all || {};
+    var droppedData = bd.dropped_only || {};
+    var allTotal = 0; var drTotal = 0;
+    labels.forEach(function(k) { allTotal += allData[k] || 0; drTotal += droppedData[k] || 0; });
+    var h = '<div class="table-scroll"><table><thead><tr><th>Bucket</th><th>All Types</th><th>All %</th><th>Dropped Only</th><th>Dropped %</th></tr></thead><tbody>';
+    labels.forEach(function(k, i) {
+      var av = allData[k] || 0; var dv = droppedData[k] || 0;
+      var ap = allTotal > 0 ? (av / allTotal * 100).toFixed(1) : '0';
+      var dp = drTotal > 0 ? (dv / drTotal * 100).toFixed(1) : '0';
+      var rc = i === 0 ? 'green' : (i <= 2 ? 'yellow' : 'red');
+      h += '<tr><td><strong>' + esc(display[i]) + '</strong></td>';
+      h += '<td class="dim">' + av + '</td><td class="dim">' + ap + '%</td>';
+      h += '<td class="' + rc + '">' + dv + '</td><td class="' + rc + '" style="font-weight:700">' + dp + '%</td></tr>';
+    });
+    h += '<tr style="border-top:2px solid var(--border)"><td><strong>Total</strong></td>';
+    h += '<td class="accent">' + allTotal + '</td><td></td>';
+    h += '<td class="accent">' + drTotal + '</td><td></td></tr>';
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderAuctionTypeBreakdown(stats) {
+    var el = $('ai-type-breakdown');
+    if (!stats || !stats.by_type) { el.innerHTML = '<div class="no-data">No type data</div>'; return; }
+    var types = stats.by_type;
+    var keys = Object.keys(types);
+    var h = '<div class="table-scroll"><table><thead><tr><th>Type</th><th>Count</th><th>0-1 Bidders %</th><th>Median Price</th><th>Mean Bidders</th><th>Opportunity</th></tr></thead><tbody>';
+    keys.forEach(function(k) {
+      var t = types[k];
+      var opp = t.pct_zero_one_bidders >= 90 ? 'LOW' : (t.pct_zero_one_bidders >= 30 ? 'MEDIUM' : 'HIGH');
+      var oc = opp === 'HIGH' ? 'red' : (opp === 'MEDIUM' ? 'yellow' : 'green');
+      var pc = t.pct_zero_one_bidders >= 90 ? 'green' : (t.pct_zero_one_bidders >= 30 ? 'yellow' : 'red');
+      h += '<tr><td><strong>' + esc(k) + '</strong></td>';
+      h += '<td class="cyan">' + (t.count || 0) + '</td>';
+      h += '<td class="' + pc + '" style="font-weight:700">' + (t.pct_zero_one_bidders || 0).toFixed(1) + '%</td>';
+      h += '<td>' + fmtMoney(t.median_price || 0) + '</td>';
+      h += '<td class="dim">' + (t.mean_bidders || 0).toFixed(2) + '</td>';
+      h += '<td>' + badgeFor(opp + ' COMPETITION', oc) + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderAuctionPositions(stats) {
+    var el = $('ai-positions');
+    if (!stats || !stats.our_positions || !stats.our_positions.length) {
+      el.innerHTML = '<div class="no-data">No active auction positions</div>';
+      return;
+    }
+    var pos = stats.our_positions;
+    var h = '<div class="table-scroll"><table><thead><tr><th>Domain</th><th>Auction ID</th><th>High Bid</th><th>Our Max</th><th>Status</th><th>Bidders</th></tr></thead><tbody>';
+    pos.forEach(function(p) {
+      var wc = p.winning ? 'green' : 'red';
+      var ws = p.winning ? 'WINNING' : 'OUTBID';
+      h += '<tr><td><strong>' + esc(p.domain) + '</strong></td>';
+      h += '<td class="dim">' + (p.auction_id || '-') + '</td>';
+      h += '<td class="orange">' + fmtMoney(p.high_bid || 0) + '</td>';
+      h += '<td class="cyan">' + fmtMoney(p.our_max || 0) + '</td>';
+      h += '<td>' + badgeFor(ws, wc) + '</td>';
+      h += '<td>' + (p.bidders || 0) + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderAuctionIntel() {
+    var stats = window.DH_AUCTION_STATS;
+    if (!stats) {
+      $('ai-key-finding').innerHTML = '<div class="no-data">Auction statistics data not loaded. Waiting for data/dashboard/auction_statistics.js</div>';
+      return;
+    }
+    renderAuctionKeyFinding(stats);
+    renderAuctionPriceStats(stats);
+    renderAuctionBidderChart(stats);
+    renderAuctionTypeBreakdown(stats);
+    renderAuctionPositions(stats);
+  }
+
+  // ── ROI Engine render functions ──
+
+  function renderROIHeadline(R) {
+    var el = $('roi-headline');
+    if (!el) return;
+    var f = R.funnel;
+    var e = R.economics;
+    el.innerHTML = '<div class="alert alert-green"><strong>CONFIRMED:</strong> ' + f.uncontested_pct + '% of ' + f.dropcatch_catches.toLocaleString() + ' daily catches are uncontested at $59. Cost per domain: $' + e.cost_per_domain + '. Breakeven: ' + e.breakeven[2].rate + '% flip rate at $' + e.breakeven[2].flip_price + '. Revenue: <span class="red">$0</span>.</div>' +
+    '<div class="fin-grid" style="margin-top:12px">' +
+      '<div class="fin-card"><div class="fin-label">Daily Drops</div><div class="fin-value accent">' + f.daily_com_deletions.toLocaleString() + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">DC Catches</div><div class="fin-value green">' + f.dropcatch_catches.toLocaleString() + '/day</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Uncontested</div><div class="fin-value green">' + f.uncontested_pct + '%</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Contested</div><div class="fin-value orange">' + f.contested_daily + '/day</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Cost/Domain</div><div class="fin-value cyan">$' + e.cost_per_domain + '</div></div>' +
+      '<div class="fin-card"><div class="fin-label">BE Flip Rate</div><div class="fin-value yellow">' + e.breakeven[2].rate + '%</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Min Viable</div><div class="fin-value red">' + e.minimum_viable_flip_rate + '%</div></div>' +
+      '<div class="fin-card"><div class="fin-label">Budget Left</div><div class="fin-value purple">$' + e.budget_remaining.toLocaleString() + '</div></div>' +
+    '</div>';
+  }
+
+  function renderROIFunnel(R) {
+    var el = $('roi-funnel');
+    if (!el) return;
+    var f = R.funnel;
+    var steps = [
+      { label: '.com deletions', count: f.daily_com_deletions, color: 'var(--dim)' },
+      { label: 'DropCatch catches', count: f.dropcatch_catches, color: 'var(--accent)' },
+      { label: 'Uncontested ($59)', count: f.uncontested_daily, color: 'var(--green)' },
+      { label: 'Contested (auction)', count: f.contested_daily, color: 'var(--orange)' },
+      { label: 'Under $100', count: f.contested_under_100, color: 'var(--yellow)' },
+      { label: '$500+', count: f.contested_500_plus, color: 'var(--red)' }
+    ];
+    var maxW = f.daily_com_deletions;
+    var h = '';
+    steps.forEach(function(s) {
+      var w = Math.max(4, (s.count / maxW) * 100);
+      h += '<div class="funnel-stage"><div class="funnel-bar" style="width:' + w + '%;background:' + s.color + '"></div>';
+      h += '<span>' + s.count.toLocaleString() + '/day &mdash; ' + s.label + '</span></div>';
+    });
+    el.innerHTML = h;
+  }
+
+  function renderROICompetition(R) {
+    var el = $('roi-competition');
+    if (!el) return;
+    var c = R.competition;
+    var h = '<div class="three-col">';
+    h += '<div class="edge-card"><div class="stat-label">BY WORD COUNT</div><table><thead><tr><th>Words</th><th>Avg Bidders</th></tr></thead><tbody>';
+    c.by_word_count.forEach(function(w) {
+      var cls = w.avg_bidders <= 2 ? 'green' : (w.avg_bidders <= 5 ? 'yellow' : 'red');
+      h += '<tr><td>' + esc(w.words) + '</td><td class="' + cls + '">' + w.avg_bidders + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    h += '<div class="edge-card"><div class="stat-label">BY FEATURE</div><table><thead><tr><th>Feature</th><th>Avg Bidders</th><th>Effect</th></tr></thead><tbody>';
+    c.by_feature.forEach(function(f) {
+      var cls = f.avg_bidders <= 2 ? 'green' : (f.avg_bidders <= 5 ? 'yellow' : 'red');
+      h += '<tr><td>' + esc(f.feature) + '</td><td class="' + cls + '">' + f.avg_bidders + '</td><td class="dim">' + esc(f.multiplier) + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    h += '<div class="edge-card"><div class="stat-label">BY DAY</div><table><thead><tr><th>Day</th><th>Bidders</th><th>Verdict</th></tr></thead><tbody>';
+    c.by_day.forEach(function(d) {
+      var cls = d.verdict === 'AVOID' ? 'red' : (d.verdict === 'OPTIMAL' ? 'green' : 'dim');
+      h += '<tr><td>' + esc(d.day) + '</td><td>' + d.avg_bidders + '</td><td class="' + cls + '">' + esc(d.verdict) + '</td></tr>';
+    });
+    h += '</tbody></table></div></div>';
+    h += '<div class="alert alert-cyan" style="margin-top:12px"><strong>BIDDER REALITY:</strong> 46% of bids are spray bidders ($59 floor, never win). Only 9% use proxy bids — but proxy wins 70% of auctions. Real competition is 60-80% lower than numberOfBidders suggests.</div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIDrTable(R) {
+    var el = $('roi-dr-table');
+    if (!el) return;
+    var h = '<div class="table-scroll"><table><thead><tr><th>DR Range</th><th>Acq Cost</th><th>Flip Price</th><th>Flip Rate</th><th>Per-Domain EV</th><th>ROI</th><th>Verdict</th></tr></thead><tbody>';
+    R.dr_roi.forEach(function(d) {
+      var vc = d.verdict === 'BUY' ? 'green' : (d.verdict === 'MONITOR' ? 'yellow' : 'red');
+      var ec = d.ev >= 0 ? 'green' : 'red';
+      h += '<tr><td><strong>' + esc(d.range) + '</strong></td>';
+      h += '<td class="cyan">$' + d.acq_cost.toLocaleString() + '</td>';
+      h += '<td class="dim">' + esc(d.flip_price) + '</td>';
+      h += '<td>' + d.flip_rate + '%</td>';
+      h += '<td class="' + ec + '">' + (d.ev >= 0 ? '+' : '') + '$' + d.ev.toLocaleString() + '</td>';
+      h += '<td class="' + ec + '">' + (d.roi >= 0 ? '+' : '') + d.roi + '%</td>';
+      h += '<td>' + badgeFor(d.verdict, vc) + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIBreakeven(R) {
+    var el = $('roi-breakeven');
+    if (!el) return;
+    var h = '<div class="fin-grid">';
+    R.economics.breakeven.forEach(function(b) {
+      var cls = b.rate <= 10 ? 'green' : (b.rate <= 20 ? 'yellow' : 'red');
+      h += '<div class="fin-card"><div class="fin-label">@ $' + b.flip_price + ' flip</div><div class="fin-value ' + cls + '">' + b.rate + '%</div><div class="stat-sub">1 in ' + Math.round(100/b.rate) + ' domains</div></div>';
+    });
+    h += '</div>';
+    h += '<div class="alert alert-yellow" style="margin-top:12px"><strong>SENSITIVITY:</strong> Even if clean catch rate drops to 50%, breakeven only moves from 13% to 17.6% at $500 flip. The variable that matters is flip rate and flip price, NOT acquisition cost.</div>';
+    el.innerHTML = h;
+  }
+
+  function renderROILanes(R) {
+    var el = $('roi-lanes');
+    if (!el) return;
+    var la = R.lanes.a;
+    var lb = R.lanes.b;
+    el.innerHTML =
+      '<div class="edge-card"><div class="stat-label" style="color:var(--green)">LANE A: ' + esc(la.name).toUpperCase() + '</div>' +
+      '<p><strong>Target:</strong> ' + esc(la.target) + '</p>' +
+      '<p><strong>Volume:</strong> ' + esc(la.volume) + '</p>' +
+      '<p><strong>Cost:</strong> ' + esc(la.cost) + '</p>' +
+      '<p><strong>Clean catch:</strong> ' + esc(la.expected_clean) + '</p>' +
+      '<p><strong>Gate:</strong> ' + esc(la.gate) + '</p></div>' +
+      '<div class="edge-card"><div class="stat-label" style="color:var(--orange)">LANE B: ' + esc(lb.name).toUpperCase() + '</div>' +
+      '<p><strong>Target:</strong> ' + esc(lb.target) + '</p>' +
+      '<p><strong>Volume:</strong> ' + esc(lb.volume) + '</p>' +
+      '<p><strong>Cost:</strong> ' + esc(lb.cost) + '</p>' +
+      '<p><strong>Clean catch:</strong> ' + esc(lb.expected_clean) + '</p>' +
+      '<p><strong>Gate:</strong> ' + esc(lb.gate) + '</p></div>';
+  }
+
+  function renderROISweetSpot(R) {
+    var el = $('roi-sweetspot');
+    if (!el) return;
+    var s = R.sweet_spot;
+    var h = '<div class="two-col"><div class="edge-card"><div class="stat-label">TARGET PROFILE</div>';
+    h += '<p><strong>DR:</strong> ' + esc(s.dr_range) + '</p>';
+    h += '<p><strong>Words:</strong> ' + esc(s.word_count) + ' (CamelCase)</p>';
+    h += '<p><strong>Min length:</strong> ' + s.min_length + ' chars</p>';
+    h += '<p><strong>Hyphens:</strong> Preferred (4.4x less competition)</p>';
+    h += '<p><strong>Keywords:</strong> ' + s.target_keywords.join(', ') + '</p></div>';
+    h += '<div class="edge-card"><div class="stat-label">ZERO-BIDDER EXAMPLES</div>';
+    h += '<table><tbody>';
+    s.examples.forEach(function(ex) {
+      h += '<tr><td class="green">' + esc(ex) + '</td></tr>';
+    });
+    h += '</tbody></table>';
+    h += '<div class="stat-sub" style="margin-top:8px"><strong>AVOID:</strong> ' + s.avoid.join(' | ') + '</div></div></div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIProjections(R) {
+    var el = $('roi-projections');
+    if (!el) return;
+    var h = '<div class="table-scroll"><table><thead><tr><th>Scenario</th><th>Backorders/mo</th><th>Flip Rate</th><th>Flip Price</th><th>Breakeven</th><th>Year 1 P&amp;L</th></tr></thead><tbody>';
+    R.projections.forEach(function(p) {
+      var plc = p.year1_pl >= 0 ? 'green' : 'red';
+      h += '<tr><td><strong>' + esc(p.scenario) + '</strong></td>';
+      h += '<td>' + p.backorders + '</td>';
+      h += '<td>' + p.flip_rate + '%</td>';
+      h += '<td>$' + p.flip_price + '</td>';
+      h += '<td class="' + (p.breakeven === 'Never' ? 'red' : 'green') + '">' + esc(p.breakeven) + '</td>';
+      h += '<td class="' + plc + '">' + (p.year1_pl >= 0 ? '+' : '') + '$' + p.year1_pl.toLocaleString() + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIFeeds(R) {
+    var el = $('roi-feeds');
+    if (!el) return;
+    var h = '<div class="table-scroll"><table><thead><tr><th>Source</th><th>Domains/Day</th><th>Cost</th><th>Quality</th><th>Priority</th><th>Status</th></tr></thead><tbody>';
+    R.feeds.forEach(function(f) {
+      var sc = f.status === 'LIVE' ? 'green' : (f.status === 'READY' ? 'yellow' : 'dim');
+      h += '<tr><td><strong>' + esc(f.name) + '</strong></td>';
+      h += '<td>' + esc(String(f.domains_day)) + '</td>';
+      h += '<td>' + esc(f.cost) + '</td>';
+      h += '<td>' + esc(f.quality) + '</td>';
+      h += '<td>' + esc(f.priority) + '</td>';
+      h += '<td>' + badgeFor(f.status, sc) + '</td></tr>';
+    });
+    h += '</tbody></table></div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIRules(R) {
+    var el = $('roi-rules');
+    if (!el) return;
+    var h = '<div class="edge-card"><div class="stat-label" style="color:var(--green)">CATCHING RULES</div><ol style="padding-left:20px;margin:8px 0">';
+    R.rules.catching.forEach(function(r) { h += '<li style="margin-bottom:6px;font-size:12px">' + esc(r) + '</li>'; });
+    h += '</ol></div><div class="edge-card"><div class="stat-label" style="color:var(--orange)">SELLING RULES</div><ol style="padding-left:20px;margin:8px 0">';
+    R.rules.selling.forEach(function(r) { h += '<li style="margin-bottom:6px;font-size:12px">' + esc(r) + '</li>'; });
+    h += '</ol></div>';
+    el.innerHTML = h;
+  }
+
+  function renderROIKills(R) {
+    var el = $('roi-kills');
+    if (!el) return;
+    var h = '';
+    R.kill_signals.forEach(function(k) { h += '<div class="alert alert-red">' + esc(k) + '</div>'; });
+    el.innerHTML = h;
+  }
+
+  function renderROIEngine() {
+    var R = window.DH_ROI_ENGINE;
+    if (!R) {
+      $('roi-headline').innerHTML = '<div class="no-data">ROI Engine data not loaded.</div>';
+      return;
+    }
+    renderROIHeadline(R);
+    renderROIFunnel(R);
+    renderROICompetition(R);
+    renderROIDrTable(R);
+    renderROIBreakeven(R);
+    renderROILanes(R);
+    renderROISweetSpot(R);
+    renderROIProjections(R);
+    renderROIFeeds(R);
+    renderROIRules(R);
+    renderROIKills(R);
+  }
+
+  // ── Authority Gate ──
+  function renderAuthorityGate() {
+    var AG = window.DH_AUTHORITY_GATE;
+    if (!AG) { $('ag-summary').innerHTML = '<div class="no-data">Authority Gate data not loaded.</div>'; return; }
+
+    // Summary cards
+    var src = AG.sources || [];
+    var active = src.filter(function(s) { return s.status === 'ACTIVE'; }).length;
+    $('ag-summary').innerHTML = [
+      {l:'Status',v:AG.status,c:AG.status==='DEPLOYED'?'green':'yellow'},
+      {l:'Active Sources',v:active+'/'+src.length,c:'cyan'},
+      {l:'Tests',v:AG.tests_passing+'/'+AG.total_tests,c:'green'},
+      {l:'Monthly Cost',v:'$0-1',c:'green'},
+      {l:'Replaces',v:'$499/mo Ahrefs',c:'red'},
+      {l:'Domains/Day',v:'Unlimited',c:'cyan'}
+    ].map(function(c){return '<div class="fin-card"><div class="fin-label">'+c.l+'</div><div class="fin-value '+c.c+'">'+esc(c.v)+'</div></div>';}).join('');
+
+    // Layers
+    var arch = AG.architecture || {};
+    var layers = arch.layers || [];
+    var lh = '';
+    layers.forEach(function(l) {
+      var color = l.id===0?'cyan':l.id===1?'green':'orange';
+      lh += '<div class="edge-card" style="margin-bottom:8px"><div class="stat-label" style="color:var(--'+color+')">LAYER '+l.id+': '+esc(l.name)+' ('+esc(l.cost)+', '+esc(l.speed)+')</div>';
+      lh += '<p style="margin:6px 0">'+esc(l.description)+'</p>';
+      lh += '<p><strong>Sources:</strong> '+l.sources.map(function(s){return esc(s);}).join(', ')+'</p>';
+      if (l.short_circuits.length) {
+        lh += '<div style="margin-top:6px">';
+        l.short_circuits.forEach(function(sc) { lh += '<div class="alert alert-'+color+'" style="padding:4px 10px;margin:2px 0;font-size:11px">'+esc(sc)+'</div>'; });
+        lh += '</div>';
+      }
+      lh += '</div>';
+    });
+    $('ag-layers').innerHTML = lh;
+
+    // Sources table
+    var sh = '<div class="table-scroll"><table><thead><tr><th>Source</th><th>Type</th><th>Capacity</th><th>Batch</th><th>Status</th><th>Detail</th></tr></thead><tbody>';
+    src.forEach(function(s) {
+      var sc = s.status==='ACTIVE'?'green':(s.status==='PENDING SETUP'?'yellow':'red');
+      sh += '<tr><td class="nowrap"><strong>'+esc(s.name)+'</strong></td><td class="nowrap">'+badgeFor(s.type,s.type.indexOf('FREE')>=0?'green':(s.type==='LOCAL'||s.type==='LOCAL DB'?'cyan':'orange'))+'</td><td class="nowrap">'+esc(s.capacity)+'</td><td>'+s.batch+'</td><td>'+badgeFor(s.status,sc)+'</td><td class="col-detail">'+esc(s.detail)+'</td></tr>';
+    });
+    sh += '</tbody></table></div>';
+    $('ag-sources').innerHTML = sh;
+
+    // Composite weights
+    var w = arch.composite_weights || {};
+    var wk = Object.keys(w);
+    $('ag-weights').innerHTML = wk.map(function(k) {
+      var pct = Math.round(w[k]*100);
+      return '<div class="fin-card"><div class="fin-label">'+esc(k)+'</div><div class="fin-value accent">'+pct+'%</div></div>';
+    }).join('');
+
+    // Cost comparison
+    var costs = AG.cost_comparison || [];
+    var ch = '<div class="table-scroll"><table><thead><tr><th>Approach</th><th>Monthly</th><th>Domains/Day</th><th>Quality</th><th>Verdict</th></tr></thead><tbody>';
+    costs.forEach(function(c) {
+      var vc = c.verdict==='DEPLOYED'?'green':(c.verdict.indexOf('expensive')>=0||c.verdict.indexOf("scale")>=0?'red':'yellow');
+      ch += '<tr><td><strong>'+esc(c.approach)+'</strong></td><td class="nowrap">'+esc(c.monthly)+'</td><td class="nowrap">'+esc(c.domains_day)+'</td><td>'+esc(c.quality)+'</td><td>'+badgeFor(c.verdict,vc)+'</td></tr>';
+    });
+    ch += '</tbody></table></div>';
+    $('ag-costs').innerHTML = ch;
+
+    // Today's impact
+    var imp = AG.todays_impact || {};
+    var ih = '<div class="alert alert-red" style="margin-bottom:8px"><strong>Today\'s Result:</strong> '+esc(imp.detail)+'</div>';
+    ih += '<div class="fin-grid">';
+    ih += '<div class="fin-card"><div class="fin-label">Candidates</div><div class="fin-value red">'+imp.candidates_checked+'</div></div>';
+    ih += '<div class="fin-card"><div class="fin-label">Ahrefs Verified</div><div class="fin-value red">'+imp.ahrefs_verified+'</div></div>';
+    ih += '<div class="fin-card"><div class="fin-label">All DR 0?</div><div class="fin-value red">YES</div></div>';
+    ih += '<div class="fin-card"><div class="fin-label">Money Saved</div><div class="fin-value green">$'+imp.money_saved+'</div></div>';
+    ih += '</div>';
+    if (imp.channels_killed && imp.channels_killed.length) {
+      ih += '<h4 style="margin:12px 0 6px;color:var(--red)">Channels Killed</h4>';
+      imp.channels_killed.forEach(function(c) { ih += '<div class="alert alert-red" style="padding:4px 10px;margin:2px 0;font-size:11px">'+esc(c)+'</div>'; });
+    }
+    $('ag-impact').innerHTML = ih;
+
+    // Scan results
+    var results = AG.scan_results || [];
+    if (!results.length) {
+      $('ag-scan-results').innerHTML = '<div class="no-data">No scan results yet. Run: python3 scripts/authority_gate.py --dry-run --domains example.com</div>';
+    } else {
+      var rh = '<div class="table-scroll"><table><thead><tr><th>Domain</th><th>Verdict</th><th>Score</th><th>DR Est</th><th>Confidence</th><th>Cost</th><th>Short-Circuit</th><th>Sources</th></tr></thead><tbody>';
+      results.forEach(function(r) {
+        var vc = r.verdict==='PASS'?'green':(r.verdict==='KILL'?'red':'yellow');
+        rh += '<tr><td><strong>'+esc(r.domain)+'</strong></td><td>'+badgeFor(r.verdict,vc)+'</td><td class="'+vc+'">'+r.score.toFixed(1)+'</td><td>'+r.dr_estimate+'</td><td>'+Math.round(r.confidence*100)+'%</td><td>$'+r.cost.toFixed(4)+'</td><td>'+(r.short_circuit?esc(r.short_circuit_reason):'—')+'</td><td class="col-detail">'+esc(r.sources)+'</td></tr>';
+      });
+      rh += '</tbody></table></div>';
+      $('ag-scan-results').innerHTML = rh;
+    }
+  }
+
+  // ── Render all ──
+  renderHeader();
+  renderOverview();
+  renderPipeline();
+  renderPortfolio();
+  renderCloseouts();
+  renderCompetition();
+  renderFinancials();
+  renderLessons();
+  renderStrategy();
+  renderActions();
+  renderScanner();
+  renderBackorders();
+  renderAuction();
+  renderMarketValidation();
+  renderAuctionIntel();
+  renderROIEngine();
+  renderAuthorityGate();
+  renderTimeline();
+
+  // Activate first tab
   if (btns.length > 0) btns[0].click();
-});</script>
+});
+</script>
 </body></html>

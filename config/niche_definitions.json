@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "updated": "2026-05-20",
+  "description": "Content niche definitions for domain classification. Used by niche_scorer.py and whale_classifier.py.",
+
+  "niches": {
+    "AI/ML": {
+      "keywords": ["machine learning", "artificial intelligence", "neural network", "deep learning", "autonomous", "robotics", "ai", "automation", "data science", "computer vision", "nlp", "chatbot", "generative ai", "llm", "transformer"],
+      "semrush_keywords": ["machine learning", "ai tools", "deep learning", "neural network", "artificial intelligence", "chatgpt", "openai"],
+      "domain_tokens": ["ai", "ml", "neural", "autonomous", "robot", "automate", "deeplearn", "datascience"],
+      "example_domains": ["ghostautonomy.com", "deepmind.io"],
+      "content_potential": "Deploy AI/ML tutorials, tool reviews, research summaries. High CPC ($3-$15).",
+      "priority": 1
+    },
+    "Developer Tools": {
+      "keywords": ["developer", "programming", "code", "software", "api", "devops", "github", "open source", "framework", "library", "sdk", "ide", "compiler", "debugging", "testing"],
+      "semrush_keywords": ["developer tools", "programming", "code editor", "api documentation", "devops", "software development"],
+      "domain_tokens": ["dev", "code", "api", "sdk", "software", "program", "github", "tool", "debug"],
+      "example_domains": ["prolificprogrammer.com", "bestdevtools.com"],
+      "content_potential": "Developer tutorials, tool comparisons, API guides. High CPC ($2-$10).",
+      "priority": 2
+    },
+    "Cooking/Food": {
+      "keywords": ["recipe", "cooking", "nutrition", "restaurant", "meal", "kitchen", "chef", "baking", "ingredient", "food", "culinary", "pantry", "grocery", "diet", "vegan", "gluten", "allergen", "calorie", "serving", "portion", "cuisine", "organic", "snack", "breakfast", "dinner", "lunch", "dessert", "appetizer", "sauce", "spice", "herb", "roast", "grill", "broth", "soup", "salad", "smoothie", "ferment", "sourdough", "pastry", "confection", "sushi", "pizza", "barbecue", "smokehouse", "winery", "bistro", "cafe", "bakery", "deli", "catering", "foodie", "gastro", "ramen", "taco", "burger", "steakhouse", "seafood", "creamery", "gelato", "chocolat", "patisserie", "brewpub", "tapas", "diner", "brewery", "cook", "bake"],
+      "semrush_keywords": ["recipe", "cooking tips", "meal prep", "healthy recipes", "baking", "kitchen tools", "restaurant near me", "food delivery", "vegan recipes", "gluten free", "sushi restaurant", "pizza recipe", "barbecue tips", "smoothie recipes"],
+      "domain_tokens": ["recipe", "cook", "food", "kitchen", "meal", "ingredient", "bake", "chef", "culinary", "nutrition", "cafe", "bistro", "pizza", "grill", "bakery", "diner", "foodie", "catering", "vegan", "brewery", "sushi", "burger", "restaurant", "gastro", "ramen", "taco", "seafood", "dessert", "organic", "broth", "soup", "salad", "spice", "sauce"],
+      "exact_match_only": ["deli", "herb", "diet", "bake", "cook", "meal", "cafe", "soup", "sauce", "spice", "roast", "snack", "lunch", "grill", "broth", "taco", "diner"],
+      "example_domains": ["ingredientcalculator.com", "recipetool.net", "flashfoodrecovery.com", "rumoisushi.com"],
+      "content_potential": "Recipe sites, cooking guides, nutrition tools. Moderate CPC ($1-$5). Highest impression volume (76 impressions/page per GSC data, 2.9x over AI/ML). #1 acquisition priority.",
+      "priority": 1,
+      "notes": "Expanded from 14 to 68 keywords on 2026-05-20. Added exact_match_only list to prevent substring false positives (deli in remodeling, herb in herbert, etc). TF threshold lowered to 12 for this niche specifically."
+    },
+    "Productivity": {
+      "keywords": ["productivity", "task", "project management", "workflow", "planning", "organize", "calendar", "todo", "efficiency", "time management", "gtd", "kanban"],
+      "semrush_keywords": ["productivity tools", "project management", "task management", "workflow automation", "time tracking"],
+      "domain_tokens": ["task", "plan", "product", "workflow", "organize", "calendar", "todo", "project"],
+      "example_domains": ["taskplanner.com"],
+      "content_potential": "Productivity guides, tool reviews, workflow templates. High CPC ($3-$12).",
+      "priority": 2
+    },
+    "Health/Wellness": {
+      "keywords": ["health", "wellness", "fitness", "medical", "therapy", "nutrition", "exercise", "yoga", "mental health", "mindfulness", "workout", "supplement"],
+      "semrush_keywords": ["health tips", "fitness routine", "mental health", "yoga", "nutrition guide", "workout plan"],
+      "domain_tokens": ["health", "wellness", "fit", "medical", "therapy", "yoga", "exercise", "nutrition"],
+      "example_domains": [],
+      "content_potential": "Health guides, wellness tools, fitness content. YMYL caution. Moderate CPC ($2-$8).",
+      "priority": 3
+    },
+    "Education": {
+      "keywords": ["education", "learning", "course", "tutorial", "study", "teaching", "school", "training", "academic", "university", "student", "certification"],
+      "semrush_keywords": ["online courses", "learning platform", "tutorial", "certification", "study guide"],
+      "domain_tokens": ["learn", "edu", "course", "tutor", "study", "teach", "school", "train", "academic"],
+      "example_domains": [],
+      "content_potential": "Course reviews, tutorials, study guides. High CPC ($3-$15) especially certifications.",
+      "priority": 2
+    },
+    "Finance/Crypto": {
+      "keywords": ["finance", "investment", "trading", "crypto", "blockchain", "defi", "fintech", "banking", "budget", "stock", "forex", "portfolio"],
+      "semrush_keywords": ["crypto trading", "investment tips", "personal finance", "stock market", "defi", "fintech"],
+      "domain_tokens": ["finance", "invest", "trade", "crypto", "block", "defi", "fintech", "bank", "budget", "stock"],
+      "example_domains": [],
+      "content_potential": "Finance guides, crypto analysis, investment tools. Highest CPC ($5-$50). YMYL compliance critical.",
+      "priority": 3
+    },
+    "Travel": {
+      "keywords": ["travel", "tourism", "hotel", "flight", "destination", "adventure", "vacation", "booking", "resort", "backpacking", "cruise"],
+      "semrush_keywords": ["travel guide", "hotel deals", "flight booking", "vacation planning", "adventure travel"],
+      "domain_tokens": ["travel", "tour", "hotel", "flight", "adventure", "vacation", "book", "resort", "cruise"],
+      "example_domains": [],
+      "content_potential": "Travel guides, hotel reviews, destination content. Moderate CPC ($1-$8). High affiliate potential.",
+      "priority": 3
+    }
+  },
+
+  "classification_rules": {
+    "buildable_min_niche_confidence": 40,
+    "fleet_min_niche_confidence": 20,
+    "editorial_tf_cf_ratio": 0.8,
+    "whale_min_rd": 1000,
+    "whale_min_dr": 40,
+    "fleet_max_price": 31,
+    "fleet_min_tf": 15,
+    "fleet_max_tf": 35
+  },
+
+  "brand_only_signals": [
+    "Single dictionary word .com (decoder, spirit, olive)",
+    "Company name with Inc/Corp/Labs/AI suffix",
+    "4-letter or shorter .com (jokr, veev, irl)",
+    "Active trademark from live company",
+    "Personal name domain",
+    "Acronym-only domain"
+  ]
+}

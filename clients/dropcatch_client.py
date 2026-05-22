@@ -9,7 +9,7 @@ Setup requirements:
   3. Grant "Register Domains" permission
   4. Configure IP whitelist for your API account
   5. Log into DropCatch.com with NameBright credentials at least once
-  6. Set DROPCATCH_CLIENT_ID and DROPCATCH_CLIENT_SECRET in .env
+  6. Set DROPCATCH_CLIENT_ID and DROPCATCH_API_SECRET in .env
      Format: client_id = "accountname:appname"
 
 API docs:
@@ -431,7 +431,13 @@ class DropCatchClient:
         tlds: list[str] | None = None,
         high_bid_max: float | None = None,
     ) -> list[dict[str, Any]]:
-        """Search active auctions."""
+        """Search active auctions.
+
+        Returns:
+            List of auction dicts. The API returns a wrapper dict with
+            "items", "totalRecords", and "cursor" keys; this method
+            unwraps it to return the items list directly.
+        """
         assert 1 <= size <= 200, f"size must be 1-200, got {size}"
 
         params: dict[str, Any] = {"size": size, "showAllActive": True}
@@ -452,7 +458,25 @@ class DropCatchClient:
         assert response.status_code == 200, (
             f"Search auctions failed: HTTP {response.status_code}"
         )
-        return response.json()
+
+        data: Any = response.json()
+
+        # API returns {"items": [...], "totalRecords": N, "cursor": {...}}
+        # Unwrap to return the list directly, matching the type hint.
+        if isinstance(data, dict):
+            for key in ("items", "Items", "results", "Results", "auctions", "Auctions"):
+                if key in data and isinstance(data[key], list):
+                    return data[key]
+            logger.warning(
+                "search_auctions_unexpected_dict",
+                keys=list(data.keys()),
+            )
+            return []
+
+        assert isinstance(data, list), (
+            f"Expected list from search_auctions, got {type(data).__name__}"
+        )
+        return data
 
     def get_auction(self, auction_id: int) -> dict[str, Any]:
         """Get details for a specific auction."""
@@ -467,6 +491,76 @@ class DropCatchClient:
             f"Get auction failed: HTTP {response.status_code}"
         )
         return response.json()
+
+    def get_auction_bids(
+        self, auction_id: int, size: int = 50,
+    ) -> list[dict[str, Any]]:
+        """Get bid history for a specific auction.
+
+        Returns:
+            List of bid dicts with Alias, AccountId, Amount, IsProxy,
+            IsHighBid, BidOrder, Created fields.
+        """
+        assert auction_id > 0, f"Invalid auction_id: {auction_id}"
+        assert 1 <= size <= 200, f"size must be 1-200, got {size}"
+
+        response = self._rate_limited_request(
+            "GET",
+            f"{_API_BASE_URL}/v2/auctions/{auction_id}/bids",
+            headers=self._auth_headers(),
+            params={"size": size},
+        )
+        assert response.status_code == 200, (
+            f"Get auction bids failed: HTTP {response.status_code}"
+        )
+
+        data: Any = response.json()
+        if isinstance(data, dict):
+            bids = data.get("bids") or data.get("Bids") or []
+            assert isinstance(bids, list), f"Expected list, got {type(bids)}"
+            return bids
+        assert isinstance(data, list), f"Expected list, got {type(data)}"
+        return data
+
+    def list_my_bids(
+        self,
+        size: int = 50,
+        winning: bool | None = None,
+    ) -> list[dict[str, Any]]:
+        """List auctions you are bidding on.
+
+        Args:
+            size: Number of results (1-200).
+            winning: Filter to only winning (True) or losing (False) bids.
+
+        Returns:
+            List of bid dicts with AuctionId, Domain, IsWinning,
+            HighBid, MaxBid fields.
+        """
+        assert 1 <= size <= 200, f"size must be 1-200, got {size}"
+
+        params: dict[str, Any] = {"size": size}
+        if winning is not None:
+            params["winning"] = winning
+
+        response = self._rate_limited_request(
+            "GET",
+            f"{_API_BASE_URL}/v2/bids",
+            headers=self._auth_headers(),
+            params=params,
+        )
+        assert response.status_code == 200, (
+            f"List bids failed: HTTP {response.status_code}"
+        )
+
+        data: Any = response.json()
+        if isinstance(data, dict):
+            for key in ("items", "Items", "bids", "Bids"):
+                if key in data and isinstance(data[key], list):
+                    return data[key]
+            return []
+        assert isinstance(data, list), f"Expected list, got {type(data)}"
+        return data
 
     def place_bids(
         self, bids: list[dict[str, Any]]

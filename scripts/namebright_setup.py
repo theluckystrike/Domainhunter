@@ -85,7 +85,7 @@ def load_credentials() -> tuple[str, str]:
     """
     settings = Settings()
     client_id = settings.dropcatch_client_id or ""
-    client_secret = settings.dropcatch_client_secret or ""
+    client_secret = settings.dropcatch_api_secret or ""
     assert isinstance(client_id, str), "client_id must be string"
     assert isinstance(client_secret, str), "client_secret must be string"
     return client_id, client_secret
@@ -101,7 +101,7 @@ def check_credentials(client_id: str, client_secret: str) -> CheckResult:
         if not client_id:
             missing.append("DROPCATCH_CLIENT_ID")
         if not client_secret:
-            missing.append("DROPCATCH_CLIENT_SECRET")
+            missing.append("DROPCATCH_API_SECRET")
         return CheckResult(
             label="Credentials loaded",
             passed=False,
@@ -590,7 +590,7 @@ def main(argv: list[str] | None = None) -> int:
         client_id, client_secret = load_credentials()
     except Exception as exc:
         print(f"\n{_FAIL} Failed to load settings: {exc}")
-        print("  Ensure .env exists in project root with DROPCATCH_CLIENT_ID and DROPCATCH_CLIENT_SECRET")
+        print("  Ensure .env exists in project root with DROPCATCH_CLIENT_ID and DROPCATCH_API_SECRET")
         return 1
 
     # Run requested check mode

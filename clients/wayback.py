@@ -247,6 +247,77 @@ class WaybackClient:
         assert len(truncated) >= 0, "content length must be non-negative"
         return truncated
 
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=1, max=30),
+        reraise=True,
+    )
+    async def get_snapshot_count(self, domain: str) -> int:
+        """Get total number of Wayback snapshots for a domain.
+
+        Uses the lightweight showNumPages=true CDX parameter that returns
+        a single integer instead of full snapshot data. Zero snapshots
+        means the domain was never a real website = guaranteed DR 0.
+
+        Args:
+            domain: Target domain name.
+
+        Returns:
+            Number of CDX pages (proxy for snapshot count). 0 = dead domain.
+        """
+        assert isinstance(domain, str), "domain must be a string"
+        assert len(domain) >= 4 and "." in domain, (
+            f"domain must be valid, got: {domain}"
+        )
+
+        if self._mock:
+            # Known domains get realistic counts
+            if domain in ("github.com", "wikipedia.org", "google.com"):
+                return 500
+            return 0
+
+        return await self._fetch_snapshot_count(domain)
+
+    async def _fetch_snapshot_count(self, domain: str) -> int:
+        """Fetch snapshot page count from Wayback CDX."""
+        assert isinstance(domain, str), "domain must be a string"
+        assert len(domain) >= 4, "domain must be at least 4 chars"
+
+        params: dict[str, str] = {
+            "url": domain,
+            "matchType": "domain",
+            "showNumPages": "true",
+        }
+
+        async with aiohttp.ClientSession(timeout=self._timeout) as session:
+            async with session.get(_CDX_URL, params=params) as response:
+                status: int = response.status
+                if status != 200:
+                    logger.warning(
+                        "wayback_count_error",
+                        domain=domain, status=status,
+                    )
+                    return 0
+                body: str = await response.text()
+
+        await asyncio.sleep(_RATE_LIMIT_DELAY)
+
+        try:
+            count: int = int(body.strip())
+        except ValueError:
+            logger.warning(
+                "wayback_count_parse_error",
+                domain=domain, body=body[:100],
+            )
+            return 0
+
+        assert count >= 0, f"count must be non-negative, got: {count}"
+        logger.info(
+            "wayback_snapshot_count",
+            domain=domain, count=count,
+        )
+        return count
+
     async def _load_mock_history(self) -> list[dict[str, str]]:
         """Load fixture CDX data for testing."""
         fixture_path: Path = Path(_FIXTURE_PATH)
