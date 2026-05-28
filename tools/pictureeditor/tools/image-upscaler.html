@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Image Upscaler — Enlarge Photos Without Losing Quality | PictureEditor</title>
+<meta name="description" content="Free online image upscaler. Enlarge photos 2x, 3x, or 4x using bilinear and bicubic interpolation. Before/after slider comparison. Shows original vs new dimensions and file size. Client-side processing — your images never leave your device.">
+<meta name="keywords" content="image upscaler, upscale image online, enlarge photo without losing quality, increase image resolution, bicubic interpolation, bilinear interpolation, image enlarger, photo upscaler free">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/image-upscaler.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/image-upscaler.html">
+<meta property="og:title" content="AI Image Upscaler — Enlarge Photos Without Losing Quality">
+<meta property="og:description" content="Upscale images 2x–4x with bilinear or bicubic interpolation. Before/after slider. Free, private, no upload required.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-28">
+<meta property="article:modified_time" content="2026-05-28">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Image Upscaler — Enlarge Photos Without Losing Quality">
+<meta name="twitter:description" content="Upscale images 2x–4x with bilinear or bicubic interpolation. Before/after slider. Free, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"AI Image Upscaler",
+    "url":"https://pictureeditor.net/tools/image-upscaler.html",
+    "description":"Free online image upscaler. Enlarge photos 2x, 3x, or 4x using bilinear and bicubic interpolation with before/after comparison.",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-28",
+    "dateModified":"2026-05-28",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"AI Image Upscaler — Enlarge Photos Without Losing Quality",
+    "description":"How to upscale images in the browser using bilinear and bicubic interpolation, with a before/after comparison slider.",
+    "url":"https://pictureeditor.net/tools/image-upscaler.html",
+    "datePublished":"2026-05-28",
+    "dateModified":"2026-05-28",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"PictureEditor","url":"https://pictureeditor.net"}
+  }
+]
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},{"@type":"ListItem","position":3,"name":"Image Upscaler"}]}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2d3148;
+  --text:#e2e8f0;--text-secondary:#94a3b8;--radius:10px;
+  --shadow:0 2px 8px rgba(0,0,0,.35)
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+img{max-width:100%;height:auto}
+a{color:#818cf8;text-decoration:none}
+a:hover{color:#a5b4fc;text-decoration:underline}
+/* Header */
+.header{background:#12152a;color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.15);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+/* Layout */
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+/* Drop zone */
+.drop-zone{border:2.5px dashed var(--border);border-radius:var(--radius);padding:48px 24px;text-align:center;cursor:pointer;transition:.2s}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:rgba(99,102,241,.07)}
+.drop-zone p{font-size:1rem;color:var(--text-secondary);margin-top:8px;margin-bottom:0}
+.drop-zone .sub{font-size:.8rem;color:#64748b;margin-top:4px}
+.drop-zone svg{width:48px;height:48px;color:var(--text-secondary)}
+.hidden{display:none!important}
+/* Controls */
+.controls{margin-top:20px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px}
+.radio-group{display:flex;gap:8px;flex-wrap:wrap}
+.radio-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);font-size:.875rem;font-weight:600;cursor:pointer;transition:.15s;background:var(--surface2);color:var(--text-secondary)}
+.radio-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.12)}
+.radio-btn:hover{border-color:var(--accent);color:var(--accent)}
+/* Info row */
+.info-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.info-box{flex:1;min-width:120px;padding:12px;background:var(--surface2);border-radius:8px;text-align:center;border:1px solid var(--border)}
+.info-box .label{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:1.05rem;font-weight:700;margin-top:4px;color:var(--text)}
+.info-box.green .value{color:var(--green)}
+.info-box.accent .value{color:#818cf8}
+/* Before/after slider */
+.comparison-wrap{position:relative;width:100%;overflow:hidden;border-radius:var(--radius);border:1px solid var(--border);user-select:none;touch-action:none;background:#000;margin-top:16px}
+.comparison-wrap canvas{display:block;width:100%;height:auto}
+#afterCanvas{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;clip-path:inset(0 50% 0 0)}
+.slider-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:white;cursor:ew-resize;box-shadow:0 0 8px rgba(0,0,0,.6)}
+.slider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:white;box-shadow:0 2px 8px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;cursor:ew-resize}
+.slider-handle svg{width:20px;height:20px;color:#1e1b4b}
+.label-before{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:4px;pointer-events:none}
+.label-after{position:absolute;top:10px;right:10px;background:rgba(99,102,241,.8);color:#fff;font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:4px;pointer-events:none}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:#818cf8}
+.btn-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Progress */
+.progress-bar{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;margin:12px 0}
+.progress-fill{height:100%;background:var(--accent);border-radius:3px;width:0%;transition:width .3s}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:#818cf8}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:#818cf8}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:#12152a;color:rgba(255,255,255,.6);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px;border-top:1px solid var(--border)}
+.footer a{color:rgba(255,255,255,.85)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+/* Related tools */
+.related{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:48px}
+.related h2{font-size:1.1rem;margin-bottom:16px}
+.related ul{list-style:none;padding:0;display:grid;gap:8px}
+.related a{color:#818cf8}
+@media(max-width:600px){.info-row{flex-direction:column}.header nav{display:none}h2{font-size:1.4rem}.radio-group{gap:6px}}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  Image Upscaler
+</nav>
+
+<h2>AI Image Upscaler — Enlarge Photos Without Losing Quality</h2>
+<p class="subtitle">Upscale images 2x, 3x, or 4x using bilinear and bicubic interpolation. Side-by-side before/after comparison. All processing runs in your browser — your images never leave your device.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="upscaler-tool">
+  <h3 id="tool-heading" style="margin-top:0">Image Upscaling Tool</h3>
+  <p>Drop an image below, choose your scale factor and algorithm, then compare the result with the original using the drag slider. Download the upscaled image as a PNG.</p>
+
+  <!-- Drop Zone -->
+  <div class="drop-zone" id="dropZone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+    <p>Drag &amp; drop an image here, or click to select</p>
+    <p class="sub">Supports JPEG, PNG, WebP &mdash; up to 20 MB. Single image.</p>
+  </div>
+  <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+
+  <!-- Controls -->
+  <div class="controls hidden" id="controls">
+
+    <!-- Scale factor -->
+    <div class="field">
+      <label>Scale Factor</label>
+      <div class="radio-group" id="scaleGroup">
+        <button class="radio-btn" data-val="2">2x</button>
+        <button class="radio-btn active" data-val="3">3x</button>
+        <button class="radio-btn" data-val="4">4x</button>
+      </div>
+    </div>
+
+    <!-- Algorithm -->
+    <div class="field">
+      <label>Algorithm</label>
+      <div class="radio-group" id="algoGroup">
+        <button class="radio-btn active" data-val="bicubic">Bicubic (sharper)</button>
+        <button class="radio-btn" data-val="bilinear">Bilinear (smoother)</button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info-row">
+      <div class="info-box"><div class="label">Original Size</div><div class="value" id="origDims">--</div></div>
+      <div class="info-box green"><div class="label">Upscaled Size</div><div class="value" id="newDims">--</div></div>
+      <div class="info-box"><div class="label">Original File</div><div class="value" id="origFileSize">--</div></div>
+      <div class="info-box accent"><div class="label">Output File</div><div class="value" id="newFileSize">--</div></div>
+    </div>
+
+    <!-- Progress -->
+    <div id="progressWrap" class="hidden">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p style="font-size:.8rem;color:var(--text-secondary);text-align:center" id="progressLabel">Processing...</p>
+    </div>
+
+    <!-- Before/after slider -->
+    <div class="comparison-wrap hidden" id="comparisonWrap">
+      <canvas id="beforeCanvas"></canvas>
+      <canvas id="afterCanvas"></canvas>
+      <div class="slider-line" id="sliderLine">
+        <div class="slider-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
+        </div>
+      </div>
+      <div class="label-before">Original</div>
+      <div class="label-after" id="labelAfter">3x Upscaled</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn btn-primary hidden" id="upscaleBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18"/><path d="M21 3l-9 9M21 3h-6M21 3v6"/></svg>
+        Upscale Image
+      </button>
+      <button class="btn btn-success hidden" id="downloadBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PNG
+      </button>
+      <button class="btn btn-outline" id="resetBtn">Start Over</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#upscaler-tool">Upscaling Tool</a></li>
+    <li><a href="#how-upscaling-works">How Image Upscaling Works</a></li>
+    <li><a href="#bilinear-vs-bicubic">Bilinear vs Bicubic Interpolation</a></li>
+    <li><a href="#when-to-upscale">When Upscaling Helps (and When It Doesn't)</a></li>
+    <li><a href="#use-cases">Practical Use Cases</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="card" id="how-upscaling-works">
+  <h3 style="margin-top:0">How Image Upscaling Works</h3>
+
+  <h4>The Fundamental Problem: Creating Information That Doesn't Exist</h4>
+  <p>Every digital image is a fixed grid of pixels. A 400x300 image contains exactly 120,000 pixels, each storing a color value. When you enlarge it to 800x600, you now need 480,000 pixels — four times as many. The problem is that those extra 360,000 pixels do not exist in the original image. The upscaling algorithm must invent plausible color values for positions that were never recorded.</p>
+  <p>This is the core challenge of image upscaling: it is fundamentally an estimation problem. The algorithm looks at the pixels it knows about and makes educated guesses about the pixels it needs to fill in. Different algorithms make different tradeoffs between sharpness, smoothness, and processing speed. No algorithm can add true detail that was not in the original image — but good algorithms can create convincing approximations that look sharp and natural at the new size.</p>
+
+  <h4>Pixel Interpolation: Estimating Unknown Values</h4>
+  <p>When you upscale an image by 2x, the output grid is twice as wide and twice as tall as the input. For every pixel in the output, the algorithm calculates where that position maps back to in the original image. For most output pixels, this maps to a fractional position — not exactly on a source pixel, but somewhere between source pixels. Interpolation is the mathematical process of estimating the color at that fractional position based on the surrounding known pixels.</p>
+  <p>The simplest approach — nearest-neighbor — just copies the color of the closest source pixel. This is fast but produces blocky, pixelated results because large areas of the upscaled image get the same color value with hard edges between them. Bilinear and bicubic interpolation are progressively more sophisticated, considering more neighbors and applying weighted averages that produce much smoother, more natural-looking results.</p>
+
+  <h4>The Canvas API Implementation</h4>
+  <p>This tool implements both algorithms using JavaScript typed arrays operating on raw pixel data. The image is decoded into an RGBA pixel buffer via the Canvas API's <code>getImageData()</code> method. The upscaling algorithm then iterates over every pixel in the output canvas, calculates its source coordinates via back-mapping, computes the interpolated color, and writes it to the output buffer. The result is put back onto the canvas with <code>putImageData()</code> and offered as a PNG download.</p>
+</section>
+
+<!-- ===== BILINEAR VS BICUBIC ===== -->
+<section class="card" id="bilinear-vs-bicubic">
+  <h3 style="margin-top:0">Bilinear vs Bicubic Interpolation</h3>
+
+  <h4>Bilinear Interpolation: Fast and Smooth</h4>
+  <p>Bilinear interpolation estimates each output pixel by taking a weighted average of the four nearest pixels in the source image (the 2x2 neighborhood). The weights are proportional to the fractional distance from each neighbor — a point closer to one pixel gets more of that pixel's color.</p>
+  <p>The result is smooth, with no hard pixel edges, but can appear slightly blurry because fine detail is averaged out. Bilinear is excellent for photographs of natural subjects where smooth transitions are expected. It is computationally efficient because it only samples four pixels per output point, making it fast even for large upscaling factors.</p>
+
+  <h4>Bicubic Interpolation: Sharper with Better Edge Preservation</h4>
+  <p>Bicubic interpolation considers a 4x4 neighborhood of 16 surrounding pixels, fitting a smooth cubic curve through the data rather than a linear one. The cubic function can model changes in slope (not just value), which means it preserves edge sharpness much better than bilinear. Where bilinear would average a hard edge into a gradient, bicubic maintains the transition while still avoiding aliasing artifacts.</p>
+  <p>The cubic kernel used here is the standard Keys cubic: <em>W(x) = (a+2)|x|³ - (a+3)|x|² + 1</em> for |x| ≤ 1, where <em>a = -0.5</em> is the standard sharpness parameter. This produces visually sharper results with better preservation of text, fine lines, and structural detail. The tradeoff is higher computational cost — 16 samples and more arithmetic per output pixel — but the visual quality improvement is substantial.</p>
+
+  <h4>When to Use Each Algorithm</h4>
+  <p>Use <strong>Bicubic</strong> for photographs, screenshots with sharp text, UI elements, line art, and any image where detail sharpness matters. The extra computation is almost always worth it for static images. Use <strong>Bilinear</strong> when speed is critical (very large images), or for photographs of natural subjects like landscapes or portraits where soft transitions look correct and you want to avoid any potential oversharpening.</p>
+</section>
+
+<!-- ===== WHEN TO UPSCALE ===== -->
+<section class="card" id="when-to-upscale">
+  <h3 style="margin-top:0">When Upscaling Helps (and When It Doesn't)</h3>
+
+  <h4>Situations Where Upscaling Produces Good Results</h4>
+  <p>Upscaling works well when the original image is well-exposed and in focus, and you need it at a larger size for a specific purpose. Printing a digital photograph at a larger size than its native resolution — a 1200x800 image printed at 8x10 inches — benefits from upscaling to avoid the printer's own crude enlargement. Preparing web images for high-DPI (Retina) displays, where a 2x version is needed, is another excellent use case. Enlarging screenshots for presentations or documentation, where the original was captured at a small size, also works well.</p>
+
+  <h4>Situations Where Upscaling Has Limited Effect</h4>
+  <p>Upscaling cannot add detail that was never captured. A blurry photograph remains blurry at 4x — it becomes a larger blurry photograph. Heavily compressed JPEG images with blocking artifacts become larger images with larger artifacts. Images of very low resolution (below 100x100 pixels) often look artificial when upscaled because there is insufficient original information for the interpolation to work with.</p>
+  <p>Upscaling also cannot fix noise, chromatic aberration, motion blur, or poor lighting. For severely degraded images, you would need dedicated image restoration techniques rather than simple upscaling. This tool uses standard interpolation algorithms — it is ideal for clean source images that simply need to be larger.</p>
+
+  <h4>Resolution Limits and Diminishing Returns</h4>
+  <p>Going beyond 4x upscaling with interpolation alone produces diminishing quality returns. A 4x bicubic upscale of a clean image produces excellent results. An 8x upscale starts to show smoothing that looks artificial. For extreme upscaling, AI super-resolution approaches (ESRGAN, Real-ESRPAN) use neural networks trained on millions of image pairs to synthesize plausible detail — but these require server-side processing or significantly more computation than can run efficiently in a browser.</p>
+</section>
+
+<!-- ===== USE CASES ===== -->
+<section class="card" id="use-cases">
+  <h3 style="margin-top:0">Practical Use Cases</h3>
+
+  <h4>Print Preparation</h4>
+  <p>Print resolution is typically 300 DPI for professional quality. A 1000x750 pixel image can only be printed at about 3.3x2.5 inches at 300 DPI. Upscaling it 3x to 3000x2250 pixels allows printing at 10x7.5 inches. For home printing at 200 DPI, the threshold is lower, but upscaling still improves the sharpness of the final print compared to letting the printer do the enlargement with its own (often inferior) algorithm.</p>
+
+  <h4>High-DPI Display Preparation</h4>
+  <p>Retina and high-DPI displays have a device pixel ratio of 2 or 3. If you have a web image that is displayed at 400x300 CSS pixels, you need an 800x600 image (2x) to look sharp on Retina displays. Upscaling your existing image 2x is faster than re-capturing it and ensures your asset pipeline has the right sizes without original source material.</p>
+
+  <h4>Old Photo Restoration</h4>
+  <p>Digitized old photographs often have low resolution — scanned at 72 DPI from small prints. Upscaling these 2x or 4x before applying further restoration work (sharpening, color correction) provides more pixels to work with and produces better final results than attempting restoration on the small original.</p>
+
+  <h4>Social Media and Presentations</h4>
+  <p>Different platforms have different optimal image dimensions. A photograph taken for one platform may need to be at a larger size for another. Upscaling with bicubic interpolation produces clean results for these reformat tasks, especially for images with text or UI elements that need sharp edges.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can upscaling make my photo sharper?</div>
+    <div class="faq-a"><p>Upscaling makes a photo larger, and bicubic interpolation preserves edge sharpness during that enlargement better than simpler methods. However, it cannot make a blurry or out-of-focus photo sharp — it can only maintain the sharpness that already exists. If your original photo is sharp, a bicubic 2x or 3x upscale will appear sharp at the larger size. If the original is blurry, the upscaled version will also be blurry.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the maximum image size I can upscale?</div>
+    <div class="faq-a"><p>The practical limit depends on your browser's memory and your device. A 1000x1000 image upscaled 4x produces a 4000x4000 output — 64 million pixels, requiring about 256 MB of RAM for the pixel buffers alone. Most modern desktop browsers can handle this. For very large images (above 2000x2000 source) with 4x upscaling, browser memory may be a constraint. A warning will appear if the estimated output exceeds 100 megapixels.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does this tool upload my images?</div>
+    <div class="faq-a"><p>No. All processing happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device. You can verify this by opening your browser's Network tab (F12) — you will see zero image data transmitted while using the tool.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does the output file size seem very large?</div>
+    <div class="faq-a"><p>The output is downloaded as a PNG, which is lossless. A 4x upscaled image has 16 times as many pixels as the original, and PNG stores all of them losslessly. If you want a smaller output file, open the downloaded PNG in the <a href="/tools/image-compressor.html">image compressor</a> and convert it to WebP or JPEG at your preferred quality setting.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Which is better: bicubic or bilinear interpolation?</div>
+    <div class="faq-a"><p>Bicubic produces sharper, higher-quality results in virtually all cases and is the recommended default. Bilinear is only preferable if you specifically want a very smooth result with no edge enhancement, or if the upscaling is taking too long because your image is extremely large. For most uses — photographs, screenshots, UI elements, artwork — bicubic will give you better output.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 28, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/remove-background.html">Remove Background</a>
+    <a href="/tools/image-compressor.html">Image Compressor</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your images never leave your device.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  "use strict";
+
+  var dropZone = document.getElementById("dropZone");
+  var fileInput = document.getElementById("fileInput");
+  var controls = document.getElementById("controls");
+  var origDims = document.getElementById("origDims");
+  var newDims = document.getElementById("newDims");
+  var origFileSize = document.getElementById("origFileSize");
+  var newFileSize = document.getElementById("newFileSize");
+  var upscaleBtn = document.getElementById("upscaleBtn");
+  var downloadBtn = document.getElementById("downloadBtn");
+  var resetBtn = document.getElementById("resetBtn");
+  var progressWrap = document.getElementById("progressWrap");
+  var progressFill = document.getElementById("progressFill");
+  var progressLabel = document.getElementById("progressLabel");
+  var comparisonWrap = document.getElementById("comparisonWrap");
+  var beforeCanvas = document.getElementById("beforeCanvas");
+  var afterCanvas = document.getElementById("afterCanvas");
+  var sliderLine = document.getElementById("sliderLine");
+  var labelAfter = document.getElementById("labelAfter");
+
+  var currentFile = null;
+  var currentImg = null;
+  var outputBlob = null;
+  var scaleFactor = 3;
+  var algorithm = "bicubic";
+  var sliderPos = 0.5; // 0..1
+
+  /* ---- Scale factor buttons ---- */
+  document.getElementById("scaleGroup").addEventListener("click", function(e) {
+    var btn = e.target.closest(".radio-btn");
+    if (!btn) return;
+    scaleFactor = parseInt(btn.dataset.val);
+    document.querySelectorAll("#scaleGroup .radio-btn").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    resetOutput();
+  });
+
+  /* ---- Algorithm buttons ---- */
+  document.getElementById("algoGroup").addEventListener("click", function(e) {
+    var btn = e.target.closest(".radio-btn");
+    if (!btn) return;
+    algorithm = btn.dataset.val;
+    document.querySelectorAll("#algoGroup .radio-btn").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    resetOutput();
+  });
+
+  /* ---- Drop zone ---- */
+  dropZone.addEventListener("click", function() { fileInput.click(); });
+  fileInput.addEventListener("change", function() {
+    if (fileInput.files && fileInput.files.length) loadFile(fileInput.files[0]);
+  });
+  dropZone.addEventListener("dragover", function(e) { e.preventDefault(); dropZone.classList.add("drag-over"); });
+  dropZone.addEventListener("dragleave", function() { dropZone.classList.remove("drag-over"); });
+  dropZone.addEventListener("drop", function(e) {
+    e.preventDefault(); dropZone.classList.remove("drag-over");
+    if (e.dataTransfer.files && e.dataTransfer.files.length) loadFile(e.dataTransfer.files[0]);
+  });
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / 1048576).toFixed(2) + " MB";
+  }
+
+  function loadFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) { alert("Please select a JPEG, PNG, or WebP image."); return; }
+    currentFile = file;
+    var url = URL.createObjectURL(file);
+    var img = new Image();
+    img.onload = function() {
+      currentImg = img;
+      origDims.textContent = img.naturalWidth + " x " + img.naturalHeight;
+      origFileSize.textContent = formatSize(file.size);
+      updateNewDims();
+      dropZone.classList.add("hidden");
+      controls.classList.remove("hidden");
+      upscaleBtn.classList.remove("hidden");
+      // Draw before canvas
+      beforeCanvas.width = img.naturalWidth;
+      beforeCanvas.height = img.naturalHeight;
+      var ctx = beforeCanvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = url;
+  }
+
+  function updateNewDims() {
+    if (!currentImg) return;
+    var w = currentImg.naturalWidth * scaleFactor;
+    var h = currentImg.naturalHeight * scaleFactor;
+    newDims.textContent = w + " x " + h;
+    newFileSize.textContent = "~" + formatSize(w * h * 4);
+    labelAfter.textContent = scaleFactor + "x Upscaled";
+  }
+
+  function resetOutput() {
+    outputBlob = null;
+    downloadBtn.classList.add("hidden");
+    comparisonWrap.classList.add("hidden");
+    progressWrap.classList.add("hidden");
+    upscaleBtn.classList.remove("hidden");
+    updateNewDims();
+  }
+
+  /* ---- Bicubic kernel ---- */
+  function cubicWeight(x) {
+    var a = -0.5;
+    var ax = Math.abs(x);
+    if (ax <= 1) return (a + 2) * ax * ax * ax - (a + 3) * ax * ax + 1;
+    if (ax < 2) return a * ax * ax * ax - 5 * a * ax * ax + 8 * a * ax - 4 * a;
+    return 0;
+  }
+
+  /* ---- Upscale ---- */
+  upscaleBtn.addEventListener("click", function() {
+    if (!currentImg) return;
+    var srcW = currentImg.naturalWidth;
+    var srcH = currentImg.naturalHeight;
+    var dstW = srcW * scaleFactor;
+    var dstH = srcH * scaleFactor;
+
+    if (dstW * dstH > 100000000) {
+      if (!confirm("Output will be " + dstW + "x" + dstH + " (" + Math.round(dstW * dstH / 1000000) + " MP). This may take a while and use significant memory. Continue?")) return;
+    }
+
+    upscaleBtn.classList.add("hidden");
+    progressWrap.classList.remove("hidden");
+    progressFill.style.width = "0%";
+    progressLabel.textContent = "Reading source pixels...";
+
+    // Use setTimeout to allow UI update
+    setTimeout(function() {
+      // Read source pixels
+      var srcCanvas = document.createElement("canvas");
+      srcCanvas.width = srcW;
+      srcCanvas.height = srcH;
+      var srcCtx = srcCanvas.getContext("2d");
+      srcCtx.drawImage(currentImg, 0, 0);
+      var srcData = srcCtx.getImageData(0, 0, srcW, srcH).data;
+
+      // Output canvas
+      afterCanvas.width = dstW;
+      afterCanvas.height = dstH;
+      var dstCtx = afterCanvas.getContext("2d");
+      var dstImageData = dstCtx.createImageData(dstW, dstH);
+      var dst = dstImageData.data;
+
+      var scaleX = srcW / dstW;
+      var scaleY = srcH / dstH;
+      var CHUNK = Math.max(1, Math.floor(dstH / 20));
+      var row = 0;
+
+      function getSrcPixel(sx, sy, ch) {
+        var ix = Math.max(0, Math.min(srcW - 1, Math.round(sx)));
+        var iy = Math.max(0, Math.min(srcH - 1, Math.round(sy)));
+        return srcData[(iy * srcW + ix) * 4 + ch];
+      }
+
+      function processChunk() {
+        var endRow = Math.min(row + CHUNK, dstH);
+        if (algorithm === "bilinear") {
+          for (var y = row; y < endRow; y++) {
+            var fy = (y + 0.5) * scaleY - 0.5;
+            var y0 = Math.floor(fy);
+            var dy = fy - y0;
+            var y1 = Math.min(y0 + 1, srcH - 1);
+            y0 = Math.max(0, y0);
+            for (var x = 0; x < dstW; x++) {
+              var fx = (x + 0.5) * scaleX - 0.5;
+              var x0 = Math.floor(fx);
+              var dx = fx - x0;
+              var x1 = Math.min(x0 + 1, srcW - 1);
+              x0 = Math.max(0, x0);
+              var di = (y * dstW + x) * 4;
+              for (var c = 0; c < 4; c++) {
+                var i00 = srcData[(y0 * srcW + x0) * 4 + c];
+                var i10 = srcData[(y0 * srcW + x1) * 4 + c];
+                var i01 = srcData[(y1 * srcW + x0) * 4 + c];
+                var i11 = srcData[(y1 * srcW + x1) * 4 + c];
+                dst[di + c] = Math.round(i00 * (1 - dx) * (1 - dy) + i10 * dx * (1 - dy) + i01 * (1 - dx) * dy + i11 * dx * dy);
+              }
+            }
+          }
+        } else {
+          // Bicubic
+          for (var y = row; y < endRow; y++) {
+            var fy = (y + 0.5) * scaleY - 0.5;
+            var iy = Math.floor(fy);
+            var ty = fy - iy;
+            for (var x = 0; x < dstW; x++) {
+              var fx = (x + 0.5) * scaleX - 0.5;
+              var ix = Math.floor(fx);
+              var tx = fx - ix;
+              var di = (y * dstW + x) * 4;
+              for (var c = 0; c < 4; c++) {
+                var val = 0;
+                for (var m = -1; m <= 2; m++) {
+                  var wy = cubicWeight(m - ty);
+                  var sy = Math.max(0, Math.min(srcH - 1, iy + m));
+                  for (var n = -1; n <= 2; n++) {
+                    var wx = cubicWeight(n - tx);
+                    var sx = Math.max(0, Math.min(srcW - 1, ix + n));
+                    val += srcData[(sy * srcW + sx) * 4 + c] * wy * wx;
+                  }
+                }
+                dst[di + c] = Math.max(0, Math.min(255, Math.round(val)));
+              }
+            }
+          }
+        }
+        row = endRow;
+        var pct = Math.round((row / dstH) * 90);
+        progressFill.style.width = pct + "%";
+        progressLabel.textContent = "Upscaling... " + pct + "%";
+
+        if (row < dstH) {
+          setTimeout(processChunk, 0);
+        } else {
+          progressLabel.textContent = "Finalizing...";
+          dstCtx.putImageData(dstImageData, 0, 0);
+          afterCanvas.toBlob(function(blob) {
+            outputBlob = blob;
+            newFileSize.textContent = formatSize(blob.size);
+            progressFill.style.width = "100%";
+            progressLabel.textContent = "Done!";
+            setTimeout(function() {
+              progressWrap.classList.add("hidden");
+              comparisonWrap.classList.remove("hidden");
+              downloadBtn.classList.remove("hidden");
+              initSlider();
+            }, 400);
+          }, "image/png");
+        }
+      }
+
+      processChunk();
+    }, 30);
+  });
+
+  /* ---- Comparison slider ---- */
+  function initSlider() {
+    sliderPos = 0.5;
+    updateSlider();
+  }
+
+  function updateSlider() {
+    var pct = (sliderPos * 100).toFixed(1) + "%";
+    sliderLine.style.left = pct;
+    afterCanvas.style.clipPath = "inset(0 " + (100 - sliderPos * 100).toFixed(1) + "% 0 0)";
+  }
+
+  var dragging = false;
+
+  function getSliderX(e) {
+    var rect = comparisonWrap.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+  }
+
+  sliderLine.addEventListener("mousedown", function(e) { dragging = true; e.preventDefault(); });
+  document.addEventListener("mousemove", function(e) { if (dragging) { sliderPos = getSliderX(e); updateSlider(); } });
+  document.addEventListener("mouseup", function() { dragging = false; });
+  sliderLine.addEventListener("touchstart", function(e) { dragging = true; }, {passive:true});
+  document.addEventListener("touchmove", function(e) { if (dragging) { sliderPos = getSliderX(e); updateSlider(); } }, {passive:true});
+  document.addEventListener("touchend", function() { dragging = false; });
+  comparisonWrap.addEventListener("click", function(e) { sliderPos = getSliderX(e); updateSlider(); });
+
+  /* ---- Download ---- */
+  downloadBtn.addEventListener("click", function() {
+    if (!outputBlob || !currentFile) return;
+    var base = currentFile.name.replace(/\.[^.]+$/, "");
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(outputBlob);
+    a.download = base + "-upscaled-" + scaleFactor + "x.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+
+  /* ---- Reset ---- */
+  resetBtn.addEventListener("click", function() {
+    currentFile = null; currentImg = null; outputBlob = null;
+    controls.classList.add("hidden");
+    dropZone.classList.remove("hidden");
+    fileInput.value = "";
+    comparisonWrap.classList.add("hidden");
+    progressWrap.classList.add("hidden");
+    upscaleBtn.classList.add("hidden");
+    downloadBtn.classList.add("hidden");
+    origDims.textContent = "--"; newDims.textContent = "--";
+    origFileSize.textContent = "--"; newFileSize.textContent = "--";
+  });
+
+})();
+</script>
+
+<div class="related container" style="margin-bottom:48px">
+<h2>Related Tools</h2>
+<ul>
+<li><a href="/tools/image-compressor.html">Image Compressor Online — Reduce File Size Up to 90% Free</a></li>
+<li><a href="/tools/qr-code-generator.html">QR Code Generator — Create Custom QR Codes Instantly</a></li>
+<li><a href="/tools/color-picker.html">Color Picker — Extract Colors and Palettes from Any Image</a></li>
+<li><a href="/guides/image-formats-comparison.html">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+<li><a href="/answers/image-resolution-calculator.html">Image Resolution Calculator — DPI/PPI &amp; Print Size Estimator</a></li>
+</ul>
+</div>
+
+</body>
+</html>

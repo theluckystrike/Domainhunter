@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Code Generator — Create Custom QR Codes Instantly | PictureEditor</title>
+<meta name="description" content="Free online QR code generator. Enter a URL, text, WiFi credentials, or vCard. Customize size, colors, and error correction level (L/M/Q/H). Download as PNG instantly. No server, no uploads, pure JavaScript.">
+<meta name="keywords" content="QR code generator, create QR code, QR code online free, custom QR code, QR code URL, WiFi QR code, vCard QR code, download QR code PNG, error correction QR">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pictureeditor.net/tools/qr-code-generator.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pictureeditor.net/tools/qr-code-generator.html">
+<meta property="og:title" content="QR Code Generator — Create Custom QR Codes Instantly">
+<meta property="og:description" content="Generate custom QR codes for URLs, text, WiFi, or vCard. Customizable colors, size, and error correction. Free, instant, no upload required.">
+<meta property="og:site_name" content="PictureEditor">
+<meta property="article:published_time" content="2026-05-28">
+<meta property="article:modified_time" content="2026-05-28">
+<meta property="article:author" content="Michael Lip">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QR Code Generator — Create Custom QR Codes Instantly">
+<meta name="twitter:description" content="Generate custom QR codes for URLs, WiFi, vCard. Customizable colors and error correction. Free, no upload.">
+<meta name="author" content="Michael Lip">
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"QR Code Generator",
+    "url":"https://pictureeditor.net/tools/qr-code-generator.html",
+    "description":"Free online QR code generator for URLs, text, WiFi, and vCard. Customizable size, colors, and error correction. Pure client-side, no data leaves your browser.",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "datePublished":"2026-05-28",
+    "dateModified":"2026-05-28",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "browserRequirements":"Requires a modern browser with Canvas API support"
+  },
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"QR Code Generator — Create Custom QR Codes Instantly",
+    "description":"Generate custom QR codes for URLs, text, WiFi credentials, and vCard contacts with adjustable error correction, colors, and size.",
+    "url":"https://pictureeditor.net/tools/qr-code-generator.html",
+    "datePublished":"2026-05-28",
+    "dateModified":"2026-05-28",
+    "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+    "publisher":{"@type":"Organization","name":"PictureEditor","url":"https://pictureeditor.net"}
+  }
+]
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pictureeditor.net/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://pictureeditor.net/tools/"},{"@type":"ListItem","position":3,"name":"QR Code Generator"}]}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#6366f1;--accent-hover:#4f46e5;--green:#22c55e;--green-hover:#16a34a;
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2d3148;
+  --text:#e2e8f0;--text-secondary:#94a3b8;--radius:10px;
+  --shadow:0 2px 8px rgba(0,0,0,.35)
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+a{color:#818cf8;text-decoration:none}
+a:hover{color:#a5b4fc;text-decoration:underline}
+/* Header */
+.header{background:#12152a;color:#fff;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.header h1{font-size:1.125rem;font-weight:700}
+.header h1 a{color:#fff;text-decoration:none}
+.header nav{display:flex;gap:.5rem;flex-wrap:wrap}
+.header nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.15);transition:.15s}
+.header nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+/* Layout */
+.container{max-width:900px;margin:0 auto;padding:0 16px}
+main{padding:32px 0}
+h2{font-size:1.75rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+h3{font-size:1.3rem;font-weight:700;margin:32px 0 12px;color:var(--text)}
+h4{font-size:1.05rem;font-weight:600;margin:20px 0 8px;color:var(--text)}
+.subtitle{color:var(--text-secondary);margin-bottom:24px;font-size:1.05rem}
+p{margin-bottom:16px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px;box-shadow:var(--shadow)}
+/* Tool layout */
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+@media(max-width:680px){.tool-grid{grid-template-columns:1fr}}
+/* Tabs */
+.tab-bar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;cursor:pointer;color:var(--text-secondary);border:1px solid transparent;border-bottom:none;transition:.15s;background:none}
+.tab.active{background:var(--surface2);color:var(--accent);border-color:var(--border)}
+.tab:hover:not(.active){color:var(--text)}
+/* Form fields */
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-secondary);margin-bottom:5px;letter-spacing:.01em}
+.field input,.field select,.field textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:.9rem;outline:none;background:var(--surface2);color:var(--text);transition:border-color .15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:80px;font-family:inherit}
+.field select option{background:#1a1d27}
+/* Color pair */
+.color-pair{display:flex;gap:12px}
+.color-swatch{display:flex;align-items:center;gap:8px;flex:1}
+.color-swatch label{font-size:.8rem;font-weight:600;color:var(--text-secondary);white-space:nowrap}
+.color-swatch input[type="color"]{width:40px;height:36px;padding:2px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;background:var(--surface2)}
+/* QR preview */
+.qr-preview{display:flex;flex-direction:column;align-items:center;gap:12px}
+#qrCanvas{border-radius:8px;max-width:100%;height:auto;image-rendering:pixelated}
+.qr-placeholder{width:250px;height:250px;border:2.5px dashed var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:.875rem;text-align:center;padding:16px}
+/* Radio group */
+.radio-group{display:flex;gap:6px;flex-wrap:wrap}
+.radio-btn{padding:7px 14px;border-radius:7px;border:1.5px solid var(--border);font-size:.82rem;font-weight:600;cursor:pointer;transition:.15s;background:var(--surface2);color:var(--text-secondary)}
+.radio-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.12)}
+.radio-btn:hover{border-color:var(--accent);color:var(--accent)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius);font-size:.9rem;font-weight:600;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{background:var(--green-hover)}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-secondary);background:var(--surface)}
+.btn-outline:hover{border-color:var(--accent);color:#818cf8}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+/* EC legend */
+.ec-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ec-badge{padding:3px 9px;border-radius:5px;font-size:.75rem;font-weight:700;border:1px solid var(--border);background:var(--surface2);color:var(--text-secondary)}
+.ec-badge span{color:var(--text);font-weight:800}
+/* Info row */
+.info-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.info-box{flex:1;min-width:90px;padding:10px;background:var(--surface2);border-radius:8px;text-align:center;border:1px solid var(--border)}
+.info-box .label{font-size:.68rem;color:var(--text-secondary);text-transform:uppercase;font-weight:600;letter-spacing:.03em}
+.info-box .value{font-size:.95rem;font-weight:700;margin-top:3px;color:var(--text)}
+.info-box.accent .value{color:#818cf8}
+/* TOC */
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:32px}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:20px}
+.toc li{margin-bottom:4px;font-size:.9rem}
+.toc a{color:var(--text-secondary)}
+.toc a:hover{color:#818cf8}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:700;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:1.2rem;color:var(--text-secondary);flex-shrink:0}
+.faq-item.open .faq-q::after{content:"-"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-secondary);font-size:.925rem;line-height:1.65}
+.faq-item.open .faq-a{max-height:600px;padding-top:10px}
+/* Breadcrumb */
+.breadcrumb{font-size:.8rem;color:var(--text-secondary);margin-bottom:16px}
+.breadcrumb a{color:var(--text-secondary)}
+.breadcrumb a:hover{color:#818cf8}
+.breadcrumb span{margin:0 6px}
+/* Author */
+.author-box{display:flex;align-items:center;gap:12px;padding:16px;background:var(--surface2);border-radius:var(--radius);border:1px solid var(--border);margin:24px 0;font-size:.9rem}
+.author-box .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+/* Footer */
+.footer{background:#12152a;color:rgba(255,255,255,.6);padding:32px 16px;text-align:center;font-size:.85rem;margin-top:48px;border-top:1px solid var(--border)}
+.footer a{color:rgba(255,255,255,.85)}
+.footer .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+.hidden{display:none!important}
+code{background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:monospace}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header" role="banner">
+  <h1><a href="/">PictureEditor</a></h1>
+  <nav aria-label="Main navigation">
+    <a href="/">Editor</a>
+    <a href="/crop.html">Crop</a>
+    <a href="/compress.html">Compress</a>
+    <a href="/convert.html">Convert</a>
+    <a href="/remove-background.html">Remove BG</a>
+  </nav>
+</header>
+
+<div class="container">
+<main>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span>/</span>
+  <a href="/tools/">Tools</a><span>/</span>
+  QR Code Generator
+</nav>
+
+<h2>QR Code Generator — Create Custom QR Codes Instantly</h2>
+<p class="subtitle">Generate QR codes for URLs, text, WiFi networks, or vCard contacts. Customize size, foreground and background colors, and error correction level. Download as PNG. Runs entirely in your browser — no data is sent anywhere.</p>
+
+<!-- ===== TOOL SECTION ===== -->
+<section class="card" id="qr-tool">
+  <h3 style="margin-top:0" id="tool-heading">QR Code Generator</h3>
+
+  <div class="tool-grid">
+    <!-- LEFT: Inputs -->
+    <div>
+      <!-- Type tabs -->
+      <div class="tab-bar" id="typeTabs">
+        <button class="tab active" data-type="url">URL</button>
+        <button class="tab" data-type="text">Text</button>
+        <button class="tab" data-type="wifi">WiFi</button>
+        <button class="tab" data-type="vcard">vCard</button>
+      </div>
+
+      <!-- URL -->
+      <div id="panel-url">
+        <div class="field">
+          <label>Website URL</label>
+          <input type="url" id="input-url" placeholder="https://example.com" autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div id="panel-text" class="hidden">
+        <div class="field">
+          <label>Text / Message</label>
+          <textarea id="input-text" placeholder="Enter any text up to ~2900 characters..."></textarea>
+        </div>
+      </div>
+
+      <!-- WiFi -->
+      <div id="panel-wifi" class="hidden">
+        <div class="field">
+          <label>Network Name (SSID)</label>
+          <input type="text" id="wifi-ssid" placeholder="MyNetwork">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="text" id="wifi-pass" placeholder="MyPassword123">
+        </div>
+        <div class="field">
+          <label>Security</label>
+          <select id="wifi-sec">
+            <option value="WPA">WPA/WPA2</option>
+            <option value="WEP">WEP</option>
+            <option value="">None (open)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- vCard -->
+      <div id="panel-vcard" class="hidden">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="vc-name" placeholder="Jane Smith">
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" id="vc-phone" placeholder="+1 555 123 4567">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="vc-email" placeholder="jane@example.com">
+        </div>
+        <div class="field">
+          <label>Organisation</label>
+          <input type="text" id="vc-org" placeholder="Acme Corp">
+        </div>
+        <div class="field">
+          <label>Website</label>
+          <input type="url" id="vc-url" placeholder="https://example.com">
+        </div>
+      </div>
+
+      <!-- Error correction -->
+      <div class="field" style="margin-top:8px">
+        <label>Error Correction Level</label>
+        <div class="radio-group" id="ecGroup">
+          <button class="radio-btn" data-ec="L">L</button>
+          <button class="radio-btn active" data-ec="M">M</button>
+          <button class="radio-btn" data-ec="Q">Q</button>
+          <button class="radio-btn" data-ec="H">H</button>
+        </div>
+        <div class="ec-legend" style="margin-top:8px">
+          <div class="ec-badge"><span>L</span> 7%</div>
+          <div class="ec-badge"><span>M</span> 15%</div>
+          <div class="ec-badge"><span>Q</span> 25%</div>
+          <div class="ec-badge"><span>H</span> 30%</div>
+        </div>
+        <p style="font-size:.78rem;color:var(--text-secondary);margin-top:6px;margin-bottom:0">Higher levels restore more data if the QR code is damaged, but result in a denser pattern.</p>
+      </div>
+
+      <!-- Size -->
+      <div class="field">
+        <label>Canvas Size — <span id="sizeVal">400</span>px</label>
+        <input type="range" id="sizeSlider" min="150" max="900" value="400" step="50"
+          style="-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#2d3148;outline:none">
+      </div>
+
+      <!-- Colors -->
+      <div class="field">
+        <label>Colors</label>
+        <div class="color-pair">
+          <div class="color-swatch">
+            <input type="color" id="fgColor" value="#000000">
+            <label>Foreground</label>
+          </div>
+          <div class="color-swatch">
+            <input type="color" id="bgColor" value="#ffffff">
+            <label>Background</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate button -->
+      <div class="btn-row">
+        <button class="btn btn-primary" id="generateBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="4" height="4"/><rect x="17" y="3" width="4" height="4"/><rect x="3" y="17" width="4" height="4"/><rect x="10" y="10" width="4" height="4"/><path d="M17 10h4v4M17 17h4M10 17v4"/></svg>
+          Generate QR Code
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Preview -->
+    <div class="qr-preview">
+      <div id="qrPlaceholder" class="qr-placeholder">
+        <span>Your QR code will<br>appear here</span>
+      </div>
+      <canvas id="qrCanvas" class="hidden" width="400" height="400"></canvas>
+
+      <div class="info-row hidden" id="infoRow">
+        <div class="info-box"><div class="label">Version</div><div class="value" id="qrVersion">--</div></div>
+        <div class="info-box accent"><div class="label">EC Level</div><div class="value" id="qrEc">--</div></div>
+        <div class="info-box"><div class="label">Modules</div><div class="value" id="qrModules">--</div></div>
+      </div>
+
+      <div class="btn-row hidden" id="dlRow">
+        <button class="btn btn-success" id="downloadBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PNG
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#qr-tool">QR Code Generator Tool</a></li>
+    <li><a href="#how-qr-works">How QR Codes Work</a></li>
+    <li><a href="#error-correction">Error Correction Levels Explained</a></li>
+    <li><a href="#qr-use-cases">QR Code Use Cases and Formats</a></li>
+    <li><a href="#qr-best-practices">Design and Printing Best Practices</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ===== HOW QR WORKS ===== -->
+<section class="card" id="how-qr-works">
+  <h3 style="margin-top:0">How QR Codes Work</h3>
+
+  <h4>Structure of a QR Code</h4>
+  <p>A QR (Quick Response) code is a 2D matrix barcode that encodes data as a grid of black and white modules (square dots). Unlike 1D barcodes that store data horizontally only, QR codes store data in both dimensions, allowing them to hold significantly more information in a compact space — up to 7,089 numeric characters or 4,296 alphanumeric characters in a single code.</p>
+  <p>Every QR code has fixed structural elements regardless of version. The three large square patterns in the corners (finder patterns) allow scanners to detect the code's position and orientation even when photographed at an angle. The smaller square in the alignment area helps correct perspective distortion on larger codes. Timing patterns (alternating black and white modules) establish the module size and grid. Format information strips carry the error correction level and mask pattern. All remaining modules carry encoded data and error correction codewords.</p>
+
+  <h4>Encoding Process</h4>
+  <p>Encoding data into a QR code involves several stages. First, the data is analyzed to select the most efficient encoding mode: numeric (digits only, 3.3 bits/char), alphanumeric (uppercase + symbols, 5.5 bits/char), byte (any ISO-8859-1 character, 8 bits/char), or kanji (Japanese characters, 13 bits/char). The selected encoding mode with the optimal version (size) is determined by the data length and required error correction level.</p>
+  <p>Second, the data is encoded into binary codewords and padded to fill the version's data capacity. Third, error correction codewords are computed using Reed-Solomon codes and interleaved with data codewords. Fourth, the complete codeword sequence is placed into the matrix using a specific zigzag path that avoids functional patterns. Finally, eight different mask patterns are evaluated and the one that produces the best score (most balanced distribution of dark and light modules) is applied to prevent patterns that could confuse scanners.</p>
+
+  <h4>The JavaScript Implementation</h4>
+  <p>This tool implements the full QR code generation algorithm in pure JavaScript, with no external libraries. The encoder handles byte mode encoding for maximum compatibility, supports all four error correction levels, computes Reed-Solomon error correction codewords, and applies all eight mask patterns to select the optimal one. The result is drawn on an HTML5 Canvas element with your chosen colors and size, then exported as a PNG for download.</p>
+</section>
+
+<!-- ===== ERROR CORRECTION ===== -->
+<section class="card" id="error-correction">
+  <h3 style="margin-top:0">Error Correction Levels Explained</h3>
+
+  <h4>Why QR Codes Can Be Damaged and Still Work</h4>
+  <p>One of the most impressive properties of QR codes is their ability to be partially obscured, damaged, or dirty and still scan correctly. This is achieved through Reed-Solomon error correction, a mathematical technique used in CDs, DVDs, RAID storage, and space communications. Reed-Solomon adds redundant mathematical data to the code such that a scanner can reconstruct the original data even if portions of the code are unreadable.</p>
+
+  <h4>The Four Levels</h4>
+  <p><strong>Level L (Low, ~7% recovery):</strong> The minimum error correction. Produces the smallest, least dense QR code for a given amount of data. Best used in clean digital environments where damage is unlikely — website links displayed on screens, presentations, or digital ads. If you are adding a logo overlay to a QR code, L is not recommended as the logo itself is "damage" the scanner must recover from.</p>
+  <p><strong>Level M (Medium, ~15% recovery):</strong> The default for most applications. Good balance of code density and damage resistance. Suitable for print materials, business cards, and general use. A small logo can be overlaid in the center without preventing scanning.</p>
+  <p><strong>Level Q (Quartile, ~25% recovery):</strong> Appropriate for industrial applications, product packaging, and any environment where the code might get dirty, scratched, or partially covered. Noticeably denser than M but still compact enough for practical use.</p>
+  <p><strong>Level H (High, ~30% recovery):</strong> Maximum recovery. Required for codes that will be printed on materials subject to significant wear, embedded in packaging that may be torn, or when you want to overlay a large logo. The code will be denser and may require a slightly larger minimum print size for reliable scanning.</p>
+
+  <h4>Choosing the Right Level</h4>
+  <p>For digital-only use (screens, emails), Level M is sufficient. For print materials that will receive normal use, M or Q is appropriate. For outdoor signage, physical products, or codes with logo overlays, use H. Using a higher level than necessary increases code density and can make scanning harder in poor lighting — do not use H when M will do.</p>
+</section>
+
+<!-- ===== USE CASES ===== -->
+<section class="card" id="qr-use-cases">
+  <h3 style="margin-top:0">QR Code Use Cases and Formats</h3>
+
+  <h4>URL QR Codes</h4>
+  <p>The most common type. Simply encode a full URL (including <code>https://</code>) to create a scannable link. Any modern smartphone camera can scan it and offer to open the URL in a browser without any dedicated app. Best practice: use a short URL (your own domain or a URL shortener) rather than a long URL with query parameters, as shorter URLs produce less dense, more scannable codes.</p>
+
+  <h4>WiFi QR Codes</h4>
+  <p>WiFi QR codes use a specific format: <code>WIFI:T:WPA;S:SSID;P:password;;</code>. When scanned, both iOS (13+) and Android (10+) automatically offer to connect to the network without typing credentials. Ideal for businesses, cafes, conference rooms, and guest networks. Note that WiFi passwords are encoded in plain text, so only post these codes in trusted environments — anyone who photographs the code has the credentials.</p>
+
+  <h4>vCard Contact QR Codes</h4>
+  <p>Encodes contact information in the vCard 3.0 format. When scanned, smartphones offer to add the contact to the address book. A single scan shares name, phone, email, organisation, and website simultaneously. Superior to NFC tags for contact sharing because no special hardware is needed — any camera app can read it. Excellent for business cards, name badges, and networking events.</p>
+
+  <h4>Plain Text QR Codes</h4>
+  <p>Encodes arbitrary text for display to the scanner. Use cases include short messages, product information, menu items with descriptions, instructions, and any information that does not map to a structured format. Scanners typically display the text directly.</p>
+</section>
+
+<!-- ===== BEST PRACTICES ===== -->
+<section class="card" id="qr-best-practices">
+  <h3 style="margin-top:0">Design and Printing Best Practices</h3>
+
+  <h4>Minimum Size Requirements</h4>
+  <p>For reliable scanning in real-world conditions, QR codes should be printed at a minimum size of 2x2 cm (approximately 0.8 x 0.8 inches) for Level M at close scanning range (within 20 cm). For scanning at arm's length (40-60 cm), 3.5x3.5 cm is more reliable. For outdoor or long-distance scanning, scale up proportionally. The rule of thumb: scanning distance should be no more than 10x the code's width.</p>
+
+  <h4>Contrast and Color</h4>
+  <p>QR code scanners detect contrast between light and dark modules. Black on white provides the highest contrast and most reliable scanning. Color QR codes work as long as the foreground color is significantly darker than the background. Avoid similar tones (dark blue on dark red), metallic inks, or gradients that reduce local contrast. Always test color QR codes before printing at scale. Never invert the colors with a lighter foreground than background — most scanners expect dark modules on light background.</p>
+
+  <h4>Quiet Zone</h4>
+  <p>Every QR code specification requires a minimum quiet zone of 4 modules (blank margin) around all four sides. This is automatically included when you download from this tool. If you place the QR code in a document or on a page, ensure this quiet zone is preserved — placing content too close to the edges of a QR code will cause scan failures.</p>
+
+  <h4>Logo Overlays</h4>
+  <p>Logo overlays work because the error correction data can reconstruct the "obscured" modules. For a logo overlay, the logo should cover no more than 30% of the code area (for Level H), and should be centered. Test extensively — some scanner apps handle damaged codes better than others. Lower error correction levels should not have logo overlays; use Level H or at minimum Level Q.</p>
+
+  <h4>Testing Before Distribution</h4>
+  <p>Always scan your generated QR code before printing or publishing, using at least two different scanning apps or devices. Test in the actual environment — a code that scans perfectly on your desk may fail under fluorescent lighting, on glossy paper, or when photographed at an angle. For critical applications (product packaging, event tickets), test at the exact print size and substrate.</p>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="card" id="faq">
+  <h3 style="margin-top:0">Frequently Asked Questions</h3>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do QR codes expire?</div>
+    <div class="faq-a"><p>QR codes themselves do not expire — they are just an image encoding data. Static QR codes (like those generated by this tool) will always encode exactly the data you put in. However, if the URL or content the code points to changes or becomes unavailable, the QR code will lead somewhere wrong or nowhere. For permanent QR codes, link to a URL you control. Dynamic QR codes (offered by some commercial services) let you change the destination URL after printing, but require a third-party service.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the maximum amount of data a QR code can hold?</div>
+    <div class="faq-a"><p>A Version 40 QR code (the largest, 177x177 modules) can hold up to 7,089 numeric characters, 4,296 alphanumeric characters, 2,953 bytes of binary data, or 1,817 kanji characters at error correction level L. At level H, capacity drops to roughly 30% less. In practice, keeping data under 300 characters produces compact, easily scannable codes. Very long URLs or full vCards with all fields produce large, dense codes that may be harder to scan at small print sizes.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is it safe to use a QR code generator that processes data in the browser?</div>
+    <div class="faq-a"><p>Yes — it is actually more private than server-based generators. When you use this tool, your WiFi password, phone number, email address, and other personal data stays entirely in your browser. A server-based QR generator receives and potentially logs everything you encode. With this tool, no data is transmitted anywhere. You can verify by turning off your internet connection after the page loads — the tool continues to work perfectly because it requires no server communication.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I add a logo to the center of the QR code?</div>
+    <div class="faq-a"><p>This tool does not include a built-in logo overlay feature. You can add a logo manually in any image editor after downloading: open the PNG, place your logo centered over the QR code, covering no more than 25-30% of the code area. Make sure you generated the QR code at error correction level H before doing this, which gives you up to 30% damage recovery. Test that the resulting code still scans reliably.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does increasing error correction make the QR code look more complex?</div>
+    <div class="faq-a"><p>Higher error correction levels add more redundant data codewords. For the same input, a Level H code contains significantly more binary data than a Level L code because it includes enough redundancy to reconstruct 30% of damaged modules. More data requires a higher QR version (larger grid), and a larger grid with more modules looks denser and more complex. For URLs and short text, the visual difference between L and H is modest. For longer text or vCards, the size difference can be substantial.</p></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<div class="author-box">
+  <div class="avatar">ML</div>
+  <div>
+    <strong>Michael Lip</strong><br>
+    <span style="color:var(--text-secondary);font-size:.85rem">Written on May 28, 2026 &mdash; <a href="https://zovo.one" rel="author">zovo.one</a></span>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Image Editor</a>
+    <a href="/crop.html">Crop Tool</a>
+    <a href="/compress.html">Compress Tool</a>
+    <a href="/convert.html">Format Converter</a>
+    <a href="/tools/image-compressor.html">Image Compressor</a>
+    <a href="/tools/image-upscaler.html">Image Upscaler</a>
+  </div>
+  <p>&copy; 2026 <a href="https://zovo.one">Zovo Tools</a> &mdash; PictureEditor.net. All processing runs in your browser. Your data never leaves your device.</p>
+</footer>
+
+<div class="container" style="margin-bottom:48px">
+<div class="card related" style="margin-top:0">
+<h2 style="font-size:1.1rem;margin-bottom:16px">Related Tools</h2>
+<ul style="list-style:none;padding:0;display:grid;gap:8px">
+<li><a href="/tools/image-upscaler.html">AI Image Upscaler — Enlarge Photos Without Losing Quality</a></li>
+<li><a href="/tools/image-compressor.html">Image Compressor Online — Reduce File Size Up to 90% Free</a></li>
+<li><a href="/tools/favicon-generator.html">Favicon Generator — Create Multi-Size Favicons from Any Image</a></li>
+<li><a href="/guides/image-formats-comparison.html">Image Formats Comparison — WebP vs AVIF vs PNG vs JPEG Guide</a></li>
+</ul>
+</div>
+</div>
+
+<!-- ===== JAVASCRIPT: Full QR encoder + UI ===== -->
+<script>
+(function() {
+"use strict";
+
+/* ============================================================
+   PURE JS QR CODE ENCODER — no external dependencies
+   Implements: byte mode, versions 1-40, EC L/M/Q/H,
+   Reed-Solomon, all 8 mask patterns, scoring
+   ============================================================ */
+
+/* -- GF(256) arithmetic for Reed-Solomon -- */
+var EXP = new Uint8Array(512);
+var LOG = new Uint8Array(256);
+(function() {
+  var x = 1;
+  for (var i = 0; i < 255; i++) {
+    EXP[i] = x; LOG[x] = i;
+    x = x << 1;
+    if (x & 0x100) x ^= 0x11d;
+  }
+  for (var j = 255; j < 512; j++) EXP[j] = EXP[j - 255];
+})();
+function gfMul(a, b) { return (a && b) ? EXP[LOG[a] + LOG[b]] : 0; }
+function gfPoly(degree) { /* generator polynomial */ var p = [1]; for (var i = 0; i < degree; i++) { var q = [1, EXP[i]]; var r = new Array(p.length + 1).fill(0); for (var j = 0; j < p.length; j++) for (var k = 0; k < q.length; k++) r[j+k] ^= gfMul(p[j], q[k]); p = r; } return p; }
+function reedSolomon(data, ecCount) {
+  var gen = gfPoly(ecCount);
+  var msg = data.slice();
+  for (var i = 0; i < ecCount; i++) msg.push(0);
+  for (var i = 0; i < data.length; i++) {
+    var c = msg[i];
+    if (c !== 0) for (var j = 0; j < gen.length; j++) msg[i+j] ^= gfMul(gen[j], c);
+  }
+  return msg.slice(data.length);
+}
+
+/* -- QR version / capacity tables -- */
+/* [ecWords per block, [blocks in group1, codewords per block1], [blocks g2, codewords per block2]] */
+var EC_TABLE = {
+  "L":[[7,[1,19]],[10,[1,34]],[15,[1,55]],[20,[1,80]],[26,[1,108]],[18,[2,68]],[20,[2,78]],[24,[2,97]],[30,[2,116]],[18,[2,68],[2,69]],[20,[4,81]],[24,[2,92],[2,93]],[26,[4,107]],[30,[3,115],[1,116]],[22,[5,87],[1,88]],[24,[5,98],[1,99]],[28,[1,107],[5,108]],[30,[5,120],[1,121]],[28,[3,113],[4,114]],[28,[3,107],[5,108]],[28,[4,116],[4,117]],[28,[2,111],[7,112]],[30,[4,121],[5,122]],[30,[6,117],[4,118]],[26,[8,106],[4,107]],[28,[10,114],[2,115]],[30,[8,122],[4,123]],[30,[3,117],[10,118]],[30,[7,116],[7,117]],[30,[5,115],[10,116]],[30,[13,115],[3,116]],[30,[17,115]],[30,[17,115],[1,116]],[30,[13,115],[6,116]],[30,[12,121],[7,122]],[30,[6,121],[14,122]],[30,[17,122],[4,123]],[30,[4,122],[18,123]],[30,[20,117],[4,118]],[30,[19,118],[6,119]]],
+  "M":[[10,[1,16]],[16,[1,28]],[26,[1,44]],[18,[2,32]],[24,[2,43]],[16,[4,27]],[18,[4,31]],[22,[2,38],[2,39]],[22,[3,36],[2,37]],[26,[4,43],[1,44]],[30,[1,50],[4,51]],[22,[6,36],[2,37]],[22,[8,37],[1,38]],[24,[4,40],[5,41]],[24,[5,41],[5,42]],[28,[7,45],[3,46]],[28,[10,46],[1,47]],[26,[9,43],[4,44]],[26,[3,44],[11,45]],[26,[3,41],[13,42]],[26,[17,42]],[28,[17,46]],[28,[4,47],[14,48]],[28,[6,45],[14,46]],[28,[8,47],[13,48]],[28,[19,46],[4,47]],[28,[22,45],[3,46]],[28,[3,45],[23,46]],[28,[21,45],[7,46]],[28,[19,45],[10,46]],[28,[2,45],[29,46]],[28,[10,45],[23,46]],[28,[14,45],[21,46]],[28,[14,46],[23,47]],[28,[12,45],[26,46]],[28,[6,45],[34,46]],[28,[29,45],[14,46]],[28,[13,45],[32,46]],[28,[40,45],[7,46]],[28,[18,45],[31,46]]],
+  "Q":[[13,[1,13]],[22,[1,22]],[18,[2,17]],[26,[2,24]],[18,[2,15],[2,16]],[24,[4,19]],[18,[2,14],[4,15]],[22,[4,18],[2,19]],[20,[4,16],[4,17]],[24,[6,19],[2,20]],[28,[4,22],[4,23]],[26,[4,20],[6,21]],[24,[8,20],[4,21]],[20,[11,16],[5,17]],[30,[5,24],[7,25]],[24,[15,19],[2,20]],[28,[1,22],[15,23]],[28,[17,22],[1,23]],[26,[17,21],[4,22]],[30,[15,24],[5,25]],[28,[17,22],[6,23]],[30,[7,24],[16,25]],[30,[11,24],[14,25]],[30,[11,24],[16,25]],[30,[7,24],[22,25]],[30,[28,22],[6,23]],[30,[8,23],[26,24]],[30,[4,24],[31,25]],[30,[1,23],[37,24]],[30,[15,24],[25,25]],[30,[42,24],[1,25]],[30,[10,24],[35,25]],[30,[29,24],[19,25]],[30,[44,24],[7,25]],[30,[39,24],[14,25]],[30,[46,24],[10,25]],[30,[49,24],[10,25]],[30,[48,24],[14,25]],[30,[43,24],[22,25]],[30,[34,24],[34,25]]],
+  "H":[[17,[1,9]],[28,[1,16]],[22,[2,13]],[16,[4,9]],[22,[2,11],[2,12]],[28,[4,15]],[26,[4,13],[1,14]],[26,[4,14],[2,15]],[24,[4,12],[4,13]],[28,[6,15],[2,16]],[24,[3,12],[8,13]],[28,[7,14],[4,15]],[22,[11,11],[5,12]],[24,[11,12],[5,13]],[24,[11,12],[7,13]],[30,[3,15],[13,16]],[28,[2,14],[17,15]],[28,[2,14],[19,15]],[26,[9,13],[16,14]],[28,[15,15],[10,16]],[28,[19,16],[6,17]],[28,[34,13]],[30,[16,15],[14,16]],[30,[30,16],[2,17]],[30,[22,15],[13,16]],[30,[33,15],[4,16]],[30,[12,15],[28,16]],[30,[11,15],[31,16]],[30,[19,15],[26,16]],[30,[23,15],[25,16]],[30,[23,15],[28,16]],[30,[19,15],[35,16]],[30,[11,15],[46,16]],[30,[59,16],[1,17]],[30,[22,15],[41,16]],[30,[2,15],[64,16]],[30,[24,15],[46,16]],[30,[42,15],[32,16]],[30,[10,15],[67,16]],[30,[20,15],[61,16]]]
+};
+
+/* -- Capacity in bytes for byte mode -- */
+var CAPACITY = {
+  "L":[17,32,53,78,106,134,154,192,230,271,321,367,425,458,520,586,644,718,792,858,929,1003,1091,1171,1273,1367,1465,1528,1628,1732,1840,1952,2068,2188,2303,2431,2563,2699,2809,2953],
+  "M":[14,26,42,62,84,106,122,154,180,213,251,287,331,362,412,450,504,560,624,666,711,779,857,911,997,1059,1125,1190,1264,1370,1452,1538,1628,1722,1809,1911,1989,2099,2213,2331],
+  "Q":[11,20,32,46,60,74,86,108,130,151,177,203,241,258,292,322,364,394,442,482,509,565,611,661,715,751,805,868,908,982,1030,1112,1168,1228,1283,1351,1423,1499,1579,1663],
+  "H":[7,14,24,34,44,58,64,84,98,119,137,155,177,194,220,250,280,310,338,382,403,439,461,511,535,593,625,658,698,742,790,842,898,958,983,1051,1093,1139,1219,1273]
+};
+
+/* Alignment pattern locations per version */
+var ALIGNMENT = [[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,132],[6,34,60,86,112,136],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]];
+
+/* Format info bits */
+var FORMAT_INFO = {"L":[0x77c4,0x72f3,0x7daa,0x789d,0x662f,0x6318,0x6c41,0x6976],"M":[0x5412,0x5125,0x5e7c,0x5b4b,0x45f9,0x40ce,0x4f97,0x4aa0],"Q":[0x355f,0x3068,0x3f31,0x3a06,0x24b4,0x2183,0x2eda,0x2bed],"H":[0x1689,0x13be,0x1ce7,0x19d0,0x0762,0x0255,0x0d0c,0x083b]};
+
+function encodeQR(text, ec) {
+  var bytes = strToBytes(text);
+  var version = 1;
+  var cap = CAPACITY[ec];
+  while (version <= 40 && cap[version-1] < bytes.length) version++;
+  if (version > 40) return null;
+
+  var ecData = EC_TABLE[ec][version-1];
+  var ecPerBlock = ecData[0];
+  var groups = ecData.slice(1);
+
+  /* Data codewords */
+  var totalData = 0;
+  for (var g = 0; g < groups.length; g++) totalData += groups[g][0] * groups[g][1];
+
+  /* Build bit stream */
+  var bits = [];
+  function pushBits(val, len) { for (var i = len-1; i >= 0; i--) bits.push((val >> i) & 1); }
+  pushBits(0x4, 4); // byte mode
+  var charCountBits = version < 10 ? 8 : 16;
+  pushBits(bytes.length, charCountBits);
+  for (var i = 0; i < bytes.length; i++) pushBits(bytes[i], 8);
+  // Terminator
+  for (var t = 0; t < 4 && bits.length < totalData * 8; t++) bits.push(0);
+  // Byte align
+  while (bits.length % 8) bits.push(0);
+  // Pad
+  var padBytes = [0xec, 0x11];
+  var pi = 0;
+  while (bits.length < totalData * 8) { pushBits(padBytes[pi++ % 2], 8); }
+
+  // Codewords
+  var codewords = [];
+  for (var b = 0; b < bits.length; b += 8) {
+    var byte_ = 0;
+    for (var j = 0; j < 8; j++) byte_ = (byte_ << 1) | bits[b + j];
+    codewords.push(byte_);
+  }
+
+  // Split into blocks and compute EC
+  var dataBlocks = [], ecBlocks = [];
+  var pos = 0;
+  for (var g = 0; g < groups.length; g++) {
+    var blockCount = groups[g][0], blockSize = groups[g][1];
+    for (var b = 0; b < blockCount; b++) {
+      var d = codewords.slice(pos, pos + blockSize);
+      dataBlocks.push(d);
+      ecBlocks.push(reedSolomon(d, ecPerBlock));
+      pos += blockSize;
+    }
+  }
+
+  // Interleave
+  var interleaved = [];
+  var maxBlock = Math.max.apply(null, dataBlocks.map(function(b){return b.length;}));
+  for (var i = 0; i < maxBlock; i++) for (var b = 0; b < dataBlocks.length; b++) if (i < dataBlocks[b].length) interleaved.push(dataBlocks[b][i]);
+  for (var i = 0; i < ecPerBlock; i++) for (var b = 0; b < ecBlocks.length; b++) interleaved.push(ecBlocks[b][i]);
+
+  // Convert to bits
+  var finalBits = [];
+  for (var i = 0; i < interleaved.length; i++) pushBits2(finalBits, interleaved[i], 8);
+  // Remainder bits
+  var rem = [0,7,7,7,7,7,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  for (var i = 0; i < rem[version-1]; i++) finalBits.push(0);
+
+  return buildMatrix(version, ec, finalBits);
+}
+
+function pushBits2(arr, val, len) { for (var i = len-1; i >= 0; i--) arr.push((val >> i) & 1); }
+
+function strToBytes(str) {
+  var out = [];
+  for (var i = 0; i < str.length; i++) {
+    var c = str.charCodeAt(i);
+    if (c < 128) { out.push(c); }
+    else if (c < 2048) { out.push(0xC0 | (c >> 6)); out.push(0x80 | (c & 63)); }
+    else { out.push(0xE0 | (c >> 12)); out.push(0x80 | ((c >> 6) & 63)); out.push(0x80 | (c & 63)); }
+  }
+  return out;
+}
+
+function buildMatrix(version, ec, bits) {
+  var size = version * 4 + 17;
+  var mat = [];
+  var reserved = [];
+  for (var i = 0; i < size; i++) { mat.push(new Uint8Array(size)); reserved.push(new Uint8Array(size)); }
+
+  function set(r, c, v, res) { if (r >= 0 && r < size && c >= 0 && c < size) { mat[r][c] = v; if (res) reserved[r][c] = 1; } }
+  function setRes(r, c, v) { set(r, c, v, true); }
+
+  // Finder patterns
+  function finder(tr, tc) {
+    for (var i = -1; i <= 7; i++) for (var j = -1; j <= 7; j++) {
+      if (i < 0 || i > 6 || j < 0 || j > 6) { setRes(tr+i, tc+j, 0); continue; }
+      var onBorder = (i===0||i===6||j===0||j===6);
+      var inner = (i>=2&&i<=4&&j>=2&&j<=4);
+      setRes(tr+i, tc+j, (onBorder||inner) ? 1 : 0);
+    }
+  }
+  finder(0, 0); finder(0, size-7); finder(size-7, 0);
+
+  // Separators already 0 (handled by -1 offset in finder borders)
+
+  // Timing
+  for (var i = 8; i < size - 8; i++) { setRes(6, i, i % 2 === 0 ? 1 : 0); setRes(i, 6, i % 2 === 0 ? 1 : 0); }
+
+  // Dark module
+  setRes(size-8, 8, 1);
+
+  // Format info placeholders (reserved but will be filled)
+  for (var i = 0; i < 9; i++) { reserved[8][i] = 1; reserved[i][8] = 1; }
+  for (var i = size-8; i < size; i++) { reserved[8][i] = 1; reserved[i][8] = 1; }
+
+  // Alignment patterns
+  var aligns = ALIGNMENT[version-1];
+  for (var ai = 0; ai < aligns.length; ai++) for (var aj = 0; aj < aligns.length; aj++) {
+    var r = aligns[ai], c = aligns[aj];
+    if (reserved[r][c]) continue;
+    for (var di = -2; di <= 2; di++) for (var dj = -2; dj <= 2; dj++) {
+      var onEdge = Math.abs(di)===2||Math.abs(dj)===2;
+      var onCenter = di===0&&dj===0;
+      setRes(r+di, c+dj, (onEdge||onCenter)?1:0);
+    }
+  }
+
+  // Version info (version >= 7)
+  if (version >= 7) {
+    var vbits = versionBits(version);
+    for (var i = 0; i < 6; i++) for (var j = 0; j < 3; j++) {
+      var b = vbits[i*3+j];
+      setRes(i, size-11+j, b); setRes(size-11+j, i, b);
+    }
+  }
+
+  // Place data bits (zigzag)
+  var bit = 0;
+  var col = size - 1; var upward = true;
+  while (col >= 0) {
+    if (col === 6) col--;
+    for (var rowIdx = 0; rowIdx < size; rowIdx++) {
+      var row = upward ? (size - 1 - rowIdx) : rowIdx;
+      for (var dc = 0; dc <= 1; dc++) {
+        var c2 = col - dc;
+        if (!reserved[row][c2]) {
+          mat[row][c2] = bit < bits.length ? bits[bit] : 0;
+          bit++;
+        }
+      }
+    }
+    col -= 2; upward = !upward;
+  }
+
+  // Try all 8 masks and pick best score
+  var bestScore = Infinity, bestMask = 0, bestMat = null;
+  for (var mask = 0; mask < 8; mask++) {
+    var candidate = applyMaskAndFormat(mat, reserved, ec, version, size, mask);
+    var score = penaltyScore(candidate, size);
+    if (score < bestScore) { bestScore = score; bestMask = mask; bestMat = candidate; }
+  }
+  return {matrix: bestMat, size: size, version: version, ec: ec};
+}
+
+function applyMaskAndFormat(mat, reserved, ec, version, size, mask) {
+  var m = [];
+  for (var i = 0; i < size; i++) m.push(new Uint8Array(mat[i]));
+  // Apply mask to data modules
+  for (var r = 0; r < size; r++) for (var c = 0; c < size; c++) {
+    if (reserved[r][c]) continue;
+    if (maskCondition(mask, r, c)) m[r][c] ^= 1;
+  }
+  // Write format info
+  var fmtBits = FORMAT_INFO[ec][mask];
+  var fmtArr = [];
+  for (var i = 14; i >= 0; i--) fmtArr.push((fmtBits >> i) & 1);
+  // Top-left
+  var fi = 0;
+  for (var i = 0; i < 6; i++) { m[8][i] = fmtArr[fi++]; }
+  m[8][7] = fmtArr[fi++]; m[8][8] = fmtArr[fi++]; m[7][8] = fmtArr[fi++];
+  for (var i = 5; i >= 0; i--) { m[i][8] = fmtArr[fi++]; }
+  // Bottom-left and top-right
+  fi = 0;
+  for (var i = size-1; i >= size-8; i--) { m[i][8] = fmtArr[fi++]; }
+  for (var i = size-8; i < size; i++) { m[8][i] = fmtArr[fi++]; }
+  m[size-8][8] = 1; // dark module
+  return m;
+}
+
+function maskCondition(mask, r, c) {
+  switch(mask) {
+    case 0: return (r + c) % 2 === 0;
+    case 1: return r % 2 === 0;
+    case 2: return c % 3 === 0;
+    case 3: return (r + c) % 3 === 0;
+    case 4: return (Math.floor(r/2) + Math.floor(c/3)) % 2 === 0;
+    case 5: return (r * c) % 2 + (r * c) % 3 === 0;
+    case 6: return ((r * c) % 2 + (r * c) % 3) % 2 === 0;
+    case 7: return ((r + c) % 2 + (r * c) % 3) % 2 === 0;
+  }
+}
+
+function penaltyScore(mat, size) {
+  var score = 0;
+  // Rule 1: runs of 5+
+  for (var r = 0; r < size; r++) {
+    var run = 1;
+    for (var c = 1; c < size; c++) { if (mat[r][c] === mat[r][c-1]) { run++; if (run === 5) score += 3; else if (run > 5) score++; } else run = 1; }
+    run = 1;
+    for (var c = 1; c < size; c++) { if (mat[c][r] === mat[c-1][r]) { run++; if (run === 5) score += 3; else if (run > 5) score++; } else run = 1; }
+  }
+  // Rule 2: 2x2 blocks
+  for (var r = 0; r < size-1; r++) for (var c = 0; c < size-1; c++) {
+    var v = mat[r][c];
+    if (mat[r][c+1] === v && mat[r+1][c] === v && mat[r+1][c+1] === v) score += 3;
+  }
+  // Rule 3: finder-like patterns
+  var p1 = [1,0,1,1,1,0,1,0,0,0,0], p2 = [0,0,0,0,1,0,1,1,1,0,1];
+  for (var r = 0; r < size; r++) for (var c = 0; c <= size-11; c++) {
+    var mH = true, mV = true, mH2 = true, mV2 = true;
+    for (var k = 0; k < 11; k++) { if (mat[r][c+k] !== p1[k]) mH = false; if (mat[c+k][r] !== p1[k]) mV = false; if (mat[r][c+k] !== p2[k]) mH2 = false; if (mat[c+k][r] !== p2[k]) mV2 = false; }
+    if (mH) score += 40; if (mV) score += 40; if (mH2) score += 40; if (mV2) score += 40;
+  }
+  // Rule 4: dark/light balance
+  var dark = 0;
+  for (var r = 0; r < size; r++) for (var c = 0; c < size; c++) if (mat[r][c]) dark++;
+  var pct = dark / (size * size);
+  score += Math.abs(Math.floor(pct * 20) - 10) * 10;
+  return score;
+}
+
+function versionBits(version) {
+  /* Precomputed version info for versions 7-40 */
+  var V = [0x07C94,0x085BC,0x09A99,0x0A4D3,0x0BBF6,0x0C762,0x0D847,0x0E60D,0x0F928,0x10B78,0x1145D,0x12A17,0x13532,0x149A6,0x15683,0x168C9,0x177EC,0x18EC4,0x191E1,0x1AFAB,0x1B08E,0x1CC1A,0x1D33F,0x1ED75,0x1F250,0x209D5,0x216F0,0x228BA,0x2379F,0x24B0B,0x2542E,0x26A64,0x27541,0x28C69];
+  var v = V[version-7];
+  var bits = [];
+  for (var i = 17; i >= 0; i--) bits.push((v >> i) & 1);
+  return bits;
+}
+
+/* ============================================================
+   UI
+   ============================================================ */
+
+var currentType = "url";
+var currentEc = "M";
+var currentSize = 400;
+
+var typeOrder = ["url","text","wifi","vcard"];
+
+/* Tabs */
+document.getElementById("typeTabs").addEventListener("click", function(e) {
+  var tab = e.target.closest(".tab");
+  if (!tab) return;
+  currentType = tab.dataset.type;
+  document.querySelectorAll(".tab").forEach(function(t) { t.classList.remove("active"); });
+  tab.classList.add("active");
+  typeOrder.forEach(function(t) { document.getElementById("panel-"+t).classList.add("hidden"); });
+  document.getElementById("panel-"+currentType).classList.remove("hidden");
+  generate();
+});
+
+/* EC buttons */
+document.getElementById("ecGroup").addEventListener("click", function(e) {
+  var btn = e.target.closest(".radio-btn");
+  if (!btn) return;
+  currentEc = btn.dataset.ec;
+  document.querySelectorAll("#ecGroup .radio-btn").forEach(function(b) { b.classList.remove("active"); });
+  btn.classList.add("active");
+  generate();
+});
+
+/* Size slider */
+var sizeSlider = document.getElementById("sizeSlider");
+sizeSlider.addEventListener("input", function() {
+  currentSize = parseInt(sizeSlider.value);
+  document.getElementById("sizeVal").textContent = currentSize;
+  renderExisting();
+});
+
+/* Color pickers */
+document.getElementById("fgColor").addEventListener("input", renderExisting);
+document.getElementById("bgColor").addEventListener("input", renderExisting);
+
+/* Input events — auto-generate on change */
+var inputIds = ["input-url","input-text","wifi-ssid","wifi-pass","wifi-sec","vc-name","vc-phone","vc-email","vc-org","vc-url"];
+inputIds.forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener("input", debounce(generate, 300));
+});
+
+var generateBtn = document.getElementById("generateBtn");
+generateBtn.addEventListener("click", generate);
+
+/* Download */
+document.getElementById("downloadBtn").addEventListener("click", function() {
+  var canvas = document.getElementById("qrCanvas");
+  var text = getInputText();
+  var safeName = text.replace(/[^a-zA-Z0-9]/g, "_").substring(0, 20) || "qrcode";
+  canvas.toBlob(function(blob) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "qr-" + safeName + ".png";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }, "image/png");
+});
+
+/* Current QR result */
+var lastQR = null;
+
+function getInputText() {
+  switch(currentType) {
+    case "url": return (document.getElementById("input-url").value || "").trim();
+    case "text": return (document.getElementById("input-text").value || "").trim();
+    case "wifi": {
+      var ssid = document.getElementById("wifi-ssid").value.trim();
+      var pass = document.getElementById("wifi-pass").value;
+      var sec = document.getElementById("wifi-sec").value;
+      if (!ssid) return "";
+      return "WIFI:T:" + sec + ";S:" + escapeWifi(ssid) + ";P:" + escapeWifi(pass) + ";;";
+    }
+    case "vcard": {
+      var name = document.getElementById("vc-name").value.trim();
+      if (!name) return "";
+      var lines = ["BEGIN:VCARD","VERSION:3.0","FN:" + name];
+      var phone = document.getElementById("vc-phone").value.trim();
+      var email = document.getElementById("vc-email").value.trim();
+      var org = document.getElementById("vc-org").value.trim();
+      var url = document.getElementById("vc-url").value.trim();
+      if (phone) lines.push("TEL:" + phone);
+      if (email) lines.push("EMAIL:" + email);
+      if (org) lines.push("ORG:" + org);
+      if (url) lines.push("URL:" + url);
+      lines.push("END:VCARD");
+      return lines.join("\n");
+    }
+  }
+  return "";
+}
+
+function escapeWifi(s) { return s.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/"/g,"\\\""); }
+
+function generate() {
+  var text = getInputText();
+  if (!text) { showPlaceholder(); return; }
+  var result = encodeQR(text, currentEc);
+  if (!result) { showPlaceholder("Text too long for QR code"); return; }
+  lastQR = result;
+  renderQR(result);
+}
+
+function renderExisting() { if (lastQR) renderQR(lastQR); }
+
+function renderQR(qr) {
+  var canvas = document.getElementById("qrCanvas");
+  var placeholder = document.getElementById("qrPlaceholder");
+  var infoRow = document.getElementById("infoRow");
+  var dlRow = document.getElementById("dlRow");
+
+  var fg = document.getElementById("fgColor").value;
+  var bg = document.getElementById("bgColor").value;
+  var quiet = 4; // quiet zone modules
+  var moduleSize = Math.max(1, Math.floor(currentSize / (qr.size + quiet * 2)));
+  var totalPx = (qr.size + quiet * 2) * moduleSize;
+
+  canvas.width = totalPx; canvas.height = totalPx;
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, totalPx, totalPx);
+  ctx.fillStyle = fg;
+  var off = quiet * moduleSize;
+  for (var r = 0; r < qr.size; r++) {
+    for (var c = 0; c < qr.size; c++) {
+      if (qr.matrix[r][c]) ctx.fillRect(off + c * moduleSize, off + r * moduleSize, moduleSize, moduleSize);
+    }
+  }
+
+  placeholder.classList.add("hidden");
+  canvas.classList.remove("hidden");
+  infoRow.classList.remove("hidden");
+  dlRow.classList.remove("hidden");
+
+  document.getElementById("qrVersion").textContent = "V" + qr.version;
+  document.getElementById("qrEc").textContent = qr.ec;
+  document.getElementById("qrModules").textContent = qr.size + "x" + qr.size;
+}
+
+function showPlaceholder(msg) {
+  var placeholder = document.getElementById("qrPlaceholder");
+  var canvas = document.getElementById("qrCanvas");
+  placeholder.innerHTML = "<span>" + (msg || "Your QR code will<br>appear here") + "</span>";
+  placeholder.classList.remove("hidden");
+  canvas.classList.add("hidden");
+  document.getElementById("infoRow").classList.add("hidden");
+  document.getElementById("dlRow").classList.add("hidden");
+  lastQR = null;
+}
+
+function debounce(fn, delay) {
+  var timer;
+  return function() { clearTimeout(timer); timer = setTimeout(fn, delay); };
+}
+
+// Initial state
+document.getElementById("input-url").value = "https://pictureeditor.net/";
+generate();
+
+})();
+</script>
+</body>
+</html>
