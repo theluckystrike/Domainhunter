@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protein Calculator — Daily Protein Needs by Body Weight &amp; Goal | Ingredient Calculator</title>
+<meta name="description" content="Free protein calculator: enter your body weight and fitness goal to get your exact daily protein target in grams. Includes meal distribution across 3–6 meals and top food sources with protein per serving.">
+<meta name="keywords" content="protein calculator, daily protein needs, protein intake calculator, how much protein per day, protein for muscle gain, protein per pound body weight, high protein foods, protein grams per meal">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/protein-calculator.html">
+<meta property="og:title" content="Protein Calculator — Daily Protein Needs by Body Weight &amp; Goal">
+<meta property="og:description" content="Find your exact daily protein target in grams. Adjust for activity level and goal: muscle gain, maintenance, or weight loss.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/protein-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protein Calculator — Daily Protein Needs by Body Weight &amp; Goal">
+<meta name="twitter:description" content="Find your exact daily protein target in grams. Adjust for activity level and goal: muscle gain, maintenance, or weight loss.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Protein Calculator",
+  "url": "https://ingredientcalculator.com/tools/protein-calculator.html",
+  "description": "Calculate your daily protein needs in grams based on body weight, activity level, and goal. Includes per-meal breakdown and top food sources.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "kg / lbs unit toggle",
+    "Activity level multipliers (sedentary to elite athlete)",
+    "Goal presets: muscle gain, maintenance, weight loss",
+    "Per-meal distribution across 3–6 meals",
+    "Top protein food sources with grams per serving"
+  ],
+  "author": { "@type": "Person", "name": "Michael Lip" },
+  "publisher": { "@type": "Organization", "name": "Ingredient Calculator", "url": "https://ingredientcalculator.com" },
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ingredientcalculator.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ingredientcalculator.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Protein Calculator", "item": "https://ingredientcalculator.com/tools/protein-calculator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much protein do I need per day to build muscle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research consistently supports 1.6 to 2.2 grams of protein per kilogram of body weight (0.73 to 1.0 g/lb) for muscle gain. This calculator defaults to 1.8 g/kg for the muscle gain goal. Spreading intake across 4 to 5 meals with 30 to 40 grams each maximises muscle protein synthesis throughout the day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I eat more protein on rest days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protein intake should remain roughly constant on rest days because muscle protein synthesis stays elevated for up to 48 hours after a workout. Consistency matters more than cycling protein. Carbohydrates can be reduced slightly on rest days, but protein targets should stay the same to support ongoing repair and adaptation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you eat too much protein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excess dietary protein beyond what the body can use for muscle repair and synthesis is converted to glucose or stored as fat. In healthy individuals, high protein intake (up to 3.5 g/kg) has not been shown to cause kidney damage. However, intakes above roughly 2.2 g/kg provide diminishing returns for muscle gain and simply add unnecessary calories. Focus on hitting your target consistently rather than exceeding it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best whole-food protein sources?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The highest protein-per-calorie whole foods include: chicken breast (31g per 100g cooked), canned tuna (25g per 100g), egg whites (11g per 100g), Greek yogurt (10g per 100g), cottage cheese (11g per 100g), lentils (9g per 100g cooked), and edamame (11g per 100g). Animal sources provide complete amino acid profiles; for plant-based diets, combining legumes with grains (e.g. rice and beans) covers all essential amino acids."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0a;--card:#141414;--border:#1e1e1e;--text:#e8e8e8;--dim:#888;--accent:#22c55e;--accent-dim:rgba(34,197,94,0.12);--accent-hover:#16a34a;--radius:10px;--radius-sm:6px;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--transition:0.2s ease}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;background:var(--bg)}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--dim);font-size:0.85rem;padding:6px 10px;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}
+nav a:hover,nav a.active{color:var(--text);background:var(--card);text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+.breadcrumb{padding:16px 0 4px;font-size:0.82rem;color:var(--dim)}
+.breadcrumb a{color:var(--accent)}
+.hero{padding:32px 0 20px;text-align:center}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:10px;line-height:1.25}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1rem;color:var(--dim);max-width:600px;margin:0 auto}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0}
+.panel-title{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.panel-sub{font-size:0.85rem;color:var(--dim);margin-bottom:20px}
+.form-row{display:grid;gap:14px;margin-bottom:14px}
+.cols-2{grid-template-columns:1fr 1fr}
+.cols-3{grid-template-columns:1fr 1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+label{font-size:0.75rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+input[type="number"],select{width:100%;padding:10px 12px;background:#0f0f0f;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font);font-size:0.95rem;transition:border-color var(--transition),box-shadow var(--transition)}
+input[type="number"]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim)}
+.unit-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.unit-btn{flex:1;padding:10px 0;background:#0f0f0f;border:none;color:var(--dim);font-family:var(--font);font-size:0.9rem;font-weight:500;cursor:pointer;transition:background var(--transition),color var(--transition)}
+.unit-btn.active{background:var(--accent);color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 24px;border:none;border-radius:var(--radius-sm);font-family:var(--font);font-size:0.95rem;font-weight:700;cursor:pointer;transition:all var(--transition)}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{background:var(--accent-hover);color:#000}
+.btn-secondary{background:#1a1a1a;color:var(--dim);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--card);color:var(--text)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.result-panel{display:none;margin-top:20px;border-top:1px solid var(--border);padding-top:20px}
+.result-panel.visible{display:block}
+.result-hero{text-align:center;padding:20px;background:var(--accent-dim);border:1px solid rgba(34,197,94,0.25);border-radius:var(--radius);margin-bottom:20px}
+.result-hero .big-num{font-size:3rem;font-weight:800;color:var(--accent);line-height:1}
+.result-hero .big-label{font-size:0.9rem;color:var(--dim);margin-top:6px}
+.result-hero .range-note{font-size:0.82rem;color:var(--dim);margin-top:4px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#0f0f0f;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.stat-card .val{font-size:1.4rem;font-weight:700;color:var(--text)}
+.stat-card .lbl{font-size:0.75rem;color:var(--dim);margin-top:2px}
+.section-title{font-size:0.9rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 12px}
+.meal-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.meal-table th,.meal-table td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border)}
+.meal-table th{font-size:0.75rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:0.04em}
+.meal-table tr:last-child td{border-bottom:none}
+.meal-table td:last-child{color:var(--accent);font-weight:600}
+.foods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.food-card{background:#0f0f0f;border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.food-card .food-name{font-size:0.88rem;font-weight:500}
+.food-card .food-serving{font-size:0.75rem;color:var(--dim);margin-top:2px}
+.food-card .food-protein{font-size:1.05rem;font-weight:700;color:var(--accent)}
+.meal-slider-row{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.meal-slider-row label{font-size:0.85rem;text-transform:none;letter-spacing:0;color:var(--text);white-space:nowrap;min-width:80px}
+input[type="range"]{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:var(--border);border-radius:2px;outline:none}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer}
+input[type="range"]::-moz-range-thumb{width:18px;height:18px;background:var(--accent);border-radius:50%;cursor:pointer;border:none}
+.meal-slider-row .slider-val{min-width:40px;text-align:right;font-weight:700;color:var(--accent)}
+.info-box{background:#0f0f0f;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-sm);padding:14px 16px;font-size:0.88rem;color:var(--dim);line-height:1.7;margin-top:12px}
+.faq-section{margin:32px 0}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-q::after{content:"+";font-size:1.3rem;color:var(--accent);flex-shrink:0;margin-left:12px;transition:transform var(--transition)}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{display:none;font-size:0.88rem;color:var(--dim);margin-top:10px;line-height:1.75}
+.faq-item.open .faq-a{display:block}
+footer{padding:20px 24px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--dim);text-align:center;margin-top:32px}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:600px){.cols-2,.cols-3{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Ingredient Calculator</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tools/" class="active">Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Protein Calculator
+  </div>
+
+  <div class="hero">
+    <h1>Protein Calculator<br><span>Daily Protein Needs by Body Weight &amp; Goal</span></h1>
+    <p>Enter your weight, activity level, and goal to get your personal daily protein target — plus meal breakdown and food sources.</p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Your Details</div>
+    <div class="panel-sub">Adjust each field to match your stats and goals.</div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="bodyweight">Body Weight</label>
+        <input type="number" id="bodyweight" min="20" max="300" step="0.5" value="75" placeholder="75">
+      </div>
+      <div class="form-group">
+        <label>Unit</label>
+        <div class="unit-toggle">
+          <button class="unit-btn active" id="btn-kg" onclick="setUnit('kg')">kg</button>
+          <button class="unit-btn" id="btn-lbs" onclick="setUnit('lbs')">lbs</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="activity">Activity Level</label>
+        <select id="activity">
+          <option value="sedentary">Sedentary (desk job, little exercise)</option>
+          <option value="light">Lightly active (1–3 workouts/week)</option>
+          <option value="moderate" selected>Moderately active (3–5 workouts/week)</option>
+          <option value="active">Very active (6–7 workouts/week)</option>
+          <option value="athlete">Elite athlete / physical job (daily intense training)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="goal">Primary Goal</label>
+        <select id="goal">
+          <option value="loss">Lose weight / maintain muscle</option>
+          <option value="maintain" selected>Maintain weight &amp; composition</option>
+          <option value="gain">Build muscle / bulk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="meal-slider-row">
+      <label for="meals">Meals per day</label>
+      <input type="range" id="meals" min="3" max="6" value="4" oninput="document.getElementById('meals-val').textContent=this.value;updateMealTable()">
+      <span class="slider-val" id="meals-val">4</span>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calculate()">Calculate Protein</button>
+      <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+    </div>
+
+    <div class="result-panel" id="result-panel">
+      <div class="result-hero">
+        <div class="big-num" id="daily-total">—</div>
+        <div class="big-label">grams of protein per day</div>
+        <div class="range-note" id="range-note"></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="val" id="stat-per-kg">—</div><div class="lbl">g / kg body weight</div></div>
+        <div class="stat-card"><div class="val" id="stat-per-lb">—</div><div class="lbl">g / lb body weight</div></div>
+        <div class="stat-card"><div class="val" id="stat-calories">—</div><div class="lbl">kcal from protein / day</div></div>
+        <div class="stat-card"><div class="val" id="stat-per-meal">—</div><div class="lbl">g per meal (avg)</div></div>
+      </div>
+
+      <div class="section-title">Meal Distribution</div>
+      <table class="meal-table" id="meal-table">
+        <thead><tr><th>Meal</th><th>Timing</th><th>Protein Target</th></tr></thead>
+        <tbody id="meal-tbody"></tbody>
+      </table>
+
+      <div class="info-box" id="goal-tip"></div>
+
+      <div class="section-title">Top Protein Food Sources</div>
+      <div class="foods-grid" id="foods-grid"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">How to Use This Calculator</div>
+    <div class="panel-sub">Three inputs, one result.</div>
+    <div style="font-size:0.9rem;color:var(--dim);line-height:1.8">
+      <p><strong style="color:var(--text)">1. Enter your body weight</strong> in kilograms or pounds. Use your current weight, not a goal weight.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">2. Select your activity level</strong> honestly. Most gym-goers fall in the "moderately active" category (3–5 sessions/week).</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">3. Choose your goal.</strong> Muscle gain uses higher multipliers (1.8–2.2 g/kg). Weight loss uses a moderate target (1.4–1.6 g/kg) to preserve lean mass during a calorie deficit.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">Meal distribution</strong> shows how to spread your total across 3–6 meals. Research suggests 30–40 g per meal maximises muscle protein synthesis per session.</p>
+    </div>
+  </div>
+
+  <div class="panel faq-section">
+    <div class="panel-title">Frequently Asked Questions</div>
+    <div class="panel-sub">Evidence-based answers about dietary protein.</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much protein do I need per day to build muscle?</div>
+      <div class="faq-a">Research consistently supports 1.6 to 2.2 grams of protein per kilogram of body weight (0.73 to 1.0 g/lb) for muscle gain. This calculator defaults to 1.8 g/kg for the muscle gain goal. Spreading intake across 4 to 5 meals with 30 to 40 grams each maximises muscle protein synthesis throughout the day.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Should I eat more protein on rest days?</div>
+      <div class="faq-a">Protein intake should remain roughly constant on rest days because muscle protein synthesis stays elevated for up to 48 hours after a workout. Consistency matters more than cycling protein. Carbohydrates can be reduced slightly on rest days, but protein targets should stay the same to support ongoing repair and adaptation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What happens if I eat too much protein?</div>
+      <div class="faq-a">Excess dietary protein beyond what the body can use for muscle repair and synthesis is converted to glucose or stored as fat. In healthy individuals, high protein intake (up to 3.5 g/kg) has not been shown to cause kidney damage. However, intakes above roughly 2.2 g/kg provide diminishing returns for muscle gain and simply add unnecessary calories. Focus on hitting your target consistently rather than exceeding it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What are the best whole-food protein sources?</div>
+      <div class="faq-a">The highest protein-per-calorie whole foods include: chicken breast (31g per 100g cooked), canned tuna (25g per 100g), egg whites (11g per 100g), Greek yogurt (10g per 100g), cottage cheese (11g per 100g), lentils (9g per 100g cooked), and edamame (11g per 100g). Animal sources provide complete amino acid profiles; for plant-based diets, combining legumes with grains (e.g. rice and beans) covers all essential amino acids.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does timing of protein intake matter?</div>
+      <div class="faq-a">The "anabolic window" immediately post-workout is smaller than once thought. Total daily protein intake matters most. That said, consuming 30–40 g of protein within 2 hours after resistance training provides a small but meaningful benefit for muscle protein synthesis. A pre-sleep protein dose of 30–40 g (e.g. casein or cottage cheese) has also been shown to enhance overnight muscle recovery, especially for those training in the evening.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 <a href="/">Ingredient Calculator</a> &mdash; <a href="/tools/">All Tools</a> &mdash; <a href="/guides/">Guides</a></p>
+</footer>
+
+<script>
+// ---- State ----
+let currentUnit = 'kg';
+
+function setUnit(unit) {
+  const bw = parseFloat(document.getElementById('bodyweight').value) || 0;
+  if (unit === 'lbs' && currentUnit === 'kg') {
+    document.getElementById('bodyweight').value = (bw * 2.2046).toFixed(1);
+  } else if (unit === 'kg' && currentUnit === 'lbs') {
+    document.getElementById('bodyweight').value = (bw / 2.2046).toFixed(1);
+  }
+  currentUnit = unit;
+  document.getElementById('btn-kg').classList.toggle('active', unit === 'kg');
+  document.getElementById('btn-lbs').classList.toggle('active', unit === 'lbs');
+}
+
+function getWeightKg() {
+  const v = parseFloat(document.getElementById('bodyweight').value) || 70;
+  return currentUnit === 'kg' ? v : v / 2.2046;
+}
+
+// Multipliers: [low g/kg, mid g/kg, high g/kg]
+const GOAL_MULTIPLIERS = {
+  loss:     { low: 1.4, mid: 1.6, high: 1.8 },
+  maintain: { low: 1.2, mid: 1.4, high: 1.6 },
+  gain:     { low: 1.6, mid: 1.8, high: 2.2 }
+};
+
+// Activity bumps the mid multiplier slightly
+const ACTIVITY_BUMP = {
+  sedentary: -0.1,
+  light:     0,
+  moderate:  0.1,
+  active:    0.2,
+  athlete:   0.3
+};
+
+const GOAL_TIPS = {
+  loss:    "During a calorie deficit, a higher protein intake (1.4–1.8 g/kg) preserves lean muscle mass while fat is lost. Prioritise protein at every meal to maximise satiety and reduce muscle catabolism.",
+  maintain:"For body composition maintenance, 1.2–1.6 g/kg supports muscle retention with moderate training. Focus on consistent daily intake rather than any single high-protein meal.",
+  gain:    "To build muscle, aim for the upper end of 1.8–2.2 g/kg and distribute protein evenly across 4–5 meals. Each meal should contain 0.4 g/kg (~30–40 g) to maximise per-session muscle protein synthesis."
+};
+
+const MEAL_TIMINGS_BY_COUNT = {
+  3: ["Breakfast (7–9 am)", "Lunch (12–1 pm)", "Dinner (6–8 pm)"],
+  4: ["Breakfast (7–8 am)", "Lunch (12 pm)", "Afternoon (3–4 pm)", "Dinner (7–8 pm)"],
+  5: ["Breakfast (7 am)", "Mid-morning (10 am)", "Lunch (12–1 pm)", "Afternoon (4 pm)", "Dinner (7–8 pm)"],
+  6: ["Breakfast (6–7 am)", "Mid-morning (9–10 am)", "Lunch (12 pm)", "Afternoon (3 pm)", "Pre-workout (5–6 pm)", "Dinner (8–9 pm)"]
+};
+
+// Meal weighting: post-workout and pre-sleep are slightly higher
+const MEAL_WEIGHTS = {
+  3: [1, 1, 1],
+  4: [1, 1, 1.1, 1.1],
+  5: [1, 0.9, 1, 1.1, 1.2],
+  6: [1, 0.9, 1, 1.1, 1.2, 1.1]
+};
+
+const FOOD_SOURCES = [
+  { name: "Chicken Breast", serving: "100g cooked", protein: 31 },
+  { name: "Canned Tuna", serving: "100g drained", protein: 25 },
+  { name: "Salmon Fillet", serving: "100g cooked", protein: 22 },
+  { name: "Eggs (large)", serving: "2 whole eggs", protein: 12 },
+  { name: "Egg Whites", serving: "100g", protein: 11 },
+  { name: "Greek Yogurt", serving: "200g (¾ cup)", protein: 20 },
+  { name: "Cottage Cheese", serving: "200g (¾ cup)", protein: 22 },
+  { name: "Whey Protein", serving: "1 scoop (30g)", protein: 24 },
+  { name: "Lentils", serving: "200g cooked", protein: 18 },
+  { name: "Edamame", serving: "150g (1 cup)", protein: 17 },
+  { name: "Tofu (firm)", serving: "150g", protein: 13 },
+  { name: "Beef Sirloin", serving: "100g cooked", protein: 27 },
+];
+
+function calculate() {
+  const wKg = getWeightKg();
+  if (!wKg || wKg < 20) {
+    alert("Please enter a valid body weight (at least 20 kg / 44 lbs).");
+    return;
+  }
+  const goal = document.getElementById('goal').value;
+  const activity = document.getElementById('activity').value;
+  const meals = parseInt(document.getElementById('meals').value);
+
+  const m = GOAL_MULTIPLIERS[goal];
+  const bump = ACTIVITY_BUMP[activity];
+  const midMultiplier = Math.min(m.mid + bump, m.high);
+
+  const daily = Math.round(wKg * midMultiplier);
+  const perKg = (wKg > 0 ? daily / wKg : 0).toFixed(2);
+  const perLb = (wKg > 0 ? daily / (wKg * 2.2046) : 0).toFixed(2);
+  const calories = daily * 4;
+  const perMeal = Math.round(daily / meals);
+
+  const lowTotal = Math.round(wKg * m.low);
+  const highTotal = Math.round(wKg * m.high);
+
+  document.getElementById('daily-total').textContent = daily + "g";
+  document.getElementById('range-note').textContent = "Recommended range: " + lowTotal + "–" + highTotal + " g/day for your goal";
+  document.getElementById('stat-per-kg').textContent = perKg;
+  document.getElementById('stat-per-lb').textContent = perLb;
+  document.getElementById('stat-calories').textContent = calories;
+  document.getElementById('stat-per-meal').textContent = perMeal + "g";
+  document.getElementById('goal-tip').textContent = GOAL_TIPS[goal];
+
+  // Meal table
+  updateMealTable(daily, meals);
+
+  // Foods grid
+  const grid = document.getElementById('foods-grid');
+  grid.innerHTML = FOOD_SOURCES.map(f => `
+    <div class="food-card">
+      <div>
+        <div class="food-name">${f.name}</div>
+        <div class="food-serving">${f.serving}</div>
+      </div>
+      <div class="food-protein">${f.protein}g</div>
+    </div>
+  `).join('');
+
+  document.getElementById('result-panel').classList.add('visible');
+  document.getElementById('result-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateMealTable(totalOverride, mealsOverride) {
+  const panel = document.getElementById('result-panel');
+  if (!panel.classList.contains('visible')) return;
+
+  const daily = totalOverride || parseInt(document.getElementById('daily-total').textContent) || 0;
+  const meals = mealsOverride || parseInt(document.getElementById('meals').value);
+  const weights = MEAL_WEIGHTS[meals] || Array(meals).fill(1);
+  const timings = MEAL_TIMINGS_BY_COUNT[meals] || Array.from({length:meals},(_,i)=>"Meal "+(i+1));
+  const totalWeight = weights.reduce((a,b)=>a+b,0);
+
+  const tbody = document.getElementById('meal-tbody');
+  tbody.innerHTML = '';
+  for (let i = 0; i < meals; i++) {
+    const grams = Math.round(daily * (weights[i] / totalWeight));
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>Meal ${i+1}</td><td style="color:var(--dim)">${timings[i]}</td><td>${grams}g</td>`;
+    tbody.appendChild(tr);
+  }
+}
+
+function resetForm() {
+  document.getElementById('bodyweight').value = 75;
+  document.getElementById('activity').value = 'moderate';
+  document.getElementById('goal').value = 'maintain';
+  document.getElementById('meals').value = 4;
+  document.getElementById('meals-val').textContent = 4;
+  document.getElementById('result-panel').classList.remove('visible');
+  setUnit('kg');
+}
+
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

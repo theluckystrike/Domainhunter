@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydration Calculator — How Much Water You Need Daily | Ingredient Calculator</title>
+<meta name="description" content="Free hydration calculator: find out how much water you need each day based on your weight, activity level, climate, and caffeine intake. Includes hourly drinking timeline and exercise adjustments.">
+<meta name="keywords" content="hydration calculator, daily water intake, how much water per day, water calculator by weight, hydration needs, daily water needs, water intake calculator, exercise hydration, drink water tracker">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/hydration-calculator.html">
+<meta property="og:title" content="Hydration Calculator — How Much Water You Need Daily">
+<meta property="og:description" content="Calculate your daily water intake target based on weight, activity, climate, and caffeine. Includes hourly drinking schedule and glass tracker.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/hydration-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hydration Calculator — How Much Water You Need Daily">
+<meta name="twitter:description" content="Calculate your daily water intake target based on weight, activity, climate, and caffeine. Includes hourly drinking schedule and glass tracker.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Hydration Calculator",
+  "url": "https://ingredientcalculator.com/tools/hydration-calculator.html",
+  "description": "Calculate your daily water intake target in ml and oz based on body weight, activity level, climate, and caffeine consumption. Includes hourly drinking timeline and interactive glass counter.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "Daily water target in ml and oz",
+    "Activity level adjustments",
+    "Climate factor (hot/temperate/cold)",
+    "Caffeine intake offset",
+    "Exercise duration adjustments",
+    "Hourly drinking timeline",
+    "Interactive glass counter progress tracker"
+  ],
+  "author": { "@type": "Person", "name": "Michael Lip" },
+  "publisher": { "@type": "Organization", "name": "Ingredient Calculator", "url": "https://ingredientcalculator.com" },
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ingredientcalculator.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ingredientcalculator.com/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Hydration Calculator", "item": "https://ingredientcalculator.com/tools/hydration-calculator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much water should I drink per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "General guidelines recommend about 35 ml of water per kilogram of body weight per day for sedentary adults in a temperate climate. A 70 kg (154 lb) adult would need approximately 2.5 litres (84 oz). However, actual needs vary with activity level, heat exposure, and diet. Athletes training for more than 1 hour per day may need an additional 500–1000 ml. This calculator accounts for all those factors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does caffeine make you dehydrated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Moderate caffeine consumption (up to 400 mg per day, or roughly 4 cups of coffee) has a mild diuretic effect but does not cause net fluid loss in habitual coffee drinkers. Research shows that caffeinated beverages still contribute to daily hydration. This calculator adds a small compensatory amount (roughly 150 ml per 200 mg caffeine) to account for increased urine output, not because coffee is dehydrating per se."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I am dehydrated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most reliable everyday indicator of hydration status is urine colour. Pale yellow (like lemonade) indicates good hydration. Dark yellow or amber suggests mild to moderate dehydration. Clear urine may indicate overhydration. Other signs of dehydration include headache, reduced concentration, dry mouth, and reduced energy. Thirst is a late indicator — do not wait until you feel thirsty to drink."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much extra water do I need when exercising?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A practical rule is to drink 500 ml (17 oz) of water for every 30 minutes of moderate exercise, or up to 750 ml per 30 minutes during intense exercise in the heat. Weigh yourself before and after a workout: every 1 kg of weight lost corresponds to approximately 1 litre of fluid lost. Aim to replace 125–150% of that deficit within 4–6 hours of finishing exercise."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0a;--card:#141414;--border:#1e1e1e;--text:#e8e8e8;--dim:#888;--accent:#22c55e;--accent-dim:rgba(34,197,94,0.12);--accent-hover:#16a34a;--blue:#38bdf8;--blue-dim:rgba(56,189,248,0.12);--radius:10px;--radius-sm:6px;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--transition:0.2s ease}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;background:var(--bg)}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--dim);font-size:0.85rem;padding:6px 10px;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}
+nav a:hover,nav a.active{color:var(--text);background:var(--card);text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+.breadcrumb{padding:16px 0 4px;font-size:0.82rem;color:var(--dim)}
+.breadcrumb a{color:var(--accent)}
+.hero{padding:32px 0 20px;text-align:center}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;margin-bottom:10px;line-height:1.25}
+.hero h1 span{color:var(--blue)}
+.hero p{font-size:1rem;color:var(--dim);max-width:600px;margin:0 auto}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0}
+.panel-title{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.panel-sub{font-size:0.85rem;color:var(--dim);margin-bottom:20px}
+.form-row{display:grid;gap:14px;margin-bottom:14px}
+.cols-2{grid-template-columns:1fr 1fr}
+.cols-3{grid-template-columns:1fr 1fr 1fr}
+.form-group{display:flex;flex-direction:column;gap:5px}
+label{font-size:0.75rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em}
+input[type="number"],select{width:100%;padding:10px 12px;background:#0f0f0f;border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font);font-size:0.95rem;transition:border-color var(--transition),box-shadow var(--transition)}
+input[type="number"]:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-dim)}
+.unit-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.unit-btn{flex:1;padding:10px 0;background:#0f0f0f;border:none;color:var(--dim);font-family:var(--font);font-size:0.9rem;font-weight:500;cursor:pointer;transition:background var(--transition),color var(--transition)}
+.unit-btn.active{background:var(--blue);color:#000;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 24px;border:none;border-radius:var(--radius-sm);font-family:var(--font);font-size:0.95rem;font-weight:700;cursor:pointer;transition:all var(--transition)}
+.btn-primary{background:var(--blue);color:#000}
+.btn-primary:hover{background:#0ea5e9;color:#000}
+.btn-secondary{background:#1a1a1a;color:var(--dim);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--card);color:var(--text)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.result-panel{display:none;margin-top:20px;border-top:1px solid var(--border);padding-top:20px}
+.result-panel.visible{display:block}
+.result-hero{text-align:center;padding:20px;background:var(--blue-dim);border:1px solid rgba(56,189,248,0.25);border-radius:var(--radius);margin-bottom:20px}
+.result-hero .big-num{font-size:3rem;font-weight:800;color:var(--blue);line-height:1}
+.result-hero .big-label{font-size:0.9rem;color:var(--dim);margin-top:6px}
+.result-hero .sub-num{font-size:1.1rem;color:var(--dim);margin-top:6px;font-weight:600}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#0f0f0f;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.stat-card .val{font-size:1.35rem;font-weight:700;color:var(--text)}
+.stat-card .lbl{font-size:0.75rem;color:var(--dim);margin-top:2px}
+.section-title{font-size:0.9rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 12px}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;align-items:flex-start;gap:16px;padding:10px 0;border-bottom:1px solid var(--border)}
+.tl-item:last-child{border-bottom:none}
+.tl-time{min-width:90px;font-size:0.82rem;font-weight:600;color:var(--blue);padding-top:1px}
+.tl-dot{width:10px;height:10px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:5px}
+.tl-content{font-size:0.88rem;color:var(--dim);line-height:1.55}
+.tl-content strong{color:var(--text)}
+/* Glass counter */
+.glass-counter{margin-top:4px}
+.glass-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.glass-info .glass-label{font-size:0.9rem;color:var(--dim)}
+.glass-info .glass-progress{font-size:0.9rem;font-weight:700;color:var(--blue)}
+.glasses-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.glass-icon{width:42px;height:42px;border:2px solid var(--border);border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:#0f0f0f;transition:all var(--transition);user-select:none}
+.glass-icon.filled{border-color:var(--blue);background:var(--blue-dim)}
+.glass-icon.filled::after{content:"";display:none}
+.progress-bar-wrap{background:var(--border);border-radius:4px;height:8px;overflow:hidden;margin-bottom:10px}
+.progress-bar-fill{height:100%;background:var(--blue);border-radius:4px;transition:width 0.3s ease}
+.glass-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn-glass{padding:8px 16px;font-size:0.85rem;font-weight:600;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);transition:all var(--transition)}
+.btn-add-glass{background:var(--blue);color:#000}
+.btn-add-glass:hover{background:#0ea5e9}
+.btn-reset-glass{background:#1a1a1a;color:var(--dim);border:1px solid var(--border)}
+.btn-reset-glass:hover{background:var(--card);color:var(--text)}
+.status-msg{font-size:0.85rem;margin-top:8px;min-height:20px;color:var(--accent);font-weight:600}
+.info-box{background:#0f0f0f;border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:var(--radius-sm);padding:14px 16px;font-size:0.88rem;color:var(--dim);line-height:1.7;margin-top:12px}
+.faq-section{margin:32px 0}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.faq-q::after{content:"+";font-size:1.3rem;color:var(--blue);flex-shrink:0;margin-left:12px;transition:transform var(--transition)}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{display:none;font-size:0.88rem;color:var(--dim);margin-top:10px;line-height:1.75}
+.faq-item.open .faq-a{display:block}
+footer{padding:20px 24px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--dim);text-align:center;margin-top:32px}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:600px){.cols-2,.cols-3{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:1.5rem}.glass-icon{width:36px;height:36px;font-size:1.1rem}}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Ingredient Calculator</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tools/" class="active">Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/tools/">Tools</a> &rsaquo; Hydration Calculator
+  </div>
+
+  <div class="hero">
+    <h1>Hydration Calculator<br><span>How Much Water You Need Daily</span></h1>
+    <p>Enter your weight, activity level, climate, and caffeine intake to get your personalised daily water target — plus a timeline and glass tracker.</p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Your Inputs</div>
+    <div class="panel-sub">Adjust the fields below, then click Calculate.</div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="weight">Body Weight</label>
+        <input type="number" id="weight" min="20" max="300" step="0.5" value="70" placeholder="70">
+      </div>
+      <div class="form-group">
+        <label>Unit</label>
+        <div class="unit-toggle">
+          <button class="unit-btn active" id="btn-kg" onclick="setUnit('kg')">kg</button>
+          <button class="unit-btn" id="btn-lbs" onclick="setUnit('lbs')">lbs</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="activity">Activity Level</label>
+        <select id="activity">
+          <option value="sedentary">Sedentary (desk job, minimal movement)</option>
+          <option value="light">Lightly active (walking, light exercise 1–3×/wk)</option>
+          <option value="moderate" selected>Moderately active (3–5 workouts/week)</option>
+          <option value="active">Very active (daily intense training)</option>
+          <option value="athlete">Elite athlete (twice-daily training)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row cols-2">
+      <div class="form-group">
+        <label for="climate">Climate / Environment</label>
+        <select id="climate">
+          <option value="cold">Cold (&lt;10°C / 50°F)</option>
+          <option value="temperate" selected>Temperate (10–25°C / 50–77°F)</option>
+          <option value="hot">Hot (&gt;25°C / 77°F) or humid</option>
+          <option value="extreme">Extreme heat (&gt;35°C / 95°F)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="caffeine">Daily Caffeine (mg)</label>
+        <select id="caffeine">
+          <option value="0">None</option>
+          <option value="100">Low (~1 cup coffee / 100 mg)</option>
+          <option value="200" selected>Moderate (~2 cups / 200 mg)</option>
+          <option value="400">High (~4 cups / 400 mg)</option>
+          <option value="600">Very high (&gt;600 mg)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exercise">Exercise Duration Today (minutes)</label>
+        <select id="exercise">
+          <option value="0">No exercise today</option>
+          <option value="30">30 minutes</option>
+          <option value="60" selected>60 minutes</option>
+          <option value="90">90 minutes</option>
+          <option value="120">2 hours</option>
+          <option value="180">3+ hours</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="calculate()">Calculate Water Intake</button>
+      <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+    </div>
+
+    <div class="result-panel" id="result-panel">
+      <div class="result-hero">
+        <div class="big-num" id="daily-ml">—</div>
+        <div class="big-label">millilitres of water per day</div>
+        <div class="sub-num" id="daily-oz">— oz &nbsp;|&nbsp; — litres</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="val" id="stat-base">—</div><div class="lbl">Base intake (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-activity">—</div><div class="lbl">Activity add-on (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-climate">—</div><div class="lbl">Climate add-on (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-caffeine">—</div><div class="lbl">Caffeine offset (ml)</div></div>
+      </div>
+
+      <div class="section-title">When to Drink — Daily Timeline</div>
+      <div class="timeline" id="timeline"></div>
+
+      <div class="info-box" id="exercise-tip"></div>
+
+      <div class="section-title">Progress Tracker — Glass Counter</div>
+      <div class="glass-counter" id="glass-counter">
+        <div class="glass-info">
+          <span class="glass-label">250 ml per glass. Tap a glass to fill it.</span>
+          <span class="glass-progress" id="glass-progress">0 / 0 glasses</span>
+        </div>
+        <div class="glasses-grid" id="glasses-grid"></div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+        </div>
+        <div class="glass-actions">
+          <button class="btn-glass btn-add-glass" onclick="addGlass()">+ Add glass</button>
+          <button class="btn-glass btn-reset-glass" onclick="resetGlasses()">Reset tracker</button>
+        </div>
+        <div class="status-msg" id="status-msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">About This Calculator</div>
+    <div class="panel-sub">How daily water targets are calculated.</div>
+    <div style="font-size:0.9rem;color:var(--dim);line-height:1.8">
+      <p><strong style="color:var(--text)">Base intake</strong> is calculated at 35 ml per kg of body weight for sedentary adults, a value supported by EFSA (European Food Safety Authority) guidelines.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">Activity multiplier</strong> adds 300–700 ml depending on intensity, reflecting average sweat losses during moderate to intense training.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">Climate factor</strong> adds up to 600 ml in extreme heat to compensate for increased perspiration and respiratory losses.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">Caffeine offset</strong> adds a small compensatory volume (~150 ml per 200 mg caffeine) because caffeine has a mild diuretic effect, though caffeinated drinks still contribute positively to overall hydration.</p>
+      <p style="margin-top:8px"><strong style="color:var(--text)">Exercise add-on</strong> is calculated at 500 ml per 30 minutes of exercise and is shown separately in the breakdown.</p>
+    </div>
+  </div>
+
+  <div class="panel faq-section">
+    <div class="panel-title">Frequently Asked Questions</div>
+    <div class="panel-sub">Evidence-based hydration guidance.</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much water should I drink per day?</div>
+      <div class="faq-a">General guidelines recommend about 35 ml of water per kilogram of body weight per day for sedentary adults in a temperate climate. A 70 kg (154 lb) adult would need approximately 2.5 litres (84 oz). However, actual needs vary with activity level, heat exposure, and diet. Athletes training for more than 1 hour per day may need an additional 500–1000 ml. This calculator accounts for all those factors.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does caffeine make you dehydrated?</div>
+      <div class="faq-a">Moderate caffeine consumption (up to 400 mg per day, or roughly 4 cups of coffee) has a mild diuretic effect but does not cause net fluid loss in habitual coffee drinkers. Research shows that caffeinated beverages still contribute to daily hydration. This calculator adds a small compensatory amount (roughly 150 ml per 200 mg caffeine) to account for increased urine output, not because coffee is dehydrating per se.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I know if I am dehydrated?</div>
+      <div class="faq-a">The most reliable everyday indicator of hydration status is urine colour. Pale yellow (like lemonade) indicates good hydration. Dark yellow or amber suggests mild to moderate dehydration. Clear urine may indicate overhydration. Other signs of dehydration include headache, reduced concentration, dry mouth, and reduced energy. Thirst is a late indicator — do not wait until you feel thirsty to drink.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much extra water do I need when exercising?</div>
+      <div class="faq-a">A practical rule is to drink 500 ml (17 oz) of water for every 30 minutes of moderate exercise, or up to 750 ml per 30 minutes during intense exercise in the heat. Weigh yourself before and after a workout: every 1 kg of weight lost corresponds to approximately 1 litre of fluid lost. Aim to replace 125–150% of that deficit within 4–6 hours of finishing exercise.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I drink too much water?</div>
+      <div class="faq-a">Yes. Hyponatraemia (dangerously low blood sodium) can occur when extremely large volumes of water are consumed without electrolyte replacement — typically more than 1 litre per hour over several hours, most commonly seen in endurance athletes. For most people, exceeding their daily target by 500–1000 ml is harmless and simply increases urination. Electrolyte drinks or sodium-containing foods are advisable for exercise lasting more than 90 minutes to prevent dilutional hyponatraemia.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 <a href="/">Ingredient Calculator</a> &mdash; <a href="/tools/">All Tools</a> &mdash; <a href="/guides/">Guides</a></p>
+</footer>
+
+<script>
+// ---- State ----
+let currentUnit = 'kg';
+let totalGlasses = 0;
+let filledGlasses = 0;
+
+function setUnit(unit) {
+  const w = parseFloat(document.getElementById('weight').value) || 0;
+  if (unit === 'lbs' && currentUnit === 'kg') {
+    document.getElementById('weight').value = (w * 2.2046).toFixed(1);
+  } else if (unit === 'kg' && currentUnit === 'lbs') {
+    document.getElementById('weight').value = (w / 2.2046).toFixed(1);
+  }
+  currentUnit = unit;
+  document.getElementById('btn-kg').classList.toggle('active', unit === 'kg');
+  document.getElementById('btn-lbs').classList.toggle('active', unit === 'lbs');
+}
+
+function getWeightKg() {
+  const v = parseFloat(document.getElementById('weight').value) || 70;
+  return currentUnit === 'kg' ? v : v / 2.2046;
+}
+
+const ACTIVITY_ADD = {
+  sedentary: 0,
+  light:     300,
+  moderate:  500,
+  active:    700,
+  athlete:   900
+};
+
+const CLIMATE_ADD = {
+  cold:      -100,
+  temperate: 0,
+  hot:       400,
+  extreme:   600
+};
+
+function calculate() {
+  const wKg = getWeightKg();
+  if (!wKg || wKg < 20) {
+    alert("Please enter a valid body weight (at least 20 kg / 44 lbs).");
+    return;
+  }
+  const activity = document.getElementById('activity').value;
+  const climate = document.getElementById('climate').value;
+  const caffeine = parseInt(document.getElementById('caffeine').value);
+  const exercise = parseInt(document.getElementById('exercise').value);
+
+  const base = Math.round(wKg * 35);
+  const activityAdd = ACTIVITY_ADD[activity];
+  const climateAdd = CLIMATE_ADD[climate];
+  const caffeineAdd = Math.round((caffeine / 200) * 150);
+  const exerciseAdd = Math.round((exercise / 30) * 500);
+
+  const total = base + activityAdd + climateAdd + caffeineAdd + exerciseAdd;
+  const totalOz = (total / 29.5735).toFixed(0);
+  const totalL = (total / 1000).toFixed(2);
+
+  document.getElementById('daily-ml').textContent = total.toLocaleString() + " ml";
+  document.getElementById('daily-oz').textContent = totalOz + " oz  |  " + totalL + " litres";
+  document.getElementById('stat-base').textContent = base.toLocaleString() + " ml";
+  document.getElementById('stat-activity').textContent = (activityAdd >= 0 ? "+" : "") + activityAdd + " ml";
+  document.getElementById('stat-climate').textContent = (climateAdd >= 0 ? "+" : "") + climateAdd + " ml";
+  document.getElementById('stat-caffeine').textContent = "+" + caffeineAdd + " ml";
+
+  // Timeline
+  buildTimeline(total, exercise);
+
+  // Exercise tip
+  const tipEl = document.getElementById('exercise-tip');
+  if (exercise > 0) {
+    tipEl.textContent = `Exercise adjustment: +${exerciseAdd} ml added for ${exercise} minutes of exercise (approx. 500 ml per 30 min). Drink 200–250 ml every 15–20 minutes during your workout and aim to replace any weight lost post-exercise at a rate of 1.25–1.5 litres per kg.`;
+    tipEl.style.display = 'block';
+  } else {
+    tipEl.style.display = 'none';
+  }
+
+  // Glass counter
+  totalGlasses = Math.ceil(total / 250);
+  filledGlasses = 0;
+  buildGlassGrid();
+  updateProgress();
+
+  document.getElementById('result-panel').classList.add('visible');
+  document.getElementById('result-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function buildTimeline(totalMl, exerciseMin) {
+  const slots = [
+    { time: "6:30 am",  note: "Morning wake-up", ml: Math.round(totalMl * 0.12) },
+    { time: "8:00 am",  note: "With breakfast", ml: Math.round(totalMl * 0.10) },
+    { time: "10:00 am", note: "Mid-morning", ml: Math.round(totalMl * 0.10) },
+    { time: "12:00 pm", note: "With lunch", ml: Math.round(totalMl * 0.12) },
+    { time: "2:00 pm",  note: "Early afternoon", ml: Math.round(totalMl * 0.10) },
+    { time: "4:00 pm",  note: "Afternoon slump", ml: Math.round(totalMl * 0.10) },
+    { time: "6:00 pm",  note: exerciseMin > 0 ? "Pre/during workout" : "Before dinner", ml: Math.round(totalMl * 0.14) },
+    { time: "7:30 pm",  note: "With dinner", ml: Math.round(totalMl * 0.12) },
+    { time: "9:00 pm",  note: "Evening (stop 1 hr before bed)", ml: Math.round(totalMl * 0.10) }
+  ];
+
+  const container = document.getElementById('timeline');
+  container.innerHTML = '';
+  slots.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'tl-item';
+    div.innerHTML = `
+      <span class="tl-time">${s.time}</span>
+      <span class="tl-dot"></span>
+      <div class="tl-content"><strong>${s.note}</strong> — drink ${s.ml} ml (${(s.ml / 29.5735).toFixed(0)} oz)</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function buildGlassGrid() {
+  const grid = document.getElementById('glasses-grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < totalGlasses; i++) {
+    const div = document.createElement('div');
+    div.className = 'glass-icon' + (i < filledGlasses ? ' filled' : '');
+    div.title = "Glass " + (i + 1);
+    div.textContent = i < filledGlasses ? '🫗' : '🥛';
+    div.addEventListener('click', () => toggleGlass(i));
+    grid.appendChild(div);
+  }
+}
+
+function toggleGlass(idx) {
+  if (idx < filledGlasses) {
+    filledGlasses = idx;
+  } else {
+    filledGlasses = idx + 1;
+  }
+  buildGlassGrid();
+  updateProgress();
+}
+
+function addGlass() {
+  if (filledGlasses < totalGlasses) {
+    filledGlasses++;
+    buildGlassGrid();
+    updateProgress();
+  }
+}
+
+function resetGlasses() {
+  filledGlasses = 0;
+  buildGlassGrid();
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = totalGlasses > 0 ? Math.round((filledGlasses / totalGlasses) * 100) : 0;
+  document.getElementById('glass-progress').textContent = filledGlasses + " / " + totalGlasses + " glasses (" + pct + "%)";
+  document.getElementById('progress-bar').style.width = pct + "%";
+
+  const msg = document.getElementById('status-msg');
+  if (pct === 0) { msg.textContent = ""; return; }
+  if (pct < 25) msg.textContent = "Getting started — keep going!";
+  else if (pct < 50) msg.textContent = "25%+ done — nice start.";
+  else if (pct < 75) msg.textContent = "Halfway there — great work!";
+  else if (pct < 100) msg.textContent = "Almost at your target — one more glass!";
+  else msg.textContent = "Daily water target reached! Stay hydrated.";
+}
+
+function resetForm() {
+  document.getElementById('weight').value = 70;
+  document.getElementById('activity').value = 'moderate';
+  document.getElementById('climate').value = 'temperate';
+  document.getElementById('caffeine').value = '200';
+  document.getElementById('exercise').value = '60';
+  document.getElementById('result-panel').classList.remove('visible');
+  setUnit('kg');
+}
+
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+</script>
+</body>
+</html>
