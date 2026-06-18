@@ -1,1557 +1,687 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingredient Calculator - Scale Recipes, Convert Units &amp; Find Substitutions</title>
-<meta name="description" content="Free ingredient calculator to scale recipes to any serving size, convert cooking units (cups, grams, oz, mL), find ingredient substitutions, and estimate nutrition. Fast, accurate, no signup required.">
-<meta name="keywords" content="ingredient calculator, recipe scaler, cooking unit converter, ingredient substitution, recipe converter, cooking calculator, baking calculator, measurement converter">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingredient Calculator — Scale, Convert &amp; Substitute</title>
+<meta name="description" content="Scale any recipe, convert cooking units, find ingredient substitutions, and estimate nutrition. Free, no signup required.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ingredientcalculator.com/">
-<meta property="og:title" content="Ingredient Calculator - Scale Recipes, Convert Units &amp; Find Substitutions">
-<meta property="og:description" content="Free ingredient calculator to scale recipes to any serving size, convert cooking units, find ingredient substitutions, and estimate nutrition.">
+<meta property="og:title" content="Ingredient Calculator — Scale, Convert &amp; Substitute">
+<meta property="og:description" content="Free cooking math workbench. Scale recipes, convert units, find substitutions, estimate nutrition.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ingredientcalculator.com/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ingredient Calculator - Scale Recipes &amp; Convert Units">
-<meta name="twitter:description" content="Free ingredient calculator. Scale recipes, convert cooking units, find substitutions, estimate nutrition.">
+<meta name="twitter:title" content="Ingredient Calculator — Scale, Convert &amp; Substitute">
+<meta name="twitter:description" content="Free cooking math workbench. Scale recipes, convert units, find substitutions, estimate nutrition.">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Ingredient Calculator",
-  "url": "https://ingredientcalculator.com",
-  "description": "Free ingredient calculator to scale recipes, convert cooking units, find ingredient substitutions, and estimate nutrition.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "featureList": [
-    "Recipe ingredient scaling",
-    "Cooking unit conversion",
-    "Ingredient substitutions",
-    "Nutrition estimation"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Ingredient Calculator","url":"https://ingredientcalculator.com/","author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"}}
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","@id":"https://ingredientcalculator.com/#app","name":"Ingredient Calculator","url":"https://ingredientcalculator.com","description":"Free ingredient calculator to scale recipes, convert cooking units, find ingredient substitutions, and estimate nutrition.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ingredientcalculator.com/"}]},
+{"@type":"WebSite","@id":"https://ingredientcalculator.com/#website","url":"https://ingredientcalculator.com","name":"Ingredient Calculator","publisher":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one","sameAs":["https://github.com/theluckystrike","https://zovo.one"]}},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I scale a recipe?","acceptedAnswer":{"@type":"Answer","text":"Enter your ingredient list (one per line), set the original and desired servings, and click Scale. The calculator handles fractions, decimals, and unicode glyphs, returning sensible cooking fractions."}},
+{"@type":"Question","name":"How many grams is 1 cup of flour?","acceptedAnswer":{"@type":"Answer","text":"One cup of all-purpose flour weighs approximately 120 grams when spooned and leveled. A scooped cup can be 140g or more. For accuracy, weigh your flour."}},
+{"@type":"Question","name":"What can I substitute for eggs in baking?","acceptedAnswer":{"@type":"Answer","text":"Common egg substitutes include flax eggs (1 tbsp ground flax + 3 tbsp water), chia eggs, ¼ cup applesauce, mashed banana, or 3 tbsp aquafaba (chickpea liquid). Best results in muffins and quick breads."}},
+{"@type":"Question","name":"How do I convert Fahrenheit to Celsius?","acceptedAnswer":{"@type":"Answer","text":"Subtract 32, then multiply by 5/9. For example, 350°F = (350-32) × 5/9 = 176.7°C. Our converter handles this instantly for any temperature."}},
+{"@type":"Question","name":"Is this calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes — completely free, no signup, no popups. All calculations run in your browser."}}
+]}
+]}
 </script>
 <style>
-/* ============================================================
-   CSS — Mobile-first, system font stack, warm cooking palette
-   ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --clr-bg: #FFFBF5;
-  --clr-surface: #FFFFFF;
-  --clr-surface-alt: #FFF8EF;
-  --clr-border: #E8DFD3;
-  --clr-border-focus: #D97706;
-  --clr-text: #1C1917;
-  --clr-text-muted: #78716C;
-  --clr-accent: #D97706;
-  --clr-accent-hover: #B45309;
-  --clr-accent-light: #FEF3C7;
-  --clr-accent-bg: #FFFBEB;
-  --clr-success: #059669;
-  --clr-success-bg: #ECFDF5;
-  --clr-info: #0284C7;
-  --clr-info-bg: #F0F9FF;
-  --clr-danger: #DC2626;
-  --clr-shadow: rgba(28,25,23,0.08);
-  --radius: 10px;
-  --radius-sm: 6px;
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --transition: 0.2s ease;
+  --bg: oklch(0.965 0.018 78);
+  --bg-deep: oklch(0.925 0.030 75);
+  --bg-darker: oklch(0.89 0.035 72);
+  --paper: oklch(0.985 0.012 80);
+  --ink: oklch(0.20 0.025 50);
+  --ink-soft: oklch(0.38 0.022 55);
+  --muted: oklch(0.55 0.020 60);
+  --rule: oklch(0.82 0.020 70);
+  --rule-soft: oklch(0.88 0.018 72);
+  --accent: oklch(0.58 0.140 38);
+  --accent-ink: oklch(0.34 0.110 35);
+  --sage: oklch(0.50 0.055 135);
+  --sage-ink: oklch(0.35 0.050 135);
+  --plum: oklch(0.45 0.090 350);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px;
+  --font-display: "Newsreader","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --font-sans: "Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font-mono: "JetBrains Mono","SF Mono","Fira Code",ui-monospace,monospace;
 }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font);
-  background: var(--clr-bg);
-  color: var(--clr-text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:var(--paper)}
+body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(circle at 12% 18%,oklch(0.88 0.05 60/0.15) 0,transparent 38%),radial-gradient(circle at 88% 78%,oklch(0.92 0.04 80/0.12) 0,transparent 42%);pointer-events:none;z-index:0}
+main,header,footer{position:relative;z-index:1}
+.kicker{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);white-space:nowrap}
+.topbar{border-bottom:1px solid var(--rule);background:color-mix(in oklab,var(--bg) 92%,transparent);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+.topbar-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:32px;padding:14px 32px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:19px;letter-spacing:-0.01em;color:var(--ink)}
+.brand-mark{color:var(--accent);width:28px;height:22px}
+.brand-text{display:flex;align-items:baseline}
+.brand-text em{font-style:italic;font-weight:500;color:var(--accent);margin:0 1px}
+.nav{display:flex;gap:22px;margin-left:auto;font-size:13.5px;color:var(--ink-soft);letter-spacing:0.01em}
+.nav a{padding:4px 0;transition:color .15s}
+.nav a:hover{color:var(--accent)}
+.nav .nav-sep{color:var(--rule)}
+.skip-link{position:absolute;left:-9999px}
+.hero{max-width:1320px;margin:0 auto;padding:72px 32px 36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;position:relative}
+.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-kicker::after{content:"";flex:1;height:1px;background:var(--rule)}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(48px,5.6vw,92px);line-height:0.96;letter-spacing:-0.028em;margin:0 0 28px;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.hero h1 .ampersand{font-style:italic;font-weight:300;color:var(--ink-soft);padding:0 6px}
+.hero-lede{font-family:var(--font-display);font-size:21px;line-height:1.45;color:var(--ink-soft);max-width:38ch;margin:0 0 28px;text-wrap:pretty}
+.hero-meta{display:grid;grid-template-columns:repeat(4,auto);gap:28px;padding-top:22px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted);max-width:max-content}
+.hero-meta div{display:flex;flex-direction:column;gap:4px}
+.hero-meta-num{font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.hero-meta-lbl{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted)}
+.hero-demo{position:relative}
+.hd-card{background:var(--paper);border:1px solid var(--rule);border-radius:var(--r-lg);padding:28px 30px 24px;box-shadow:0 1px 0 oklch(1 0 0/0.6) inset,0 18px 40px -28px oklch(0.2 0.05 50/0.25);position:relative}
+.hd-card::before{content:"";position:absolute;inset:8px;border:1px dashed oklch(0.82 0.02 70/0.5);border-radius:calc(var(--r-lg) - 6px);pointer-events:none}
+.hd-tab{display:flex;align-items:baseline;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--rule-soft);margin-bottom:18px}
+.hd-tab-num{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent)}
+.hd-tab-name{font-family:var(--font-display);font-size:18px;color:var(--ink);font-style:italic}
+.hd-tab-meta{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.06em}
+.hd-servings{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.hd-servings-label{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted)}
+.hd-servings-pills{display:flex;gap:0;flex:1}
+.hd-pill{flex:1;background:transparent;border:1px solid var(--rule);border-right-width:0;padding:8px 0;font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);transition:all .12s;font-variant-numeric:tabular-nums}
+.hd-pill:first-child{border-radius:var(--r-sm) 0 0 var(--r-sm)}
+.hd-pill:last-child{border-right-width:1px;border-radius:0 var(--r-sm) var(--r-sm) 0}
+.hd-pill:hover{color:var(--ink);background:color-mix(in oklab,var(--bg-deep) 50%,transparent)}
+.hd-pill.is-active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hd-pill.is-active+.hd-pill{border-left-color:var(--ink)}
+.hd-factor{display:inline-flex;align-items:baseline;gap:2px;background:color-mix(in oklab,var(--accent) 10%,transparent);color:var(--accent);padding:6px 12px;border-radius:999px;font-family:var(--font-display);font-style:italic;font-variant-numeric:tabular-nums}
+.hd-factor-x{font-size:14px;opacity:0.7}
+.hd-factor-n{font-size:18px}
+.hd-cols{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);gap:14px;align-items:start}
+.hd-arrow{font-family:var(--font-display);font-size:28px;color:var(--rule);text-align:center;align-self:center;margin-top:14px}
+.hd-col-head{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;margin-bottom:6px;border-bottom:1px solid var(--rule-soft)}
+.hd-col-kicker{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted)}
+.hd-col-out .hd-col-kicker{color:var(--accent)}
+.hd-col-serv{font-family:var(--font-display);font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+.hd-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}
+.hd-list li{display:grid;grid-template-columns:34px 30px minmax(0,1fr);gap:8px;align-items:baseline;padding:7px 0;font-size:13.5px;position:relative}
+.hd-name{overflow-wrap:anywhere}
+.hd-list li:not(:last-child){border-bottom:1px dotted oklch(0.82 0.02 70/0.6)}
+.hd-qty{font-family:var(--font-display);font-style:italic;font-size:19px;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.hd-list-out .hd-qty{color:var(--accent)}
+.hd-unit{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);text-transform:lowercase;letter-spacing:0.04em}
+.hd-name{color:var(--ink-soft);font-size:13px;line-height:1.35}
+.hd-warn{grid-column:2/-1;font-family:var(--font-mono);font-size:10.5px;color:var(--sage-ink);background:color-mix(in oklab,var(--sage) 15%,transparent);padding:2px 8px;border-radius:999px;margin-top:2px;width:max-content}
+.hd-footnote{margin-top:18px;padding-top:14px;border-top:1px solid var(--rule-soft);display:flex;gap:8px;font-size:12.5px;color:var(--muted);font-style:italic}
+.note-mark{color:var(--accent);font-family:var(--font-display);font-size:16px;line-height:1}
+.hero::after{content:"01";position:absolute;font-family:var(--font-display);font-style:italic;font-size:320px;color:oklch(0.85 0.04 60/0.18);right:-32px;top:-40px;z-index:-1;pointer-events:none;letter-spacing:-0.05em}
+.band-paper{background:var(--paper)}
+.band-deep{background:var(--bg-deep)}
+.band-divider{height:1px;background:var(--rule);max-width:1320px;margin:0 auto}
+.deck-wrap{padding:56px 0 80px}
+.deck{max-width:1320px;margin:0 auto;padding:0 32px}
+.deck-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--ink)}
+.deck-head h2{font-family:var(--font-display);font-size:40px;font-weight:400;letter-spacing:-0.025em;margin:6px 0 0;line-height:1}
+.deck-head h2 em{font-style:italic;color:var(--accent)}
+.deck-head p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:38ch}
+.deck-tabs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);border-bottom:none;background:var(--paper);border-radius:var(--r-md) var(--r-md) 0 0;overflow:hidden}
+.deck-tab{background:transparent;border:none;border-right:1px solid var(--rule);text-align:left;padding:20px 22px 18px;display:flex;flex-direction:column;gap:4px;color:var(--ink-soft);transition:background .15s,color .15s;position:relative}
+.deck-tab:last-child{border-right:none}
+.deck-tab:hover{background:color-mix(in oklab,var(--bg-deep) 60%,transparent);color:var(--ink)}
+.deck-tab.is-active{color:var(--ink);background:var(--paper)}
+.deck-tab.is-active::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
+.deck-tab-num{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.18em;color:var(--accent)}
+.deck-tab-label{font-family:var(--font-display);font-size:22px;letter-spacing:-0.015em}
+.deck-tab-hint{font-size:12.5px;color:var(--muted);letter-spacing:0.01em}
+.deck-pane{background:var(--paper);border:1px solid var(--rule);border-top:none;border-radius:0 0 var(--r-md) var(--r-md);padding:40px;min-height:540px}
+.pane-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end;gap:32px;border-bottom:1px solid var(--rule-soft);padding-bottom:22px;margin-bottom:28px}
+.pane-head p{justify-self:end;text-align:left}
+.pane-head h2{font-family:var(--font-display);font-size:36px;font-weight:400;letter-spacing:-0.02em;margin:4px 0 0;line-height:1}
+.pane-head h2 em{font-style:italic;color:var(--accent)}
+.pane-head p{margin:0;color:var(--muted);font-size:14.5px;max-width:46ch}
+.field,.field-block{display:flex;flex-direction:column;gap:6px}
+.field-block{width:100%}
+.field-label{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted)}
+.field-label em{font-style:normal;color:var(--rule);margin-left:6px}
+.field input,.field-block input,.field-block select,.field-block textarea,.field select{font-family:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:var(--r-sm);padding:11px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+.field-block textarea{font-family:var(--font-mono);font-size:14px;line-height:1.65;resize:vertical;background:color-mix(in oklab,var(--bg) 50%,var(--paper))}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 18%,transparent)}
+input[type="number"]{font-family:var(--font-mono);font-variant-numeric:tabular-nums;width:110px}
+.field-suffix{font-size:11px;color:var(--muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.14em;margin-top:-2px}
+.btn-primary,.btn-ghost{font-family:inherit;font-size:14px;letter-spacing:0.01em;padding:12px 22px;border-radius:var(--r-sm);border:1px solid transparent;white-space:nowrap;transition:all .15s}
+.btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink-soft);border-color:var(--rule)}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink-soft)}
+.chip{background:transparent;border:1px solid var(--rule);border-radius:999px;padding:5px 12px;font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.actions{display:flex;gap:10px;margin-top:4px}
+.scaler-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.servings-row{display:flex;align-items:end;gap:18px;margin-bottom:18px}
+.servings-row .arrow{font-family:var(--font-display);font-size:28px;color:var(--rule);margin-bottom:8px}
+.preset-row{display:flex;align-items:center;gap:8px;margin-bottom:26px;padding-bottom:22px;border-bottom:1px dashed var(--rule)}
+.preset-label{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted);margin-right:6px}
+.scaler-input .field-block{margin-bottom:18px}
+.scaler-output{border-left:1px solid var(--rule-soft);padding-left:48px;margin-left:-24px}
+.output-head{margin-bottom:24px}
+.output-title{font-family:var(--font-display);font-size:32px;letter-spacing:-0.02em;margin-top:4px}
+.empty-state{border:1px dashed var(--rule);border-radius:var(--r-md);padding:28px;color:var(--muted);font-size:14.5px;text-align:center}
+.empty-state.small{padding:18px}
+.empty-state strong{color:var(--ink)}
+.empty-mark{font-family:var(--font-display);font-size:32px;color:var(--accent);margin-bottom:8px;opacity:0.5}
+.ingredient-list{list-style:none;padding:0;margin:0;counter-reset:ing}
+.ingredient-list li{counter-increment:ing;display:grid;grid-template-columns:28px 80px 1fr auto;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--rule-soft)}
+.ingredient-list li::before{content:counter(ing,decimal-leading-zero);font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.12em}
+.ing-qty{font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--accent);font-variant-numeric:tabular-nums}
+.ing-unit{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);text-transform:lowercase}
+.ing-name{color:var(--ink);font-size:15px}
+.ing-was{font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.02em}
+.muted{color:var(--muted)}
+.conv-tabs{display:flex;margin-bottom:36px;border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;background:var(--paper)}
+.conv-tab{flex:1;background:transparent;border:none;border-right:1px solid var(--rule);padding:16px 20px;text-align:left;transition:background .15s}
+.conv-tab:last-child{border-right:none}
+.conv-tab:hover{background:color-mix(in oklab,var(--bg-deep) 50%,transparent)}
+.conv-tab.is-active{background:var(--ink);color:var(--paper)}
+.conv-tab.is-active .conv-tab-hint{color:color-mix(in oklab,var(--paper) 65%,transparent)}
+.conv-tab-label{display:block;font-family:var(--font-display);font-size:20px;margin-bottom:2px}
+.conv-tab-hint{display:block;font-size:12px;color:var(--muted)}
+.conv-row{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:end;margin-bottom:56px}
+.conv-col{display:flex;flex-direction:column;gap:8px}
+.conv-input{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden}
+.conv-input.is-result{background:var(--bg-deep);border-color:var(--ink)}
+.conv-num{font-family:var(--font-display);font-size:44px;font-weight:400;border:none;background:transparent;padding:18px 20px;color:var(--ink);width:100%;font-variant-numeric:tabular-nums;outline:none}
+.conv-num.conv-result{color:var(--accent);font-style:italic;display:flex;align-items:center}
+.conv-input select{border:none;border-left:1px solid var(--rule);background:transparent;padding:18px 16px;font-size:15px;color:var(--ink);cursor:pointer;outline:none}
+.conv-swap{background:var(--paper);border:1px solid var(--rule);border-radius:999px;width:44px;height:44px;font-size:20px;color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:all .25s}
+.conv-swap:hover{background:var(--accent);color:var(--paper);border-color:var(--accent);transform:rotate(180deg)}
+.conv-reference{border-top:1px solid var(--rule-soft);padding-top:28px}
+.ref-head{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.ref-rows{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.ref-row{display:grid;grid-template-columns:1fr 20px 1fr;gap:8px;align-items:baseline;padding:10px 0;border-bottom:1px dotted var(--rule);font-family:var(--font-mono);font-size:13.5px}
+.ref-left{color:var(--ink)}
+.ref-eq{color:var(--accent);text-align:center}
+.ref-right{color:var(--ink-soft)}
+.subs-search{position:relative;margin-bottom:28px;display:flex;align-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r-md);padding:0 18px;transition:border-color .15s,box-shadow .15s}
+.subs-search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 15%,transparent)}
+.subs-icon{font-size:20px;color:var(--accent);margin-right:12px}
+.subs-search input{flex:1;border:none;background:transparent;font-family:var(--font-display);font-size:22px;padding:16px 0;color:var(--ink);outline:none}
+.subs-search input::placeholder{color:var(--muted);font-style:italic}
+.subs-clear{background:transparent;border:none;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted)}
+.subs-clear:hover{color:var(--accent)}
+.subs-grid{display:grid;grid-template-columns:220px 1fr;gap:40px}
+.subs-list{display:flex;flex-direction:column;border-top:1px solid var(--rule-soft);max-height:520px;overflow-y:auto;scrollbar-width:thin}
+.subs-list-item{background:transparent;border:none;border-bottom:1px solid var(--rule-soft);text-align:left;padding:13px 8px 13px 0;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;font-size:14.5px;color:var(--ink-soft);transition:color .15s,padding .15s;font-family:var(--font-display)}
+.subs-item-name{min-width:0;line-height:1.2}
+.subs-list-item:hover{color:var(--ink);padding-left:6px}
+.subs-list-item.is-active{color:var(--accent);font-style:italic}
+.subs-list-item.is-active::before{content:"\2192";margin-right:8px}
+.subs-item-count{font-family:var(--font-mono);font-size:11px;color:var(--muted);font-style:normal}
+.subs-detail{min-width:0}
+.subs-title{font-family:var(--font-display);font-size:44px;font-weight:400;letter-spacing:-0.02em;margin:6px 0 24px;line-height:1}
+.sub-cards{list-style:none;padding:0;margin:0 0 24px}
+.sub-card{border-bottom:1px solid var(--rule-soft);padding:20px 0;display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:baseline}
+.sub-card:first-child{padding-top:8px}
+.sub-ord{font-family:var(--font-display);font-style:italic;font-size:28px;color:var(--accent);opacity:0.5;font-variant-numeric:tabular-nums;line-height:1}
+.sub-swap{font-family:var(--font-display);font-size:24px;color:var(--ink);letter-spacing:-0.01em;display:block;margin-bottom:4px}
+.sub-detail{font-size:14px;color:var(--ink-soft);line-height:1.45}
+.sub-ratio{font-family:var(--font-mono);font-size:11.5px;color:var(--sage-ink);background:color-mix(in oklab,var(--sage) 15%,transparent);padding:4px 10px;border-radius:999px;letter-spacing:0.04em;white-space:nowrap;align-self:start}
+.subs-note,.nut-note{display:flex;gap:10px;align-items:flex-start;background:color-mix(in oklab,var(--accent) 6%,transparent);border-left:2px solid var(--accent);padding:14px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:13.5px;color:var(--ink-soft)}
+.nut-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
+.nut-input{display:flex;flex-direction:column;gap:18px}
+.nut-amount-row{display:flex;gap:14px}
+.nut-amount-row .field:first-child input{width:100%}
+.nut-amount-row .field{flex:1}
+.nut-output{background:var(--bg-deep);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:24px}
+.nut-cal-row{display:flex;align-items:baseline;gap:20px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.nut-cal-num{font-family:var(--font-display);font-size:88px;font-weight:400;font-style:italic;color:var(--accent);line-height:0.9;font-variant-numeric:tabular-nums;letter-spacing:-0.04em}
+.nut-cal-lbl>div:first-child{font-family:var(--font-display);font-size:24px;color:var(--ink)}
+.nut-cal-sub{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);letter-spacing:0.08em;margin-top:4px;text-transform:lowercase}
+.macro-bar{display:flex;height:8px;border-radius:999px;overflow:hidden;background:var(--rule-soft)}
+.macro-seg{transition:width .3s ease}
+.seg-p{background:var(--accent)}
+.seg-c{background:var(--sage)}
+.seg-f{background:var(--plum)}
+.macros{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.macro{background:var(--paper);border:1px solid var(--rule-soft);border-radius:var(--r-md);padding:16px}
+.macro-dot{display:inline-block;width:8px;height:8px;border-radius:999px;margin-right:8px;vertical-align:middle}
+.dot-p{background:var(--accent)}
+.dot-c{background:var(--sage)}
+.dot-f{background:var(--plum)}
+.macro-label{display:inline-block;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted)}
+.macro-value{font-family:var(--font-display);font-size:32px;font-weight:400;margin-top:8px;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+.macro-value .unit{font-family:var(--font-mono);font-size:13px;color:var(--muted);font-style:normal;margin-left:3px}
+.macro-pct{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.08em}
+.editorial-wrap{padding:96px 0}
+.editorial{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.editorial h2{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:-0.028em;line-height:0.98;margin:14px 0 16px;text-wrap:balance}
+.editorial h2 em{color:var(--accent);font-style:italic}
+.editorial .lede{font-family:var(--font-display);font-size:19px;line-height:1.55;color:var(--ink-soft);margin:0 0 36px;max-width:42ch;text-wrap:pretty}
+.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
+.feature{border-top:1px solid var(--rule);padding-top:16px}
+.feature-num{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.feature h3{font-family:var(--font-display);font-size:22px;font-weight:400;margin:0 0 8px;letter-spacing:-0.015em}
+.feature p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.5}
+.fieldnotes{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:40px;align-self:start;position:relative;overflow:hidden}
+.fieldnotes::before{content:"\00B6";position:absolute;font-family:var(--font-display);font-style:italic;font-size:360px;color:oklch(0.32 0.04 50/0.5);right:-60px;bottom:-120px;pointer-events:none;line-height:1}
+.fieldnotes .kicker{color:oklch(0.78 0.13 38)}
+.fieldnotes h3{font-family:var(--font-display);font-weight:400;font-style:italic;font-size:32px;letter-spacing:-0.02em;margin:10px 0 24px;line-height:1.05}
+.fieldnotes-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;position:relative;z-index:1}
+.fieldnote{padding:16px 0;border-bottom:1px solid oklch(0.4 0.04 50/0.6)}
+.fieldnote:last-child{border-bottom:none;padding-bottom:0}
+.fieldnote-eq{display:block;margin-bottom:8px;line-height:1.3}
+.fieldnote-eq .lhs{font-family:var(--font-mono);font-size:11.5px;color:oklch(0.78 0.025 60);letter-spacing:0.04em;display:block;margin-bottom:4px;text-transform:lowercase}
+.fieldnote-eq .arrow{display:none}
+.fieldnote-eq .rhs{font-family:var(--font-display);font-style:italic;font-size:24px;color:oklch(0.82 0.135 38);line-height:1.05;letter-spacing:-0.015em;display:block}
+.fieldnote-note{font-size:13px;color:oklch(0.78 0.025 60);line-height:1.5;font-style:italic;max-width:38ch}
+.dataviz-wrap{padding:96px 0;background:var(--paper)}
+.dataviz{max-width:1320px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:80px;align-items:start}
+.dataviz-text h2{font-family:var(--font-display);font-size:64px;font-weight:400;letter-spacing:-0.03em;line-height:0.95;margin:14px 0 20px;text-wrap:balance}
+.dataviz-text h2 em{font-style:italic;color:var(--accent)}
+.dataviz-text .lede{font-family:var(--font-display);font-size:19px;line-height:1.55;color:var(--ink-soft);margin:0 0 40px;max-width:42ch;text-wrap:pretty}
+.dataviz-text .lede em{font-style:italic;color:var(--accent);font-weight:500}
+.dataviz-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+.dv-stat{padding:18px 18px 0 0;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:8px}
+.dv-stat:last-child{border-right:none;padding-right:0}
+.dv-stat-num{font-family:var(--font-display);font-style:italic;font-size:52px;color:var(--accent);line-height:0.95;font-variant-numeric:tabular-nums;letter-spacing:-0.025em}
+.dv-stat-x{font-size:32px;opacity:0.7;margin-left:2px}
+.dv-stat-lbl{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);line-height:1.5}
+.chart{margin:0;background:var(--bg);border:1px solid var(--rule);border-radius:var(--r-lg);padding:28px 32px;position:relative}
+.chart-cap{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:16px;padding-bottom:18px;margin-bottom:14px;border-bottom:1px solid var(--rule)}
+.chart-cap h3{font-family:var(--font-display);font-style:italic;font-size:22px;font-weight:400;letter-spacing:-0.01em;margin:0;color:var(--ink)}
+.chart-axis{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted)}
+.chart-rows{display:flex;flex-direction:column}
+.chart-row{display:grid;grid-template-columns:28px 130px minmax(0,1fr) 64px;gap:12px;align-items:center;padding:7px 0}
+.chart-row:not(:last-child){border-bottom:1px dotted oklch(0.82 0.02 70/0.5)}
+.chart-rank{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);letter-spacing:0.12em;font-variant-numeric:tabular-nums}
+.chart-name{font-family:var(--font-display);font-size:15.5px;color:var(--ink);letter-spacing:-0.005em}
+.chart-track{height:12px;background:oklch(0.92 0.025 75/0.5);border-radius:2px;overflow:hidden;position:relative}
+.chart-fill{display:block;height:100%;background:var(--accent);border-radius:2px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.chart-row.is-mid .chart-fill{background:color-mix(in oklab,var(--accent) 75%,var(--bg))}
+.chart-row.is-light .chart-fill{background:var(--sage)}
+.chart-num{font-family:var(--font-display);font-style:italic;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right;letter-spacing:-0.01em}
+.chart-row.is-heavy .chart-num{color:var(--accent)}
+.chart-unit{font-family:var(--font-mono);font-style:normal;font-size:11px;color:var(--muted);margin-left:3px;letter-spacing:0.04em}
+.chart-foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule-soft);font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted)}
+.toolbox-wrap{padding:96px 0}
+.toolbox{max-width:1320px;margin:0 auto;padding:0 32px}
+.toolbox-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:24px;margin-bottom:0}
+.toolbox-head h2{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:-0.028em;margin:0;line-height:1}
+.toolbox-head h2 em{font-style:italic;color:var(--accent)}
+.toolbox-head .count{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;white-space:nowrap}
+.toolbox-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden}
+.tool-cell{background:var(--paper);border-bottom:1px solid var(--rule);border-right:1px solid var(--rule);padding:24px 24px 28px;display:flex;flex-direction:column;gap:16px;position:relative;transition:background .2s;min-height:280px;text-decoration:none;color:inherit}
+.tool-cell:nth-child(3n){border-right:none}
+.tool-cell:hover{background:color-mix(in oklab,var(--bg) 30%,var(--paper))}
+.tool-cell:hover .tool-arrow{transform:translateX(4px);color:var(--accent)}
+.tool-cell-head{display:flex;flex-direction:column;gap:6px}
+.tool-ord{font-family:var(--font-mono);font-size:10.5px;color:var(--accent);letter-spacing:0.16em}
+.tool-name{font-family:var(--font-display);font-size:22px;font-weight:400;letter-spacing:-0.015em;margin:0;line-height:1.15}
+.tool-desc{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:auto 0 0;max-width:36ch}
+.tool-arrow{position:absolute;right:24px;bottom:26px;font-size:18px;color:var(--muted);transition:all .2s}
+.tp{background:var(--bg);border:1px solid var(--rule-soft);border-radius:var(--r-sm);padding:12px 14px;font-family:var(--font-mono);font-size:11.5px}
+.tp-bars{display:flex;flex-direction:column;gap:6px}
+.tp-bar-row{display:grid;grid-template-columns:50px 44px 1fr;gap:8px;align-items:center}
+.tp-bar-name{color:var(--ink);font-family:var(--font-display);font-size:13px}
+.tp-bar-num{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);text-align:right;letter-spacing:0.04em}
+.tp-bar-track{height:6px;background:oklch(0.92 0.025 75/0.6);border-radius:999px;overflow:hidden}
+.tp-bar-fill{display:block;height:100%;background:var(--accent);border-radius:999px}
+.tp-swaps{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.tp-swap-caption{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);margin-bottom:2px}
+.tp-swap{display:inline-block;background:color-mix(in oklab,var(--sage) 14%,transparent);color:var(--sage-ink);padding:3px 10px;border-radius:999px;font-size:11px}
+.tp-formula{display:flex;flex-direction:column;gap:6px}
+.tp-formula-row{display:grid;grid-template-columns:auto 20px 1fr;gap:8px;align-items:baseline}
+.tp-formula-lhs{color:var(--ink);font-family:var(--font-display);font-size:15px;font-style:italic}
+.tp-formula-eq{color:var(--accent);text-align:center}
+.tp-formula-rhs{color:var(--ink-soft);font-family:var(--font-mono);font-size:12px}
+.tp-ratios{display:flex;flex-direction:column;gap:6px}
+.tp-ratio-row{display:flex;align-items:baseline;justify-content:space-between;padding:4px 0;border-bottom:1px dotted oklch(0.82 0.02 70/0.5)}
+.tp-ratio-row:last-child{border-bottom:none}
+.tp-ratio-name{font-family:var(--font-display);font-size:13px;color:var(--ink)}
+.tp-ratio-num{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:0.06em}
+.tp-dots{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.tp-dot{display:inline-flex;align-items:center;gap:5px}
+.tp-dot-mark{width:8px;height:8px;border-radius:999px;background:var(--accent);opacity:0.85}
+.tp-dot:nth-child(odd) .tp-dot-mark{background:var(--sage)}
+.tp-dot-n{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.tp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tp-tag{background:color-mix(in oklab,var(--accent) 8%,transparent);color:var(--accent-ink);padding:3px 10px;border-radius:999px;font-size:11px;font-family:var(--font-mono)}
+.tp-tag:nth-child(2){background:color-mix(in oklab,var(--sage) 14%,transparent);color:var(--sage-ink)}
+.tp-tag:nth-child(3){background:color-mix(in oklab,var(--plum) 14%,transparent);color:var(--plum)}
+.tp-tag:nth-child(4){background:color-mix(in oklab,var(--sage) 10%,transparent);color:var(--sage-ink)}
+.tp-tag:nth-child(5){background:color-mix(in oklab,var(--accent) 6%,transparent);color:var(--accent-ink)}
+.tp-tag:nth-child(6){background:color-mix(in oklab,var(--plum) 8%,transparent);color:var(--plum)}
+.tp-steps{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.tp-step{display:flex;align-items:baseline;gap:8px}
+.tp-step-n{font-family:var(--font-mono);font-size:10px;color:var(--accent);letter-spacing:0.12em}
+.tp-step-l{font-family:var(--font-display);font-size:13px;color:var(--ink)}
+.foot{max-width:1320px;margin:0 auto;padding:56px 32px 64px;border-top:1px solid var(--rule)}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-brand h3{font-family:var(--font-display);font-size:32px;font-weight:400;letter-spacing:-0.02em;margin:14px 0 10px;line-height:1.05}
+.foot-brand h3 em{color:var(--accent);font-style:italic}
+.foot-brand p{margin:0;font-size:14px;color:var(--ink-soft);max-width:38ch;line-height:1.5}
+.foot-col h4{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);margin:0 0 16px;font-weight:500}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.foot-col a{font-size:14px;color:var(--ink-soft);transition:color .15s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--rule-soft);font-size:12.5px;color:var(--muted);font-family:var(--font-mono);letter-spacing:0.04em}
+.marginalia{position:absolute;font-family:var(--font-display);font-style:italic;color:oklch(0.85 0.04 60/0.45);user-select:none;pointer-events:none;font-size:80px;line-height:1;letter-spacing:-0.04em}
+@media(max-width:1100px){
+.hero{grid-template-columns:1fr;gap:36px}
+.hero::after{display:none}
+.deck-tabs{grid-template-columns:repeat(2,1fr)}
+.deck-tab{border-bottom:1px solid var(--rule)}
+.scaler-grid,.subs-grid,.nut-grid,.editorial{grid-template-columns:1fr;gap:40px}
+.scaler-output{border-left:none;padding-left:0;margin-left:0}
+.toolbox-grid{grid-template-columns:repeat(2,1fr)}
+.tool-cell:nth-child(3n){border-right:1px solid var(--rule)}
+.tool-cell:nth-child(2n){border-right:none}
+.foot-top{grid-template-columns:1fr;gap:32px}
+.fieldnotes{position:static}
+.dataviz{grid-template-columns:1fr;gap:48px}
+.dataviz-text h2{font-size:48px}
 }
-
-/* ---- Layout ---- */
-.container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-
-/* ---- Skip link (a11y) ---- */
-.skip-link {
-  position: absolute; top: -100%; left: 16px;
-  background: var(--clr-accent); color: #fff;
-  padding: 8px 16px; border-radius: var(--radius-sm);
-  z-index: 1000; font-weight: 600;
-  text-decoration: none;
+@media(max-width:640px){
+.nav{display:none}
+.hero{padding:40px 20px 20px}
+.deck,.editorial,.toolbox,.foot{padding-left:20px;padding-right:20px}
+.deck-pane{padding:24px}
+.hd-card{padding:22px}
+.hd-cols{grid-template-columns:1fr}
+.hd-arrow{transform:rotate(90deg);margin:8px auto}
+.conv-row{grid-template-columns:1fr}
+.conv-swap{margin:0 auto}
+.toolbox-grid{grid-template-columns:1fr}
+.tool-cell{border-right:none !important}
+.ref-rows{grid-template-columns:1fr;gap:0}
+.editorial h2,.toolbox-head h2{font-size:40px}
+.hero-meta{grid-template-columns:repeat(2,1fr);gap:18px 28px}
+.dataviz{padding:0 20px}
+.chart{padding:20px}
+.chart-row{grid-template-columns:24px 1fr 52px}
+.chart-track{grid-column:1/-1;margin-top:4px}
+.dataviz-stats{grid-template-columns:1fr}
+.dv-stat{border-right:none;border-bottom:1px solid var(--rule);padding:14px 0}
 }
-.skip-link:focus { top: 8px; }
-
-/* ---- Header ---- */
-header {
-  background: var(--clr-surface);
-  border-bottom: 1px solid var(--clr-border);
-  padding: 16px 0;
-  position: sticky; top: 0; z-index: 100;
+@media(max-width:820px){
+.pane-head{grid-template-columns:1fr;gap:14px}
+.pane-head p{justify-self:start}
 }
-header .container {
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-}
-.logo {
-  font-size: 1.35rem; font-weight: 800; color: var(--clr-accent);
-  text-decoration: none; display: flex; align-items: center; gap: 8px;
-}
-.logo-icon {
-  width: 32px; height: 32px; background: var(--clr-accent); border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem;
-}
-
-nav { display: flex; gap: 4px; flex-wrap: wrap; }
-nav a {
-  text-decoration: none; color: var(--clr-text-muted); font-size: 0.875rem;
-  font-weight: 500; padding: 6px 12px; border-radius: var(--radius-sm);
-  transition: background var(--transition), color var(--transition);
-}
-nav a:hover, nav a:focus { background: var(--clr-accent-light); color: var(--clr-accent); }
-nav a.active { background: var(--clr-accent-light); color: var(--clr-accent); font-weight: 600; }
-
-/* ---- Ad zones ---- */
-.ad-zone {
-  text-align: center; padding: 12px 0; min-height: 20px;
-}
-
-/* ---- Hero ---- */
-.hero {
-  text-align: center; padding: 48px 16px 32px;
-  background: linear-gradient(180deg, var(--clr-accent-bg) 0%, var(--clr-bg) 100%);
-}
-.hero h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800; color: var(--clr-text); margin-bottom: 12px;
-  line-height: 1.2;
-}
-.hero h1 span { color: var(--clr-accent); }
-.hero p {
-  font-size: 1.1rem; color: var(--clr-text-muted);
-  max-width: 640px; margin: 0 auto;
-}
-
-/* ---- Tab navigation ---- */
-.tabs {
-  display: flex; gap: 4px; padding: 4px;
-  background: var(--clr-surface-alt);
-  border-radius: var(--radius);
-  margin: 32px auto 0; max-width: 600px;
-  border: 1px solid var(--clr-border);
-}
-.tab-btn {
-  flex: 1; padding: 10px 8px; border: none; background: transparent;
-  font-family: var(--font); font-size: 0.85rem; font-weight: 600;
-  color: var(--clr-text-muted); cursor: pointer;
-  border-radius: var(--radius-sm); transition: all var(--transition);
-  white-space: nowrap;
-}
-.tab-btn:hover { color: var(--clr-text); }
-.tab-btn.active {
-  background: var(--clr-surface); color: var(--clr-accent);
-  box-shadow: 0 1px 3px var(--clr-shadow);
-}
-.tab-btn:focus-visible {
-  outline: 2px solid var(--clr-accent); outline-offset: 2px;
-}
-
-/* ---- Cards / Panels ---- */
-.panel {
-  display: none; background: var(--clr-surface);
-  border: 1px solid var(--clr-border); border-radius: var(--radius);
-  padding: 24px; margin: 24px auto;
-  max-width: 900px; box-shadow: 0 2px 8px var(--clr-shadow);
-}
-.panel.active { display: block; }
-.panel h2 {
-  font-size: 1.35rem; font-weight: 700; margin-bottom: 4px;
-}
-.panel .subtitle {
-  color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 20px;
-}
-
-/* ---- Form elements ---- */
-label {
-  display: block; font-size: 0.8rem; font-weight: 600;
-  color: var(--clr-text-muted); text-transform: uppercase;
-  letter-spacing: 0.04em; margin-bottom: 4px;
-}
-input[type="text"], input[type="number"], select, textarea {
-  width: 100%; padding: 10px 12px; border: 1px solid var(--clr-border);
-  border-radius: var(--radius-sm); font-family: var(--font);
-  font-size: 0.95rem; background: var(--clr-surface);
-  transition: border-color var(--transition), box-shadow var(--transition);
-  color: var(--clr-text);
-}
-input:focus, select:focus, textarea:focus {
-  outline: none; border-color: var(--clr-border-focus);
-  box-shadow: 0 0 0 3px rgba(217,119,6,0.15);
-}
-textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
-
-.form-row {
-  display: grid; gap: 16px; margin-bottom: 16px;
-}
-.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
-.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-.form-group { display: flex; flex-direction: column; }
-
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 10px 20px; border: none; border-radius: var(--radius-sm);
-  font-family: var(--font); font-size: 0.95rem; font-weight: 600;
-  cursor: pointer; transition: all var(--transition);
-  text-decoration: none;
-}
-.btn-primary {
-  background: var(--clr-accent); color: #fff;
-}
-.btn-primary:hover, .btn-primary:focus { background: var(--clr-accent-hover); }
-.btn-secondary {
-  background: var(--clr-surface-alt); color: var(--clr-text);
-  border: 1px solid var(--clr-border);
-}
-.btn-secondary:hover { background: var(--clr-border); }
-.btn:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
-
-.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-
-/* ---- Result areas ---- */
-.result-box {
-  background: var(--clr-success-bg); border: 1px solid #A7F3D0;
-  border-radius: var(--radius-sm); padding: 16px; margin-top: 20px;
-  display: none;
-}
-.result-box.visible { display: block; }
-.result-box h3 {
-  font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--clr-success);
-}
-.result-table {
-  width: 100%; border-collapse: collapse; font-size: 0.9rem;
-}
-.result-table th, .result-table td {
-  text-align: left; padding: 8px 10px;
-  border-bottom: 1px solid #D1FAE5;
-}
-.result-table th {
-  font-weight: 600; color: var(--clr-text-muted); font-size: 0.78rem;
-  text-transform: uppercase; letter-spacing: 0.04em;
-}
-.result-table tr:last-child td { border-bottom: none; }
-
-/* ---- Converter-specific ---- */
-.converter-grid {
-  display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px;
-  align-items: end;
-}
-.swap-btn {
-  background: var(--clr-accent-light); border: 1px solid var(--clr-border);
-  width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; transition: all var(--transition);
-  margin-bottom: 2px;
-}
-.swap-btn:hover { background: var(--clr-accent); color: #fff; }
-.converter-result {
-  text-align: center; font-size: 1.8rem; font-weight: 800;
-  color: var(--clr-accent); padding: 20px; margin-top: 16px;
-  background: var(--clr-accent-bg); border-radius: var(--radius-sm);
-}
-.converter-result small {
-  display: block; font-size: 0.8rem; font-weight: 500; color: var(--clr-text-muted);
-  margin-top: 4px;
-}
-
-/* ---- Substitution cards ---- */
-.sub-search { position: relative; margin-bottom: 16px; }
-.sub-search input { padding-left: 36px; }
-.sub-search-icon {
-  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-  color: var(--clr-text-muted); font-size: 0.9rem; pointer-events: none;
-  margin-top: 10px;
-}
-.sub-grid {
-  display: grid; gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-}
-.sub-card {
-  background: var(--clr-surface-alt); border: 1px solid var(--clr-border);
-  border-radius: var(--radius-sm); padding: 14px;
-  transition: box-shadow var(--transition);
-}
-.sub-card:hover { box-shadow: 0 2px 8px var(--clr-shadow); }
-.sub-card h4 {
-  font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--clr-text);
-}
-.sub-card .sub-list { list-style: none; }
-.sub-card .sub-list li {
-  padding: 4px 0; font-size: 0.88rem; color: var(--clr-text-muted);
-  border-bottom: 1px dashed var(--clr-border);
-  display: flex; align-items: baseline; gap: 6px;
-}
-.sub-card .sub-list li:last-child { border-bottom: none; }
-.sub-arrow { color: var(--clr-accent); font-weight: 700; }
-.sub-note {
-  font-size: 0.78rem; color: var(--clr-text-muted); font-style: italic;
-  margin-top: 6px;
-}
-
-/* ---- Nutrition panel ---- */
-.nutrition-result {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px; margin-top: 16px;
-}
-.nutr-card {
-  text-align: center; padding: 16px; background: var(--clr-surface-alt);
-  border-radius: var(--radius-sm); border: 1px solid var(--clr-border);
-}
-.nutr-card .nutr-val {
-  font-size: 1.6rem; font-weight: 800; color: var(--clr-accent);
-}
-.nutr-card .nutr-label {
-  font-size: 0.78rem; color: var(--clr-text-muted); text-transform: uppercase;
-  letter-spacing: 0.04em; margin-top: 2px;
-}
-.nutr-card .nutr-unit {
-  font-size: 0.8rem; color: var(--clr-text-muted);
-}
-
-/* ---- Info section ---- */
-.info-section {
-  max-width: 900px; margin: 40px auto; padding: 0 16px;
-}
-.info-section h2 {
-  font-size: 1.4rem; font-weight: 700; margin-bottom: 12px;
-}
-.info-section p, .info-section li {
-  color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.7;
-}
-.info-section ul { padding-left: 20px; margin: 8px 0; }
-.info-section li { margin-bottom: 4px; }
-.info-grid {
-  display: grid; gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  margin-top: 20px;
-}
-.info-card {
-  background: var(--clr-surface); border: 1px solid var(--clr-border);
-  border-radius: var(--radius); padding: 20px;
-}
-.info-card h3 {
-  font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;
-  display: flex; align-items: center; gap: 8px;
-}
-.info-card p { font-size: 0.9rem; }
-
-/* ---- Footer ---- */
-footer {
-  text-align: center; padding: 32px 16px;
-  border-top: 1px solid var(--clr-border); margin-top: 40px;
-  color: var(--clr-text-muted); font-size: 0.85rem;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 640px) {
-  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
-  .converter-grid { grid-template-columns: 1fr; }
-  .swap-btn { margin: 0 auto; transform: rotate(90deg); }
-  .tabs { flex-wrap: wrap; }
-  .tab-btn { font-size: 0.78rem; padding: 8px 6px; }
-  .panel { padding: 16px; }
-  nav { display: none; }
-}
-
-/* ---- Print ---- */
-@media print {
-  header, footer, .hero, .tabs, .ad-zone, .btn-row, nav { display: none !important; }
-  .panel { display: block !important; border: none; box-shadow: none; }
-  .result-box { display: block !important; }
-}
-
-/* ---- Focus-visible for a11y ---- */
-:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
-
-/* ---- Animations ---- */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.panel.active { animation: fadeIn 0.25s ease; }
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
-<header>
-  <!-- AD ZONE: Header leaderboard 728x90 -->
-  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
-  <div class="container">
-    <a href="/" class="logo" aria-label="Ingredient Calculator Home">
-      <span class="logo-icon" aria-hidden="true">&#9878;</span>
-      IngredientCalculator
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#scaler" class="active" data-nav="scaler">Recipe Scaler</a>
-      <a href="#converter" data-nav="converter">Unit Converter</a>
-      <a href="#substitutions" data-nav="substitutions">Substitutions</a>
-      <a href="#nutrition" data-nav="nutrition">Nutrition</a>
-      <a href="/cups-to-grams.html">Cups to Grams</a>
-      <a href="/egg-substitute.html">Egg Substitutes</a>
-      <a href="/recipe-converter.html">Recipe Converter</a>
-      <a href="/baking-ratios.html">Baking Ratios</a>
-      <a href="/serving-size-calculator.html">Serving Size</a>
-      <a href="/allergen-substitutes.html">Allergen Subs</a>
-      <a href="/how-to-scale-recipes.html">Recipe Scaling</a>
-    </nav>
-  </div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="/">
+<svg class="brand-mark" viewBox="0 0 32 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="28" y2="6"/><line x1="16" y1="6" x2="16" y2="22"/><line x1="11" y1="22" x2="21" y2="22"/><line x1="6" y1="6" x2="6" y2="8"/><path d="M2 8 a4 4 0 0 0 8 0 Z"/><line x1="26" y1="6" x2="26" y2="8"/><path d="M22 8 a4 4 0 0 0 8 0 Z"/><circle cx="16" cy="6" r="1.4" fill="currentColor" stroke="none"/></g></svg>
+<span class="brand-text">Ingredient<em>&middot;</em>Calculator</span>
+</a>
+<nav class="nav" aria-label="Primary">
+<a href="#scaler">Scaler</a>
+<a href="#converter">Converter</a>
+<a href="#subs">Substitutions</a>
+<a href="#nutrition">Nutrition</a>
+<span class="nav-sep">/</span>
+<a href="#tools">All tools</a>
+</nav>
+</div>
 </header>
+<main id="main">
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section class="hero" aria-label="Introduction">
-  <div class="container">
-    <h1><span>Ingredient Calculator</span> &mdash; Scale, Convert &amp; Substitute</h1>
-    <p>Scale any recipe to your desired serving size, convert between cooking units, find ingredient substitutions, and estimate nutrition &mdash; all in one free tool.</p>
-
-    <!-- Tab navigation -->
-    <div class="tabs" role="tablist" aria-label="Calculator tools">
-      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-scaler" id="tab-scaler" data-panel="scaler">Recipe Scaler</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-converter" id="tab-converter" data-panel="converter">Unit Converter</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-substitutions" id="tab-substitutions" data-panel="substitutions">Substitutions</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-nutrition" id="tab-nutrition" data-panel="nutrition">Nutrition</button>
-    </div>
-  </div>
+<section class="hero">
+<span class="marginalia" style="left:-12px;top:8px">&frac12;</span>
+<div class="hero-text">
+<div class="hero-kicker"><span class="kicker">&#8470;01 &middot; The kitchen workbench</span></div>
+<h1>Scale, <em>convert</em><br><span class="ampersand">&amp;</span>substitute<br>any recipe.</h1>
+<p class="hero-lede">A free, no-fuss tool for the cooking math no one teaches you &mdash; paste a recipe, choose your servings, and get clean quantities you can actually measure.</p>
+<div class="hero-meta">
+<div><span class="hero-meta-num">4</span><span class="hero-meta-lbl">Tools</span></div>
+<div><span class="hero-meta-num">42</span><span class="hero-meta-lbl">Substitutions</span></div>
+<div><span class="hero-meta-num">25</span><span class="hero-meta-lbl">Macro datasets</span></div>
+<div><span class="hero-meta-num">0</span><span class="hero-meta-lbl">Pop-ups &middot; ever</span></div>
+</div>
+</div>
+<div id="hero-demo-root" class="hero-demo"></div>
 </section>
 
-<!-- ============================================================
-     MAIN CONTENT
-     ============================================================ -->
-<main id="main-content" class="container">
+<div class="band-divider"></div>
 
-  <!-- ========== PANEL 1: Recipe Scaler ========== -->
-  <section class="panel active" id="panel-scaler" role="tabpanel" aria-labelledby="tab-scaler">
-    <h2>Recipe Ingredient Scaler</h2>
-    <p class="subtitle">Paste your ingredient list, set original and desired servings, and scale instantly.</p>
+<section class="deck-wrap band-paper">
+<div class="deck">
+<div class="deck-head">
+<div><span class="kicker">&#8470;02 &middot; The workbench</span><h2>Pick a <em>tool</em>.</h2></div>
+<p>Four calculators, one ingredient set. Each opens in place &mdash; nothing to install, nothing to log in to.</p>
+</div>
+<div class="deck-tabs" role="tablist" id="deck-tabs">
+<button role="tab" aria-selected="true" class="deck-tab is-active" data-tab="scaler"><span class="deck-tab-num">&#8470; I</span><span class="deck-tab-label">Recipe Scaler</span><span class="deck-tab-hint">Servings up or down</span></button>
+<button role="tab" class="deck-tab" data-tab="converter"><span class="deck-tab-num">&#8470; II</span><span class="deck-tab-label">Unit Converter</span><span class="deck-tab-hint">Volume &middot; Weight &middot; Temp</span></button>
+<button role="tab" class="deck-tab" data-tab="subs"><span class="deck-tab-num">&#8470; III</span><span class="deck-tab-label">Substitutions</span><span class="deck-tab-hint">Out of something? Swap.</span></button>
+<button role="tab" class="deck-tab" data-tab="nutrition"><span class="deck-tab-num">&#8470; IV</span><span class="deck-tab-label">Nutrition</span><span class="deck-tab-hint">USDA-based macro math</span></button>
+</div>
+<div class="deck-pane" id="pane-scaler">
+<div class="pane-head"><div><span class="kicker">Recipe Scaler</span><h2>Recipe ingredient <em>scaler</em></h2></div><p>Paste your ingredient list, set original and desired servings, and scale instantly.</p></div>
+<div id="tool-scaler" class="tool-pane"></div>
+</div>
+<div class="deck-pane" id="pane-converter" style="display:none">
+<div class="pane-head"><div><span class="kicker">Unit Converter</span><h2>Cooking unit <em>converter</em></h2></div><p>Convert between common cooking measurements &mdash; instantly, with a quick-reference card.</p></div>
+<div id="tool-converter" class="tool-pane"></div>
+</div>
+<div class="deck-pane" id="pane-subs" style="display:none">
+<div class="pane-head"><div><span class="kicker">Substitutions</span><h2>Ingredient <em>substitutions</em></h2></div><p>Find common replacements for the ingredient you don't have on hand &mdash; with ratios and notes.</p></div>
+<div id="tool-subs" class="tool-pane"></div>
+</div>
+<div class="deck-pane" id="pane-nutrition" style="display:none">
+<div class="pane-head"><div><span class="kicker">Nutrition</span><h2>Nutrition <em>estimator</em></h2></div><p>Get calorie and macro estimates for common cooking ingredients. A sanity-check, not a meal plan.</p></div>
+<div id="tool-nutrition" class="tool-pane"></div>
+</div>
+</div>
+</section>
 
-    <div class="form-row cols-2">
-      <div class="form-group">
-        <label for="scaler-original">Original Servings</label>
-        <input type="number" id="scaler-original" min="0.25" step="0.25" value="4" aria-describedby="scaler-help">
-      </div>
-      <div class="form-group">
-        <label for="scaler-desired">Desired Servings</label>
-        <input type="number" id="scaler-desired" min="0.25" step="0.25" value="8" aria-describedby="scaler-help">
-      </div>
-    </div>
-    <small id="scaler-help" style="color:var(--clr-text-muted);display:block;margin-bottom:12px;">Enter one ingredient per line, e.g. "2 cups flour" or "1.5 tsp salt"</small>
+<section class="editorial-wrap">
+<div class="editorial">
+<div>
+<span class="kicker">&#8470;03 &middot; The pitch</span>
+<h2>The <em>arithmetic</em><br>no recipe<br>ever shows you.</h2>
+<p class="lede">Doubling a family recipe, halving a sheet of cookies, or turning a European bake into something your imperial measuring cups can handle. The math is fiddly. We do it so you don't have to.</p>
+<div class="feature-list">
+<div class="feature"><div class="feature-num">i. Scaling</div><h3>Up, down, sideways</h3><p>Parses fractions, decimals, and unicode glyphs. Returns readable fractions back.</p></div>
+<div class="feature"><div class="feature-num">ii. Conversion</div><h3>Cups &#8644; grams &#8644; &deg;C</h3><p>Volume, weight, and temperature &mdash; with a quick-reference for the things you forget at 7&nbsp;am.</p></div>
+<div class="feature"><div class="feature-num">iii. Substitutions</div><h3>For when you're out</h3><p>17 staple ingredients, several swaps each, with ratios and editor notes on which is which.</p></div>
+<div class="feature"><div class="feature-num">iv. Nutrition</div><h3>Quick macro math</h3><p>USDA per-100g averages for 25+ ingredients. A sanity-check, not a meal plan.</p></div>
+</div>
+</div>
+<aside class="fieldnotes">
+<span class="kicker">From the field notes</span>
+<h3>Things<br>recipes won't<br>tell you.</h3>
+<ul class="fieldnotes-list">
+<li class="fieldnote"><div class="fieldnote-eq"><span class="lhs">3 eggs &times; 1.5</span><span class="arrow">&rarr;</span><span class="rhs">4&frac12; eggs</span></div><div class="fieldnote-note">Round up. There is no such thing as half an egg, unless you weigh it (&asymp; 50&nbsp;g per large).</div></li>
+<li class="fieldnote"><div class="fieldnote-eq"><span class="lhs">1 cup flour</span><span class="arrow">&rarr;</span><span class="rhs">120 g (sifted)</span></div><div class="fieldnote-note">A scooped cup can be 140&nbsp;g+. Spoon and level, or weigh &mdash; your bakes will thank you.</div></li>
+<li class="fieldnote"><div class="fieldnote-eq"><span class="lhs">&frac12; tsp salt</span><span class="arrow">&rarr;</span><span class="rhs">not always &frac12;</span></div><div class="fieldnote-note">Diamond Crystal kosher weighs half of Morton. Read the box before doubling salty things.</div></li>
+<li class="fieldnote"><div class="fieldnote-eq"><span class="lhs">2&times; pan size</span><span class="arrow">&rarr;</span><span class="rhs">not 2&times; time</span></div><div class="fieldnote-note">Volume scales linearly; baking time doesn't. Expect 1.2&ndash;1.4&times; the original time, and check early.</div></li>
+<li class="fieldnote"><div class="fieldnote-eq"><span class="lhs">leaveners</span><span class="arrow">&rarr;</span><span class="rhs">scale with care</span></div><div class="fieldnote-note">Doubling baking soda can make a cake taste metallic. When in doubt, leave the leavener and scale everything else.</div></li>
+</ul>
+</aside>
+</div>
+</section>
 
-    <div class="form-group">
-      <label for="scaler-input">Ingredients (one per line)</label>
-      <textarea id="scaler-input" placeholder="2 cups all-purpose flour&#10;1 cup sugar&#10;0.5 tsp salt&#10;3 large eggs&#10;1.5 cups milk&#10;0.25 cup butter, melted" aria-label="Ingredient list"></textarea>
-    </div>
+<section class="dataviz-wrap">
+<div class="dataviz">
+<div class="dataviz-text">
+<span class="kicker">&#8470;04 &middot; By the numbers</span>
+<h2>A cup is<br>not a <em>cup</em>.</h2>
+<p class="lede">Volume measurements lie. The same cup holds anywhere from 90 grams of rolled oats to 340 grams of honey &mdash; almost <em>four times</em> the weight. This is why your grandmother's recipe never tastes the same twice, and why bakeries weigh.</p>
+<div class="dataviz-stats">
+<div class="dv-stat"><span class="dv-stat-num">3.8<span class="dv-stat-x">&times;</span></span><span class="dv-stat-lbl">Heaviest cup vs<br>lightest cup</span></div>
+<div class="dv-stat"><span class="dv-stat-num">&plusmn;30<span class="dv-stat-x">%</span></span><span class="dv-stat-lbl">Variance between<br>scoop and sift</span></div>
+<div class="dv-stat"><span class="dv-stat-num">35<span class="dv-stat-x">+</span></span><span class="dv-stat-lbl">Ingredients with<br>tuned conversions</span></div>
+</div>
+</div>
+<figure class="chart">
+<figcaption class="chart-cap"><span class="kicker">Figure 01</span><h3>One cup, weighed.</h3><span class="chart-axis">grams &rarr;</span></figcaption>
+<div class="chart-rows" id="chart-rows"></div>
+<div class="chart-foot"><span>Source &middot; USDA averages, King Arthur reference set</span></div>
+</figure>
+</div>
+</section>
 
-    <div class="btn-row">
-      <button class="btn btn-primary" id="scaler-calc" aria-label="Scale recipe ingredients">Scale Recipe</button>
-      <button class="btn btn-secondary" id="scaler-clear" aria-label="Clear all fields">Clear</button>
-      <button class="btn btn-secondary" id="scaler-copy" aria-label="Copy scaled results" style="display:none;">Copy Results</button>
-    </div>
+<section class="toolbox-wrap band-deep" id="tools">
+<div class="toolbox">
+<div class="toolbox-head">
+<div><span class="kicker">&#8470;05 &middot; The library</span><h2 style="margin-top:8px">More <em>tools</em>.</h2></div>
+<span class="count">Seven &middot; Free &middot; No login</span>
+</div>
+<div class="toolbox-grid" id="toolbox-grid"></div>
+</div>
+</section>
 
-    <div class="result-box" id="scaler-result" aria-live="polite">
-      <h3>Scaled Ingredients</h3>
-      <table class="result-table" id="scaler-table" aria-label="Scaled ingredient results">
-        <thead><tr><th>Original</th><th>Scaled</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ========== PANEL 2: Unit Converter ========== -->
-  <section class="panel" id="panel-converter" role="tabpanel" aria-labelledby="tab-converter">
-    <h2>Cooking Unit Converter</h2>
-    <p class="subtitle">Convert between common cooking measurements instantly.</p>
-
-    <div class="form-group" style="margin-bottom:16px;">
-      <label for="conv-category">Category</label>
-      <select id="conv-category" aria-label="Measurement category">
-        <option value="volume">Volume (cups, mL, tbsp, tsp, fl oz, L)</option>
-        <option value="weight">Weight (g, oz, lb, kg)</option>
-        <option value="temperature">Temperature (F, C)</option>
-      </select>
-    </div>
-
-    <div class="converter-grid">
-      <div class="form-group">
-        <label for="conv-value">Value</label>
-        <input type="number" id="conv-value" min="0" step="any" value="1" aria-label="Value to convert">
-        <select id="conv-from" style="margin-top:8px;" aria-label="Convert from unit"></select>
-      </div>
-      <button class="swap-btn" id="conv-swap" aria-label="Swap units" title="Swap units">&#8644;</button>
-      <div class="form-group">
-        <label for="conv-result-val">Result</label>
-        <input type="text" id="conv-result-val" readonly aria-label="Conversion result" tabindex="-1" style="background:var(--clr-surface-alt);font-weight:700;">
-        <select id="conv-to" style="margin-top:8px;" aria-label="Convert to unit"></select>
-      </div>
-    </div>
-
-    <div class="converter-result" id="conv-display" aria-live="polite" style="display:none;">
-      <span id="conv-display-text"></span>
-      <small id="conv-display-formula"></small>
-    </div>
-
-    <!-- AD ZONE: Below converter 300x250 -->
-    <div class="ad-zone" aria-hidden="true" style="margin-top:24px;"><!-- AD ZONE: SIDEBAR RECTANGLE 300x250 --></div>
-
-    <div style="margin-top:24px;">
-      <h3 style="font-size:1rem;margin-bottom:12px;">Quick Reference</h3>
-      <div class="result-box visible" style="background:var(--clr-info-bg);border-color:#BAE6FD;">
-        <table class="result-table" aria-label="Common conversions reference" style="font-size:0.85rem;">
-          <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
-          <tbody>
-            <tr><td>1 cup</td><td>mL</td><td>236.588</td></tr>
-            <tr><td>1 tbsp</td><td>mL</td><td>14.787</td></tr>
-            <tr><td>1 tsp</td><td>mL</td><td>4.929</td></tr>
-            <tr><td>1 oz (weight)</td><td>grams</td><td>28.3495</td></tr>
-            <tr><td>1 fl oz</td><td>mL</td><td>29.5735</td></tr>
-            <tr><td>1 lb</td><td>grams</td><td>453.592</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PANEL 3: Substitutions ========== -->
-  <section class="panel" id="panel-substitutions" role="tabpanel" aria-labelledby="tab-substitutions">
-    <h2>Ingredient Substitutions</h2>
-    <p class="subtitle">Find common replacements for ingredients you don't have on hand.</p>
-
-    <div class="sub-search">
-      <span class="sub-search-icon" aria-hidden="true">&#128269;</span>
-      <label for="sub-search-input">Search ingredients</label>
-      <input type="text" id="sub-search-input" placeholder="Type an ingredient name (e.g. butter, egg, milk)..." aria-label="Search for ingredient substitutions">
-    </div>
-
-    <div class="sub-grid" id="sub-grid" aria-label="Ingredient substitution cards"></div>
-  </section>
-
-  <!-- ========== PANEL 4: Nutrition Estimator ========== -->
-  <section class="panel" id="panel-nutrition" role="tabpanel" aria-labelledby="tab-nutrition">
-    <h2>Nutrition Estimator</h2>
-    <p class="subtitle">Get calorie and macro estimates for common cooking ingredients.</p>
-
-    <div class="form-row cols-3">
-      <div class="form-group">
-        <label for="nutr-ingredient">Ingredient</label>
-        <select id="nutr-ingredient" aria-label="Select ingredient for nutrition info"></select>
-      </div>
-      <div class="form-group">
-        <label for="nutr-amount">Amount</label>
-        <input type="number" id="nutr-amount" min="0" step="any" value="100" aria-label="Amount of ingredient">
-      </div>
-      <div class="form-group">
-        <label for="nutr-unit">Unit</label>
-        <select id="nutr-unit" aria-label="Unit for nutrition calculation">
-          <option value="g">grams (g)</option>
-          <option value="oz">ounces (oz)</option>
-          <option value="cup">cups</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="btn-row">
-      <button class="btn btn-primary" id="nutr-calc" aria-label="Estimate nutrition">Estimate Nutrition</button>
-    </div>
-
-    <div class="nutrition-result" id="nutr-result" style="display:none;" aria-live="polite">
-      <div class="nutr-card">
-        <div class="nutr-val" id="nutr-cal">0</div>
-        <div class="nutr-label">Calories</div>
-        <div class="nutr-unit">kcal</div>
-      </div>
-      <div class="nutr-card">
-        <div class="nutr-val" id="nutr-protein">0</div>
-        <div class="nutr-label">Protein</div>
-        <div class="nutr-unit">g</div>
-      </div>
-      <div class="nutr-card">
-        <div class="nutr-val" id="nutr-carbs">0</div>
-        <div class="nutr-label">Carbs</div>
-        <div class="nutr-unit">g</div>
-      </div>
-      <div class="nutr-card">
-        <div class="nutr-val" id="nutr-fat">0</div>
-        <div class="nutr-label">Fat</div>
-        <div class="nutr-unit">g</div>
-      </div>
-      <div class="nutr-card">
-        <div class="nutr-val" id="nutr-fiber">0</div>
-        <div class="nutr-label">Fiber</div>
-        <div class="nutr-unit">g</div>
-      </div>
-    </div>
-
-    <div class="result-box visible" style="margin-top:20px;background:var(--clr-accent-bg);border-color:#FDE68A;">
-      <p style="font-size:0.85rem;color:var(--clr-text-muted);"><strong>Note:</strong> Nutrition values are estimates based on USDA averages. Actual values vary by brand, preparation method, and specific variety. For precise dietary planning, consult a registered dietitian or use USDA FoodData Central.</p>
-    </div>
-  </section>
-
-  <!-- AD ZONE: Below calculator responsive -->
-  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+<footer class="foot">
+<div class="foot-top">
+<div class="foot-brand">
+<svg width="40" height="32" viewBox="0 0 32 24" aria-hidden="true" style="color:var(--accent)"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="28" y2="6"/><line x1="16" y1="6" x2="16" y2="22"/><line x1="11" y1="22" x2="21" y2="22"/><line x1="6" y1="6" x2="6" y2="8"/><path d="M2 8 a4 4 0 0 0 8 0 Z"/><line x1="26" y1="6" x2="26" y2="8"/><path d="M22 8 a4 4 0 0 0 8 0 Z"/><circle cx="16" cy="6" r="1.4" fill="currentColor" stroke="none"/></g></svg>
+<h3>Ingredient<em>&middot;</em>Calculator</h3>
+<p>A free workbench for everyday cooking math. No accounts, no popups, no &ldquo;but first, a story&rdquo;.</p>
+</div>
+<div class="foot-col">
+<h4>Tools</h4>
+<ul>
+<li><a href="#scaler">Recipe Scaler</a></li>
+<li><a href="#converter">Unit Converter</a></li>
+<li><a href="#subs">Substitutions</a></li>
+<li><a href="#nutrition">Nutrition Estimator</a></li>
+<li><a href="/cups-to-grams">Cups &rarr; Grams</a></li>
+<li><a href="/egg-substitute">Egg Substitutes</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>More</h4>
+<ul>
+<li><a href="/tools/">All Tools</a></li>
+<li><a href="/how-to-scale-recipes">How to Scale Recipes</a></li>
+<li><a href="/baking-ratios">Baking Ratios</a></li>
+<li><a href="/recipe-converter">Recipe Converter</a></li>
+<li><a href="/allergen-substitutes">Allergen Guide</a></li>
+</ul>
+</div>
+</div>
+<div class="foot-bottom">
+<span>&copy; 2026 &middot; IngredientCalculator</span>
+<span>USDA averages &middot; Consult a dietitian for medical advice</span>
+</div>
+</footer>
 </main>
 
-<!-- ============================================================
-     INFO / SEO CONTENT
-     ============================================================ -->
-<section class="info-section" aria-label="About Ingredient Calculator">
-  <h2>Why Use an Ingredient Calculator?</h2>
-  <p>Whether you're doubling a family recipe, halving a batch of cookies, or converting a European recipe from metric to imperial, an ingredient calculator saves time and prevents costly mistakes. Our free tool handles the math so you can focus on cooking.</p>
-
-  <div class="info-grid">
-    <article class="info-card">
-      <h3>&#9878; Recipe Scaling</h3>
-      <p>Instantly scale any recipe up or down. Enter your ingredients, set the original and desired serving sizes, and get perfectly proportioned quantities. Works with fractions, decimals, and mixed units.</p>
-    </article>
-    <article class="info-card">
-      <h3>&#9878; Unit Conversion</h3>
-      <p>Convert between cups, milliliters, tablespoons, teaspoons, fluid ounces, grams, ounces, pounds, and temperature units. Essential for following international recipes or baking with precision.</p>
-    </article>
-    <article class="info-card">
-      <h3>&#9878; Smart Substitutions</h3>
-      <p>Out of an ingredient? Find common substitutions instantly. Our database covers dairy, eggs, flour, sweeteners, fats, and more &mdash; with ratio guidance for each swap.</p>
-    </article>
-    <article class="info-card">
-      <h3>&#9878; Nutrition Estimates</h3>
-      <p>Get approximate calorie and macronutrient breakdowns for 50+ common ingredients. Helpful for meal planning, portion control, and dietary tracking.</p>
-    </article>
-  </div>
-
-  <h2 style="margin-top:40px;">Common Cooking Conversions</h2>
-  <ul>
-    <li><strong>3 teaspoons</strong> = 1 tablespoon</li>
-    <li><strong>4 tablespoons</strong> = 1/4 cup</li>
-    <li><strong>16 tablespoons</strong> = 1 cup</li>
-    <li><strong>1 cup</strong> = 236.6 mL (approx. 240 mL)</li>
-    <li><strong>1 fluid ounce</strong> = 29.57 mL</li>
-    <li><strong>1 stick of butter</strong> = 1/2 cup = 113g</li>
-    <li><strong>1 pound</strong> = 453.6 grams</li>
-    <li><strong>Fahrenheit to Celsius</strong>: (F - 32) &times; 5/9</li>
-  </ul>
-
-  <!-- AD ZONE: Sidebar rectangle 300x250 -->
-  <div class="ad-zone" aria-hidden="true" style="margin-top:24px;"><!-- AD ZONE: SIDEBAR RECTANGLE 300x250 --></div>
-</section>
-
-<!-- ============================================================
-     MORE TOOLS
-     ============================================================ -->
-<section style="padding:48px 0 24px;background:var(--clr-surface-alt);border-top:1px solid var(--clr-border);">
-  <div class="container" style="max-width:900px;">
-    <h2 style="font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:24px;">More Cooking & Baking Tools</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
-      <a href="/cups-to-grams.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Cups to Grams Converter</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Convert cups to grams for 35+ ingredients. Accurate baking measurements.</span>
-      </a>
-      <a href="/egg-substitute.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Egg Substitute Calculator</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Find the perfect egg replacement for baking. Vegan and allergy-friendly options.</span>
-      </a>
-      <a href="/recipe-converter.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Recipe Unit Converter</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Convert between US, metric, and imperial. Volume, weight, and temperature.</span>
-      </a>
-      <a href="/baking-ratios.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Baking Ratios Calculator</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Classic baking ratios by weight. Pound cake, cookies, pie crust, bread.</span>
-      </a>
-      <a href="/serving-size-calculator.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Serving Size Calculator</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Scale recipes for any group size. Party planning mode for large events.</span>
-      </a>
-      <a href="/allergen-substitutes.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">Allergen Substitutes Calculator</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Find safe alternatives for 36+ common allergens in recipes.</span>
-      </a>
-      <a href="/how-to-scale-recipes.html" style="text-decoration:none;color:inherit;background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);padding:20px;transition:box-shadow 0.2s,border-color 0.2s;">
-        <strong style="display:block;font-size:1rem;margin-bottom:4px;color:var(--clr-accent);">How to Scale Recipes</strong>
-        <span style="font-size:0.85rem;color:var(--clr-text-muted);">Complete guide to scaling recipes up or down with ratio calculations.</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer>
-  <div class="container">
-    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
-    <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
-    <p style="margin-top:8px;">
-      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
-      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
-      <a href="/egg-substitute.html" style="color:var(--clr-accent);text-decoration:none;">Egg Substitutes</a> &middot;
-      <a href="/recipe-converter.html" style="color:var(--clr-accent);text-decoration:none;">Unit Converter</a> &middot;
-      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
-      <a href="/serving-size-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Serving Size</a> &middot;
-      <a href="/allergen-substitutes.html" style="color:var(--clr-accent);text-decoration:none;">Allergen Subs</a> &middot;
-      <a href="/how-to-scale-recipes.html" style="color:var(--clr-accent);text-decoration:none;">Recipe Scaling</a>
-    </p>
-  </div>
-</footer>
-
-<!-- ============================================================
-     JAVASCRIPT — NASA Power of 10 Compliant
-     All functions < 60 lines, min 2 assertions per function,
-     fixed loop bounds, no global mutable state, frozen data.
-     ============================================================ -->
 <script>
-"use strict";
-(function () {
-
-  /* ===========================================================
-     INGREDIENT DATABASE — 55 common ingredients
-     Each: name, category, density (g/cup), calories/100g,
-           protein/100g, carbs/100g, fat/100g, fiber/100g
-     =========================================================== */
-  const INGREDIENTS = Object.freeze([
-    Object.freeze({ name: "All-Purpose Flour", category: "grain", density: 125, cal: 364, protein: 10.3, carbs: 76.3, fat: 1.0, fiber: 2.7 }),
-    Object.freeze({ name: "Whole Wheat Flour", category: "grain", density: 120, cal: 340, protein: 13.2, carbs: 72.0, fat: 2.5, fiber: 10.7 }),
-    Object.freeze({ name: "Bread Flour", category: "grain", density: 127, cal: 361, protein: 12.0, carbs: 72.5, fat: 1.7, fiber: 2.4 }),
-    Object.freeze({ name: "Cake Flour", category: "grain", density: 114, cal: 362, protein: 8.0, carbs: 78.0, fat: 1.0, fiber: 1.8 }),
-    Object.freeze({ name: "Cornstarch", category: "grain", density: 128, cal: 381, protein: 0.3, carbs: 91.3, fat: 0.1, fiber: 0.9 }),
-    Object.freeze({ name: "Granulated Sugar", category: "grain", density: 200, cal: 387, protein: 0.0, carbs: 100.0, fat: 0.0, fiber: 0.0 }),
-    Object.freeze({ name: "Brown Sugar (packed)", category: "grain", density: 220, cal: 380, protein: 0.1, carbs: 98.1, fat: 0.0, fiber: 0.0 }),
-    Object.freeze({ name: "Powdered Sugar", category: "grain", density: 120, cal: 389, protein: 0.0, carbs: 99.8, fat: 0.0, fiber: 0.0 }),
-    Object.freeze({ name: "Honey", category: "liquid", density: 340, cal: 304, protein: 0.3, carbs: 82.4, fat: 0.0, fiber: 0.2 }),
-    Object.freeze({ name: "Maple Syrup", category: "liquid", density: 312, cal: 260, protein: 0.0, carbs: 67.0, fat: 0.1, fiber: 0.0 }),
-    Object.freeze({ name: "Butter (unsalted)", category: "dairy", density: 227, cal: 717, protein: 0.9, carbs: 0.1, fat: 81.1, fiber: 0.0 }),
-    Object.freeze({ name: "Butter (salted)", category: "dairy", density: 227, cal: 717, protein: 0.9, carbs: 0.1, fat: 81.1, fiber: 0.0 }),
-    Object.freeze({ name: "Margarine", category: "dairy", density: 227, cal: 717, protein: 0.2, carbs: 0.7, fat: 80.7, fiber: 0.0 }),
-    Object.freeze({ name: "Vegetable Oil", category: "liquid", density: 218, cal: 884, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
-    Object.freeze({ name: "Olive Oil", category: "liquid", density: 216, cal: 884, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
-    Object.freeze({ name: "Coconut Oil", category: "liquid", density: 218, cal: 862, protein: 0.0, carbs: 0.0, fat: 100.0, fiber: 0.0 }),
-    Object.freeze({ name: "Whole Milk", category: "dairy", density: 244, cal: 61, protein: 3.2, carbs: 4.8, fat: 3.3, fiber: 0.0 }),
-    Object.freeze({ name: "Skim Milk", category: "dairy", density: 245, cal: 34, protein: 3.4, carbs: 5.0, fat: 0.1, fiber: 0.0 }),
-    Object.freeze({ name: "Heavy Cream", category: "dairy", density: 238, cal: 340, protein: 2.1, carbs: 2.8, fat: 36.1, fiber: 0.0 }),
-    Object.freeze({ name: "Half-and-Half", category: "dairy", density: 242, cal: 130, protein: 2.6, carbs: 4.3, fat: 11.5, fiber: 0.0 }),
-    Object.freeze({ name: "Sour Cream", category: "dairy", density: 230, cal: 198, protein: 2.4, carbs: 4.6, fat: 19.4, fiber: 0.0 }),
-    Object.freeze({ name: "Greek Yogurt", category: "dairy", density: 245, cal: 59, protein: 10.2, carbs: 3.6, fat: 0.4, fiber: 0.0 }),
-    Object.freeze({ name: "Cream Cheese", category: "dairy", density: 232, cal: 342, protein: 5.9, carbs: 4.1, fat: 34.2, fiber: 0.0 }),
-    Object.freeze({ name: "Cheddar Cheese (shredded)", category: "dairy", density: 113, cal: 403, protein: 24.9, carbs: 1.3, fat: 33.1, fiber: 0.0 }),
-    Object.freeze({ name: "Parmesan (grated)", category: "dairy", density: 100, cal: 431, protein: 38.5, carbs: 4.1, fat: 28.6, fiber: 0.0 }),
-    Object.freeze({ name: "Egg (large, ~50g)", category: "protein", density: 243, cal: 155, protein: 12.6, carbs: 1.1, fat: 10.6, fiber: 0.0 }),
-    Object.freeze({ name: "Chicken Breast", category: "protein", density: 140, cal: 165, protein: 31.0, carbs: 0.0, fat: 3.6, fiber: 0.0 }),
-    Object.freeze({ name: "Ground Beef (80/20)", category: "protein", density: 225, cal: 254, protein: 17.2, carbs: 0.0, fat: 20.0, fiber: 0.0 }),
-    Object.freeze({ name: "Salmon Fillet", category: "protein", density: 143, cal: 208, protein: 20.4, carbs: 0.0, fat: 13.4, fiber: 0.0 }),
-    Object.freeze({ name: "Tofu (firm)", category: "protein", density: 252, cal: 76, protein: 8.1, carbs: 1.9, fat: 4.8, fiber: 0.3 }),
-    Object.freeze({ name: "White Rice (uncooked)", category: "grain", density: 185, cal: 365, protein: 7.1, carbs: 80.0, fat: 0.7, fiber: 1.3 }),
-    Object.freeze({ name: "Brown Rice (uncooked)", category: "grain", density: 190, cal: 370, protein: 7.9, carbs: 77.2, fat: 2.9, fiber: 3.5 }),
-    Object.freeze({ name: "Rolled Oats", category: "grain", density: 80, cal: 389, protein: 16.9, carbs: 66.3, fat: 6.9, fiber: 10.6 }),
-    Object.freeze({ name: "Pasta (dry)", category: "grain", density: 105, cal: 371, protein: 13.0, carbs: 74.7, fat: 1.5, fiber: 3.2 }),
-    Object.freeze({ name: "Breadcrumbs", category: "grain", density: 108, cal: 395, protein: 13.4, carbs: 72.0, fat: 5.3, fiber: 4.5 }),
-    Object.freeze({ name: "Baking Powder", category: "spice", density: 230, cal: 53, protein: 0.0, carbs: 27.7, fat: 0.0, fiber: 0.2 }),
-    Object.freeze({ name: "Baking Soda", category: "spice", density: 288, cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 }),
-    Object.freeze({ name: "Salt", category: "spice", density: 292, cal: 0, protein: 0.0, carbs: 0.0, fat: 0.0, fiber: 0.0 }),
-    Object.freeze({ name: "Black Pepper", category: "spice", density: 116, cal: 251, protein: 10.4, carbs: 63.9, fat: 3.3, fiber: 25.3 }),
-    Object.freeze({ name: "Cinnamon", category: "spice", density: 132, cal: 247, protein: 4.0, carbs: 80.6, fat: 1.2, fiber: 53.1 }),
-    Object.freeze({ name: "Garlic Powder", category: "spice", density: 155, cal: 331, protein: 16.6, carbs: 72.7, fat: 0.7, fiber: 9.0 }),
-    Object.freeze({ name: "Onion (diced)", category: "produce", density: 160, cal: 40, protein: 1.1, carbs: 9.3, fat: 0.1, fiber: 1.7 }),
-    Object.freeze({ name: "Garlic (minced)", category: "produce", density: 136, cal: 149, protein: 6.4, carbs: 33.1, fat: 0.5, fiber: 2.1 }),
-    Object.freeze({ name: "Tomato (diced)", category: "produce", density: 180, cal: 18, protein: 0.9, carbs: 3.9, fat: 0.2, fiber: 1.2 }),
-    Object.freeze({ name: "Potato (diced)", category: "produce", density: 150, cal: 77, protein: 2.0, carbs: 17.5, fat: 0.1, fiber: 2.2 }),
-    Object.freeze({ name: "Carrot (diced)", category: "produce", density: 128, cal: 41, protein: 0.9, carbs: 9.6, fat: 0.2, fiber: 2.8 }),
-    Object.freeze({ name: "Spinach (raw)", category: "produce", density: 30, cal: 23, protein: 2.9, carbs: 3.6, fat: 0.4, fiber: 2.2 }),
-    Object.freeze({ name: "Banana", category: "produce", density: 225, cal: 89, protein: 1.1, carbs: 22.8, fat: 0.3, fiber: 2.6 }),
-    Object.freeze({ name: "Lemon Juice", category: "liquid", density: 244, cal: 22, protein: 0.4, carbs: 6.9, fat: 0.2, fiber: 0.3 }),
-    Object.freeze({ name: "Vanilla Extract", category: "liquid", density: 208, cal: 288, protein: 0.1, carbs: 12.7, fat: 0.1, fiber: 0.0 }),
-    Object.freeze({ name: "Soy Sauce", category: "liquid", density: 255, cal: 53, protein: 8.1, carbs: 4.9, fat: 0.6, fiber: 0.8 }),
-    Object.freeze({ name: "Cocoa Powder", category: "spice", density: 86, cal: 228, protein: 19.6, carbs: 57.9, fat: 13.7, fiber: 33.2 }),
-    Object.freeze({ name: "Chocolate Chips", category: "grain", density: 170, cal: 502, protein: 5.5, carbs: 60.5, fat: 30.0, fiber: 5.9 }),
-    Object.freeze({ name: "Peanut Butter", category: "protein", density: 258, cal: 588, protein: 25.1, carbs: 20.0, fat: 50.4, fiber: 6.0 }),
-    Object.freeze({ name: "Almonds (sliced)", category: "protein", density: 92, cal: 579, protein: 21.2, carbs: 21.6, fat: 49.9, fiber: 12.5 }),
-    Object.freeze({ name: "Walnuts (chopped)", category: "protein", density: 120, cal: 654, protein: 15.2, carbs: 13.7, fat: 65.2, fiber: 6.7 }),
-  ]);
-
-  /* ===========================================================
-     SUBSTITUTION DATABASE
-     =========================================================== */
-  const SUBSTITUTIONS = Object.freeze([
-    Object.freeze({ ingredient: "Butter", subs: Object.freeze([
-      "Coconut oil (equal amount, solid)",
-      "Applesauce (half the amount, reduces fat)",
-      "Greek yogurt (half the amount, adds protein)",
-      "Avocado (equal amount, mashed)",
-      "Olive oil (3/4 the amount)"
-    ]), note: "For baking, solid fats work best as replacements." }),
-    Object.freeze({ ingredient: "Eggs", subs: Object.freeze([
-      "Flax egg: 1 tbsp ground flax + 3 tbsp water per egg",
-      "Chia egg: 1 tbsp chia seeds + 3 tbsp water per egg",
-      "1/4 cup applesauce per egg",
-      "1/4 cup mashed banana per egg",
-      "3 tbsp aquafaba (chickpea liquid) per egg"
-    ]), note: "Vegan options work best in baked goods, not custards." }),
-    Object.freeze({ ingredient: "Milk (whole)", subs: Object.freeze([
-      "Oat milk (equal amount)",
-      "Almond milk (equal amount)",
-      "Soy milk (equal amount, closest protein match)",
-      "Coconut milk (equal amount, richer)",
-      "Half-and-half + water (1:1 ratio)"
-    ]), note: "Non-dairy milks may slightly alter flavor." }),
-    Object.freeze({ ingredient: "Heavy Cream", subs: Object.freeze([
-      "Coconut cream (equal amount)",
-      "Cashew cream (blended soaked cashews)",
-      "Evaporated milk (equal amount, lighter)",
-      "Greek yogurt + milk (3:1 ratio)",
-      "Silken tofu (blended, equal amount)"
-    ]), note: "Coconut cream whips similarly to dairy cream." }),
-    Object.freeze({ ingredient: "All-Purpose Flour", subs: Object.freeze([
-      "Whole wheat flour (equal amount, denser result)",
-      "Almond flour (use 1:1 but add binding agent)",
-      "Oat flour (equal amount, blend rolled oats)",
-      "Coconut flour (use 1/4 to 1/3 the amount + extra liquid)",
-      "Gluten-free 1:1 blend (equal amount)"
-    ]), note: "Gluten-free flours often need xanthan gum for structure." }),
-    Object.freeze({ ingredient: "Sugar (granulated)", subs: Object.freeze([
-      "Honey (use 3/4 cup per 1 cup sugar, reduce liquid)",
-      "Maple syrup (use 3/4 cup, reduce liquid by 3 tbsp)",
-      "Coconut sugar (equal amount)",
-      "Stevia (check package for conversion ratio)",
-      "Monk fruit sweetener (equal amount for baking blends)"
-    ]), note: "Liquid sweeteners require reducing other liquids in recipe." }),
-    Object.freeze({ ingredient: "Brown Sugar", subs: Object.freeze([
-      "White sugar + 1 tbsp molasses per cup",
-      "Coconut sugar (equal amount)",
-      "Maple syrup (3/4 cup per 1 cup, reduce liquid)",
-      "Date sugar (equal amount, won't melt)",
-      "Muscovado sugar (equal amount, stronger flavor)"
-    ]), note: "The molasses + white sugar trick is the most accurate swap." }),
-    Object.freeze({ ingredient: "Baking Powder", subs: Object.freeze([
-      "1/4 tsp baking soda + 1/2 tsp cream of tartar per 1 tsp",
-      "1/4 tsp baking soda + 1/2 cup buttermilk (reduce liquid)",
-      "Self-rising flour (already contains baking powder)"
-    ]), note: "Baking soda is 3-4x stronger than baking powder." }),
-    Object.freeze({ ingredient: "Buttermilk", subs: Object.freeze([
-      "1 cup milk + 1 tbsp lemon juice (let sit 5 min)",
-      "1 cup milk + 1 tbsp white vinegar (let sit 5 min)",
-      "1 cup plain yogurt thinned with milk",
-      "1 cup kefir (equal amount)"
-    ]), note: "The acid reaction is what matters for leavening." }),
-    Object.freeze({ ingredient: "Sour Cream", subs: Object.freeze([
-      "Greek yogurt (equal amount, tangier)",
-      "Cottage cheese (blended smooth)",
-      "Cashew cream + lemon juice",
-      "Coconut cream + lemon juice (dairy-free)"
-    ]), note: "Greek yogurt is the closest match in both texture and tang." }),
-    Object.freeze({ ingredient: "Cream Cheese", subs: Object.freeze([
-      "Mascarpone (richer, softer)",
-      "Neufchatel cheese (lower fat, equal amount)",
-      "Cashew cream cheese (dairy-free)",
-      "Silken tofu + lemon juice (blended)"
-    ]), note: "Mascarpone is softer; may need to chill for spreading." }),
-    Object.freeze({ ingredient: "Vegetable Oil", subs: Object.freeze([
-      "Melted coconut oil (equal amount)",
-      "Melted butter (equal amount, adds flavor)",
-      "Applesauce (equal amount, for baking, reduces fat)",
-      "Avocado oil (equal amount, high smoke point)",
-      "Canola oil (equal amount)"
-    ]), note: "For frying, match smoke point of original oil." }),
-    Object.freeze({ ingredient: "Cornstarch", subs: Object.freeze([
-      "All-purpose flour (use 2x the amount)",
-      "Arrowroot powder (equal amount)",
-      "Tapioca starch (equal amount)",
-      "Potato starch (equal amount, not potato flour)"
-    ]), note: "Flour-thickened sauces will be more opaque." }),
-    Object.freeze({ ingredient: "Honey", subs: Object.freeze([
-      "Maple syrup (equal amount)",
-      "Agave nectar (equal amount, milder flavor)",
-      "Corn syrup (equal amount, less sweet)",
-      "Molasses (equal amount, much stronger flavor)",
-      "Brown rice syrup (equal amount)"
-    ]), note: "Flavor profiles vary widely between liquid sweeteners." }),
-    Object.freeze({ ingredient: "Soy Sauce", subs: Object.freeze([
-      "Tamari (equal amount, gluten-free option)",
-      "Coconut aminos (equal amount, less sodium)",
-      "Worcestershire sauce (half the amount + salt)",
-      "Liquid aminos (equal amount)"
-    ]), note: "Coconut aminos is sweeter and lower sodium than soy sauce." }),
-    Object.freeze({ ingredient: "Garlic (fresh)", subs: Object.freeze([
-      "1/8 tsp garlic powder per clove",
-      "1/2 tsp minced garlic (jarred) per clove",
-      "1/2 tsp garlic flakes per clove",
-      "1/4 tsp garlic salt per clove (reduce other salt)"
-    ]), note: "Fresh garlic has a more pungent flavor than dried." }),
-    Object.freeze({ ingredient: "Lemon Juice", subs: Object.freeze([
-      "Lime juice (equal amount)",
-      "White wine vinegar (half the amount)",
-      "Apple cider vinegar (half the amount)",
-      "Orange juice (equal amount, sweeter)"
-    ]), note: "Vinegar substitutes are more acidic; use less." }),
-    Object.freeze({ ingredient: "Vanilla Extract", subs: Object.freeze([
-      "Vanilla bean paste (equal amount)",
-      "Vanilla bean (1 bean = 1 tbsp extract)",
-      "Almond extract (use half the amount)",
-      "Maple syrup (equal amount, different flavor)"
-    ]), note: "Almond extract is much stronger; use sparingly." }),
-    Object.freeze({ ingredient: "Cocoa Powder", subs: Object.freeze([
-      "Carob powder (equal amount, sweeter)",
-      "Hot chocolate mix (reduce sugar in recipe)",
-      "Melted chocolate (1 oz = 3 tbsp cocoa + 1 tbsp fat)"
-    ]), note: "Dutch-process and natural cocoa react differently with leaveners." }),
-    Object.freeze({ ingredient: "Chicken Broth", subs: Object.freeze([
-      "Vegetable broth (equal amount)",
-      "Beef broth (equal amount, darker flavor)",
-      "Bouillon cube + water (1 cube per cup)",
-      "Mushroom broth (equal amount, umami-rich)",
-      "Water + soy sauce (1 cup water + 1 tsp soy sauce)"
-    ]), note: "Homemade stock has less sodium than store-bought." }),
-  ]);
-
-  /* ===========================================================
-     UNIT CONVERSION DATA
-     =========================================================== */
-  const UNIT_DEFS = Object.freeze({
-    volume: Object.freeze([
-      Object.freeze({ id: "cup", label: "Cups", toML: 236.588 }),
-      Object.freeze({ id: "tbsp", label: "Tablespoons", toML: 14.787 }),
-      Object.freeze({ id: "tsp", label: "Teaspoons", toML: 4.929 }),
-      Object.freeze({ id: "floz", label: "Fluid Ounces", toML: 29.5735 }),
-      Object.freeze({ id: "ml", label: "Milliliters (mL)", toML: 1 }),
-      Object.freeze({ id: "l", label: "Liters (L)", toML: 1000 }),
-      Object.freeze({ id: "pint", label: "Pints", toML: 473.176 }),
-      Object.freeze({ id: "quart", label: "Quarts", toML: 946.353 }),
-      Object.freeze({ id: "gallon", label: "Gallons", toML: 3785.41 }),
-    ]),
-    weight: Object.freeze([
-      Object.freeze({ id: "g", label: "Grams (g)", toG: 1 }),
-      Object.freeze({ id: "kg", label: "Kilograms (kg)", toG: 1000 }),
-      Object.freeze({ id: "oz", label: "Ounces (oz)", toG: 28.3495 }),
-      Object.freeze({ id: "lb", label: "Pounds (lb)", toG: 453.592 }),
-      Object.freeze({ id: "mg", label: "Milligrams (mg)", toG: 0.001 }),
-    ]),
-    temperature: Object.freeze([
-      Object.freeze({ id: "f", label: "Fahrenheit (\u00B0F)" }),
-      Object.freeze({ id: "c", label: "Celsius (\u00B0C)" }),
-    ]),
-  });
-
-  /* ===========================================================
-     FRACTION PARSING PATTERNS
-     =========================================================== */
-  const FRACTION_MAP = Object.freeze({
-    "\u00BC": 0.25, "\u00BD": 0.5, "\u00BE": 0.75,
-    "\u2153": 1/3, "\u2154": 2/3, "\u215B": 0.125,
-    "\u215C": 3/8, "\u215D": 5/8, "\u215E": 7/8,
-  });
-
-  /* ===========================================================
-     UTILITY: Parse a quantity string (handles fractions)
-     =========================================================== */
-  function parseQuantity(str) {
-    console.assert(typeof str === "string", "parseQuantity: input must be string");
-    console.assert(str.length > 0, "parseQuantity: input must not be empty");
-
-    var s = str.trim();
-
-    // Unicode fractions
-    for (var key in FRACTION_MAP) {
-      if (s.indexOf(key) !== -1) {
-        var parts = s.split(key);
-        var whole = parts[0].trim();
-        var fracVal = FRACTION_MAP[key];
-        return (whole.length > 0 ? parseFloat(whole) : 0) + fracVal;
-      }
-    }
-
-    // Slash fractions like "1/2" or "1 1/2"
-    var slashMatch = s.match(/^(\d+)?\s*(\d+)\s*\/\s*(\d+)$/);
-    if (slashMatch) {
-      var wholeNum = slashMatch[1] ? parseFloat(slashMatch[1]) : 0;
-      var num = parseFloat(slashMatch[2]);
-      var den = parseFloat(slashMatch[3]);
-      if (den === 0) { return 0; }
-      return wholeNum + (num / den);
-    }
-
-    var result = parseFloat(s);
-    return isNaN(result) ? 0 : result;
-  }
-
-  /* ===========================================================
-     UTILITY: Format a number nicely for display
-     =========================================================== */
-  function formatNumber(n) {
-    console.assert(typeof n === "number", "formatNumber: input must be number");
-    console.assert(isFinite(n), "formatNumber: input must be finite");
-
-    if (n === 0) { return "0"; }
-    if (Number.isInteger(n)) { return n.toString(); }
-
-    // Show common fractions
-    var frac = n % 1;
-    var whole = Math.floor(n);
-    var FRACS = [
-      [0.125, "\u215B"], [0.25, "\u00BC"], [0.333, "\u2153"],
-      [0.375, "\u215C"], [0.5, "\u00BD"], [0.625, "\u215D"],
-      [0.667, "\u2154"], [0.75, "\u00BE"], [0.875, "\u215E"],
-    ];
-    for (var i = 0; i < FRACS.length; i++) {
-      if (Math.abs(frac - FRACS[i][0]) < 0.02) {
-        return (whole > 0 ? whole + " " : "") + FRACS[i][1];
-      }
-    }
-    // Round to 2 decimal places
-    return (Math.round(n * 100) / 100).toString();
-  }
-
-  /* ===========================================================
-     UTILITY: Parse an ingredient line
-     Returns { quantity, unit, name, original }
-     =========================================================== */
-  function parseIngredientLine(line) {
-    console.assert(typeof line === "string", "parseIngredientLine: must be string");
-    console.assert(line.trim().length > 0, "parseIngredientLine: must not be empty");
-
-    var s = line.trim();
-    var original = s;
-
-    // Match: optional quantity, optional unit, rest is name
-    var units = [
-      "cups?", "tablespoons?", "tbsp", "teaspoons?", "tsp",
-      "ounces?", "oz", "pounds?", "lbs?", "grams?", "g",
-      "ml", "milliliters?", "liters?", "l",
-      "fluid ounces?", "fl oz", "pints?", "quarts?",
-      "gallons?", "pinch(?:es)?", "dash(?:es)?",
-      "sticks?", "cans?", "large", "medium", "small", "cloves?",
-      "slices?", "pieces?", "whole", "heads?"
-    ];
-
-    var patternStr = "^([\\d\\s./\u00BC\u00BD\u00BE\u2153\u2154\u215B\u215C\u215D\u215E]+)?\\s*(" + units.join("|") + ")\\.?\\s+(.+)$";
-    var re = new RegExp(patternStr, "i");
-    var m = s.match(re);
-
-    if (m) {
-      return {
-        quantity: m[1] ? parseQuantity(m[1]) : 1,
-        unit: m[2].toLowerCase(),
-        name: m[3],
-        original: original
-      };
-    }
-
-    // Fallback: just a number + name
-    var numMatch = s.match(/^([\d\s./\u00BC\u00BD\u00BE\u2153\u2154\u215B\u215C\u215D\u215E]+)\s+(.+)$/);
-    if (numMatch) {
-      return {
-        quantity: parseQuantity(numMatch[1]),
-        unit: "",
-        name: numMatch[2],
-        original: original
-      };
-    }
-
-    return { quantity: 0, unit: "", name: s, original: original };
-  }
-
-  /* ===========================================================
-     RECIPE SCALER
-     =========================================================== */
-  function scaleRecipe(text, originalServings, desiredServings) {
-    console.assert(typeof text === "string", "scaleRecipe: text must be string");
-    console.assert(originalServings > 0 && desiredServings > 0, "scaleRecipe: servings must be positive");
-
-    var lines = text.split("\n");
-    var factor = desiredServings / originalServings;
-    var results = [];
-    var maxLines = 200; // fixed loop bound
-
-    for (var i = 0; i < lines.length && i < maxLines; i++) {
-      var trimmed = lines[i].trim();
-      if (trimmed.length === 0) { continue; }
-
-      var parsed = parseIngredientLine(trimmed);
-      if (parsed.quantity > 0) {
-        var scaled = parsed.quantity * factor;
-        var scaledText = formatNumber(scaled) +
-          (parsed.unit ? " " + parsed.unit : "") +
-          " " + parsed.name;
-        results.push({ original: parsed.original, scaled: scaledText });
-      } else {
-        results.push({ original: parsed.original, scaled: parsed.original });
-      }
-    }
-
-    return results;
-  }
-
-  /* ===========================================================
-     UNIT CONVERTER
-     =========================================================== */
-  function convertUnit(value, fromId, toId, category) {
-    console.assert(typeof value === "number" && isFinite(value), "convertUnit: value must be finite number");
-    console.assert(typeof category === "string", "convertUnit: category must be string");
-
-    if (category === "temperature") {
-      if (fromId === "f" && toId === "c") { return (value - 32) * 5 / 9; }
-      if (fromId === "c" && toId === "f") { return value * 9 / 5 + 32; }
-      return value;
-    }
-
-    var units = UNIT_DEFS[category];
-    if (!units) { return 0; }
-
-    var fromUnit = null;
-    var toUnit = null;
-    for (var i = 0; i < units.length; i++) {
-      if (units[i].id === fromId) { fromUnit = units[i]; }
-      if (units[i].id === toId) { toUnit = units[i]; }
-    }
-
-    if (!fromUnit || !toUnit) { return 0; }
-
-    if (category === "volume") {
-      return value * fromUnit.toML / toUnit.toML;
-    }
-    if (category === "weight") {
-      return value * fromUnit.toG / toUnit.toG;
-    }
-
-    return 0;
-  }
-
-  /* ===========================================================
-     NUTRITION ESTIMATOR
-     =========================================================== */
-  function estimateNutrition(ingredientName, amountGrams) {
-    console.assert(typeof ingredientName === "string", "estimateNutrition: name must be string");
-    console.assert(typeof amountGrams === "number" && amountGrams >= 0, "estimateNutrition: amount must be non-negative");
-
-    var found = null;
-    var nameLower = ingredientName.toLowerCase();
-
-    for (var i = 0; i < INGREDIENTS.length; i++) {
-      if (INGREDIENTS[i].name.toLowerCase() === nameLower) {
-        found = INGREDIENTS[i];
-        break;
-      }
-    }
-
-    if (!found) {
-      return { cal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, found: false };
-    }
-
-    var factor = amountGrams / 100;
-    return {
-      cal: Math.round(found.cal * factor),
-      protein: Math.round(found.protein * factor * 10) / 10,
-      carbs: Math.round(found.carbs * factor * 10) / 10,
-      fat: Math.round(found.fat * factor * 10) / 10,
-      fiber: Math.round(found.fiber * factor * 10) / 10,
-      found: true
-    };
-  }
-
-  /* ===========================================================
-     AMOUNT-TO-GRAMS CONVERTER (for nutrition panel)
-     =========================================================== */
-  function amountToGrams(ingredientName, amount, unit) {
-    console.assert(typeof amount === "number", "amountToGrams: amount must be number");
-    console.assert(typeof unit === "string", "amountToGrams: unit must be string");
-
-    if (unit === "g") { return amount; }
-    if (unit === "oz") { return amount * 28.3495; }
-
-    // cups: use density from database
-    if (unit === "cup") {
-      var nameLower = ingredientName.toLowerCase();
-      for (var i = 0; i < INGREDIENTS.length; i++) {
-        if (INGREDIENTS[i].name.toLowerCase() === nameLower) {
-          return amount * INGREDIENTS[i].density;
-        }
-      }
-      return amount * 240; // fallback: water density
-    }
-
-    return amount;
-  }
-
-  /* ===========================================================
-     DOM REFERENCES (captured once)
-     =========================================================== */
-  var DOM = Object.freeze({
-    tabBtns: document.querySelectorAll(".tab-btn"),
-    navLinks: document.querySelectorAll("nav a[data-nav]"),
-    panels: document.querySelectorAll(".panel"),
-    // Scaler
-    scalerOriginal: document.getElementById("scaler-original"),
-    scalerDesired: document.getElementById("scaler-desired"),
-    scalerInput: document.getElementById("scaler-input"),
-    scalerCalc: document.getElementById("scaler-calc"),
-    scalerClear: document.getElementById("scaler-clear"),
-    scalerCopy: document.getElementById("scaler-copy"),
-    scalerResult: document.getElementById("scaler-result"),
-    scalerTable: document.getElementById("scaler-table"),
-    // Converter
-    convCategory: document.getElementById("conv-category"),
-    convValue: document.getElementById("conv-value"),
-    convFrom: document.getElementById("conv-from"),
-    convTo: document.getElementById("conv-to"),
-    convResultVal: document.getElementById("conv-result-val"),
-    convSwap: document.getElementById("conv-swap"),
-    convDisplay: document.getElementById("conv-display"),
-    convDisplayText: document.getElementById("conv-display-text"),
-    convDisplayFormula: document.getElementById("conv-display-formula"),
-    // Substitutions
-    subSearchInput: document.getElementById("sub-search-input"),
-    subGrid: document.getElementById("sub-grid"),
-    // Nutrition
-    nutrIngredient: document.getElementById("nutr-ingredient"),
-    nutrAmount: document.getElementById("nutr-amount"),
-    nutrUnit: document.getElementById("nutr-unit"),
-    nutrCalc: document.getElementById("nutr-calc"),
-    nutrResult: document.getElementById("nutr-result"),
-    nutrCal: document.getElementById("nutr-cal"),
-    nutrProtein: document.getElementById("nutr-protein"),
-    nutrCarbs: document.getElementById("nutr-carbs"),
-    nutrFat: document.getElementById("nutr-fat"),
-    nutrFiber: document.getElementById("nutr-fiber"),
-  });
-
-  /* ===========================================================
-     TAB SWITCHING
-     =========================================================== */
-  function switchTab(panelId) {
-    console.assert(typeof panelId === "string", "switchTab: panelId must be string");
-    console.assert(panelId.length > 0, "switchTab: panelId must not be empty");
-
-    for (var i = 0; i < DOM.tabBtns.length; i++) {
-      var btn = DOM.tabBtns[i];
-      var isActive = btn.getAttribute("data-panel") === panelId;
-      btn.classList.toggle("active", isActive);
-      btn.setAttribute("aria-selected", isActive ? "true" : "false");
-    }
-
-    for (var j = 0; j < DOM.panels.length; j++) {
-      var panel = DOM.panels[j];
-      var show = panel.id === "panel-" + panelId;
-      panel.classList.toggle("active", show);
-    }
-
-    for (var k = 0; k < DOM.navLinks.length; k++) {
-      var link = DOM.navLinks[k];
-      link.classList.toggle("active", link.getAttribute("data-nav") === panelId);
-    }
-  }
-
-  /* ===========================================================
-     POPULATE UNIT CONVERTER SELECTS
-     =========================================================== */
-  function populateUnitSelects(category) {
-    console.assert(typeof category === "string", "populateUnitSelects: category must be string");
-    console.assert(UNIT_DEFS[category], "populateUnitSelects: invalid category");
-
-    var units = UNIT_DEFS[category];
-    DOM.convFrom.innerHTML = "";
-    DOM.convTo.innerHTML = "";
-
-    for (var i = 0; i < units.length; i++) {
-      var opt1 = document.createElement("option");
-      opt1.value = units[i].id;
-      opt1.textContent = units[i].label;
-      DOM.convFrom.appendChild(opt1);
-
-      var opt2 = document.createElement("option");
-      opt2.value = units[i].id;
-      opt2.textContent = units[i].label;
-      DOM.convTo.appendChild(opt2);
-    }
-
-    if (units.length > 1) {
-      DOM.convTo.selectedIndex = 1;
-    }
-  }
-
-  /* ===========================================================
-     RUN CONVERSION (called on every input change)
-     =========================================================== */
-  function runConversion() {
-    console.assert(DOM.convValue, "runConversion: convValue element must exist");
-    console.assert(DOM.convFrom, "runConversion: convFrom element must exist");
-
-    var val = parseFloat(DOM.convValue.value);
-    if (isNaN(val)) {
-      DOM.convResultVal.value = "";
-      DOM.convDisplay.style.display = "none";
-      return;
-    }
-
-    var cat = DOM.convCategory.value;
-    var fromId = DOM.convFrom.value;
-    var toId = DOM.convTo.value;
-    var result = convertUnit(val, fromId, toId, cat);
-    var rounded = Math.round(result * 10000) / 10000;
-
-    DOM.convResultVal.value = rounded;
-    DOM.convDisplay.style.display = "block";
-
-    var fromLabel = DOM.convFrom.options[DOM.convFrom.selectedIndex].textContent;
-    var toLabel = DOM.convTo.options[DOM.convTo.selectedIndex].textContent;
-
-    DOM.convDisplayText.textContent = val + " " + fromLabel + " = " + rounded + " " + toLabel;
-
-    if (cat === "temperature") {
-      var formula = fromId === "f" ? "(\u00B0F - 32) \u00D7 5/9 = \u00B0C" : "\u00B0C \u00D7 9/5 + 32 = \u00B0F";
-      DOM.convDisplayFormula.textContent = formula;
-    } else {
-      DOM.convDisplayFormula.textContent = "";
-    }
-  }
-
-  /* ===========================================================
-     RENDER SUBSTITUTION CARDS
-     =========================================================== */
-  function renderSubstitutions(filter) {
-    console.assert(typeof filter === "string", "renderSubstitutions: filter must be string");
-    console.assert(DOM.subGrid !== null, "renderSubstitutions: subGrid must exist");
-
-    DOM.subGrid.innerHTML = "";
-    var filterLower = filter.toLowerCase();
-    var count = 0;
-    var maxCards = 100; // fixed bound
-
-    for (var i = 0; i < SUBSTITUTIONS.length && count < maxCards; i++) {
-      var sub = SUBSTITUTIONS[i];
-      if (filterLower.length > 0 && sub.ingredient.toLowerCase().indexOf(filterLower) === -1) {
-        continue;
-      }
-
-      var card = document.createElement("div");
-      card.className = "sub-card";
-
-      var title = document.createElement("h4");
-      title.textContent = sub.ingredient;
-      card.appendChild(title);
-
-      var ul = document.createElement("ul");
-      ul.className = "sub-list";
-
-      for (var j = 0; j < sub.subs.length; j++) {
-        var li = document.createElement("li");
-        var arrow = document.createElement("span");
-        arrow.className = "sub-arrow";
-        arrow.textContent = "\u2192";
-        arrow.setAttribute("aria-hidden", "true");
-        li.appendChild(arrow);
-        li.appendChild(document.createTextNode(" " + sub.subs[j]));
-        ul.appendChild(li);
-      }
-
-      card.appendChild(ul);
-
-      if (sub.note) {
-        var note = document.createElement("p");
-        note.className = "sub-note";
-        note.textContent = sub.note;
-        card.appendChild(note);
-      }
-
-      DOM.subGrid.appendChild(card);
-      count++;
-    }
-
-    if (count === 0) {
-      var empty = document.createElement("p");
-      empty.style.color = "var(--clr-text-muted)";
-      empty.style.gridColumn = "1 / -1";
-      empty.textContent = 'No substitutions found for "' + filter + '". Try a different ingredient name.';
-      DOM.subGrid.appendChild(empty);
-    }
-  }
-
-  /* ===========================================================
-     POPULATE NUTRITION INGREDIENT SELECT
-     =========================================================== */
-  function populateNutritionSelect() {
-    console.assert(DOM.nutrIngredient !== null, "populateNutritionSelect: select must exist");
-    console.assert(INGREDIENTS.length > 0, "populateNutritionSelect: must have ingredients");
-
-    DOM.nutrIngredient.innerHTML = "";
-    for (var i = 0; i < INGREDIENTS.length; i++) {
-      var opt = document.createElement("option");
-      opt.value = INGREDIENTS[i].name;
-      opt.textContent = INGREDIENTS[i].name + " (" + INGREDIENTS[i].category + ")";
-      DOM.nutrIngredient.appendChild(opt);
-    }
-  }
-
-  /* ===========================================================
-     EVENT BINDINGS
-     =========================================================== */
-  function bindEvents() {
-    console.assert(DOM.tabBtns.length > 0, "bindEvents: tab buttons must exist");
-    console.assert(DOM.scalerCalc !== null, "bindEvents: scaler button must exist");
-
-    // Tab buttons
-    for (var i = 0; i < DOM.tabBtns.length; i++) {
-      DOM.tabBtns[i].addEventListener("click", function (e) {
-        switchTab(e.currentTarget.getAttribute("data-panel"));
-      });
-    }
-
-    // Nav links
-    for (var j = 0; j < DOM.navLinks.length; j++) {
-      DOM.navLinks[j].addEventListener("click", function (e) {
-        e.preventDefault();
-        switchTab(e.currentTarget.getAttribute("data-nav"));
-      });
-    }
-
-    // ---- Scaler ----
-    DOM.scalerCalc.addEventListener("click", function () {
-      var text = DOM.scalerInput.value.trim();
-      if (text.length === 0) { return; }
-
-      var orig = parseFloat(DOM.scalerOriginal.value);
-      var desired = parseFloat(DOM.scalerDesired.value);
-      if (!orig || orig <= 0 || !desired || desired <= 0) { return; }
-
-      var results = scaleRecipe(text, orig, desired);
-      var tbody = DOM.scalerTable.querySelector("tbody");
-      tbody.innerHTML = "";
-
-      for (var k = 0; k < results.length; k++) {
-        var tr = document.createElement("tr");
-        var td1 = document.createElement("td");
-        td1.textContent = results[k].original;
-        var td2 = document.createElement("td");
-        td2.textContent = results[k].scaled;
-        td2.style.fontWeight = "600";
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tbody.appendChild(tr);
-      }
-
-      DOM.scalerResult.classList.add("visible");
-      DOM.scalerCopy.style.display = "inline-flex";
-    });
-
-    DOM.scalerClear.addEventListener("click", function () {
-      DOM.scalerInput.value = "";
-      DOM.scalerOriginal.value = "4";
-      DOM.scalerDesired.value = "8";
-      DOM.scalerResult.classList.remove("visible");
-      DOM.scalerCopy.style.display = "none";
-    });
-
-    DOM.scalerCopy.addEventListener("click", function () {
-      var rows = DOM.scalerTable.querySelectorAll("tbody tr");
-      var text = "";
-      for (var m = 0; m < rows.length; m++) {
-        text += rows[m].cells[1].textContent + "\n";
-      }
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text.trim());
-        DOM.scalerCopy.textContent = "Copied!";
-        setTimeout(function () { DOM.scalerCopy.textContent = "Copy Results"; }, 1500);
-      }
-    });
-
-    // ---- Converter ----
-    DOM.convCategory.addEventListener("change", function () {
-      populateUnitSelects(DOM.convCategory.value);
-      runConversion();
-    });
-
-    DOM.convValue.addEventListener("input", runConversion);
-    DOM.convFrom.addEventListener("change", runConversion);
-    DOM.convTo.addEventListener("change", runConversion);
-
-    DOM.convSwap.addEventListener("click", function () {
-      var fromIdx = DOM.convFrom.selectedIndex;
-      var toIdx = DOM.convTo.selectedIndex;
-      DOM.convFrom.selectedIndex = toIdx;
-      DOM.convTo.selectedIndex = fromIdx;
-      runConversion();
-    });
-
-    // ---- Substitutions ----
-    DOM.subSearchInput.addEventListener("input", function () {
-      renderSubstitutions(DOM.subSearchInput.value);
-    });
-
-    // ---- Nutrition ----
-    DOM.nutrCalc.addEventListener("click", function () {
-      var name = DOM.nutrIngredient.value;
-      var amount = parseFloat(DOM.nutrAmount.value);
-      var unit = DOM.nutrUnit.value;
-
-      if (!amount || amount <= 0) { return; }
-
-      var grams = amountToGrams(name, amount, unit);
-      var nutr = estimateNutrition(name, grams);
-
-      DOM.nutrCal.textContent = nutr.cal;
-      DOM.nutrProtein.textContent = nutr.protein;
-      DOM.nutrCarbs.textContent = nutr.carbs;
-      DOM.nutrFat.textContent = nutr.fat;
-      DOM.nutrFiber.textContent = nutr.fiber;
-      DOM.nutrResult.style.display = "grid";
-    });
-
-    // ---- Keyboard: Enter key triggers calculation in active panel ----
-    document.addEventListener("keydown", function (e) {
-      if (e.key !== "Enter") { return; }
-      var active = document.querySelector(".panel.active");
-      if (!active) { return; }
-
-      if (active.id === "panel-scaler" && e.target.tagName !== "TEXTAREA") {
-        DOM.scalerCalc.click();
-      }
-      if (active.id === "panel-nutrition") {
-        DOM.nutrCalc.click();
-      }
-    });
-  }
-
-  /* ===========================================================
-     INIT
-     =========================================================== */
-  function init() {
-    console.assert(document.readyState !== "loading", "init: DOM must be ready");
-    console.assert(INGREDIENTS.length >= 50, "init: must have at least 50 ingredients");
-
-    populateUnitSelects("volume");
-    renderSubstitutions("");
-    populateNutritionSelect();
-    bindEvents();
-
-    // Check hash for direct tab linking
-    var hash = window.location.hash.replace("#", "");
-    var validTabs = ["scaler", "converter", "substitutions", "nutrition"];
-    if (validTabs.indexOf(hash) !== -1) {
-      switchTab(hash);
-    }
-  }
-
-  // Boot
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-
-})();
+// === DATA ===
+var SUBSTITUTIONS=[{name:"Butter",note:"For baking, solid fats work best as replacements.",subs:[{swap:"Coconut oil",ratio:"1:1",detail:"use solid, not melted"},{swap:"Applesauce",ratio:"1:\u00BD",detail:"reduces fat \u2014 best in muffins, quick breads"},{swap:"Greek yogurt",ratio:"1:\u00BD",detail:"adds protein and tang"},{swap:"Avocado",ratio:"1:1",detail:"mashed; adds green tint"},{swap:"Olive oil",ratio:"1:\u00BE",detail:"best in savory baking"}]},{name:"Eggs",note:"Vegan options work best in baked goods, not custards.",subs:[{swap:"Flax egg",ratio:"per egg",detail:"1 tbsp ground flax + 3 tbsp water, rest 5 min"},{swap:"Chia egg",ratio:"per egg",detail:"1 tbsp chia + 3 tbsp water, rest 5 min"},{swap:"Applesauce",ratio:"per egg",detail:"\u00BC cup, unsweetened"},{swap:"Mashed banana",ratio:"per egg",detail:"\u00BC cup; adds banana flavor"},{swap:"Aquafaba",ratio:"per egg",detail:"3 tbsp chickpea liquid; whips like whites"}]},{name:"Whole Milk",note:"Non-dairy milks may slightly alter flavor.",subs:[{swap:"Oat milk",ratio:"1:1",detail:"creamiest plant option"},{swap:"Almond milk",ratio:"1:1",detail:"lighter, slight nutty note"},{swap:"Soy milk",ratio:"1:1",detail:"closest protein match"},{swap:"Coconut milk",ratio:"1:1",detail:"richer; tropical note"},{swap:"Half-and-half + water",ratio:"1:1",detail:"equal parts"}]},{name:"Heavy Cream",note:"Coconut cream whips similarly to dairy cream.",subs:[{swap:"Coconut cream",ratio:"1:1",detail:"chill the can first"},{swap:"Cashew cream",ratio:"1:1",detail:"blended soaked cashews"},{swap:"Evaporated milk",ratio:"1:1",detail:"lighter; won\u2019t whip"},{swap:"Greek yogurt + milk",ratio:"3:1",detail:"thicker; for sauces"},{swap:"Silken tofu",ratio:"1:1",detail:"blended smooth"}]},{name:"All-Purpose Flour",note:"Gluten-free flours often need xanthan gum for structure.",subs:[{swap:"Whole wheat flour",ratio:"1:1",detail:"denser, nuttier result"},{swap:"Almond flour",ratio:"1:1",detail:"add a binder; no rise"},{swap:"Oat flour",ratio:"1:1",detail:"blend rolled oats fine"},{swap:"Coconut flour",ratio:"1:\u00BC",detail:"use \u00BC\u2013\u2153; add extra liquid"},{swap:"Gluten-free 1:1 blend",ratio:"1:1",detail:"Bob\u2019s, King Arthur, etc."}]},{name:"Granulated Sugar",note:"Liquid sweeteners require reducing other liquids.",subs:[{swap:"Honey",ratio:"1:\u00BE",detail:"reduce liquid by 3 tbsp per cup"},{swap:"Maple syrup",ratio:"1:\u00BE",detail:"reduce liquid by 3 tbsp per cup"},{swap:"Coconut sugar",ratio:"1:1",detail:"darker color, slight caramel"},{swap:"Stevia",ratio:"\u2014",detail:"check package for conversion"},{swap:"Monk fruit blend",ratio:"1:1",detail:"for baking blends only"}]},{name:"Brown Sugar",note:"The molasses trick is the most accurate swap.",subs:[{swap:"White sugar + molasses",ratio:"per cup",detail:"1 cup sugar + 1 tbsp molasses"},{swap:"Coconut sugar",ratio:"1:1",detail:"less moisture"},{swap:"Maple syrup",ratio:"1:\u00BE",detail:"reduce liquid by 3 tbsp"},{swap:"Date sugar",ratio:"1:1",detail:"won\u2019t melt; for toppings"},{swap:"Muscovado",ratio:"1:1",detail:"stronger molasses flavor"}]},{name:"Baking Powder",note:"Baking soda is 3\u20134\u00D7 stronger than baking powder.",subs:[{swap:"Baking soda + cream of tartar",ratio:"per tsp",detail:"\u00BC tsp soda + \u00BD tsp tartar"},{swap:"Soda + buttermilk",ratio:"per tsp",detail:"\u00BC tsp soda + \u00BD cup buttermilk, reduce liquid"},{swap:"Self-rising flour",ratio:"\u2014",detail:"already contains powder"}]},{name:"Buttermilk",note:"The acid reaction is what matters for leavening.",subs:[{swap:"Milk + lemon juice",ratio:"per cup",detail:"1 cup milk + 1 tbsp juice, rest 5 min"},{swap:"Milk + white vinegar",ratio:"per cup",detail:"1 cup milk + 1 tbsp vinegar"},{swap:"Yogurt + milk",ratio:"\u2014",detail:"thin yogurt with milk to pour"},{swap:"Kefir",ratio:"1:1",detail:"use plain unsweetened"}]},{name:"Sour Cream",note:"Greek yogurt is the closest match in texture and tang.",subs:[{swap:"Greek yogurt",ratio:"1:1",detail:"tangier; full-fat preferred"},{swap:"Cottage cheese",ratio:"1:1",detail:"blend until smooth"},{swap:"Cashew cream + lemon",ratio:"1:1",detail:"dairy-free"},{swap:"Coconut cream + lemon",ratio:"1:1",detail:"dairy-free, richer"}]},{name:"Cornstarch",note:"Flour-thickened sauces will be more opaque.",subs:[{swap:"All-purpose flour",ratio:"1:2",detail:"use twice the amount"},{swap:"Arrowroot powder",ratio:"1:1",detail:"clearer finish"},{swap:"Tapioca starch",ratio:"1:1",detail:"glossy finish"},{swap:"Potato starch",ratio:"1:1",detail:"not potato flour"}]},{name:"Honey",note:"Flavor profiles vary widely between liquid sweeteners.",subs:[{swap:"Maple syrup",ratio:"1:1",detail:"lighter; pourable"},{swap:"Agave nectar",ratio:"1:1",detail:"milder, neutral"},{swap:"Corn syrup",ratio:"1:1",detail:"less sweet"},{swap:"Molasses",ratio:"1:1",detail:"much stronger flavor"}]},{name:"Soy Sauce",note:"Coconut aminos is sweeter and lower sodium.",subs:[{swap:"Tamari",ratio:"1:1",detail:"gluten-free option"},{swap:"Coconut aminos",ratio:"1:1",detail:"less salty, slightly sweet"},{swap:"Worcestershire",ratio:"1:\u00BD",detail:"add pinch of salt"},{swap:"Liquid aminos",ratio:"1:1",detail:"Bragg\u2019s-style"}]},{name:"Lemon Juice",note:"Vinegar substitutes are more acidic; use less.",subs:[{swap:"Lime juice",ratio:"1:1",detail:"closest match"},{swap:"White wine vinegar",ratio:"1:\u00BD",detail:"stronger acid"},{swap:"Apple cider vinegar",ratio:"1:\u00BD",detail:"fruity note"},{swap:"Orange juice",ratio:"1:1",detail:"sweeter; less acidic"}]},{name:"Vanilla Extract",note:"Almond extract is much stronger; use sparingly.",subs:[{swap:"Vanilla bean paste",ratio:"1:1",detail:"visible specks"},{swap:"Vanilla bean",ratio:"\u2014",detail:"1 bean = 1 tbsp extract"},{swap:"Almond extract",ratio:"1:\u00BD",detail:"potent \u2014 halve it"},{swap:"Maple syrup",ratio:"1:1",detail:"different flavor profile"}]},{name:"Garlic (fresh clove)",note:"Fresh garlic has a more pungent flavor than dried.",subs:[{swap:"Garlic powder",ratio:"per clove",detail:"\u215B tsp"},{swap:"Jarred minced",ratio:"per clove",detail:"\u00BD tsp"},{swap:"Garlic flakes",ratio:"per clove",detail:"\u00BD tsp"},{swap:"Garlic salt",ratio:"per clove",detail:"\u00BC tsp; reduce other salt"}]}];
+var UNIT_GROUPS={volume:{label:"Volume",hint:"cups, mL, tbsp, tsp, fl oz, L",units:[{id:"cup",label:"Cups",toBase:236.588},{id:"tbsp",label:"Tablespoons",toBase:14.787},{id:"tsp",label:"Teaspoons",toBase:4.929},{id:"floz",label:"Fluid Ounces",toBase:29.5735},{id:"ml",label:"Milliliters",toBase:1},{id:"l",label:"Liters",toBase:1000},{id:"pint",label:"Pints (US)",toBase:473.176},{id:"qt",label:"Quarts (US)",toBase:946.353}]},weight:{label:"Weight",hint:"grams, kg, oz, lb",units:[{id:"g",label:"Grams",toBase:1},{id:"kg",label:"Kilograms",toBase:1000},{id:"oz",label:"Ounces",toBase:28.3495},{id:"lb",label:"Pounds",toBase:453.592}]},temp:{label:"Temperature",hint:"\u00B0F, \u00B0C, gas mark",units:[{id:"C",label:"Celsius"},{id:"F",label:"Fahrenheit"},{id:"gas",label:"Gas Mark"}]}};
+var GRAMS_PER_CUP={"all-purpose flour":120,"bread flour":130,"whole wheat flour":120,"cake flour":114,"almond flour":96,"granulated sugar":200,"brown sugar":213,"powdered sugar":120,butter:227,milk:244,water:237,honey:340,"maple syrup":322,"cocoa powder":100,"rolled oats":90,"rice (uncooked)":195,"salt (table)":292,"olive oil":216,yogurt:245,"sour cream":240};
+var NUTRITION={"All-Purpose Flour":{cal:364,p:10.3,c:76.3,f:1},"Whole Wheat Flour":{cal:340,p:13.2,c:72,f:2.5},"Rolled Oats":{cal:379,p:13.2,c:67.7,f:6.5},"White Rice (uncooked)":{cal:365,p:7.1,c:80,f:0.7},"Granulated Sugar":{cal:387,p:0,c:100,f:0},"Brown Sugar":{cal:380,p:0.1,c:98,f:0},Honey:{cal:304,p:0.3,c:82.4,f:0},"Maple Syrup":{cal:260,p:0,c:67,f:0.1},Butter:{cal:717,p:0.9,c:0.1,f:81},"Olive Oil":{cal:884,p:0,c:0,f:100},"Coconut Oil":{cal:862,p:0,c:0,f:100},"Vegetable Oil":{cal:884,p:0,c:0,f:100},"Whole Milk":{cal:61,p:3.2,c:4.8,f:3.3},"Heavy Cream":{cal:340,p:2.8,c:2.8,f:36},"Greek Yogurt (plain)":{cal:59,p:10,c:3.6,f:0.4},"Sour Cream":{cal:198,p:2.4,c:4.6,f:19.4},"Cream Cheese":{cal:342,p:6,c:4.1,f:34},"Eggs (whole)":{cal:155,p:13,c:1.1,f:11},"Chicken Breast":{cal:165,p:31,c:0,f:3.6},Almonds:{cal:579,p:21,c:22,f:50},Walnuts:{cal:654,p:15,c:14,f:65},"Cocoa Powder":{cal:228,p:19.6,c:57.9,f:13.7},"Dark Chocolate (70%)":{cal:598,p:7.8,c:45.9,f:42.6},Avocado:{cal:160,p:2,c:8.5,f:14.7},Banana:{cal:89,p:1.1,c:22.8,f:0.3},Tomato:{cal:18,p:0.9,c:3.9,f:0.2}};
+var CONVERSION_RULES=[{left:"3 tsp",right:"1 tbsp"},{left:"4 tbsp",right:"\u00BC cup"},{left:"16 tbsp",right:"1 cup"},{left:"1 cup",right:"236.6 mL"},{left:"1 fl oz",right:"29.57 mL"},{left:"1 stick butter",right:"\u00BD cup \u00B7 113 g"},{left:"1 lb",right:"453.6 g"},{left:"\u00B0F \u2192 \u00B0C",right:"(F \u2212 32) \u00D7 5\u20449"},{left:"1 large egg",right:"\u2248 50 g \u00B7 3 tbsp"},{left:"1 cup flour",right:"\u2248 120 g"}];
+var CUP_WEIGHTS=[{name:"Honey",grams:340},{name:"Maple syrup",grams:322},{name:"Whole milk",grams:244},{name:"Butter",grams:227},{name:"Olive oil",grams:216},{name:"Brown sugar",grams:213},{name:"Granulated sugar",grams:200},{name:"Bread flour",grams:130},{name:"All-purpose flour",grams:120},{name:"Powdered sugar",grams:120},{name:"Cocoa powder",grams:100},{name:"Almond flour",grams:96},{name:"Rolled oats",grams:90}];
+var TOOLS=[{ord:"01",name:"Cups to Grams Converter",desc:"Convert cups to grams for 35+ pantry ingredients with brand-aware averages.",href:"/cups-to-grams",preview:"bars",data:[{label:"Honey",num:"340 g",w:1},{label:"Butter",num:"227 g",w:.67},{label:"Sugar",num:"200 g",w:.59},{label:"Flour",num:"120 g",w:.35},{label:"Oats",num:"90 g",w:.26}]},{ord:"02",name:"Egg Substitute Calculator",desc:"Find the right egg replacement for baking \u2014 vegan and allergy-friendly.",href:"/egg-substitute",preview:"swaps",caption:"per egg",data:["1 tbsp flax + 3 tbsp water","\u00BC cup applesauce","3 tbsp aquafaba"]},{ord:"03",name:"Recipe Unit Converter",desc:"US \u21C4 metric \u21C4 imperial. Volume, weight and temperature.",href:"/recipe-converter",preview:"formula",data:[{lhs:"1 cup",rhs:"236.6 mL"},{lhs:"1 tbsp",rhs:"14.79 mL"},{lhs:"1 oz",rhs:"28.35 g"}]},{ord:"04",name:"Baking Ratios Calculator",desc:"Classic ratios by weight: pound cake, cookies, pie crust, lean bread.",href:"/baking-ratios",preview:"ratios",data:[{label:"Pound cake",ratio:"1\u00B71\u00B71\u00B71"},{label:"Pie crust",ratio:"3\u00B72\u00B71"},{label:"Lean bread",ratio:"5\u00B73"}]},{ord:"05",name:"Serving Size Calculator",desc:"Scale for any group size \u2014 with a party-planning mode for large events.",href:"/serving-size-calculator",preview:"dots",data:[2,4,6,8,12,24,50,100]},{ord:"06",name:"Allergen Substitutes",desc:"Safe alternatives for 36+ common allergens, sorted by recipe type.",href:"/allergen-substitutes",preview:"tags",data:["Dairy","Gluten","Egg","Nut","Soy","Shellfish"]},{ord:"07",name:"How to Scale Recipes",desc:"Plain-English guide to scaling up or down using ratio math.",href:"/how-to-scale-recipes",preview:"steps",data:["Find your factor","Multiply each","Round sensibly","Adjust the heat"]}];
+
+// === HELPERS ===
+function parseFraction(s){s=s.trim();if(!s)return null;var u={"\u00BD":.5,"\u2153":1/3,"\u2154":2/3,"\u00BC":.25,"\u00BE":.75,"\u215B":.125,"\u215C":.375,"\u215D":.625,"\u215E":.875,"\u2155":.2,"\u2156":.4,"\u2157":.6,"\u2158":.8,"\u2159":1/6,"\u215A":5/6};var m=s.match(/^(\d+)\s+(\d+)\/(\d+)$/);if(m)return parseInt(m[1])+parseInt(m[2])/parseInt(m[3]);m=s.match(/^(\d+)\/(\d+)$/);if(m)return parseInt(m[1])/parseInt(m[2]);m=s.match(/^(\d+)\s*([\u00BD\u2153\u2154\u00BC\u00BE\u215B\u215C\u215D\u215E\u2155\u2156\u2157\u2158\u2159\u215A])$/);if(m)return parseInt(m[1])+u[m[2]];if(u[s])return u[s];var n=parseFloat(s);return isNaN(n)?null:n}
+function toPretty(n){if(n==null||isNaN(n))return"\u2014";if(Math.abs(n-Math.round(n))<.0001)return String(Math.round(n));var ds=[2,3,4,8],best=null;for(var i=0;i<ds.length;i++){var d=ds[i],num=Math.round(n*d);if(num===0)continue;var v=num/d,err=Math.abs(v-n);if(err<.03&&(!best||err<best.err)){var w=Math.floor(num/d),r=num-w*d,map={"1/2":"\u00BD","1/3":"\u2153","2/3":"\u2154","1/4":"\u00BC","3/4":"\u00BE","1/8":"\u215B","3/8":"\u215C","5/8":"\u215D","7/8":"\u215E"},frac=r===0?"":(map[r+"/"+d]||r+"/"+d),txt=w===0?frac:(frac?w+" "+frac:String(w));best={err:err,txt:txt}}}if(best)return best.txt;return String(Math.round(n*100)/100)}
+function parseLine(l){var t=l.trim();if(!t)return null;var m=t.match(/^([\d\u00BC\u00BD\u00BE\u2153\u2154\u215B\u215C\u215D\u215E.\/\s]+?)\s+(\S.*)$/);if(!m)return{qty:null,unit:"",rest:t,raw:t};var q=parseFraction(m[1]);if(q==null)return{qty:null,unit:"",rest:t,raw:t};var a=m[2],um=a.match(/^(cups?|tbsp|tablespoons?|tsp|teaspoons?|oz|ounces?|lb|pounds?|g|grams?|kg|ml|milliliters?|l|liters?|fl\.?\s?oz|fluid\s?ounces?|pints?|quarts?|large|small|medium|sticks?|cloves?|cans?|pinch|dash)\b\.?(.*)$/i);if(um)return{qty:q,unit:um[1],rest:um[2].trim(),raw:t};return{qty:q,unit:"",rest:a,raw:t}}
+
+// === HERO DEMO ===
+(function(){
+var el=document.getElementById("hero-demo-root");
+var target=8,original=4,presets=[2,4,6,8,12,24];
+var lines=[{qty:2,unit:"cups",name:"all-purpose flour"},{qty:1,unit:"cup",name:"granulated sugar"},{qty:.5,unit:"tsp",name:"fine sea salt"},{qty:3,unit:"",name:"large eggs",count:true},{qty:1.5,unit:"cups",name:"whole milk"},{qty:.25,unit:"cup",name:"butter, melted"}];
+function render(){
+var f=target/original;
+el.innerHTML='<div class="hd-card"><div class="hd-tab"><span class="hd-tab-num">No. 01</span><span class="hd-tab-name">Buttermilk pancakes</span><span class="hd-tab-meta">a working example</span></div><div class="hd-servings"><span class="hd-servings-label">Servings</span><div class="hd-servings-pills">'+presets.map(function(p){return'<button class="hd-pill'+(p===target?' is-active':'')+'" data-v="'+p+'">'+p+'</button>'}).join("")+'</div><span class="hd-factor"><span class="hd-factor-x">\u00D7</span><span class="hd-factor-n">'+toPretty(f)+'</span></span></div><div class="hd-cols"><div class="hd-col"><div class="hd-col-head"><span class="hd-col-kicker">Original</span><span class="hd-col-serv">'+original+' servings</span></div><ol class="hd-list">'+lines.map(function(l){return'<li><span class="hd-qty">'+toPretty(l.qty)+'</span><span class="hd-unit">'+l.unit+'</span><span class="hd-name">'+l.name+'</span></li>'}).join("")+'</ol></div><div class="hd-arrow" aria-hidden="true">\u2192</div><div class="hd-col hd-col-out"><div class="hd-col-head"><span class="hd-col-kicker">Scaled</span><span class="hd-col-serv">'+target+' servings</span></div><ol class="hd-list hd-list-out">'+lines.map(function(l){var v=l.qty*f,warn=l.count&&Math.abs(v-Math.round(v))>.05;return'<li><span class="hd-qty">'+toPretty(v)+'</span><span class="hd-unit">'+l.unit+'</span><span class="hd-name">'+l.name+'</span>'+(warn?'<span class="hd-warn" title="round to nearest whole">\u26A0 round to '+Math.round(v)+'</span>':'')+'</li>'}).join("")+'</ol></div></div><div class="hd-footnote"><span class="note-mark">\u203B</span><span>Fractions, decimals and unicode glyphs in, sensible cooking fractions out. Try changing the servings.</span></div></div>'}
+el.addEventListener("click",function(e){var b=e.target.closest(".hd-pill");if(b){target=parseInt(b.dataset.v);render()}});
+render()})();
+
+// === DECK TABS ===
+(function(){
+var tabs=document.querySelectorAll(".deck-tab"),panes=document.querySelectorAll(".deck-pane");
+document.getElementById("deck-tabs").addEventListener("click",function(e){
+var t=e.target.closest(".deck-tab");if(!t)return;
+var id=t.dataset.tab;
+tabs.forEach(function(x){x.classList.toggle("is-active",x.dataset.tab===id);x.setAttribute("aria-selected",x.dataset.tab===id)});
+panes.forEach(function(p){p.style.display=p.id==="pane-"+id?"":"none"})})})();
+
+// === RECIPE SCALER ===
+(function(){
+var el=document.getElementById("tool-scaler");
+el.innerHTML='<div class="scaler-grid"><div class="scaler-input"><div class="servings-row"><label class="field"><span class="field-label">Original</span><input type="number" min="1" value="4" id="s-orig"><span class="field-suffix">servings</span></label><div class="arrow">\u2192</div><label class="field"><span class="field-label">Desired</span><input type="number" min="1" value="8" id="s-desired"><span class="field-suffix">servings</span></label></div><div class="preset-row"><span class="preset-label">Quick scale</span><button class="chip" data-m="0.5">\u00D70.5</button><button class="chip" data-m="1">\u00D71</button><button class="chip" data-m="1.5">\u00D71.5</button><button class="chip" data-m="2">\u00D72</button><button class="chip" data-m="3">\u00D73</button></div><label class="field-block"><span class="field-label">Ingredients <em>\u00B7 one per line</em></span><textarea rows="9" id="s-text" spellcheck="false">2 cups all-purpose flour\n1 cup sugar\n\u00BD tsp salt\n3 large eggs\n1\u00BD cups milk\n\u00BC cup butter, melted\n1 tsp vanilla extract</textarea></label><div class="actions"><button class="btn-primary" id="s-go">Scale recipe</button><button class="btn-ghost" id="s-clear">Clear</button></div></div><div class="scaler-output"><div class="output-head"><div class="kicker">Scaled</div><div class="output-title" id="s-title">8 servings</div></div><div id="s-out"><div class="empty-state"><div class="empty-mark">\u2301</div><p>Enter ingredients and press <strong>Scale recipe</strong>. Quantities update with sensible fractions; units and notes pass through untouched.</p></div></div></div></div>';
+var orig=el.querySelector("#s-orig"),desired=el.querySelector("#s-desired"),text=el.querySelector("#s-text"),out=el.querySelector("#s-out"),title=el.querySelector("#s-title");
+function update(){var o=parseFloat(orig.value)||1,d=parseFloat(desired.value)||1,f=d/o;title.textContent=d+" servings \u00B7 \u00D7"+(Math.round(f*100)/100)}
+orig.addEventListener("input",update);desired.addEventListener("input",update);
+el.addEventListener("click",function(e){
+var chip=e.target.closest("[data-m]");
+if(chip){var o=parseFloat(orig.value)||4;desired.value=Math.round(o*parseFloat(chip.dataset.m)*100)/100;update()}
+if(e.target.id==="s-go"){var o=parseFloat(orig.value)||1,d=parseFloat(desired.value)||1,f=d/o;var lines=text.value.split("\n").map(parseLine).filter(Boolean);if(!lines.length)return;out.innerHTML='<ol class="ingredient-list">'+lines.map(function(l){if(l.qty==null)return"<li><span class='ing-qty muted'>\u2014</span><span class='ing-unit'></span><span class='ing-name'>"+l.rest+"</span><span class='ing-was'></span></li>";var sv=l.qty*f;return"<li><span class='ing-qty'>"+toPretty(sv)+"</span><span class='ing-unit'>"+l.unit+"</span><span class='ing-name'>"+l.rest+"</span><span class='ing-was'>was "+toPretty(l.qty)+" "+l.unit+"</span></li>"}).join("")+"</ol>"}
+if(e.target.id==="s-clear"){text.value="";out.innerHTML='<div class="empty-state"><div class="empty-mark">\u2301</div><p>Enter ingredients and press <strong>Scale recipe</strong>.</p></div>'}})})();
+
+// === UNIT CONVERTER ===
+(function(){
+var el=document.getElementById("tool-converter");
+var group="volume",from="cup",to="ml",value="1";
+function getUnits(){return UNIT_GROUPS[group].units}
+function convert(){var v=parseFraction(value);if(v==null)return null;if(group==="temp"){var c;if(from==="C")c=v;else if(from==="F")c=(v-32)*5/9;else c=135+(v-1)*14;if(to==="C")return c;if(to==="F")return c*9/5+32;return Math.round(((c-135)/14+1)*10)/10}var g=UNIT_GROUPS[group],fU=g.units.find(function(u){return u.id===from}),tU=g.units.find(function(u){return u.id===to});return fU&&tU?(v*fU.toBase)/tU.toBase:null}
+function fmtResult(r){if(r==null)return"\u2014";if(group==="temp")return String(Math.round(r*10)/10);return r>=100?String(Math.round(r*10)/10):r>=1?String(Math.round(r*100)/100):String(Math.round(r*1000)/1000)}
+function opts(sel){return getUnits().map(function(u){return'<option value="'+u.id+'"'+(u.id===sel?" selected":"")+">"+u.label+"</option>"}).join("")}
+function render(){
+el.innerHTML='<div class="conv-tabs">'+Object.keys(UNIT_GROUPS).map(function(k){var g=UNIT_GROUPS[k];return'<button class="conv-tab'+(k===group?" is-active":"")+'" data-g="'+k+'"><span class="conv-tab-label">'+g.label+'</span><span class="conv-tab-hint">'+g.hint+'</span></button>'}).join("")+'</div><div class="conv-row"><div class="conv-col"><span class="field-label">From</span><div class="conv-input"><input value="'+value+'" class="conv-num" id="cv-val"><select id="cv-from">'+opts(from)+'</select></div></div><button class="conv-swap" id="cv-swap" aria-label="Swap units">\u21C4</button><div class="conv-col"><span class="field-label">To</span><div class="conv-input is-result"><div class="conv-num conv-result" id="cv-res">'+fmtResult(convert())+'</div><select id="cv-to">'+opts(to)+'</select></div></div></div><div class="conv-reference"><div class="ref-head">Quick reference</div><div class="ref-rows">'+CONVERSION_RULES.map(function(r){return'<div class="ref-row"><span class="ref-left">'+r.left+'</span><span class="ref-eq">=</span><span class="ref-right">'+r.right+'</span></div>'}).join("")+'</div></div>'}
+function updateResult(){var r=el.querySelector("#cv-res");if(r)r.textContent=fmtResult(convert())}
+el.addEventListener("input",function(e){if(e.target.id==="cv-val"){value=e.target.value;updateResult()}});
+el.addEventListener("change",function(e){if(e.target.id==="cv-from"){from=e.target.value;updateResult()}if(e.target.id==="cv-to"){to=e.target.value;updateResult()}});
+el.addEventListener("click",function(e){
+var tab=e.target.closest("[data-g]");
+if(tab){group=tab.dataset.g;var u=UNIT_GROUPS[group].units;from=u[0].id;to=u[1].id;value="1";render();return}
+if(e.target.closest("#cv-swap")){var t=from;from=to;to=t;render()}});
+render()})();
+
+// === SUBSTITUTIONS ===
+(function(){
+var el=document.getElementById("tool-subs"),query="",active=0;
+function filtered(){if(!query.trim())return SUBSTITUTIONS;var q=query.trim().toLowerCase();return SUBSTITUTIONS.filter(function(s){return s.name.toLowerCase().includes(q)||s.subs.some(function(x){return x.swap.toLowerCase().includes(q)})})}
+function render(){
+var f=filtered();if(active>=f.length)active=0;var cur=f[active];
+el.innerHTML='<div class="subs-search"><span class="subs-icon">\u2315</span><input placeholder="Search an ingredient \u2014 butter, eggs, buttermilk\u2026" value="'+query.replace(/"/g,"&quot;")+'" id="sb-q">'+(query?'<button class="subs-clear" id="sb-clear">clear</button>':'')+'</div><div class="subs-grid"><div class="subs-list">'+(f.length===0?'<div class="empty-state small"><p>No ingredient matches \u201C'+query+'\u201D. Try a broader term.</p></div>':f.map(function(s,i){return'<button class="subs-list-item'+(i===active?" is-active":"")+'" data-i="'+i+'"><span class="subs-item-name">'+s.name+'</span><span class="subs-item-count">'+s.subs.length+'</span></button>'}).join(""))+'</div><div class="subs-detail">'+(cur?'<div class="kicker">Substitutions for</div><h3 class="subs-title">'+cur.name+'</h3><ol class="sub-cards">'+cur.subs.map(function(x,i){return'<li class="sub-card"><span class="sub-ord">'+String(i+1).padStart(2,"0")+'</span><div><span class="sub-swap">'+x.swap+'</span><div class="sub-detail">'+x.detail+'</div></div><span class="sub-ratio">'+x.ratio+'</span></li>'}).join("")+'</ol><div class="subs-note"><span class="note-mark">\u203B</span><span>'+cur.note+'</span></div>':"")+'</div></div>'}
+el.addEventListener("input",function(e){if(e.target.id==="sb-q"){query=e.target.value;active=0;render();var inp=el.querySelector("#sb-q");if(inp){inp.focus();inp.selectionStart=inp.selectionEnd=query.length}}});
+el.addEventListener("click",function(e){
+if(e.target.closest("#sb-clear")){query="";active=0;render();return}
+var item=e.target.closest("[data-i]");if(item){active=parseInt(item.dataset.i);render()}});
+render()})();
+
+// === NUTRITION ===
+(function(){
+var el=document.getElementById("tool-nutrition"),items=Object.keys(NUTRITION),ing=items[0],amount="100",unit="g";
+function getGrams(){var v=parseFraction(amount);if(v==null)return null;if(unit==="g")return v;if(unit==="kg")return v*1000;if(unit==="oz")return v*28.3495;if(unit==="lb")return v*453.592;if(unit==="cup"){var key=ing.toLowerCase();for(var n in GRAMS_PER_CUP)if(key.includes(n))return v*GRAMS_PER_CUP[n];return v*200}return null}
+function render(){
+var grams=getGrams(),nut=NUTRITION[ing],scale=grams!=null?grams/100:0;
+var out={cal:Math.round(nut.cal*scale),p:Math.round(nut.p*scale*10)/10,c:Math.round(nut.c*scale*10)/10,f:Math.round(nut.f*scale*10)/10};
+var total=out.p*4+out.c*4+out.f*9,pct=total>0?{p:out.p*4/total*100,c:out.c*4/total*100,f:out.f*9/total*100}:{p:0,c:0,f:0};
+el.innerHTML='<div class="nut-grid"><div class="nut-input"><label class="field-block"><span class="field-label">Ingredient</span><select id="n-ing">'+items.map(function(k){return'<option value="'+k+'"'+(k===ing?" selected":"")+">"+k+"</option>"}).join("")+'</select></label><div class="nut-amount-row"><label class="field"><span class="field-label">Amount</span><input type="text" value="'+amount+'" id="n-amt"></label><label class="field"><span class="field-label">Unit</span><select id="n-unit"><option value="g"'+(unit==="g"?" selected":"")+'>grams</option><option value="kg"'+(unit==="kg"?" selected":"")+'>kilograms</option><option value="oz"'+(unit==="oz"?" selected":"")+'>ounces</option><option value="lb"'+(unit==="lb"?" selected":"")+'>pounds</option><option value="cup"'+(unit==="cup"?" selected":"")+'>cups</option></select></label></div><div class="nut-note"><span class="note-mark">\u203B</span><span>Estimates based on USDA averages. Brand, variety and preparation will shift values.</span></div></div><div class="nut-output"><div class="nut-cal-row"><div class="nut-cal-num">'+out.cal+'</div><div class="nut-cal-lbl"><div>calories</div><div class="nut-cal-sub">per '+(grams?Math.round(grams):"\u2014")+' g of '+ing.toLowerCase()+'</div></div></div><div class="macro-bar"><div class="macro-seg seg-p" style="width:'+pct.p+'%"></div><div class="macro-seg seg-c" style="width:'+pct.c+'%"></div><div class="macro-seg seg-f" style="width:'+pct.f+'%"></div></div><div class="macros"><div class="macro"><span class="macro-dot dot-p"></span><div class="macro-label">Protein</div><div class="macro-value">'+out.p+'<span class="unit">g</span></div><div class="macro-pct">'+Math.round(pct.p)+'%</div></div><div class="macro"><span class="macro-dot dot-c"></span><div class="macro-label">Carbs</div><div class="macro-value">'+out.c+'<span class="unit">g</span></div><div class="macro-pct">'+Math.round(pct.c)+'%</div></div><div class="macro"><span class="macro-dot dot-f"></span><div class="macro-label">Fat</div><div class="macro-value">'+out.f+'<span class="unit">g</span></div><div class="macro-pct">'+Math.round(pct.f)+'%</div></div></div></div></div>'}
+el.addEventListener("change",function(e){if(e.target.id==="n-ing"){ing=e.target.value;render()}if(e.target.id==="n-unit"){unit=e.target.value;render()}});
+el.addEventListener("input",function(e){if(e.target.id==="n-amt"){amount=e.target.value;render();var inp=el.querySelector("#n-amt");if(inp){inp.focus();inp.selectionStart=inp.selectionEnd=amount.length}}});
+render()})();
+
+// === CHART ===
+(function(){
+var el=document.getElementById("chart-rows"),maxG=Math.max.apply(null,CUP_WEIGHTS.map(function(d){return d.grams}));
+el.innerHTML=CUP_WEIGHTS.map(function(d,i){var pct=d.grams/maxG*100,cls=d.grams>=200?"is-heavy":d.grams>=130?"is-mid":"is-light";return'<div class="chart-row '+cls+'"><span class="chart-rank">'+String(i+1).padStart(2,"0")+'</span><span class="chart-name">'+d.name+'</span><span class="chart-track"><span class="chart-fill" style="width:'+pct.toFixed(1)+'%"></span></span><span class="chart-num">'+d.grams+'<span class="chart-unit">g</span></span></div>'}).join("")})();
+
+// === TOOL CARDS ===
+(function(){
+var el=document.getElementById("toolbox-grid");
+function preview(t){
+if(t.preview==="bars")return'<div class="tp tp-bars">'+t.data.map(function(d){return'<div class="tp-bar-row"><span class="tp-bar-name">'+d.label+'</span><span class="tp-bar-num">'+d.num+'</span><span class="tp-bar-track"><span class="tp-bar-fill" style="width:'+(d.w*100)+'%"></span></span></div>'}).join("")+"</div>";
+if(t.preview==="swaps")return'<div class="tp tp-swaps"><span class="tp-swap-caption">'+t.caption+"</span>"+t.data.map(function(s){return'<span class="tp-swap">'+s+"</span>"}).join("")+"</div>";
+if(t.preview==="formula")return'<div class="tp tp-formula">'+t.data.map(function(d){return'<div class="tp-formula-row"><span class="tp-formula-lhs">'+d.lhs+'</span><span class="tp-formula-eq">=</span><span class="tp-formula-rhs">'+d.rhs+"</span></div>"}).join("")+"</div>";
+if(t.preview==="ratios")return'<div class="tp tp-ratios">'+t.data.map(function(d){return'<div class="tp-ratio-row"><span class="tp-ratio-name">'+d.label+'</span><span class="tp-ratio-num">'+d.ratio+"</span></div>"}).join("")+"</div>";
+if(t.preview==="dots")return'<div class="tp tp-dots">'+t.data.map(function(n){return'<span class="tp-dot"><span class="tp-dot-mark"></span><span class="tp-dot-n">'+n+"</span></span>"}).join("")+"</div>";
+if(t.preview==="tags")return'<div class="tp tp-tags">'+t.data.map(function(l){return'<span class="tp-tag">\u25C9 '+l+"</span>"}).join("")+"</div>";
+if(t.preview==="steps")return'<div class="tp tp-steps">'+t.data.map(function(l,i){return'<div class="tp-step"><span class="tp-step-n">'+String(i+1).padStart(2,"0")+'</span><span class="tp-step-l">'+l+"</span></div>"}).join("")+"</div>";
+return""}
+el.innerHTML=TOOLS.map(function(t){return'<a href="'+t.href+'" class="tool-cell"><div class="tool-cell-head"><span class="tool-ord">\u2116 '+t.ord+'</span><h3 class="tool-name">'+t.name+"</h3></div>"+preview(t)+'<p class="tool-desc">'+t.desc+'</p><span class="tool-arrow">\u2192</span></a>'}).join("")})();
 </script>
 </body>
 </html>
