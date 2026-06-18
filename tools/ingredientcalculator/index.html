@@ -408,6 +408,23 @@ input[type="number"]{font-family:var(--font-mono);font-variant-numeric:tabular-n
 .pane-head p{justify-self:start}
 }
 </style>
+<style>
+/* S1 polish (2026-06-18): additive accessibility + interaction. No base rules changed. */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  a,.deck-tab,.chip,.tool-pane,.feature,.dv-stat{transition:color .18s ease,background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+}
+:where(a,button,input,select,textarea,.deck-tab,.chip,[tabindex]):focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)
+}
+:where([id]){scroll-margin-top:1.5rem}
+.deck-tab{cursor:pointer}
+.deck-tab:hover{color:var(--ink)}
+.chip:hover{border-color:var(--accent)}
+@media (hover:hover){
+  .tool-pane:hover{box-shadow:0 1px 0 var(--rule),0 8px 24px -16px oklch(0.20 0.025 50 / .28)}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
