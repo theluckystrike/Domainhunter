@@ -700,5 +700,23 @@ if(t.preview==="steps")return'<div class="tp tp-steps">'+t.data.map(function(l,i
 return""}
 el.innerHTML=TOOLS.map(function(t){return'<a href="'+t.href+'" class="tool-cell"><div class="tool-cell-head"><span class="tool-ord">\u2116 '+t.ord+'</span><h3 class="tool-name">'+t.name+"</h3></div>"+preview(t)+'<p class="tool-desc">'+t.desc+'</p><span class="tool-arrow">\u2192</span></a>'}).join("")})();
 </script>
+<script>
+/* IC-NAV-HASH-FIX: header nav (#scaler/#converter/#subs/#nutrition) activates the matching
+   deck tab and scrolls to it. The deck activates panes on click of .deck-tab[data-tab],
+   so we dispatch that click; no existing ids/handlers are changed. */
+(function(){
+  var TABS={scaler:1,converter:1,subs:1,nutrition:1};
+  function go(){
+    var id=(location.hash||"").slice(1);
+    if(!TABS[id])return;
+    var tab=document.querySelector('.deck-tab[data-tab="'+id+'"]');
+    if(tab){tab.click();}
+    var deck=document.getElementById("deck-tabs");
+    if(deck&&deck.scrollIntoView){deck.scrollIntoView({behavior:"smooth",block:"start"});}
+  }
+  window.addEventListener("hashchange",go);
+  if(document.readyState!=="loading"){go();}else{document.addEventListener("DOMContentLoaded",go);}
+})();
+</script>
 </body>
 </html>
