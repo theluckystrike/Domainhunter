@@ -55,12 +55,11 @@ header nav a[aria-current]{color:var(--accent)}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-0.01em;margin:16px 0 0;overflow-wrap:break-word}
 .hero h1 em{font-style:italic;color:var(--accent-ink)}
 .lede{font-family:var(--font-display);font-size:19px;line-height:1.55;color:var(--ink-soft);margin:22px 0 0;max-width:46ch;text-wrap:pretty}
-.portrait{position:relative;justify-self:end;width:100%;max-width:330px}
-.portrait .frame{position:relative;border-radius:var(--r-lg)}
-.portrait .frame::before{content:"";position:absolute;inset:0;transform:translate(15px,15px);border:1.5px solid var(--accent);border-radius:var(--r-lg);opacity:.5;z-index:0}
-.portrait img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 24%;border-radius:var(--r-lg);border:7px solid var(--paper);outline:1px solid var(--rule);box-shadow:0 24px 50px -28px oklch(0.30 0.05 55 / .55);filter:grayscale(1) sepia(.30) brightness(1.04) contrast(1.04) saturate(1.08)}
-.portrait figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:20px;text-align:right;letter-spacing:.04em}
-@media(max-width:780px){.portrait{margin:0;justify-self:start;max-width:248px}.portrait figcaption{text-align:left}.portrait .frame::before{transform:translate(11px,11px)}}
+.portrait{position:relative;justify-self:end;width:100%;max-width:360px}
+.portrait .frame{position:relative;border-radius:var(--r-lg);overflow:hidden}
+.portrait img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;border-radius:var(--r-lg);border:1px solid var(--rule);box-shadow:0 18px 40px -26px oklch(0.30 0.045 55 / .42);filter:grayscale(1) sepia(.26) brightness(1.04) contrast(1.03) saturate(1.06)}
+.portrait figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:16px;text-align:right;letter-spacing:.04em}
+@media(max-width:780px){.portrait{margin:0;justify-self:start;max-width:300px}.portrait figcaption{text-align:left}}
 /* stat strip */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:40px 0 0}
 @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
