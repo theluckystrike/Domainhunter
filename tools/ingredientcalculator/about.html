@@ -50,15 +50,17 @@ header nav a:hover,header nav a[aria-current]{color:var(--ink)}
 header nav a[aria-current]{color:var(--accent)}
 @media(max-width:560px){header nav a.hide-sm{display:none}header nav{gap:14px}.brand{font-size:17px}}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;padding:66px 0 30px}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start;padding:66px 0 30px}
 @media(max-width:780px){.hero{grid-template-columns:1fr;gap:32px;padding:44px 0 12px}}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-0.01em;margin:16px 0 0;overflow-wrap:break-word}
 .hero h1 em{font-style:italic;color:var(--accent-ink)}
 .lede{font-family:var(--font-display);font-size:19px;line-height:1.55;color:var(--ink-soft);margin:22px 0 0;max-width:46ch;text-wrap:pretty}
-.portrait{position:relative}
-.portrait img{width:100%;max-width:300px;border-radius:var(--r-lg);filter:grayscale(100%) contrast(1.02);border:1px solid var(--rule);display:block;margin-left:auto}
-.portrait figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:10px;text-align:right;letter-spacing:.04em}
-@media(max-width:780px){.portrait img{margin:0;max-width:220px}.portrait figcaption{text-align:left}}
+.portrait{position:relative;justify-self:end;width:100%;max-width:330px}
+.portrait .frame{position:relative;border-radius:var(--r-lg)}
+.portrait .frame::before{content:"";position:absolute;inset:0;transform:translate(15px,15px);border:1.5px solid var(--accent);border-radius:var(--r-lg);opacity:.5;z-index:0}
+.portrait img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 24%;border-radius:var(--r-lg);border:7px solid var(--paper);outline:1px solid var(--rule);box-shadow:0 24px 50px -28px oklch(0.30 0.05 55 / .55);filter:grayscale(1) sepia(.30) brightness(1.04) contrast(1.04) saturate(1.08)}
+.portrait figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:20px;text-align:right;letter-spacing:.04em}
+@media(max-width:780px){.portrait{margin:0;justify-self:start;max-width:248px}.portrait figcaption{text-align:left}.portrait .frame::before{transform:translate(11px,11px)}}
 /* stat strip */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:40px 0 0}
 @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
@@ -139,7 +141,7 @@ footer a:hover{color:var(--accent)}
       <p class="lede">I'm an independent developer and I build small, fast cooking tools. Ingredient Calculator is one of them. Scale a recipe, convert cups to grams, swap an ingredient you ran out of, check rough nutrition. No account, no pop-ups, no life story before the calculator loads.</p>
     </div>
     <figure class="portrait">
-      <img src="/about-portrait.jpg" width="575" height="640" alt="Portrait of the developer who builds Ingredient Calculator" loading="eager">
+      <div class="frame"><img src="/about-portrait.jpg" width="683" height="760" alt="Portrait of the developer who builds Ingredient Calculator" loading="eager"></div>
       <figcaption>Solo. Full time. Coffee-powered.</figcaption>
     </figure>
   </div>
