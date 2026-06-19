@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About the developer behind Ingredient Calculator</title>
+<meta name="description" content="The story behind Ingredient Calculator, a free set of cooking tools built by one developer, plus how to get every tool for one payment.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/about">
+<meta property="og:title" content="About the developer behind Ingredient Calculator">
+<meta property="og:description" content="One developer builds these cooking tools full time. Here is the story, and how to get every tool for one payment.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://ingredientcalculator.com/about">
+<meta property="og:image" content="https://ingredientcalculator.com/about-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About the developer behind Ingredient Calculator">
+<meta name="twitter:description" content="One developer, a handful of free cooking tools, and a lifetime option for the rest of the toolkit.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AboutPage","name":"About the developer behind Ingredient Calculator","url":"https://ingredientcalculator.com/about","mainEntity":{"@type":"Person","name":"Michael","url":"https://ingredientcalculator.com/about","image":"https://ingredientcalculator.com/about-portrait.jpg","jobTitle":"Independent developer","sameAs":["https://github.com/theluckystrike","https://zovo.one"],"makesOffer":[{"@type":"Offer","name":"Ingredient Calculator Pro","price":"4.99","priceCurrency":"USD"},{"@type":"Offer","name":"zovo.one lifetime membership","price":"99","priceCurrency":"USD","url":"https://zovo.one"}]}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ingredientcalculator.com/"},{"@type":"ListItem","position":2,"name":"About"}]}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:oklch(0.965 0.018 78); --bg-deep:oklch(0.925 0.030 75); --bg-darker:oklch(0.205 0.014 65);
+  --paper:oklch(0.985 0.012 80); --ink:oklch(0.20 0.025 50); --ink-soft:oklch(0.38 0.022 55);
+  --muted:oklch(0.55 0.020 60); --rule:oklch(0.82 0.020 70); --rule-soft:oklch(0.88 0.018 72);
+  --accent:oklch(0.58 0.140 38); --accent-ink:oklch(0.34 0.110 35); --sage:oklch(0.50 0.055 135);
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --font-display:"Newsreader","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --font-sans:"Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono","SF Mono","Fira Code",ui-monospace,monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+a{color:inherit}
+.kicker{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent)}
+/* header */
+header{border-bottom:1px solid var(--rule);background:color-mix(in oklch,var(--bg),white 18%);position:sticky;top:0;z-index:50}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--font-display);font-size:19px;letter-spacing:.01em;text-decoration:none;color:var(--ink)}
+.brand .sep{color:var(--accent);margin:0 4px}
+header nav{display:flex;gap:20px;align-items:center}
+header nav a{font-family:var(--font-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);text-decoration:none;transition:color .18s ease}
+header nav a:hover,header nav a[aria-current]{color:var(--ink)}
+header nav a[aria-current]{color:var(--accent)}
+@media(max-width:560px){header nav a.hide-sm{display:none}header nav{gap:14px}.brand{font-size:17px}}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;padding:66px 0 30px}
+@media(max-width:780px){.hero{grid-template-columns:1fr;gap:32px;padding:44px 0 12px}}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-0.01em;margin:16px 0 0;overflow-wrap:break-word}
+.hero h1 em{font-style:italic;color:var(--accent-ink)}
+.lede{font-family:var(--font-display);font-size:19px;line-height:1.55;color:var(--ink-soft);margin:22px 0 0;max-width:46ch;text-wrap:pretty}
+.portrait{position:relative}
+.portrait img{width:100%;max-width:300px;border-radius:var(--r-lg);filter:grayscale(100%) contrast(1.02);border:1px solid var(--rule);display:block;margin-left:auto}
+.portrait figcaption{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:10px;text-align:right;letter-spacing:.04em}
+@media(max-width:780px){.portrait img{margin:0;max-width:220px}.portrait figcaption{text-align:left}}
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:40px 0 0}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+.stat{padding:22px 22px 22px 0;border-right:1px solid var(--rule)}
+.stats .stat:last-child{border-right:none}
+@media(max-width:640px){.stat:nth-child(2n){border-right:none}.stat{padding-left:0}}
+.stat .n{font-family:var(--font-display);font-size:34px;line-height:1;color:var(--ink)}
+.stat .l{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin-top:9px}
+/* sections */
+section.block{padding:52px 0;border-bottom:1px solid var(--rule-soft)}
+section.block h2{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,3.4vw,32px);line-height:1.1;margin:10px 0 18px;letter-spacing:-0.01em}
+section.block h2 em{font-style:italic;color:var(--accent-ink)}
+.prose p{font-size:16.5px;color:var(--ink-soft);max-width:64ch;margin:0 0 16px}
+.prose p:last-child{margin-bottom:0}
+/* pricing */
+.price-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;margin-top:26px}
+@media(max-width:760px){.price-grid{grid-template-columns:1fr}}
+.price{border:1px solid var(--rule);border-radius:var(--r-lg);padding:26px 26px 24px;background:var(--paper);display:flex;flex-direction:column}
+.price.feature{background:var(--bg-darker);color:oklch(0.92 0.012 80);border-color:var(--bg-darker)}
+.price .tag{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+.price.feature .tag{color:oklch(0.78 0.10 60)}
+.price .amt{font-family:var(--font-display);font-size:40px;line-height:1;margin:12px 0 4px}
+.price .amt small{font-size:15px;color:var(--muted)}
+.price.feature .amt small{color:oklch(0.72 0.012 80)}
+.price h3{font-family:var(--font-display);font-weight:400;font-size:21px;margin:2px 0 12px}
+.price p{font-size:15px;color:var(--ink-soft);margin:0 0 16px}
+.price.feature p{color:oklch(0.82 0.012 80)}
+.price ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px}
+.price li{font-size:14.5px;padding-left:22px;position:relative;color:var(--ink-soft)}
+.price.feature li{color:oklch(0.86 0.012 80)}
+.price li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.btn{display:inline-block;text-align:center;font-family:var(--font-sans);font-weight:600;font-size:14.5px;text-decoration:none;padding:12px 20px;border-radius:999px;transition:transform .15s ease,background .18s ease;margin-top:auto}
+.btn-primary{background:var(--accent);color:white}
+.btn-primary:hover{background:var(--accent-ink)}
+.btn-light{background:oklch(0.92 0.05 70);color:var(--bg-darker)}
+.btn-light:hover{background:white}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+.subnote{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:12px;letter-spacing:.03em}
+.price.feature .subnote{color:oklch(0.7 0.012 80)}
+/* lives row */
+.lives{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+@media(max-width:640px){.lives{grid-template-columns:1fr}}
+.live-card{border:1px solid var(--rule);border-radius:var(--r-md);padding:20px;background:var(--paper);text-decoration:none;color:var(--ink);transition:border-color .18s ease,transform .15s ease;display:block}
+.live-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.live-card .h{font-family:var(--font-display);font-size:18px;margin-bottom:5px}
+.live-card .d{font-size:13.5px;color:var(--muted)}
+.live-card .go{font-family:var(--font-mono);font-size:11px;color:var(--accent);margin-top:12px;letter-spacing:.06em}
+/* footer */
+footer{padding:40px 0 56px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-direction:column;gap:12px}
+footer .row{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--accent)}
+:where(a,.btn,.live-card):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r-sm)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/">Ingredient<span class="sep">/</span>Calculator</a>
+    <nav>
+      <a class="hide-sm" href="/#scaler">Tools</a>
+      <a class="hide-sm" href="/cups-to-grams">Converter</a>
+      <a href="/about" aria-current="page">About</a>
+      <a class="hide-sm" href="https://zovo.one" rel="noopener">zovo.one</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <span class="kicker">About / the developer</span>
+      <h1>The person behind the <em>tools</em></h1>
+      <p class="lede">I'm an independent developer and I build small, fast cooking tools. Ingredient Calculator is one of them. Scale a recipe, convert cups to grams, swap an ingredient you ran out of, check rough nutrition. No account, no pop-ups, no life story before the calculator loads.</p>
+    </div>
+    <figure class="portrait">
+      <img src="/about-portrait.jpg" width="575" height="640" alt="Portrait of the developer who builds Ingredient Calculator" loading="eager">
+      <figcaption>Solo. Full time. Coffee-powered.</figcaption>
+    </figure>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">4</div><div class="l">Tools in one place</div></div>
+    <div class="stat"><div class="n">35+</div><div class="l">Ingredient densities</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Sign-ups</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Ads or pop-ups</div></div>
+  </div>
+
+</div>
+
+<div class="wrap">
+  <section class="block prose">
+    <span class="kicker">What I build</span>
+    <h2>One job per tool, done <em>fast</em></h2>
+    <p>Most cooking sites bury a simple converter under ads and a thousand-word essay about someone's grandmother. I go the other way. Each tool does one thing and loads right away.</p>
+    <p>The cups to grams converter carries a real density for every ingredient, because a cup of flour and a cup of honey weigh nothing alike. The nutrition estimator runs on USDA numbers. The scaler handles the awkward parts of doubling a recipe, like what to do with three eggs when you need four and a half.</p>
+    <p>I made the whole site on my own and I work on it full time. That's the only reason the tools stay quick and a feature request from a stranger actually gets read the same day.</p>
+  </section>
+
+  <section class="block prose">
+    <span class="kicker">The honest part</span>
+    <h2>What works, and what didn't</h2>
+    <p>Not every tool lands. Some I built, watched nobody open, and quietly pulled down. The ones that stay are the ones people come back to.</p>
+    <p>So I'd rather hear what's broken than guess at it. If a number looks off, or you want an ingredient added, or a tool would save you a step, send it over. Small fixes usually ship the same week, and the bigger ideas go on a list I actually work through.</p>
+  </section>
+
+  <section class="block">
+    <span class="kicker">Support and access</span>
+    <h2>Keep the tools free, or get all of <em>them</em></h2>
+    <div class="prose"><p>Every calculator here is free and stays free. There's no paywall on the math, and there never will be. Two options if you want more than that.</p></div>
+    <div class="price-grid">
+
+      <div class="price">
+        <span class="tag">Pro / one payment</span>
+        <div class="amt">$4.99</div>
+        <h3>Back the tools</h3>
+        <p>A small thank-you for the work. It covers the server bill, pushes your requests up the list, gets you new tools before they go public, and keeps the whole site free of ads.</p>
+        <ul>
+          <li>Your feature requests near the top of my queue</li>
+          <li>Early access to tools still in testing</li>
+          <li>No subscription, nothing to cancel</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://zovo.one" rel="noopener">Get Pro for $4.99</a>
+        <div class="subnote">One payment on zovo.one</div>
+      </div>
+
+      <div class="price feature">
+        <span class="tag">Lifetime / best value</span>
+        <div class="amt">$99 <small>once</small></div>
+        <h3>Every tool I build, for good</h3>
+        <p>Get the whole toolkit for a single payment. The lifetime membership on zovo.one covers this site and everything else I make, with no monthly fee and no per-tool charge.</p>
+        <ul>
+          <li>Lifetime access to every tool on zovo.one, the ones live now and the ones I haven't shipped yet</li>
+          <li>The zovo.one Chrome extension and BeLikeNative, included</li>
+          <li>No subscription, no monthly fee, no per-tool charge</li>
+          <li>Your requests jump the queue</li>
+          <li>One payment, kept for good</li>
+        </ul>
+        <a class="btn btn-light" href="https://zovo.one" rel="noopener">Get lifetime access on zovo.one</a>
+        <div class="subnote">One payment on zovo.one, no subscription</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="kicker">Where everything lives</span>
+    <h2>Tools, code, and a real inbox</h2>
+    <div class="prose"><p>The tools, the membership, and the rest of what I make all live on zovo.one. The code I can share sits on GitHub. Got a question before you spend anything? Email me and a real person, me, writes back.</p></div>
+    <div class="lives">
+      <a class="live-card" href="https://zovo.one" rel="noopener">
+        <div class="h">zovo.one</div>
+        <div class="d">The tools, the membership, and lifetime access in one place.</div>
+        <div class="go">Visit zovo.one</div>
+      </a>
+      <a class="live-card" href="https://github.com/theluckystrike" rel="noopener">
+        <div class="h">GitHub</div>
+        <div class="d">The code I keep in the open, plus what I'm tinkering with.</div>
+        <div class="go">github.com/theluckystrike</div>
+      </a>
+      <a class="live-card" href="mailto:support@zovo.one">
+        <div class="h">Email</div>
+        <div class="d">A feature idea, a bug, or a question before you buy.</div>
+        <div class="go">support@zovo.one</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="block" style="border-bottom:none">
+    <div class="prose">
+      <h2 style="margin-bottom:14px">Try the tools first</h2>
+      <p style="margin-bottom:22px">The best way to decide if any of this is worth it is to use the thing. Start with the scaler or the converter, then come back if you want the rest.</p>
+    </div>
+    <a class="btn btn-primary" href="/#scaler">Open the tools</a>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>Ingredient Calculator</span>
+      <span>built by one developer</span>
+      <span>free tools, lifetime option on zovo.one</span>
+    </div>
+    <div class="row">
+      <a href="/">Home</a>
+      <a href="/cups-to-grams">Cups to grams</a>
+      <a href="/egg-substitute">Egg substitutes</a>
+      <a href="/recipe-converter">Recipe converter</a>
+      <a href="/baking-ratios">Baking ratios</a>
+      <a href="/about">About</a>
+      <a href="https://github.com/theluckystrike" rel="noopener">GitHub</a>
+      <a href="https://zovo.one" rel="noopener">zovo.one</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
