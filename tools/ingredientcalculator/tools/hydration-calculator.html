@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hydration Calculator — How Much Water You Need Daily | Ingredient Calculator</title>
+<title>Hydration Calculator, How Much Water You Need Daily | Ingredient Calculator</title>
 <meta name="description" content="Free hydration calculator: find out how much water you need each day based on your weight, activity level, climate, and caffeine intake. Includes hourly drinking timeline and exercise adjustments.">
 <meta name="keywords" content="hydration calculator, daily water intake, how much water per day, water calculator by weight, hydration needs, daily water needs, water intake calculator, exercise hydration, drink water tracker">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ingredientcalculator.com/tools/hydration-calculator">
-<meta property="og:title" content="Hydration Calculator — How Much Water You Need Daily">
+<meta property="og:title" content="Hydration Calculator, How Much Water You Need Daily">
 <meta property="og:description" content="Calculate your daily water intake target based on weight, activity, climate, and caffeine. Includes hourly drinking schedule and glass tracker.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ingredientcalculator.com/tools/hydration-calculator">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hydration Calculator — How Much Water You Need Daily">
+<meta name="twitter:title" content="Hydration Calculator, How Much Water You Need Daily">
 <meta name="twitter:description" content="Calculate your daily water intake target based on weight, activity, climate, and caffeine. Includes hourly drinking schedule and glass tracker.">
 <script type="application/ld+json">
 {
@@ -199,7 +199,7 @@ footer a:hover{color:var(--accent)}
 
   <div class="hero">
     <h1>Hydration Calculator<br><span>How Much Water You Need Daily</span></h1>
-    <p>Enter your weight, activity level, climate, and caffeine intake to get your personalised daily water target — plus a timeline and glass tracker.</p>
+    <p>Enter your weight, activity level, climate, and caffeine intake to get your personalised daily water target, plus a timeline and glass tracker.</p>
   </div>
 
   <div class="panel">
@@ -225,8 +225,8 @@ footer a:hover{color:var(--accent)}
         <label for="activity">Activity Level</label>
         <select id="activity">
           <option value="sedentary">Sedentary (desk job, minimal movement)</option>
-          <option value="light">Lightly active (walking, light exercise 1–3×/wk)</option>
-          <option value="moderate" selected>Moderately active (3–5 workouts/week)</option>
+          <option value="light">Lightly active (walking, light exercise 1 to 3×/wk)</option>
+          <option value="moderate" selected>Moderately active (3 to 5 workouts/week)</option>
           <option value="active">Very active (daily intense training)</option>
           <option value="athlete">Elite athlete (twice-daily training)</option>
         </select>
@@ -238,7 +238,7 @@ footer a:hover{color:var(--accent)}
         <label for="climate">Climate / Environment</label>
         <select id="climate">
           <option value="cold">Cold (&lt;10°C / 50°F)</option>
-          <option value="temperate" selected>Temperate (10–25°C / 50–77°F)</option>
+          <option value="temperate" selected>Temperate (10 to 25°C / 50 to 77°F)</option>
           <option value="hot">Hot (&gt;25°C / 77°F) or humid</option>
           <option value="extreme">Extreme heat (&gt;35°C / 95°F)</option>
         </select>
@@ -276,24 +276,24 @@ footer a:hover{color:var(--accent)}
 
     <div class="result-panel" id="result-panel">
       <div class="result-hero">
-        <div class="big-num" id="daily-ml">—</div>
+        <div class="big-num" id="daily-ml">, </div>
         <div class="big-label">millilitres of water per day</div>
-        <div class="sub-num" id="daily-oz">— oz &nbsp;|&nbsp; — litres</div>
+        <div class="sub-num" id="daily-oz">, oz &nbsp;|&nbsp;, litres</div>
       </div>
 
       <div class="stats-grid">
-        <div class="stat-card"><div class="val" id="stat-base">—</div><div class="lbl">Base intake (ml)</div></div>
-        <div class="stat-card"><div class="val" id="stat-activity">—</div><div class="lbl">Activity add-on (ml)</div></div>
-        <div class="stat-card"><div class="val" id="stat-climate">—</div><div class="lbl">Climate add-on (ml)</div></div>
-        <div class="stat-card"><div class="val" id="stat-caffeine">—</div><div class="lbl">Caffeine offset (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-base">, </div><div class="lbl">Base intake (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-activity">, </div><div class="lbl">Activity add-on (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-climate">, </div><div class="lbl">Climate add-on (ml)</div></div>
+        <div class="stat-card"><div class="val" id="stat-caffeine">, </div><div class="lbl">Caffeine offset (ml)</div></div>
       </div>
 
-      <div class="section-title">When to Drink — Daily Timeline</div>
+      <div class="section-title">When to Drink, Daily Timeline</div>
       <div class="timeline" id="timeline"></div>
 
       <div class="info-box" id="exercise-tip"></div>
 
-      <div class="section-title">Progress Tracker — Glass Counter</div>
+      <div class="section-title">Progress Tracker, Glass Counter</div>
       <div class="glass-counter" id="glass-counter">
         <div class="glass-info">
           <span class="glass-label">250 ml per glass. Tap a glass to fill it.</span>
@@ -315,12 +315,12 @@ footer a:hover{color:var(--accent)}
   <div class="panel">
     <div class="panel-title">About This Calculator</div>
     <div class="panel-sub">How daily water targets are calculated.</div>
-    <div style="font-size:0.9rem;color:var(--dim);line-height:1.8">
-      <p><strong style="color:var(--text)">Base intake</strong> is calculated at 35 ml per kg of body weight for sedentary adults, a value supported by EFSA (European Food Safety Authority) guidelines.</p>
-      <p style="margin-top:8px"><strong style="color:var(--text)">Activity multiplier</strong> adds 300–700 ml depending on intensity, reflecting average sweat losses during moderate to intense training.</p>
-      <p style="margin-top:8px"><strong style="color:var(--text)">Climate factor</strong> adds up to 600 ml in extreme heat to compensate for increased perspiration and respiratory losses.</p>
-      <p style="margin-top:8px"><strong style="color:var(--text)">Caffeine offset</strong> adds a small compensatory volume (~150 ml per 200 mg caffeine) because caffeine has a mild diuretic effect, though caffeinated drinks still contribute positively to overall hydration.</p>
-      <p style="margin-top:8px"><strong style="color:var(--text)">Exercise add-on</strong> is calculated at 500 ml per 30 minutes of exercise and is shown separately in the breakdown.</p>
+    <div style="font-size:0.9rem;color:var(, dim);line-height:1.8">
+      <p><strong style="color:var(, text)">Base intake</strong> is calculated at 35 ml per kg of body weight for sedentary adults, a value supported by EFSA (European Food Safety Authority) guidelines.</p>
+      <p style="margin-top:8px"><strong style="color:var(, text)">Activity multiplier</strong> adds 300 to 700 ml depending on intensity, reflecting average sweat losses during moderate to intense training.</p>
+      <p style="margin-top:8px"><strong style="color:var(, text)">Climate factor</strong> adds up to 600 ml in extreme heat to compensate for increased perspiration and respiratory losses.</p>
+      <p style="margin-top:8px"><strong style="color:var(, text)">Caffeine offset</strong> adds a small compensatory volume (~150 ml per 200 mg caffeine) because caffeine has a mild diuretic effect, though caffeinated drinks still contribute positively to overall hydration.</p>
+      <p style="margin-top:8px"><strong style="color:var(, text)">Exercise add-on</strong> is calculated at 500 ml per 30 minutes of exercise and is shown separately in the breakdown.</p>
     </div>
   </div>
 
@@ -330,7 +330,7 @@ footer a:hover{color:var(--accent)}
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How much water should I drink per day?</div>
-      <div class="faq-a">General guidelines recommend about 35 ml of water per kilogram of body weight per day for sedentary adults in a temperate climate. A 70 kg (154 lb) adult would need approximately 2.5 litres (84 oz). However, actual needs vary with activity level, heat exposure, and diet. Athletes training for more than 1 hour per day may need an additional 500–1000 ml. This calculator accounts for all those factors.</div>
+      <div class="faq-a">General guidelines recommend about 35 ml of water per kilogram of body weight per day for sedentary adults in a temperate climate. A 70 kg (154 lb) adult would need approximately 2.5 litres (84 oz). However, actual needs vary with activity level, heat exposure, and diet. Athletes training for more than 1 hour per day may need an additional 500 to 1000 ml. This calculator accounts for all those factors.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Does caffeine make you dehydrated?</div>
@@ -338,21 +338,21 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How do I know if I am dehydrated?</div>
-      <div class="faq-a">The most reliable everyday indicator of hydration status is urine colour. Pale yellow (like lemonade) indicates good hydration. Dark yellow or amber suggests mild to moderate dehydration. Clear urine may indicate overhydration. Other signs of dehydration include headache, reduced concentration, dry mouth, and reduced energy. Thirst is a late indicator — do not wait until you feel thirsty to drink.</div>
+      <div class="faq-a">The most reliable everyday indicator of hydration status is urine colour. Pale yellow (like lemonade) indicates good hydration. Dark yellow or amber suggests mild to moderate dehydration. Clear urine may indicate overhydration. Other signs of dehydration include headache, reduced concentration, dry mouth, and reduced energy. Thirst is a late indicator, do not wait until you feel thirsty to drink.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How much extra water do I need when exercising?</div>
-      <div class="faq-a">A practical rule is to drink 500 ml (17 oz) of water for every 30 minutes of moderate exercise, or up to 750 ml per 30 minutes during intense exercise in the heat. Weigh yourself before and after a workout: every 1 kg of weight lost corresponds to approximately 1 litre of fluid lost. Aim to replace 125–150% of that deficit within 4–6 hours of finishing exercise.</div>
+      <div class="faq-a">A practical rule is to drink 500 ml (17 oz) of water for every 30 minutes of moderate exercise, or up to 750 ml per 30 minutes during intense exercise in the heat. Weigh yourself before and after a workout: every 1 kg of weight lost corresponds to approximately 1 litre of fluid lost. Aim to replace 125 to 150% of that deficit within 4 to 6 hours of finishing exercise.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Can I drink too much water?</div>
-      <div class="faq-a">Yes. Hyponatraemia (dangerously low blood sodium) can occur when extremely large volumes of water are consumed without electrolyte replacement — typically more than 1 litre per hour over several hours, most commonly seen in endurance athletes. For most people, exceeding their daily target by 500–1000 ml is harmless and simply increases urination. Electrolyte drinks or sodium-containing foods are advisable for exercise lasting more than 90 minutes to prevent dilutional hyponatraemia.</div>
+      <div class="faq-a">Yes. Hyponatraemia (dangerously low blood sodium) can occur when extremely large volumes of water are consumed without electrolyte replacement, typically more than 1 litre per hour over several hours, most commonly seen in endurance athletes. For most people, exceeding their daily target by 500 to 1000 ml is harmless and simply increases urination. Electrolyte drinks or sodium-containing foods are advisable for exercise lasting more than 90 minutes to prevent dilutional hyponatraemia.</div>
     </div>
   </div>
 </div>
 
 <footer>
-  <p>&copy; 2026 <a href="/">Ingredient Calculator</a> &mdash; <a href="/tools/">All Tools</a> &mdash; <a href="/guides/">Guides</a></p>
+  <p>&copy; 2026 <a href="/">Ingredient Calculator</a>, <a href="/tools/">All Tools</a>, <a href="/guides/">Guides</a></p>
 </footer>
 
 <script>
@@ -477,7 +477,7 @@ function buildGlassGrid() {
     const div = document.createElement('div');
     div.className = 'glass-icon' + (i < filledGlasses ? ' filled' : '');
     div.title = "Glass " + (i + 1);
-    div.textContent = i < filledGlasses ? '🫗' : '🥛';
+    div.textContent = i < filledGlasses ? '' : '';
     div.addEventListener('click', () => toggleGlass(i));
     grid.appendChild(div);
   }

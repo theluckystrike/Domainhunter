@@ -378,7 +378,7 @@ footer {
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header>
-  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 --></div>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: HEADER LEADERBOARD 728x90 , ></div>
   <div class="container">
     <a href="/" class="logo" aria-label="Ingredient Calculator Home">
       <span class="logo-icon" aria-hidden="true">&#9878;</span>
@@ -397,7 +397,7 @@ footer {
 
 <section class="hero" aria-label="Introduction">
   <div class="container">
-    <h1><span>Baker's Percentage Calculator</span> &mdash; Hydration Analysis</h1>
+    <h1><span>Baker's Percentage Calculator</span>, Hydration Analysis</h1>
     <p>Enter your flour weight and calculate every ingredient using baker's percentages. Load presets for sandwich bread, sourdough, pizza dough, brioche, and focaccia with real-time hydration analysis.</p>
   </div>
 </section>
@@ -452,10 +452,10 @@ footer {
     </div>
 
     <h3 style="font-size:1rem;margin:16px 0 8px;">Ingredients (Baker's Percentage)</h3>
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin-bottom:4px;padding:0 0 4px;border-bottom:1px solid var(--clr-border);">
-      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Ingredient</span>
-      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Baker's %</span>
-      <span style="font-size:0.75rem;font-weight:600;color:var(--clr-text-muted);text-transform:uppercase;">Weight (g)</span>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin-bottom:4px;padding:0 0 4px;border-bottom:1px solid var(, clr-border);">
+      <span style="font-size:0.75rem;font-weight:600;color:var(, clr-text-muted);text-transform:uppercase;">Ingredient</span>
+      <span style="font-size:0.75rem;font-weight:600;color:var(, clr-text-muted);text-transform:uppercase;">Baker's %</span>
+      <span style="font-size:0.75rem;font-weight:600;color:var(, clr-text-muted);text-transform:uppercase;">Weight (g)</span>
       <span style="width:36px;"></span>
     </div>
     <div id="bp-ingredients"></div>
@@ -469,9 +469,9 @@ footer {
       <button class="btn btn-secondary" id="bp-reset" aria-label="Reset all">Reset</button>
     </div>
 
-    <!-- Hydration gauge -->
+    <!-- Hydration gauge , >
     <div id="bp-gauge-section" style="display:none;">
-      <h3 style="font-size:1rem;margin:24px 0 8px;color:var(--clr-accent);">Hydration Level</h3>
+      <h3 style="font-size:1rem;margin:24px 0 8px;color:var(, clr-accent);">Hydration Level</h3>
       <div class="hydration-gauge">
         <div class="gauge-bar"><div class="gauge-needle" id="bp-needle" style="left:50%;"></div></div>
         <div class="gauge-labels">
@@ -485,7 +485,7 @@ footer {
       </div>
     </div>
 
-    <!-- Results table -->
+    <!-- Results table , >
     <div class="result-box" id="bp-results" aria-live="polite">
       <h3>Formula Summary</h3>
       <table class="result-table" id="bp-result-table" aria-label="Baker's percentage results">
@@ -493,16 +493,16 @@ footer {
         <tbody></tbody>
       </table>
       <div style="margin-top:12px;padding-top:12px;border-top:1px solid #D1FAE5;">
-        <strong style="font-size:0.95rem;">Total Dough Weight: <span id="bp-total-weight" style="color:var(--clr-accent);">0</span>g</strong>
+        <strong style="font-size:0.95rem;">Total Dough Weight: <span id="bp-total-weight" style="color:var(, clr-accent);">0</span>g</strong>
       </div>
     </div>
   </section>
 
-  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE --></div>
+  <div class="ad-zone" aria-hidden="true"><!-- AD ZONE: BELOW CALCULATOR RESPONSIVE , ></div>
 </main>
 
 <section class="info-section" aria-label="Baker's percentage guide">
-  <h2>Understanding Baker's Percentages: The Professional Bread Baker's Language</h2>
+  <h2>Understanding Baker's Percentages, The Professional Bread Baker's Language</h2>
 
   <p>Baker's percentage, also known as baker's math or formula percentage, is the universal system professional bakers use to express bread formulas. Unlike home recipes that list ingredients in cups or tablespoons, baker's percentages describe every ingredient's weight relative to the total flour weight, which is always defined as 100%. This deceptively simple notation unlocks the ability to scale any recipe to any batch size, compare different bread formulas at a glance, and understand the fundamental structure of dough without getting lost in specific quantities.</p>
 
@@ -513,23 +513,23 @@ footer {
   <h3>Hydration and Dough Character</h3>
   <p>Hydration is the single most important baker's percentage after flour itself. It is the ratio of total water (and liquid) weight to total flour weight. Different hydration levels produce dramatically different doughs:</p>
   <ul>
-    <li><strong>45-55% hydration (Stiff doughs)</strong> &mdash; Bagels, pretzels, and some pasta doughs. These are firm, easy to shape, and produce a dense, chewy crumb with small, uniform air pockets. The low water content means strong gluten development through aggressive kneading.</li>
-    <li><strong>55-65% hydration (Low-medium)</strong> &mdash; Sandwich bread, dinner rolls, challah. Manageable doughs that hold their shape well during proofing. They produce a soft, tender crumb with even, small-to-medium air holes ideal for slicing and spreading.</li>
-    <li><strong>65-75% hydration (Medium-high)</strong> &mdash; Sourdough boules, baguettes, country loaves. Tacky but workable doughs that benefit from stretch-and-fold techniques rather than traditional kneading. The higher water content creates larger, more irregular air pockets and a more complex flavor through extended fermentation.</li>
-    <li><strong>75-85% hydration (High)</strong> &mdash; Ciabatta, focaccia, Neapolitan pizza (some styles). Very sticky, wet doughs that require bench scrapers and wet hands to handle. The reward is a dramatically open crumb with large, glossy holes and a crispy, crackly crust.</li>
-    <li><strong>85-100%+ hydration (Very high)</strong> &mdash; Pancake batters, certain flatbreads, and experimental artisan loaves. These are nearly pourable and require molds or pans. The extreme moisture creates maximum oven spring and an incredibly airy interior.</li>
+    <li><strong>45-55% hydration (Stiff doughs)</strong>, Bagels, pretzels, and some pasta doughs. These are firm, easy to shape, and produce a dense, chewy crumb with small, uniform air pockets. The low water content means strong gluten development through aggressive kneading.</li>
+    <li><strong>55-65% hydration (Low-medium)</strong>, Sandwich bread, dinner rolls, challah. Manageable doughs that hold their shape well during proofing. They produce a soft, tender crumb with even, small-to-medium air holes ideal for slicing and spreading.</li>
+    <li><strong>65-75% hydration (Medium-high)</strong>, Sourdough boules, baguettes, country loaves. Tacky but workable doughs that benefit from stretch-and-fold techniques rather than traditional kneading. The higher water content creates larger, more irregular air pockets and a more complex flavor through extended fermentation.</li>
+    <li><strong>75-85% hydration (High)</strong>, Ciabatta, focaccia, Neapolitan pizza (some styles). Very sticky, wet doughs that require bench scrapers and wet hands to handle. The reward is a dramatically open crumb with large, glossy holes and a crispy, crackly crust.</li>
+    <li><strong>85-100%+ hydration (Very high)</strong>, Pancake batters, certain flatbreads, and experimental artisan loaves. These are nearly pourable and require molds or pans. The extreme moisture creates maximum oven spring and an incredibly airy interior.</li>
   </ul>
 
   <h3>Common Bread Formulas in Baker's Percentages</h3>
   <p>The five presets in this calculator represent the most popular bread categories baked worldwide. Here is what makes each formula unique and why the ratios work:</p>
-  <p><strong>Sandwich Bread (62% hydration):</strong> The quintessential everyday loaf. Flour 100%, water 62%, sugar 6%, butter 5%, salt 2%, yeast 1.5%, milk powder 3%. The sugar and butter create a soft, tender crumb that stays fresh longer. The moderate hydration makes this dough forgiving for beginners &mdash; it kneads easily, rises predictably, and shapes without sticking.</p>
-  <p><strong>Sourdough (75% hydration):</strong> Flour 100%, water 75%, sourdough starter 20%, salt 2%. No commercial yeast. The levain provides leavening through wild yeast and lactic acid bacteria, creating complex sour flavors. The higher hydration compensates for the whole-grain flour often blended in and produces the signature open crumb with irregular holes.</p>
-  <p><strong>Pizza Dough (65% hydration):</strong> Flour 100%, water 65%, olive oil 3%, salt 2.5%, yeast 0.5%. The relatively low yeast percentage allows for a slow, cold fermentation (24-72 hours) that develops deep flavor. Olive oil adds extensibility, making the dough easier to stretch thin without tearing.</p>
-  <p><strong>Brioche (52% hydration):</strong> Flour 100%, eggs 40%, butter 50%, sugar 10%, salt 2%, yeast 2.5%, milk 12%. Brioche is technically more pastry than bread, with an enormous amount of butter that creates a rich, golden, cake-like crumb. The low water content comes almost entirely from eggs and milk, and the butter is incorporated slowly into an already-developed dough.</p>
-  <p><strong>Focaccia (80% hydration):</strong> Flour 100%, water 80%, olive oil 8%, salt 2.5%, yeast 1%. The very high hydration creates the characteristic large bubbles and airy interior. Generous olive oil in and on the dough gives focaccia its distinctive crispy bottom and golden top. The dough is simply pressed into an oiled pan rather than shaped, making it one of the most forgiving high-hydration breads.</p>
+  <p>Sandwich Bread (62% hydration). The quintessential everyday loaf. Flour 100%, water 62%, sugar 6%, butter 5%, salt 2%, yeast 1.5%, milk powder 3%. The sugar and butter create a soft, tender crumb that stays fresh longer. The moderate hydration makes this dough forgiving for beginners, it kneads easily, rises predictably, and shapes without sticking.</p>
+  <p>Sourdough (75% hydration). Flour 100%, water 75%, sourdough starter 20%, salt 2%. No commercial yeast. The levain provides leavening through wild yeast and lactic acid bacteria, creating complex sour flavors. The higher hydration compensates for the whole-grain flour often blended in and produces the signature open crumb with irregular holes.</p>
+  <p>Pizza Dough (65% hydration). Flour 100%, water 65%, olive oil 3%, salt 2.5%, yeast 0.5%. The relatively low yeast percentage allows for a slow, cold fermentation (24-72 hours) that develops deep flavor. Olive oil adds extensibility, making the dough easier to stretch thin without tearing.</p>
+  <p>Brioche (52% hydration). Flour 100%, eggs 40%, butter 50%, sugar 10%, salt 2%, yeast 2.5%, milk 12%. Brioche is technically more pastry than bread, with an enormous amount of butter that creates a rich, golden, cake-like crumb. The low water content comes almost entirely from eggs and milk, and the butter is incorporated slowly into an already-developed dough.</p>
+  <p>Focaccia (80% hydration). Flour 100%, water 80%, olive oil 8%, salt 2.5%, yeast 1%. The very high hydration creates the characteristic large bubbles and airy interior. Generous olive oil in and on the dough gives focaccia its distinctive crispy bottom and golden top. The dough is simply pressed into an oiled pan rather than shaped, making it one of the most forgiving high-hydration breads.</p>
 
   <h3>Tips for Using Baker's Percentages at Home</h3>
-  <p>To get the most out of this system, invest in a kitchen scale that reads in 1-gram increments. Scales under 15 dollars work perfectly for home baking. Always weigh your flour rather than scooping with a cup &mdash; a single cup of flour can range from 120g to 160g depending on technique, which at 500g total could throw your hydration off by 8 percentage points. When adding ingredients from a sourdough starter, remember that a 100% hydration starter contributes equal parts flour and water, so factor those amounts into your true flour and water totals for accurate hydration calculations.</p>
+  <p>To get the most out of this system, invest in a kitchen scale that reads in 1-gram increments. Scales under 15 dollars work perfectly for home baking. Always weigh your flour rather than scooping with a cup, a single cup of flour can range from 120g to 160g depending on technique, which at 500g total could throw your hydration off by 8 percentage points. When adding ingredients from a sourdough starter, remember that a 100% hydration starter contributes equal parts flour and water, so factor those amounts into your true flour and water totals for accurate hydration calculations.</p>
 
   <div class="info-grid">
     <article class="info-card">
@@ -553,15 +553,15 @@ footer {
 
 <footer>
   <div class="container">
-    <p>&copy; 2026 IngredientCalculator.com &mdash; Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
+    <p>&copy; 2026 IngredientCalculator.com, Free Recipe Scaling, Unit Conversion &amp; Substitution Tool</p>
     <p style="margin-top:4px;">Nutrition data based on USDA averages. For medical dietary advice, consult a healthcare professional.</p>
     <p style="margin-top:8px;">
-      <a href="/" style="color:var(--clr-accent);text-decoration:none;">Home</a> &middot;
-      <a href="/cups-to-grams.html" style="color:var(--clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
-      <a href="/baking-ratios.html" style="color:var(--clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
-      <a href="/tools/macro-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
-      <a href="/tools/baking-ratio-calculator.html" style="color:var(--clr-accent);text-decoration:none;">Baker's %</a> &middot;
-      <a href="/guides/portion-control-guide.html" style="color:var(--clr-accent);text-decoration:none;">Portion Guide</a>
+      <a href="/" style="color:var(, clr-accent);text-decoration:none;">Home</a> &middot;
+      <a href="/cups-to-grams.html" style="color:var(, clr-accent);text-decoration:none;">Cups to Grams</a> &middot;
+      <a href="/baking-ratios.html" style="color:var(, clr-accent);text-decoration:none;">Baking Ratios</a> &middot;
+      <a href="/tools/macro-calculator.html" style="color:var(, clr-accent);text-decoration:none;">Macro Calculator</a> &middot;
+      <a href="/tools/baking-ratio-calculator.html" style="color:var(, clr-accent);text-decoration:none;">Baker's %</a> &middot;
+      <a href="/guides/portion-control-guide.html" style="color:var(, clr-accent);text-decoration:none;">Portion Guide</a>
     </p>
   </div>
 </footer>
