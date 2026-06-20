@@ -111,3 +111,27 @@ footer a{color:var(--clr-accent)!important}
   header .container{flex-wrap:wrap;row-gap:8px}
   header nav,header .container nav{width:100%;flex-wrap:wrap;gap:10px 16px}
 }
+
+/* ===========================================================================
+   RESPONSIVE SPRINT (Phase 3 global). Containment, readable measure, touch
+   targets. CSS-only, reuses the 640px breakpoint. No colors/fonts changed.
+   =========================================================================== */
+img,svg,video,canvas,iframe{max-width:100%;height:auto}
+body{overflow-x:clip}
+main{overflow-x:clip}                      /* phantom-overflow safety net */
+/* Readable line length on wide content pages (spec: ~42rem). max-width never
+   narrows below the container, so cards/tools are unaffected. */
+p,li,dd,blockquote{max-width:42rem}
+.subtitle,.lede,.intro,.hero p{max-width:42rem}
+/* Tables scroll inside their wrapper instead of pushing the page wide */
+.table-container,.ref-table-wrap,.pan-table-wrap,.table-wrap,.result-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+/* Touch targets on mobile: form controls and buttons reach 44px; nav/footer
+   links get a larger tap area. */
+@media(max-width:640px){
+  input,select,textarea,button,.btn,.faq-btn,.chip,.filter-btn{min-height:44px}
+  .chip,.filter-btn{min-width:44px}
+  header nav a,header .container nav a{padding-top:11px!important;padding-bottom:11px!important;display:inline-block!important}
+  footer a{display:inline-block;padding:7px 0}
+  main{padding-left:0;padding-right:0}
+  .container{padding-left:16px;padding-right:16px}
+}
