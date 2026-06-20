@@ -9,3 +9,6 @@
 
 /index.html
   Cache-Control: public, max-age=3600, s-maxage=86400
+
+/theme.css
+  Cache-Control: public, max-age=300, must-revalidate
