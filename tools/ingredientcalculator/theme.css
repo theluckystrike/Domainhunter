@@ -1,0 +1,91 @@
+/* ===========================================================================
+   Editorial theme. Applies the homepage design language (warm paper, rust
+   accent, serif display headings, mono labels) to every tool and content page.
+   Loaded after each page's own <style>, so it overrides. The main lever is
+   redefining the legacy --clr-* tokens to editorial values, so existing
+   component CSS adopts the palette and fonts with no structural change.
+   Font stacks match the homepage (no web fonts loaded), so pages render
+   consistently with it.
+   =========================================================================== */
+:root{
+  --clr-bg:oklch(0.965 0.018 78);
+  --clr-surface:oklch(0.988 0.010 80);
+  --clr-surface-alt:oklch(0.945 0.020 76);
+  --clr-border:oklch(0.86 0.018 72);
+  --clr-border-focus:oklch(0.58 0.140 38);
+  --clr-text:oklch(0.22 0.025 50);
+  --clr-text-muted:oklch(0.50 0.020 60);
+  --clr-accent:oklch(0.56 0.140 38);
+  --clr-accent-hover:oklch(0.40 0.120 36);
+  --clr-accent-light:oklch(0.93 0.045 64);
+  --clr-accent-bg:oklch(0.967 0.022 72);
+  --clr-success:oklch(0.50 0.075 150);
+  --clr-success-bg:oklch(0.95 0.030 150);
+  --clr-danger:oklch(0.52 0.160 28);
+  --clr-danger-bg:oklch(0.95 0.040 30);
+  --clr-info:oklch(0.50 0.090 250);
+  --clr-info-bg:oklch(0.95 0.030 250);
+  --clr-shadow:oklch(0.30 0.030 60 / 0.10);
+  --radius:14px; --radius-sm:8px;
+  --font:"Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font-display:"Newsreader","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --font-mono:"JetBrains Mono","SF Mono","Fira Code",ui-monospace,monospace;
+  --t-bg:var(--clr-bg); --t-ink:var(--clr-text); --t-muted:var(--clr-text-muted);
+  --t-accent:var(--clr-accent); --t-rule:var(--clr-border);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--clr-bg);color:var(--clr-text);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* Serif display headings, the homepage signature */
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em;color:var(--clr-text)}
+h2{line-height:1.12}
+main h2:first-of-type{font-size:clamp(28px,4.2vw,42px)}
+.subtitle,.lede,.intro{font-family:var(--font-display);color:var(--clr-text-muted)}
+
+/* Header chrome */
+header{background:color-mix(in oklch,var(--clr-bg),white 24%)!important;
+  border-bottom:1px solid var(--clr-border)!important;box-shadow:none!important}
+header h1,header .container h1{font-family:var(--font-display)!important;font-weight:400!important;
+  font-size:19px!important;letter-spacing:.01em!important}
+header h1 a{color:var(--clr-text)!important;text-decoration:none}
+header nav a,header .container nav a{font-family:var(--font-mono)!important;font-size:11.5px!important;
+  text-transform:uppercase!important;letter-spacing:.12em!important;color:var(--clr-text-muted)!important;
+  background:transparent!important;border:1px solid transparent!important;padding:5px 4px!important;
+  border-radius:0!important;transition:color .18s ease}
+header nav a:hover,header .container nav a:hover{color:var(--clr-accent)!important;background:transparent!important;
+  border-color:transparent!important}
+
+/* Cards and surfaces */
+.card{background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius);
+  box-shadow:0 1px 2px var(--clr-shadow)}
+
+/* Form controls */
+.field label,label{font-family:var(--font-mono);letter-spacing:.04em}
+input,select,textarea{font-family:var(--font);border-radius:var(--radius-sm)}
+input:focus,select:focus,textarea:focus{border-color:var(--clr-accent)!important;
+  box-shadow:0 0 0 3px var(--clr-accent-light)!important;outline:none}
+
+/* Result / output emphasis */
+.result-box,.result,.output-box{background:var(--clr-accent-bg)!important;border:1px solid var(--clr-accent)!important}
+.result-box .value,.result .value,.result-value{font-family:var(--font-display)!important;color:var(--clr-accent-hover)!important}
+
+/* Tables */
+th{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.04em;
+  background:var(--clr-surface-alt);color:var(--clr-text-muted);font-weight:500}
+
+/* Buttons. Primary actions get the rust pill; neutral buttons a hairline pill. */
+button,.btn,a.button,input[type=button],input[type=submit]{font-family:var(--font);border-radius:999px}
+.btn-primary,button.primary,.primary-btn{background:var(--clr-accent);color:#fff;border:none}
+.btn-primary:hover,button.primary:hover,.primary-btn:hover{background:var(--clr-accent-hover)}
+
+/* Links in body copy */
+main a:not(.btn):not(.button){color:var(--clr-accent)}
+main a:not(.btn):not(.button):hover{color:var(--clr-accent-hover)}
+
+/* Footer */
+footer{border-top:1px solid var(--clr-border)!important;color:var(--clr-text-muted)!important;background:transparent!important}
+footer a{color:var(--clr-accent)!important}
+
+/* Accessibility */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--clr-accent);outline-offset:2px}
