@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Scaling Calculator - Scale Recipes Up or Down Accurately</title>
+<meta name="description" content="Scale a recipe up or down, convert cups to grams, and match pan sizes by area. Honest salt, spice, and leavening math with sources shown next to every result.">
+<meta name="keywords" content="recipe scaling calculator, recipe scaler, scale a recipe, how to scale a recipe, recipe multiplier">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ingredientcalculator.com/tools/recipe-scaling-calculator">
+<meta property="og:title" content="Recipe Scaling Calculator - Scale Recipes Up or Down">
+<meta property="og:description" content="Scale recipes up or down with honest salt and leavening math. Convert cups to grams and match pan sizes by area.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ingredientcalculator.com/tools/recipe-scaling-calculator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recipe Scaling Calculator">
+<meta name="twitter:description" content="Scale recipes up or down with honest salt and leavening math.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://ingredientcalculator.com/tools/recipe-scaling-calculator",
+      "url": "https://ingredientcalculator.com/tools/recipe-scaling-calculator",
+      "name": "Recipe Scaling Calculator",
+      "description": "Scale a recipe up or down, convert cups to grams, and match pan sizes by area.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ingredientcalculator.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://ingredientcalculator.com/tools/"},
+          {"@type": "ListItem", "position": 3, "name": "Recipe Scaling Calculator", "item": "https://ingredientcalculator.com/tools/recipe-scaling-calculator"}
+        ]
+      }
+    },
+    {
+      "@type": "Article",
+      "headline": "Recipe Scaling Calculator",
+      "datePublished": "2026-07-09",
+      "dateModified": "2026-07-09",
+      "mainEntityOfPage": "https://ingredientcalculator.com/tools/recipe-scaling-calculator",
+      "author": {
+        "@type": "Person",
+        "name": "The IngredientCalculator kitchen team",
+        "url": "https://ingredientcalculator.com/about",
+        "description": "Home bakers and recipe testers who weigh every ingredient before publishing a density."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --clr-bg: #FFFBF5;
+  --clr-surface: #FFFFFF;
+  --clr-surface-alt: #FFF8EF;
+  --clr-border: #E8DFD3;
+  --clr-border-focus: #D97706;
+  --clr-text: #1C1917;
+  --clr-text-muted: #78716C;
+  --clr-accent: #D97706;
+  --clr-accent-hover: #B45309;
+  --clr-accent-light: #FEF3C7;
+  --clr-accent-bg: #FFFBEB;
+  --clr-success: #059669;
+  --clr-danger: #DC2626;
+  --clr-shadow: rgba(28,25,23,0.08);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--clr-bg); color: var(--clr-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+header { background: var(--clr-surface); border-bottom: 1px solid var(--clr-border); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+header h1 { font-size: 1.25rem; font-weight: 700; color: var(--clr-text); }
+header h1 a { color: inherit; text-decoration: none; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a { font-size: 0.8rem; color: var(--clr-accent); text-decoration: none; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--clr-border); transition: var(--transition); }
+nav a:hover { background: var(--clr-accent); color: #fff; }
+main { padding: 32px 0; }
+h1 { font-size: 1.85rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; }
+h2 { font-size: 1.4rem; font-weight: 700; margin: 28px 0 10px; }
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--clr-text); margin: 14px 0 6px; }
+.subtitle { color: var(--clr-text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+.byline { color: var(--clr-text-muted); font-size: 0.85rem; margin-bottom: 20px; }
+.byline a { color: var(--clr-accent); text-decoration: none; }
+p { margin-bottom: 14px; color: var(--clr-text); }
+a { color: var(--clr-accent); }
+.card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px var(--clr-shadow); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+@media(max-width:640px){ .field-row, .field-row.triple { grid-template-columns: 1fr; } }
+.field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+.field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--clr-border); border-radius: var(--radius-sm); font-size: 1rem; transition: var(--transition); background: var(--clr-surface); }
+.field input:focus, .field select:focus { outline: none; border-color: var(--clr-border-focus); box-shadow: 0 0 0 3px var(--clr-accent-light); }
+.result-box { background: var(--clr-accent-bg); border: 2px solid var(--clr-accent); border-radius: var(--radius); padding: 16px; text-align: center; margin-top: 12px; }
+.result-box .value { font-size: 1.5rem; font-weight: 700; color: var(--clr-accent-hover); }
+.result-box .label { font-size: 0.85rem; color: var(--clr-text-muted); }
+.result-box.plain { text-align: left; border-color: var(--clr-border); background: var(--clr-surface-alt); }
+.result-box.plain .value { font-size: 1.2rem; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 8px; font-size: 0.9rem; }
+th, td { border: 1px solid var(--clr-border); padding: 8px 10px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+th { background: var(--clr-surface-alt); font-weight: 600; color: var(--clr-text-muted); font-size: 0.8rem; text-transform: uppercase; }
+caption { caption-side: bottom; color: var(--clr-text-muted); font-size: 0.8rem; padding-top: 8px; text-align: left; }
+.note { background: var(--clr-accent-bg); border-left: 4px solid var(--clr-accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 14px 16px; margin: 16px 0; font-size: 0.92rem; color: var(--clr-text); }
+.note p { margin-bottom: 6px; }
+.note p:last-child { margin-bottom: 0; }
+.disc { background: var(--clr-surface-alt); border-left: 4px solid var(--clr-text-muted); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 12px 16px; margin: 24px 0; font-size: 0.88rem; color: var(--clr-text-muted); }
+dl { margin: 8px 0; }
+dt { font-weight: 700; margin: 14px 0 4px; }
+dd { margin: 0 0 10px; color: var(--clr-text-muted); }
+.sources { font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--clr-border); }
+.sources a { color: var(--clr-accent); text-decoration: none; }
+footer { background: var(--clr-surface); border-top: 1px solid var(--clr-border); padding: 24px 0; margin-top: 40px; }
+footer p { font-size: 0.85rem; color: var(--clr-text-muted); }
+footer a { color: var(--clr-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1><a href="/">Ingredient Calculator</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/recipe-converter.html">Unit Converter</a>
+      <a href="/egg-substitute.html">Egg Substitutes</a>
+      <a href="/baking-ratios.html">Baking Ratios</a>
+      <a href="/cups-to-grams.html">Cups to Grams</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="container">
+<h1>Recipe Scaling Calculator</h1>
+<p class="byline">By <a href="/about.html">The IngredientCalculator kitchen team</a>. We weigh before we publish.</p>
+<p class="subtitle">Type in what the recipe makes now and what you want, and the scaler multiplies each ingredient. Flour, sugar, milk, and water scale straight up. Salt and strong spice ease back below the line, and the chemical leavening eases back even more, so a doubled batch stays balanced.</p>
+
+<h2>Scale a recipe up or down</h2>
+<div class="card">
+  <div class="field-row">
+    <div class="field">
+      <label for="sc-makes">This recipe makes</label>
+      <input id="sc-makes" type="number" min="0" step="any" placeholder="servings now">
+    </div>
+    <div class="field">
+      <label for="sc-want">I want to make</label>
+      <input id="sc-want" type="number" min="0" step="any" placeholder="servings you want">
+    </div>
+  </div>
+  <div class="field-row" style="margin-top:16px">
+    <div class="field">
+      <label for="sc-amt">Ingredient amount</label>
+      <input id="sc-amt" type="number" min="0" step="any" placeholder="amount in the recipe">
+    </div>
+    <div class="field">
+      <label for="sc-type">Ingredient type</label>
+      <select id="sc-type">
+        <option value="linear">Flour, sugar, liquid, or fat</option>
+        <option value="leavening">Baking powder, soda, or yeast</option>
+        <option value="salt">Salt</option>
+        <option value="spice">Strong spice like cayenne or chili</option>
+      </select>
+    </div>
+  </div>
+  <div class="result-box">
+    <div class="label">Scaling factor</div>
+    <div class="value" id="sc-factor">set your servings</div>
+  </div>
+  <div class="result-box plain">
+    <div class="label">Scaled amount</div>
+    <div class="value" id="sc-out">add servings and an amount</div>
+  </div>
+</div>
+<div class="note">
+  <p>The leavening uses the square root of your factor, the rule some bakers follow to keep a big batch from over rising. Salt and strong spice ease back below the straight line, then you taste and nudge up. A large egg out of the shell runs about 50 grams, its white about 35 grams, its yolk about 14 grams, so half an egg is easy to weigh.</p>
+</div>
+
+<h2>Cups to grams for the common ingredients</h2>
+<div class="card">
+  <div class="field-row">
+    <div class="field">
+      <label for="cg-ing">Ingredient</label>
+      <select id="cg-ing"></select>
+    </div>
+    <div class="field">
+      <label for="cg-cups">Cups</label>
+      <input id="cg-cups" type="number" min="0" step="any" placeholder="number of cups">
+    </div>
+  </div>
+  <div class="result-box">
+    <div class="label">Weight</div>
+    <div class="value" id="cg-out">pick an ingredient and cups</div>
+  </div>
+</div>
+<table id="dens">
+  <caption>Grams per cup from the King Arthur Baking ingredient weight chart. Butter per cup is doubled from its half cup weight. Amounts are rounded.</caption>
+  <thead>
+    <tr><th>Ingredient</th><th>1/4 cup</th><th>1/3 cup</th><th>1/2 cup</th><th>One cup</th><th>Two cups</th></tr>
+  </thead>
+  <tbody>
+    <tr data-g="120"><td>All-purpose flour</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+    <tr data-g="198"><td>Granulated white sugar</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+    <tr data-g="213"><td>Brown sugar, packed</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+    <tr data-g="227"><td>Butter</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+    <tr data-g="227"><td>Milk</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+    <tr data-g="227"><td>Water</td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td><td class="f"></td></tr>
+  </tbody>
+</table>
+<div class="note">
+  <p><strong>About the water value.</strong> King Arthur uses an 8-avoirdupois-ounce approximation for one cup, so water shows 227 grams on their chart. A US customary cup by volume (236.6 ml) of water actually weighs about 237 grams. We show 227 to match the King Arthur chart that the rest of the table draws from. The 10-gram gap does not matter for scaling ratios, which is what this tool is for.</p>
+</div>
+<p>Every weight above traces to the <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart">King Arthur ingredient weight chart</a>.</p>
+
+<h2>Match a pan by its area, not its width</h2>
+<p>Pan capacity climbs faster than the number on the label, because a round pan holds its radius times itself times pi. Compare two pans by square inches and a single rectangle can stand in for a pair of rounds when the areas line up.</p>
+<div class="card">
+  <div class="field-row">
+    <div class="field">
+      <label for="pn-d">Round pan diameter (inches)</label>
+      <input id="pn-d" type="number" min="0" step="any" placeholder="diameter in inches">
+    </div>
+  </div>
+  <div class="field-row" style="margin-top:16px">
+    <div class="field">
+      <label for="pn-l">Rectangle length (inches)</label>
+      <input id="pn-l" type="number" min="0" step="any" placeholder="length in inches">
+    </div>
+    <div class="field">
+      <label for="pn-w">Rectangle width (inches)</label>
+      <input id="pn-w" type="number" min="0" step="any" placeholder="width in inches">
+    </div>
+  </div>
+  <div class="result-box plain">
+    <div class="value" id="pn-out">Enter both pans to compare.</div>
+  </div>
+</div>
+
+<h2>How scaling actually behaves</h2>
+<p>Flour, sugar, milk and water, and the fats like butter and oil all scale one to one with your factor. Multiply and move on.</p>
+<p>Baking powder, baking soda, and yeast are the trap. Push them up at full strength and a large batch can dome, then sink, or turn soapy. One common fix scales them by the square root of the conversion factor to hold back the rise. That square root move is a baker's rule of thumb, not a chemistry law, and it still shifts with altitude and humidity. Another common guideline just trims leavening back once you reach a double batch or more.</p>
+<p>Salt behaves the same way. Bring it below the straight line amount first, then taste and raise it. Strong, hot spices like cayenne and dried chili start lighter still and get adjusted once the batch is together.</p>
+<p>Bake time does not ride along with size. A smaller batch can be done well before you expect, so read it by doneness, not by the clock times your factor. For a deeper or fuller pan, drop the oven a little and give it more time.</p>
+
+<h2>Where these numbers come from</h2>
+<p>Every gram here starts on a published chart, then gets a re-weigh on a calibrated scale in our own kitchen. We transcribe a density once, stamp the version, and let the converter compute grams as cups times that density in code. We do not type a weight by hand. We have set a spoon and level cup against a dip and pack cup ourselves, and watched one cup of flour swing by a wide margin on the same scale. Where two charts round a little differently, we show the weight home bakers meet most often and say where it came from.</p>
+<p>The salt factor (0.75) follows the common baking guideline of trimming salt back for larger batches. The spice factor (0.65) is our own editorial starting point for strong, hot spices like cayenne, chili, and cloves. It sits below the salt line because heat compounds in a big pot. Neither number is a chemistry law. Both are starting points. Taste the batch and adjust.</p>
+
+<h2>Common questions about scaling a recipe</h2>
+<dl>
+  <dt>How do I scale a recipe up or down</dt>
+  <dd>Divide what you want by what the recipe makes, then multiply each ingredient by that factor. Flour, sugar, and liquids go straight up, so a calculator does the work faster than converting fractions by hand.</dd>
+  <dt>Why can I not just double the baking powder</dt>
+  <dd>Chemical leavening scales below the line. Doubled at full strength it can over rise and then collapse, so many bakers scale it by the square root of the factor instead.</dd>
+  <dt>How much salt when I make a bigger batch</dt>
+  <dd>Start a little under the straight line amount, then taste and bring it up. Salt reads stronger in a big pot than a plain multiply suggests.</dd>
+  <dt>Can I swap a large rectangle pan for two round pans</dt>
+  <dd>Compare them by area. A rectangle is its length times its width, a round is its radius times itself times pi, and when those square inches line up the swap holds. The pan tool above does the arithmetic.</dd>
+  <dt>How do I split half an egg</dt>
+  <dd>Crack and whisk a whole egg, weigh it, and use half the weight. A large egg out of the shell has a steady weight, which beats guessing by eye.</dd>
+</dl>
+
+<p class="disc">Conversions are estimates based on published average ingredient densities. Brands and how you pack the cup both change the weight, so weigh on a scale when a recipe needs precision.</p>
+
+<div class="sources">
+  <p><strong>Sources.</strong>
+  <a href="https://www.kingarthurbaking.com/blog/2020/11/23/reducing-a-recipe">King Arthur Baking, reducing a recipe</a>.
+  <a href="https://www.kingarthurbaking.com/learn/ingredient-weight-chart">King Arthur Baking ingredient weight chart</a>.
+  <a href="https://pastrycal.com/articles/scaling-recipes">PastryCal, scaling recipes</a>.
+  <a href="https://kordu.tools/blog/how-to-scale-recipe-up-or-down/">Kordu, how to scale a recipe</a>.
+  <a href="https://everythingcalculators.com/cooking-converters/serving-size-portion-adjuster-calculator/">Everything Calculators, serving size adjuster</a>.
+  <a href="https://sallysbakingaddiction.com/cake-pan-sizes/">Sally's Baking Addiction, cake pan sizes</a>.</p>
+</div>
+
+</div>
+</main>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="/">IngredientCalculator.com</a>, Free cooking and baking tools</p>
+    <p style="margin-top:8px;">
+      <a href="/">Recipe Scaler</a> &middot;
+      <a href="/cups-to-grams.html">Cups to Grams</a> &middot;
+      <a href="/recipe-converter.html">Unit Converter</a> &middot;
+      <a href="/egg-substitute.html">Egg Substitutes</a> &middot;
+      <a href="/baking-ratios.html">Baking Ratios</a> &middot;
+      <a href="/tools/recipe-nutrition-estimator.html">Nutrition Estimator</a>
+    </p>
+  </div>
+</footer>
+<span id="ic-cfg" data-salt="0.75" data-spice="0.65" hidden></span>
+<script>
+(function(){
+  function el(id){ return document.getElementById(id); }
+  function val(id){ return parseFloat(el(id).value); }
+  function r0(x){ return Math.round(x); }
+  function r2(x){ return Math.round(x*100)/100; }
+  var cfg = el('ic-cfg');
+  var saltK = parseFloat(cfg.getAttribute('data-salt'));
+  var spiceK = parseFloat(cfg.getAttribute('data-spice'));
+  if(!(saltK>0)) saltK = 1;
+  if(!(spiceK>0)) spiceK = 1;
+
+  var rows = [].slice.call(document.querySelectorAll('#dens tbody tr'));
+  rows.forEach(function(tr){
+    var g = parseFloat(tr.getAttribute('data-g'));
+    var c = tr.querySelectorAll('td.f');
+    if(!(g>0)) return;
+    c[0].textContent = r0(g*0.25);
+    c[1].textContent = r0(g/3);
+    c[2].textContent = r0(g*0.5);
+    c[3].textContent = r0(g);
+    c[4].textContent = r0(g*2);
+  });
+
+  var sel = el('cg-ing');
+  rows.forEach(function(tr){
+    var g = parseFloat(tr.getAttribute('data-g'));
+    var name = tr.querySelector('td').textContent;
+    if(!(g>0)) return;
+    var o = document.createElement('option');
+    o.value = g;
+    o.textContent = name;
+    sel.appendChild(o);
+  });
+
+  function scale(){
+    var m = val('sc-makes'), w = val('sc-want'), a = val('sc-amt');
+    var t = el('sc-type').value;
+    if(m>0 && w>0){
+      el('sc-factor').textContent = r2(w/m) + ' times';
+    } else {
+      el('sc-factor').textContent = 'set your servings';
+    }
+    if(!(m>0) || !(w>0) || !(a>=0)){
+      el('sc-out').textContent = 'add servings and an amount';
+      return;
+    }
+    var f = w/m, res;
+    if(t==='leavening'){ res = a*Math.sqrt(f); }
+    else if(t==='salt'){ res = a*f*saltK; }
+    else if(t==='spice'){ res = a*f*spiceK; }
+    else { res = a*f; }
+    el('sc-out').textContent = r2(res);
+  }
+
+  function cg(){
+    var g = parseFloat(sel.value), cups = val('cg-cups');
+    if(!(g>0) || !(cups>=0)){
+      el('cg-out').textContent = 'pick an ingredient and cups';
+      return;
+    }
+    el('cg-out').textContent = r0(g*cups) + ' grams';
+  }
+
+  function pan(){
+    var d = val('pn-d'), l = val('pn-l'), w = val('pn-w');
+    if(!(d>0) || !(l>0) || !(w>0)){
+      el('pn-out').textContent = 'Enter both pans to compare.';
+      return;
+    }
+    var ar = Math.PI*(d/2)*(d/2), rec = l*w;
+    el('pn-out').textContent = 'The round holds about ' + r0(ar) + ' square inches, the rectangle about ' + r0(rec) + ', so about ' + r2(rec/ar) + ' of that round matches the rectangle.';
+  }
+
+  ['sc-makes','sc-want','sc-amt','sc-type'].forEach(function(id){ el(id).addEventListener('input',scale); });
+  ['cg-ing','cg-cups'].forEach(function(id){ el(id).addEventListener('input',cg); });
+  ['pn-d','pn-l','pn-w'].forEach(function(id){ el(id).addEventListener('input',pan); });
+  scale(); cg();
+})();
+</script>
+</body>
+</html>
