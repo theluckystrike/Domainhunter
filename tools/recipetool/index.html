@@ -3,163 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe Nutrition Calculator - Free Calorie & Macro Counter</title>
-<meta name="description" content="Free recipe nutrition calculator. Enter your recipe ingredients to instantly calculate calories, protein, carbs, fat, fiber, and sodium per serving. No signup required.">
+<title>Recipe Nutrition Calculator – Free Calorie &amp; Macro Counter</title>
+<meta name="description" content="Free recipe nutrition calculator. Add your ingredients to instantly get calories, protein, carbs, fat, fiber, and sodium per serving. USDA data, no signup, 100% private.">
 <link rel="canonical" href="https://recipetool.net/">
-<meta property="og:title" content="Recipe Nutrition Calculator - Free Calorie & Macro Counter">
-<meta property="og:description" content="Calculate nutrition facts for any recipe. Get calories, protein, carbs, fat, fiber, and sodium per serving instantly.">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Recipe Nutrition Calculator – Free Calorie &amp; Macro Counter">
+<meta property="og:description" content="Enter your recipe ingredients and instantly calculate calories, protein, carbs, fat, fiber, and sodium per serving. USDA-sourced, no signup.">
 <meta property="og:url" content="https://recipetool.net/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Recipe Nutrition Calculator - Free Calorie & Macro Counter">
-<meta name="twitter:description" content="Calculate nutrition facts for any recipe. Get calories, protein, carbs, fat, fiber, and sodium per serving instantly.">
+<meta name="twitter:title" content="Recipe Nutrition Calculator – Free Calorie &amp; Macro Counter">
+<meta name="twitter:description" content="Calculate calories, protein, carbs, fat, fiber, and sodium per serving for any recipe. Free, private, USDA-sourced.">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Recipe Nutrition Calculator",
-  "description": "Free recipe nutrition calculator that calculates calories, protein, carbs, fat, fiber, and sodium for any recipe.",
-  "url": "https://recipetool.net/",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "author": {"@type": "Organization", "name": "RecipeTool.net"}
+  "@context":"https://schema.org","@type":"WebApplication",
+  "name":"Recipe Nutrition Calculator",
+  "description":"Free recipe nutrition calculator that computes calories, protein, carbs, fat, fiber, and sodium per serving from your ingredients using USDA data.",
+  "url":"https://recipetool.net/",
+  "applicationCategory":"HealthApplication","operatingSystem":"Any, browser-based",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "featureList":["Calories per serving","Protein, carbs, fat, fiber","Sodium per serving","Downloadable nutrition label","100+ USDA ingredients"],
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"}
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Recipe Nutrition Calculator","url":"https://recipetool.net/","author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"}}
-</script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:900px;margin:0 auto;padding:1rem}
-.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
-.recipe-header{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
-.recipe-header input{flex:1;min-width:150px;padding:.5rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
-.recipe-header input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
-.servings-group{display:flex;align-items:center;gap:.5rem}
-.servings-group label{font-size:.85rem;color:var(--text-light);white-space:nowrap}
-.servings-group input{width:60px}
-.ingredient-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;margin-bottom:.5rem;align-items:center}
-.ingredient-row input,.ingredient-row select{padding:.45rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem}
-.ingredient-row input:focus,.ingredient-row select:focus{outline:none;border-color:var(--primary)}
-.ingredient-row .remove-btn{background:none;border:none;color:#c62828;cursor:pointer;font-size:1.2rem;padding:.25rem .5rem;border-radius:4px}
-.ingredient-row .remove-btn:hover{background:#ffebee}
-.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
-.btn:hover{background:var(--primary-dark)}
-.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
-.btn-outline:hover{background:var(--warm)}
-.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-.results{display:none}
-.nutrition-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-top:.75rem}
-.nutrition-item{text-align:center;padding:.75rem;background:var(--warm);border-radius:8px}
-.nutrition-item .value{font-size:1.4rem;font-weight:700;color:var(--primary-dark)}
-.nutrition-item .label{font-size:.75rem;color:var(--text-light);margin-top:.2rem}
-.per-serving{background:var(--warm-dark);border-radius:8px;padding:.75rem;margin-top:.75rem}
-.per-serving h3{font-size:.9rem;margin-bottom:.5rem;color:var(--primary-dark)}
-.per-serving-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
-.per-serving-grid span{font-size:.8rem;text-align:center}
-.per-serving-grid .val{font-weight:700}
-#nutrition-canvas{display:none}
-.suggestions{position:absolute;background:white;border:1px solid var(--border);border-radius:6px;max-height:150px;overflow-y:auto;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.12);width:100%}
-.suggestions div{padding:.4rem .6rem;cursor:pointer;font-size:.85rem}
-.suggestions div:hover{background:var(--warm)}
-.ingredient-wrapper{position:relative}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
-@media(max-width:600px){
-.ingredient-row{grid-template-columns:1fr 1fr;gap:.4rem}
-.ingredient-row .remove-btn{grid-column:span 2;justify-self:end}
-.nutrition-grid{grid-template-columns:repeat(2,1fr)}
-.per-serving-grid{grid-template-columns:repeat(2,1fr)}
+{
+  "@context":"https://schema.org","@type":"HowTo",
+  "name":"How to calculate the calories and nutrition in a recipe",
+  "description":"Add each ingredient with its amount and unit, set your servings, and calculate calories and macros per serving.",
+  "step":[
+    {"@type":"HowToStep","position":1,"name":"List your ingredients","text":"Type each ingredient name and pick the USDA match from the suggestions."},
+    {"@type":"HowToStep","position":2,"name":"Enter amount and unit","text":"Add how much of each ingredient the recipe uses (grams, cups, tablespoons, ounces and more)."},
+    {"@type":"HowToStep","position":3,"name":"Set the servings","text":"Enter how many servings the recipe makes so results are shown per serving."},
+    {"@type":"HowToStep","position":4,"name":"Calculate","text":"Get calories, protein, carbs, fat, fiber, and sodium per serving instantly."}
+  ]
 }
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How do I calculate the calories in a recipe?","acceptedAnswer":{"@type":"Answer","text":"List every ingredient with its amount, then convert each to grams and multiply by its calories per 100 g. Add them up and divide by the number of servings. This calculator does all of that automatically from USDA data the moment you enter your ingredients."}},
+ {"@type":"Question","name":"Is this recipe nutrition calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is completely free with no signup, no account, and no limits. Everything runs in your browser, so your recipes are never uploaded or stored anywhere."}},
+ {"@type":"Question","name":"Can it calculate macros like protein, carbs, and fat?","acceptedAnswer":{"@type":"Answer","text":"Yes. Alongside calories it shows protein, carbohydrates, fat, fiber, and sodium, both for the whole recipe and per serving, so you can track macros for any meal."}},
+ {"@type":"Question","name":"Where does the nutrition data come from?","acceptedAnswer":{"@type":"Answer","text":"Values come from USDA FoodData Central, expressed per 100 g for over 100 common cooking ingredients. Results are estimates and can vary with brand, cut, and preparation."}},
+ {"@type":"Question","name":"How is sodium per serving calculated?","acceptedAnswer":{"@type":"Answer","text":"Each ingredient's sodium per 100 g is scaled by the amount you enter, summed for the recipe, then divided by servings. The FDA daily limit is 2,300 mg, so a serving over about 575 mg is roughly a quarter of a full day."}},
+ {"@type":"Question","name":"How accurate is the recipe calorie calculator?","acceptedAnswer":{"@type":"Answer","text":"It is accurate for planning and label-style estimates because it uses standardized USDA values. Exact numbers depend on your specific products and cooking method, so treat the result as a close estimate rather than a lab measurement."}}
+]}</script>
+<style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:40px 0 8px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;font-weight:600;max-width:18ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+label.field-label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
+input[type=text],input[type=number],select{width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.faq{border-top:1px solid var(--border)}
+.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.faq-item p{color:var(--text-2);max-width:70ch}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
+.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+/* calculator specifics */
+.recipe-head{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:18px}
+.recipe-head .rn{flex:1;min-width:200px}
+.recipe-head .sv{width:110px}
+.ing-row{display:grid;grid-template-columns:2.2fr 1fr 1.1fr 44px;gap:8px;margin-bottom:8px;align-items:center}
+.ing-wrap{position:relative}
+.remove-btn{min-height:44px;background:none;border:1px solid var(--border);color:#b3261e;cursor:pointer;font-size:1.15rem;border-radius:var(--radius-sm)}
+.remove-btn:hover{background:#fdeceb;border-color:#f3c9c5}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.suggestions{position:absolute;background:#fff;border:1px solid var(--border-strong);border-radius:var(--radius-sm);max-height:190px;overflow-y:auto;z-index:100;box-shadow:var(--shadow);width:100%;margin-top:4px}
+.suggestions div{padding:9px 12px;cursor:pointer;font-size:.92rem}
+.suggestions div:hover{background:var(--surface-alt)}
+.result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));border:1px solid var(--border-strong);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:16px}
+.result-hero{font-family:var(--sans);font-weight:800;font-size:3.6rem;line-height:1;letter-spacing:-.02em;color:var(--accent-strong);font-variant-numeric:tabular-nums}
+.result-hero .unit{font-size:1.05rem;font-weight:600;color:var(--text-2);margin-left:8px;letter-spacing:0}
+.result-context{margin-top:8px;color:var(--text-2);font-size:.98rem}
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:10px;margin-top:18px}
+.macro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
+.macro .v{font-weight:750;font-size:1.25rem;font-variant-numeric:tabular-nums;color:var(--text)}
+.macro .k{font-size:.72rem;color:var(--text-2);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.result-foot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.total-note{font-size:.85rem;color:var(--text-2)}
+#nutrition-canvas{display:none}
+#results{display:none}
+.copied{color:var(--good)!important}
+@media(max-width:560px){
+  .hero{padding:26px 0 6px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}
+  .ing-row{grid-template-columns:1fr 1fr;gap:7px}
+  .ing-wrap{grid-column:1 / -1}
+  .remove-btn{grid-column:2;justify-self:end;width:44px}
+  .result-hero{font-size:3rem}
+}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<header>
-<h1>Recipe Nutrition Calculator</h1>
-<p>Calculate calories & macros for any recipe</p>
-</header>
-<nav>
-<a href="/" class="active">Nutrition Calculator</a>
-<a href="/meal-planner.html">Meal Planner</a>
-<a href="/calorie-calculator.html">Calorie Calculator</a>
-<a href="/nutrition-calculator.html">Nutrition Guide</a>
-</nav>
-<main>
-<div class="card">
-<h2>Your Recipe</h2>
-<div class="recipe-header">
-<input type="text" id="recipe-name" placeholder="Recipe name (e.g., Chicken Stir Fry)">
-<div class="servings-group">
-<label for="servings">Servings:</label>
-<input type="number" id="servings" value="4" min="1" max="100">
-</div>
-</div>
-<div id="ingredients-list">
-<div class="ingredient-row">
-<div class="ingredient-wrapper"><input type="text" class="ing-name" placeholder="Ingredient" autocomplete="off"></div>
-<input type="number" class="ing-amount" placeholder="Amount" min="0" step="any">
-<select class="ing-unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select>
-<button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button>
-</div>
-</div>
-<div class="btn-group">
-<button class="btn btn-outline" onclick="addRow()">+ Add Ingredient</button>
-<button class="btn" onclick="calculate()">Calculate Nutrition</button>
-<button class="btn btn-outline" onclick="exportLabel()">Export Label</button>
-</div>
-</div>
-<div class="card results" id="results">
-<h2>Nutrition Facts — <span id="result-name">Your Recipe</span></h2>
-<p style="font-size:.85rem;color:var(--text-light)">Total recipe nutrition:</p>
-<div class="nutrition-grid">
-<div class="nutrition-item"><div class="value" id="total-cal">0</div><div class="label">Calories</div></div>
-<div class="nutrition-item"><div class="value" id="total-protein">0g</div><div class="label">Protein</div></div>
-<div class="nutrition-item"><div class="value" id="total-carbs">0g</div><div class="label">Carbs</div></div>
-<div class="nutrition-item"><div class="value" id="total-fat">0g</div><div class="label">Fat</div></div>
-<div class="nutrition-item"><div class="value" id="total-fiber">0g</div><div class="label">Fiber</div></div>
-<div class="nutrition-item"><div class="value" id="total-sodium">0mg</div><div class="label">Sodium</div></div>
-</div>
-<div class="per-serving" id="per-serving">
-<h3>Per Serving (<span id="serving-count">4</span> servings)</h3>
-<div class="per-serving-grid">
-<span><span class="val" id="ps-cal">0</span><br>Calories</span>
-<span><span class="val" id="ps-protein">0g</span><br>Protein</span>
-<span><span class="val" id="ps-carbs">0g</span><br>Carbs</span>
-<span><span class="val" id="ps-fat">0g</span><br>Fat</span>
-<span><span class="val" id="ps-fiber">0g</span><br>Fiber</span>
-<span><span class="val" id="ps-sodium">0mg</span><br>Sodium</span>
-</div>
-</div>
-</div>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/" aria-current="page">Nutrition Calculator</a>
+    <a href="/tools/">Kitchen Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> USDA data · No signup · 100% private</span>
+  <h1>Recipe Nutrition Calculator</h1>
+  <p class="lede">Add your ingredients and instantly see <strong>calories, protein, carbs, fat, fiber, and sodium per serving</strong> — for any recipe. Free, and nothing ever leaves your browser.</p>
+</section>
+
+<section class="card" aria-label="Recipe nutrition calculator">
+  <div class="recipe-head">
+    <div class="rn">
+      <label class="field-label" for="recipe-name">Recipe name</label>
+      <input type="text" id="recipe-name" placeholder="e.g. Chicken Stir-Fry">
+    </div>
+    <div class="sv">
+      <label class="field-label" for="servings">Servings</label>
+      <input type="number" id="servings" value="4" min="1" max="100">
+    </div>
+  </div>
+  <label class="field-label">Ingredients</label>
+  <div id="ingredients-list">
+    <div class="ing-row">
+      <div class="ing-wrap"><input type="text" class="ing-name" placeholder="Start typing (e.g. chicken breast)" autocomplete="off" aria-label="Ingredient"></div>
+      <input type="number" class="ing-amount" placeholder="Amount" min="0" step="any" aria-label="Amount">
+      <select class="ing-unit" aria-label="Unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select>
+      <button class="remove-btn" onclick="removeRow(this)" title="Remove" aria-label="Remove ingredient">&times;</button>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-ghost" onclick="addRow()">+ Add ingredient</button>
+    <button class="btn btn-primary" onclick="calculate()">Calculate nutrition</button>
+  </div>
+
+  <div id="results" aria-live="polite">
+    <div class="result-card">
+      <div class="result-hero"><span id="ps-cal">0</span><span class="unit">calories / serving</span></div>
+      <div class="result-context" id="result-context">Per serving · <span id="serving-count">4</span> servings</div>
+      <div class="macro-grid">
+        <div class="macro"><div class="v" id="ps-protein">0g</div><div class="k">Protein</div></div>
+        <div class="macro"><div class="v" id="ps-carbs">0g</div><div class="k">Carbs</div></div>
+        <div class="macro"><div class="v" id="ps-fat">0g</div><div class="k">Fat</div></div>
+        <div class="macro"><div class="v" id="ps-fiber">0g</div><div class="k">Fiber</div></div>
+        <div class="macro"><div class="v" id="ps-sodium">0mg</div><div class="k">Sodium</div></div>
+      </div>
+      <div class="total-note" style="margin-top:14px">Whole recipe: <strong id="total-cal">0</strong> cal ·
+        <span id="total-protein">0g</span> protein · <span id="total-carbs">0g</span> carbs ·
+        <span id="total-fat">0g</span> fat · <span id="total-fiber">0g</span> fiber ·
+        <span id="total-sodium">0mg</span> sodium</div>
+      <div class="result-foot">
+        <button class="btn btn-ghost" id="copy-btn" onclick="copyResult()">Copy result</button>
+        <button class="btn btn-ghost" onclick="exportLabel()">Download nutrition label</button>
+        <span class="badge">Estimate · USDA per 100 g</span>
+      </div>
+    </div>
+  </div>
+</section>
 <canvas id="nutrition-canvas" width="400" height="600"></canvas>
-<div class="card">
-<h2>How to Use This Calculator</h2>
-<p style="font-size:.9rem;color:var(--text-light);margin-bottom:.5rem">Enter each ingredient in your recipe with its amount and unit. Our built-in database covers 100+ common cooking ingredients with accurate USDA-sourced nutrition data per 100g. The calculator instantly computes total and per-serving nutrition including calories, protein, carbohydrates, fat, fiber, and sodium.</p>
-<p style="font-size:.9rem;color:var(--text-light)">Start typing an ingredient name and select from the autocomplete suggestions. You can export the nutrition label as an image to share or save.</p>
-</div>
+
+<section class="section prose">
+  <h2>How to calculate the calories in a recipe</h2>
+  <p class="sub">The math behind every nutrition label — done for you in one click.</p>
+  <p>To find the <strong>calories in a recipe</strong>, each ingredient is converted to grams, multiplied by its calories per 100&nbsp;grams, and summed. Divide the total by the number of servings to get <strong>calories per serving</strong>. The same scaling gives you protein, carbohydrates, fat, fiber, and sodium. This calculator runs that process across a 100+ ingredient USDA database the instant you type.</p>
+  <h3>Step by step</h3>
+  <p><strong>1. List your ingredients.</strong> Type each one and choose the matching USDA item from the suggestions.<br>
+  <strong>2. Enter the amount and unit.</strong> Grams, cups, tablespoons, teaspoons, ounces, pounds, millilitres, and kilograms are all supported and converted automatically.<br>
+  <strong>3. Set the servings.</strong> This turns whole-recipe totals into a clean <em>per-serving</em> number.<br>
+  <strong>4. Read your results.</strong> Calories per serving is shown large; macros and sodium sit right below, with the full-recipe totals underneath.</p>
+</section>
+
+<section class="section prose">
+  <h2>What this recipe calculator measures</h2>
+  <p><strong>Calories</strong> — the energy in one serving, the number most people search for when they want to know how many calories are in their recipe.</p>
+  <p><strong>Macros (protein, carbs, fat)</strong> — the three macronutrients used for macro tracking, keto, bulking, or cutting. Use it as a <a href="/tools/recipe-scaler">recipe macro calculator</a> for any homemade meal.</p>
+  <p><strong>Fiber</strong> — counted separately from carbohydrates so you can see net-carb impact at a glance.</p>
+  <p><strong>Sodium</strong> — shown in milligrams per serving. The FDA daily limit is 2,300&nbsp;mg, so if a serving reads 600&nbsp;mg it is about a quarter of a full day. Salty staples like soy sauce, bacon, and cheese move this number fast.</p>
+</section>
+
+<section class="section prose">
+  <h2>How accurate is it, and where does the data come from?</h2>
+  <p>Every value is drawn from <strong>USDA FoodData Central</strong>, standardized to nutrition per 100&nbsp;grams. Because it uses the same reference data professional tools rely on, results are dependable for meal planning, macro tracking, and label-style estimates. Exact figures still depend on your specific brand, cut, and cooking method, so treat the output as a close, honest estimate rather than a lab measurement. Nothing you enter is uploaded — the entire calculation happens locally in your browser.</p>
+  <div class="trust-row">
+    <span class="badge good">✓ USDA FoodData Central</span>
+    <span class="badge good">✓ Runs 100% in your browser</span>
+    <span class="badge">No signup · No ads on the tool</span>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item"><h3>How do I calculate the calories in a recipe?</h3><p>List every ingredient with its amount, convert each to grams, and multiply by its calories per 100&nbsp;g. Add them up and divide by servings. This tool does all of it automatically from USDA data the moment you enter your ingredients.</p></div>
+    <div class="faq-item"><h3>Is this recipe nutrition calculator free?</h3><p>Yes — completely free, no signup, no account, no limits. Everything runs in your browser, so your recipes are never uploaded or stored.</p></div>
+    <div class="faq-item"><h3>Can it calculate macros like protein, carbs, and fat?</h3><p>Yes. Alongside calories it shows protein, carbohydrates, fat, fiber, and sodium — both for the whole recipe and per serving — so it doubles as a recipe macro calculator.</p></div>
+    <div class="faq-item"><h3>Where does the nutrition data come from?</h3><p>From USDA FoodData Central, expressed per 100&nbsp;g for 100+ common cooking ingredients. Results are estimates and can vary with brand, cut, and preparation.</p></div>
+    <div class="faq-item"><h3>How is sodium per serving calculated?</h3><p>Each ingredient's sodium per 100&nbsp;g is scaled by your amount, summed, then divided by servings. The FDA limit is 2,300&nbsp;mg/day, so a serving above ~575&nbsp;mg is roughly a quarter of a day.</p></div>
+    <div class="faq-item"><h3>How accurate is the recipe calorie calculator?</h3><p>Accurate enough for planning and label-style estimates because it uses standardized USDA values. Exact numbers depend on your products and cooking method, so treat it as a close estimate.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">More free kitchen calculators</h2>
+  <p class="sub">Built by the same team, same clean approach — no ads on the tools, no signup.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calories from BMR and activity level.</div></a>
+    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings, instantly.</div></a>
+    <a class="tool-card" href="/meal-planner"><div class="ico">🗓️</div><div class="t">Weekly Meal Planner</div><div class="d">Plan a week of meals and track calories as you go.</div></a>
+    <a class="tool-card" href="/tools/sourdough-calculator"><div class="ico">🍞</div><div class="t">Sourdough Calculator</div><div class="d">Dial in hydration, starter, salt, and flour.</div></a>
+    <a class="tool-card" href="/guides/food-cost-calculator"><div class="ico">💰</div><div class="t">Food Cost Calculator</div><div class="d">Cost per serving and ideal menu pricing.</div></a>
+    <a class="tool-card" href="/research/nutrition-label-decoder"><div class="ico">🏷️</div><div class="t">Nutrition Label Decoder</div><div class="d">Understand any packaged-food label in plain English.</div></a>
+  </div>
+</section>
 </main>
-<footer>
-<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net &mdash; Free nutrition tools for home cooks</p>
-<p style="margin-top:8px;">
-<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
-<a href="/meal-planner.html" style="color:var(--primary);text-decoration:none;">Meal Planner</a> &middot;
-<a href="/calorie-calculator.html" style="color:var(--primary);text-decoration:none;">Calorie Calculator</a> &middot;
-<a href="/nutrition-calculator.html" style="color:var(--primary);text-decoration:none;">Nutrition Guide</a>
-</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
+
 <script>
 const DB={
 "chicken breast":{cal:165,protein:31,carbs:0,fat:3.6,fiber:0,sodium:74},
@@ -272,24 +419,25 @@ const DB={
 };
 const UNIT_TO_G={"g":1,"oz":28.3495,"cup":240,"tbsp":15,"tsp":5,"ml":1,"lb":453.592,"kg":1000};
 const ingNames=Object.keys(DB);
+let lastResult=null;
 
 function addRow(){
 const list=document.getElementById('ingredients-list');
 const row=document.createElement('div');
-row.className='ingredient-row';
-row.innerHTML='<div class="ingredient-wrapper"><input type="text" class="ing-name" placeholder="Ingredient" autocomplete="off"></div><input type="number" class="ing-amount" placeholder="Amount" min="0" step="any"><select class="ing-unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select><button class="remove-btn" onclick="removeRow(this)" title="Remove">&times;</button>';
+row.className='ing-row';
+row.innerHTML='<div class="ing-wrap"><input type="text" class="ing-name" placeholder="Start typing (e.g. onion)" autocomplete="off" aria-label="Ingredient"></div><input type="number" class="ing-amount" placeholder="Amount" min="0" step="any" aria-label="Amount"><select class="ing-unit" aria-label="Unit"><option value="g">grams</option><option value="oz">oz</option><option value="cup">cup</option><option value="tbsp">tbsp</option><option value="tsp">tsp</option><option value="ml">ml</option><option value="lb">lb</option><option value="kg">kg</option></select><button class="remove-btn" onclick="removeRow(this)" title="Remove" aria-label="Remove ingredient">&times;</button>';
 list.appendChild(row);
 attachAutocomplete(row.querySelector('.ing-name'));
 }
 
 function removeRow(btn){
 const list=document.getElementById('ingredients-list');
-if(list.children.length>1)btn.closest('.ingredient-row').remove();
+if(list.children.length>1)btn.closest('.ing-row').remove();
 }
 
 function attachAutocomplete(input){
 input.addEventListener('input',function(){
-let wrap=this.closest('.ingredient-wrapper');
+let wrap=this.closest('.ing-wrap');
 let existing=wrap.querySelector('.suggestions');
 if(existing)existing.remove();
 let val=this.value.toLowerCase().trim();
@@ -306,11 +454,11 @@ div.appendChild(item);
 });
 wrap.appendChild(div);
 });
-input.addEventListener('blur',()=>setTimeout(()=>{let s=input.closest('.ingredient-wrapper').querySelector('.suggestions');if(s)s.remove()},200));
+input.addEventListener('blur',()=>setTimeout(()=>{let s=input.closest('.ing-wrap').querySelector('.suggestions');if(s)s.remove()},200));
 }
 
 function calculate(){
-const rows=document.querySelectorAll('.ingredient-row');
+const rows=document.querySelectorAll('.ing-row');
 let totals={cal:0,protein:0,carbs:0,fat:0,fiber:0,sodium:0};
 rows.forEach(row=>{
 let name=row.querySelector('.ing-name').value.toLowerCase().trim();
@@ -329,22 +477,42 @@ totals.fiber+=data.fiber*factor;
 totals.sodium+=data.sodium*factor;
 });
 let servings=parseInt(document.getElementById('servings').value)||1;
+const psCal=Math.round(totals.cal/servings);
 document.getElementById('total-cal').textContent=Math.round(totals.cal);
 document.getElementById('total-protein').textContent=totals.protein.toFixed(1)+'g';
 document.getElementById('total-carbs').textContent=totals.carbs.toFixed(1)+'g';
 document.getElementById('total-fat').textContent=totals.fat.toFixed(1)+'g';
 document.getElementById('total-fiber').textContent=totals.fiber.toFixed(1)+'g';
 document.getElementById('total-sodium').textContent=Math.round(totals.sodium)+'mg';
-document.getElementById('ps-cal').textContent=Math.round(totals.cal/servings);
+document.getElementById('ps-cal').textContent=psCal;
 document.getElementById('ps-protein').textContent=(totals.protein/servings).toFixed(1)+'g';
 document.getElementById('ps-carbs').textContent=(totals.carbs/servings).toFixed(1)+'g';
 document.getElementById('ps-fat').textContent=(totals.fat/servings).toFixed(1)+'g';
 document.getElementById('ps-fiber').textContent=(totals.fiber/servings).toFixed(1)+'g';
 document.getElementById('ps-sodium').textContent=Math.round(totals.sodium/servings)+'mg';
 document.getElementById('serving-count').textContent=servings;
-document.getElementById('result-name').textContent=document.getElementById('recipe-name').value||'Your Recipe';
+const rn=document.getElementById('recipe-name').value.trim();
+document.getElementById('result-context').innerHTML=(rn?('<strong>'+rn.replace(/</g,'&lt;')+'</strong> · '):'')+'Per serving · '+servings+' serving'+(servings>1?'s':'');
+lastResult={rn:rn||'Recipe',servings,psCal,
+ psP:(totals.protein/servings).toFixed(1),psC:(totals.carbs/servings).toFixed(1),
+ psF:(totals.fat/servings).toFixed(1),psFib:(totals.fiber/servings).toFixed(1),
+ psNa:Math.round(totals.sodium/servings)};
 document.getElementById('results').style.display='block';
-document.getElementById('results').scrollIntoView({behavior:'smooth'});
+document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function copyResult(){
+if(!lastResult)calculate();
+if(!lastResult)return;
+const r=lastResult;
+const txt=r.rn+' — per serving ('+r.servings+' servings)\n'+
+ r.psCal+' cal · '+r.psP+'g protein · '+r.psC+'g carbs · '+r.psF+'g fat · '+r.psFib+'g fiber · '+r.psNa+'mg sodium\n'+
+ 'via recipetool.net';
+const btn=document.getElementById('copy-btn');
+navigator.clipboard.writeText(txt).then(()=>{
+ btn.textContent='Copied ✓';btn.classList.add('copied');
+ setTimeout(()=>{btn.textContent='Copy result';btn.classList.remove('copied')},1600);
+}).catch(()=>{btn.textContent='Copy failed';setTimeout(()=>btn.textContent='Copy result',1600)});
 }
 
 function exportLabel(){

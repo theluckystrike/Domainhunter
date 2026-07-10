@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Air Fryer Conversion Calculator — Oven to Air Fryer Times &amp; Temps | RecipeTool</title>
-<meta name="description" content="Convert oven recipes to air fryer settings instantly. Auto-calculates temperature (-25°F) and time (-20%) with a 30+ food database. Toggle Fahrenheit/Celsius. Free, no signup.">
-<link rel="canonical" href="https://recipetool.net/tools/air-fryer-conversion-calculator.html">
-<meta property="og:title" content="Air Fryer Conversion Calculator — Oven to Air Fryer Times &amp; Temps">
-<meta property="og:description" content="Convert any oven recipe to air fryer settings in seconds. 30+ pre-set foods, F/C toggle, and food-specific tips. Free and instant.">
-<meta property="og:url" content="https://recipetool.net/tools/air-fryer-conversion-calculator.html">
+<title>Air Fryer Conversion Calculator – Oven to Air Fryer</title>
+<meta name="description" content="Free air fryer conversion calculator. Convert any oven recipe to air fryer time and temperature (−25°F, −20%) with a 30+ food database and food-specific tips.">
+<link rel="canonical" href="https://recipetool.net/tools/air-fryer-conversion-calculator">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Air Fryer Conversion Calculator – Oven to Air Fryer">
+<meta property="og:description" content="Convert any oven recipe to air fryer settings in seconds. 30+ pre-set foods, °F/°C toggle, and food-specific tips. Free and instant.">
+<meta property="og:url" content="https://recipetool.net/tools/air-fryer-conversion-calculator">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
 <meta property="article:published_time" content="2026-05-28">
@@ -16,8 +17,8 @@
 <meta property="article:author" content="Michael Lip">
 <meta name="author" content="Michael Lip">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Air Fryer Conversion Calculator — Oven to Air Fryer Times &amp; Temps">
-<meta name="twitter:description" content="Convert oven recipes to air fryer settings instantly. 30+ food database, F/C toggle. Free.">
+<meta name="twitter:title" content="Air Fryer Conversion Calculator – Oven to Air Fryer">
+<meta name="twitter:description" content="Convert oven recipes to air fryer time and temperature instantly. 30+ food database, °F/°C toggle. Free.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +27,7 @@
       "@type": "WebApplication",
       "name": "Air Fryer Conversion Calculator",
       "description": "Convert conventional oven recipes to air fryer settings. Calculates temperature (reduce by 25°F) and cook time (reduce by 20%) automatically. Includes a database of 30+ common foods with preset conversions and food-specific tips.",
-      "url": "https://recipetool.net/tools/air-fryer-conversion-calculator.html",
+      "url": "https://recipetool.net/tools/air-fryer-conversion-calculator",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
@@ -39,7 +40,7 @@
       "@type": "Article",
       "headline": "Air Fryer Conversion Calculator — Oven to Air Fryer Times & Temps",
       "description": "Use this calculator to convert any conventional oven recipe to air fryer time and temperature. The general rule: reduce temperature by 25°F and cooking time by 20%.",
-      "url": "https://recipetool.net/tools/air-fryer-conversion-calculator.html",
+      "url": "https://recipetool.net/tools/air-fryer-conversion-calculator",
       "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
       "publisher": {"@type": "Organization", "name": "RecipeTool", "url": "https://recipetool.net"},
       "datePublished": "2026-05-28",
@@ -94,103 +95,150 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://recipetool.net/"},
-        {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://recipetool.net/tools/"},
-        {"@type": "ListItem", "position": 3, "name": "Air Fryer Conversion Calculator"}
+        {"@type": "ListItem", "position": 2, "name": "Kitchen Tools", "item": "https://recipetool.net/tools/"},
+        {"@type": "ListItem", "position": 3, "name": "Air Fryer Conversion Calculator", "item": "https://recipetool.net/tools/air-fryer-conversion-calculator"}
       ]
     }
   ]
 }
 </script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0a0a0a;--card:#141414;--border:#1e1e1e;--text:#e8e8e8;--dim:#888;
-  --accent:#22c55e;--accent-dim:rgba(34,197,94,.12);--accent-hover:#16a34a;
-  --danger:#ef4444;--warn:#f59e0b;--shadow:0 2px 12px rgba(0,0,0,.5)
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --dim:#6f6057;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-a{color:var(--accent);text-decoration:none}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+a{color:var(--accent-strong);text-decoration:none}
 a:hover{text-decoration:underline}
-header{background:var(--card);border-bottom:1px solid var(--border);padding:1rem;text-align:center}
-header h1{font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
-header p{color:var(--dim);font-size:.875rem}
-nav{background:var(--card);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--dim);font-size:.82rem;font-weight:500;padding:.3rem .6rem;border-radius:4px;transition:color .2s,background .2s}
-nav a:hover{color:var(--text);background:var(--border);text-decoration:none}
-nav a.active{color:var(--accent);background:var(--accent-dim)}
-main{max-width:860px;margin:0 auto;padding:1rem 1rem 2rem}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow)}
-.card h2{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:.75rem}
-.card h3{font-size:.9rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
-.section-label{font-size:.78rem;color:var(--dim);font-weight:500;margin-bottom:.3rem;display:block}
-input[type=number],select{background:#0f0f0f;border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.5rem .7rem;font-size:.9rem;width:100%;transition:border-color .2s}
-input[type=number]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
-select option{background:#0f0f0f}
-.toggle-row{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
-.toggle-label{font-size:.85rem;color:var(--dim)}
-.toggle{position:relative;display:inline-block;width:44px;height:24px;cursor:pointer}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong);text-decoration:none}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:40px 0 8px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;font-weight:600;max-width:18ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);margin-bottom:16px}
+.card h2{font-family:var(--serif);font-size:1.42rem;letter-spacing:-.015em;font-weight:600;color:var(--text);margin-bottom:10px}
+.card h3{font-size:.78rem;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.card p{color:var(--text-2)}
+.section-label{font-size:.82rem;color:var(--text-2);font-weight:600;margin-bottom:6px;display:block}
+input[type=number],select{background:var(--surface);border:1.5px solid var(--border-strong);color:var(--text);border-radius:var(--radius-sm);padding:11px 13px;font-size:1rem;font-family:var(--sans);width:100%;min-height:48px;transition:border-color .2s}
+input[type=number]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.toggle-row{display:flex;align-items:center;gap:.5rem;margin-bottom:16px}
+.toggle-label{font-size:.9rem;color:var(--text-2);font-weight:600}
+.toggle{position:relative;display:inline-block;width:46px;height:26px;cursor:pointer}
 .toggle input{opacity:0;width:0;height:0;position:absolute}
-.toggle-track{position:absolute;inset:0;background:#222;border-radius:24px;border:1px solid var(--border);transition:background .2s}
-.toggle input:checked+.toggle-track{background:var(--accent-dim);border-color:var(--accent)}
-.toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;background:var(--dim);border-radius:50%;transition:transform .2s,background .2s}
-.toggle input:checked~.toggle-thumb{transform:translateX(20px);background:var(--accent)}
-.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.toggle-track{position:absolute;inset:0;background:var(--surface-alt);border-radius:26px;border:1.5px solid var(--border-strong);transition:background .2s}
+.toggle input:checked+.toggle-track{background:var(--accent);border-color:var(--accent)}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--text-3);border-radius:50%;transition:transform .2s,background .2s}
+.toggle input:checked~.toggle-thumb{transform:translateX(20px);background:#fff}
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
 @media(max-width:500px){.input-grid{grid-template-columns:1fr}}
-.btn{background:var(--accent);color:#000;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:600;transition:background .2s;width:100%}
-.btn:hover{background:var(--accent-hover)}
-.btn-sm{width:auto;padding:.4rem .8rem;font-size:.82rem}
-.result-banner{background:var(--accent-dim);border:1px solid var(--accent);border-radius:8px;padding:1rem 1.25rem;margin-top:1rem;display:none}
-.result-banner.show{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.btn{background:var(--accent);color:#fff;border:1.5px solid transparent;padding:12px 20px;border-radius:var(--radius-sm);cursor:pointer;font-size:1rem;font-weight:600;font-family:var(--sans);transition:background .2s;width:100%;min-height:48px}
+.btn:hover{background:var(--accent-strong)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.result-banner{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));border:1px solid var(--border-strong);border-radius:var(--radius);padding:22px 24px;margin-top:18px;display:none;box-shadow:var(--shadow)}
+.result-banner.show{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;justify-content:center}
 .result-item{text-align:center}
-.result-item .val{font-size:1.6rem;font-weight:700;color:var(--accent)}
-.result-item .lbl{font-size:.75rem;color:var(--dim);margin-top:.1rem}
-.result-divider{width:1px;background:var(--border);align-self:stretch}
+.result-item .val{font-size:2.6rem;font-weight:800;color:var(--accent-strong);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.result-item .lbl{font-size:.78rem;color:var(--text-2);margin-top:6px}
+.result-divider{width:1px;background:var(--border-strong);align-self:stretch}
 @media(max-width:480px){.result-divider{display:none}}
-.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.5rem;margin-top:.75rem}
-.food-chip{background:#0f0f0f;border:1px solid var(--border);border-radius:6px;padding:.45rem .7rem;cursor:pointer;font-size:.82rem;color:var(--dim);transition:border-color .2s,color .2s,background .2s;text-align:left}
-.food-chip:hover{border-color:var(--accent);color:var(--text);background:var(--accent-dim)}
-.food-chip.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
-.food-chip .temps{font-size:.72rem;margin-top:.15rem;color:#555}
-.tips-panel{background:#0f0f0f;border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;margin-top:.75rem;display:none}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:14px}
+.food-chip{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 13px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text);transition:border-color .2s,color .2s,background .2s;text-align:left;min-height:48px}
+.food-chip:hover{border-color:var(--accent);background:var(--surface-alt)}
+.food-chip.active{border-color:var(--accent);color:var(--accent-strong);background:var(--surface-warm)}
+.food-chip .temps{font-size:.76rem;font-weight:500;margin-top:.15rem;color:var(--text-3)}
+.tips-panel{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 18px;margin-top:14px;display:none}
 .tips-panel.show{display:block}
-.tips-panel h4{font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:.5rem}
+.tips-panel h4{font-size:.95rem;font-weight:700;color:var(--accent-strong);margin-bottom:.5rem}
 .tips-panel ul{padding-left:1.1rem;list-style:disc}
-.tips-panel li{font-size:.82rem;color:var(--dim);margin-bottom:.35rem;line-height:1.5}
-.tips-panel li strong{color:var(--text)}
-.conversion-rule{background:var(--accent-dim);border-left:3px solid var(--accent);padding:.6rem .9rem;border-radius:0 6px 6px 0;font-size:.83rem;color:var(--dim);margin-bottom:.75rem}
-.conversion-rule strong{color:var(--accent)}
-.ref-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:.5rem}
-.ref-table th{background:#0f0f0f;color:var(--dim);font-weight:600;padding:.5rem .6rem;text-align:left;border-bottom:1px solid var(--border);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.ref-table td{padding:.45rem .6rem;border-bottom:1px solid #181818;color:var(--text)}
-.ref-table tr:hover td{background:#111}
-.ref-table .temp-cell{color:var(--accent);font-weight:500}
-.ref-table .time-cell{color:var(--warn)}
-.badge-high{background:rgba(239,68,68,.15);color:var(--danger);border-radius:4px;padding:.1rem .4rem;font-size:.72rem}
-.badge-med{background:rgba(245,158,11,.15);color:var(--warn);border-radius:4px;padding:.1rem .4rem;font-size:.72rem}
-.badge-low{background:var(--accent-dim);color:var(--accent);border-radius:4px;padding:.1rem .4rem;font-size:.72rem}
-.faq-item{border-bottom:1px solid var(--border);padding:.7rem 0}
+.tips-panel li{font-size:.9rem;color:var(--text-2);margin-bottom:.35rem;line-height:1.5}
+.tips-panel li strong{color:var(--text);font-weight:650}
+.conversion-rule{background:var(--surface-warm);border-left:3px solid var(--accent);padding:.7rem 1rem;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.92rem;color:var(--text-2);margin-bottom:14px}
+.conversion-rule strong{color:var(--accent-strong);font-weight:700}
+.ref-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}
+.ref-table th{background:var(--surface-warm);color:var(--accent-strong);font-weight:700;padding:9px 11px;text-align:left;border-bottom:1px solid var(--border);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em}
+.ref-table td{padding:9px 11px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.ref-table tr:hover td{background:var(--surface-alt)}
+.ref-table .temp-cell{color:var(--accent-strong);font-weight:600}
+.ref-table .time-cell{color:var(--warn);font-weight:600}
+.badge-high{background:#fdeae7;color:#b3261e;border-radius:4px;padding:.1rem .45rem;font-size:.72rem;font-weight:600}
+.badge-med{background:var(--surface-warm);color:var(--warn);border-radius:4px;padding:.1rem .45rem;font-size:.72rem;font-weight:600}
+.badge-low{background:var(--good-tint);color:var(--good);border-radius:4px;padding:.1rem .45rem;font-size:.72rem;font-weight:600}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
 .faq-item:last-child{border-bottom:none}
-.faq-q{font-size:.88rem;font-weight:500;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;user-select:none}
-.faq-q::after{content:'+';font-size:1.1rem;color:var(--accent);flex-shrink:0;transition:transform .2s}
+.faq-q{font-size:1.02rem;font-weight:650;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;user-select:none;letter-spacing:-.01em}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);flex-shrink:0;transition:transform .2s}
 .faq-q.open::after{content:'−'}
-.faq-a{font-size:.83rem;color:var(--dim);max-height:0;overflow:hidden;transition:max-height .35s ease;line-height:1.6}
+.faq-a{font-size:1rem;color:var(--text-2);max-height:0;overflow:hidden;transition:max-height .35s ease;line-height:1.6;max-width:72ch}
 .faq-a.open{max-height:400px;padding-top:.5rem}
-footer{text-align:center;padding:1.5rem;color:var(--dim);font-size:.78rem;border-top:1px solid var(--border);margin-top:1rem}
-footer a{color:var(--accent)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong);text-decoration:none}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.section{padding:20px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){
+.hero{padding:26px 0 6px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}
+.site-footer .cols{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
-<header>
-<h1>Air Fryer Conversion Calculator</h1>
-<p>Convert oven recipes to air fryer time &amp; temperature in seconds</p>
-</header>
-<nav>
-<a href="/">Home</a>
-<a href="/tools/" class="active">Tools</a>
-<a href="/guides/">Guides</a>
-<a href="/answers/">Answers</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/" aria-current="page">Kitchen Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> › <a href="/tools/">Kitchen Tools</a> › Air Fryer Conversion Calculator
 </nav>
-<main>
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> 30+ foods · °F/°C · Free</span>
+  <h1>Air Fryer Conversion Calculator</h1>
+  <p class="lede">Convert any oven recipe to <strong>air fryer time and temperature</strong> in seconds — the standard rule is 25°F lower and 20% less time, plus a 30-food database with model-specific tips.</p>
+</section>
 
 <!-- CALCULATOR CARD -->
 <div class="card">
@@ -278,28 +326,43 @@ footer a{color:var(--accent)}
 <div id="faqContainer"></div>
 </div>
 
-<!-- FOOTER NAV -->
-<div class="card" style="font-size:.83rem;color:var(--dim)">
-<h3>More Cooking Tools</h3>
-<p style="margin-top:.5rem">
-<a href="/tools/unit-converter.html">Cooking Unit Converter</a> &middot;
-<a href="/tools/recipe-scaler.html">Recipe Scaler</a> &middot;
-<a href="/tools/instant-pot-timing-guide.html">Instant Pot Timing Guide</a> &middot;
-<a href="/tools/fermentation-calculator.html">Fermentation Calculator</a>
-</p>
-</div>
-
+<section class="section">
+  <h2>Related cooking tools</h2>
+  <p class="sub">Free, private, and built by the same team — no ads on the tools, no signup.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/tools/instant-pot-timing-guide"><div class="ico">⏲️</div><div class="t">Instant Pot Timing Guide</div><div class="d">Pressure cook times, release method, and water ratios for 50+ foods.</div></a>
+    <a class="tool-card" href="/tools/unit-converter"><div class="ico">🥄</div><div class="t">Cooking Unit Converter</div><div class="d">Convert cups, grams, ounces, and oven temperatures.</div></a>
+    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings.</div></a>
+    <a class="tool-card" href="/"><div class="ico">🍳</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Calories, protein, carbs, and fat per serving for any recipe.</div></a>
+    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calorie target by activity level.</div></a>
+  </div>
+</section>
 </main>
-<footer>
-<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
-<p style="margin-top:.4rem">&copy; 2026 RecipeTool.net — Free cooking tools for home cooks</p>
-<p style="margin-top:.4rem">
-<a href="/">Home</a> &middot;
-<a href="/tools/">Tools</a> &middot;
-<a href="/guides/">Guides</a> &middot;
-<a href="/answers/">Answers</a>
-</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
 
 <script>
 // ─── DATA ───────────────────────────────────────────────────────────────

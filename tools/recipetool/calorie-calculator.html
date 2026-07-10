@@ -3,184 +3,352 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calorie Calculator - TDEE & BMR Calculator | RecipeTool.net</title>
-<meta name="description" content="Free calorie calculator using the Mifflin-St Jeor equation. Calculate your BMR, TDEE, and get personalized macro recommendations for weight loss, maintenance, or muscle gain.">
-<link rel="canonical" href="https://recipetool.net/calorie-calculator.html">
-<meta property="og:title" content="Calorie Calculator - TDEE & BMR Calculator">
-<meta property="og:description" content="Calculate your daily calorie needs based on age, weight, height, and activity level. Get macro split recommendations.">
-<meta property="og:url" content="https://recipetool.net/calorie-calculator.html">
+<title>Calorie Calculator – TDEE &amp; BMR by Activity Level</title>
+<meta name="description" content="Free calorie calculator using Mifflin-St Jeor. Find your BMR, TDEE, and daily calorie target by activity level, plus macro splits for weight loss or gain.">
+<link rel="canonical" href="https://recipetool.net/calorie-calculator">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Calorie Calculator – TDEE &amp; BMR by Activity Level">
+<meta property="og:description" content="Find your BMR, TDEE, and daily calorie target by activity level with the Mifflin-St Jeor equation, plus macro splits for weight loss, maintenance, or muscle gain.">
+<meta property="og:url" content="https://recipetool.net/calorie-calculator">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calorie Calculator - TDEE & BMR Calculator">
-<meta name="twitter:description" content="Calculate your daily calorie needs. BMR, TDEE, and macro recommendations.">
+<meta name="twitter:title" content="Calorie Calculator – TDEE &amp; BMR by Activity Level">
+<meta name="twitter:description" content="Find your BMR, TDEE, and daily calorie target by activity level, with macro splits for weight loss, maintenance, or muscle gain. Free and private.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},
+ {"@type":"ListItem","position":2,"name":"Kitchen Tools","item":"https://recipetool.net/tools/"},
+ {"@type":"ListItem","position":3,"name":"Calorie Calculator","item":"https://recipetool.net/calorie-calculator"}
+]}</script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Calorie Calculator",
-  "description": "Calculate BMR, TDEE, and get personalized macro recommendations using the Mifflin-St Jeor equation.",
-  "url": "https://recipetool.net/calorie-calculator.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "author": {"@type": "Organization", "name": "RecipeTool", "url": "https://recipetool.net/"}
+  "@context":"https://schema.org","@type":"WebApplication",
+  "name":"Calorie Calculator – TDEE & BMR",
+  "description":"Calculate your BMR, TDEE, and daily calorie target by activity level using the Mifflin-St Jeor equation, with macro-split recommendations for weight loss, maintenance, or muscle gain.",
+  "url":"https://recipetool.net/calorie-calculator",
+  "applicationCategory":"HealthApplication","operatingSystem":"Any, browser-based",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "featureList":["Mifflin-St Jeor BMR","TDEE by activity level","Daily calorie target by goal","Body Mass Index (BMI)","Macro split recommendations","12-week weight projection"],
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"}
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},{"@type":"ListItem","position":2,"name":"Calorie Calculator"}]}
-</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How many calories do I need per day?","acceptedAnswer":{"@type":"Answer","text":"Your daily need is your TDEE — the calories you burn in a day at your activity level. This tool finds it by calculating your BMR with the Mifflin-St Jeor equation, then multiplying by an activity factor from 1.2 (sedentary) to 1.9 (very active). Most adults land between 1,800 and 2,600 calories to maintain weight."}},
+ {"@type":"Question","name":"What is the difference between BMR and TDEE?","acceptedAnswer":{"@type":"Answer","text":"BMR (basal metabolic rate) is the energy your body burns at complete rest just to stay alive — breathing, circulation, and cell repair. TDEE (total daily energy expenditure) is your BMR multiplied by an activity factor, so it also includes movement, exercise, and digestion. TDEE is the number you eat to, not BMR."}},
+ {"@type":"Question","name":"Is the Mifflin-St Jeor equation accurate?","acceptedAnswer":{"@type":"Answer","text":"Yes — research consistently rates Mifflin-St Jeor as the most accurate BMR formula for the general population, typically within about 10 percent of measured values. It is more reliable than the older Harris-Benedict equation. Individual metabolism still varies with body composition, genetics, and hormones, so treat the result as a strong starting estimate."}},
+ {"@type":"Question","name":"How do I use these calories for weight loss?","acceptedAnswer":{"@type":"Answer","text":"Eat below your TDEE. A deficit of about 500 calories a day loses roughly one pound (0.45 kg) per week, since a pound of fat holds about 3,500 calories. Pick the -500 goal here, hold protein high to protect muscle, and adjust after two to three weeks based on the scale trend."}},
+ {"@type":"Question","name":"Which macro split should I pick?","acceptedAnswer":{"@type":"Answer","text":"Balanced (30/40/30) suits most people. Choose High Protein when cutting or building muscle to preserve lean mass and stay full. Low Carb or Keto can help appetite control but are not required for fat loss — total calories drive weight change. Whichever you pick, aim for 1.6 to 2.2 g of protein per kg of bodyweight."}}
+]}</script>
 <style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:800px;margin:0 auto;padding:1rem}
-.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
-.form-group{margin-bottom:.75rem}
-.form-group label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.3rem;color:var(--text-light)}
-.form-group input,.form-group select{width:100%;padding:.5rem .75rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.radio-group{display:flex;gap:1rem;margin-top:.3rem}
-.radio-group label{display:flex;align-items:center;gap:.3rem;font-size:.85rem;cursor:pointer;font-weight:400}
-.radio-group input{width:auto}
-.btn{background:var(--primary);color:white;border:none;padding:.65rem 1.5rem;border-radius:6px;cursor:pointer;font-size:.95rem;font-weight:600;width:100%;transition:background .2s;margin-top:.5rem}
-.btn:hover{background:var(--primary-dark)}
-.results{display:none}
-.result-highlight{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;border-radius:10px;padding:1.25rem;text-align:center;margin-bottom:1rem}
-.result-highlight .big-num{font-size:2.5rem;font-weight:800}
-.result-highlight .sub{font-size:.9rem;opacity:.9;margin-top:.25rem}
-.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-bottom:1rem}
-.metric-card{background:var(--warm);border-radius:8px;padding:.75rem;text-align:center}
-.metric-card .val{font-size:1.3rem;font-weight:700;color:var(--primary-dark)}
-.metric-card .lbl{font-size:.75rem;color:var(--text-light);margin-top:.2rem}
-.macros-section h3{font-size:.95rem;color:var(--primary-dark);margin-bottom:.5rem}
-.macro-plan{background:var(--warm);border-radius:8px;padding:.75rem;margin-bottom:.5rem}
-.macro-plan .plan-name{font-weight:600;font-size:.85rem;margin-bottom:.3rem}
-.macro-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:.3rem}
-.macro-bar .protein-bar{background:#4caf50}
-.macro-bar .carbs-bar{background:#2196f3}
-.macro-bar .fat-bar{background:#ff9800}
-.macro-details{display:flex;gap:1rem;font-size:.75rem;color:var(--text-light)}
-.macro-details span{display:flex;align-items:center;gap:.2rem}
-.macro-details .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.weight-projection{margin-top:1rem}
-.weight-projection h3{font-size:.95rem;color:var(--primary-dark);margin-bottom:.5rem}
-.projection-table{width:100%;font-size:.8rem;border-collapse:collapse}
-.projection-table th,.projection-table td{padding:.4rem .5rem;text-align:left;border-bottom:1px solid var(--border)}
-.projection-table th{font-weight:600;color:var(--text-light)}
-.info-box{background:var(--warm);border-radius:8px;padding:.75rem;font-size:.8rem;color:var(--text-light);margin-top:.75rem;line-height:1.5}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
-@media(max-width:600px){
-.form-row{grid-template-columns:1fr}
-.metrics-grid{grid-template-columns:1fr 1fr}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;
+  font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);
+  display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;
+  padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:44px 0 20px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;
+  font-weight:600;max-width:16ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;
+  color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);
+  padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+@media(max-width:560px){.hero{padding:28px 0 14px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+label.field-label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
+input[type=text],input[type=number],select,textarea{
+  width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
+  padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);
+  cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));
+  border:1px solid var(--border-strong);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.result-hero{font-family:var(--sans);font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.02em;
+  color:var(--accent-strong);font-variant-numeric:tabular-nums}
+.result-hero .unit{font-size:1.1rem;font-weight:600;color:var(--text-2);margin-left:6px;letter-spacing:0}
+.result-context{margin-top:8px;color:var(--text-2);font-size:.98rem}
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px;margin-top:18px}
+.macro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
+.macro .v{font-weight:750;font-size:1.25rem;font-variant-numeric:tabular-nums;color:var(--text)}
+.macro .k{font-size:.72rem;color:var(--text-2);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.faq{border-top:1px solid var(--border)}
+.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.faq-item p{color:var(--text-2);max-width:70ch}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;
+  color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
+.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
+</style>
+<style>
+/* calorie-calculator specifics */
+.cross-note{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:12px 16px;font-size:.92rem;color:var(--text-2);margin-bottom:18px}
+.cross-note a{color:var(--accent-strong);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{margin-bottom:14px}
+.input-combo{display:flex;gap:8px}
+.input-combo select{width:auto;min-width:78px}
+.radio-group{display:flex;gap:10px;margin-top:4px}
+.radio-group label{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;font-size:.95rem;
+  font-weight:600;cursor:pointer;min-height:48px;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);
+  background:var(--surface);color:var(--text-2);transition:border-color .15s,background .15s,color .15s}
+.radio-group label:has(input:checked){border-color:var(--accent);background:var(--surface-warm);color:var(--accent-strong)}
+.radio-group input{width:auto;min-height:0}
+.results{display:none;margin-top:16px}
+.result-hero .unit{display:inline}
+.subcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow-sm);margin-top:16px}
+.subcard h3{font-family:var(--serif);font-size:1.25rem;letter-spacing:-.01em;font-weight:600;margin-bottom:12px}
+.macro-plan{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px}
+.macro-plan .plan-name{font-weight:700;font-size:.92rem;margin-bottom:8px}
+.macro-bar{display:flex;height:9px;border-radius:5px;overflow:hidden;margin-bottom:8px}
+.macro-bar .protein-bar{background:var(--good)}
+.macro-bar .carbs-bar{background:#1f77b4}
+.macro-bar .fat-bar{background:var(--accent)}
+.macro-details{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--text-2)}
+.macro-details span{display:flex;align-items:center;gap:5px}
+.macro-details .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.projection-table{width:100%;font-size:.9rem;border-collapse:collapse}
+.projection-table th,.projection-table td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+.projection-table th{font-weight:600;color:var(--text-2);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.info-box{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:14px 16px;font-size:.88rem;color:var(--text-2);margin-top:16px;line-height:1.6}
+@media(max-width:560px){
+  .form-row{grid-template-columns:1fr}
+  .result-hero{font-size:2.9rem}
+  .macro-details{gap:10px}
 }
 </style>
 </head>
 <body>
-<header>
-<h1>Calorie Calculator</h1>
-<p>Calculate your daily calorie needs & macros</p>
-</header>
-<nav>
-<a href="/">Nutrition Calculator</a>
-<a href="/meal-planner.html">Meal Planner</a>
-<a href="/calorie-calculator.html" class="active">Calorie Calculator</a>
-</nav>
-<main>
-<div class="card">
-<h2>Your Details</h2>
-<div class="form-group">
-<label>Gender</label>
-<div class="radio-group">
-<label><input type="radio" name="gender" value="male" checked> Male</label>
-<label><input type="radio" name="gender" value="female"> Female</label>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="age">Age</label>
-<input type="number" id="age" placeholder="25" min="15" max="100" value="30">
-</div>
-<div class="form-group">
-<label for="weight">Weight</label>
-<div style="display:flex;gap:.5rem">
-<input type="number" id="weight" placeholder="70" min="30" max="300" step="0.1" value="70">
-<select id="weight-unit" style="width:auto;min-width:60px"><option value="kg">kg</option><option value="lbs">lbs</option></select>
-</div>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="height">Height</label>
-<div style="display:flex;gap:.5rem">
-<input type="number" id="height" placeholder="170" min="100" max="250" step="0.1" value="170">
-<select id="height-unit" style="width:auto;min-width:60px"><option value="cm">cm</option><option value="in">in</option></select>
-</div>
-</div>
-<div class="form-group">
-<label for="activity">Activity Level</label>
-<select id="activity">
-<option value="1.2">Sedentary (office job)</option>
-<option value="1.375">Light (1-3 days/week)</option>
-<option value="1.55" selected>Moderate (3-5 days/week)</option>
-<option value="1.725">Active (6-7 days/week)</option>
-<option value="1.9">Very Active (athlete)</option>
-</select>
-</div>
-</div>
-<div class="form-group">
-<label for="goal">Goal</label>
-<select id="goal">
-<option value="-500">Lose weight (-500 cal/day, ~1 lb/week)</option>
-<option value="-250">Slow cut (-250 cal/day, ~0.5 lb/week)</option>
-<option value="0" selected>Maintain weight</option>
-<option value="250">Lean bulk (+250 cal/day)</option>
-<option value="500">Bulk (+500 cal/day)</option>
-</select>
-</div>
-<button class="btn" onclick="calculate()">Calculate</button>
-</div>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/">Kitchen Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator" aria-current="page">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
 
-<div class="results" id="results">
-<div class="result-highlight">
-<div class="big-num" id="tdee-result">0</div>
-<div class="sub">Daily Calories (TDEE with goal)</div>
-</div>
-<div class="metrics-grid">
-<div class="metric-card"><div class="val" id="bmr-val">0</div><div class="lbl">BMR (base)</div></div>
-<div class="metric-card"><div class="val" id="tdee-val">0</div><div class="lbl">TDEE (maintenance)</div></div>
-<div class="metric-card"><div class="val" id="goal-val">0</div><div class="lbl">Goal Calories</div></div>
-<div class="metric-card"><div class="val" id="bmi-val">0</div><div class="lbl">BMI</div></div>
-</div>
-<div class="card macros-section">
-<h3>Recommended Macro Splits</h3>
-<div id="macro-plans"></div>
-</div>
-<div class="card weight-projection">
-<h3>Weight Projection (next 12 weeks)</h3>
-<table class="projection-table">
-<thead><tr><th>Week</th><th>Projected Weight</th><th>Change</th></tr></thead>
-<tbody id="projection-body"></tbody>
-</table>
-</div>
-<div class="info-box">
-<strong>About this calculator:</strong> Uses the Mifflin-St Jeor equation, considered the most accurate BMR formula for most people. BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) +/- gender factor. TDEE is BMR multiplied by your activity level. Results are estimates; individual metabolism varies. Consult a healthcare provider for personalized advice.
-</div>
-</div>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> › <a href="/tools/">Kitchen Tools</a> › Calorie Calculator
+</nav>
+
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> Mifflin-St Jeor · No signup · 100% private</span>
+  <h1>Calorie Calculator</h1>
+  <p class="lede">Find your <strong>daily calorie target</strong> from your BMR, activity level, and goal — plus a macro split and a 12-week weight projection. Everything runs in your browser.</p>
+</section>
+
+<div class="cross-note">Counting calories in a recipe instead? Use the <a href="/">recipe nutrition calculator</a> to get calories per serving from your ingredients.</div>
+
+<section class="card" aria-label="Calorie and TDEE calculator">
+  <div class="form-group">
+    <label class="field-label">Gender (for the BMR formula)</label>
+    <div class="radio-group">
+      <label><input type="radio" name="gender" value="male" checked> Male</label>
+      <label><input type="radio" name="gender" value="female"> Female</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label class="field-label" for="age">Age</label>
+      <input type="number" id="age" placeholder="30" min="15" max="100" value="30">
+    </div>
+    <div class="form-group">
+      <label class="field-label" for="weight">Weight</label>
+      <div class="input-combo">
+        <input type="number" id="weight" placeholder="70" min="30" max="300" step="0.1" value="70">
+        <select id="weight-unit"><option value="kg">kg</option><option value="lbs">lbs</option></select>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label class="field-label" for="height">Height</label>
+      <div class="input-combo">
+        <input type="number" id="height" placeholder="170" min="100" max="250" step="0.1" value="170">
+        <select id="height-unit"><option value="cm">cm</option><option value="in">in</option></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="field-label" for="activity">Activity level</label>
+      <select id="activity">
+        <option value="1.2">Sedentary (office job)</option>
+        <option value="1.375">Light (1-3 days/week)</option>
+        <option value="1.55" selected>Moderate (3-5 days/week)</option>
+        <option value="1.725">Active (6-7 days/week)</option>
+        <option value="1.9">Very Active (athlete)</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="field-label" for="goal">Goal</label>
+    <select id="goal">
+      <option value="-500">Lose weight (-500 cal/day, ~1 lb/week)</option>
+      <option value="-250">Slow cut (-250 cal/day, ~0.5 lb/week)</option>
+      <option value="0" selected>Maintain weight</option>
+      <option value="250">Lean bulk (+250 cal/day)</option>
+      <option value="500">Bulk (+500 cal/day)</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" onclick="calculate()" style="width:100%">Calculate my calories</button>
+
+  <div class="results" id="results" aria-live="polite">
+    <div class="result-card">
+      <div class="result-hero"><span id="tdee-result">0</span><span class="unit">cal / day</span></div>
+      <div class="result-context">Your daily calorie target — TDEE with your goal applied</div>
+      <div class="macro-grid">
+        <div class="macro"><div class="v" id="bmr-val">0</div><div class="k">BMR (base)</div></div>
+        <div class="macro"><div class="v" id="tdee-val">0</div><div class="k">TDEE (maintain)</div></div>
+        <div class="macro"><div class="v" id="goal-val">0</div><div class="k">Goal calories</div></div>
+        <div class="macro"><div class="v" id="bmi-val">0</div><div class="k">BMI</div></div>
+      </div>
+    </div>
+    <div class="subcard">
+      <h3>Recommended macro splits</h3>
+      <div id="macro-plans"></div>
+    </div>
+    <div class="subcard">
+      <h3>Weight projection (next 12 weeks)</h3>
+      <table class="projection-table">
+        <thead><tr><th>Week</th><th>Projected weight</th><th>Change</th></tr></thead>
+        <tbody id="projection-body"></tbody>
+      </table>
+    </div>
+    <div class="info-box">
+      <strong>About this calculator:</strong> Uses the Mifflin-St Jeor equation, considered the most accurate BMR formula for most people. BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) ± a gender factor. TDEE is BMR multiplied by your activity level. Results are estimates; individual metabolism varies. Consult a healthcare provider for personalized advice.
+    </div>
+  </div>
+</section>
+
+<section class="section prose">
+  <h2>How the calorie calculation works</h2>
+  <p class="sub">Two numbers do the heavy lifting: your BMR and your TDEE.</p>
+  <p>Your <strong>BMR (basal metabolic rate)</strong> is the energy your body burns at complete rest — powering your organs, brain, and cell repair even if you stayed in bed all day. This tool finds it with the <strong>Mifflin-St Jeor equation</strong>, the formula dietitians most often reach for because it tracks measured metabolism more closely than the older Harris-Benedict method.</p>
+  <p>Your <strong>TDEE (total daily energy expenditure)</strong> is your BMR multiplied by an <strong>activity factor</strong> — 1.2 if you sit most of the day, up to 1.9 for a training athlete. TDEE is the number you actually eat to: match it to hold your weight, drop below it to lose, or sit above it to gain.</p>
+  <h3>Turning calories into a goal</h3>
+  <p>A pound of body fat stores roughly 3,500 calories, so a daily deficit of about 500 calories trends toward one pound of loss per week. The goal selector applies that adjustment for you, and the projection table shows where a steady deficit or surplus would put your weight over 12 weeks — a realistic trend line, not a guarantee.</p>
+  <h3>How to use your results</h3>
+  <p>Start with the daily calorie target and hold it for two to three weeks, then adjust based on the scale trend rather than any single day. Keep protein high — 1.6 to 2.2 g per kilogram of bodyweight — to protect muscle whether you are cutting or bulking. To turn a specific recipe into calories per serving, run it through the <a href="/">recipe nutrition calculator</a>.</p>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item"><h3>How many calories do I need per day?</h3><p>Your daily need is your TDEE — the calories you burn at your activity level. This tool calculates your BMR with Mifflin-St Jeor, then multiplies by an activity factor from 1.2 (sedentary) to 1.9 (very active). Most adults land between 1,800 and 2,600 calories to maintain their weight.</p></div>
+    <div class="faq-item"><h3>What is the difference between BMR and TDEE?</h3><p>BMR is the energy your body burns at complete rest just to stay alive. TDEE is your BMR multiplied by an activity factor, so it also counts movement, exercise, and digestion. TDEE is the number you eat to, not BMR.</p></div>
+    <div class="faq-item"><h3>Is the Mifflin-St Jeor equation accurate?</h3><p>Yes — studies rate it as the most accurate BMR formula for the general population, usually within about 10 percent of measured values, and more reliable than Harris-Benedict. Body composition, genetics, and hormones still cause variation, so treat the result as a strong starting estimate.</p></div>
+    <div class="faq-item"><h3>How do I use these calories for weight loss?</h3><p>Eat below your TDEE. A deficit of about 500 calories a day loses roughly one pound (0.45 kg) per week, since a pound of fat holds about 3,500 calories. Choose the -500 goal, keep protein high, and reassess after two to three weeks.</p></div>
+    <div class="faq-item"><h3>Which macro split should I pick?</h3><p>Balanced (30/40/30) suits most people. Choose High Protein when cutting or building muscle. Low Carb or Keto can help appetite control but are not required for fat loss — total calories drive weight change. Aim for 1.6 to 2.2 g of protein per kg of bodyweight.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Related tools</h2>
+  <p class="sub">Same clean approach — no ads on the tools, no signup.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/"><div class="ico">🥘</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Get calories and macros per serving from your ingredients.</div></a>
+    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings, instantly.</div></a>
+    <a class="tool-card" href="/guides/food-cost-calculator"><div class="ico">💰</div><div class="t">Food Cost Calculator</div><div class="d">Cost per serving and ideal menu pricing.</div></a>
+    <a class="tool-card" href="/meal-planner"><div class="ico">🗓️</div><div class="t">Weekly Meal Planner</div><div class="d">Plan a week of meals and track calories as you go.</div></a>
+  </div>
+</section>
 </main>
-<footer>
-<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
+
 <script>
 function calculate(){
 let gender=document.querySelector('input[name="gender"]:checked').value;
@@ -235,9 +403,9 @@ macroHTML+=`<div class="macro-plan">
 <div class="fat-bar" style="width:${p.fat}%"></div>
 </div>
 <div class="macro-details">
-<span><span class="dot" style="background:#4caf50"></span> Protein: ${pGrams}g (${p.protein}%)</span>
-<span><span class="dot" style="background:#2196f3"></span> Carbs: ${cGrams}g (${p.carbs}%)</span>
-<span><span class="dot" style="background:#ff9800"></span> Fat: ${fGrams}g (${p.fat}%)</span>
+<span><span class="dot" style="background:#2e7d32"></span> Protein: ${pGrams}g (${p.protein}%)</span>
+<span><span class="dot" style="background:#1f77b4"></span> Carbs: ${cGrams}g (${p.carbs}%)</span>
+<span><span class="dot" style="background:#d64500"></span> Fat: ${fGrams}g (${p.fat}%)</span>
 </div>
 </div>`;
 });
@@ -259,19 +427,8 @@ projHTML+=`<tr><td>Week ${w}</td><td>${displayWeight}</td><td>${displayChange}</
 document.getElementById('projection-body').innerHTML=projHTML;
 
 document.getElementById('results').style.display='block';
-document.getElementById('results').scrollIntoView({behavior:'smooth'});
+document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 </script>
-
-<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
-<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
-<ul style="list-style:none;padding:0;display:grid;gap:8px;">
-<li><a href="/nutrition-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Calculator — Count Calories by Ingredients</a></li>
-<li><a href="/guides/food-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Cost Calculator — Food Cost Per Serving & Markup</a></li>
-<li><a href="/guides/meal-prep-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Calculator — Weekly Planner & Shopping List Generator</a></li>
-<li><a href="/research/food-waste-calculator.html" style="color:#3b82f6;text-decoration:none;">Food Waste Calculator — Household Waste Estimator & Storage Tips</a></li>
-</ul>
-</section>
-
 </body>
 </html>

@@ -3,66 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cooking Guides — Meal Prep, Batch Cooking & More | RecipeTool</title>
-<meta name="description" content="Free cooking guides: weekly meal prep calculator with shopping list generator, batch cooking strategies, food storage tips, and more.">
+<title>Cooking Guides &amp; Kitchen Calculators | RecipeTool</title>
+<meta name="description" content="Free cooking guides and kitchen calculators: work out food cost per serving, plan a week of meal prep with macros, and build a printable weekly meal plan.">
 <link rel="canonical" href="https://recipetool.net/guides/">
-<meta property="og:title" content="Cooking Guides — Meal Prep, Batch Cooking & More">
-<meta property="og:description" content="Free cooking guides with interactive tools. Meal prep planner, shopping list generator, and more.">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Cooking Guides &amp; Kitchen Calculators | RecipeTool">
+<meta property="og:description" content="Free cooking guides with interactive tools: food cost calculator, meal prep planner with shopping lists, and a printable weekly meal plan.">
 <meta property="og:url" content="https://recipetool.net/guides/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cooking Guides &amp; Kitchen Calculators | RecipeTool">
+<meta name="twitter:description" content="Food cost, meal prep, and weekly meal planning tools plus in-depth cooking guides. Free, private, no signup.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"CollectionPage",
+  "name":"Cooking Guides & Kitchen Calculators",
+  "description":"A collection of free cooking guides and interactive kitchen calculators covering food cost, weekly meal prep, and printable meal planning.",
+  "url":"https://recipetool.net/guides/",
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"},
+  "hasPart":[
+    {"@type":"WebPage","name":"Food Cost Calculator","url":"https://recipetool.net/guides/food-cost-calculator"},
+    {"@type":"WebPage","name":"Meal Prep Calculator","url":"https://recipetool.net/guides/meal-prep-calculator"},
+    {"@type":"WebPage","name":"Weekly Meal Planning Template","url":"https://recipetool.net/guides/meal-planning-template"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},
+ {"@type":"ListItem","position":2,"name":"Cooking Guides","item":"https://recipetool.net/guides/"}
+]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Are these cooking guides and calculators free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every guide and calculator on RecipeTool is completely free with no signup and no account. The tools run entirely in your browser, so nothing you type is uploaded or stored. You can use the food cost, meal prep, and meal planning tools as often as you like."}},
+ {"@type":"Question","name":"Which guide should I start with?","acceptedAnswer":{"@type":"Answer","text":"If you want to save money, start with the food cost calculator to see cost per serving. If you want to eat more consistently, use the meal prep calculator to plan a week and generate a shopping list. The printable meal planning template is best when you want a simple weekly menu on paper."}},
+ {"@type":"Question","name":"Can I print or save the meal plans?","acceptedAnswer":{"@type":"Answer","text":"Yes. The meal prep calculator and weekly meal planning template both include print-friendly layouts, so you can print a clean copy or save it as a PDF from your browser's print dialog. Shopping lists can also be copied to your clipboard for use on your phone at the store."}}
+]}</script>
 <style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:900px;margin:0 auto;padding:1rem}
-.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border);transition:box-shadow .2s}
-.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
-.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.5rem}
-.card p{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
-.card a{color:var(--primary);text-decoration:none;font-weight:600;font-size:.9rem}
-.card a:hover{text-decoration:underline}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:44px 0 20px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;font-weight:600;max-width:18ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.faq{border-top:1px solid var(--border)}
+.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.faq-item p{color:var(--text-2);max-width:70ch}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
+.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.hero{padding:28px 0 14px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
 </style>
 </head>
 <body>
-<header>
-<h1>Cooking Guides</h1>
-<p>In-depth guides with interactive planning tools</p>
-</header>
-<nav>
-<a href="/">Recipe Calculator</a>
-<a href="/tools/">Tools</a>
-<a href="/guides/" class="active">Guides</a>
-<a href="/answers/">Answers</a>
-</nav>
-<main>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/">Kitchen Tools</a>
+    <a href="/guides/" aria-current="page">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
 
-<div class="card">
-<h2>Meal Prep Calculator &amp; Weekly Planner</h2>
-<p>Plan your entire week of meals with an interactive 7-day grid. Assign breakfast, lunch, dinner, and snacks from a preset meal database. Track daily and weekly calories and macros, then generate an aggregated shopping list organized by grocery aisle. Includes a complete guide to batch cooking strategies, food storage safety, and container organization.</p>
-<a href="/guides/meal-prep-calculator.html">Open Meal Prep Calculator &rarr;</a>
-</div>
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › Cooking Guides</nav>
 
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> Free tools · No signup · 100% private</span>
+  <h1>Cooking Guides &amp; Kitchen Calculators</h1>
+  <p class="lede">Practical, in-depth guides paired with interactive calculators — cost a recipe per serving, plan a full week of meal prep with macros, and build a printable weekly meal plan.</p>
+</section>
+
+<section class="section" aria-label="All cooking guides" style="padding-top:8px">
+  <h2>Browse the guides</h2>
+  <p class="sub">Each guide includes a working calculator plus a complete, honest walkthrough of the topic. Pick where you want to save time or money.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/guides/food-cost-calculator">
+      <div class="ico">💰</div>
+      <div class="t">Food Cost Calculator</div>
+      <div class="d">Add ingredient prices to get cost per serving, food cost percentage, and restaurant menu markup — plus a homemade-vs-delivery savings comparison.</div>
+    </a>
+    <a class="tool-card" href="/guides/meal-prep-calculator">
+      <div class="ico">🥡</div>
+      <div class="t">Meal Prep Calculator</div>
+      <div class="d">Fill a 7-day grid from a preset meal database, track daily and weekly calories and macros, then auto-generate a shopping list by aisle.</div>
+    </a>
+    <a class="tool-card" href="/guides/meal-planning-template">
+      <div class="ico">🗓️</div>
+      <div class="t">Weekly Meal Planning Template</div>
+      <div class="d">A printable drag-and-drop weekly planner with 20+ preset meals, automatic shopping lists, and per-day calorie totals.</div>
+    </a>
+  </div>
+</section>
+
+<section class="section prose" style="padding-top:0">
+  <h2>How to use these guides together</h2>
+  <p>These three tools are designed to work as a system for anyone who cooks at home. Start with the <a href="/guides/meal-planning-template">weekly meal planning template</a> or the more detailed <a href="/guides/meal-prep-calculator">meal prep calculator</a> to decide what you will eat and generate a shopping list. Then run a few recipes through the <a href="/guides/food-cost-calculator">food cost calculator</a> to see exactly what each serving costs and where your grocery money goes.</p>
+  <p>Together they help you eat more consistently, waste less food, and spend less. Because everything runs locally in your browser, there is no signup and nothing you enter ever leaves your device. For nutrition on a specific recipe, pair these with the <a href="/">recipe nutrition calculator</a> to get calories and macros per serving.</p>
+</section>
+
+<section class="section" aria-label="Popular calculators">
+  <h2>Popular calculators</h2>
+  <p class="sub">The most-used free tools on RecipeTool.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/"><div class="ico">🍳</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Calories, protein, carbs, fat, fiber, and sodium per serving from your ingredients.</div></a>
+    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calorie target from BMR and activity level.</div></a>
+    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings, instantly.</div></a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item"><h3>Are these cooking guides and calculators free?</h3><p>Yes — every guide and calculator is completely free with no signup and no account. The tools run entirely in your browser, so nothing you type is uploaded or stored. Use the food cost, meal prep, and meal planning tools as often as you like.</p></div>
+    <div class="faq-item"><h3>Which guide should I start with?</h3><p>To save money, start with the food cost calculator to see cost per serving. To eat more consistently, use the meal prep calculator to plan a week and generate a shopping list. The printable meal planning template is best when you want a simple weekly menu on paper.</p></div>
+    <div class="faq-item"><h3>Can I print or save the meal plans?</h3><p>Yes. The meal prep calculator and weekly meal planning template both include print-friendly layouts, so you can print a clean copy or save it as a PDF. Shopping lists can also be copied to your clipboard for the store.</p></div>
+  </div>
+</section>
 </main>
-<footer>
-<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
-<p style="margin-top:8px;">
-<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
-<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
-<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
-<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
-</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
 </body>
 </html>

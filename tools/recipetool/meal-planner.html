@@ -3,138 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Meal Planner - Plan Your Meals & Track Calories | RecipeTool.net</title>
-<meta name="description" content="Free weekly meal planner. Organize breakfast, lunch, dinner, and snacks for 7 days. Track daily calories and macros. Save and print your meal plans.">
-<link rel="canonical" href="https://recipetool.net/meal-planner.html">
-<meta property="og:title" content="Weekly Meal Planner - Plan Your Meals & Track Calories">
-<meta property="og:description" content="Plan your weekly meals with our free drag-and-drop meal planner. Track daily nutrition and print your plan.">
-<meta property="og:url" content="https://recipetool.net/meal-planner.html">
+<title>Weekly Meal Planner – Plan Meals &amp; Track Calories</title>
+<meta name="description" content="Free weekly meal planner: organize breakfast, lunch, dinner, and snacks across seven days, track daily calories and macros, then save or print your plan.">
+<link rel="canonical" href="https://recipetool.net/meal-planner">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Weekly Meal Planner – Plan Meals &amp; Track Calories">
+<meta property="og:description" content="Plan breakfast, lunch, dinner, and snacks for seven days, track daily calories and macros, and print your plan. Free, private, no signup.">
+<meta property="og:url" content="https://recipetool.net/meal-planner">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="RecipeTool.net">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Weekly Meal Planner - Plan Your Meals & Track Calories">
-<meta name="twitter:description" content="Plan your weekly meals with our free drag-and-drop meal planner. Track daily nutrition and print your plan.">
+<meta name="twitter:title" content="Weekly Meal Planner – Plan Meals &amp; Track Calories">
+<meta name="twitter:description" content="Plan a full week of meals, track daily calories and macros, then save or print your plan. Free, private, no signup.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},
+ {"@type":"ListItem","position":2,"name":"Kitchen Tools","item":"https://recipetool.net/tools/"},
+ {"@type":"ListItem","position":3,"name":"Weekly Meal Planner","item":"https://recipetool.net/meal-planner"}
+]}</script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Weekly Meal Planner",
-  "description": "Free weekly meal planner to organize meals and track daily nutrition.",
-  "url": "https://recipetool.net/meal-planner.html",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "author": {"@type": "Organization", "name": "RecipeTool", "url": "https://recipetool.net/"}
+  "@context":"https://schema.org","@type":"WebApplication",
+  "name":"Weekly Meal Planner",
+  "description":"Free weekly meal planner to organize breakfast, lunch, dinner, and snacks across seven days while tracking daily calories and macros, with save and print options.",
+  "url":"https://recipetool.net/meal-planner",
+  "applicationCategory":"HealthApplication","operatingSystem":"Any, browser-based",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "featureList":["7-day meal grid","Breakfast, lunch, dinner, snacks","Daily calorie totals","Protein, carbs, fat tracking","Drag-and-drop meals","Save to browser","Printable plan"],
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"}
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},{"@type":"ListItem","position":2,"name":"Weekly Meal Planner"}]}
-</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How do I plan a week of meals?","acceptedAnswer":{"@type":"Answer","text":"Add a meal under any day and slot — breakfast, lunch, dinner, or snacks. Enter a name and its calories and macros, and it appears in the grid. Repeat across the seven days, then drag meals between slots to rebalance. The board keeps a running total for each day and a weekly average at the top."}},
+ {"@type":"Question","name":"Does the meal planner track calories and macros?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each meal you add carries calories plus protein, carbs, and fat. Every day column shows its own totals, and the summary bar averages calories and macros across the full week so you can see whether your plan lands near your target at a glance."}},
+ {"@type":"Question","name":"Can I save and print my meal plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Save Plan stores the week in your browser so it is waiting when you return, and Load Plan brings it back. Print opens a clean, print-friendly version of the grid with the toolbar and controls hidden — ideal for sticking on the fridge or taking shopping."}},
+ {"@type":"Question","name":"Is my meal plan private?","acceptedAnswer":{"@type":"Answer","text":"Completely. The planner runs entirely in your browser and saves to local storage on your own device. Nothing is uploaded, there is no account, and no meal data ever leaves your computer. Clearing your browser storage removes the saved plan permanently."}},
+ {"@type":"Question","name":"How many calories should each day include?","acceptedAnswer":{"@type":"Answer","text":"That depends on your daily calorie target. Work it out first with the calorie and TDEE calculator, which factors in your age, weight, height, activity level, and goal. Then build days in this planner that average close to that number, keeping protein high to stay full and hold muscle."}}
+]}</script>
 <style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:1100px;margin:0 auto;padding:1rem}
-.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
-.btn{background:var(--primary);color:white;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:500;transition:background .2s}
-.btn:hover{background:var(--primary-dark)}
-.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
-.btn-outline:hover{background:var(--warm)}
-.btn-success{background:var(--success)}
-.btn-success:hover{background:#388e3c}
-.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;overflow-x:auto}
-.day-col{background:var(--white);border-radius:10px;border:1px solid var(--border);min-width:140px;box-shadow:var(--shadow)}
-.day-header{background:var(--warm-dark);padding:.5rem;text-align:center;border-radius:10px 10px 0 0;font-weight:600;font-size:.85rem}
-.day-header .date{font-size:.7rem;color:var(--text-light);font-weight:400}
-.meal-section{padding:.4rem;border-bottom:1px solid var(--border)}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;
+  font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);
+  display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;
+  padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:44px 0 20px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;
+  font-weight:600;max-width:16ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;
+  color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);
+  padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+@media(max-width:560px){.hero{padding:28px 0 14px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+label.field-label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
+input[type=text],input[type=number],select,textarea{
+  width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
+  padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);
+  cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));
+  border:1px solid var(--border-strong);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.result-hero{font-family:var(--sans);font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.02em;
+  color:var(--accent-strong);font-variant-numeric:tabular-nums}
+.result-hero .unit{font-size:1.1rem;font-weight:600;color:var(--text-2);margin-left:6px;letter-spacing:0}
+.result-context{margin-top:8px;color:var(--text-2);font-size:.98rem}
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px;margin-top:18px}
+.macro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
+.macro .v{font-weight:750;font-size:1.25rem;font-variant-numeric:tabular-nums;color:var(--text)}
+.macro .k{font-size:.72rem;color:var(--text-2);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.faq{border-top:1px solid var(--border)}
+.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.faq-item p{color:var(--text-2);max-width:70ch}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;
+  color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
+.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
+</style>
+<style>
+/* meal-planner specifics — alias vars keep JS-injected var() references resolving */
+:root{--primary:var(--accent);--primary-dark:var(--accent-strong);--secondary:#f48c06;
+  --warm:var(--surface-alt);--warm-dark:var(--surface-warm);--success:var(--good);
+  --text-light:var(--text-2);--white:var(--surface)}
+.mp-maxw{max-width:1120px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px;align-items:center}
+.toolbar .btn{min-height:44px;padding:9px 16px;font-size:.9rem}
+.result-hero .unit{display:inline}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:16px;overflow-x:auto}
+.day-col{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);min-width:150px;box-shadow:var(--shadow-sm);overflow:hidden}
+.day-header{background:var(--surface-warm);padding:10px;text-align:center;font-weight:700;font-size:.9rem;color:var(--text);border-bottom:1px solid var(--border)}
+.day-header .date{font-size:.7rem;color:var(--text-2);font-weight:400}
+.meal-section{padding:10px;border-bottom:1px solid var(--border)}
 .meal-section:last-child{border-bottom:none}
-.meal-label{font-size:.7rem;font-weight:600;color:var(--primary);text-transform:uppercase;margin-bottom:.25rem}
-.meal-items{min-height:40px}
-.meal-item{background:var(--warm);padding:.3rem .5rem;border-radius:4px;font-size:.75rem;margin-bottom:.25rem;cursor:grab;display:flex;justify-content:space-between;align-items:center}
+.meal-label{font-size:.68rem;font-weight:700;color:var(--accent-strong);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.meal-items{min-height:36px}
+.meal-item{background:var(--surface-alt);border:1px solid var(--border);padding:7px 9px;border-radius:var(--radius-sm);font-size:.8rem;margin-bottom:6px;cursor:grab;display:flex;justify-content:space-between;align-items:center;line-height:1.35}
 .meal-item:active{cursor:grabbing;opacity:.8}
-.meal-item .cals{color:var(--text-light);font-size:.65rem}
-.meal-item .remove{cursor:pointer;color:#c62828;font-weight:bold;margin-left:.3rem}
-.add-meal-btn{width:100%;background:none;border:1px dashed var(--border);color:var(--text-light);padding:.25rem;border-radius:4px;font-size:.7rem;cursor:pointer;margin-top:.25rem}
-.add-meal-btn:hover{border-color:var(--primary);color:var(--primary)}
-.day-totals{padding:.4rem;background:var(--warm);border-radius:0 0 10px 10px;text-align:center;font-size:.7rem}
-.day-totals strong{color:var(--primary-dark)}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+.meal-item .cals{color:var(--text-2);font-size:.68rem;font-variant-numeric:tabular-nums}
+.meal-item .remove{cursor:pointer;color:#b3261e;font-weight:bold;margin-left:8px}
+.add-meal-btn{width:100%;background:none;border:1px dashed var(--border-strong);color:var(--text-2);padding:8px;border-radius:var(--radius-sm);font-size:.78rem;font-weight:600;cursor:pointer;margin-top:6px;min-height:36px}
+.add-meal-btn:hover{border-color:var(--accent);color:var(--accent-strong);background:var(--surface-alt)}
+.day-totals{padding:9px;background:var(--surface-alt);text-align:center;font-size:.72rem;color:var(--text-2);font-variant-numeric:tabular-nums}
+.day-totals strong{color:var(--accent-strong)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(43,33,29,.55);z-index:1000;align-items:center;justify-content:center;padding:16px}
 .modal-overlay.active{display:flex}
-.modal{background:white;border-radius:12px;padding:1.5rem;width:90%;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,.2)}
-.modal h3{margin-bottom:.75rem;color:var(--primary-dark)}
-.modal input,.modal select{width:100%;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem;margin-bottom:.75rem}
-.modal input:focus,.modal select:focus{outline:none;border-color:var(--primary)}
-.modal-btns{display:flex;gap:.5rem;justify-content:flex-end}
-.summary-bar{background:var(--white);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;box-shadow:var(--shadow);display:flex;justify-content:space-around;flex-wrap:wrap;gap:.5rem}
-.summary-item{text-align:center}
-.summary-item .val{font-size:1.1rem;font-weight:700;color:var(--primary-dark)}
-.summary-item .lbl{font-size:.7rem;color:var(--text-light)}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
+.modal{background:var(--surface);border-radius:var(--radius);padding:24px;width:100%;max-width:420px;box-shadow:var(--shadow-lg)}
+.modal h3{font-family:var(--serif);font-size:1.3rem;letter-spacing:-.01em;margin-bottom:14px;color:var(--text)}
+.modal input{margin-bottom:12px}
+.modal-btns{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
 @media(max-width:768px){
-.week-grid{grid-template-columns:1fr 1fr;gap:.75rem}
-.day-col{min-width:auto}
+  .week-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .day-col{min-width:0}
+  .result-hero{font-size:2.9rem}
 }
-@media(max-width:480px){
-.week-grid{grid-template-columns:1fr}
-}
+@media(max-width:480px){.week-grid{grid-template-columns:1fr}}
 @media print{
-nav,.toolbar,.add-meal-btn,.meal-item .remove{display:none!important}
-body{background:white}
-.day-col{break-inside:avoid}
+  .site-header,.toolbar,.add-meal-btn,.meal-item .remove,.site-footer,.section,.crumbs,.hero{display:none!important}
+  body{background:#fff;font-size:12px}
+  .day-col{break-inside:avoid;box-shadow:none}
+  .week-grid{grid-template-columns:repeat(7,1fr)}
 }
 </style>
 </head>
 <body>
-<header>
-<h1>Weekly Meal Planner</h1>
-<p>Plan your meals, track your nutrition</p>
-</header>
-<nav>
-<a href="/">Nutrition Calculator</a>
-<a href="/meal-planner.html" class="active">Meal Planner</a>
-<a href="/calorie-calculator.html">Calorie Calculator</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/">Kitchen Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner" aria-current="page">Meal Planner</a>
+  </nav>
+</div></header>
+
+<main class="wrap mp-maxw">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> › <a href="/tools/">Kitchen Tools</a> › Weekly Meal Planner
 </nav>
-<main>
+
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> Save &amp; print · No signup · 100% private</span>
+  <h1>Weekly Meal Planner</h1>
+  <p class="lede">Map out <strong>breakfast, lunch, dinner, and snacks</strong> for all seven days, watch each day's calories and macros add up, then save or print your plan.</p>
+</section>
+
 <div class="toolbar">
-<button class="btn" onclick="savePlan()">Save Plan</button>
-<button class="btn btn-outline" onclick="loadPlan()">Load Plan</button>
-<button class="btn btn-outline" onclick="clearPlan()">Clear All</button>
-<button class="btn btn-outline" onclick="window.print()">Print</button>
+  <button class="btn btn-primary" onclick="savePlan()">Save plan</button>
+  <button class="btn btn-ghost" onclick="loadPlan()">Load plan</button>
+  <button class="btn btn-ghost" onclick="clearPlan()">Clear all</button>
+  <button class="btn btn-ghost" onclick="window.print()">Print</button>
 </div>
-<div class="summary-bar" id="weekly-summary">
-<div class="summary-item"><div class="val" id="sum-cal">0</div><div class="lbl">Avg Cal/Day</div></div>
-<div class="summary-item"><div class="val" id="sum-protein">0g</div><div class="lbl">Avg Protein</div></div>
-<div class="summary-item"><div class="val" id="sum-carbs">0g</div><div class="lbl">Avg Carbs</div></div>
-<div class="summary-item"><div class="val" id="sum-fat">0g</div><div class="lbl">Avg Fat</div></div>
-<div class="summary-item"><div class="val" id="sum-meals">0</div><div class="lbl">Total Meals</div></div>
+
+<div class="result-card" id="weekly-summary" aria-live="polite">
+  <div class="result-hero"><span id="sum-cal">0</span><span class="unit">avg cal / day</span></div>
+  <div class="result-context">Weekly averages across all seven days</div>
+  <div class="macro-grid">
+    <div class="macro"><div class="v" id="sum-protein">0g</div><div class="k">Avg protein</div></div>
+    <div class="macro"><div class="v" id="sum-carbs">0g</div><div class="k">Avg carbs</div></div>
+    <div class="macro"><div class="v" id="sum-fat">0g</div><div class="k">Avg fat</div></div>
+    <div class="macro"><div class="v" id="sum-meals">0</div><div class="k">Total meals</div></div>
+  </div>
 </div>
+
 <div class="week-grid" id="week-grid"></div>
 </main>
+
 <div class="modal-overlay" id="add-modal">
-<div class="modal">
-<h3>Add Meal</h3>
-<input type="text" id="meal-name" placeholder="Meal name (e.g., Grilled Chicken Salad)">
-<input type="number" id="meal-cal" placeholder="Calories" min="0">
-<input type="number" id="meal-protein" placeholder="Protein (g)" min="0" step="0.1">
-<input type="number" id="meal-carbs" placeholder="Carbs (g)" min="0" step="0.1">
-<input type="number" id="meal-fat" placeholder="Fat (g)" min="0" step="0.1">
-<div class="modal-btns">
-<button class="btn btn-outline" onclick="closeModal()">Cancel</button>
-<button class="btn" onclick="confirmAdd()">Add</button>
+  <div class="modal">
+    <h3>Add a meal</h3>
+    <label class="field-label" for="meal-name">Meal name</label>
+    <input type="text" id="meal-name" placeholder="e.g. Grilled chicken salad">
+    <label class="field-label" for="meal-cal">Calories</label>
+    <input type="number" id="meal-cal" placeholder="Calories" min="0">
+    <label class="field-label" for="meal-protein">Protein (g)</label>
+    <input type="number" id="meal-protein" placeholder="Protein (g)" min="0" step="0.1">
+    <label class="field-label" for="meal-carbs">Carbs (g)</label>
+    <input type="number" id="meal-carbs" placeholder="Carbs (g)" min="0" step="0.1">
+    <label class="field-label" for="meal-fat">Fat (g)</label>
+    <input type="number" id="meal-fat" placeholder="Fat (g)" min="0" step="0.1">
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="confirmAdd()">Add meal</button>
+    </div>
+  </div>
 </div>
+
+<div class="wrap">
+<section class="section prose">
+  <h2>How to use the weekly meal planner</h2>
+  <p class="sub">Build a week you'll actually cook — one meal slot at a time.</p>
+  <p>Each day has four slots: <strong>breakfast, lunch, dinner, and snacks</strong>. Tap <strong>+ Add</strong> under any slot, give the meal a name, and enter its calories plus protein, carbs, and fat. The meal drops into the grid and the day's totals update immediately. Not sure of a meal's numbers? Run the recipe through the <a href="/">recipe nutrition calculator</a> first, then copy the per-serving figures in here.</p>
+  <h3>Rebalance by dragging</h3>
+  <p>Meals are <strong>drag-and-drop</strong>. If Monday is running heavy and Wednesday is light, grab a meal and drop it into another day or slot to even out your calories. The day totals and the weekly average at the top recalculate as you go, so you can steer the whole week toward one target.</p>
+  <h3>Save, reload, and print</h3>
+  <p><strong>Save plan</strong> keeps the week in your browser so it's ready when you come back. <strong>Load plan</strong> restores it, and <strong>Print</strong> produces a clean grid with the controls hidden — perfect for the fridge or a shopping trip. To set the right daily number to aim for, work out your target with the <a href="/calorie-calculator">calorie and TDEE calculator</a> before you fill the week.</p>
+  <div class="trust-row">
+    <span class="badge good">✓ Runs 100% in your browser</span>
+    <span class="badge good">✓ Saves to your device only</span>
+    <span class="badge">No signup · No ads on the tool</span>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item"><h3>How do I plan a week of meals?</h3><p>Add a meal under any day and slot — breakfast, lunch, dinner, or snacks. Enter its name, calories, and macros, and it appears in the grid. Repeat across the seven days, then drag meals between slots to rebalance. Each day keeps a running total and the top bar shows a weekly average.</p></div>
+    <div class="faq-item"><h3>Does the meal planner track calories and macros?</h3><p>Yes. Each meal carries calories plus protein, carbs, and fat. Every day column shows its own totals, and the summary bar averages calories and macros across the full week so you can see whether your plan lands near your target.</p></div>
+    <div class="faq-item"><h3>Can I save and print my meal plan?</h3><p>Yes. Save Plan stores the week in your browser and Load Plan brings it back. Print opens a clean, print-friendly version of the grid with the toolbar and controls hidden — ideal for the fridge or taking shopping.</p></div>
+    <div class="faq-item"><h3>Is my meal plan private?</h3><p>Completely. The planner runs entirely in your browser and saves to local storage on your own device. Nothing is uploaded, there is no account, and no meal data ever leaves your computer.</p></div>
+    <div class="faq-item"><h3>How many calories should each day include?</h3><p>That depends on your daily target. Work it out first with the calorie and TDEE calculator, which factors in age, weight, height, activity, and goal. Then build days here that average close to that number, keeping protein high.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Related tools</h2>
+  <p class="sub">Same clean approach — no ads on the tools, no signup.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/"><div class="ico">🥘</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Get calories and macros per serving from your ingredients.</div></a>
+    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calories from BMR and activity level.</div></a>
+    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings, instantly.</div></a>
+    <a class="tool-card" href="/guides/food-cost-calculator"><div class="ico">💰</div><div class="t">Food Cost Calculator</div><div class="d">Cost per serving and ideal menu pricing.</div></a>
+  </div>
+</section>
 </div>
-</div>
-<footer>
-<p>Part of the <a href="https://ingredientcalculator.com">Recipe Tools Network</a></p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
+
 <script>
 const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 const MEALS=['Breakfast','Lunch','Dinner','Snacks'];
@@ -267,16 +449,5 @@ let saved=localStorage.getItem('recipetool_mealplan');
 if(saved){try{plan=JSON.parse(saved)}catch(e){initPlan()}}
 renderGrid();
 </script>
-
-<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
-<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
-<ul style="list-style:none;padding:0;display:grid;gap:8px;">
-<li><a href="/guides/meal-planning-template.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner — Auto Shopping List & Calorie Tracking</a></li>
-<li><a href="/guides/meal-prep-calculator.html" style="color:#3b82f6;text-decoration:none;">Meal Prep Calculator — Weekly Planner & Shopping List Generator</a></li>
-<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
-<li><a href="/nutrition-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Nutrition Calculator — Count Calories by Ingredients</a></li>
-</ul>
-</section>
-
 </body>
 </html>

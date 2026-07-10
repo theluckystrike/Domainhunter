@@ -3,36 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitchen Answers – Cooking Questions Solved | RecipeTool</title>
-<meta name="description" content="Kitchen answers to common cooking questions: ingredient substitutions, safe cooking temperatures, egg substitutes for baking, and a spice pairing guide.">
-<link rel="canonical" href="https://recipetool.net/answers/">
+<title>Food &amp; Nutrition Research Tools | RecipeTool</title>
+<meta name="description" content="Free food and nutrition research tools: decode any nutrition label with personalized daily values and calculate the yearly cost of household food waste.">
+<link rel="canonical" href="https://recipetool.net/research/">
 <meta name="theme-color" content="#d64500">
-<meta property="og:title" content="Kitchen Answers – Cooking Questions Solved | RecipeTool">
-<meta property="og:description" content="Kitchen answers to common cooking questions: ingredient substitutions, safe cooking temperatures, egg substitutes for baking, and a spice pairing guide.">
-<meta property="og:url" content="https://recipetool.net/answers/">
+<meta property="og:title" content="Food &amp; Nutrition Research Tools | RecipeTool">
+<meta property="og:description" content="Free research tools to decode nutrition labels and calculate the cost of household food waste. No signup, 100% private.">
+<meta property="og:url" content="https://recipetool.net/research/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
+<meta name="author" content="Michael Lip">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kitchen Answers – Cooking Questions Solved | RecipeTool">
-<meta name="twitter:description" content="Ingredient substitutions, safe cooking temperatures, egg substitutes, and a spice pairing guide. Free, private kitchen answers for home cooks.">
+<meta name="twitter:title" content="Food &amp; Nutrition Research Tools | RecipeTool">
+<meta name="twitter:description" content="Decode nutrition labels and calculate the cost of household food waste with free, private research tools.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage",
- "name":"Kitchen Answers",
- "description":"A hub of quick-reference cooking answers: ingredient substitutions, safe cooking temperatures, egg substitutes for baking, and spice pairing.",
- "url":"https://recipetool.net/answers/",
- "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
- "publisher":{"@type":"Organization","name":"RecipeTool.net","url":"https://recipetool.net"},
- "hasPart":[
-  {"@type":"Article","name":"Cooking Substitutions Chart","url":"https://recipetool.net/answers/cooking-substitutions"},
-  {"@type":"Article","name":"Safe Cooking Temperatures Chart","url":"https://recipetool.net/answers/cooking-temperatures"},
-  {"@type":"Article","name":"Egg Substitutes for Baking","url":"https://recipetool.net/answers/egg-substitutes"},
-  {"@type":"Article","name":"Spice Pairing Guide","url":"https://recipetool.net/answers/spice-pairing-guide"}
- ]}
+{
+  "@context":"https://schema.org","@type":"CollectionPage",
+  "name":"Food & Nutrition Research Tools",
+  "description":"A collection of free food and nutrition research tools, including a nutrition label decoder and a household food waste calculator.",
+  "url":"https://recipetool.net/research/",
+  "isPartOf":{"@type":"WebSite","name":"RecipeTool.net","url":"https://recipetool.net/"},
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"},
+  "hasPart":[
+    {"@type":"Article","name":"Nutrition Label Decoder","url":"https://recipetool.net/research/nutrition-label-decoder"},
+    {"@type":"Article","name":"Food Waste Calculator","url":"https://recipetool.net/research/food-waste-calculator"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Article",
+  "headline":"Food & Nutrition Research Tools",
+  "description":"Free research tools that help you read nutrition labels correctly and measure the real cost of household food waste.",
+  "url":"https://recipetool.net/research/",
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net","url":"https://recipetool.net"},
+  "datePublished":"2026-07-10","dateModified":"2026-07-10",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://recipetool.net/research/"}
+}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
  {"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},
- {"@type":"ListItem","position":2,"name":"Kitchen Answers","item":"https://recipetool.net/answers/"}
+ {"@type":"ListItem","position":2,"name":"Research","item":"https://recipetool.net/research/"}
 ]}</script>
 <style>
 :root{
@@ -53,6 +67,8 @@ html{-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
   font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---- Header / Nav (identical on every page) ---- */
 .site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;
   backdrop-filter:saturate(1.1)}
 .site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
@@ -65,6 +81,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
   padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
 .site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
 .site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+
+/* ---- Hero ---- */
 .hero{padding:44px 0 20px}
 .hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;
   font-weight:600;max-width:16ch}
@@ -74,6 +92,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
   padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
 .eyebrow .tick{color:var(--good)}
 @media(max-width:560px){.hero{padding:28px 0 14px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
+
+/* ---- Cards / sections ---- */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
   padding:24px;box-shadow:var(--shadow-sm)}
 .section{padding:34px 0}
@@ -83,12 +103,16 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
 .prose strong{font-weight:650}
 .prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+
+/* ---- Inputs (48px+ targets, labels above) ---- */
 label.field-label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
 input[type=text],input[type=number],select,textarea{
   width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);
   border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
 input::placeholder{color:var(--text-3)}
+
+/* ---- Buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
   padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);
   cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
@@ -98,6 +122,8 @@ input::placeholder{color:var(--text-3)}
 .btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
 .btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
 .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+
+/* ---- Result-as-a-moment ---- */
 .result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));
   border:1px solid var(--border-strong);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
 .result-hero{font-family:var(--sans);font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.02em;
@@ -108,6 +134,8 @@ input::placeholder{color:var(--text-3)}
 .macro{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
 .macro .v{font-weight:750;font-size:1.25rem;font-variant-numeric:tabular-nums;color:var(--text)}
 .macro .k{font-size:.72rem;color:var(--text-2);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+
+/* ---- Tool/category grid (discovery) ---- */
 .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
   padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
@@ -115,16 +143,24 @@ input::placeholder{color:var(--text-3)}
 .tool-card .ico{font-size:1.5rem}
 .tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
 .tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+
+/* ---- FAQ (open by default) ---- */
 .faq{border-top:1px solid var(--border)}
 .faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
 .faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
 .faq-item p{color:var(--text-2);max-width:70ch}
+
+/* ---- Trust / badges ---- */
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;
   color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
 .badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
 .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+/* ---- Breadcrumb ---- */
 .crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
 .crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+
+/* ---- Footer ---- */
 .site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
 .site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
 .site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
@@ -134,6 +170,11 @@ input::placeholder{color:var(--text-3)}
 .site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
 @media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
 </style>
+<style>
+/* page-specific — research index */
+.tool-card .t{font-size:1.08rem;margin-top:10px}
+.tool-card .d{font-size:.92rem;margin-top:5px}
+</style>
 </head>
 <body>
 <header class="site-header"><div class="wrap">
@@ -142,45 +183,52 @@ input::placeholder{color:var(--text-3)}
     <a href="/">Nutrition Calculator</a>
     <a href="/tools/">Kitchen Tools</a>
     <a href="/guides/">Guides</a>
-    <a href="/answers/" aria-current="page">Answers</a>
+    <a href="/answers/">Answers</a>
     <a href="/calorie-calculator">Calorie Calculator</a>
     <a href="/meal-planner">Meal Planner</a>
   </nav>
 </div></header>
 
 <main class="wrap">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › Kitchen Answers</nav>
-
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> › Research
+</nav>
 <section class="hero">
-  <span class="eyebrow"><span class="tick">✓</span> Free · No signup · Home-cook tested</span>
-  <h1>Kitchen Answers</h1>
-  <p class="lede">Clear, accurate answers to the cooking questions people search most — ingredient swaps, safe temperatures, egg replacements, and spice pairings, each with an interactive tool.</p>
+  <span class="eyebrow"><span class="tick">✓</span> Free · Private · No signup</span>
+  <h1>Food &amp; Nutrition Research Tools</h1>
+  <p class="lede">Deeper, data-driven tools for the questions behind the cooking — how to read a food label correctly, and what your kitchen waste really costs each year.</p>
 </section>
 
-<section class="section" aria-label="All kitchen answers">
+<section class="section" style="padding-top:8px">
   <div class="tool-grid">
-    <a class="tool-card" href="/answers/cooking-substitutions"><div class="ico">🔁</div><div class="t">Cooking Substitutions Chart</div><div class="d">100+ ingredient swaps with exact ratios, notes, and vegan / gluten-free / dairy-free filters.</div></a>
-    <a class="tool-card" href="/answers/cooking-temperatures"><div class="ico">🌡️</div><div class="t">Safe Cooking Temperatures</div><div class="d">USDA-safe internal temps for beef, chicken, pork, fish and lamb, plus baking temps and a timer.</div></a>
-    <a class="tool-card" href="/answers/egg-substitutes"><div class="ico">🥚</div><div class="t">Egg Substitutes for Baking</div><div class="d">12 easy egg replacements with exact per-egg ratios matched to cakes, cookies, and more.</div></a>
-    <a class="tool-card" href="/answers/spice-pairing-guide"><div class="ico">🌿</div><div class="t">Spice Pairing Guide</div><div class="d">What goes with what — flavor profiles, cuisine filters, and a balance-scoring blend builder.</div></a>
+    <a class="tool-card" href="/research/nutrition-label-decoder">
+      <div class="ico">🏷️</div>
+      <div class="t">Nutrition Label Decoder</div>
+      <div class="d">Enter any nutrition facts panel to get personalized daily values, traffic-light ratings, and a fair side-by-side product comparison.</div>
+    </a>
+    <a class="tool-card" href="/research/food-waste-calculator">
+      <div class="ico">🗑️</div>
+      <div class="t">Food Waste Calculator</div>
+      <div class="d">Estimate the yearly cost of household food waste, see the category breakdown, and get storage tips for 50+ foods.</div>
+    </a>
   </div>
 </section>
 
 <section class="section prose">
-  <h2>Quick, reliable cooking references</h2>
-  <p class="sub">Every answer page is built to solve one real kitchen problem fast.</p>
-  <p>These pages exist because home cooks constantly hit the same walls: you are halfway through a recipe and out of buttermilk, unsure whether the chicken is actually done, baking for someone who cannot eat eggs, or staring at a spice rack with no idea what pairs with cumin. Each guide gives you the direct answer first — a chart, a ratio, a safe temperature — then explains the why so the knowledge sticks.</p>
-  <p>All four tools run entirely in your browser. There is no signup, nothing is uploaded, and the reference data (USDA safe temperatures, standard substitution ratios) reflects the same sources professional kitchens rely on. When you need to turn a finished recipe into calories and macros, jump to the <a href="/">recipe nutrition calculator</a> on the homepage.</p>
+  <h2>About these research tools</h2>
+  <p class="sub">Two tools that turn everyday food decisions into clear numbers.</p>
+  <p>The RecipeTool research collection goes a step beyond quick calculators. Each tool tackles a question that shapes how much you spend, how you eat, and how much food ends up in the trash. The <a href="/research/nutrition-label-decoder">nutrition label decoder</a> translates a confusing nutrition facts panel into personalized daily values and easy-to-read traffic-light ratings, so you can compare two products fairly even when their serving sizes differ. The <a href="/research/food-waste-calculator">food waste calculator</a> puts a real dollar figure on the groceries your household never eats and shows exactly where that money leaks — then hands you the storage know-how to plug it.</p>
+  <p>Everything here runs entirely in your browser. There is no signup, nothing is uploaded, and the tools are free to use as often as you like. When you are ready to put the numbers to work, jump to the <a href="/">recipe nutrition calculator</a> to see the calories and macros in your own meals.</p>
 </section>
 
 <section class="section">
-  <h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">More free kitchen tools</h2>
-  <p class="sub">Same clean, private approach — no ads on the tools, no account.</p>
-  <div class="tool-grid">
-    <a class="tool-card" href="/"><div class="ico">🍽️</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Calories, protein, carbs, fat and sodium per serving for any recipe.</div></a>
-    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calories from BMR and activity level.</div></a>
-    <a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Resize any recipe up or down by servings, instantly.</div></a>
-  </div>
+<h2 style="font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px">Related tools</h2>
+<p class="sub">The rest of the free RecipeTool kitchen kit.</p>
+<div class="tool-grid">
+<a class="tool-card" href="/"><div class="ico">🍽️</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Free recipe nutrition calculator for calories and macros per serving.</div></a>
+<a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calories from BMR and activity level.</div></a>
+<a class="tool-card" href="/guides/food-cost-calculator"><div class="ico">💰</div><div class="t">Food Cost Calculator</div><div class="d">Cost per serving and ideal menu pricing for any recipe.</div></a>
+</div>
 </section>
 </main>
 

@@ -3,262 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recipe Scaler — Double, Triple or Halve Any Recipe | RecipeTool</title>
-<meta name="description" content="Free recipe scaling calculator with smart fraction display. Double, halve, or scale any recipe to your desired servings. Rounds to practical kitchen measurements like 1/4 tsp and 1/3 cup.">
-<link rel="canonical" href="https://recipetool.net/tools/recipe-scaler.html">
-<meta property="og:title" content="Recipe Scaler — Double, Triple or Halve Any Recipe">
-<meta property="og:description" content="Scale any recipe up or down with smart fraction handling. Rounds to practical measurements. Free, no signup.">
-<meta property="og:url" content="https://recipetool.net/tools/recipe-scaler.html">
+<title>Recipe Scaler – Resize Any Recipe by Servings</title>
+<meta name="description" content="Free recipe scaler to double, halve, or resize any recipe by servings. Smart fractions round to real measuring-cup amounts, with notes for salt and leavening.">
+<link rel="canonical" href="https://recipetool.net/tools/recipe-scaler">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Recipe Scaler – Resize Any Recipe by Servings">
+<meta property="og:description" content="Scale any recipe up or down by servings with smart fraction rounding and non-linear notes for salt and leavening. Free, no signup.">
+<meta property="og:url" content="https://recipetool.net/tools/recipe-scaler">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
-<meta property="article:published_time" content="2026-05-25">
 <meta property="article:author" content="Michael Lip">
 <meta name="author" content="Michael Lip">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Recipe Scaler — Double, Triple or Halve Any Recipe">
-<meta name="twitter:description" content="Scale recipes with smart fractions and practical rounding. Free recipe multiplier tool.">
+<meta name="twitter:title" content="Recipe Scaler – Resize Any Recipe by Servings">
+<meta name="twitter:description" content="Scale recipes by servings with smart fractions and practical rounding. Free recipe multiplier tool.">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebApplication",
-      "name": "Recipe Scaler",
-      "description": "Free recipe scaling tool that recalculates ingredient amounts when you change serving sizes. Features smart fraction display and practical measurement rounding.",
-      "url": "https://recipetool.net/tools/recipe-scaler.html",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-      "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
-      "datePublished": "2026-05-25",
-      "dateModified": "2026-05-25"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Can I simply double all ingredients when doubling a recipe?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For most ingredients, yes — you can double them directly. However, leavening agents (baking powder, baking soda, yeast), salt, and strong spices often need less aggressive scaling. When doubling, use about 1.5x to 1.75x for baking powder and baking soda, and add salt and spices to taste. Eggs can be doubled directly. Cooking times may also need adjustment — a larger volume of food takes longer to heat through."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does cooking time change when I scale a recipe?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cooking time often changes when scaling, but not proportionally. Doubling a recipe does not mean doubling the cook time. For stovetop cooking, the extra volume means it takes longer to reach temperature but cooks at a similar rate once hot. For baking, a doubled recipe in a larger pan may need 10-25% more time. A doubled recipe divided into the same size pans needs roughly the same time. Always use a thermometer or visual cues rather than relying solely on time."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I halve a recipe that calls for 1 egg?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Beat the whole egg in a small bowl, then measure out half by volume. One large egg is approximately 3 tablespoons (about 50 mL), so half an egg is roughly 1.5 tablespoons. For recipes where the egg is critical for structure (like cakes), consider using 1 egg yolk instead of half a whole egg. For recipes where the egg is a binder (like meatballs), one whole egg often works fine even in the halved recipe."
-          }
-        }
-      ]
-    }
-  ]
+  "@context":"https://schema.org","@type":"WebApplication",
+  "name":"Recipe Scaler",
+  "description":"Free recipe scaling tool that recalculates ingredient amounts when you change serving sizes, with smart fraction display and practical measurement rounding.",
+  "url":"https://recipetool.net/tools/recipe-scaler",
+  "applicationCategory":"UtilityApplication","operatingSystem":"Any, browser-based",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "featureList":["Scale by servings or multiplier","Smart kitchen fractions","Non-linear notes for salt and leavening","Copy and print scaled recipe"],
+  "author":{"@type":"Person","name":"Michael Lip","url":"https://zovo.one"},
+  "publisher":{"@type":"Organization","name":"RecipeTool.net"}
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://recipetool.net/tools/"},{"@type":"ListItem","position":3,"name":"Recipe Scaler"}]}
-</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Can I simply double all ingredients when doubling a recipe?","acceptedAnswer":{"@type":"Answer","text":"For most core ingredients like flour, sugar, butter, meat, and vegetables, yes. But leavening agents such as baking powder and baking soda, plus salt and strong spices, should be scaled more conservatively, roughly 1.5x to 1.75x when doubling. The scaler flags these non-linear ingredients so you can add the rest to taste."}},
+ {"@type":"Question","name":"Does cooking time change when I scale a recipe?","acceptedAnswer":{"@type":"Answer","text":"Cooking time changes but not proportionally. Doubling a recipe does not double the time. On the stovetop, a bigger batch mainly takes longer to reach temperature. For baking in same-size pans, time stays roughly equal; in one larger pan, add 10 to 25 percent and consider lowering the oven by 25 degrees Fahrenheit. Always confirm with a thermometer."}},
+ {"@type":"Question","name":"How do I halve a recipe that calls for 1 egg?","acceptedAnswer":{"@type":"Answer","text":"Beat the whole egg in a small bowl and measure out half by volume. One large egg is about 3 tablespoons, so half is roughly 1.5 tablespoons. For cakes where the egg gives structure, use one yolk instead. For binders like meatballs, a whole egg usually works fine even in the halved recipe."}},
+ {"@type":"Question","name":"What pan size should I use for a scaled recipe?","acceptedAnswer":{"@type":"Answer","text":"Choose a pan that keeps roughly the same batter depth as the original. Doubling a recipe that uses one 9-inch round pan? Use two 9-inch pans or one 13x9-inch pan. Halving it? Try a 6-inch round or an 8x4-inch loaf pan. Batter depth affects both baking time and final texture, so match it rather than the pan area."}},
+ {"@type":"Question","name":"Can I scale a recipe for a slow cooker or Instant Pot?","acceptedAnswer":{"@type":"Answer","text":"Scale the ingredients but never exceed the max fill line, usually two-thirds full for pressure cookers and three-quarters for slow cookers. Pressure-cooker times stay the same because pressure sets the temperature. Slow-cooker times may need a modest increase for larger volumes, and liquid often does not need to grow as much since there is less evaporation."}}
+]}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},
+ {"@type":"ListItem","position":2,"name":"Kitchen Tools","item":"https://recipetool.net/tools/"},
+ {"@type":"ListItem","position":3,"name":"Recipe Scaler","item":"https://recipetool.net/tools/recipe-scaler"}
+]}</script>
 <style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:900px;margin:0 auto;padding:1rem}
-.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
-.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
-.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
-.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
-.card li{margin-bottom:.35rem}
-.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
-.btn:hover{background:var(--primary-dark)}
-.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
-.btn-outline:hover{background:var(--warm)}
-.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-.servings-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
-.servings-row label{font-size:.85rem;color:var(--text-light);white-space:nowrap;font-weight:500}
-.servings-row input{width:70px;padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.9rem;text-align:center}
-.servings-row input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 2px rgba(232,93,4,.15)}
-.scale-factor{font-size:.85rem;color:var(--primary-dark);font-weight:600;background:var(--warm);padding:.25rem .5rem;border-radius:4px}
-.quick-btns{display:flex;gap:.4rem;flex-wrap:wrap}
-.quick-btns button{background:var(--warm);border:1px solid var(--border);padding:.35rem .7rem;border-radius:4px;cursor:pointer;font-size:.8rem;font-weight:500;transition:all .2s}
-.quick-btns button:hover{background:var(--warm-dark);border-color:var(--primary)}
-.quick-btns button.active{background:var(--primary);color:white;border-color:var(--primary)}
-.ing-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;margin-bottom:.5rem;align-items:center}
-.ing-row input,.ing-row select{padding:.45rem .6rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem}
-.ing-row input:focus,.ing-row select:focus{outline:none;border-color:var(--primary)}
-.ing-row .remove-btn{background:none;border:none;color:#c62828;cursor:pointer;font-size:1.2rem;padding:.25rem .5rem;border-radius:4px}
-.ing-row .remove-btn:hover{background:#ffebee}
-.scaled-results{background:var(--warm);border-radius:8px;padding:1rem;margin-top:1rem}
-.scaled-results h3{color:var(--primary-dark);font-size:1rem;margin-bottom:.5rem}
-.scaled-item{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--border);font-size:.9rem}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:44px 0 20px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;font-weight:600;max-width:16ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+@media(max-width:560px){.hero{padding:24px 0 12px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose ul{margin:0 0 14px;padding-left:20px;max-width:70ch}
+.prose li{margin-bottom:8px}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+label.field-label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
+input[type=text],input[type=number],select{width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.faq{border-top:1px solid var(--border)}
+.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.faq-item h3{font-size:1.05rem;font-weight:650;margin-bottom:6px;letter-spacing:-.01em}
+.faq-item p{color:var(--text-2);max-width:70ch}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.badge.good{color:var(--good);background:var(--good-tint);border-color:#cfe6d0}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));border:1px solid var(--border-strong);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-top:16px}
+.result-hero{font-family:var(--sans);font-weight:800;font-size:3.4rem;line-height:1;letter-spacing:-.02em;color:var(--accent-strong);font-variant-numeric:tabular-nums}
+.result-hero .unit{font-size:1.05rem;font-weight:600;color:var(--text-2);margin-left:8px;letter-spacing:0}
+.result-context{margin-top:8px;color:var(--text-2);font-size:.98rem}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
+</style>
+<style>
+/* legacy-var aliases so tool JS/inline colors resolve to the SPEC palette */
+:root{--primary:var(--accent);--primary-dark:var(--accent-strong);--secondary:#f48c06;--warm:var(--surface-warm);--warm-dark:#f6d9bf;--text-light:var(--text-2);--success:var(--good);--white:var(--surface)}
+/* recipe-scaler specifics */
+.servings-row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
+.sv-field{min-width:130px}
+.sv-field label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:6px;letter-spacing:.01em}
+.scale-badge{align-self:flex-end;font-size:.85rem;font-weight:700;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:10px 14px;border-radius:var(--radius-pill);white-space:nowrap}
+.quick-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.quick-btns button{background:var(--surface);border:1.5px solid var(--border-strong);padding:9px 14px;border-radius:var(--radius-sm);cursor:pointer;font-size:.9rem;font-weight:600;color:var(--text-2);min-height:42px;font-family:var(--sans)}
+.quick-btns button:hover{background:var(--surface-alt);border-color:var(--accent)}
+.quick-btns button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ing-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center}
+.ing-row .remove-btn{min-height:48px;background:none;border:1.5px solid var(--border);color:#b3261e;cursor:pointer;font-size:1.2rem;border-radius:var(--radius-sm);padding:0 14px}
+.ing-row .remove-btn:hover{background:#fdeceb;border-color:#f3c9c5}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.scaled-results h3{font-size:1.1rem;font-weight:650;margin-bottom:8px;color:var(--text)}
+.scaled-item{display:flex;justify-content:space-between;gap:12px;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.95rem}
 .scaled-item:last-child{border-bottom:none}
-.scaled-item .scaled-amount{font-weight:700;color:var(--primary-dark)}
-.scaled-item .original-amount{font-size:.75rem;color:var(--text-light)}
-.note-box{background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:.75rem;margin-top:.75rem;font-size:.85rem;color:#795548}
-.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
-.faq-item:last-child{border-bottom:none}
-.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
-.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
-.faq-q.open::after{content:'-'}
-.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
-.faq-a.open{max-height:500px;padding-top:.5rem}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
+.scaled-item .scaled-amount{font-weight:750;color:var(--accent-strong);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scaled-item .original-amount{font-size:.78rem;color:var(--text-3)}
+.note-box{background:var(--good-tint);border:1px solid #cfe6d0;border-radius:var(--radius-sm);padding:12px 14px;margin-top:14px;font-size:.88rem;color:#3f5a3f;line-height:1.55}
 @media(max-width:600px){
-.ing-row{grid-template-columns:1fr 1fr;gap:.4rem}
-.ing-row .remove-btn{grid-column:span 2;justify-self:end}
-.servings-row{flex-direction:column;align-items:stretch;gap:.5rem}
+  .ing-row{grid-template-columns:1fr 1fr;gap:7px}
+  .ing-row .remove-btn{grid-column:2;justify-self:end;width:48px}
+  .result-hero{font-size:2.8rem}
 }
 </style>
 </head>
 <body>
-<header>
-<h1>Recipe Scaler</h1>
-<p>Scale any recipe up or down with smart fractions</p>
-</header>
-<nav>
-<a href="/">Recipe Calculator</a>
-<a href="/tools/unit-converter.html">Unit Converter</a>
-<a href="/tools/recipe-scaler.html" class="active">Recipe Scaler</a>
-<a href="/guides/meal-prep-calculator.html">Meal Prep</a>
-<a href="/answers/cooking-substitutions.html">Substitutions</a>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/" aria-current="page">Kitchen Tools</a>
+    <a href="/guides/">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a> › <a href="/tools/">Kitchen Tools</a> › <span>Recipe Scaler</span>
 </nav>
-<main>
+
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> Smart fractions · No signup · 100% private</span>
+  <h1>Recipe Scaler</h1>
+  <p class="lede">Double, halve, or resize any recipe by servings — with amounts rounded to <strong>real kitchen fractions</strong> and smart notes for salt and leavening.</p>
+</section>
 
 <!-- ===== SCALER TOOL ===== -->
-<div class="card">
-<h2>Scale Your Recipe</h2>
-<div class="servings-row">
-<div><label for="orig-servings">Original Servings:</label><br><input type="number" id="orig-servings" value="24" min="1" max="999"></div>
-<div><label for="desired-servings">Desired Servings:</label><br><input type="number" id="desired-servings" value="48" min="1" max="999"></div>
-<div class="scale-factor" id="scale-display">Scale: 2x</div>
-</div>
-<div class="quick-btns">
-<button onclick="quickScale(0.25)">1/4x</button>
-<button onclick="quickScale(0.5)">1/2x</button>
-<button onclick="quickScale(0.75)">3/4x</button>
-<button onclick="quickScale(1)" class="active">1x</button>
-<button onclick="quickScale(1.5)">1.5x</button>
-<button onclick="quickScale(2)">2x</button>
-<button onclick="quickScale(3)">3x</button>
-<button onclick="quickScale(4)">4x</button>
-</div>
-</div>
+<section class="card" aria-label="Recipe scaler">
+  <div class="servings-row">
+    <div class="sv-field">
+      <label for="orig-servings">Original servings</label>
+      <input type="number" id="orig-servings" value="24" min="1" max="999">
+    </div>
+    <div class="sv-field">
+      <label for="desired-servings">Desired servings</label>
+      <input type="number" id="desired-servings" value="48" min="1" max="999">
+    </div>
+    <div class="scale-badge" id="scale-display">Scale: 2x</div>
+  </div>
+  <div class="quick-btns">
+    <button onclick="quickScale(0.25)">1/4x</button>
+    <button onclick="quickScale(0.5)">1/2x</button>
+    <button onclick="quickScale(0.75)">3/4x</button>
+    <button onclick="quickScale(1)" class="active">1x</button>
+    <button onclick="quickScale(1.5)">1.5x</button>
+    <button onclick="quickScale(2)">2x</button>
+    <button onclick="quickScale(3)">3x</button>
+    <button onclick="quickScale(4)">4x</button>
+  </div>
 
-<div class="card">
-<h2>Ingredients</h2>
-<p style="margin-bottom:.75rem">Enter your original recipe ingredients. Add or remove rows as needed.</p>
-<div id="ingredients-list"></div>
-<div class="btn-group">
-<button class="btn btn-outline" onclick="addIngRow()">+ Add Ingredient</button>
-<button class="btn" onclick="scaleRecipe()">Scale Recipe</button>
-<button class="btn btn-outline" onclick="loadExample()">Load Example Recipe</button>
-</div>
-</div>
+  <label class="field-label" style="margin-top:18px">Ingredients</label>
+  <div id="ingredients-list"></div>
+  <div class="btn-group">
+    <button class="btn btn-ghost" onclick="addIngRow()">+ Add ingredient</button>
+    <button class="btn btn-primary" onclick="scaleRecipe()">Scale recipe</button>
+    <button class="btn btn-ghost" onclick="loadExample()">Load example recipe</button>
+  </div>
 
-<div class="card" id="results-card" style="display:none">
-<h2>Scaled Recipe</h2>
-<div class="scaled-results" id="scaled-results"></div>
-<div class="note-box" id="scaling-notes" style="display:none"></div>
-<div class="btn-group">
-<button class="btn btn-outline" onclick="copyScaled()">Copy to Clipboard</button>
-<button class="btn btn-outline" onclick="printScaled()">Print</button>
-</div>
-</div>
+  <div id="results-card" style="display:none">
+    <div class="result-card" aria-live="polite">
+      <div class="result-hero"><span id="scale-hero">2×</span><span class="unit">scale factor</span></div>
+      <div class="result-context">Original amounts on the left, scaled amounts on the right.</div>
+      <div class="scaled-results" id="scaled-results" style="margin-top:16px"></div>
+      <div class="note-box" id="scaling-notes" style="display:none"></div>
+      <div class="btn-group">
+        <button class="btn btn-ghost" onclick="copyScaled()">Copy to clipboard</button>
+        <button class="btn btn-ghost" onclick="printScaled()">Print</button>
+        <span class="badge">Smart kitchen fractions</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===== CONTENT SECTION ===== -->
-<div class="card">
-<h2>The Art and Science of Recipe Scaling</h2>
-<p>Scaling a recipe sounds simple: if you want to double the servings, double everything. In practice, it is more nuanced than that. Some ingredients scale linearly, others do not, and the cooking process itself changes when you work with larger or smaller volumes. This guide covers everything you need to know to scale recipes confidently.</p>
+<section class="section prose">
+  <h2>The art and science of recipe scaling</h2>
+  <p class="sub">Doubling a recipe is rarely as simple as doubling every number.</p>
+  <p>Scaling a recipe sounds simple: to double the servings, double everything. In practice it is more nuanced. Some ingredients scale linearly, others do not, and the cooking process itself changes when you work with larger or smaller volumes. This guide covers what you need to scale recipes confidently, and the calculator above applies these rules automatically.</p>
 
-<h3>When Scaling Works Perfectly</h3>
-<p>Most core recipe ingredients scale proportionally without any issues. If a recipe for 4 servings calls for 2 cups of flour, a recipe for 8 servings needs 4 cups. This holds true for primary ingredients like flour, sugar, butter, eggs (at moderate scales), meats, vegetables, grains, pasta, and dairy. For simple scaling up to about 3x or down to 1/2x, you can safely multiply every ingredient by the scaling factor and expect good results.</p>
-<p>Liquids in soups, stews, sauces, and braised dishes scale linearly as well. If your chili recipe needs 2 cups of broth for 6 servings, 4 cups for 12 servings will work perfectly. The ratio of liquid to solid stays the same, and the cooking process is essentially unchanged — it just happens in a bigger pot.</p>
+  <h3>When scaling works perfectly</h3>
+  <p>Most core ingredients scale proportionally. If a recipe for 4 servings calls for 2 cups of flour, a recipe for 8 needs 4 cups. This holds for flour, sugar, butter, eggs at moderate scales, meats, vegetables, grains, pasta, and dairy. For scaling up to about 3x or down to 1/2x, you can safely multiply every ingredient by the factor and expect good results. Liquids in soups, stews, and braises scale linearly too — the ratio of liquid to solid stays the same, it just happens in a bigger pot.</p>
 
-<h3>Ingredients That Do NOT Scale Linearly</h3>
-<p>This is where most home cooks run into trouble. Several categories of ingredients behave differently at different scales:</p>
-<ul>
-<li><strong>Baking powder and baking soda:</strong> When doubling a recipe, use about 1.5x to 1.75x the original amount of leavening rather than a full 2x. Too much leavening causes baked goods to rise rapidly and then collapse, creating a dense, sunken result. The chemical reaction produces gas at a rate that outpaces the structure-forming proteins if there is too much leavening agent relative to the batter's ability to trap gas.</li>
-<li><strong>Yeast:</strong> Yeast does not need to scale proportionally. When doubling a bread recipe, increase yeast by about 1.5x. For tripling, use about 2x. Yeast is a living organism that reproduces during proofing — give it a bit more time rather than a lot more yeast. Too much yeast produces off-flavors and can cause bread to rise too fast, resulting in a coarse, irregular crumb.</li>
-<li><strong>Salt:</strong> Start with 1.5x when doubling, then taste and adjust. Our taste perception of saltiness is not linear with concentration, and over-salting is one of the hardest mistakes to fix. You can always add more salt; you cannot take it away.</li>
-<li><strong>Strong spices and extracts:</strong> Cayenne pepper, cinnamon, cloves, vanilla extract, and other potent flavoring agents should be scaled conservatively. Use 1.5x when doubling and taste-test. These ingredients have strong, sometimes bitter compounds that become overwhelming in excess.</li>
-<li><strong>Garlic and onion:</strong> These aromatic vegetables can become overpowering when scaled up aggressively. For doubling, 1.75x is usually sufficient. For tripling, try 2.5x.</li>
-</ul>
+  <h3>Ingredients that do not scale linearly</h3>
+  <p>This is where most home cooks run into trouble. Several categories behave differently at different scales:</p>
+  <ul>
+    <li><strong>Baking powder and baking soda:</strong> when doubling, use about 1.5x to 1.75x rather than a full 2x. Too much leavening makes baked goods rise fast then collapse into a dense, sunken result.</li>
+    <li><strong>Yeast:</strong> increase by about 1.5x when doubling and 2x when tripling. Yeast reproduces during proofing, so give it time rather than a lot more yeast; excess produces off-flavors and a coarse crumb.</li>
+    <li><strong>Salt:</strong> start at 1.5x when doubling, then taste. Saltiness is not perceived linearly, and over-salting is hard to fix — you can add more but not take it away.</li>
+    <li><strong>Strong spices and extracts:</strong> cayenne, cinnamon, cloves, and vanilla should scale conservatively at about 1.5x when doubling, then taste-test.</li>
+    <li><strong>Garlic and onion:</strong> aromatics can overpower when scaled aggressively. Use about 1.75x for doubling and 2.5x for tripling.</li>
+  </ul>
+  <p>The scaler flags these ingredients and applies a gentler multiplier, then leaves a note so you can finish to taste.</p>
 
-<h3>Cooking Time and Temperature Adjustments</h3>
-<p>Perhaps the most overlooked aspect of recipe scaling is that cooking time does not scale proportionally. Doubling a recipe does not mean doubling the time. The physics of heat transfer means that a larger volume of food takes longer to reach internal temperature, but the surface cooks at the same rate as the original batch.</p>
-<p>For stovetop cooking, the main difference is time to reach a simmer or boil — a bigger pot of soup takes longer to heat up but cooks at essentially the same rate once it is at temperature. Stir more frequently and check for sticking, as a larger volume means more weight pressing ingredients against the bottom of the pot.</p>
-<p>For baked goods, the approach depends on how you divide the batter. If you double a cake recipe and bake it in two standard-size pans (the same size as the original recipe), the baking time is roughly the same — each pan has the same depth and volume as the original. If you bake the doubled recipe in one larger pan, increase baking time by 10-25% and consider lowering the temperature by 25 degrees Fahrenheit to prevent the outside from overcooking before the center is done.</p>
-<p>For roasting meats, time is primarily determined by weight and thickness. A 10-pound turkey takes much longer than a 5-pound chicken, but the relationship is not strictly proportional. Use an instant-read thermometer to determine doneness rather than relying on time calculations.</p>
+  <h3>Cooking time and temperature</h3>
+  <p>Cooking time does not scale proportionally. Doubling a recipe does not double the time. A larger volume takes longer to reach internal temperature, but the surface cooks at the same rate. On the stovetop, the main change is the time to reach a simmer. For baking, a doubled batch split across two standard pans bakes in roughly the original time; the same batter in one larger pan needs 10 to 25 percent more time, and often 25 degrees Fahrenheit lower to keep the outside from over-browning. For roasts, weight and thickness drive the time, so use an instant-read thermometer rather than the clock.</p>
 
-<h3>Scaling Down: Half and Quarter Batches</h3>
-<p>Scaling down presents its own challenges. The trickiest part is often dealing with eggs — you cannot easily use half an egg. When halving a recipe that calls for 1 egg, beat the whole egg and use half (approximately 1.5 tablespoons). Alternatively, use just the yolk for richness or just the white for structure, depending on the recipe's needs.</p>
-<p>Small-batch baking also challenges the limits of measuring equipment. When a halved recipe calls for 1/8 teaspoon of baking soda, that amount is nearly impossible to measure accurately with standard spoons. Consider investing in a set of miniature measuring spoons (1/8 tsp, pinch, dash) or use a kitchen scale that reads to 0.1 grams.</p>
-<p>Pan size matters when scaling down baked goods. If you halve a cake recipe but use the same size pan, the batter will be much thinner and will bake faster (and potentially overbake before you notice). Choose a smaller pan that gives you the same batter depth as the original recipe.</p>
+  <h3>Scaling down: half and quarter batches</h3>
+  <p>Scaling down brings its own challenges. Eggs are the classic problem: to halve a recipe with one egg, beat the whole egg and use half, about 1.5 tablespoons. Tiny amounts like 1/8 teaspoon of baking soda are hard to measure accurately, so consider mini measuring spoons or a scale that reads to 0.1 grams. Pan size matters too — a halved batter in the original pan will be shallow and bake faster, so choose a smaller pan for the same depth.</p>
 
-<h3>Batch Cooking Considerations</h3>
-<p>When scaling recipes for meal prep or large gatherings, think about your equipment limitations. A home oven can only hold so many pans. A standard home stovetop burner may not heat a very large pot evenly. Consider splitting large batches across multiple pans or pots rather than trying to fit everything into one oversized vessel.</p>
-<p>Cooling is another factor in batch cooking. A large pot of soup takes much longer to cool to a safe refrigeration temperature than a small batch. The FDA recommends cooling food from 140 degrees F to 70 degrees F within 2 hours, and from 70 degrees F to 40 degrees F within an additional 4 hours. For large batches, divide into shallow containers and use an ice bath to speed cooling.</p>
-<p>Finally, some recipes simply do not scale well beyond a certain point. Delicate emulsions (hollandaise, mayonnaise), custards, and souffle batters are difficult to prepare in very large quantities because the physical processes (emulsification, air incorporation, gentle heat distribution) work best at moderate volumes. For these, it is better to make multiple standard batches rather than one enormous one.</p>
-
-<h3>Smart Fraction Display</h3>
-<p>Our recipe scaler converts decimal results into practical kitchen fractions. Rather than telling you to use 0.333 cups, it displays 1/3 cup. Rather than 0.667 tablespoons, it shows 2/3 tbsp. The tool rounds to the nearest practical kitchen fraction — 1/4, 1/3, 1/2, 2/3, 3/4 — because those are the measurements that correspond to real measuring spoons and cups. This small detail makes a big difference in usability, since nobody owns a 0.333-cup measuring scoop.</p>
-<p>For very small amounts, the scaler also suggests unit conversions. If scaling down yields an impractically small amount in the original unit (like 1/16 cup), it may suggest switching to tablespoons or teaspoons for easier measuring. Use our <a href="/tools/unit-converter.html" style="color:var(--primary)">unit converter</a> for additional measurement conversions.</p>
-</div>
+  <h3>Smart fraction display</h3>
+  <p>This scaler converts decimal results into practical kitchen fractions. Rather than 0.333 cups, it shows 1/3 cup; rather than 0.667 tablespoons, 2/3 tbsp. It rounds to the fractions that match real measuring spoons and cups — 1/4, 1/3, 1/2, 2/3, 3/4 — because nobody owns a 0.333-cup scoop. For weight-based baking, pair it with the <a href="/tools/unit-converter">cooking unit converter</a> to switch between cups and grams.</p>
+</section>
 
 <!-- ===== FAQ ===== -->
-<div class="card">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Can I simply double all ingredients when doubling a recipe?</div>
-<div class="faq-a">For most core ingredients (flour, sugar, butter, meat, vegetables), yes. But leavening agents (baking powder, baking soda), salt, and strong spices should be scaled more conservatively — use about 1.5x to 1.75x when doubling. Our scaler flags these ingredients with notes.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Does cooking time change when I scale a recipe?</div>
-<div class="faq-a">Cooking time changes, but not proportionally. Doubling a stovetop recipe mainly adds time to reach temperature. For baking in the same-size pans, time stays roughly the same. For baking in a larger pan, add 10-25% more time and consider lowering temp by 25&deg;F. Always use a thermometer.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">How do I halve a recipe that calls for 1 egg?</div>
-<div class="faq-a">Beat the whole egg, then measure out approximately 1.5 tablespoons. Alternatively, use just the yolk (for richness in custards and cakes) or just the white (for structure in meringues and souffles).</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">What pan size should I use for a scaled recipe?</div>
-<div class="faq-a">Choose a pan that gives roughly the same batter depth as the original. Doubling a recipe that uses a 9-inch round pan? Use two 9-inch pans or one 13x9-inch pan. Halving? Try a 6-inch round or 8x4-inch loaf pan. Batter depth affects both baking time and texture.</div>
-</div>
-<div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Can I scale a recipe for a slow cooker or Instant Pot?</div>
-<div class="faq-a">Scale ingredients but never exceed the max fill line (usually 2/3 full for pressure cookers, 3/4 for slow cookers). Pressure cooker times stay the same since pressure determines temperature. Slow cooker times may need modest increases for larger volumes. Liquid often does not need to increase as much since there is less evaporation.</div>
-</div>
-</div>
+<section class="section">
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <div class="faq-item"><h3>Can I simply double all ingredients when doubling a recipe?</h3><p>For core ingredients like flour, sugar, butter, meat, and vegetables, yes. But leavening agents, salt, and strong spices should be scaled more conservatively — about 1.5x to 1.75x when doubling. The scaler flags these ingredients with notes so you can add the rest to taste.</p></div>
+    <div class="faq-item"><h3>Does cooking time change when I scale a recipe?</h3><p>It changes, but not proportionally. Doubling a stovetop recipe mainly adds time to reach temperature. Baking in same-size pans keeps the time roughly equal; a larger pan needs 10 to 25 percent more time and often 25&deg;F lower. Always confirm with a thermometer.</p></div>
+    <div class="faq-item"><h3>How do I halve a recipe that calls for 1 egg?</h3><p>Beat the whole egg and measure out about 1.5 tablespoons (half of one large egg). For cakes where the egg gives structure, use one yolk instead; for binders like meatballs, a whole egg usually works fine even in the halved recipe.</p></div>
+    <div class="faq-item"><h3>What pan size should I use for a scaled recipe?</h3><p>Choose a pan that keeps roughly the same batter depth as the original. Doubling a 9-inch round? Use two of them or one 13x9-inch pan. Halving? Try a 6-inch round or an 8x4-inch loaf pan. Depth affects both baking time and texture.</p></div>
+    <div class="faq-item"><h3>Can I scale a recipe for a slow cooker or Instant Pot?</h3><p>Scale the ingredients but never exceed the max fill line — two-thirds for pressure cookers, three-quarters for slow cookers. Pressure-cooker times stay the same; slow-cooker times may need a modest increase, and liquid often does not need to grow as much due to less evaporation.</p></div>
+  </div>
+</section>
 
+<!-- ===== RELATED TOOLS ===== -->
+<section class="section">
+  <h2>Related tools</h2>
+  <p class="sub">Keep going with the rest of the kitchen calculators.</p>
+  <div class="tool-grid">
+    <a class="tool-card" href="/tools/unit-converter"><div class="ico">🥄</div><div class="t">Cooking Unit Converter</div><div class="d">Convert cups to grams, mL, and ounces with ingredient density.</div></a>
+    <a class="tool-card" href="/tools/sourdough-calculator"><div class="ico">🍞</div><div class="t">Sourdough Hydration Calculator</div><div class="d">Plan starter feedings, hydration, and ratios with a timeline.</div></a>
+    <a class="tool-card" href="/tools/bread-calculator"><div class="ico">🥖</div><div class="t">Bread Calculator</div><div class="d">Baker's percentages, hydration, and dough weights for any loaf.</div></a>
+    <a class="tool-card" href="/"><div class="ico">🍽️</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Calories and macros per serving for the recipe you just scaled.</div></a>
+    <a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Your personal daily calories from BMR and activity level.</div></a>
+  </div>
+</section>
 </main>
-<footer>
-<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
-<p style="margin-top:8px;">
-<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
-<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
-<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
-<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
-</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
+
 <script>
 /* ===== SMART FRACTION SYSTEM ===== */
 const FRACTIONS=[
@@ -311,7 +359,7 @@ const div=document.createElement('div');
 div.className='ing-row';
 div.id='ing-'+rowCount;
 const unitOpts=UNITS.map(u=>'<option value="'+u+'"'+(u===(unit||'cup')?' selected':'')+'>'+u+'</option>').join('');
-div.innerHTML='<input type="text" class="ing-name" placeholder="Ingredient name" value="'+(name||'')+'">'+'<input type="number" class="ing-amount" placeholder="Amount" min="0" step="any" value="'+(amount||'')+'">'+'<select class="ing-unit">'+unitOpts+'</select>'+'<button class="remove-btn" onclick="removeIngRow(this)" title="Remove">&times;</button>';
+div.innerHTML='<input type="text" class="ing-name" placeholder="Ingredient name" aria-label="Ingredient name" value="'+(name||'')+'">'+'<input type="number" class="ing-amount" placeholder="Amount" min="0" step="any" aria-label="Amount" value="'+(amount||'')+'">'+'<select class="ing-unit" aria-label="Unit">'+unitOpts+'</select>'+'<button class="remove-btn" onclick="removeIngRow(this)" title="Remove" aria-label="Remove ingredient">&times;</button>';
 list.appendChild(div);
 rowCount++;
 }
@@ -349,6 +397,7 @@ function scaleRecipe(){
 const orig=parseInt(document.getElementById('orig-servings').value)||1;
 const desired=parseInt(document.getElementById('desired-servings').value)||1;
 const scale=desired/orig;
+document.getElementById('scale-hero').textContent=(Math.round(scale*100)/100)+'×';
 const rows=document.querySelectorAll('.ing-row');
 let html='<h3>Scaled to '+desired+' servings ('+Math.round(scale*100)/100+'x)</h3>';
 let notes=[];
@@ -371,13 +420,13 @@ if(!hasData){alert('Please add at least one ingredient with a name and amount.')
 document.getElementById('scaled-results').innerHTML=html;
 const notesDiv=document.getElementById('scaling-notes');
 if(notes.length>0){
-notesDiv.innerHTML='<strong>Scaling Notes:</strong><br>'+notes.map(n=>'- '+n).join('<br>');
+notesDiv.innerHTML='<strong>Scaling notes:</strong><br>'+notes.map(n=>'- '+n).join('<br>');
 notesDiv.style.display='';
 }else{
 notesDiv.style.display='none';
 }
 document.getElementById('results-card').style.display='';
-document.getElementById('results-card').scrollIntoView({behavior:'smooth'});
+document.getElementById('results-card').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 /* ===== EXAMPLE RECIPE (Chocolate Chip Cookies) ===== */
@@ -417,28 +466,11 @@ navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')).catc
 function printScaled(){
 const el=document.getElementById('scaled-results');
 const w=window.open('','','width=600,height=800');
-w.document.write('<html><head><title>Scaled Recipe</title><style>body{font-family:sans-serif;padding:2rem}h3{margin-bottom:1rem}.scaled-item{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee}.scaled-amount{font-weight:bold}</style></head><body>');
+w.document.write('<html><head><title>Scaled Recipe</title><style>body{font-family:sans-serif;padding:2rem;color:#2b211d}h3{margin-bottom:1rem}.scaled-item{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #eee}.scaled-amount{font-weight:bold}.original-amount{color:#888;font-size:.8rem}</style></head><body>');
 w.document.write(el.innerHTML);
-w.document.write('
-<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
-<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
-<ul style="list-style:none;padding:0;display:grid;gap:8px;">
-<li><a href="/tools/bread-calculator.html" style="color:#3b82f6;text-decoration:none;">Bread Recipe Calculator — Hydration, Flour Blends & Dough Ratios</a></li>
-<li><a href="/tools/fermentation-calculator.html" style="color:#3b82f6;text-decoration:none;">Fermentation Calculator — Sourdough, Kombucha & Yogurt Timing</a></li>
-<li><a href="/tools/sourdough-calculator.html" style="color:#3b82f6;text-decoration:none;">Sourdough Starter Feeding Calculator with Timeline</a></li>
-<li><a href="/tools/unit-converter.html" style="color:#3b82f6;text-decoration:none;">Cooking Unit Converter — Cups, Grams, mL & Temperature</a></li>
-</ul>
-</section>
-
-</body></html>');
+w.document.write('<p style="margin-top:24px;color:#888;font-size:.8rem">Scaled with RecipeTool.net</p></body></html>');
 w.document.close();
 w.print();
-}
-
-/* FAQ */
-function toggleFaq(el){
-el.classList.toggle('open');
-el.nextElementSibling.classList.toggle('open');
 }
 
 /* Init */

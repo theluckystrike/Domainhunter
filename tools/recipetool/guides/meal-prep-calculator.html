@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meal Prep Calculator — Weekly Planner & Shopping List Generator | RecipeTool</title>
-<meta name="description" content="Free weekly meal prep planner with automatic shopping list generator. Plan breakfast, lunch, dinner, and snacks for 7 days. Get calorie/macro summaries and aggregated grocery lists. No signup required.">
-<link rel="canonical" href="https://recipetool.net/guides/meal-prep-calculator.html">
-<meta property="og:title" content="Meal Prep Calculator — Weekly Planner & Shopping List Generator">
-<meta property="og:description" content="Plan your weekly meals, track calories and macros, and generate an automatic shopping list. Free meal prep tool.">
-<meta property="og:url" content="https://recipetool.net/guides/meal-prep-calculator.html">
+<title>Meal Prep Calculator – Portions, Calories &amp; Batch Size</title>
+<meta name="description" content="Free meal prep calculator: plan a week of meals, track calories, protein, carbs and fat, size your batches by portion, and auto-build a shopping list by aisle.">
+<link rel="canonical" href="https://recipetool.net/guides/meal-prep-calculator">
+<meta name="theme-color" content="#d64500">
+<meta property="og:title" content="Meal Prep Calculator – Portions, Calories &amp; Batch Size">
+<meta property="og:description" content="Plan a week of meals, track calories and macros per portion, and generate an automatic shopping list by grocery aisle. Free meal prep tool.">
+<meta property="og:url" content="https://recipetool.net/guides/meal-prep-calculator">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RecipeTool.net">
 <meta property="article:published_time" content="2026-05-25">
 <meta property="article:author" content="Michael Lip">
 <meta name="author" content="Michael Lip">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Meal Prep Calculator — Weekly Planner & Shopping List Generator">
-<meta name="twitter:description" content="Plan meals for the week, track macros, generate shopping lists. Free meal prep calculator.">
+<meta name="twitter:title" content="Meal Prep Calculator – Portions, Calories &amp; Batch Size">
+<meta name="twitter:description" content="Plan a week of meals, track calories and macros per portion, and generate a shopping list. Free meal prep calculator.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,14 +25,16 @@
     {
       "@type": "WebApplication",
       "name": "Meal Prep Calculator",
-      "description": "Free weekly meal prep planner with calorie and macro tracking. Assign meals to a 7-day grid and generate an aggregated shopping list automatically.",
-      "url": "https://recipetool.net/guides/meal-prep-calculator.html",
+      "description": "Free meal prep calculator that plans a week of meals, tracks calories and macros per portion, sizes batches, and generates an aggregated shopping list automatically.",
+      "url": "https://recipetool.net/guides/meal-prep-calculator",
       "applicationCategory": "HealthApplication",
-      "operatingSystem": "Any",
+      "operatingSystem": "Any, browser-based",
+      "browserRequirements": "Requires JavaScript",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
       "author": {"@type": "Person", "name": "Michael Lip", "url": "https://zovo.one"},
+      "publisher": {"@type": "Organization", "name": "RecipeTool.net"},
       "datePublished": "2026-05-25",
-      "dateModified": "2026-05-25"
+      "dateModified": "2026-07-10"
     },
     {
       "@type": "FAQPage",
@@ -51,6 +54,22 @@
             "@type": "Answer",
             "text": "Glass containers with snap-lock lids are the gold standard for meal prep. They do not absorb stains or odors, are microwave-safe, dishwasher-safe, and last for years. BPA-free plastic containers are lighter and more affordable but may stain. Look for containers with divided compartments to keep foods separate. Sizes of 28-36 oz work well for most meals. Mason jars are excellent for soups, salads, and overnight oats. Always ensure containers are airtight to prevent spoilage."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How much time does meal prep take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A typical Sunday meal prep session takes about 2 to 3 hours to prepare 12 to 15 meals for the week. With practice, many people reduce this to around 90 minutes by batch cooking proteins and grains at the same time. The time investment pays back 30 to 45 minutes every weekday that would otherwise be spent cooking or deciding what to eat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I freeze meal-prepped food?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Most cooked meals freeze well for 2 to 3 months, and proteins, grains, soups, and stews freeze especially well. Avoid freezing raw cut vegetables, which turn mushy, and dairy-heavy sauces, which can separate. Leave a little headspace for expansion, label each container with the date, and thaw overnight in the refrigerator before reheating."
+          }
         }
       ]
     }
@@ -58,109 +77,174 @@
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://recipetool.net/guides/"},{"@type":"ListItem","position":3,"name":"Meal Prep Calculator"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://recipetool.net/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://recipetool.net/guides/"},{"@type":"ListItem","position":3,"name":"Meal Prep Calculator","item":"https://recipetool.net/guides/meal-prep-calculator"}]}
 </script>
 <style>
+:root{
+  --bg:#fbf7f1;--surface:#ffffff;--surface-alt:#fff6ec;--surface-warm:#fdeee2;
+  --text:#2b211d;--text-2:#6f6057;--text-3:#9a8b80;--border:#ece1d4;--border-strong:#e0d1bf;
+  --accent:#d64500;--accent-strong:#b0380a;--accent-tint:#fdeee2;--accent-ring:rgba(214,69,0,.16);
+  --good:#2e7d32;--good-tint:#e9f4ea;--warn:#b45309;
+  --radius:16px;--radius-sm:10px;--radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(43,33,29,.05);
+  --shadow:0 1px 2px rgba(43,33,29,.04),0 6px 20px rgba(43,33,29,.07);
+  --shadow-lg:0 2px 4px rgba(43,33,29,.05),0 16px 40px rgba(43,33,29,.10);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:960px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#e85d04;--primary-dark:#dc2f02;--secondary:#f48c06;--warm:#fff3e0;--warm-dark:#ffe0b2;--bg:#fffaf5;--text:#3d2c2c;--text-light:#6b5050;--border:#e0d0c0;--success:#4caf50;--white:#ffffff;--shadow:0 2px 8px rgba(0,0,0,0.08)}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;padding:1rem;text-align:center;box-shadow:var(--shadow)}
-header h1{font-size:1.5rem;margin-bottom:.25rem}
-header p{opacity:.9;font-size:.9rem}
-nav{background:var(--white);border-bottom:1px solid var(--border);padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-nav a{color:var(--primary);text-decoration:none;font-size:.85rem;font-weight:500;padding:.25rem .5rem;border-radius:4px;transition:background .2s}
-nav a:hover{background:var(--warm)}
-nav a.active{background:var(--warm-dark);font-weight:700}
-main{max-width:960px;margin:0 auto;padding:1rem}
-.card{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.card h2{color:var(--primary-dark);font-size:1.1rem;margin-bottom:.75rem}
-.card h3{color:var(--primary-dark);font-size:1rem;margin:1rem 0 .5rem}
-.card p,.card li{font-size:.9rem;color:var(--text-light);margin-bottom:.5rem}
-.card ul,.card ol{padding-left:1.25rem;margin-bottom:.75rem}
-.card li{margin-bottom:.35rem}
-.btn{background:var(--primary);color:white;border:none;padding:.6rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
-.btn:hover{background:var(--primary-dark)}
-.btn-outline{background:none;color:var(--primary);border:1px solid var(--primary)}
-.btn-outline:hover{background:var(--warm)}
-.btn-sm{padding:.35rem .7rem;font-size:.8rem}
-.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;
+  font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.1)}
+.site-header .wrap{display:flex;align-items:center;gap:18px;height:60px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:1.18rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#f48c06);display:grid;place-items:center;font-size:15px}
+.site-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+.site-nav a{color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{background:var(--surface-alt);color:var(--accent-strong)}
+.site-nav a[aria-current="page"]{background:var(--surface-warm);color:var(--accent-strong);font-weight:600}
+.hero{padding:40px 0 8px}
+.hero h1{font-family:var(--serif);font-size:2.5rem;line-height:1.08;letter-spacing:-.022em;font-weight:600;max-width:18ch}
+.hero .lede{margin-top:14px;font-size:1.16rem;color:var(--text-2);max-width:60ch;line-height:1.55}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--accent-strong);background:var(--surface-warm);border:1px solid var(--border-strong);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:16px;letter-spacing:.01em}
+.eyebrow .tick{color:var(--good)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm)}
+.section{padding:34px 0}
+.section h2{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.018em;font-weight:600;margin-bottom:6px}
+.section .sub{color:var(--text-2);margin-bottom:20px;max-width:66ch}
+.prose p{margin:0 0 14px;max-width:70ch;color:var(--text)}
+.prose h3{font-size:1.15rem;font-weight:650;margin:22px 0 8px;letter-spacing:-.01em}
+.prose strong{font-weight:650}
+.prose a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px}
+input[type=text],input[type=number],select,textarea{width:100%;min-height:48px;padding:11px 13px;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);font-size:1rem;font-family:var(--sans);background:var(--surface);color:var(--text)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
+input::placeholder{color:var(--text-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;font-family:var(--sans);cursor:pointer;border:1.5px solid transparent;transition:transform .06s,background .15s,box-shadow .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--accent-ring)}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tool-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);transition:transform .12s,box-shadow .12s,border-color .12s}
+.tool-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.tool-card .ico{font-size:1.5rem}
+.tool-card .t{font-weight:650;margin-top:8px;letter-spacing:-.01em}
+.tool-card .d{color:var(--text-2);font-size:.88rem;margin-top:3px;line-height:1.45}
+.result-card{background:linear-gradient(180deg,var(--surface-warm),var(--surface-alt));border:1px solid var(--border-strong);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--text-2);background:var(--surface-alt);border:1px solid var(--border);padding:4px 10px;border-radius:var(--radius-pill)}
+.crumbs{font-size:.85rem;color:var(--text-3);padding:16px 0 0}
+.crumbs a{color:var(--text-2);text-decoration:none}.crumbs a:hover{color:var(--accent-strong)}
+.site-footer{border-top:1px solid var(--border);background:var(--surface);margin-top:48px;padding:34px 0}
+.site-footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.site-footer h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:10px}
+.site-footer a{display:block;color:var(--text-2);text-decoration:none;font-size:.9rem;padding:3px 0}
+.site-footer a:hover{color:var(--accent-strong)}
+.site-footer .fine{color:var(--text-3);font-size:.82rem;margin-top:22px;border-top:1px solid var(--border);padding-top:16px;line-height:1.6}
+.site-footer .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;margin-bottom:6px;color:var(--text)}
+@media(max-width:600px){.site-footer .cols{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.hero{padding:26px 0 6px}.hero h1{font-size:2rem}.hero .lede{font-size:1.05rem}}
+</style>
+<style>
+/* legacy-token aliases so inline/JS var() refs map to the warm system */
+:root{--primary:var(--accent);--primary-dark:var(--accent-strong);--secondary:#f48c06;
+  --warm:var(--surface-alt);--warm-dark:var(--surface-warm);--text-light:var(--text-2);
+  --success:var(--good);--white:var(--surface);--danger:#c0392b}
+main{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.card{margin-bottom:16px}
+.card h2{font-family:var(--serif);font-size:1.5rem;letter-spacing:-.018em;font-weight:600;color:var(--text);margin-bottom:10px}
+.card h3{font-size:1.15rem;font-weight:650;letter-spacing:-.01em;color:var(--text);margin:20px 0 8px}
+.card p,.card li{color:var(--text)}
+.card ul,.card ol{padding-left:1.2rem;margin-bottom:14px}
+.card li{margin-bottom:5px}
+/* buttons (legacy classes used by tool JS) */
+.btn{background:var(--accent);color:#fff;box-shadow:0 1px 2px rgba(176,56,10,.35)}
+.btn:hover{background:var(--accent-strong)}
+.btn-outline{background:var(--surface);color:var(--accent-strong);border-color:var(--border-strong)}
+.btn-outline:hover{background:var(--surface-alt);border-color:var(--accent)}
+.btn-sm{min-height:40px;padding:8px 14px;font-size:.9rem}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+/* faq accordion */
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-weight:650;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1.02rem;letter-spacing:-.01em}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);transition:transform .2s;margin-left:12px}
+.faq-q.open::after{content:'\2013'}
+.faq-a{font-size:.96rem;color:var(--text-2);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0;max-width:72ch}
+.faq-a.open{max-height:600px;padding-top:8px}
 /* Meal grid */
 .grid-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.meal-grid{display:grid;grid-template-columns:80px repeat(7,1fr);gap:2px;min-width:700px;font-size:.8rem}
-.grid-header{background:var(--primary);color:white;padding:.4rem .3rem;text-align:center;font-weight:600;font-size:.75rem;border-radius:4px 4px 0 0}
-.grid-label{background:var(--warm-dark);padding:.4rem .3rem;text-align:center;font-weight:600;font-size:.75rem;display:flex;align-items:center;justify-content:center;border-radius:4px 0 0 4px}
-.grid-cell{background:var(--warm);padding:.3rem;min-height:60px;border-radius:3px;cursor:pointer;transition:background .15s;position:relative}
-.grid-cell:hover{background:var(--warm-dark)}
-.grid-cell .meal-tag{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:2px 4px;font-size:.7rem;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center}
-.grid-cell .meal-tag .remove-meal{background:none;border:none;color:#c62828;cursor:pointer;font-size:.8rem;padding:0 2px;line-height:1}
-.grid-cell .meal-cal{font-size:.65rem;color:var(--text-light)}
-.grid-cell .add-meal-btn{background:none;border:1px dashed var(--border);border-radius:4px;width:100%;padding:4px;cursor:pointer;font-size:.7rem;color:var(--text-light);transition:all .15s}
-.grid-cell .add-meal-btn:hover{border-color:var(--primary);color:var(--primary)}
-
+.meal-grid{display:grid;grid-template-columns:80px repeat(7,1fr);gap:3px;min-width:700px;font-size:.8rem}
+.grid-header{background:var(--accent);color:#fff;padding:8px 4px;text-align:center;font-weight:600;font-size:.75rem;border-radius:8px 8px 0 0}
+.grid-label{background:var(--surface-warm);color:var(--accent-strong);padding:8px 4px;text-align:center;font-weight:600;font-size:.75rem;display:flex;align-items:center;justify-content:center;border-radius:8px 0 0 8px}
+.grid-cell{background:var(--surface-alt);padding:5px;min-height:60px;border-radius:6px;cursor:pointer;transition:background .15s;position:relative}
+.grid-cell:hover{background:var(--surface-warm)}
+.grid-cell .meal-tag{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:3px 5px;font-size:.7rem;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center}
+.grid-cell .meal-tag .remove-meal{background:none;border:none;color:#b3261e;cursor:pointer;font-size:.85rem;padding:0 2px;line-height:1}
+.grid-cell .meal-cal{font-size:.65rem;color:var(--text-2)}
+.grid-cell .add-meal-btn{background:none;border:1px dashed var(--border-strong);border-radius:6px;width:100%;padding:5px;cursor:pointer;font-size:.7rem;color:var(--text-2);transition:all .15s}
+.grid-cell .add-meal-btn:hover{border-color:var(--accent);color:var(--accent-strong)}
 /* Meal picker modal */
-.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:200;justify-content:center;align-items:center}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(43,33,29,.45);z-index:200;justify-content:center;align-items:center}
 .modal-overlay.show{display:flex}
-.modal{background:var(--white);border-radius:12px;padding:1.25rem;max-width:420px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.2)}
-.modal h3{color:var(--primary-dark);margin-bottom:.75rem;font-size:1rem}
-.modal input{width:100%;padding:.5rem;border:1px solid var(--border);border-radius:6px;font-size:.85rem;margin-bottom:.5rem}
-.modal input:focus{outline:none;border-color:var(--primary)}
-.meal-option{padding:.5rem;border:1px solid var(--border);border-radius:6px;margin-bottom:.4rem;cursor:pointer;transition:all .15s}
-.meal-option:hover{background:var(--warm);border-color:var(--primary)}
-.meal-option .meal-name{font-weight:600;font-size:.85rem}
-.meal-option .meal-macros{font-size:.7rem;color:var(--text-light)}
-
+.modal{background:var(--surface);border-radius:var(--radius);padding:22px;max-width:440px;width:90%;max-height:82vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal h3{font-family:var(--serif);color:var(--text);margin-bottom:12px;font-size:1.25rem}
+.modal input{margin-bottom:10px}
+.meal-option{padding:11px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;cursor:pointer;transition:all .15s}
+.meal-option:hover{background:var(--surface-alt);border-color:var(--accent)}
+.meal-option .meal-name{font-weight:650;font-size:.95rem}
+.meal-option .meal-macros{font-size:.78rem;color:var(--text-2)}
 /* Summary */
-.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:.5rem;margin:.75rem 0}
-.summary-item{text-align:center;padding:.5rem;background:var(--warm);border-radius:6px}
-.summary-item .val{font-size:1.2rem;font-weight:700;color:var(--primary-dark)}
-.summary-item .lbl{font-size:.7rem;color:var(--text-light)}
-.day-summary{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;font-size:.75rem;margin:.5rem 0}
-.day-summary div{text-align:center;padding:.3rem;background:var(--warm);border-radius:4px}
-.day-summary .day-name{font-weight:600;font-size:.7rem}
-.day-summary .day-cal{font-weight:700;color:var(--primary-dark)}
-
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin:14px 0}
+.summary-item{text-align:center;padding:14px 10px;background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.summary-item .val{font-size:1.6rem;font-weight:800;color:var(--accent-strong);font-variant-numeric:tabular-nums}
+.summary-item .lbl{font-size:.72rem;color:var(--text-2);margin-top:3px;text-transform:uppercase;letter-spacing:.04em}
+.day-summary{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;font-size:.75rem;margin:8px 0}
+.day-summary div{text-align:center;padding:8px 4px;background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.day-summary .day-name{font-weight:600;font-size:.7rem;color:var(--text-2)}
+.day-summary .day-cal{font-weight:800;color:var(--accent-strong);font-variant-numeric:tabular-nums}
 /* Shopping list */
 .shop-list{list-style:none;padding:0}
-.shop-list li{padding:.35rem 0;border-bottom:1px solid var(--border);font-size:.85rem;display:flex;gap:.5rem;align-items:center}
+.shop-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.95rem;display:flex;gap:10px;align-items:center}
 .shop-list li:last-child{border-bottom:none}
-.shop-list .shop-check{width:16px;height:16px;accent-color:var(--primary)}
-.shop-category{font-weight:600;color:var(--primary-dark);margin-top:.75rem;margin-bottom:.25rem;font-size:.85rem}
-
-.faq-item{border-bottom:1px solid var(--border);padding:.75rem 0}
-.faq-item:last-child{border-bottom:none}
-.faq-q{font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
-.faq-q::after{content:'+';font-size:1.2rem;color:var(--primary);transition:transform .2s}
-.faq-q.open::after{content:'-'}
-.faq-a{font-size:.85rem;color:var(--text-light);max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0}
-.faq-a.open{max-height:500px;padding-top:.5rem}
-footer{text-align:center;padding:1.5rem;color:var(--text-light);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
-footer a{color:var(--primary)}
+.shop-list .shop-check{width:18px;height:18px;min-height:auto;accent-color:var(--accent)}
+.shop-category{font-weight:700;color:var(--accent-strong);margin-top:14px;margin-bottom:4px;font-size:.9rem}
 @media(max-width:600px){
 .meal-grid{min-width:600px}
 .day-summary{grid-template-columns:repeat(4,1fr)}
 .summary-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media print{
-header,nav,footer,.btn,.btn-group,.add-meal-btn,.remove-meal,.modal-overlay{display:none!important}
+.site-header,.site-footer,.btn,.btn-group,.add-meal-btn,.remove-meal,.modal-overlay,.crumbs{display:none!important}
 body{background:#fff}
 .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
 }
 </style>
 </head>
 <body>
-<header>
-<h1>Meal Prep Calculator</h1>
-<p>Plan your week, track macros, generate shopping lists</p>
-</header>
-<nav>
-<a href="/">Recipe Calculator</a>
-<a href="/tools/unit-converter.html">Unit Converter</a>
-<a href="/tools/recipe-scaler.html">Recipe Scaler</a>
-<a href="/guides/meal-prep-calculator.html" class="active">Meal Prep</a>
-<a href="/answers/cooking-substitutions.html">Substitutions</a>
-</nav>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="/"><span class="dot">🍳</span> RecipeTool</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/">Nutrition Calculator</a>
+    <a href="/tools/">Kitchen Tools</a>
+    <a href="/guides/" aria-current="page">Guides</a>
+    <a href="/answers/">Answers</a>
+    <a href="/calorie-calculator">Calorie Calculator</a>
+    <a href="/meal-planner">Meal Planner</a>
+  </nav>
+</div></header>
 <main>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Meal Prep Calculator</nav>
+
+<section class="hero">
+  <span class="eyebrow"><span class="tick">✓</span> Weekly portions · Calories &amp; macros · Auto shopping list</span>
+  <h1>Meal Prep Calculator</h1>
+  <p class="lede">Build a 7-day plan, track <strong>calories, protein, carbs, and fat per portion</strong>, size your batches, and generate a shopping list organized by grocery aisle.</p>
+</section>
 
 <!-- ===== WEEKLY PLANNER GRID ===== -->
 <div class="card">
@@ -267,17 +351,43 @@ body{background:#fff}
 </div>
 </div>
 
+<section class="section" aria-label="Related tools">
+<h2>Related tools</h2>
+<p class="sub">Plan, cost, and track your cooking with the rest of the toolkit.</p>
+<div class="tool-grid">
+<a class="tool-card" href="/guides/meal-planning-template"><div class="ico">🗓️</div><div class="t">Weekly Meal Planning Template</div><div class="d">Printable drag-and-drop planner with auto shopping list.</div></a>
+<a class="tool-card" href="/guides/food-cost-calculator"><div class="ico">💰</div><div class="t">Food Cost Calculator</div><div class="d">Cost per serving, food cost percentage, and menu markup.</div></a>
+<a class="tool-card" href="/tools/recipe-scaler"><div class="ico">⚖️</div><div class="t">Recipe Scaler</div><div class="d">Scale a recipe up or down by servings for batch cooking.</div></a>
+<a class="tool-card" href="/"><div class="ico">🍳</div><div class="t">Recipe Nutrition Calculator</div><div class="d">Calories and macros per serving for any recipe.</div></a>
+<a class="tool-card" href="/calorie-calculator"><div class="ico">🔥</div><div class="t">Calorie &amp; TDEE Calculator</div><div class="d">Set your daily calorie target before you plan.</div></a>
+</div>
+</section>
 </main>
-<footer>
-<p>Built by <a href="https://zovo.one" rel="author">Michael Lip</a> | Part of the <a href="https://zovo.one">Zovo Tools</a> ecosystem</p>
-<p style="margin-top:.5rem">&copy; 2026 RecipeTool.net — Free nutrition tools for home cooks</p>
-<p style="margin-top:8px;">
-<a href="/" style="color:var(--primary);text-decoration:none;">Home</a> &middot;
-<a href="/tools/" style="color:var(--primary);text-decoration:none;">Tools</a> &middot;
-<a href="/guides/" style="color:var(--primary);text-decoration:none;">Guides</a> &middot;
-<a href="/answers/" style="color:var(--primary);text-decoration:none;">Answers</a>
-</p>
-</footer>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand">🍳 RecipeTool</div>
+      <p style="color:var(--text-2);font-size:.9rem;max-width:34ch">Free, private, USDA-sourced cooking calculators for home cooks. No signup, no data leaves your browser.</p>
+    </div>
+    <div>
+      <h4>Calculators</h4>
+      <a href="/">Recipe Nutrition Calculator</a>
+      <a href="/calorie-calculator">Calorie &amp; TDEE Calculator</a>
+      <a href="/tools/recipe-scaler">Recipe Scaler</a>
+      <a href="/tools/sourdough-calculator">Sourdough Calculator</a>
+      <a href="/guides/food-cost-calculator">Food Cost Calculator</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/guides/">Cooking Guides</a>
+      <a href="/answers/">Kitchen Answers</a>
+      <a href="/research/nutrition-label-decoder">Nutrition Label Decoder</a>
+      <a href="/meal-planner">Weekly Meal Planner</a>
+    </div>
+  </div>
+  <p class="fine">Nutrition values are estimates from USDA FoodData Central per 100&nbsp;g and are for general information only — not medical or dietary advice. &copy; 2026 RecipeTool.net · Built by <a href="https://zovo.one" style="display:inline;color:var(--text-2)">Michael Lip</a>.</p>
+</div></footer>
 <script>
 /* ===== MEAL DATABASE ===== */
 const MEALS={
@@ -499,16 +609,6 @@ function toggleFaq(el){el.classList.toggle('open');el.nextElementSibling.classLi
 /* Init */
 document.addEventListener('DOMContentLoaded',()=>{buildGrid()});
 </script>
-
-<section style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
-<h2 style="font-size:18px;margin-bottom:16px;">Related Tools</h2>
-<ul style="list-style:none;padding:0;display:grid;gap:8px;">
-<li><a href="/guides/food-cost-calculator.html" style="color:#3b82f6;text-decoration:none;">Recipe Cost Calculator — Food Cost Per Serving & Markup</a></li>
-<li><a href="/guides/meal-planning-template.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner — Auto Shopping List & Calorie Tracking</a></li>
-<li><a href="/calorie-calculator.html" style="color:#3b82f6;text-decoration:none;">Calorie Calculator - TDEE & BMR Calculator</a></li>
-<li><a href="/meal-planner.html" style="color:#3b82f6;text-decoration:none;">Weekly Meal Planner - Plan Your Meals & Track Calories</a></li>
-</ul>
-</section>
 
 </body>
 </html>
